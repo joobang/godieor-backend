@@ -1,0 +1,171 @@
+# GODIEOR · 세 저장소 공통 아키텍처
+
+- 문서 revision: `SYNC-2026-11-09-06`
+- 상태: **책임 분리·저장소 3개, NestJS + PostgreSQL + Prisma 및 TypeORM 제외는 사용자 확정**. 최종 실행 형태와 로컬 우선 진행도 사용자 확정이다. 제공자·정확한 버전·나머지 세부 정책은 미정이다.
+- 공통 문서 원본: `godieor-app/docs/system/`. backend/verifier의 같은 경로는 동기화 사본이다.
+- 공통 문서: `architecture.md`, `plan.md`, `policies.md`. 변경 시 세 사본을 함께 갱신한다.
+- 이는 문서 관리 규칙이다. 저장소 권한이나 승인 경계를 기술적으로 강제하는 장치는 아니다.
+
+## 현재 상태 · 2026-11-09
+
+| 저장소 | 현재 실제 구현 | 이번 문서가 추가한 것 |
+|---|---|---|
+| godieor-app | SwiftUI 시작 화면·빌드 스크립트·제품/학습 문서 | iOS 책임, 백엔드/API 의존 관계, 작업 순서 |
+| godieor-backend | 문서 구성 단계, 서버/API/DB 코드 없음 | 역할·계획·개발 규칙. 로컬 실행 구현 전 |
+| godieor-verifier | 앱 대상으로 한 evidence v1 집계기·33개 자기 검사 | 앱+백엔드 조합 검증 설계. 런타임 확장 전 |
+
+실제 제공처 연동, 원격 DB/배포, 자동 snapshot·runner·AI 호출 어댑터·OS 격리는 아직 없다.
+acceptance는 미승인 draft다. 새 문서를 작성한 것으로 검사 기준이 승인되지는 않는다.
+
+## 제품이 실행되는 흐름
+
+```text
+영화 / OTT 드라마 / 게임 / EPL 제공처
+                  │ 조회·재시도·사용량 제어
+                  ▼
+godieor-backend: provider adapters → 정규화·동일 이벤트 판별 → 일정 DB
+                  │                                  │
+                  └──────── 조회 API ◀───────────────┘
+                                 │ API 계약
+                                 ▼
+godieor-app: API client → 화면 상태 → 월간 달력 / 날짜순 카드 / 상세
+                                 └─ 기기 설정·로컬 캐시
+```
+
+검증기는 제품 요청 경로에 들어가는 서비스가 아니다. 필요할 때 고정된 버전을 검사한다.
+백엔드의 수집 작업과 조회 API는 초기에는 한 배포 단위에 두는 방안을 제안한다.
+수집 주기·실행 방식·호스팅은 `policies.md`에서 결정한다. 서버는 NestJS, DB는 PostgreSQL, ORM은 Prisma로 확정했다.
+
+## 저장소 책임과 소유 원본
+
+| 소유 저장소 | 관리할 내용 | 다른 저장소가 참고하는 내용 |
+|---|---|---|
+| app | SwiftUI, API client, 화면 상태, 달력 배치/시간대 표시, 설정·캐시, 자체 iOS 검사 | 제품 확정 사항, 공통 설계, 해당 코드의 문제 해결 원본·ADR |
+| backend | 제공처 인증·수집·정규화·중복/변경 처리, 조회/필터 API, DB 스키마·마이그레이션, 자체 검사 | API 계약, 이벤트 형식, 마이그레이션 목록, 기술 결정 |
+| verifier | 승인 acceptance, 독립 기대값/fixture, snapshot·runner·review·판정, finding 이력 | 승인 기준·검증 보고서·독립 재확인 근거·통합 학습 카탈로그 |
+
+제품 요구사항 원본은 `app/docs/product.md`에 둔다.
+API 계약 원본은 **구현 예정** `backend/contracts/openapi.yaml`에 두고 버전·digest로 참조한다.
+검증 기준 원본은 `verifier/requirements/acceptance.yaml`이며 앱/백엔드 에이전트가 승인하지 않는다.
+API 계약의 소유권이 백엔드 구현을 정답으로 만든다는 뜻은 아니다. 계약은 제품 정책에 따라 작성하고
+앱 소비자 관점과 독립 검토를 거친다. 깨지는 변경은 정책/계약 변경으로 검토한다.
+
+## 내부 구성 제안 · 아직 만들지 않은 경로
+
+| app | backend | verifier |
+|---|---|---|
+| ios/GODIEOR/Features | src/api | snapshot/runner/review 모듈 |
+| ios/GODIEOR/Networking | src/domain | checks/ 및 독립 fixture |
+| ios/GODIEOR/Persistence | src/providers | contracts/ 및 evidence v2 |
+| iOS 단위·UI 테스트 target | src/storage, migrations/ | requirements/, prompts/, reviews/ |
+| docs/decisions, 개발 작업 기록 | contracts/, tests/, docs/decisions | src/godieor_verifier, tests/, docs/learning |
+
+언어·도구가 정해진 뒤 실제 폴더를 만든다. 문서의 예정 경로는 현재 구현 목록이 아니다.
+
+## 도메인과 API 경계
+
+- 콘텐츠와 공개 이벤트를 분리한다. 지역·회차·공개 방식·실제 시각이 다른 이벤트는 보존한다.
+- 중복 판정·정규화·변경 이력은 백엔드가 책임진다. iOS가 제목 기준으로 다시 병합하지 않는다.
+- 실제 시각, 지역 날짜만 있는 값, 미정 값을 구분한다. 월/분기/연도 정보로 가짜 날짜를 만들지 않는다.
+- `release_region`(공개 시장)과 `venue_region`(경기 장소)을 혼동하지 않는다.
+  한국 사용자 대상이라고 EPL 경기 장소나 원본 시간대를 한국으로 바꾸지 않는다.
+- API 날짜 범위의 기준 시간대와 date-only 포함 규칙을 계약으로 정한다.
+  UTC instant의 범위 필터와 지역 달력 날짜의 범위 필터를 무조건 동일하게 처리하지 않는다.
+- 필터의 권위 있는 의미는 공통 정책/계약에 둔다. 백엔드 필터 결과를 앱이 다른 의미로 재해석하지 않는다.
+- provider 수정 시각, 마지막 성공 수집 시각, 응답 시각을 구분한다. 응답이 새로 왔다고 원천 데이터가 최신인 것은 아니다.
+- API의 페이지 나눔·정렬·오류·부분 지원·오래된 데이터 표시·계약 버전은 승인 전 정의한다.
+- 후보 API는 일정 목록·상세·필터 선택지·제공처 수집 상태 조회다. 실제 경로/필드는 계약 단계에서 결정한다.
+
+## 계정 로그인 방향 · 구현 전
+
+V1은 계정 기반이며 Google 연동을 우선한다. iOS는 Google 로그인 UX를 제공하고,
+backend는 검증된 Google ID token으로 내부 계정을 식별하고 서비스 세션을 구성하는 방안을 제안한다.
+계정 테이블·세션·연동 상세는 backend API 계약 단계에서 정한다. Google Drive/Calendar 접근은 요청 범위가 아니다.
+동기화 데이터 범위·세션 수명·허용 계정·계정 삭제는 미정이며 개인 설정을 전부 서버로 옮긴다고 가정하지 않는다.
+독립 검사에는 잘못된/만료된 token, 다른 audience, 재로그인, 로그아웃, 사용자 간 데이터 격리를 추가 제안한다.
+실제 Google 연동 확인과 가상 token fixture 검사는 별개다. 현재 OAuth 설정·로그인 코드는 없다.
+
+## 개발·검증 흐름
+
+```text
+사람: 제품 정책·검증 기준 결정
+        ↓
+앱/백엔드 구현 AI: 작은 작업 + 자체 검사 + ADR/학습 기록
+        ↓ 고정한 버전 조합
+검증기: snapshot → 분리된 실행 공간 → 독립 리뷰 + 실행 검사 → 결정적 verdict
+        ↓
+사람: 승인 / 수정 요청 / 새 조합 재검증
+```
+
+앱 작업과 백엔드 작업은 역할·쓰기 범위를 정한다. 독립 reviewer는 구현 history를 상속하지 않는다.
+reviewer는 코드와 근거를 읽고 지적하며 제품이나 승인 기준을 수정하지 않는다.
+실행 권한 분리는 OS/실행기에서 따로 설계·확인한다. 세 폴더가 같은 사용자에게 보이는 현재 상태는 격리 완료가 아니다.
+
+## 조합 검증 설계 · evidence v2 예정
+
+정식 통합 보고서는 최소한 다음 입력을 묶는다.
+
+| 입력 | 고정할 값 |
+|---|---|
+| iOS | 저장소, base/head SHA, snapshot digest |
+| backend | 저장소, base/head SHA, snapshot digest |
+| verifier | SHA, dirty 상태, 미커밋이면 실제 상태 digest |
+| 요구사항 | acceptance 버전, 파일 digest, 실제 승인 근거 |
+| API·DB | 계약 버전/digest, 마이그레이션 집합 digest와 테스트 DB 적용 상태 |
+| 실행/리뷰 | run ID, 명령·종료 코드·시각·도구, 모델/설정·프롬프트 digest |
+
+검사·review 결과마다 대상 조합의 digest와 run ID를 연결한다.
+앱만 바뀌어도, 백엔드만 바뀌어도, 계약·마이그레이션·기준이 바뀌어도 이전 통합 PASS를 재사용하지 않는다.
+부분 검사 결과는 `app-only` / `backend-only` / `integration` 범위를 표시하고 전체 제품 PASS로 확대하지 않는다.
+운영 서버의 통합 확인은 실제 배포된 backend 버전도 식별해야 한다.
+
+**현재 코드의 한계:** evidence v1은 app SHA만 집계한다. backend SHA나 계약 digest를 추가로 적는 것만으로
+이를 검증하지 않는다. v2 입력 검증·회귀 검사·runner를 구현하기 전에는 3개 저장소 통합 검증 완료를 선언하지 않는다.
+
+## 확정한 최종 실행 형태와 첫 개발 목표
+
+2026-11-09 사용자가 현재 최종 구성과 로컬 우선 진행을 수락했다.
+
+| 구성 | 첫 개발 단계: 로컬 실행 | 최종 개인 사용 형태 |
+|---|---|---|
+| iOS | Mac Simulator 또는 본인 iPhone | 본인 iPhone에 설치한 앱 |
+| API | Mac의 NestJS 프로세스, Prisma로 DB 접근 | 클라우드 NestJS API, Prisma로 DB 접근 |
+| PostgreSQL | Mac의 개발 DB, 독립 검사에는 일회용 DB | 클라우드 PostgreSQL |
+| verifier | Mac에서 필요할 때 실행 | Mac에서 필요할 때 실행 |
+
+```text
+첫 개발: Simulator/iPhone → Mac NestJS + Prisma → Mac PostgreSQL
+최종 사용: iPhone → 인터넷(Wi-Fi/LTE·5G) → 클라우드 NestJS + Prisma → 클라우드 PostgreSQL
+독립 검증: Mac verifier → 고정 앱/백엔드 snapshot·일회용 검사 환경 → 결과
+```
+
+- 최종 형태에서 사용자 Mac은 앱의 요청 경로에 들어가지 않는다. 앱/검증기를 상시 클라우드 서비스로 운영할 필요는 없다.
+- GitHub에는 세 저장소 소스를 보관하고, 제품 서비스로 배포할 대상은 backend와 DB다.
+- 본인 iPhone만 사용하는 목표가 로컬 네트워크에서만 사용하는 제품을 뜻하지 않는다.
+- 우선 로컬에서 API·DB·앱 연결을 재현한 뒤 원격 환경으로 옮긴다. 클라우드 제공자를 정하는 일이 로컬 개발의 선행 조건은 아니다.
+- 기존 SwiftUI·iOS 17 이상 시작 구성을 유지한다. backend는 NestJS + PostgreSQL + Prisma, TypeORM 제외다.
+- 정확한 Node/Nest/Prisma/PostgreSQL 버전·로컬 DB 실행 도구는 구현 시 호환성을 확인해 고정한다.
+- 무료 우선 클라우드 제공자·API/DB 호스팅·인증·설치/배포 수단은 후속 결정이다. 가입·유료 전환·배포는 이번 문서 갱신 범위가 아니다.
+- 이전 Workers/D1 제안과 비용 수치는 새 선택의 비용 근거로 사용하지 않는다. 선정 시 공식 조건을 다시 확인한다.
+- 로컬 iPhone 연결은 기기에서 Mac API에 도달할 수 있는 주소·네트워크를 사용한다. iPhone의 localhost를 Mac 주소로 가정하지 않는다.
+- 로컬 캐시로 저장된 일정의 오프라인 조회를 지원하는 방향이며, 보관 기간·최신성·누락/장애 표시 기준은 P08에서 결정한다.
+- Prisma ORM 사용이 Prisma 클라우드 DB 가입을 요구하지 않는다. PostgreSQL 호스팅은 별도 선택이다.
+- 검사에는 임시 DB와 fixture를 사용하고 실제 제공처 연결 확인을 별도 검사로 둔다. fixture 통과가 실제 API 접근·일정 정확성을 보증하지 않는다.
+- 비밀은 backend의 로컬/원격 비밀 설정에 둔다. 앱 번들·검증 fixture·공개 로그에 넣지 않는다.
+- Mac에서 verifier를 실행한다는 사실은 OS 격리가 입증됐다는 뜻이 아니다. 독립 리뷰와 실행 권한 경계는 별도 구축·검사한다.
+
+## 학습과 변경 이력
+
+기술 결정과 문제 해결 원본은 해당 app/backend/verifier 저장소에 남긴다.
+통합 학습 카탈로그 원본은 `verifier/docs/learning`이다. 구현 담당이 작업 원본·학습 초안을 기록하고,
+검증 레포에서는 독립 재현 결과와 함께 원리·대안·면접/블로그 해설을 LEARN-ID로 연결한다.
+요약을 복제해 서로 다른 정답을 만들지 않으며 초안을 작성한 것과 독립 검증 완료를 구분한다.
+핵심 기록은 문제·가설·실험·관찰·대안·선택 이유·한계·학습 질문이다.
+사고/개발 실패/예방 설계를 구분하고, AI 초안·근거 확인·사용자 설명을 구분한다.
+
+## 공통 문서 갱신
+
+1. 사용자 답변을 정책 ID에 연결해 원본을 갱신한다. 미답변은 pending으로 남긴다.
+2. 같은 revision의 세 문서를 backend/verifier에 그대로 반영한다.
+3. 내용·revision·상대 링크의 일치를 확인한다. 이 확인은 제품 acceptance 검사와 별개다.
+4. runtime/계약/승인 기준은 각각의 변경 작업과 독립 검토로 반영한다.

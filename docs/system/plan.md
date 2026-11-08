@@ -1,0 +1,76 @@
+# 세 저장소 작업 계획
+
+revision: `SYNC-2026-11-09-06`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
+현재 단계는 정책 결정 진행 중이다. 기존 SwiftUI 구성 유지, NestJS + PostgreSQL + Prisma, TypeORM 제외는 확정됐다.
+**로컬 실행을 먼저 달성하고 최종적으로 iPhone 앱 + 클라우드 API/DB, Mac verifier로 운영한다.** 정확한 버전·제공자는 미정이다. 표의 완료 조건은 작업 제안이며 승인 acceptance가 아니다.
+
+## 현재 완료와 미완료
+
+- 완료: iOS 시작 뼈대, 앱 전용 판정기 bootstrap, 독립 리뷰 사례, 학습 카탈로그.
+- 완료: backend 클론, 세 저장소 책임·의존성·정책 질문 문서화.
+- 미완료: 남은 제품 정책·버전·호스팅 확정, backend 코드/DB/API, 실제 데이터 연동, snapshot/runner,
+  evidence v2, 실제 권한 격리, 원격 배포, 승인된 정식 검증 run.
+
+## 첫 로컬 실행 목표
+
+P03 등 구현에 필요한 정책을 정한 뒤, Mac의 PostgreSQL → Prisma migration/저장·재조회 →
+NestJS API → Simulator 또는 본인 iPhone의 API 응답 표시를 한 흐름으로 만든다.
+처음 고정 fixture를 사용하면 가상임을 명시하고 실제 제공처 연동 완료와 구분한다.
+독립 검사는 Mac에서 일회용 DB·고정 snapshot으로 수행하도록 별도로 구성한다.
+이 목표에는 클라우드 계정 생성·원격 배포가 포함되지 않는다.
+
+## Google 로그인 추가 작업 제안
+
+- APP-AUTH: Google 로그인 화면·취소/실패·재로그인/로그아웃·보호된 자격 저장.
+- BE-AUTH: Google token 검증·내부 계정 식별·서비스 세션·사용자별 조회 범위. 세션 세부 정책은 추가 결정.
+- VFY-AUTH: token 검증 실패/만료/audience·다른 사용자 데이터 접근·재로그인·로그아웃을 독립 검사.
+- 실제 Google OAuth 클라이언트/동의 화면 설정과 실제 기기 로그인은 fixture 검사와 구분한다.
+- 계정 저장과 개인 설정의 서버 동기화는 별도 범위이며, 후자는 사용자 정책 확정 후 진행한다.
+
+## 작업 순서와 완료 조건
+
+| 순서 / ID | 소유 | 작업 | 선행 조건 | 검토 가능한 완료 조건 |
+|---|---|---|---|---|
+| 0 SYS-01 | 사람 + 설계 | 정책 질문 답변·미답변 구분 | policies.md | 정책 ID별 선택과 미정 사유, 적용 작업 연결 |
+| 1 SYS-02 | backend + app | 이벤트/API 계약 초안, 에러·페이지·시간 범위·변경 정책 | P01~P09 | 버전 있는 계약, 앱 소비자 관점 예시, 독립 검토 지적 |
+| 1 VFY-01 | verifier | acceptance 변경안과 책임별 검사 matrix | 정책 답변·계약 초안 | 제품 기대값/필수 검사/승인 근거 검토. 사용자 승인 전 draft |
+| 2 VFY-02 | verifier | 앱·백엔드 조합 evidence v2와 판정기 확장 | SYS-02, VFY-01 | 이전 SHA/계약/DB/기준 조합 재사용·누락이 PASS가 되지 않는 회귀 검사 |
+| 2 VFY-03 | verifier | 두 snapshot 추출·원본/빌드 분리·실행 경계 | P10 | 경로 탈출·비밀 접근·원본/기준 쓰기 거부를 실제 확인 |
+| 2 BE-01 | backend | NestJS·Prisma·로컬 PostgreSQL 실행 환경·일회용 DB·마이그레이션 | P02 기술 선택, SYS-02; 클라우드 제공자 선정 불필요 | 로컬 실행, 환경별 비밀 분리, DB 생성→적용→조회 재현 |
+| 3 BE-02 | backend | 정규화 이벤트 fixture를 저장·조회하는 API | BE-01 | 동일 이벤트 중복·변경·date-only·미정·필터 자체 검사 |
+| 3 APP-01 | app | API client·달력/카드·상세·설정 저장 | SYS-02, BE-02 | 계약 기반 decode, 동일 일정 집합, 재실행 설정 재조회 |
+| 3 VFY-04 | verifier | 고정 조합 build/test runner + 독립 review 입력/출력 연결 | VFY-02~03, BE-02, APP-01 | 명령·종료 코드·로그·시각·실제 모델/설정 수집; 리뷰 대기/실패 식별 |
+| 3 INT-01 | verifier | fixture→임시 DB→실제 API→iOS 통합 검사 | VFY-04 | 저장 후 재조회·필터·시간대 표시·일정 변경 확인, 조합 식별 보고서 |
+| 4 DATA-01 | backend | 제공처 접근/조건/지역 응답 조사 | P04~P08 | 키 보호, 실제 응답 확인, 비밀 제거 fixture·출처·지원 한계 |
+| 4 DATA-02 | backend + app | 네 분야를 순차 실제 연동 | DATA-01 | 실제 접근 검사와 결정적 fixture 검사 구분, 누락/지연 UI |
+| 5 OPS-01 | backend + app | 원격 환경·배포·운영 데이터 정책 | P02, P08, P12, 정식 검증 | 배포 버전·DB 적용 상태·할당량/장애 동작 확인 |
+
+초기 fixture 단계는 가상임을 명시한다. 네 분야 실제 연동 목표를 fixture만으로 완료 처리하지 않는다.
+제공처 조사는 runner 구축과 병행할 수 있으나 미확정 정책에 기대는 대규모 구현은 보류한다.
+
+## 검사 책임 matrix 초안
+
+| 관찰할 동작 | 자체 검사 책임 | 독립 검증의 관찰점 |
+|---|---|---|
+| 지역/회차/극장·OTT 분리·중복 방지 | backend domain/storage | 수집·저장·재조회 후 이벤트 수와 ID 확인 |
+| 실제 시각/날짜만/미정 | backend 정규화 + app 표시 | API 값과 iOS 날짜 배치를 독립 기대값과 비교 |
+| 필터 교집합 | backend API + app 선택 상태 | 요청 조건→API 결과→화면 집합, 빈 필터 정책 |
+| 설정 지속성 | app persistence | 프로세스 종료·재실행 후 저장 값 재조회 |
+| 일정 수정/연기/취소 | backend update + app refresh | 동일 이벤트 갱신·중복 없음·UI 상태·수집 시각 |
+| 실제 제공처 접근·범위 | backend adapters | 출처별 연결 결과·지역/정밀도/라이선스 한계 |
+| API/DB 호환 | backend contract + app client | 고정 두 SHA·계약·마이그레이션으로 저장→API→소비 흐름 |
+| 비밀·권한 경계 | 각 구현 + 실행기 | 원본/기준 쓰기 차단·비밀 비제공·민감 로그 없음 |
+
+기존 acceptance GD-001~010은 대응의 출발점이다. 새 backend 검사나 통합 검사 목록을
+기존 파일에 조용히 덧붙이지 않고 변경안→독립 검토→사용자 승인 순서로 확정한다.
+
+## 모든 중요 작업에 붙일 기록
+
+- 작업 ID·requirement ID·영향 저장소·변경 전/후 동작.
+- 앱/백엔드 SHA·계약/마이그레이션 digest·verifier/acceptance 버전.
+- 실행한 검사와 미실행 검사·실제 결과·재현 자료.
+- finding ID·해결 근거·남은 가설.
+- 해당 저장소 ADR·verifier/docs/learning의 LEARN-ID 또는 기록 불필요 사유.
+
+정책 결정이 나면 해당 정책에 걸린 작업만 해제한다. 전체 정책을 한 번에 결정해야만
+모든 설계 논의를 진행할 수 있다는 뜻은 아니다.
