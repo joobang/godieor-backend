@@ -1,7 +1,7 @@
 # GODIEOR Backend
 
 영화·OTT 드라마·게임·EPL 일정을 수집·정규화하고 iOS 앱에 제공할 backend 저장소.
-현재는 **정책 결정 전 문서 구성 단계**이며 서버·DB·API·실제 제공처 연동은 아직 구현하지 않았다.
+현재는 **API·DB 계약 초안 작성 단계**다. 서버·Prisma schema·DB migration·실제 제공처 연동은 아직 구현하지 않았다.
 
 ## 세 저장소
 
@@ -28,5 +28,9 @@
 계정은 Google 연동 방향이며 [계정 설계 제안](docs/decisions/004-google-account.md)에 역할·미정 범위를 기록했다.
 실행 명령·계정·유료 플랜·원격 DB/배포는 이 문서 구성 작업으로 생성하지 않는다.
 
-학습 기록은 [app의 카탈로그](https://github.com/joobang/godieor-verifier/tree/dev/docs/learning)에 연결한다.
+학습 기록은 [통합 학습 카탈로그](https://github.com/joobang/godieor-verifier/tree/dev/docs/learning)에 연결한다.
 문서 revision과 현재 런타임 구현 상태를 구분한다. 기존 verifier v1은 backend 조합을 검증하지 않는다.
+
+## API·DB 계약 초안
+
+[계약 안내](contracts/README.md)에서 OpenAPI, DB DDL·관계, 가상 응답, 해시를 확인한다. 버전은 `0.1.0-draft.1`이며 실행 구현/승인 검증과 구분한다.

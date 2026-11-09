@@ -1,6 +1,6 @@
 # 세 저장소 작업 계획
 
-revision: `SYNC-2026-11-09-11`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
+revision: `SYNC-2026-11-09-12`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
 현재 단계는 정책 결정 진행 중이다. 기존 SwiftUI 구성 유지, NestJS + PostgreSQL + Prisma, TypeORM 제외는 확정됐다.
 **로컬 실행을 먼저 달성하고 최종적으로 iPhone 앱 + 클라우드 API/DB, Mac verifier로 운영한다.** 정확한 버전·제공자는 미정이다. 표의 완료 조건은 작업 제안이며 승인 acceptance가 아니다.
 
@@ -108,3 +108,10 @@ NestJS API → Simulator 또는 본인 iPhone의 API 응답 표시를 한 흐름
 - BE-AUTH: 익명 일정 조회 허용, 개인 데이터 조회/변경의 인증 누락·다른 사용자 접근 차단.
 - VFY-AUTH/HOME: 비로그인 조회, 저장 시 인증 요구, 로그인 후 계정 데이터 복원, 시즌별 중복 방지 검사 제안.
 - V1 알림 제외. 알림 인프라/권한 요청을 로컬 실행 선행 작업으로 만들지 않는다.
+
+## SYS-02 계약 초안 · 2026-11-09
+
+backend/contracts에 `0.1.0-draft.1` OpenAPI·DB DDL·관계/의미·가상 응답·manifest를 작성했다.
+앱과 verifier는 자체 참조 파일로 backend commit/파일 digest를 고정한다. 이 기록은 독립 검토 완료가 아니다.
+다음 순서: 소비자/독립 계약 검토 → 버전/로컬 DB 도구 고정 → Prisma schema/migration과 NestJS fixture API → iOS 연결.
+DDL 실행·제품 테스트·migration 적용·정식 run은 이번 계약 작성에 포함하지 않았다.

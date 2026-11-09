@@ -17,3 +17,5 @@ ADR에는 상태(proposed/accepted/superseded), 날짜, 실제 사용자 선택 
 - [ADR-006: 통일한 찜 동작과 작품/일정 식별자 분리](006-unified-saved-items.md)
 
 - [ADR-007: OTT 최초 공개일만 제공](007-ott-premieres-only.md)
+
+- [ADR-008: API·DB 계약 초안](008-api-database-contract.md)

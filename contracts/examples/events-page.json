@@ -1,0 +1,74 @@
+{
+  "catalogRevision": "1",
+  "items": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "kind": "theatrical_release",
+      "title": "가상 영화: 고요의 궤도",
+      "contentId": "00000000-0000-4000-8000-000000000011",
+      "season": null,
+      "status": "scheduled",
+      "time": {
+        "type": "date_only",
+        "date": "2026-11-11"
+      },
+      "releaseMarket": "KR",
+      "venueCountry": null,
+      "services": [],
+      "devices": [],
+      "match": null,
+      "dataOrigin": "fixture",
+      "updatedAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000002",
+      "kind": "ott_season_premiere",
+      "title": "가상 드라마: 두 번째 계절 · 시즌 2 최초 공개",
+      "contentId": "00000000-0000-4000-8000-000000000012",
+      "season": {
+        "id": "00000000-0000-4000-8000-000000000022",
+        "number": 2
+      },
+      "status": "scheduled",
+      "time": {
+        "type": "instant",
+        "instantUtc": "2026-11-11T15:00:00Z",
+        "sourceTimeZone": "Asia/Seoul",
+        "displayDate": "2026-11-12",
+        "displayTime": "00:00"
+      },
+      "releaseMarket": "KR",
+      "venueCountry": null,
+      "services": [
+        "netflix"
+      ],
+      "devices": [],
+      "match": null,
+      "dataOrigin": "fixture",
+      "updatedAt": "2026-11-09T00:00:00Z"
+    }
+  ],
+  "nextCursor": null,
+  "freshness": [
+    {
+      "providerKey": "fixture",
+      "category": "movie",
+      "scopeCountry": "KR",
+      "coverage": "partial",
+      "lastAttemptStatus": "succeeded",
+      "lastAttemptAt": "2026-11-09T00:00:00Z",
+      "lastSuccessfulAt": "2026-11-09T00:00:00Z",
+      "dataOrigin": "fixture"
+    },
+    {
+      "providerKey": "fixture",
+      "category": "ott",
+      "scopeCountry": "KR",
+      "coverage": "partial",
+      "lastAttemptStatus": "succeeded",
+      "lastAttemptAt": "2026-11-09T00:00:00Z",
+      "lastSuccessfulAt": "2026-11-09T00:00:00Z",
+      "dataOrigin": "fixture"
+    }
+  ]
+}

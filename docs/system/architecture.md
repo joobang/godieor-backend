@@ -1,6 +1,6 @@
 # GODIEOR · 세 저장소 공통 아키텍처
 
-- 문서 revision: `SYNC-2026-11-09-11`
+- 문서 revision: `SYNC-2026-11-09-12`
 - 상태: **책임 분리·저장소 3개, NestJS + PostgreSQL + Prisma 및 TypeORM 제외는 사용자 확정**. 최종 실행 형태와 로컬 우선 진행도 사용자 확정이다. 제공자·정확한 버전·나머지 세부 정책은 미정이다.
 - 공통 문서 원본: `godieor-app/docs/system/`. backend/verifier의 같은 경로는 동기화 사본이다.
 - 공통 문서: `architecture.md`, `plan.md`, `policies.md`. 변경 시 세 사본을 함께 갱신한다.
@@ -11,7 +11,7 @@
 | 저장소 | 현재 실제 구현 | 이번 문서가 추가한 것 |
 |---|---|---|
 | godieor-app | SwiftUI 시작 화면·빌드 스크립트·제품/학습 문서 | iOS 책임, 백엔드/API 의존 관계, 작업 순서 |
-| godieor-backend | 문서 구성 단계, 서버/API/DB 코드 없음 | 역할·계획·개발 규칙. 로컬 실행 구현 전 |
+| godieor-backend | API·DB 계약 초안, 서버/Prisma schema/migration 없음 | OpenAPI·DDL·가상 응답, 계약 검토 후 로컬 구현 |
 | godieor-verifier | 앱 대상으로 한 evidence v1 집계기·33개 자기 검사 | 앱+백엔드 조합 검증 설계. 런타임 확장 전 |
 
 실제 제공처 연동, 원격 DB/배포, 자동 snapshot·runner·AI 호출 어댑터·OS 격리는 아직 없다.
@@ -45,7 +45,7 @@ godieor-app: API client → 화면 상태 → 월간 달력 / 날짜순 카드 /
 | verifier | 승인 acceptance, 독립 기대값/fixture, snapshot·runner·review·판정, finding 이력 | 승인 기준·검증 보고서·독립 재확인 근거·통합 학습 카탈로그 |
 
 제품 요구사항 원본은 `app/docs/product.md`에 둔다.
-API 계약 원본은 **구현 예정** `backend/contracts/openapi.yaml`에 두고 버전·digest로 참조한다.
+API 계약 초안 원본은 `backend/contracts/openapi.yaml`(0.1.0-draft.1), DB 참조는 `contracts/database.sql`에 두고 버전·digest로 참조한다.
 검증 기준 원본은 `verifier/requirements/acceptance.yaml`이며 앱/백엔드 에이전트가 승인하지 않는다.
 API 계약의 소유권이 백엔드 구현을 정답으로 만든다는 뜻은 아니다. 계약은 제품 정책에 따라 작성하고
 앱 소비자 관점과 독립 검토를 거친다. 깨지는 변경은 정책/계약 변경으로 검토한다.
@@ -88,7 +88,7 @@ API 계약의 소유권이 백엔드 구현을 정답으로 만든다는 뜻은 
 - 정상 수집 목표는 하루 1회다. 앱을 열 때마다 원천 API 전체 재수집을 실행하거나 실시간 EPL 반영을 약속하지 않는다.
 - 마지막 성공 수집 시각·시도 결과·원본 수정 시각을 구분한다. 실패 시 마지막 데이터와 마지막 성공 시각을 표시한다.
 - 빈 필터는 전체, 날짜 미정은 별도 목록, 연기·취소는 이벤트 상태로 표시한다. 캐시 보관 기간·재시도·일일 실행 시각은 기술 설계에서 정한다.
-- 4개 OTT의 모든 한국 최초 공개일를 이미 확보했다는 뜻이 아니다. 제공처별 실제 접근·지원 범위·출처 근거를 조사하고 부족한 범위를 표시한다.
+- 4개 OTT의 모든 한국 최초 공개일을 이미 확보했다는 뜻이 아니다. 제공처별 실제 접근·지원 범위·출처 근거를 조사하고 부족한 범위를 표시한다.
 
 ## 계정 로그인 방향 · 구현 전
 

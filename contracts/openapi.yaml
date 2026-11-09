@@ -1,0 +1,2512 @@
+# 검토용 초안. 실행 구현/승인 결과가 아닙니다.
+"openapi": "3.1.1"
+"info":
+  "title": "GODIEOR API 계약 초안"
+  "version": "0.1.0-draft.1"
+  "description": "SYS-02 / PROD-001~010. 정책 기반 설계 초안이며 서버/마이그레이션/정식 검증 미구현. 동작 세부는 README.md 참조."
+"servers":
+  -
+    "url": "http://localhost:3000/v1"
+    "description": "Mac 로컬 개발 예정. iPhone은 도달 가능한 Mac 주소 사용; 원격 인증은 HTTPS 필수."
+"security": []
+"paths":
+  "/catalog/options":
+    "get":
+      "operationId": "getCatalogOptions"
+      "summary": "필터 선택값·신규 계정 기본값"
+      "security": []
+      "responses":
+        "200":
+          "description": "성공"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Options"
+        "400":
+          "description": "잘못된 조건/토큰/날짜/지원하지 않는 시간대"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+  "/calendar":
+    "get":
+      "operationId": "getCalendar"
+      "summary": "공개 월간 건수·날짜별 최대 두 미리보기"
+      "security": []
+      "responses":
+        "200":
+          "description": "성공"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Calendar"
+        "400":
+          "description": "잘못된 조건/토큰/날짜/지원하지 않는 시간대"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "409":
+          "description": "카탈로그/찜/설정 버전 충돌"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+      "parameters":
+        -
+          "name": "country"
+          "in": "query"
+          "required": false
+          "schema":
+            "$ref": "#/components/schemas/Country"
+            "default": "KR"
+        -
+          "name": "timeZone"
+          "in": "query"
+          "required": false
+          "schema":
+            "$ref": "#/components/schemas/TimeZone"
+            "default": "Asia/Seoul"
+        -
+          "name": "categories"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "array"
+            "items":
+              "$ref": "#/components/schemas/Category"
+            "uniqueItems": true
+          "description": "쉼표 구분. 생략/빈 값=전체 네 분야. 앱은 활성 분야와 임시 필터의 교집합을 명시 전송. 모두 OFF일 때는 호출하지 않음."
+          "style": "form"
+          "explode": false
+        -
+          "name": "services"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "array"
+            "items":
+              "$ref": "#/components/schemas/Service"
+            "uniqueItems": true
+          "description": "OTT 분야 안에서 OR. 다른 분야를 숨기지 않음. 생략/빈 값=전체"
+          "style": "form"
+          "explode": false
+        -
+          "name": "devices"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "array"
+            "items":
+              "$ref": "#/components/schemas/Device"
+            "uniqueItems": true
+          "description": "게임 분야 안에서 OR. 다른 분야를 숨기지 않음. 생략/빈 값=전체"
+          "style": "form"
+          "explode": false
+        -
+          "name": "catalogRevision"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "pattern": "^[1-9][0-9]*$"
+            "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+          "description": "최초 호출은 생략 가능. 달력→목록 및 연속 페이지는 같은 버전 요구. 변경 시 409 CATALOG_CHANGED"
+        -
+          "name": "month"
+          "in": "query"
+          "required": true
+          "schema":
+            "type": "string"
+            "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$"
+          "description": "2026-01 이상. 월 전체, 표시 시간대 기준"
+  "/events":
+    "get":
+      "operationId": "listEvents"
+      "summary": "공개 날짜별 또는 미정 일정 목록"
+      "security": []
+      "responses":
+        "200":
+          "description": "성공"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/EventPage"
+        "400":
+          "description": "잘못된 조건/토큰/날짜/지원하지 않는 시간대"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "409":
+          "description": "카탈로그/찜/설정 버전 충돌"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+      "parameters":
+        -
+          "name": "country"
+          "in": "query"
+          "required": false
+          "schema":
+            "$ref": "#/components/schemas/Country"
+            "default": "KR"
+        -
+          "name": "timeZone"
+          "in": "query"
+          "required": false
+          "schema":
+            "$ref": "#/components/schemas/TimeZone"
+            "default": "Asia/Seoul"
+        -
+          "name": "categories"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "array"
+            "items":
+              "$ref": "#/components/schemas/Category"
+            "uniqueItems": true
+          "description": "쉼표 구분. 생략/빈 값=전체 네 분야. 앱은 활성 분야와 임시 필터의 교집합을 명시 전송. 모두 OFF일 때는 호출하지 않음."
+          "style": "form"
+          "explode": false
+        -
+          "name": "services"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "array"
+            "items":
+              "$ref": "#/components/schemas/Service"
+            "uniqueItems": true
+          "description": "OTT 분야 안에서 OR. 다른 분야를 숨기지 않음. 생략/빈 값=전체"
+          "style": "form"
+          "explode": false
+        -
+          "name": "devices"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "array"
+            "items":
+              "$ref": "#/components/schemas/Device"
+            "uniqueItems": true
+          "description": "게임 분야 안에서 OR. 다른 분야를 숨기지 않음. 생략/빈 값=전체"
+          "style": "form"
+          "explode": false
+        -
+          "name": "catalogRevision"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "pattern": "^[1-9][0-9]*$"
+            "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+          "description": "최초 호출은 생략 가능. 달력→목록 및 연속 페이지는 같은 버전 요구. 변경 시 409 CATALOG_CHANGED"
+        -
+          "name": "schedule"
+          "in": "query"
+          "required": true
+          "schema":
+            "type": "string"
+            "enum":
+              - "dated"
+              - "undated"
+          "description": "dated에는 from/to 필요. undated에는 from/to 금지, unknown만 반환"
+        -
+          "name": "from"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "format": "date"
+          "description": "선택 시간대의 포함 시작 날짜, 2026-01-01 이상"
+        -
+          "name": "to"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "format": "date"
+          "description": "제외 끝 날짜. from보다 크고 최대 62일 폭. 미래 연도 상한 없음"
+        -
+          "name": "contentId"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "format": "uuid"
+        -
+          "name": "limit"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "integer"
+            "minimum": 1
+            "maximum": 100
+            "default": 50
+        -
+          "name": "cursor"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "minLength": 1
+          "description": "서명된 불투명 토큰. 정렬 위치·조건·버전·사용자 범위를 고정. 다른 조건에 재사용 불가"
+  "/events/{eventId}":
+    "get":
+      "operationId": "getEvent"
+      "summary": "일정 상세·출처·이전 날짜"
+      "security": []
+      "responses":
+        "200":
+          "description": "성공"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/EventDetail"
+        "400":
+          "description": "잘못된 조건/토큰/날짜/지원하지 않는 시간대"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "404":
+          "description": "대상 없음"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+      "parameters":
+        -
+          "name": "eventId"
+          "in": "path"
+          "required": true
+          "schema":
+            "type": "string"
+            "format": "uuid"
+        -
+          "name": "timeZone"
+          "in": "query"
+          "required": false
+          "schema":
+            "$ref": "#/components/schemas/TimeZone"
+            "default": "Asia/Seoul"
+  "/contents/{contentId}":
+    "get":
+      "operationId": "getContent"
+      "summary": "작품 상세·시즌 목록"
+      "security": []
+      "responses":
+        "200":
+          "description": "성공"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Content"
+        "400":
+          "description": "잘못된 조건/토큰/날짜/지원하지 않는 시간대"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "404":
+          "description": "대상 없음"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+      "parameters":
+        -
+          "name": "contentId"
+          "in": "path"
+          "required": true
+          "schema":
+            "type": "string"
+            "format": "uuid"
+  "/auth/google":
+    "post":
+      "operationId": "createGoogleSession"
+      "summary": "검증한 Google ID token으로 계정 생성/서비스 세션 발급"
+      "security": []
+      "responses":
+        "200":
+          "description": "성공"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Session"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "400":
+          "description": "잘못된 조건/토큰/날짜/지원하지 않는 시간대"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "401":
+          "description": "인증 없음·유효하지 않음·만료/폐기"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "WWW-Authenticate":
+              "schema":
+                "const": "Bearer"
+              "description": "서비스 bearer 인증 요구"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+      "requestBody":
+        "required": true
+        "content":
+          "application/json":
+            "schema":
+              "$ref": "#/components/schemas/GoogleSessionRequest"
+  "/auth/session":
+    "delete":
+      "operationId": "revokeCurrentSession"
+      "summary": "현재 세션 폐기"
+      "security":
+        -
+          "ServiceSession": []
+      "responses":
+        "204":
+          "description": "성공"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "401":
+          "description": "인증 없음·유효하지 않음·만료/폐기"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "WWW-Authenticate":
+              "schema":
+                "const": "Bearer"
+              "description": "서비스 bearer 인증 요구"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+  "/me":
+    "get":
+      "operationId": "getCurrentUser"
+      "summary": "현재 인증 사용자"
+      "security":
+        -
+          "ServiceSession": []
+      "responses":
+        "200":
+          "description": "성공"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/User"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "401":
+          "description": "인증 없음·유효하지 않음·만료/폐기"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "WWW-Authenticate":
+              "schema":
+                "const": "Bearer"
+              "description": "서비스 bearer 인증 요구"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+  "/me/settings":
+    "get":
+      "operationId": "getSettings"
+      "summary": "계정 설정 조회"
+      "security":
+        -
+          "ServiceSession": []
+      "responses":
+        "200":
+          "description": "성공"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Settings"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "401":
+          "description": "인증 없음·유효하지 않음·만료/폐기"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "WWW-Authenticate":
+              "schema":
+                "const": "Bearer"
+              "description": "서비스 bearer 인증 요구"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+    "put":
+      "operationId": "replaceSettings"
+      "summary": "버전 조건으로 계정 설정 전체 교체"
+      "security":
+        -
+          "ServiceSession": []
+      "responses":
+        "200":
+          "description": "성공"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Settings"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "400":
+          "description": "잘못된 조건/토큰/날짜/지원하지 않는 시간대"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "401":
+          "description": "인증 없음·유효하지 않음·만료/폐기"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "WWW-Authenticate":
+              "schema":
+                "const": "Bearer"
+              "description": "서비스 bearer 인증 요구"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "409":
+          "description": "카탈로그/찜/설정 버전 충돌"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+      "requestBody":
+        "required": true
+        "content":
+          "application/json":
+            "schema":
+              "$ref": "#/components/schemas/ReplaceSettings"
+  "/me/favorites":
+    "get":
+      "operationId": "listFavorites"
+      "summary": "저장한 모든 분야의 직접 찜 관계"
+      "security":
+        -
+          "ServiceSession": []
+      "responses":
+        "200":
+          "description": "성공"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/FavoritePage"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "400":
+          "description": "잘못된 조건/토큰/날짜/지원하지 않는 시간대"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "401":
+          "description": "인증 없음·유효하지 않음·만료/폐기"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "WWW-Authenticate":
+              "schema":
+                "const": "Bearer"
+              "description": "서비스 bearer 인증 요구"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "409":
+          "description": "카탈로그/찜/설정 버전 충돌"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+      "parameters":
+        -
+          "name": "limit"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "integer"
+            "minimum": 1
+            "maximum": 100
+            "default": 50
+        -
+          "name": "cursor"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "minLength": 1
+          "description": "서명된 불투명 토큰. 정렬 위치·조건·버전·사용자 범위를 고정. 다른 조건에 재사용 불가"
+        -
+          "name": "favoritesVersion"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "pattern": "^[1-9][0-9]*$"
+            "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+  "/me/calendar":
+    "get":
+      "operationId": "getFavoriteCalendar"
+      "summary": "작품 상속+직접 일정 찜 합집합의 월간 일정"
+      "security":
+        -
+          "ServiceSession": []
+      "responses":
+        "200":
+          "description": "성공"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/PersonalCalendar"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "400":
+          "description": "잘못된 조건/토큰/날짜/지원하지 않는 시간대"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "401":
+          "description": "인증 없음·유효하지 않음·만료/폐기"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "WWW-Authenticate":
+              "schema":
+                "const": "Bearer"
+              "description": "서비스 bearer 인증 요구"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "409":
+          "description": "카탈로그/찜/설정 버전 충돌"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+      "parameters":
+        -
+          "name": "country"
+          "in": "query"
+          "required": false
+          "schema":
+            "$ref": "#/components/schemas/Country"
+            "default": "KR"
+        -
+          "name": "timeZone"
+          "in": "query"
+          "required": false
+          "schema":
+            "$ref": "#/components/schemas/TimeZone"
+            "default": "Asia/Seoul"
+        -
+          "name": "categories"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "array"
+            "items":
+              "$ref": "#/components/schemas/Category"
+            "uniqueItems": true
+          "description": "쉼표 구분. 생략/빈 값=전체 네 분야. 앱은 활성 분야와 임시 필터의 교집합을 명시 전송. 모두 OFF일 때는 호출하지 않음."
+          "style": "form"
+          "explode": false
+        -
+          "name": "services"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "array"
+            "items":
+              "$ref": "#/components/schemas/Service"
+            "uniqueItems": true
+          "description": "OTT 분야 안에서 OR. 다른 분야를 숨기지 않음. 생략/빈 값=전체"
+          "style": "form"
+          "explode": false
+        -
+          "name": "devices"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "array"
+            "items":
+              "$ref": "#/components/schemas/Device"
+            "uniqueItems": true
+          "description": "게임 분야 안에서 OR. 다른 분야를 숨기지 않음. 생략/빈 값=전체"
+          "style": "form"
+          "explode": false
+        -
+          "name": "catalogRevision"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "pattern": "^[1-9][0-9]*$"
+            "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+          "description": "최초 호출은 생략 가능. 달력→목록 및 연속 페이지는 같은 버전 요구. 변경 시 409 CATALOG_CHANGED"
+        -
+          "name": "month"
+          "in": "query"
+          "required": true
+          "schema":
+            "type": "string"
+            "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$"
+          "description": "2026-01 이상. 월 전체, 표시 시간대 기준"
+        -
+          "name": "favoritesVersion"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "pattern": "^[1-9][0-9]*$"
+            "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+  "/me/events":
+    "get":
+      "operationId": "listFavoriteEvents"
+      "summary": "작품 상속+직접 일정 찜 합집합 목록"
+      "security":
+        -
+          "ServiceSession": []
+      "responses":
+        "200":
+          "description": "성공"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/PersonalEventPage"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "400":
+          "description": "잘못된 조건/토큰/날짜/지원하지 않는 시간대"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "401":
+          "description": "인증 없음·유효하지 않음·만료/폐기"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "WWW-Authenticate":
+              "schema":
+                "const": "Bearer"
+              "description": "서비스 bearer 인증 요구"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "409":
+          "description": "카탈로그/찜/설정 버전 충돌"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+      "parameters":
+        -
+          "name": "country"
+          "in": "query"
+          "required": false
+          "schema":
+            "$ref": "#/components/schemas/Country"
+            "default": "KR"
+        -
+          "name": "timeZone"
+          "in": "query"
+          "required": false
+          "schema":
+            "$ref": "#/components/schemas/TimeZone"
+            "default": "Asia/Seoul"
+        -
+          "name": "categories"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "array"
+            "items":
+              "$ref": "#/components/schemas/Category"
+            "uniqueItems": true
+          "description": "쉼표 구분. 생략/빈 값=전체 네 분야. 앱은 활성 분야와 임시 필터의 교집합을 명시 전송. 모두 OFF일 때는 호출하지 않음."
+          "style": "form"
+          "explode": false
+        -
+          "name": "services"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "array"
+            "items":
+              "$ref": "#/components/schemas/Service"
+            "uniqueItems": true
+          "description": "OTT 분야 안에서 OR. 다른 분야를 숨기지 않음. 생략/빈 값=전체"
+          "style": "form"
+          "explode": false
+        -
+          "name": "devices"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "array"
+            "items":
+              "$ref": "#/components/schemas/Device"
+            "uniqueItems": true
+          "description": "게임 분야 안에서 OR. 다른 분야를 숨기지 않음. 생략/빈 값=전체"
+          "style": "form"
+          "explode": false
+        -
+          "name": "catalogRevision"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "pattern": "^[1-9][0-9]*$"
+            "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+          "description": "최초 호출은 생략 가능. 달력→목록 및 연속 페이지는 같은 버전 요구. 변경 시 409 CATALOG_CHANGED"
+        -
+          "name": "schedule"
+          "in": "query"
+          "required": true
+          "schema":
+            "type": "string"
+            "enum":
+              - "dated"
+              - "undated"
+          "description": "dated에는 from/to 필요. undated에는 from/to 금지, unknown만 반환"
+        -
+          "name": "from"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "format": "date"
+          "description": "선택 시간대의 포함 시작 날짜, 2026-01-01 이상"
+        -
+          "name": "to"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "format": "date"
+          "description": "제외 끝 날짜. from보다 크고 최대 62일 폭. 미래 연도 상한 없음"
+        -
+          "name": "contentId"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "format": "uuid"
+        -
+          "name": "limit"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "integer"
+            "minimum": 1
+            "maximum": 100
+            "default": 50
+        -
+          "name": "cursor"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "minLength": 1
+          "description": "서명된 불투명 토큰. 정렬 위치·조건·버전·사용자 범위를 고정. 다른 조건에 재사용 불가"
+        -
+          "name": "favoritesVersion"
+          "in": "query"
+          "required": false
+          "schema":
+            "type": "string"
+            "pattern": "^[1-9][0-9]*$"
+            "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+  "/me/favorites/contents/{contentId}":
+    "put":
+      "operationId": "saveContent"
+      "summary": "직접 찜 저장(중복 요청도 한 관계)"
+      "security":
+        -
+          "ServiceSession": []
+      "responses":
+        "204":
+          "description": "성공"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "400":
+          "description": "잘못된 조건/토큰/날짜/지원하지 않는 시간대"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "401":
+          "description": "인증 없음·유효하지 않음·만료/폐기"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "WWW-Authenticate":
+              "schema":
+                "const": "Bearer"
+              "description": "서비스 bearer 인증 요구"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "404":
+          "description": "대상 없음"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+      "parameters":
+        -
+          "name": "contentId"
+          "in": "path"
+          "required": true
+          "schema":
+            "type": "string"
+            "format": "uuid"
+    "delete":
+      "operationId": "removeContent"
+      "summary": "직접 찜 해제(관계 없으면 204)"
+      "security":
+        -
+          "ServiceSession": []
+      "responses":
+        "204":
+          "description": "성공"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "400":
+          "description": "잘못된 조건/토큰/날짜/지원하지 않는 시간대"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "401":
+          "description": "인증 없음·유효하지 않음·만료/폐기"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "WWW-Authenticate":
+              "schema":
+                "const": "Bearer"
+              "description": "서비스 bearer 인증 요구"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+      "parameters":
+        -
+          "name": "contentId"
+          "in": "path"
+          "required": true
+          "schema":
+            "type": "string"
+            "format": "uuid"
+  "/me/favorites/events/{eventId}":
+    "put":
+      "operationId": "saveEvent"
+      "summary": "직접 찜 저장(중복 요청도 한 관계)"
+      "security":
+        -
+          "ServiceSession": []
+      "responses":
+        "204":
+          "description": "성공"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "400":
+          "description": "잘못된 조건/토큰/날짜/지원하지 않는 시간대"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "401":
+          "description": "인증 없음·유효하지 않음·만료/폐기"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "WWW-Authenticate":
+              "schema":
+                "const": "Bearer"
+              "description": "서비스 bearer 인증 요구"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "404":
+          "description": "대상 없음"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+      "parameters":
+        -
+          "name": "eventId"
+          "in": "path"
+          "required": true
+          "schema":
+            "type": "string"
+            "format": "uuid"
+    "delete":
+      "operationId": "removeEvent"
+      "summary": "직접 찜 해제(관계 없으면 204)"
+      "security":
+        -
+          "ServiceSession": []
+      "responses":
+        "204":
+          "description": "성공"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "400":
+          "description": "잘못된 조건/토큰/날짜/지원하지 않는 시간대"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "401":
+          "description": "인증 없음·유효하지 않음·만료/폐기"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "WWW-Authenticate":
+              "schema":
+                "const": "Bearer"
+              "description": "서비스 bearer 인증 요구"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "429":
+          "description": "요청 제한"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Retry-After":
+              "schema":
+                "type": "integer"
+                "minimum": 1
+              "description": "다시 시도할 최소 초"
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+        "503":
+          "description": "서비스/DB 사용 불가"
+          "content":
+            "application/json":
+              "schema":
+                "$ref": "#/components/schemas/Error"
+          "headers":
+            "Cache-Control":
+              "schema":
+                "const": "no-store"
+              "description": "계정/세션 응답은 공유 캐시 금지"
+      "parameters":
+        -
+          "name": "eventId"
+          "in": "path"
+          "required": true
+          "schema":
+            "type": "string"
+            "format": "uuid"
+"components":
+  "securitySchemes":
+    "ServiceSession":
+      "type": "http"
+      "scheme": "bearer"
+      "bearerFormat": "opaque service session"
+  "schemas":
+    "Category":
+      "type": "string"
+      "enum":
+        - "movie"
+        - "ott"
+        - "game"
+        - "epl"
+    "Service":
+      "type": "string"
+      "enum":
+        - "netflix"
+        - "disney_plus"
+        - "coupang_play"
+        - "tving"
+    "Device":
+      "type": "string"
+      "enum":
+        - "pc"
+        - "playstation"
+        - "xbox"
+        - "switch"
+    "EventKind":
+      "type": "string"
+      "enum":
+        - "theatrical_release"
+        - "ott_season_premiere"
+        - "game_release"
+        - "epl_match"
+    "Status":
+      "type": "string"
+      "enum":
+        - "scheduled"
+        - "postponed"
+        - "cancelled"
+    "Country":
+      "type": "string"
+      "pattern": "^[A-Z]{2}$"
+      "description": "ISO 3166-1 alpha-2. 실제 지원 여부는 /catalog/options 확인"
+    "TimeZone":
+      "type": "string"
+      "minLength": 1
+      "maxLength": 100
+      "example": "Asia/Seoul"
+      "description": "서버가 지원하는 IANA 식별자. 임의 문자열/고정 UTC offset 거부"
+    "InstantTime":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "type":
+          "const": "instant"
+        "instantUtc":
+          "type": "string"
+          "format": "date-time"
+          "pattern": "Z$"
+          "description": "UTC RFC 3339, Z 접미사"
+        "sourceTimeZone":
+          "anyOf":
+            -
+              "$ref": "#/components/schemas/TimeZone"
+            -
+              "type": "null"
+        "displayDate":
+          "type": "string"
+          "format": "date"
+        "displayTime":
+          "type": "string"
+          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+      "required":
+        - "type"
+        - "instantUtc"
+        - "sourceTimeZone"
+        - "displayDate"
+        - "displayTime"
+    "DateOnlyTime":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "type":
+          "const": "date_only"
+        "date":
+          "type": "string"
+          "format": "date"
+      "required":
+        - "type"
+        - "date"
+      "description": "지역 달력 날짜를 그대로 보존. UTC 자정을 합성하지 않는다."
+    "UnknownTime":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "type":
+          "const": "unknown"
+        "announcedYear":
+          "anyOf":
+            -
+              "type": "integer"
+              "minimum": 1900
+              "maximum": 9999
+            -
+              "type": "null"
+        "announcedPeriod":
+          "anyOf":
+            -
+              "type": "string"
+              "maxLength": 100
+            -
+              "type": "null"
+      "required":
+        - "type"
+        - "announcedYear"
+        - "announcedPeriod"
+      "description": "연도/월/분기 등 원문 요약. 날짜를 생성하지 않는다."
+    "EventTime":
+      "oneOf":
+        -
+          "$ref": "#/components/schemas/InstantTime"
+        -
+          "$ref": "#/components/schemas/DateOnlyTime"
+        -
+          "$ref": "#/components/schemas/UnknownTime"
+      "discriminator":
+        "propertyName": "type"
+        "mapping":
+          "instant": "#/components/schemas/InstantTime"
+          "date_only": "#/components/schemas/DateOnlyTime"
+          "unknown": "#/components/schemas/UnknownTime"
+    "Team":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "id":
+          "type": "string"
+          "format": "uuid"
+        "name":
+          "type": "string"
+          "minLength": 1
+      "required":
+        - "id"
+        - "name"
+    "Match":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "competition":
+          "const": "epl"
+        "home":
+          "$ref": "#/components/schemas/Team"
+        "away":
+          "$ref": "#/components/schemas/Team"
+      "required":
+        - "competition"
+        - "home"
+        - "away"
+    "Season":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "id":
+          "type": "string"
+          "format": "uuid"
+        "number":
+          "type": "integer"
+          "minimum": 1
+      "required":
+        - "id"
+        - "number"
+    "Event":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "id":
+          "type": "string"
+          "format": "uuid"
+        "kind":
+          "$ref": "#/components/schemas/EventKind"
+        "title":
+          "type": "string"
+          "minLength": 1
+        "contentId":
+          "anyOf":
+            -
+              "type": "string"
+              "format": "uuid"
+            -
+              "type": "null"
+        "season":
+          "anyOf":
+            -
+              "$ref": "#/components/schemas/Season"
+            -
+              "type": "null"
+        "status":
+          "$ref": "#/components/schemas/Status"
+        "time":
+          "$ref": "#/components/schemas/EventTime"
+        "releaseMarket":
+          "anyOf":
+            -
+              "type": "string"
+              "pattern": "^([A-Z]{2}|WORLD)$"
+            -
+              "type": "null"
+        "venueCountry":
+          "anyOf":
+            -
+              "$ref": "#/components/schemas/Country"
+            -
+              "type": "null"
+        "services":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Service"
+          "uniqueItems": true
+        "devices":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Device"
+          "uniqueItems": true
+        "match":
+          "anyOf":
+            -
+              "$ref": "#/components/schemas/Match"
+            -
+              "type": "null"
+        "dataOrigin":
+          "type": "string"
+          "enum":
+            - "fixture"
+            - "provider"
+        "updatedAt":
+          "type": "string"
+          "format": "date-time"
+          "pattern": "Z$"
+          "description": "UTC RFC 3339, Z 접미사"
+      "required":
+        - "id"
+        - "kind"
+        - "title"
+        - "contentId"
+        - "season"
+        - "status"
+        - "time"
+        - "releaseMarket"
+        - "venueCountry"
+        - "services"
+        - "devices"
+        - "match"
+        - "dataOrigin"
+        - "updatedAt"
+      "allOf":
+        -
+          "if":
+            "properties":
+              "kind":
+                "const": "epl_match"
+            "required":
+              - "kind"
+          "then":
+            "properties":
+              "contentId":
+                "type": "null"
+              "releaseMarket":
+                "type": "null"
+              "match":
+                "$ref": "#/components/schemas/Match"
+          "else":
+            "properties":
+              "contentId":
+                "type": "string"
+                "format": "uuid"
+              "match":
+                "type": "null"
+              "releaseMarket":
+                "type": "string"
+                "pattern": "^([A-Z]{2}|WORLD)$"
+        -
+          "if":
+            "properties":
+              "kind":
+                "const": "ott_season_premiere"
+            "required":
+              - "kind"
+          "then":
+            "properties":
+              "services":
+                "minItems": 1
+              "releaseMarket":
+                "$ref": "#/components/schemas/Country"
+          "else":
+            "properties":
+              "services":
+                "maxItems": 0
+              "season":
+                "type": "null"
+        -
+          "if":
+            "properties":
+              "kind":
+                "const": "game_release"
+            "required":
+              - "kind"
+          "then":
+            "properties":
+              "devices":
+                "minItems": 1
+          "else":
+            "properties":
+              "devices":
+                "maxItems": 0
+    "SourceEvidence":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "providerKey":
+          "type": "string"
+        "url":
+          "type": "string"
+          "format": "uri"
+        "observedAt":
+          "type": "string"
+          "format": "date-time"
+          "pattern": "Z$"
+          "description": "UTC RFC 3339, Z 접미사"
+        "sourceUpdatedAt":
+          "anyOf":
+            -
+              "type": "string"
+              "format": "date-time"
+              "pattern": "Z$"
+              "description": "UTC RFC 3339, Z 접미사"
+            -
+              "type": "null"
+      "required":
+        - "providerKey"
+        - "url"
+        - "observedAt"
+        - "sourceUpdatedAt"
+      "description": "출처 URL은 공개 접근용만. 토큰/서명 쿼리 문자열 금지"
+    "EventDetail":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "event":
+          "$ref": "#/components/schemas/Event"
+        "sources":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/SourceEvidence"
+        "previousTime":
+          "anyOf":
+            -
+              "$ref": "#/components/schemas/EventTime"
+            -
+              "type": "null"
+      "required":
+        - "event"
+        - "sources"
+        - "previousTime"
+      "description": "previousTime은 현재 시간대 표현이며 마지막 유효 날짜/시각. 미정으로 연기된 경우 과거 배치 근거를 설명한다."
+    "Content":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "id":
+          "type": "string"
+          "format": "uuid"
+        "kind":
+          "type": "string"
+          "enum":
+            - "movie"
+            - "drama"
+            - "game"
+        "title":
+          "type": "string"
+          "minLength": 1
+        "originalTitle":
+          "anyOf":
+            -
+              "type": "string"
+            -
+              "type": "null"
+        "posterUrl":
+          "anyOf":
+            -
+              "type": "string"
+              "format": "uri"
+            -
+              "type": "null"
+        "synopsis":
+          "anyOf":
+            -
+              "type": "string"
+            -
+              "type": "null"
+        "seasons":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Season"
+      "required":
+        - "id"
+        - "kind"
+        - "title"
+        - "originalTitle"
+        - "posterUrl"
+        - "synopsis"
+        - "seasons"
+      "description": "OTT 회차 목록은 없다. 시즌 미상은 임의 시즌을 만들지 않고 Event.season=null로 반환"
+    "Freshness":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "providerKey":
+          "type": "string"
+        "category":
+          "$ref": "#/components/schemas/Category"
+        "scopeCountry":
+          "anyOf":
+            -
+              "$ref": "#/components/schemas/Country"
+            -
+              "type": "null"
+        "coverage":
+          "type": "string"
+          "enum":
+            - "unconfigured"
+            - "unsupported"
+            - "partial"
+            - "available"
+        "lastAttemptStatus":
+          "type": "string"
+          "enum":
+            - "never"
+            - "running"
+            - "succeeded"
+            - "failed"
+        "lastAttemptAt":
+          "anyOf":
+            -
+              "type": "string"
+              "format": "date-time"
+              "pattern": "Z$"
+              "description": "UTC RFC 3339, Z 접미사"
+            -
+              "type": "null"
+        "lastSuccessfulAt":
+          "anyOf":
+            -
+              "type": "string"
+              "format": "date-time"
+              "pattern": "Z$"
+              "description": "UTC RFC 3339, Z 접미사"
+            -
+              "type": "null"
+        "dataOrigin":
+          "type": "string"
+          "enum":
+            - "fixture"
+            - "provider"
+      "required":
+        - "providerKey"
+        - "category"
+        - "scopeCountry"
+        - "coverage"
+        - "lastAttemptStatus"
+        - "lastAttemptAt"
+        - "lastSuccessfulAt"
+        - "dataOrigin"
+      "description": "EPL은 scopeCountry=null인 전 세계 경기 범위. 실패는 마지막 성공 데이터를 지우지 않음. 응답 시각과 성공 수집 시각을 혼동하지 않는다."
+    "EventPage":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "catalogRevision":
+          "type": "string"
+          "pattern": "^[1-9][0-9]*$"
+          "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+        "items":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Event"
+        "nextCursor":
+          "anyOf":
+            -
+              "type": "string"
+            -
+              "type": "null"
+        "freshness":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Freshness"
+      "required":
+        - "catalogRevision"
+        - "items"
+        - "nextCursor"
+        - "freshness"
+    "PersonalEventPage":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "catalogRevision":
+          "type": "string"
+          "pattern": "^[1-9][0-9]*$"
+          "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+        "items":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Event"
+        "nextCursor":
+          "anyOf":
+            -
+              "type": "string"
+            -
+              "type": "null"
+        "freshness":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Freshness"
+        "favoritesVersion":
+          "type": "string"
+          "pattern": "^[1-9][0-9]*$"
+          "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+      "required":
+        - "catalogRevision"
+        - "items"
+        - "nextCursor"
+        - "freshness"
+        - "favoritesVersion"
+    "CalendarDay":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "date":
+          "type": "string"
+          "format": "date"
+        "total":
+          "type": "integer"
+          "minimum": 0
+        "previews":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Event"
+          "maxItems": 2
+      "required":
+        - "date"
+        - "total"
+        - "previews"
+      "description": "월의 모든 날짜를 반환. total은 페이지 크기/미리보기 수가 아닌 전체 일치 이벤트 수"
+    "Calendar":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "month":
+          "type": "string"
+          "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$"
+        "catalogRevision":
+          "type": "string"
+          "pattern": "^[1-9][0-9]*$"
+          "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+        "days":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/CalendarDay"
+          "minItems": 28
+          "maxItems": 31
+        "freshness":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Freshness"
+      "required":
+        - "month"
+        - "catalogRevision"
+        - "days"
+        - "freshness"
+    "PersonalCalendar":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "month":
+          "type": "string"
+          "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$"
+        "catalogRevision":
+          "type": "string"
+          "pattern": "^[1-9][0-9]*$"
+          "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+        "days":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/CalendarDay"
+          "minItems": 28
+          "maxItems": 31
+        "freshness":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Freshness"
+        "favoritesVersion":
+          "type": "string"
+          "pattern": "^[1-9][0-9]*$"
+          "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+      "required":
+        - "month"
+        - "catalogRevision"
+        - "days"
+        - "freshness"
+        - "favoritesVersion"
+    "Settings":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "version":
+          "type": "string"
+          "pattern": "^[1-9][0-9]*$"
+          "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+        "country":
+          "$ref": "#/components/schemas/Country"
+        "timeZone":
+          "$ref": "#/components/schemas/TimeZone"
+        "enabledCategories":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Category"
+          "uniqueItems": true
+          "maxItems": 4
+        "services":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Service"
+          "uniqueItems": true
+          "maxItems": 4
+        "devices":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Device"
+          "uniqueItems": true
+          "maxItems": 4
+        "view":
+          "type": "string"
+          "enum":
+            - "calendar"
+            - "cards"
+      "required":
+        - "version"
+        - "country"
+        - "timeZone"
+        - "enabledCategories"
+        - "services"
+        - "devices"
+        - "view"
+      "description": "신규 계정 movie/ott, KR/Asia/Seoul/calendar. services/devices 빈 배열=분야 내 전체, enabledCategories 빈 배열=분야 모두 OFF"
+    "ReplaceSettings":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "expectedVersion":
+          "type": "string"
+          "pattern": "^[1-9][0-9]*$"
+          "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+        "country":
+          "$ref": "#/components/schemas/Country"
+        "timeZone":
+          "$ref": "#/components/schemas/TimeZone"
+        "enabledCategories":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Category"
+          "uniqueItems": true
+          "maxItems": 4
+        "services":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Service"
+          "uniqueItems": true
+          "maxItems": 4
+        "devices":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Device"
+          "uniqueItems": true
+          "maxItems": 4
+        "view":
+          "type": "string"
+          "enum":
+            - "calendar"
+            - "cards"
+      "required":
+        - "expectedVersion"
+        - "country"
+        - "timeZone"
+        - "enabledCategories"
+        - "services"
+        - "devices"
+        - "view"
+      "description": "전체 교체. 조건부 갱신 실패=409 SETTINGS_CONFLICT. 알림 설정은 없음"
+    "User":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "id":
+          "type": "string"
+          "format": "uuid"
+        "displayName":
+          "anyOf":
+            -
+              "type": "string"
+            -
+              "type": "null"
+      "required":
+        - "id"
+        - "displayName"
+    "GoogleSessionRequest":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "idToken":
+          "type": "string"
+          "minLength": 1
+          "maxLength": 16384
+          "writeOnly": true
+      "required":
+        - "idToken"
+      "description": "실제 Google ID token은 TLS 요청 본문에서만 전달하고 로그에 남기지 않는다"
+    "Session":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "accessToken":
+          "type": "string"
+          "description": "고엔트로피 서비스 opaque bearer. ID token과 다름"
+        "expiresAt":
+          "type": "string"
+          "format": "date-time"
+          "pattern": "Z$"
+          "description": "UTC RFC 3339, Z 접미사"
+        "user":
+          "$ref": "#/components/schemas/User"
+      "required":
+        - "accessToken"
+        - "expiresAt"
+        - "user"
+    "Favorite":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "targetType":
+          "type": "string"
+          "enum":
+            - "content"
+            - "event"
+        "targetId":
+          "type": "string"
+          "format": "uuid"
+        "savedAt":
+          "type": "string"
+          "format": "date-time"
+          "pattern": "Z$"
+          "description": "UTC RFC 3339, Z 접미사"
+      "required":
+        - "targetType"
+        - "targetId"
+        - "savedAt"
+      "description": "직접 저장 관계만 반환. 작품 상속 이벤트를 별도 저장 행으로 복제하지 않음"
+    "FavoritePage":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "favoritesVersion":
+          "type": "string"
+          "pattern": "^[1-9][0-9]*$"
+          "description": "64비트 카운터를 정밀도 손실 없이 전달하는 십진 문자열"
+        "items":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Favorite"
+        "nextCursor":
+          "anyOf":
+            -
+              "type": "string"
+            -
+              "type": "null"
+      "required":
+        - "favoritesVersion"
+        - "items"
+        - "nextCursor"
+    "Error":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "code":
+          "type": "string"
+        "message":
+          "type": "string"
+        "requestId":
+          "type": "string"
+        "details":
+          "type": "array"
+          "items":
+            "type": "object"
+            "additionalProperties": false
+            "properties":
+              "field":
+                "type": "string"
+              "reason":
+                "type": "string"
+            "required":
+              - "field"
+              - "reason"
+      "required":
+        - "code"
+        - "message"
+        - "requestId"
+        - "details"
+      "description": "내부 SQL/스택/토큰/다른 사용자 값 미노출"
+    "Options":
+      "type": "object"
+      "additionalProperties": false
+      "properties":
+        "contractVersion":
+          "const": "0.1.0-draft.1"
+        "categories":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Category"
+        "services":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Service"
+        "devices":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Device"
+        "countries":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/Country"
+        "timeZones":
+          "type": "array"
+          "items":
+            "$ref": "#/components/schemas/TimeZone"
+        "queryDefaults":
+          "type": "object"
+          "additionalProperties": false
+          "properties":
+            "country":
+              "$ref": "#/components/schemas/Country"
+            "timeZone":
+              "$ref": "#/components/schemas/TimeZone"
+          "required":
+            - "country"
+            - "timeZone"
+        "newAccountDefaults":
+          "$ref": "#/components/schemas/Settings"
+      "required":
+        - "contractVersion"
+        - "categories"
+        - "services"
+        - "devices"
+        - "countries"
+        - "timeZones"
+        - "queryDefaults"
+        - "newAccountDefaults"
+      "description": "countries는 지원 가능한 선택값, 특정 소스 데이터 확보 보장이 아님. 익명 응답의 defaults.version은 새 계정 초기값 1을 의미"
+"x-status": "draft-not-approved"
+"x-policy-revision": "SYNC-2026-11-09-12"

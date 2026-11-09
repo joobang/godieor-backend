@@ -1,0 +1,17 @@
+{
+  "contractVersion": "0.1.0-draft.1",
+  "status": "draft-not-approved",
+  "policyRevision": "SYNC-2026-11-09-12",
+  "hashAlgorithm": "sha256",
+  "files": {
+    "openapi.yaml": "5e6cae59f237d2f902b93ef34d50fb968bfb58ffd993d7704ed71a720e3140cd",
+    "database.sql": "dff5ff01a16e1a6a61814e5fbec368697b381043a7a73362b8a5165a517ad226",
+    "database.md": "a5d904554c6205ca1711b584ab0fd4cd3b54c9278688d406d5a891db360b5c85",
+    "README.md": "191943c49493c5c817f15cc19538247ddc5aa19e4e0f893640566cd800c9c3b0",
+    "examples/README.md": "13fbecc0d2048ef245f27d950b62ec002e0163bb90dfdd90ae1cf82f2a2f82ec",
+    "examples/calendar.json": "113ade2ffb24453d6c7843533b6d5c407c8f20c4536b2fb9ff09710bb2b6919c",
+    "examples/event-detail.json": "8402b32fb0ebf539c3014359d54cb9130ebf2761b300893d60c631b5bd33f53f",
+    "examples/events-page.json": "a2d29393051ab7e27c9e55c284da22afc29be186c32d588676779a5204c1f45b",
+    "examples/settings.json": "6556f1aa9313eb40b014f3bb2caea8b882eed3a658ad2bd2e5a303735b0831b5"
+  }
+}

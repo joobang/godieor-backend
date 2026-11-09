@@ -1,0 +1,38 @@
+{
+  "event": {
+    "id": "00000000-0000-4000-8000-000000000002",
+    "kind": "ott_season_premiere",
+    "title": "가상 드라마: 두 번째 계절 · 시즌 2 최초 공개",
+    "contentId": "00000000-0000-4000-8000-000000000012",
+    "season": {
+      "id": "00000000-0000-4000-8000-000000000022",
+      "number": 2
+    },
+    "status": "scheduled",
+    "time": {
+      "type": "instant",
+      "instantUtc": "2026-11-11T15:00:00Z",
+      "sourceTimeZone": "Asia/Seoul",
+      "displayDate": "2026-11-12",
+      "displayTime": "00:00"
+    },
+    "releaseMarket": "KR",
+    "venueCountry": null,
+    "services": [
+      "netflix"
+    ],
+    "devices": [],
+    "match": null,
+    "dataOrigin": "fixture",
+    "updatedAt": "2026-11-09T00:00:00Z"
+  },
+  "sources": [
+    {
+      "providerKey": "fixture",
+      "url": "https://example.invalid/fictional-premiere",
+      "observedAt": "2026-11-09T00:00:00Z",
+      "sourceUpdatedAt": null
+    }
+  ],
+  "previousTime": null
+}

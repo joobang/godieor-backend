@@ -1,0 +1,12 @@
+{
+  "version": "1",
+  "country": "KR",
+  "timeZone": "Asia/Seoul",
+  "enabledCategories": [
+    "movie",
+    "ott"
+  ],
+  "services": [],
+  "devices": [],
+  "view": "calendar"
+}
