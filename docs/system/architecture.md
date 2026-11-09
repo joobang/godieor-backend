@@ -1,6 +1,6 @@
 # GODIEOR · 세 저장소 공통 아키텍처
 
-- 문서 revision: `SYNC-2026-11-09-17`
+- 문서 revision: `SYNC-2026-11-10-01`
 - 상태: **책임 분리·저장소 3개, NestJS + PostgreSQL + Prisma 및 TypeORM 제외는 사용자 확정**. 최종 실행 형태와 로컬 우선 진행도 사용자 확정이다. 로컬 버전은 하단 구현 기록에 고정했다. 클라우드 제공자·나머지 세부 정책은 미정이다.
 - 공통 문서 원본: `godieor-app/docs/system/`. backend/verifier의 같은 경로는 동기화 사본이다.
 - 공통 문서: `architecture.md`, `plan.md`, `policies.md`. 변경 시 세 사본을 함께 갱신한다.
@@ -244,3 +244,10 @@ API/DB 계약 의미·기존 migration·승인 기준은 유지하고 레이어 
 Prisma Client를 기본으로 CRUD/관계/필터/이력/연결 확인을 작성한다. 계산 시간대 정렬과 월별 window 집계, advisory lock만 근거를 남겨 SQL을 사용한다. 바인딩과 반환값 런타임 검사를 유지한다. 원본은 backend/docs/query-policy.md / ADR-012다.
 
 ReviewedOttModule CLI는 현재 검토 revision + 명시적 contentKey/eventKey를 기존 provider publish로 연결한다. 날짜/제목으로 ID를 만들지 않는다. 국가/플랫폼/작품/알려진 시즌 변경으로 이전 이벤트를 덮어쓰지 않는다. timezone 미확인은 date_only다. 수동 반영4건+fixture7건을 로컬에서 API 조회했고 자동 전수 수집/승인 통합 PASS는 아니다. 상세 원본은 backend/docs/reviewed-publish.md / ADR-013이다.
+
+## 전용 검증 사용자 후속 · 2026-11-10
+
+P10 사용자 선택: 전용 macOS 표준 사용자에서 자동 검증 빌드, 기존 개발 사용자에서 iPhone 서명·설치.
+인증서·Apple ID는 기존 개발 사용자에 유지한다. verifier/docs/dedicated-account-setup.md의
+계정 준비→최소 입력 전달→사전점검→제한 Foundation/Xcode→후손 수명 게이트 순서로 진행한다.
+계정 생성·staging 자동화·단일 run 잠금·전체 수명 격리는 아직 미완료다. 통합 PASS 없음.

@@ -1,6 +1,6 @@
 # 세 저장소 작업 계획
 
-revision: `SYNC-2026-11-09-17`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
+revision: `SYNC-2026-11-10-01`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
 현재 단계는 정책 결정 진행 중이다. 기존 SwiftUI 구성 유지, NestJS + PostgreSQL + Prisma, TypeORM 제외는 확정됐다.
 **로컬 실행을 먼저 달성하고 최종적으로 iPhone 앱 + 클라우드 API/DB, Mac verifier로 운영한다.** 로컬 버전/도구는 확정했고 클라우드 제공자는 미정이다. 표의 완료 조건은 작업 제안이며 승인 acceptance가 아니다.
 
@@ -148,3 +148,10 @@ backend에 RSS/공식 링크 후보 CLI·검토·날짜 보류·변경 시 검�
 Prisma Client 우선·SQL 예외 규칙을 문서화하고 단순 조회를 전환했다. 검토된 OTT 후보는 명시적 고정 키 매핑으로 수동 publish한다. 작성자47개 자체 검사·별도 DB 저장/수정/거부 회귀·로컬 실데이터4건 조회를 실행했다. 독립 통합 검증/앱 연결은 미완료다.
 
 다음 우선순위 제안: APP-01 공개 API client → 큰 월 캘린더/일별 목록/상세 연결(기본 영화+OTT, dataOrigin 표시)과 별도 VFY evidence v2/고정 SHA 검사. 이어서 극장 영화 출처 최소 샘플 검증·다중 작품 공지/자동 OTT 수집 보강. Google/개인 쓰기는 세션·사용자 격리 설계부터 진행한다. 원본 실행은 backend 작업 카드, 쿼리는 query-policy.md, 후보 반영은 reviewed-publish.md다.
+
+## 전용 검증 사용자 후속 · 2026-11-10
+
+P10 사용자 선택: 전용 macOS 표준 사용자에서 자동 검증 빌드, 기존 개발 사용자에서 iPhone 서명·설치.
+인증서·Apple ID는 기존 개발 사용자에 유지한다. verifier/docs/dedicated-account-setup.md의
+계정 준비→최소 입력 전달→사전점검→제한 Foundation/Xcode→후손 수명 게이트 순서로 진행한다.
+계정 생성·staging 자동화·단일 run 잠금·전체 수명 격리는 아직 미완료다. 통합 PASS 없음.

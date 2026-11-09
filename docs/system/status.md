@@ -1,6 +1,6 @@
 # 현재 상태 · 새 개발 대화의 시작점
 
-문서 revision: `CONTEXT-2026-11-10-02`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
+문서 revision: `CONTEXT-2026-11-10-03`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
 확인일: 2026-11-10 KST. 이 문서는 현재 상태의 요약이다. 정책 원본은 product/policies,
 계약 원본은 backend/contracts, 실행 사실은 각 작업 기록, 승인 기준은 verifier/requirements다.
 충돌 시 날짜만 보고 정책을 덮어쓰지 말고 원본·Git 변경을 확인한다. 아래 과거 실행은 현재 프로세스 생존을 보장하지 않는다.
@@ -141,3 +141,12 @@ verifier `docs/tasks/VFY-03-lifetime-probe.md` 원본. `scripts/probe-process-li
 사용자에게 용어 설명 후 지금 환경을 선택할 필요 없다고 안내했다. 계정/VM 선택 미정,
 설치·계정 생성·Xcode 재빌드는 하지 않았다. 환경 준비와 제품 기능 개발은 별도 작업이며,
 P5·Xcode 실행 경계 및 전체 통합 검증은 계속 미완료다. 통합 PASS 없음.
+
+## 전용 macOS 계정 방식 확정 (2026-11-10)
+
+사용자가 전용 계정 방식을 선택했다. 앞 절의 환경 선택 미정은 당시 상태다.
+기존 개발 계정에서 iPhone 서명·설치, 새 표준 계정에서 서명 없는 자동검증 빌드로 역할을 나눈다.
+P10 및 architecture/plan을 SYNC-2026-11-10-01로 갱신했다. 계정 생성은 관리자 인증 필요·미실행.
+원본 verifier/docs/tasks/VFY-03-dedicated-account.md 및 docs/dedicated-account-setup.md.
+다음은 실제 계정 준비와 최소 staging 전달 후 실환경 게이트 검사다. 담당 해제.
+Apple ID/인증서/개인 키체인 공유 없음, P5·격리 입증 미완료/통합 PASS 없음 유지.
