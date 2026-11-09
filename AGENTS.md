@@ -14,6 +14,7 @@
   Repository는 Prisma/SQL/파일 영속 접근, Client/Adapter는 외부 IO를 담당한다.
   서비스·컨트롤러에서 Prisma/SQL·파일/네트워크 IO를 직접 실행하지 않는다. app.module.ts는 조립, main.ts/cli는 bootstrap만 맡는다.
   미구현 기능에 빈 Repository를 만들지 않으며, auth/users는 인증 구현 전까지 명시적 차단 경계로 유지한다.
+- Prisma Client를 기본으로 사용한다. SQL 예외·바인딩·출력 검사·회귀 규칙은 `docs/query-policy.md`를 따른다. raw SQL 반환 제네릭을 자동 타입 보장으로 설명하지 않는다.
 - 책임은 외부 제공처 인증·수집·정규화·중복/변경 처리, API, DB migration, 자체 검사다.
   iOS 화면·기기 설정·사용자 표시 형식은 app 책임이다.
 - API 계약 초안 원본은 `contracts/openapi.yaml`, DB 참조 DDL은 `contracts/database.sql`이다. 실제 적용 원본은 prisma/migrations이며 계약의 구현 범위는 contracts/implementation.md를 따른다. 제품 정책에서 계약을 작성하고 앱 소비·독립 검토를 거친다.

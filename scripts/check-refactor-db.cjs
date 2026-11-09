@@ -2,7 +2,7 @@ require("reflect-metadata");
 const { execFileSync } = require("node:child_process");
 const { randomBytes } = require("node:crypto");
 const assert = require("node:assert/strict");
-const { readFileSync } = require("node:fs");
+const { readFileSync, existsSync } = require("node:fs");
 const { resolve, join } = require("node:path");
 const { NestFactory } = require("@nestjs/core");
 
@@ -146,13 +146,23 @@ async function main() {
     const baseline = process.argv[2];
     if (baseline) {
       phase = "baseline application";
-      const legacy = require(join(resolve(baseline), "dist/src/module.js"));
+      const legacyRoot = join(resolve(baseline), "dist/src");
+      const modern = existsSync(join(legacyRoot, "app.module.js"));
+      const legacy = require(
+        join(legacyRoot, modern ? "app.module.js" : "module.js"),
+      );
       const previous = await NestFactory.create(legacy.AppModule, {
         logger: false,
       });
       apps.push(previous);
-      previous.setGlobalPrefix("v1");
-      previous.useGlobalFilters(new legacy.ErrorFilter());
+      if (modern)
+        require(join(legacyRoot, "common/configure-http.js")).configureHttp(
+          previous,
+        );
+      else {
+        previous.setGlobalPrefix("v1");
+        previous.useGlobalFilters(new legacy.ErrorFilter());
+      }
       await previous.listen(0, "127.0.0.1");
       const oldUrl = await previous.getUrl();
       const scrub = (value) => {
@@ -246,6 +256,26 @@ async function main() {
     assert.equal(detail.body.event.id, source.event_id);
     assert.equal(detail.body.event.time.date, "2026-12-03");
     assert.equal(detail.body.previousTime.date, movies[0].time.value);
+    // More than one Client history page, preserving JSONB object-key equivalence.
+    const unchangedTime = { type: "date_only", value: "2026-12-03" };
+    const { randomUUID } = require("node:crypto");
+    await prisma.event_change.createMany({
+      data: Array.from({ length: 105 }, (_, i) => ({
+        id: randomUUID(),
+        event_id: source.event_id,
+        catalog_revision: 1000n + BigInt(i),
+        before_value: { time: unchangedTime, title: "before" },
+        after_value: {
+          title: "after",
+          time: { value: unchangedTime.value, type: unchangedTime.type },
+        },
+      })),
+    });
+    assert.equal(
+      (await read(url, "/events/" + source.event_id)).body.previousTime.date,
+      movies[0].time.value,
+    );
+    console.log("105개 제목 변경 이력 뒤의 실제 이전 날짜 조회 확인");
     const lastSuccessful = (
       await prisma.collection_scope.findUniqueOrThrow({
         where: {
