@@ -1,6 +1,6 @@
 # 현재 상태 · 새 개발 대화의 시작점
 
-문서 revision: `CONTEXT-2026-11-10-01`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
+문서 revision: `CONTEXT-2026-11-10-02`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
 확인일: 2026-11-10 KST. 이 문서는 현재 상태의 요약이다. 정책 원본은 product/policies,
 계약 원본은 backend/contracts, 실행 사실은 각 작업 기록, 승인 기준은 verifier/requirements다.
 충돌 시 날짜만 보고 정책을 덮어쓰지 말고 원본·Git 변경을 확인한다. 아래 과거 실행은 현재 프로세스 생존을 보장하지 않는다.
@@ -129,3 +129,15 @@ verifier 코드 d15601e, 브랜치 codex/vfy-02-evidence-v2. VFY-01 관찰점 �
 Foundation 도구에 `--sandbox`, 신규 출력 독점 생성, 로그/프로필 digest/UID 기록과 plist 내용 검사를 추가했다. 일반 실행 성공, 실제 runner 제한 프로필에서는 non_atomic=true/atomic=false(exit2)를 재현했다. 71개 자체 검사 성공. 원본 verifier/docs/tasks/VFY-03-foundation-diagnostics.md 및 docs/runner-isolation.md, LEARN-0014 참조. 담당 해제, 독립 리뷰 대기.
 
 다음 우선순위는 전용 실행 UID 또는 run별 VM 준비 후 제한 Foundation/Xcode/setsid 수명 게이트의 실제 검사다. 공유 Darwin T 권한은 열지 않았다. 전용 계정 생성·Xcode 재빌드·P5 검증·통합 run은 이번에 수행하지 않았으며 isolation_verified=false, acceptance draft, 통합 PASS 없음 유지. 과거 sandbox 시작 거부와 이번 Foundation 실제 저장 실패를 구분한다.
+
+## P5 실제 후손 수명 재현 후속 (2026-11-10)
+
+verifier `docs/tasks/VFY-03-lifetime-probe.md` 원본. `scripts/probe-process-lifetime` 추가:
+고정 합성 자식은 자체 기한/alarm으로 종료하며 정상/timeout의 실제 runner 제한 프로필에서
+일반 자식 heartbeat 정지, setsid 자식 갱신 지속을 관찰했다. 74개 자체검사 통과.
+실행 결과·프로필·로그 보존, isolation_verified/cleanup_verified=false 유지. 독립 리뷰 대기, 담당 해제.
+
+이 Mac에는 전용 실행 계정·tart/prlctl/vfkit가 없고 sudo는 관리자 인증 필요.
+사용자에게 용어 설명 후 지금 환경을 선택할 필요 없다고 안내했다. 계정/VM 선택 미정,
+설치·계정 생성·Xcode 재빌드는 하지 않았다. 환경 준비와 제품 기능 개발은 별도 작업이며,
+P5·Xcode 실행 경계 및 전체 통합 검증은 계속 미완료다. 통합 PASS 없음.

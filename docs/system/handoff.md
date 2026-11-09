@@ -1,6 +1,6 @@
 # 계정·모델 사이에서 작업 이어받기
 
-revision: `CONTEXT-2026-11-10-01`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+revision: `CONTEXT-2026-11-10-02`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
 공통 문서는 `SYNC-2026-11-09-18`이다. APP-01 통합 및 독립 검증 대기 상태를 반영했고 OTT 날짜 정책/API 스키마는 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
 
 APP-01G 인계 기준: app `f36adb748b3a452db105475ffbcae5abe8d3d02f`, backend `85ea4f3398d949e4f59313232306c3325956b7a6`, verifier `109f918799d6c818ae30ba5af4a5cedb112573e8`. API `0.1.0-draft.2`, contract manifest SHA-256 `8dfc69a8c6a5f9feb91f2d0cf6d661eec16a1aacb8e980b7abe880cd0b1f3b1e`, migration SHA-256 `29ef8ef0d520f44b6a633e8f017144a3e2b2199189461a88ba99bc296c42f5b9`. acceptance 초안, verifier evidence v1 앱 전용으로 통합 PASS 없음. UI 조작 미확인 범위는 app `docs/ai/tasks/APP-01-finalize.md` 참조. 문서 변경 커밋 이후 HEAD는 Git으로 확인한다.
@@ -98,3 +98,15 @@ verifier d15601e에서 v1/v2 지원. 통합runner는 --require-schema-version 2 
 ## 2026-11-10 Foundation 진단 인계
 
 공통 status 최신 절과 verifier/docs/tasks/VFY-03-foundation-diagnostics.md를 우선 확인한다. 제한 실행 `scripts/probe-foundation-atomic --sandbox NEW_DIR`은 runner profile·로그·결과를 저장한다. 일반 실행 성공과 atomic=false/exit2를 실제 비교했다. 전용 UID/VM 마련 및 Xcode/P5 게이트가 다음이며 도구 구현 완료를 격리 또는 제품 PASS로 해석하지 않는다. 담당 해제, 분리 컨텍스트 리뷰 대기.
+
+## P5 실제 후손 수명 재현 후속 (2026-11-10)
+
+verifier `docs/tasks/VFY-03-lifetime-probe.md` 원본. `scripts/probe-process-lifetime` 추가:
+고정 합성 자식은 자체 기한/alarm으로 종료하며 정상/timeout의 실제 runner 제한 프로필에서
+일반 자식 heartbeat 정지, setsid 자식 갱신 지속을 관찰했다. 74개 자체검사 통과.
+실행 결과·프로필·로그 보존, isolation_verified/cleanup_verified=false 유지. 독립 리뷰 대기, 담당 해제.
+
+이 Mac에는 전용 실행 계정·tart/prlctl/vfkit가 없고 sudo는 관리자 인증 필요.
+사용자에게 용어 설명 후 지금 환경을 선택할 필요 없다고 안내했다. 계정/VM 선택 미정,
+설치·계정 생성·Xcode 재빌드는 하지 않았다. 환경 준비와 제품 기능 개발은 별도 작업이며,
+P5·Xcode 실행 경계 및 전체 통합 검증은 계속 미완료다. 통합 PASS 없음.
