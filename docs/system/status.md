@@ -1,7 +1,7 @@
 # 현재 상태 · 새 개발 대화의 시작점
 
-문서 revision: `CONTEXT-2026-11-09-09`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
-확인일: 2026-11-09 KST. 이 문서는 현재 상태의 요약이다. 정책 원본은 product/policies,
+문서 revision: `CONTEXT-2026-11-10-01`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
+확인일: 2026-11-10 KST. 이 문서는 현재 상태의 요약이다. 정책 원본은 product/policies,
 계약 원본은 backend/contracts, 실행 사실은 각 작업 기록, 승인 기준은 verifier/requirements다.
 충돌 시 날짜만 보고 정책을 덮어쓰지 말고 원본·Git 변경을 확인한다. 아래 과거 실행은 현재 프로세스 생존을 보장하지 않는다.
 
@@ -121,3 +121,11 @@ verifier 코드 d15601e, 브랜치 codex/vfy-02-evidence-v2. VFY-01 관찰점 �
 - 결과 ERROR, ios-build FAIL, 기타미실행필수검사 SKIPPED, review PENDING, isolation_verified=false. **통합PASS 없음**. 산출물요약/로그 복사본 verifier/work/handoff/godieor-vfy-run-391f70fd (Git제외). 원본당시 verifier dirty/state hash를 새SHA결과로 전용하지 않는다.
 - 다음1순위: 제한Xcode쓰기 EPERM 원인좁히기. 다음2순위: setsid후손 수명/자원격리 설계. 해결후 전체고정run·모든필수검사연결·AI review 어댑터. 상세명령/재현/미실행은 원본카드와 docs/runner.md. LEARN-0014.
 - 공통 제품정책·API계약·migration·acceptance승인상태 변경없음. 문서구현상태의 예전미완료/완료표현보다 본절의 최신부분실행 결과를 우선한다.
+
+## VFY-03 최신 진단 도구 후속 (2026-11-10 KST, 이전 중단 절 이후)
+
+세션 시작 Git: app 7c868d9/dev, backend 2a9d06f/dev, verifier 1081d93/codex/vfy-foundation-probe-hardening, 모두 clean. 기존 카드에는 공통 요약보다 최신인 물리 Darwin T 원인 분리·전용 UID 설계·사전점검·Foundation probe가 구현돼 있었다. 이번 작업 브랜치는 세 저장소 codex/vfy-foundation-diagnostics다.
+
+Foundation 도구에 `--sandbox`, 신규 출력 독점 생성, 로그/프로필 digest/UID 기록과 plist 내용 검사를 추가했다. 일반 실행 성공, 실제 runner 제한 프로필에서는 non_atomic=true/atomic=false(exit2)를 재현했다. 71개 자체 검사 성공. 원본 verifier/docs/tasks/VFY-03-foundation-diagnostics.md 및 docs/runner-isolation.md, LEARN-0014 참조. 담당 해제, 독립 리뷰 대기.
+
+다음 우선순위는 전용 실행 UID 또는 run별 VM 준비 후 제한 Foundation/Xcode/setsid 수명 게이트의 실제 검사다. 공유 Darwin T 권한은 열지 않았다. 전용 계정 생성·Xcode 재빌드·P5 검증·통합 run은 이번에 수행하지 않았으며 isolation_verified=false, acceptance draft, 통합 PASS 없음 유지. 과거 sandbox 시작 거부와 이번 Foundation 실제 저장 실패를 구분한다.
