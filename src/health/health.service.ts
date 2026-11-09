@@ -4,12 +4,22 @@ import { HealthRepository } from "./health.repository";
 export class HealthService {
   constructor(private readonly repository: HealthRepository) {}
   async health() {
-    await this.repository.checkConnection();
+    const groups = await this.repository.checkConnection();
+    const provider = groups.some(
+      (g) => g.origin === "provider" && g._count > 0,
+    );
+    const fixture = groups.some((g) => g.origin === "fixture" && g._count > 0);
     return {
       status: "ok",
       database: "connected",
-      dataMode: "fixture",
-      realProvidersConnected: false,
+      dataMode: provider
+        ? fixture
+          ? "mixed"
+          : "provider"
+        : fixture
+          ? "fixture"
+          : "empty",
+      realProvidersConnected: provider,
     };
   }
 }

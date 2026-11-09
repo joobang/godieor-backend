@@ -61,3 +61,7 @@ Google 로그인·개인 쓰기·실제 API 키 설정은 후속 작업이며 mo
 CLI 진입점은 src/cli/collect-fixture.ts와 src/cli/collect-candidates.ts이며 기존 npm 별칭은 유지한다.
 `npm test`는 clean build와 후보/DI/HTTP 경계를 검사한다. `npm run test:db`는 별도 tmpfs PostgreSQL을 만들고 검사 후 삭제한다.
 기존 DB나 KNU 컨테이너·볼륨을 변경하지 않는다. 기능 모듈·계층은 [서버 구조](backend-architecture.md)를 따른다.
+
+## 검토 후보 제품 반영
+
+[reviewed-publish.md](reviewed-publish.md)를 따라 명시적 매핑 파일로 실행한다. 2026-11-09 작성자 실행 후 로컬 DB에는 provider4+fixture7이 있다. health는 DB에 존재하는 원천에 따라 mixed/provider/fixture/empty를 구분한다. realProvidersConnected는 provider 행의 존재이며 실시간 외부 접속 점검이 아니다. 기존 프로세스는 새 코드 실행 전까지 예전 health를 응답할 수 있다.

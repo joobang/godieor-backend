@@ -8,7 +8,7 @@ ProviderAdapter.fetch(scope, mode)
   → API 읽기 snapshot → 캘린더/목록
 ```
 
-현재 FixtureAdapter 하나만 등록했고 네 분야 scope를 제공한다. 실제 API 호출은 없다.
+API scheduler에는 FixtureAdapter만 등록했다. 별도 ReviewedOttModule CLI가 검토 후보를 provider 원천으로 수동 반영한다. 실시간 제공처 인증 API 호출은 없다.
 provider별 PostgreSQL session advisory lock으로 동시 실행을 제한한다. 수집 I/O는 DB publish 트랜잭션 밖에서 수행한다.
 실행 시작/성공/실패와 성공 수집 시각을 분리한다. 실패는 기존 이벤트/마지막 성공 시각을 지우지 않는다.
 원본이 목록에서 사라졌다는 이유만으로 취소하지 않는다. 변경·취소는 제공처의 명시 근거로 갱신해야 한다.
@@ -24,5 +24,4 @@ provider별 PostgreSQL session advisory lock으로 동시 실행을 제한한다
 ## 선행 후보 수집 · DATA-02A
 
 제품 Pipeline 앞의 [공지 후보 CLI](ott-candidates.md)를 추가했다. 별도 수동 실행이며 자동 스케줄은 아직 연결하지 않았다.
-실제 RSS 후보→검토/날짜 보류→내보내기를 실행했다. 검토 내보내기→제품 ProviderAdapter/Canonical/publish 연결은 후속이다.
-기존 FixtureAdapter만 등록된 상태와 후보 수집을 구분한다.
+실제 RSS 후보→검토/날짜 보류→내보내기를 실행했다. 현재 검토본 + 고정 키 매핑→ReviewedOttAdapter→기존 CollectionService/Repository publish를 연결했다. [사용법·실행/한계](reviewed-publish.md)를 따른다. 자동 스케줄·전수 수집은 후속이다.

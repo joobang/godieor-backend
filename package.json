@@ -2,7 +2,7 @@
   "name": "godieor-backend",
   "version": "0.1.0",
   "private": true,
-  "description": "GODIEOR 로컬 API와 수집 파이프라인",
+  "description": "GODIEOR \ub85c\uceec API\uc640 \uc218\uc9d1 \ud30c\uc774\ud504\ub77c\uc778",
   "engines": {
     "node": ">=24.11 <25"
   },
@@ -18,7 +18,9 @@
     "test:candidates": "npm run build && node --test tests/candidates.test.cjs",
     "test:architecture": "npm run build && node --test tests/architecture.test.cjs",
     "test": "npm run build && node --test tests/*.test.cjs",
-    "test:db": "npm run build && node scripts/check-refactor-db.cjs"
+    "test:db": "npm run build && node scripts/check-refactor-db.cjs",
+    "publish:reviewed": "node --env-file=.env dist/src/cli/publish-reviewed.js",
+    "test:reviewed": "npm run build && node --test tests/reviewed-publish.test.cjs"
   },
   "dependencies": {
     "@nestjs/common": "12.4.0",

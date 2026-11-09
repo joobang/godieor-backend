@@ -1,7 +1,7 @@
 # GODIEOR Backend
 
 NestJS + Prisma + PostgreSQL로 영화·OTT 드라마 시즌 최초 공개·게임 정식 출시·EPL 경기 일정을 제공한다.
-현재 **로컬 공개 API와 가상 제공처 파이프라인**을 구성했다. 제품용 실제 제공처 어댑터·Google/계정 쓰기·iOS 연결은 아직 없다. 공개 공지 후보 수집은 아래 별도 staging이다.
+현재 **로컬 공개 API·가상 수집과 검토한 OTT 공지의 수동 publish**를 구현했다. Google/계정 쓰기·iOS 연결·자동 전수 수집은 아직 없다.
 
 ## 새 계정·대화에서 이어받기
 
@@ -12,6 +12,7 @@ NestJS + Prisma + PostgreSQL로 영화·OTT 드라마 시즌 최초 공개·게�
 ## 서버 구조
 
 [기능 모듈·계층 책임](docs/backend-architecture.md): catalog/health는 Controller → Service → Repository, 수집은 Service → Repository/Adapter다.
+[Prisma Client 우선·SQL 예외 규칙](docs/query-policy.md)을 따른다.
 auth/users는 미구현 차단 서비스이며 후보 CLI도 별도 Nest 모듈·DI를 사용한다.
 
 ## 시작
@@ -29,11 +30,11 @@ npm start
 ```
 
 [실행/중단·환경 설정](docs/local-development.md). 현재 DB 127.0.0.1:55432, API 127.0.0.1:3000/v1.
-모든 현재 일정은 가상이며 dataOrigin=fixture다. API/DB는 전용 Compose 볼륨을 사용한다.
+현재 로컬 DB에는 가상7건과 공식 공지를 작성자가 검토해 반영한 OTT4건이 함께 있다. dataOrigin으로 구분한다. API/DB는 전용 Compose 볼륨을 사용한다.
 
 ## OTT 공지 후보 단계
 
-[후보 수집·검토 CLI](docs/ott-candidates.md)를 추가했다. 공개 RSS/공식 링크 후보는 로컬 staging이고 제품 일정으로 publish하지 않는다.
+[후보 수집·검토 CLI](docs/ott-candidates.md)를 추가했다. 공개 RSS/공식 링크를 로컬 staging에서 검토하고 [명시적 고정 키 매핑으로 수동 publish](docs/reviewed-publish.md)한다.
 `npm run candidates -- collect` → `list` → 검토 JSON 입력 → `export` 순서다. 연·월·일 없는 후보는 보류한다.
 
 ## 설계·계약·기록
