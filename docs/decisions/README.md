@@ -15,3 +15,5 @@ ADR에는 상태(proposed/accepted/superseded), 날짜, 실제 사용자 선택 
 선정·가입·배포 시 공식 조건을 재확인한다. 이 저장소의 상세 선택은 이후 backend ADR이 소유한다.
 
 - [ADR-006: 통일한 찜 동작과 작품/일정 식별자 분리](006-unified-saved-items.md)
+
+- [ADR-007: OTT 최초 공개일만 제공](007-ott-premieres-only.md)
