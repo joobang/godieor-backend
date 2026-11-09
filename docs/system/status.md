@@ -1,6 +1,6 @@
 # 현재 상태 · 새 개발 대화의 시작점
 
-문서 revision: `CONTEXT-2026-11-09-03`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
+문서 revision: `CONTEXT-2026-11-09-04`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
 확인일: 2026-11-09 KST. 이 문서는 현재 상태의 요약이다. 정책 원본은 product/policies,
 계약 원본은 backend/contracts, 실행 사실은 각 작업 기록, 승인 기준은 verifier/requirements다.
 충돌 시 날짜만 보고 정책을 덮어쓰지 말고 원본·Git 변경을 확인한다. 아래 과거 실행은 현재 프로세스 생존을 보장하지 않는다.
@@ -20,10 +20,10 @@
 | 저장소 | 구현·실행 기록 | 아직 없는 것 | 근거 |
 |---|---|---|---|
 | app | SwiftUI 시작 화면, iOS 빌드 스크립트 | API client, 달력/상세 기능, Google 로그인·계정 동기화 | `README.md`, `docs/repository-plan.md` |
-| backend | NestJS 공개 조회 API, Prisma 23 모델·초기 SQL migration, 로컬 PostgreSQL, fixture 파이프라인. 작성자가 빌드·가상 7건 수집·API 조회 실행 | 실제 제공처, Google/개인 쓰기, iOS 연결, 실패/경합 회귀 검사·독립 통합 검증 | `docs/tasks/BE-01-local-pipeline.md`, `contracts/implementation.md` |
+| backend | NestJS 공개 조회 API, Prisma 23 모델·초기 SQL migration, 로컬 PostgreSQL, fixture 파이프라인. 작성자가 빌드·가상 7건 수집·API 조회 실행. 후속 RSS 후보/검토 CLI 구현 | 제품 제공처 어댑터, Google/개인 쓰기, iOS 연결, 독립 통합 검증 | `docs/tasks/BE-01-local-pipeline.md`, `docs/tasks/DATA-02-ott-candidates.md`, `contracts/implementation.md` |
 | verifier | acceptance 초안, app-only evidence v1 집계기, bootstrap 자기 검사·리뷰 기록 | evidence v2, 자동 snapshot/runner/AI 어댑터, 실제 OS 격리, 승인 기준에 의한 통합 run | `README.md`, `docs/bootstrap-validation.md` |
 
-모든 현재 일정은 가상이다. acceptance는 draft이며 세 저장소 통합 PASS는 없다.
+제품 API의 현재 일정은 가상이다. 공개 RSS에서 모은 실제 공지 후보/검토 후보는 로컬 staging에만 있으며 제품 DB에 publish하지 않았다. acceptance는 draft이며 세 저장소 통합 PASS는 없다.
 Node 24.19.0 / Nest 12.4.0 / Prisma 7.10.1 / PostgreSQL 16.14가 로컬 구현에 고정돼 있다.
 실행·중단·포트·환경 복구 원본은 backend의 `docs/local-development.md`다. 이번 인계 문서 작업에서 제품 실행을 다시 확인하지 않았다.
 
@@ -36,9 +36,9 @@ Node 24.19.0 / Nest 12.4.0 / Prisma 7.10.1 / PostgreSQL 16.14가 로컬 구현�
 - verifier: `01ca34b816ddf4d9b6185e1a9e450008bb642c6b`.
 - API: `0.1.0-draft.2`, 작성자 검토 기록 있음 / 독립 검토 대기.
 - 계약·migration digest: app `docs/api/contract-reference.json`, verifier `docs/contracts/reference.json`.
-- 공통 문서: `SYNC-2026-11-09-14`. 이전 13에서 커밋 표기만 영문 타입 + 한글 설명으로 보완했다.
+- 공통 문서: `SYNC-2026-11-09-15`. 14의 커밋 표기를 유지하고 OTT 정확한 날짜 입력/불완전 날짜 후보 보류 정책을 확정했다.
   계약 참조의 `policyRevision=SYNC-2026-11-09-13`은 계약 작성 기준으로 보존하며, 이번 문서 변경으로 재고정하지 않는다.
-  제품/API 의미·migration·acceptance 승인 상태는 변경하지 않았다.
+  API 스키마·migration·acceptance 승인 상태는 변경하지 않았다. 최신 입력 정책은 제품 연결 때 계약 고정본과 대조한다.
 
 작업 직전 각 저장소에서 `git status --short`, `git branch --show-current`, `git rev-parse HEAD`를 실행한다.
 현재 checkout이 기준과 다른 경우 diff와 후속 기록을 읽는다. 웹 전달 파일은 생성 시점의 전체 HEAD·branch·dirty 상태·문서 SHA-256을 따로 기록한다.
@@ -49,22 +49,27 @@ Node 24.19.0 / Nest 12.4.0 / Prisma 7.10.1 / PostgreSQL 16.14가 로컬 구현�
 |---|---|---|---|
 | CTX-02 | 커밋 규칙 보완·다음 작업 판단 완료. 세션 종료 시 담당 해제 | 커밋은 영문 타입 + 한글 설명 사용. 새 개발은 아래 우선순위 참고 | app `docs/ai/tasks/CTX-02-commit-convention.md` |
 | CTX-01 | 문서·생성 도구 구현 완료, 사용자 계정 전환 실험 대기. 현재 구현 세션 종료 시 담당 해제 | 새 계정이 이 문서만 시작점으로 상태·미완료·다음 일을 설명하는지 사용자가 확인 | app `docs/ai/tasks/CTX-01-context-handoff.md` |
-| DATA-01 / OTT 근거 | 공식 공개 페이지·3개 RSS 실제 접근 확인 완료, 작성자 조사. 어댑터/인증 API·전수 coverage 미확인. 담당 해제 | 다음 제안: 공지 후보 수집→사람 검토→publish 허용 여부 결정 및 표본 대조. 부분 지원을 자동 확정하지 않음 | backend `docs/research/2026-11-09-ott-feasibility.md`, `docs/tasks/DATA-01-ott-feasibility.md` |
+| DATA-02A | 공식 RSS 후보 CLI·검토 입력/보류·내보내기 구현 및 작성자 실행, 담당 해제 | 다음: 안정 작품/시즌/이벤트 매핑과 검토 후보→publish 어댑터. 독립 검증은 별도 | backend `docs/tasks/DATA-02-ott-candidates.md`, `docs/ott-candidates.md` |
+| DATA-01 / OTT 근거 | 공식 공개 페이지·3개 RSS 실제 접근 확인 완료, 작성자 조사. 어댑터/인증 API·전수 coverage 미확인. 담당 해제 | 공지 후보 수집/검토를 DATA-02A로 진행. 전수 coverage/허용 조건은 계속 확인 필요 | backend `docs/research/2026-11-09-ott-feasibility.md`, `docs/tasks/DATA-01-ott-feasibility.md` |
 | 계약 독립 검토 / VFY-01~04 | 대기, 담당 없음 | 기준 초안·고정 SHA/계약 조합으로 독립 검토 및 evidence v2/runner 설계. 구현 완료로 취급하지 않음 | 공통 `plan.md`, verifier `requirements/proposals/` |
 | APP-01 | 미착수, 담당 없음 | 고정 계약으로 공개 API client→캘린더/상세 연결. 가상 데이터 표시, 날짜 정밀도 유지 | app `docs/repository-plan.md` |
 | BE-AUTH / 개인 쓰기 | 미착수, 담당 없음 | 세션·계정 삭제/동기화 충돌 세부 설계 후 Google 실제 인증·사용자 격리 구현 | backend 계약, 공통 P03 |
 
-후속 작업의 우선순위는 제안이다. 현재 요청한 OTT 확보 가능성 확인에서 공식 샘플·RSS 접근과 한계를 조사했다.
+현재 사용자는 정확한 날짜만 반영·불완전 날짜 후보 보류를 확정하고 다음 구현을 요청했다. DATA-02A 후보 수집 단계를 진행했다.
 계정 전환 실험 결과는 아직 전달받지 못했다. 이를 후속 모든 작업의 필수 선행 조건으로 두지는 않는다.
 
 조사 결과: Netflix/Coupang/CJ의 공개 공지에 날짜 근거가 있고 RSS를 실제 XML 파싱했다.
 단, RSS는 최신 일부이며 과거 채우기/전수 일정을 보장하지 않는다. Disney+는 검색 색인의 일자와 현재 상세 본문의 연도 표시가 달랐다.
 미검토 검색 요약·플랫폼 가용성·TV 방송일로 한국 OTT 최초 공개일을 생성하지 않는다.
 
-권장 다음 작업: 공지 기반 후보 수집 + 사람 검토 입력을 도입할지 정한 뒤 표본 대조/허용 조건을 확인한다.
-확정되면 별도 작업에서 RSS→후보 저장까지만 작은 단위로 구현하고 publish 단계와 구분한다.
-키를 준비한 실제 출처 최소 응답 확인, 계약 독립 검토/evidence v2·runner 확장은 병행 가능하다.
-제품 정책/계약/정식 검증 상태는 바꾸지 않았다. LEARN-0007은 조사에서 확인한 입력 위험을 연결한다.
+실제 실행: 공지 RSS 77개 후보 수집(드라마 77작품이라는 뜻 아님), 공식 링크 수동 추가와 작성자 검토 후 80개 공지 중 4개 후보 내보내기.
+이는 작성자의 근거 확인이며 사용자 검토/독립 검증 PASS가 아니다. 월/연도만 있는 검토는 보류하고 시각/시즌은 null을 허용한다.
+빌드 성공, 날짜·출처·변경/부분 실패·동시 쓰기의 자체 검사 17개 통과. 운영 DB는 이번 작업에 사용하지 않았다.
+
+다음 작업: 검토 후보와 안정 작품/시즌/이벤트 키 매핑 → 기존 provider publish 연결 → API/iOS 소비와 독립 검사.
+한 공지에 여러 작품·서로 다른 공지에 같은 작품, 정정 시 기존 이벤트 ID 보존을 다뤄야 한다.
+키를 준비한 다른 출처 최소 응답 확인, 계약 독립 검토/evidence v2·runner 확장은 병행 가능하다.
+LEARN-0008에 후보 단계와 날짜 게이트·미확인 범위를 기록했다.
 
 ## 현재 우려와 미정 사항
 

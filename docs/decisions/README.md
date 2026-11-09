@@ -21,3 +21,5 @@ ADR에는 상태(proposed/accepted/superseded), 날짜, 실제 사용자 선택 
 - [ADR-008: API·DB 계약 초안](008-api-database-contract.md)
 
 - [ADR-009: 로컬 런타임·파이프라인](009-local-runtime-pipeline.md)
+
+- [ADR-010 · OTT 후보 staging과 정확한 날짜 검토](010-ott-candidate-staging.md)

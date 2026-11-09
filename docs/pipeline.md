@@ -19,3 +19,10 @@ provider별 PostgreSQL session advisory lock으로 동시 실행을 제한한다
 어댑터 fetch timeout·페이지 종료·누락을 확인하기 전 실제 수집 완료로 표시하지 않는다.
 
 정식 검증은 아직 없다. 실패/동시 실행/반복 수집/연기 이력·접근 경계의 독립 검사는 별도 작업이다.
+
+
+## 선행 후보 수집 · DATA-02A
+
+제품 Pipeline 앞의 [공지 후보 CLI](ott-candidates.md)를 추가했다. 별도 수동 실행이며 자동 스케줄은 아직 연결하지 않았다.
+실제 RSS 후보→검토/날짜 보류→내보내기를 실행했다. 검토 내보내기→제품 ProviderAdapter/Canonical/publish 연결은 후속이다.
+기존 FixtureAdapter만 등록된 상태와 후보 수집을 구분한다.

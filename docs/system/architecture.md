@@ -1,6 +1,6 @@
 # GODIEOR · 세 저장소 공통 아키텍처
 
-- 문서 revision: `SYNC-2026-11-09-14`
+- 문서 revision: `SYNC-2026-11-09-15`
 - 상태: **책임 분리·저장소 3개, NestJS + PostgreSQL + Prisma 및 TypeORM 제외는 사용자 확정**. 최종 실행 형태와 로컬 우선 진행도 사용자 확정이다. 로컬 버전은 하단 구현 기록에 고정했다. 클라우드 제공자·나머지 세부 정책은 미정이다.
 - 공통 문서 원본: `godieor-app/docs/system/`. backend/verifier의 같은 경로는 동기화 사본이다.
 - 공통 문서: `architecture.md`, `plan.md`, `policies.md`. 변경 시 세 사본을 함께 갱신한다.
@@ -221,3 +221,12 @@ backend에서 전용 PostgreSQL 16.14와 Nest 12.4.0/Prisma 7.10.1, Node 24.19.0
 초기 migration 적용/스키마·클라이언트 생성/빌드/가상 수집/공개 조회를 실행했다. Google/개인 데이터 쓰기는 아직 차단되어 있다.
 수집은 provider별 advisory lock, scope별 원자적 publish와 실패/성공 시각 분리다. 기본 일일 스케줄 OFF.
 실제 제공처·독립 검증·원격 배포는 미완료다. app UI는 여전히 시작 화면이며 API를 연결하지 않았다.
+
+
+## OTT 입력 후보와 제품 일정의 경계 · DATA-02A
+
+공식 공지 RSS/검토 입력 → 로컬 검토 대기 후보 → 정확한 날짜/시장/플랫폼/드라마 최초 공개 여부 확인 → 검토 후보 내보내기.
+연·월·일이 없으면 후보에 보류한다. 시각·시즌은 있는 값만 보존한다.
+현재 backend CLI는 후보 단계까지 구현했다. PostgreSQL 제품 일정으로 publish하는 어댑터·정정 반영은 후속이다.
+수집 후보는 공지 단위여서 한 공지의 여러 작품 분해·다른 공지의 동일 작품 매핑도 제품 연결 전에 설계해야 한다.
+기존 public API·DB migration·계약 고정본은 그대로이며 후보를 제품 실데이터로 표현하지 않는다.
