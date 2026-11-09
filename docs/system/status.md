@@ -1,6 +1,6 @@
 # 현재 상태 · 새 개발 대화의 시작점
 
-문서 revision: `CONTEXT-2026-11-09-08`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
+문서 revision: `CONTEXT-2026-11-09-09`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
 확인일: 2026-11-09 KST. 이 문서는 현재 상태의 요약이다. 정책 원본은 product/policies,
 계약 원본은 backend/contracts, 실행 사실은 각 작업 기록, 승인 기준은 verifier/requirements다.
 충돌 시 날짜만 보고 정책을 덮어쓰지 말고 원본·Git 변경을 확인한다. 아래 과거 실행은 현재 프로세스 생존을 보장하지 않는다.
@@ -110,3 +110,14 @@ LEARN-0008 후보 단계, LEARN-0009 서버 계층, LEARN-0010 Prisma 쿼리, LE
 verifier 코드 d15601e, 브랜치 codex/vfy-02-evidence-v2. VFY-01 관찰점 제안 작성(기준 승인 전), VFY-02 parser/validator·v1호환 및 전체subject 바인딩 구현 완료. 모든 check/review에 app/backend base·head SHA, 계약manifest, migration집합manifest, acceptance, verifier상태 digest를 묶는다. 통합 호출자는 --require-schema-version 2를 강제해야 한다.48개 자체검사 및 별도 코드 reviewer의 동일 자기검사/재현 후 추가 지적 없음 보고. 가상CLI는 REVIEW_REQUIRED(exit2). 기준 초안 SHA c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063 유지.
 
 원본 verifier/docs/tasks/VFY-02-evidence-v2.md, 형식 docs/evidence-v2.md, 리뷰 reviews/2026-11-09-evidence-v2.md, LEARN-0013. 담당 해제. 다음 VFY-03 고정 snapshot/별도 build 사본·일회용DB 설계 및 VFY-04 실행runner. 이전 v1-only/미구현 문단은 당시 기록이다. v2는 선언 일관성 검사이며 실제 실행·격리 증명이 아니다. 제품 통합PASS 없음.
+
+## 사용자 중단·다른 계정 인계 (2026-11-09 KST, 최우선)
+
+사용자가 토큰 부족으로 새 구현을 중단하고 다른 계정으로 넘기도록 요청했다. 담당 codex-runner-01 해제. **VFY-03/04 초기구현/부분실행, 미완료**다. 다음 계정은 verifier/docs/tasks/VFY-03-04-runner.md를 먼저 읽고 새 작업 요청 범위에서 인계받는다.
+
+- verifier 구현 고정점4346539a6ab240eec659121e6650727ca8e633e1, 브랜치 codex/vfy-03-runner. app codex/app-01-review-fixes, backend dev. 최종문서HEAD는 Git/웹전달본 확인. 미커밋변경 없이 인계한다.
+- snapshot rawGit tree/blob, 최소환경·제한sandbox·단계별로그·일회용DB·v2 evidence 생성 구현.62개 자기검사 통과. 별도review에서 Git호스트실행/변경된추출/충돌/DBtimeout정리 지적 수정. **setsid후손수명정리P5는 open**.
+- 마지막실행 /private/tmp/godieor-vfy-run-391f70fd: node버전/경계probe/의존성/Prisma생성/tsc/backend47tests/새DBmigration/반복수집·달력상세smoke 성공. iOS sandbox build exit65(DerivedData쓰기 EPERM). shell동일경로쓰기성공, /tmp별칭·HOME/cache조정만으로미해결. 생성한DB컨테이너 정리확인.
+- 결과 ERROR, ios-build FAIL, 기타미실행필수검사 SKIPPED, review PENDING, isolation_verified=false. **통합PASS 없음**. 산출물요약/로그 복사본 verifier/work/handoff/godieor-vfy-run-391f70fd (Git제외). 원본당시 verifier dirty/state hash를 새SHA결과로 전용하지 않는다.
+- 다음1순위: 제한Xcode쓰기 EPERM 원인좁히기. 다음2순위: setsid후손 수명/자원격리 설계. 해결후 전체고정run·모든필수검사연결·AI review 어댑터. 상세명령/재현/미실행은 원본카드와 docs/runner.md. LEARN-0014.
+- 공통 제품정책·API계약·migration·acceptance승인상태 변경없음. 문서구현상태의 예전미완료/완료표현보다 본절의 최신부분실행 결과를 우선한다.
