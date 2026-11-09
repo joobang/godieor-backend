@@ -64,3 +64,7 @@ test:db는 캐시에 있는 Compose 고정 이미지를 사용해 별도 tmpfs P
 공식 근거: [Controllers](https://docs.nestjs.com/controllers), [Providers](https://docs.nestjs.com/providers),
 [Modules](https://docs.nestjs.com/modules), [Prisma](https://docs.nestjs.com/recipes/prisma).
 이 구체적인 모듈/Repository 구분은 GODIEOR의 구현 책임 선택이다.
+
+## 쿼리 작성
+
+Prisma Client 우선 규칙과 SQL 예외는 [query-policy.md](query-policy.md)를 따른다. BE-04에서 미정 목록·이전 날짜 이력·연결 확인을 Client로 전환했다. 계산 정렬/월별 window 집계만 바인딩 SQL과 런타임 검사를 유지한다.

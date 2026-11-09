@@ -25,3 +25,5 @@ ADR에는 상태(proposed/accepted/superseded), 날짜, 실제 사용자 선택 
 - [ADR-010 · OTT 후보 staging과 정확한 날짜 검토](010-ott-candidate-staging.md)
 
 - [ADR-011 · Nest 기능 모듈과 Controller/Service/Repository](011-nest-feature-layering.md)
+
+- [ADR-012 Prisma Client 우선](012-prisma-client-first.md)
