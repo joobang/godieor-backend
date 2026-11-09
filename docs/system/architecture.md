@@ -1,6 +1,6 @@
 # GODIEOR · 세 저장소 공통 아키텍처
 
-- 문서 revision: `SYNC-2026-11-09-15`
+- 문서 revision: `SYNC-2026-11-09-16`
 - 상태: **책임 분리·저장소 3개, NestJS + PostgreSQL + Prisma 및 TypeORM 제외는 사용자 확정**. 최종 실행 형태와 로컬 우선 진행도 사용자 확정이다. 로컬 버전은 하단 구현 기록에 고정했다. 클라우드 제공자·나머지 세부 정책은 미정이다.
 - 공통 문서 원본: `godieor-app/docs/system/`. backend/verifier의 같은 경로는 동기화 사본이다.
 - 공통 문서: `architecture.md`, `plan.md`, `policies.md`. 변경 시 세 사본을 함께 갱신한다.
@@ -230,3 +230,11 @@ backend에서 전용 PostgreSQL 16.14와 Nest 12.4.0/Prisma 7.10.1, Node 24.19.0
 현재 backend CLI는 후보 단계까지 구현했다. PostgreSQL 제품 일정으로 publish하는 어댑터·정정 반영은 후속이다.
 수집 후보는 공지 단위여서 한 공지의 여러 작품 분해·다른 공지의 동일 작품 매핑도 제품 연결 전에 설계해야 한다.
 기존 public API·DB migration·계약 고정본은 그대로이며 후보를 제품 실데이터로 표현하지 않는다.
+
+
+## NestJS 계층 수정 · BE-03
+
+사용자 구조 지적에 따라 backend를 catalog/health/auth/users/collection/ott-candidates 기능 모듈로 분리했다.
+HTTP는 Controller→Service→Repository, 외부 원천은 Client/Adapter, 스케줄/DTO/표현/설정/DB 인프라는 개별 책임이다.
+main.ts/CLI는 bootstrap, app.module.ts는 조립만 한다. 상세 원본은 backend/docs/backend-architecture.md와 ADR-011이다.
+API/DB 계약 의미·기존 migration·승인 기준은 유지하고 레이어 직접 IO 및 API/수집 회귀를 검사한다.

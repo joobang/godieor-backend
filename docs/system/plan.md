@@ -1,6 +1,6 @@
 # 세 저장소 작업 계획
 
-revision: `SYNC-2026-11-09-15`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
+revision: `SYNC-2026-11-09-16`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
 현재 단계는 정책 결정 진행 중이다. 기존 SwiftUI 구성 유지, NestJS + PostgreSQL + Prisma, TypeORM 제외는 확정됐다.
 **로컬 실행을 먼저 달성하고 최종적으로 iPhone 앱 + 클라우드 API/DB, Mac verifier로 운영한다.** 로컬 버전/도구는 확정했고 클라우드 제공자는 미정이다. 표의 완료 조건은 작업 제안이며 승인 acceptance가 아니다.
 
@@ -133,3 +133,11 @@ backend에 RSS/공식 링크 후보 CLI·검토·날짜 보류·변경 시 검�
 실행 결과는 backend `docs/tasks/DATA-02-ott-candidates.md`, 사용법은 `docs/ott-candidates.md`를 따른다.
 다음은 검토 후보의 안정 작품/시즌/이벤트 매핑, 공지 수정·연기 보존과 기존 publish 연결이다.
 후보 CLI 단계에서 전수 실데이터 연동이나 독립 통합 검증 완료를 선언하지 않는다.
+
+
+## BE-03 계층 수정 · 2026-11-09
+
+새 기능보다 Nest 계층 구조 정리를 우선했다. Controller/Service/Repository와 수집 Client/Adapter를 기능 모듈로 분리했다.
+빌드/28개 자체 검사와 별도 임시 DB의 저장·재수집·연기/실패 보존, 전후 21개 API 응답/커서 호환을 확인했다.
+독립 코드 리뷰는 고정 커밋 대상으로 별도 수행하며 제품/승인 acceptance의 통합 PASS와 구분한다.
+다음 제품 작업은 여전히 검토 후보의 안정 작품·시즌·이벤트 매핑과 publish 연결이다.

@@ -9,6 +9,11 @@ NestJS + Prisma + PostgreSQL로 영화·OTT 드라마 시즌 최초 공개·게�
 현재 상태 문서 원본은 app이다. 아래 실행 안내와 구분하며, 과거 실행 기록을 현재 프로세스 생존으로 해석하지 않는다.
 웹 전달본은 app의 `python3 scripts/export-context.py`로 생성한다.
 
+## 서버 구조
+
+[기능 모듈·계층 책임](docs/backend-architecture.md): catalog/health는 Controller → Service → Repository, 수집은 Service → Repository/Adapter다.
+auth/users는 미구현 차단 서비스이며 후보 CLI도 별도 Nest 모듈·DI를 사용한다.
+
 ## 시작
 
 Node 24를 선택하고 다음 순서로 실행한다.

@@ -1,8 +1,8 @@
 # Backend 역할과 다음 작업
 
 공통 기준: [architecture](system/architecture.md), [plan](system/plan.md), [policies](system/policies.md).
-현재는 코드·DB·계약을 만들기 전의 계획 단계다. NestJS + PostgreSQL + Prisma와 TypeORM 제외는 확정됐다.
-정확한 버전·로컬 DB 도구를 정해 BE-01을 진행한다. 클라우드 제공자 선정은 로컬 실행의 선행 조건이 아니다.
+현재 로컬 API·DB·계약과 후보 수집을 구성했고 BE-03에서 기능별 Nest 계층으로 분리했다. NestJS + PostgreSQL + Prisma와 TypeORM 제외는 확정됐다.
+정확한 로컬 버전/도구는 docs/local-development.md, 현재 구조는 docs/backend-architecture.md를 따른다. 클라우드 제공자 선정은 로컬 실행의 선행 조건이 아니다.
 최종 사용 형태는 iPhone + 클라우드 API/DB이고 verifier는 Mac에 둔다. 첫 목표는 Mac API/DB와 앱의 연결이다.
 
 | 작업 | 선행 정책/작업 | 내용과 완료 시 관찰할 것 |
