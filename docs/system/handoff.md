@@ -1,7 +1,7 @@
 # 계정·모델 사이에서 작업 이어받기
 
-revision: `CONTEXT-2026-11-09-05`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
-공통 문서는 `SYNC-2026-11-09-16`이다. Nest 기능 모듈·계층 구조를 명시했고 OTT 날짜 정책/API 스키마는 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
+revision: `CONTEXT-2026-11-09-06`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+공통 문서는 `SYNC-2026-11-09-17`이다. Prisma Client 우선 규칙과 검토 후보 수동 publish를 반영했고 OTT 날짜 정책/API 스키마는 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
 
 ## 시작
 

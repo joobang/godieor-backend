@@ -1,6 +1,6 @@
 # GODIEOR · 세 저장소 공통 아키텍처
 
-- 문서 revision: `SYNC-2026-11-09-16`
+- 문서 revision: `SYNC-2026-11-09-17`
 - 상태: **책임 분리·저장소 3개, NestJS + PostgreSQL + Prisma 및 TypeORM 제외는 사용자 확정**. 최종 실행 형태와 로컬 우선 진행도 사용자 확정이다. 로컬 버전은 하단 구현 기록에 고정했다. 클라우드 제공자·나머지 세부 정책은 미정이다.
 - 공통 문서 원본: `godieor-app/docs/system/`. backend/verifier의 같은 경로는 동기화 사본이다.
 - 공통 문서: `architecture.md`, `plan.md`, `policies.md`. 변경 시 세 사본을 함께 갱신한다.
@@ -11,7 +11,7 @@
 | 저장소 | 현재 실제 구현 | 이번 문서가 추가한 것 |
 |---|---|---|
 | godieor-app | SwiftUI 시작 화면·빌드 스크립트·제품/학습 문서 | iOS 책임, 백엔드/API 의존 관계, 작업 순서 |
-| godieor-backend | Prisma 23 모델·초기 migration·로컬 공개 API·가상 수집 CLI | 실제 출처 적합성 조사. Google/개인 쓰기·실제 제공처 미구현 |
+| godieor-backend | Prisma 23 모델·초기 migration·로컬 공개 API·가상 수집 CLI | OTT 검토 공지4건 수동 반영. Google/개인 쓰기·자동 전수 수집 미구현 |
 | godieor-verifier | 앱 대상으로 한 evidence v1 집계기·33개 자기 검사 | 앱+백엔드 조합 검증 설계. 런타임 확장 전 |
 
 실제 제공처 연동, 원격 DB/배포, 자동 snapshot·runner·AI 호출 어댑터·OS 격리는 아직 없다.
@@ -227,9 +227,9 @@ backend에서 전용 PostgreSQL 16.14와 Nest 12.4.0/Prisma 7.10.1, Node 24.19.0
 
 공식 공지 RSS/검토 입력 → 로컬 검토 대기 후보 → 정확한 날짜/시장/플랫폼/드라마 최초 공개 여부 확인 → 검토 후보 내보내기.
 연·월·일이 없으면 후보에 보류한다. 시각·시즌은 있는 값만 보존한다.
-현재 backend CLI는 후보 단계까지 구현했다. PostgreSQL 제품 일정으로 publish하는 어댑터·정정 반영은 후속이다.
-수집 후보는 공지 단위여서 한 공지의 여러 작품 분해·다른 공지의 동일 작품 매핑도 제품 연결 전에 설계해야 한다.
-기존 public API·DB migration·계약 고정본은 그대로이며 후보를 제품 실데이터로 표현하지 않는다.
+DATA-02B에서 현재 검토본과 고정 작품/이벤트 키를 받아 PostgreSQL로 수동 publish하는 어댑터를 연결했다.
+수집 후보는 공지 단위이고 현재 한 검토는 한 작품만 지원한다. 여러 작품 분해는 후속이며 다른 공지의 동일 작품 연결은 명시적 매핑으로 수행한다.
+기존 public API·DB migration·계약 고정본은 그대로이며 미검토 후보를 제품 실데이터로 표현하지 않는다. 명시적으로 반영한 provider 일정과 fixture는 구분한다.
 
 
 ## NestJS 계층 수정 · BE-03
@@ -238,3 +238,9 @@ backend에서 전용 PostgreSQL 16.14와 Nest 12.4.0/Prisma 7.10.1, Node 24.19.0
 HTTP는 Controller→Service→Repository, 외부 원천은 Client/Adapter, 스케줄/DTO/표현/설정/DB 인프라는 개별 책임이다.
 main.ts/CLI는 bootstrap, app.module.ts는 조립만 한다. 상세 원본은 backend/docs/backend-architecture.md와 ADR-011이다.
 API/DB 계약 의미·기존 migration·승인 기준은 유지하고 레이어 직접 IO 및 API/수집 회귀를 검사한다.
+
+## Prisma 쿼리 규칙 · BE-04 / 검토 후보 반영 · DATA-02B
+
+Prisma Client를 기본으로 CRUD/관계/필터/이력/연결 확인을 작성한다. 계산 시간대 정렬과 월별 window 집계, advisory lock만 근거를 남겨 SQL을 사용한다. 바인딩과 반환값 런타임 검사를 유지한다. 원본은 backend/docs/query-policy.md / ADR-012다.
+
+ReviewedOttModule CLI는 현재 검토 revision + 명시적 contentKey/eventKey를 기존 provider publish로 연결한다. 날짜/제목으로 ID를 만들지 않는다. 국가/플랫폼/작품/알려진 시즌 변경으로 이전 이벤트를 덮어쓰지 않는다. timezone 미확인은 date_only다. 수동 반영4건+fixture7건을 로컬에서 API 조회했고 자동 전수 수집/승인 통합 PASS는 아니다. 상세 원본은 backend/docs/reviewed-publish.md / ADR-013이다.
