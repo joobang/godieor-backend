@@ -1,6 +1,6 @@
 # 계정·모델 사이에서 작업 이어받기
 
-revision: `CONTEXT-2026-11-10-03`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+revision: `CONTEXT-2026-11-10-04`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
 공통 문서는 `SYNC-2026-11-09-18`이다. APP-01 통합 및 독립 검증 대기 상태를 반영했고 OTT 날짜 정책/API 스키마는 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
 
 APP-01G 인계 기준: app `f36adb748b3a452db105475ffbcae5abe8d3d02f`, backend `85ea4f3398d949e4f59313232306c3325956b7a6`, verifier `109f918799d6c818ae30ba5af4a5cedb112573e8`. API `0.1.0-draft.2`, contract manifest SHA-256 `8dfc69a8c6a5f9feb91f2d0cf6d661eec16a1aacb8e980b7abe880cd0b1f3b1e`, migration SHA-256 `29ef8ef0d520f44b6a633e8f017144a3e2b2199189461a88ba99bc296c42f5b9`. acceptance 초안, verifier evidence v1 앱 전용으로 통합 PASS 없음. UI 조작 미확인 범위는 app `docs/ai/tasks/APP-01-finalize.md` 참조. 문서 변경 커밋 이후 HEAD는 Git으로 확인한다.
@@ -119,3 +119,13 @@ P10 및 architecture/plan을 SYNC-2026-11-10-01로 갱신했다. 계정 생성�
 원본 verifier/docs/tasks/VFY-03-dedicated-account.md 및 docs/dedicated-account-setup.md.
 다음은 실제 계정 준비와 최소 staging 전달 후 실환경 게이트 검사다. 담당 해제.
 Apple ID/인증서/개인 키체인 공유 없음, P5·격리 입증 미완료/통합 PASS 없음 유지.
+
+## 전용 계정 생성 확인 · 2026-11-10
+
+사용자가 GODIEOR Build(`godieorbuild`) 표준 계정을 생성했다. UID502/GID20,
+HOME /Users/godieorbuild, 관리자 그룹 비회원 확인. 앞 절의 계정 미생성은 당시 상태다.
+현재 기존 개발 계정 UID501에서 작업 중이며 실제 UID502 검사 실행은 아직 인증 대기다.
+고정 입력/진단 staging /Users/Shared/godieor-account-check-4b8fe0c2 준비.
+원본 카드 verifier/docs/tasks/VFY-03-dedicated-account.md. 개인 HOME 권한은 변경하지 않았다.
+계정 분리만으로 원본·비밀 접근 차단을 보장하지 않으며 사전점검→실제 파일 경계→Foundation/Xcode와
+후손 수명 검사는 별도다. P5·격리 검증 미완료, 통합 PASS 없음.
