@@ -1,6 +1,6 @@
 # 현재 상태 · 새 개발 대화의 시작점
 
-문서 revision: `CONTEXT-2026-11-10-04`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
+문서 revision: `CONTEXT-2026-11-10-05`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
 확인일: 2026-11-10 KST. 이 문서는 현재 상태의 요약이다. 정책 원본은 product/policies,
 계약 원본은 backend/contracts, 실행 사실은 각 작업 기록, 승인 기준은 verifier/requirements다.
 충돌 시 날짜만 보고 정책을 덮어쓰지 말고 원본·Git 변경을 확인한다. 아래 과거 실행은 현재 프로세스 생존을 보장하지 않는다.
@@ -160,3 +160,16 @@ HOME /Users/godieorbuild, 관리자 그룹 비회원 확인. 앞 절의 계정 �
 원본 카드 verifier/docs/tasks/VFY-03-dedicated-account.md. 개인 HOME 권한은 변경하지 않았다.
 계정 분리만으로 원본·비밀 접근 차단을 보장하지 않으며 사전점검→실제 파일 경계→Foundation/Xcode와
 후손 수명 검사는 별도다. P5·격리 검증 미완료, 통합 PASS 없음.
+
+## UID502 실제 사전점검 후속 · 2026-11-10
+
+godieorbuild UID502로 인증 후 고정 진단 실행 성공. 사전점검 exit0, 일반 Foundation 성공,
+기존 runner 제한 profile에서는 non_atomic=true/atomic=false(exit2). 입력 app39cd67a/verifierab8fb90,
+결과 /Users/Shared/godieor-account-check-4b8fe0c2/incoming/run. 새 HEAD 결과로 재사용하지 않는다.
+
+실제 UID502에서 개발 HOME/원본 app README 읽기가 가능해 개발 HOME 선두에
+`user:godieorbuild deny list,search` ACL을 추가했다. 다른 사용자 권한은 넓히지 않았다.
+ACL 적용 후 UID502 재검사·전용 Darwin T의 최소 허용·run 잠금·제한 Xcode 빌드가 다음이다.
+계정 생성/기초검사 완료, 실제 전체 격리·P5·통합 검증은 미완료. 담당 codex-account-10 해제.
+비밀번호 값은 작업 카드·명령·로그·전달본에 기록하지 않았고 일회성 비밀 파일은 폐기했다.
+원본 verifier/docs/tasks/VFY-03-dedicated-account.md, LEARN-0014. 통합 PASS 없음 유지.
