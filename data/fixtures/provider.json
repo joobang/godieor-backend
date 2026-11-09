@@ -1,0 +1,190 @@
+[
+  {
+    "externalId": "movie-001",
+    "variantKey": "kr-premiere",
+    "kind": "theatrical_release",
+    "title": "가상 영화: 고요의 궤도",
+    "content": {
+      "externalId": "movie-001",
+      "kind": "movie",
+      "title": "가상 영화: 고요의 궤도"
+    },
+    "seasonNumber": null,
+    "status": "scheduled",
+    "time": {
+      "type": "date_only",
+      "value": "2026-11-11"
+    },
+    "market": "KR",
+    "venueCountry": null,
+    "services": [],
+    "devices": [],
+    "home": null,
+    "away": null,
+    "sourceUrl": "https://example.invalid/fictional/movie-001",
+    "sourceUpdatedAt": null
+  },
+  {
+    "externalId": "drama-season-1",
+    "variantKey": "kr-premiere",
+    "kind": "ott_season_premiere",
+    "title": "가상 드라마: 두 번째 계절 · 시즌 1 최초 공개",
+    "content": {
+      "externalId": "drama-001",
+      "kind": "drama",
+      "title": "가상 드라마: 두 번째 계절"
+    },
+    "seasonNumber": 1,
+    "status": "scheduled",
+    "time": {
+      "type": "date_only",
+      "value": "2026-01-09"
+    },
+    "market": "KR",
+    "venueCountry": null,
+    "services": [
+      "netflix"
+    ],
+    "devices": [],
+    "home": null,
+    "away": null,
+    "sourceUrl": "https://example.invalid/fictional/drama-season-1",
+    "sourceUpdatedAt": null
+  },
+  {
+    "externalId": "drama-season-2",
+    "variantKey": "kr-premiere",
+    "kind": "ott_season_premiere",
+    "title": "가상 드라마: 두 번째 계절 · 시즌 2 최초 공개",
+    "content": {
+      "externalId": "drama-001",
+      "kind": "drama",
+      "title": "가상 드라마: 두 번째 계절"
+    },
+    "seasonNumber": 2,
+    "status": "scheduled",
+    "time": {
+      "type": "instant",
+      "value": "2026-11-11T15:00:00Z",
+      "sourceTimeZone": "Asia/Seoul"
+    },
+    "market": "KR",
+    "venueCountry": null,
+    "services": [
+      "netflix"
+    ],
+    "devices": [],
+    "home": null,
+    "away": null,
+    "sourceUrl": "https://example.invalid/fictional/drama-season-2",
+    "sourceUpdatedAt": null
+  },
+  {
+    "externalId": "game-001",
+    "variantKey": "kr-pc",
+    "kind": "game_release",
+    "title": "가상 게임: 별의 항해",
+    "content": {
+      "externalId": "game-001",
+      "kind": "game",
+      "title": "가상 게임: 별의 항해"
+    },
+    "seasonNumber": null,
+    "status": "scheduled",
+    "time": {
+      "type": "date_only",
+      "value": "2026-11-13"
+    },
+    "market": "KR",
+    "venueCountry": null,
+    "services": [],
+    "devices": [
+      "pc"
+    ],
+    "home": null,
+    "away": null,
+    "sourceUrl": "https://example.invalid/fictional/game-001",
+    "sourceUpdatedAt": null
+  },
+  {
+    "externalId": "game-001",
+    "variantKey": "kr-xbox",
+    "kind": "game_release",
+    "title": "가상 게임: 별의 항해",
+    "content": {
+      "externalId": "game-001",
+      "kind": "game",
+      "title": "가상 게임: 별의 항해"
+    },
+    "seasonNumber": null,
+    "status": "scheduled",
+    "time": {
+      "type": "date_only",
+      "value": "2026-11-20"
+    },
+    "market": "KR",
+    "venueCountry": null,
+    "services": [],
+    "devices": [
+      "xbox"
+    ],
+    "home": null,
+    "away": null,
+    "sourceUrl": "https://example.invalid/fictional/game-001",
+    "sourceUpdatedAt": null
+  },
+  {
+    "externalId": "fixture-match-001",
+    "variantKey": "epl",
+    "kind": "epl_match",
+    "title": "가상 경기: 예시 홈팀 vs 예시 원정팀",
+    "content": null,
+    "seasonNumber": null,
+    "status": "scheduled",
+    "time": {
+      "type": "instant",
+      "value": "2026-11-21T12:30:00Z",
+      "sourceTimeZone": "Europe/London"
+    },
+    "market": null,
+    "venueCountry": "GB",
+    "services": [],
+    "devices": [],
+    "home": {
+      "externalId": "team-001",
+      "name": "예시 홈팀"
+    },
+    "away": {
+      "externalId": "team-002",
+      "name": "예시 원정팀"
+    },
+    "sourceUrl": "https://example.invalid/fictional/fixture-match-001",
+    "sourceUpdatedAt": null
+  },
+  {
+    "externalId": "movie-unknown",
+    "variantKey": "kr-premiere",
+    "kind": "theatrical_release",
+    "title": "가상 영화: 미정 일정",
+    "content": {
+      "externalId": "movie-unknown",
+      "kind": "movie",
+      "title": "가상 영화: 미정 일정"
+    },
+    "seasonNumber": null,
+    "status": "scheduled",
+    "time": {
+      "type": "unknown",
+      "announcedYear": 2027,
+      "announcedPeriod": "2027년 예정"
+    },
+    "market": "KR",
+    "venueCountry": null,
+    "services": [],
+    "devices": [],
+    "home": null,
+    "away": null,
+    "sourceUrl": "https://example.invalid/fictional/movie-unknown",
+    "sourceUpdatedAt": null
+  }
+]

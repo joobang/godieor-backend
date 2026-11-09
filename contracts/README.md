@@ -1,10 +1,10 @@
 # GODIEOR API·DB 계약 초안
 
-- 버전: `0.1.0-draft.1` / 정책: `SYNC-2026-11-09-12` / 작업: SYS-02.
-- 연결: PROD-001~010, P03~P09/P13. **초안**이며 서버·Prisma schema·migration·독립 실행 검증은 아직 없다.
+- 버전: `0.1.0-draft.2` / 정책: `SYNC-2026-11-09-13` / 작업: SYS-02.
+- 연결: PROD-001~010, P03~P09/P13. **초안**. 로컬 Prisma schema·초기 migration·공개 API·가상 수집을 구현했다. 계정 기능과 독립 실행 검증은 아직 없다.
 - 소유 원본: backend의 [OpenAPI](openapi.yaml), [DB DDL](database.sql), 이 문서.
 - [DB 설계 설명](database.md), [가상 응답 예시](examples/calendar.json), [내용 해시](manifest.json).
-- OpenAPI 문법이 표현하지 못하는 조건부 요청·트랜잭션 의미도 이 문서의 계약이다. 코드 작성 전 소비자/독립 검토한다.
+- OpenAPI 문법이 표현하지 못하는 조건부 요청·트랜잭션 의미도 이 문서의 계약이다. 작성자 계약 검토를 반영했으며 독립 검토/승인은 별도로 남아 있다.
 
 ## 경로와 인증
 
@@ -109,10 +109,10 @@ source freshness는 부분 지원·미지원·미설정과 수집 실패를 구�
 
 ## 남은 구현·검토
 
-- Nest/Node/Prisma/PostgreSQL 버전 및 로컬 DB 도구 고정, Prisma 모델과 SQL CHECK·복합 FK의 migration 매핑.
+- Node 24.19.0/Nest 12.4.0/Prisma 7.10.1/TypeScript 5.9.3/PostgreSQL 16.14를 고정했다. 실제 구현 범위와 미완료는 implementation.md 참조.
 - source별 실제 접근/라이선스·지역·최초 공개/시즌 매핑, 수집 실행 시각/재시도·보관 기간.
 - 세션 수명·로그인 동의 설정·계정 삭제/연결 정책은 로컬 인증 구현/외부 사용자 제공 전 구체화한다.
-- 구현 전 소비자 검토·독립 계약 검토가 필요하다. runtime/DB 실행·정식 evidence v2 검증은 수행하지 않았다.
+- 계약 작성자 검토 후 로컬 공개 API/가상 수집과 migration을 실행했다. 독립 계약 검토·정식 evidence v2 검증은 수행하지 않았다.
 - V1 알림 endpoint/token 등록/권한 요청은 없다. 스토어 배포·가입·유료 서비스도 이번 초안에 포함하지 않는다.
 
 ## 공식 근거와 자체 제안 구분
@@ -123,3 +123,7 @@ source freshness는 부분 지원·미지원·미설정과 수집 실패를 구�
 - [Prisma 미지원 DB 기능](https://www.prisma.io/docs/orm/prisma-schema/data-model/unsupported-database-features): Prisma Schema와 DB 제약 표현이 다를 수 있어 migration SQL을 구분한다. 문서 확인이 Prisma 버전 선정은 아니다.
 
 확인일 2026-11-09. 이 공식 문서들은 제품 데이터 출처나 구현 통과 증거가 아니다.
+
+## 로컬 구현 상태
+
+[구현 범위](implementation.md)와 [실행 안내](../docs/local-development.md), [작성자 계약 검토](../docs/reviews/2026-11-09-contract-review.md)를 참고한다. 커서는 15분 유효하며 만료 시 400 INVALID_CURSOR로 재조회한다.

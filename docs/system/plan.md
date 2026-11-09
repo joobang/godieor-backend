@@ -1,14 +1,15 @@
 # 세 저장소 작업 계획
 
-revision: `SYNC-2026-11-09-12`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
+revision: `SYNC-2026-11-09-13`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
 현재 단계는 정책 결정 진행 중이다. 기존 SwiftUI 구성 유지, NestJS + PostgreSQL + Prisma, TypeORM 제외는 확정됐다.
-**로컬 실행을 먼저 달성하고 최종적으로 iPhone 앱 + 클라우드 API/DB, Mac verifier로 운영한다.** 정확한 버전·제공자는 미정이다. 표의 완료 조건은 작업 제안이며 승인 acceptance가 아니다.
+**로컬 실행을 먼저 달성하고 최종적으로 iPhone 앱 + 클라우드 API/DB, Mac verifier로 운영한다.** 로컬 버전/도구는 확정했고 클라우드 제공자는 미정이다. 표의 완료 조건은 작업 제안이며 승인 acceptance가 아니다.
 
 ## 현재 완료와 미완료
 
 - 완료: iOS 시작 뼈대, 앱 전용 판정기 bootstrap, 독립 리뷰 사례, 학습 카탈로그.
 - 완료: backend 클론, 세 저장소 책임·의존성·정책 질문 문서화.
-- 미완료: 남은 제품 정책·버전·호스팅 확정, backend 코드/DB/API, 실제 데이터 연동, snapshot/runner,
+- 완료: 로컬 공개 API·Prisma 23 모델/초기 migration·전용 PostgreSQL·가상 제공처 수집과 문서 출처 조사.
+- 미완료: Google/개인 쓰기·iOS API 연결·실제 데이터 연동·호스팅 확정, snapshot/runner,
   evidence v2, 실제 권한 격리, 원격 배포, 승인된 정식 검증 run.
 
 ## 첫 로컬 실행 목표
@@ -111,7 +112,15 @@ NestJS API → Simulator 또는 본인 iPhone의 API 응답 표시를 한 흐름
 
 ## SYS-02 계약 초안 · 2026-11-09
 
-backend/contracts에 `0.1.0-draft.1` OpenAPI·DB DDL·관계/의미·가상 응답·manifest를 작성했다.
+backend/contracts에 `0.1.0-draft.2` OpenAPI·DB DDL·관계/의미·가상 응답·manifest를 작성했다.
 앱과 verifier는 자체 참조 파일로 backend commit/파일 digest를 고정한다. 이 기록은 독립 검토 완료가 아니다.
 다음 순서: 소비자/독립 계약 검토 → 버전/로컬 DB 도구 고정 → Prisma schema/migration과 NestJS fixture API → iOS 연결.
 DDL 실행·제품 테스트·migration 적용·정식 run은 이번 계약 작성에 포함하지 않았다.
+
+## BE-01/02 로컬 뼈대·출처 판단 · 2026-11-09
+
+작성자 계약 검토 후 backend 초기 migration/Prisma 23 모델, 전용 PostgreSQL, Nest 공개 API와 가상 7건 수집을 실행했다.
+계정 스키마는 있지만 Google/개인 쓰기·실제 제공처 연결·iOS 연결은 아직 없다. 테스트는 추가/실행하지 않았다.
+현재 API·DB 구동과 수집/조회는 작성자의 실행 확인이며 독립 통합 검증 완료가 아니다.
+뼈대 구성 후 공식 출처 적합성을 조사했다. backend/docs/data-source-assessment.md에서 문서 근거와 실제 키 응답 미확인을 구분한다.
+다음: 본인 키·이용 조건 확인 후 KOBIS/football-data 응답 범위, TMDB 보조 데이터, IGDB 분류 매핑, OTT 최초 공개 근거 순으로 판단/연결한다.

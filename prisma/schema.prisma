@@ -1,0 +1,362 @@
+generator client {
+  provider            = "prisma-client"
+  output              = "../src/generated/prisma"
+  importFileExtension = "js"
+  moduleFormat        = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model app_user {
+  id                String             @id @db.Uuid
+  display_name      String?
+  favorites_version BigInt             @default(1)
+  created_at        DateTime           @default(now()) @db.Timestamptz(6)
+  auth_identity     auth_identity[]
+  content_favorite  content_favorite[]
+  event_favorite    event_favorite[]
+  service_session   service_session[]
+  user_settings     user_settings?
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model auth_identity {
+  id       String   @id @db.Uuid
+  user_id  String   @db.Uuid
+  provider String
+  subject  String
+  app_user app_user @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([provider, subject])
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model catalog_state {
+  singleton    Boolean  @id @default(true)
+  revision     BigInt   @default(1)
+  published_at DateTime @default(now()) @db.Timestamptz(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model collection_run {
+  id               String           @id @db.Uuid
+  scope_id         String           @db.Uuid
+  mode             String
+  status           attempt_state
+  started_at       DateTime         @db.Timestamptz(6)
+  finished_at      DateTime?        @db.Timestamptz(6)
+  error_code       String?
+  collection_scope collection_scope @relation(fields: [scope_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model collection_scope {
+  id                  String           @id @db.Uuid
+  provider_key        String
+  category            category
+  scope_market        String
+  coverage            coverage_state   @default(unconfigured)
+  last_attempt_status attempt_state    @default(never)
+  last_attempt_at     DateTime?        @db.Timestamptz(6)
+  last_successful_at  DateTime?        @db.Timestamptz(6)
+  last_error_code     String?
+  collection_run      collection_run[]
+  provider            provider         @relation(fields: [provider_key], references: [key], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([provider_key, category, scope_market])
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model content {
+  id               String             @id @db.Uuid
+  kind             content_kind
+  title            String
+  original_title   String?
+  poster_url       String?
+  synopsis         String?
+  updated_at       DateTime           @default(now()) @db.Timestamptz(6)
+  content_favorite content_favorite[]
+  content_source   content_source[]
+  drama_season     drama_season[]
+  event            event[]
+
+  @@unique([id, kind])
+}
+
+model content_favorite {
+  user_id    String   @db.Uuid
+  content_id String   @db.Uuid
+  saved_at   DateTime @default(now()) @db.Timestamptz(6)
+  content    content  @relation(fields: [content_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  app_user   app_user @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([user_id, content_id])
+  @@index([content_id], map: "content_favorite_target_idx")
+}
+
+model content_source {
+  provider_key String
+  external_id  String
+  content_type content_kind
+  content_id   String       @db.Uuid
+  content      content      @relation(fields: [content_id, content_type], references: [id, kind], onDelete: NoAction, onUpdate: NoAction)
+  provider     provider     @relation(fields: [provider_key], references: [key], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([provider_key, content_type, external_id])
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model drama_season {
+  id            String       @id @db.Uuid
+  content_id    String       @db.Uuid
+  content_type  content_kind @default(drama)
+  season_number Int
+  content       content      @relation(fields: [content_id, content_type], references: [id, kind], onDelete: NoAction, onUpdate: NoAction)
+  event         event[]
+
+  @@unique([content_id, season_number])
+  @@unique([id, content_id])
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model event {
+  id                            String           @id @db.Uuid
+  kind                          event_kind
+  content_id                    String?          @db.Uuid
+  content_type                  content_kind?
+  season_id                     String?          @db.Uuid
+  title                         String
+  status                        event_status     @default(scheduled)
+  precision                     time_precision
+  instant_at                    DateTime?        @db.Timestamptz(6)
+  local_date                    DateTime?        @db.Date
+  source_time_zone              String?
+  announced_year                Int?
+  announced_period              String?
+  release_market                String?
+  venue_country                 String?
+  home_team_id                  String?          @db.Uuid
+  away_team_id                  String?          @db.Uuid
+  origin                        data_origin
+  updated_at                    DateTime         @default(now()) @db.Timestamptz(6)
+  team_event_away_team_idToteam team?            @relation("event_away_team_idToteam", fields: [away_team_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  content                       content?         @relation(fields: [content_id, content_type], references: [id, kind], onDelete: NoAction, onUpdate: NoAction)
+  team_event_home_team_idToteam team?            @relation("event_home_team_idToteam", fields: [home_team_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  drama_season                  drama_season?    @relation(fields: [season_id, content_id], references: [id, content_id], onDelete: NoAction, onUpdate: NoAction)
+  event_change                  event_change[]
+  event_device                  event_device[]
+  event_favorite                event_favorite[]
+  event_service                 event_service[]
+  event_source                  event_source[]
+
+  @@unique([id, kind])
+  @@index([content_id], map: "event_content_idx")
+  @@index([season_id], map: "event_season_idx")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model event_change {
+  id               String   @id @db.Uuid
+  event_id         String   @db.Uuid
+  catalog_revision BigInt
+  changed_at       DateTime @default(now()) @db.Timestamptz(6)
+  before_value     Json?
+  after_value      Json
+  event            event    @relation(fields: [event_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([event_id, catalog_revision(sort: Desc)], map: "event_change_event_idx")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model event_device {
+  event_id   String      @db.Uuid
+  event_type event_kind  @default(game_release)
+  device     game_device
+  event      event       @relation(fields: [event_id, event_type], references: [id, kind], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([event_id, device])
+}
+
+model event_favorite {
+  user_id  String   @db.Uuid
+  event_id String   @db.Uuid
+  saved_at DateTime @default(now()) @db.Timestamptz(6)
+  event    event    @relation(fields: [event_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  app_user app_user @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([user_id, event_id])
+  @@index([event_id], map: "event_favorite_target_idx")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model event_service {
+  event_id   String      @db.Uuid
+  event_type event_kind  @default(ott_season_premiere)
+  service    ott_service
+  event      event       @relation(fields: [event_id, event_type], references: [id, kind], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([event_id, service])
+}
+
+model event_source {
+  provider_key      String
+  external_id       String
+  variant_key       String
+  event_id          String    @db.Uuid
+  source_url        String
+  observed_at       DateTime  @db.Timestamptz(6)
+  source_updated_at DateTime? @db.Timestamptz(6)
+  event             event     @relation(fields: [event_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  provider          provider  @relation(fields: [provider_key], references: [key], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([provider_key, external_id, variant_key])
+  @@index([event_id], map: "event_source_event_idx")
+}
+
+model provider {
+  key              String             @id
+  name             String
+  origin           data_origin
+  collection_scope collection_scope[]
+  content_source   content_source[]
+  event_source     event_source[]
+  team_source      team_source[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model service_session {
+  id         String    @id @db.Uuid
+  user_id    String    @db.Uuid
+  token_hash Bytes     @unique
+  created_at DateTime  @default(now()) @db.Timestamptz(6)
+  expires_at DateTime  @db.Timestamptz(6)
+  revoked_at DateTime? @db.Timestamptz(6)
+  app_user   app_user  @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([user_id], map: "session_user_idx")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model team {
+  id                             String        @id @db.Uuid
+  name                           String
+  event_event_away_team_idToteam event[]       @relation("event_away_team_idToteam")
+  event_event_home_team_idToteam event[]       @relation("event_home_team_idToteam")
+  team_source                    team_source[]
+}
+
+model team_source {
+  provider_key String
+  external_id  String
+  team_id      String   @db.Uuid
+  provider     provider @relation(fields: [provider_key], references: [key], onDelete: NoAction, onUpdate: NoAction)
+  team         team     @relation(fields: [team_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([provider_key, external_id])
+}
+
+model user_device_filter {
+  user_id       String        @db.Uuid
+  device        game_device
+  user_settings user_settings @relation(fields: [user_id], references: [user_id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([user_id, device])
+}
+
+model user_enabled_category {
+  user_id       String        @db.Uuid
+  category      category
+  user_settings user_settings @relation(fields: [user_id], references: [user_id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([user_id, category])
+}
+
+model user_service_filter {
+  user_id       String        @db.Uuid
+  service       ott_service
+  user_settings user_settings @relation(fields: [user_id], references: [user_id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([user_id, service])
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model user_settings {
+  user_id               String                  @id @db.Uuid
+  version               BigInt                  @default(1)
+  country               String                  @default("KR")
+  time_zone             String                  @default("Asia/Seoul")
+  view_mode             String                  @default("calendar")
+  updated_at            DateTime                @default(now()) @db.Timestamptz(6)
+  user_device_filter    user_device_filter[]
+  user_enabled_category user_enabled_category[]
+  user_service_filter   user_service_filter[]
+  app_user              app_user                @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+enum attempt_state {
+  never
+  running
+  succeeded
+  failed
+}
+
+enum category {
+  movie
+  ott
+  game
+  epl
+}
+
+enum content_kind {
+  movie
+  drama
+  game
+}
+
+enum coverage_state {
+  unconfigured
+  unsupported
+  partial
+  available
+}
+
+enum data_origin {
+  fixture
+  provider
+}
+
+enum event_kind {
+  theatrical_release
+  ott_season_premiere
+  game_release
+  epl_match
+}
+
+enum event_status {
+  scheduled
+  postponed
+  cancelled
+}
+
+enum game_device {
+  pc
+  playstation
+  xbox
+  switch
+}
+
+enum ott_service {
+  netflix
+  disney_plus
+  coupang_play
+  tving
+}
+
+enum time_precision {
+  instant
+  date_only
+  unknown
+}

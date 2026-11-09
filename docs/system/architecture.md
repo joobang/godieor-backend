@@ -1,7 +1,7 @@
 # GODIEOR · 세 저장소 공통 아키텍처
 
-- 문서 revision: `SYNC-2026-11-09-12`
-- 상태: **책임 분리·저장소 3개, NestJS + PostgreSQL + Prisma 및 TypeORM 제외는 사용자 확정**. 최종 실행 형태와 로컬 우선 진행도 사용자 확정이다. 제공자·정확한 버전·나머지 세부 정책은 미정이다.
+- 문서 revision: `SYNC-2026-11-09-13`
+- 상태: **책임 분리·저장소 3개, NestJS + PostgreSQL + Prisma 및 TypeORM 제외는 사용자 확정**. 최종 실행 형태와 로컬 우선 진행도 사용자 확정이다. 로컬 버전은 하단 구현 기록에 고정했다. 클라우드 제공자·나머지 세부 정책은 미정이다.
 - 공통 문서 원본: `godieor-app/docs/system/`. backend/verifier의 같은 경로는 동기화 사본이다.
 - 공통 문서: `architecture.md`, `plan.md`, `policies.md`. 변경 시 세 사본을 함께 갱신한다.
 - 이는 문서 관리 규칙이다. 저장소 권한이나 승인 경계를 기술적으로 강제하는 장치는 아니다.
@@ -11,7 +11,7 @@
 | 저장소 | 현재 실제 구현 | 이번 문서가 추가한 것 |
 |---|---|---|
 | godieor-app | SwiftUI 시작 화면·빌드 스크립트·제품/학습 문서 | iOS 책임, 백엔드/API 의존 관계, 작업 순서 |
-| godieor-backend | API·DB 계약 초안, 서버/Prisma schema/migration 없음 | OpenAPI·DDL·가상 응답, 계약 검토 후 로컬 구현 |
+| godieor-backend | Prisma 23 모델·초기 migration·로컬 공개 API·가상 수집 CLI | 실제 출처 적합성 조사. Google/개인 쓰기·실제 제공처 미구현 |
 | godieor-verifier | 앱 대상으로 한 evidence v1 집계기·33개 자기 검사 | 앱+백엔드 조합 검증 설계. 런타임 확장 전 |
 
 실제 제공처 연동, 원격 DB/배포, 자동 snapshot·runner·AI 호출 어댑터·OS 격리는 아직 없다.
@@ -45,7 +45,7 @@ godieor-app: API client → 화면 상태 → 월간 달력 / 날짜순 카드 /
 | verifier | 승인 acceptance, 독립 기대값/fixture, snapshot·runner·review·판정, finding 이력 | 승인 기준·검증 보고서·독립 재확인 근거·통합 학습 카탈로그 |
 
 제품 요구사항 원본은 `app/docs/product.md`에 둔다.
-API 계약 초안 원본은 `backend/contracts/openapi.yaml`(0.1.0-draft.1), DB 참조는 `contracts/database.sql`에 두고 버전·digest로 참조한다.
+API 계약 초안 원본은 `backend/contracts/openapi.yaml`(0.1.0-draft.2), DB 참조는 `contracts/database.sql`에 두고 버전·digest로 참조한다.
 검증 기준 원본은 `verifier/requirements/acceptance.yaml`이며 앱/백엔드 에이전트가 승인하지 않는다.
 API 계약의 소유권이 백엔드 구현을 정답으로 만든다는 뜻은 아니다. 계약은 제품 정책에 따라 작성하고
 앱 소비자 관점과 독립 검토를 거친다. 깨지는 변경은 정책/계약 변경으로 검토한다.
@@ -162,7 +162,7 @@ reviewer는 코드와 근거를 읽고 지적하며 제품이나 승인 기준�
 - 본인 iPhone만 사용하는 목표가 로컬 네트워크에서만 사용하는 제품을 뜻하지 않는다.
 - 우선 로컬에서 API·DB·앱 연결을 재현한 뒤 원격 환경으로 옮긴다. 클라우드 제공자를 정하는 일이 로컬 개발의 선행 조건은 아니다.
 - 기존 SwiftUI·iOS 17 이상 시작 구성을 유지한다. backend는 NestJS + PostgreSQL + Prisma, TypeORM 제외다.
-- 정확한 Node/Nest/Prisma/PostgreSQL 버전·로컬 DB 실행 도구는 구현 시 호환성을 확인해 고정한다.
+- 로컬은 Node 24.19.0/Nest 12.4.0/Prisma 7.10.1/PostgreSQL 16.14와 전용 Docker Compose로 구성했다. 클라우드 제공자는 미정이다.
 - 무료 우선 클라우드 제공자·API/DB 호스팅·인증·설치/배포 수단은 후속 결정이다. 가입·유료 전환·배포는 이번 문서 갱신 범위가 아니다.
 - 이전 Workers/D1 제안과 비용 수치는 새 선택의 비용 근거로 사용하지 않는다. 선정 시 공식 조건을 다시 확인한다.
 - 로컬 iPhone 연결은 기기에서 Mac API에 도달할 수 있는 주소·네트워크를 사용한다. iPhone의 localhost를 Mac 주소로 가정하지 않는다.
@@ -214,3 +214,10 @@ OTT 드라마는 선택한 국가/대상 플랫폼에서의 최초 공개 이벤
 비로그인 조회에 사용자별 찜/설정을 포함하지 않는다. 쓰기 API와 계정 조회는 서비스 인증/사용자 격리를 적용한다.
 V1 알림은 제외한다. 찜했다고 자동 푸시·기기 알림 예약을 생성하지 않는다.
 OTT 이벤트는 시즌·지역·플랫폼의 최초 공개를 식별하고 서로 다른 시즌을 제목만으로 병합하지 않는다.
+
+## 로컬 구현 상태 · 후속 기록이 앞의 계획보다 우선
+
+backend에서 전용 PostgreSQL 16.14와 Nest 12.4.0/Prisma 7.10.1, Node 24.19.0을 사용한다.
+초기 migration 적용/스키마·클라이언트 생성/빌드/가상 수집/공개 조회를 실행했다. Google/개인 데이터 쓰기는 아직 차단되어 있다.
+수집은 provider별 advisory lock, scope별 원자적 publish와 실패/성공 시각 분리다. 기본 일일 스케줄 OFF.
+실제 제공처·독립 검증·원격 배포는 미완료다. app UI는 여전히 시작 화면이며 API를 연결하지 않았다.

@@ -1,0 +1,39 @@
+{
+  "name": "godieor-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "GODIEOR 로컬 API와 수집 파이프라인",
+  "engines": {
+    "node": ">=24.11 <25"
+  },
+  "scripts": {
+    "build": "prisma generate && tsc -p tsconfig.json",
+    "start": "node --env-file=.env dist/src/main.js",
+    "db:up": "docker compose up -d --wait postgres",
+    "db:stop": "docker compose stop postgres",
+    "db:migrate": "prisma migrate deploy",
+    "db:generate": "prisma generate",
+    "collect:fixture": "node --env-file=.env dist/src/collect.js"
+  },
+  "dependencies": {
+    "@nestjs/common": "12.4.0",
+    "@nestjs/core": "12.4.0",
+    "@nestjs/platform-express": "12.4.0",
+    "@nestjs/schedule": "12.0.3",
+    "@prisma/adapter-pg": "7.10.1",
+    "@prisma/client": "7.10.1",
+    "dotenv": "17.2.3",
+    "luxon": "3.7.2",
+    "pg": "8.23.1",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/luxon": "3.7.1",
+    "@types/node": "24.10.1",
+    "@types/pg": "8.15.6",
+    "prisma": "7.10.1",
+    "typescript": "5.9.3"
+  }
+}

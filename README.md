@@ -1,36 +1,34 @@
 # GODIEOR Backend
 
-영화·OTT 드라마·게임·EPL 일정을 수집·정규화하고 iOS 앱에 제공할 backend 저장소.
-현재는 **API·DB 계약 초안 작성 단계**다. 서버·Prisma schema·DB migration·실제 제공처 연동은 아직 구현하지 않았다.
+NestJS + Prisma + PostgreSQL로 영화·OTT 드라마 시즌 최초 공개·게임 정식 출시·EPL 경기 일정을 제공한다.
+현재 **로컬 공개 API와 가상 제공처 파이프라인**을 구성했다. 실제 제공처·Google/계정 쓰기·iOS 연결은 아직 없다.
 
-## 세 저장소
+## 시작
 
-| 저장소 | 책임 |
-|---|---|
-| [godieor-app](https://github.com/joobang/godieor-app) | SwiftUI iOS, 화면·API 소비·기기 설정, 제품/학습 문서 |
-| godieor-backend | 일정 수집·정규화·DB·조회 API, 계정·세션, API 계약·migration |
-| [godieor-verifier](https://github.com/joobang/godieor-verifier) | 독립 기준·검사·리뷰·결정적 판정·검증 이력 |
+Node 24를 선택하고 다음 순서로 실행한다.
 
-## 먼저 읽을 문서
+```sh
+npm ci
+node scripts/setup-local.mjs
+npm run db:up
+npm run db:migrate
+npm run build
+npm run collect:fixture
+npm start
+```
 
-- [공통 아키텍처](docs/system/architecture.md)
-- [공통 작업 순서](docs/system/plan.md)
-- [사용자가 정할 정책](docs/system/policies.md)
-- [backend 작업 범위](docs/repository-plan.md)
-- [데이터 제공처 조사](docs/data-sources.md)
-- [기술 결정 관리](docs/decisions/README.md)
+[실행/중단·환경 설정](docs/local-development.md). 현재 DB 127.0.0.1:55432, API 127.0.0.1:3000/v1.
+모든 현재 일정은 가상이며 dataOrigin=fixture다. API/DB는 전용 Compose 볼륨을 사용한다.
 
-2026-11-09 사용자 선택으로 **NestJS + PostgreSQL + Prisma**, **TypeORM 제외**를 확정했다.
-첫 목표는 Mac에서 NestJS·Prisma·PostgreSQL을 실행해 앱과 연결하는 것이다. 최종 API/DB는 클라우드에서 운영한다.
-정확한 버전·로컬 DB 실행 도구·클라우드 제공자는 미정이며, 제공자 선정은 로컬 실행의 선행 조건이 아니다.
-[실행 위치와 단계 ADR](docs/decisions/003-runtime-topology.md)을 참고한다.
-[확정 범위 ADR](docs/decisions/001-nestjs-postgresql.md), [ORM 후보 비교](docs/decisions/002-orm-options.md)를 참고한다.
-계정은 Google 연동 방향이며 [계정 설계 제안](docs/decisions/004-google-account.md)에 역할·미정 범위를 기록했다.
-실행 명령·계정·유료 플랜·원격 DB/배포는 이 문서 구성 작업으로 생성하지 않는다.
+## 설계·계약·기록
 
-학습 기록은 [통합 학습 카탈로그](https://github.com/joobang/godieor-verifier/tree/dev/docs/learning)에 연결한다.
-문서 revision과 현재 런타임 구현 상태를 구분한다. 기존 verifier v1은 backend 조합을 검증하지 않는다.
+- [API·DB 계약과 가상 예시](contracts/README.md) / [실제 구현 범위](contracts/implementation.md)
+- [계약 작성자 검토](docs/reviews/2026-11-09-contract-review.md)
+- [수집 파이프라인](docs/pipeline.md)
+- [실제 데이터 출처 적합성 판단](docs/data-source-assessment.md)
+- [공통 아키텍처](docs/system/architecture.md) / [작업 계획](docs/system/plan.md) / [확정 정책](docs/system/policies.md)
+- [기술 결정](docs/decisions/README.md) / [작업 기록](docs/tasks/BE-01-local-pipeline.md)
 
-## API·DB 계약 초안
-
-[계약 안내](contracts/README.md)에서 OpenAPI, DB DDL·관계, 가상 응답, 해시를 확인한다. 버전은 `0.1.0-draft.1`이며 실행 구현/승인 검증과 구분한다.
+앱은 [godieor-app](https://github.com/joobang/godieor-app), 독립 기준·검토·학습 기록은 [godieor-verifier](https://github.com/joobang/godieor-verifier).
+계약과 작성자의 실행 확인을 독립 검증 PASS로 표현하지 않는다. 기존 verifier v1은 backend 조합을 아직 실행 검증하지 못한다.
+커밋 메시지는 한글로 작성하고 push·배포는 별도 요청 범위다.

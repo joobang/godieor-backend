@@ -1,6 +1,6 @@
--- GODIEOR DB 계약 0.1.0-draft.1 / SYS-02 / 2026-11-09
--- 검토용 DDL. Prisma migration이 아니며 DB에 적용하지 않았다.
--- UUID는 쓰기 주체가 생성한다. PostgreSQL/Prisma 버전 고정 후 실제 migration으로 옮긴다.
+-- GODIEOR DB 계약 0.1.0-draft.2 / SYS-02 / 2026-11-09
+-- 계약 참조 DDL. 실제 적용 원본은 prisma/migrations/202611090001_initial/migration.sql이다.
+-- UUID는 쓰기 주체가 생성한다. 이 파일을 직접 실행하지 않고 검토한 migration을 사용한다.
 CREATE TYPE content_kind AS ENUM ('movie', 'drama', 'game');
 CREATE TYPE category AS ENUM ('movie', 'ott', 'game', 'epl');
 CREATE TYPE event_kind AS ENUM ('theatrical_release', 'ott_season_premiere', 'game_release', 'epl_match');
@@ -219,3 +219,11 @@ CREATE TABLE event_change (
   CHECK (before_value IS NULL OR jsonb_typeof(before_value) = 'object')
 );
 CREATE INDEX event_change_event_idx ON event_change(event_id, catalog_revision DESC);
+
+-- 제공처 팀 식별자를 이름과 분리한다.
+CREATE TABLE team_source (
+  provider_key text NOT NULL REFERENCES provider(key),
+  external_id text NOT NULL,
+  team_id uuid NOT NULL REFERENCES team(id),
+  PRIMARY KEY (provider_key, external_id)
+);

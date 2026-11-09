@@ -1,9 +1,9 @@
-# 검토용 초안. 실행 구현/승인 결과가 아닙니다.
+# 계약 초안. 실제 구현 범위는 implementation.md를 확인합니다.
 "openapi": "3.1.1"
 "info":
   "title": "GODIEOR API 계약 초안"
-  "version": "0.1.0-draft.1"
-  "description": "SYS-02 / PROD-001~010. 정책 기반 설계 초안이며 서버/마이그레이션/정식 검증 미구현. 동작 세부는 README.md 참조."
+  "version": "0.1.0-draft.2"
+  "description": "SYS-02 / BE-01~02. 계약 초안. 로컬 공개 조회·가상 수집은 구현했고 Google/개인 기능은 미구현. contracts/implementation.md 참조."
 "servers":
   -
     "url": "http://localhost:3000/v1"
@@ -2464,7 +2464,7 @@
       "additionalProperties": false
       "properties":
         "contractVersion":
-          "const": "0.1.0-draft.1"
+          "const": "0.1.0-draft.2"
         "categories":
           "type": "array"
           "items":
@@ -2509,4 +2509,4 @@
         - "newAccountDefaults"
       "description": "countries는 지원 가능한 선택값, 특정 소스 데이터 확보 보장이 아님. 익명 응답의 defaults.version은 새 계정 초기값 1을 의미"
 "x-status": "draft-not-approved"
-"x-policy-revision": "SYNC-2026-11-09-12"
+"x-policy-revision": "SYNC-2026-11-09-13"

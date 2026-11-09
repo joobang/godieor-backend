@@ -13,3 +13,7 @@ coverage/
 *.sqlite-shm
 *.sqlite-wal
 *.sqlite-journal
+
+src/generated/
+.cache/
+*.tsbuildinfo

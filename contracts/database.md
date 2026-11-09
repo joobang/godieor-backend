@@ -1,8 +1,8 @@
 # DB 관계·불변 조건 초안
 
-버전 `0.1.0-draft.1`. [DDL](database.sql)은 migration이 아닌 검토용 참조다. PostgreSQL에 실행하지 않았다.
-Prisma를 ORM으로 사용하되 버전 고정 전 임의의 generator/datasource 설정이나 생성 코드를 넣지 않는다.
-구현할 때 이 관계를 Prisma 모델로 옮기고 Prisma Schema가 표현하지 못하는 CHECK/부분 인덱스는 migration SQL에 보존한다.
+버전 `0.1.0-draft.2`. [DDL](database.sql)은 migration이 아닌 검토용 참조다. 같은 정의에서 만든 초기 migration을 전용 로컬 PostgreSQL에 적용했다.
+Prisma 7.10.1 모델을 prisma/schema.prisma에 두고 SQL CHECK와 부분 인덱스를 초기 migration에 보존한다.
+Prisma 모델은 적용한 DB에서 가져왔다. CHECK/부분 인덱스는 SQL 원본을 유지하며 db push 대신 검토한 migration을 사용한다.
 
 ```mermaid
 erDiagram
@@ -72,3 +72,7 @@ DDL은 최소 식별/정합성 중심이다. provider별 team 매핑·중복 후
 작품과 공개 이벤트 분리는 시즌/지역/기기별 날짜 차이와 날짜 변경을 같은 모델에서 표현한다.
 전역 revision은 과거 snapshot 보관 없이 일관된 재조회를 가능하게 한다. 범위/성능/갱신 빈도가 바뀌면 다시 판단한다.
 이는 예방 설계이며 실제 운영 장애 해결이나 성능 개선 측정 사례가 아니다.
+
+## draft.2 변경
+
+team_source에 제공처+외부 팀 ID를 UNIQUE로 두어 팀 이름으로 병합하지 않는다. 실제 신규 scope 등록·수집 실행·이벤트/출처/이력과 버전 증가는 트랜잭션으로 묶었다.

@@ -1,0 +1,20 @@
+name: godieor-local
+services:
+  postgres:
+    image: postgres:16-alpine@sha256:16bc17c64a573ef34162af9298258d1aec548232985b33ed7b1eac33ba35c229
+    environment:
+      POSTGRES_USER: godieor
+      POSTGRES_DB: godieor_local
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?로컬 .env를 먼저 준비하세요}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-55432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U godieor -d godieor_local"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    restart: "no"
+volumes:
+  pgdata:
