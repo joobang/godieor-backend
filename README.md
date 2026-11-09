@@ -37,4 +37,4 @@ npm start
 
 앱은 [godieor-app](https://github.com/joobang/godieor-app), 독립 기준·검토·학습 기록은 [godieor-verifier](https://github.com/joobang/godieor-verifier).
 계약과 작성자의 실행 확인을 독립 검증 PASS로 표현하지 않는다. 기존 verifier v1은 backend 조합을 아직 실행 검증하지 못한다.
-커밋 메시지는 한글로 작성하고 push·배포는 별도 요청 범위다.
+커밋은 `type: 한글 설명` 형식(영문 타입)으로 작성하고 push·배포는 별도 요청 범위다.

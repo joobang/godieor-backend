@@ -1,7 +1,7 @@
 # 계정·모델 사이에서 작업 이어받기
 
-revision: `CONTEXT-2026-11-09-01`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
-제품 정책은 기존 `SYNC-2026-11-09-13`을 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
+revision: `CONTEXT-2026-11-09-02`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+공통 문서는 `SYNC-2026-11-09-14`다. 이전 revision에서 커밋 표기만 보완했고 제품/API 의미는 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
 
 ## 시작
 
@@ -33,8 +33,15 @@ revision: `CONTEXT-2026-11-09-01`. 원본 app `docs/system/`, backend/verifier�
 3. `status.md`의 현재 상태·작업 목록·다음 행동을 갱신하고 status/handoff 사본을 함께 동기화한다.
    제품 정책을 바꾸면 기존 architecture/plan/policies도 동일 SYNC revision으로 갱신한다.
 4. README·로드맵의 현재 상태 요약이 원본과 충돌하지 않는지 확인한다.
-5. 검토 가능한 단위로 한글 커밋을 만든다. 자기 커밋 SHA를 같은 커밋 안에 넣으려 하지 말고,
+5. 검토 가능한 단위로 영문 타입 + 한글 설명의 커밋을 만든다(`docs: 인계 문서 갱신` 등). 자기 커밋 SHA를 같은 커밋 안에 넣으려 하지 말고,
    최종 SHA는 Git 이력과 커밋 후 생성하는 웹 전달본에서 확인한다. 담당을 해제하고 다음 행동을 남긴다.
+
+## 커밋 메시지 형식
+
+`type(scope): 한글 설명`으로 쓴다. scope는 선택이다. 타입은 `feat`, `fix`, `docs`, `chore`, `test`,
+`refactor`, `build`, `ci`, `perf`, `revert` 등 영어로 쓰고 변경 설명은 한글로 적는다.
+기능 추가는 `feat: 월간 달력 추가`, 문서 수정은 `docs: 커밋 규칙 보완`, 검사는 `test: 날짜 경계 검사 추가`처럼 쓴다.
+기존 커밋은 재작성하지 않는다. 이 규칙은 commit 권한을 push·배포 권한으로 확대하지 않는다.
 
 ## ChatGPT 웹에 전달
 
