@@ -54,3 +54,10 @@ COLLECTION_SCHEDULE_ENABLED=true이면 API 프로세스가 06:00 KST에 수집�
 Prisma schema를 바꾸면 별도 migration을 생성·검토한다. 이미 적용한 migration을 수정하지 않는다.
 처음에는 알려진 제공처 키만 병합하고, 제공처가 다른 작품의 자동 병합은 근거/정책 확정 후 추가한다.
 Google 로그인·개인 쓰기·실제 API 키 설정은 후속 작업이며 mock 로그인으로 우회하지 않았다.
+
+
+## 구조 변경 후 검사 · BE-03
+
+CLI 진입점은 src/cli/collect-fixture.ts와 src/cli/collect-candidates.ts이며 기존 npm 별칭은 유지한다.
+`npm test`는 clean build와 후보/DI/HTTP 경계를 검사한다. `npm run test:db`는 별도 tmpfs PostgreSQL을 만들고 검사 후 삭제한다.
+기존 DB나 KNU 컨테이너·볼륨을 변경하지 않는다. 기능 모듈·계층은 [서버 구조](backend-architecture.md)를 따른다.
