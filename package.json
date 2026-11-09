@@ -13,7 +13,9 @@
     "db:stop": "docker compose stop postgres",
     "db:migrate": "prisma migrate deploy",
     "db:generate": "prisma generate",
-    "collect:fixture": "node --env-file=.env dist/src/collect.js"
+    "collect:fixture": "node --env-file=.env dist/src/collect.js",
+    "candidates": "node dist/src/collect-candidates.js",
+    "test:candidates": "npm run build && node --test tests/candidates.test.cjs"
   },
   "dependencies": {
     "@nestjs/common": "12.4.0",
@@ -23,6 +25,7 @@
     "@prisma/adapter-pg": "7.10.1",
     "@prisma/client": "7.10.1",
     "dotenv": "17.2.3",
+    "fast-xml-parser": "5.12.0",
     "luxon": "3.7.2",
     "pg": "8.23.1",
     "reflect-metadata": "0.2.2",

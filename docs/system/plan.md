@@ -1,6 +1,6 @@
 # 세 저장소 작업 계획
 
-revision: `SYNC-2026-11-09-14`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
+revision: `SYNC-2026-11-09-15`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
 현재 단계는 정책 결정 진행 중이다. 기존 SwiftUI 구성 유지, NestJS + PostgreSQL + Prisma, TypeORM 제외는 확정됐다.
 **로컬 실행을 먼저 달성하고 최종적으로 iPhone 앱 + 클라우드 API/DB, Mac verifier로 운영한다.** 로컬 버전/도구는 확정했고 클라우드 제공자는 미정이다. 표의 완료 조건은 작업 제안이며 승인 acceptance가 아니다.
 
@@ -124,3 +124,12 @@ DDL 실행·제품 테스트·migration 적용·정식 run은 이번 계약 작�
 현재 API·DB 구동과 수집/조회는 작성자의 실행 확인이며 독립 통합 검증 완료가 아니다.
 뼈대 구성 후 공식 출처 적합성을 조사했다. backend/docs/data-source-assessment.md에서 문서 근거와 실제 키 응답 미확인을 구분한다.
 다음: 본인 키·이용 조건 확인 후 KOBIS/football-data 응답 범위, TMDB 보조 데이터, IGDB 분류 매핑, OTT 최초 공개 근거 순으로 판단/연결한다.
+
+
+## DATA-02A 후보 수집 · 2026-11-09 후속
+
+사용자가 정확한 년·월·일을 확보한 OTT 일정만 반영하고 불완전 날짜는 후보 보류하는 정책을 수락했다.
+backend에 RSS/공식 링크 후보 CLI·검토·날짜 보류·변경 시 검토 무효화·검토 후보 내보내기와 자체 검사를 추가했다.
+실행 결과는 backend `docs/tasks/DATA-02-ott-candidates.md`, 사용법은 `docs/ott-candidates.md`를 따른다.
+다음은 검토 후보의 안정 작품/시즌/이벤트 매핑, 공지 수정·연기 보존과 기존 publish 연결이다.
+후보 CLI 단계에서 전수 실데이터 연동이나 독립 통합 검증 완료를 선언하지 않는다.
