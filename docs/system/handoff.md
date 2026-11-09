@@ -80,3 +80,7 @@ Codex는 현재 파일/정책과 대조해 반영하고 새 전달본을 생성�
 기존 verifier 절차에 따라 요구사항/기준, 고정 app/backend SHA, 계약/migration digest,
 변경 사실과 공식 근거를 제공한다. 현재 상태 문서는 검증 가능 범위/원본 위치 확인용이고 결과의 정답이 아니다.
 구현 담당이 기록을 공유했다는 이유로 acceptance나 verdict를 승인할 수는 없다.
+
+## APP-01H 후속 인계
+
+앱 구현4dbb8d1(브랜치 codex/app-01-review-fixes), backend 코드85ea4f3 및 기존 계약/migration 조합. 작성자 UI 탐색 확인과 독립 정적 리뷰 수정 기록은 status.md 최신 절/APP-01H 카드 참조. 다음 VFY-01 관찰점 점검→VFY-02 evidence v2이며 기준 승인·통합 PASS는 별도다.

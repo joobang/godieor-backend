@@ -31,7 +31,7 @@ Node 24.19.0 / Nest 12.4.0 / Prisma 7.10.1 / PostgreSQL 16.14가 로컬 구현�
 
 제품 구현을 마지막 확인한 기준 커밋은 다음과 같다. 이번 문서 변경 이후의 HEAD를 뜻하지 않는다.
 
-- app: `f36adb748b3a452db105475ffbcae5abe8d3d02f` (APP-01 HTTP 통합 수정).
+- app: `4dbb8d1ee792f5d63f6fe948d77752ee069b9d7d` (APP-01 독립 리뷰 수정; 브랜치 codex/app-01-review-fixes).
 - backend: `85ea4f3398d949e4f59313232306c3325956b7a6`.
 - verifier: `109f918799d6c818ae30ba5af4a5cedb112573e8`.
 - API: `0.1.0-draft.2`, 작성자 검토 기록 있음 / 독립 검토 대기.
@@ -57,7 +57,7 @@ Node 24.19.0 / Nest 12.4.0 / Prisma 7.10.1 / PostgreSQL 16.14가 로컬 구현�
 | DATA-01 / OTT 근거 | 공식 공개 페이지·3개 RSS 실제 접근 확인 완료, 작성자 조사. 어댑터/인증 API·전수 coverage 미확인. 담당 해제 | 공지 후보 수집/검토를 DATA-02A로 진행. 전수 coverage/허용 조건은 계속 확인 필요 | backend `docs/research/2026-11-09-ott-feasibility.md`, `docs/tasks/DATA-01-ott-feasibility.md` |
 | 계약 독립 검토 / VFY-01~04 | 대기, 담당 없음 | 기준 초안·고정 SHA/계약 조합으로 독립 검토 및 evidence v2/runner 설계. 구현 완료로 취급하지 않음 | 공통 `plan.md`, verifier `requirements/proposals/` |
 | APP-01 | 구현 및 작성자 통합 점검 완료, 담당 해제. 독립 검증 대기 | 상세 요청 400 원인(`country` 불허)을 수정하고 iOS 빌드/백엔드 상세 HTTP 200 확인. 다음은 verifier의 고정 SHA 독립 검증, iOS 날짜 탭 UI 조작 검사 | app `docs/ai/tasks/APP-01-integration.md` |
-| APP-01G | 상태 동기화 및 검증 인계 진행 | 세 저장소 공통 사본 동기화·고정 SHA 인계, UI 날짜 탭→상세 미실행 범위 기록 | app `docs/ai/tasks/APP-01-finalize.md` |
+| APP-01G | 문서 동기화·인계 완료 | 세 저장소 공통 사본 동기화·고정 SHA 인계, UI 날짜 탭→상세 미실행 범위 기록 | app `docs/ai/tasks/APP-01-finalize.md` |
 | BE-AUTH / 개인 쓰기 | 미착수, 담당 없음 | 세션·계정 삭제/동기화 충돌 세부 설계 후 Google 실제 인증·사용자 격리 구현 | backend 계약, 공통 P03 |
 
 BE-03 이후 사용자 지시로 Prisma Client 우선 규칙을 문서화/코드 반영하고 다음 작업인 DATA-02B를 진행했다. 날짜 정책/계약 스키마는 유지했다.
@@ -98,3 +98,9 @@ LEARN-0008 후보 단계, LEARN-0009 서버 계층, LEARN-0010 Prisma 쿼리, LE
 > 읽지 못한 저장소/자료를 명시하고, 현재 사용자 요청이 없으면 후속 기능 구현을 시작하지 마라.
 
 이 문서는 전체 대화 원문이나 모델의 내부 기억이 아니다. 개발에 필요한 확정·근거·미해결 사항을 인계한다.
+
+## APP-01H 최신 후속 (2026-11-09 KST)
+
+원본 카드: app docs/ai/tasks/APP-01-review-fixes.md. 상세 최신 상태/개최국 및 날짜 요청 UUID/revision 보호 수정 완료. 작성자 Simulator 날짜 선택→목록→상세, OTT 해제/복원과 재실행 후 필터 유지 확인. 최종 iOS 빌드 성공. 별도 컨텍스트 정적 리뷰 IR001~004 수정 후 추가 지적 없음 보고. 리뷰는 실제 UI/DB 실행이나 승인 판정이 아니다. 응답 지연/409 주입·DST/전국가 전수 UI 미실행. verifier/reviews/2026-11-09-app-public-calendar.md 및 LEARN-0012 참조.
+
+현재 APP-01H 담당 해제. 다음 작업은 verifier VFY-01의 현재 정책 대비 관찰점 정리와 기존 VFY-02 evidence v2 구현이다. APP-01 UI 탐색을 미실행으로 기술한 위 과거 문단은 당시 기록이며 최신 확인 범위는 본 절/카드를 우선한다. acceptance draft 및 통합 PASS 없음 유지. backend는 문서만 변경, 실행 코드 기준85ea4f3.
