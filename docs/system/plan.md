@@ -1,6 +1,6 @@
 # 세 저장소 작업 계획
 
-revision: `SYNC-2026-11-09-13`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
+revision: `SYNC-2026-11-09-14`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
 현재 단계는 정책 결정 진행 중이다. 기존 SwiftUI 구성 유지, NestJS + PostgreSQL + Prisma, TypeORM 제외는 확정됐다.
 **로컬 실행을 먼저 달성하고 최종적으로 iPhone 앱 + 클라우드 API/DB, Mac verifier로 운영한다.** 로컬 버전/도구는 확정했고 클라우드 제공자는 미정이다. 표의 완료 조건은 작업 제안이며 승인 acceptance가 아니다.
 

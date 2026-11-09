@@ -1,6 +1,6 @@
 # GODIEOR · 세 저장소 공통 아키텍처
 
-- 문서 revision: `SYNC-2026-11-09-13`
+- 문서 revision: `SYNC-2026-11-09-14`
 - 상태: **책임 분리·저장소 3개, NestJS + PostgreSQL + Prisma 및 TypeORM 제외는 사용자 확정**. 최종 실행 형태와 로컬 우선 진행도 사용자 확정이다. 로컬 버전은 하단 구현 기록에 고정했다. 클라우드 제공자·나머지 세부 정책은 미정이다.
 - 공통 문서 원본: `godieor-app/docs/system/`. backend/verifier의 같은 경로는 동기화 사본이다.
 - 공통 문서: `architecture.md`, `plan.md`, `policies.md`. 변경 시 세 사본을 함께 갱신한다.
