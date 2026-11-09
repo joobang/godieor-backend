@@ -1,6 +1,6 @@
 # 현재 상태 · 새 개발 대화의 시작점
 
-문서 revision: `CONTEXT-2026-11-09-06`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
+문서 revision: `CONTEXT-2026-11-09-07`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
 확인일: 2026-11-09 KST. 이 문서는 현재 상태의 요약이다. 정책 원본은 product/policies,
 계약 원본은 backend/contracts, 실행 사실은 각 작업 기록, 승인 기준은 verifier/requirements다.
 충돌 시 날짜만 보고 정책을 덮어쓰지 말고 원본·Git 변경을 확인한다. 아래 과거 실행은 현재 프로세스 생존을 보장하지 않는다.
@@ -19,7 +19,7 @@
 
 | 저장소 | 구현·실행 기록 | 아직 없는 것 | 근거 |
 |---|---|---|---|
-| app | SwiftUI 시작 화면, iOS 빌드 스크립트 | API client, 달력/상세 기능, Google 로그인·계정 동기화 | `README.md`, `docs/repository-plan.md` |
+| app | SwiftUI iOS 시작 화면, 공개 API client, 월간 달력·일별 목록·상세 조회, 국가/시간대/OTT/게임기기 로컬 필터, 시뮬레이터 빌드·실제 backend 연동 화면 확인 | Google 로그인·계정 동기화, 독립 통합 검증 및 UI 자동 조작 | `docs/ai/tasks/APP-01-public-calendar.md`, `docs/ai/tasks/APP-01-options-filters.md`, `docs/ai/tasks/APP-01-integration.md` |
 | backend | NestJS 공개 조회 API, Prisma 23 모델·초기 SQL migration, 로컬 PostgreSQL, fixture 파이프라인. 작성자가 빌드·가상 7건 수집·API 조회 실행. RSS 후보/검토 CLI, 기능별 Nest 계층 분리, BE-04 Client 우선, DATA-02B 검토 후보 수동 publish | 자동 전수 제공처 수집, Google/개인 쓰기, iOS 연결, 독립 통합 검증 | `docs/tasks/BE-01-local-pipeline.md`, `docs/tasks/DATA-02-ott-candidates.md`, `docs/reviewed-publish.md` (계약 작성 시점 범위는 `contracts/implementation.md`) |
 | verifier | acceptance 초안, app-only evidence v1 집계기, bootstrap 자기 검사·리뷰 기록 | evidence v2, 자동 snapshot/runner/AI 어댑터, 실제 OS 격리, 승인 기준에 의한 통합 run | `README.md`, `docs/bootstrap-validation.md` |
 
@@ -31,13 +31,13 @@ Node 24.19.0 / Nest 12.4.0 / Prisma 7.10.1 / PostgreSQL 16.14가 로컬 구현�
 
 제품 구현을 마지막 확인한 기준 커밋은 다음과 같다. 이번 문서 변경 이후의 HEAD를 뜻하지 않는다.
 
-- app: `d4b5eba`.
-- backend: `222f67f096349975c99cbe4c16c60b72c4e8bdb5` (검토 후보 publish 코드 기준; 쿼리 전환은 6aac1d3).
-- verifier: `01ca34b816ddf4d9b6185e1a9e450008bb642c6b`.
+- app: `f36adb748b3a452db105475ffbcae5abe8d3d02f` (APP-01 HTTP 통합 수정).
+- backend: `85ea4f3398d949e4f59313232306c3325956b7a6`.
+- verifier: `109f918799d6c818ae30ba5af4a5cedb112573e8`.
 - API: `0.1.0-draft.2`, 작성자 검토 기록 있음 / 독립 검토 대기.
 - package-lock은 이전 계약pin6258118과 다르며 이번 시작0799404/현재222f67f에서는 동일하다. 재현에는 고정 backend SHA의 lock을 사용한다. 계약 문서/Prisma/migration 해시는 기존pin과 동일하다.
 - 계약·migration digest: app `docs/api/contract-reference.json`, verifier `docs/contracts/reference.json`.
-- 공통 문서: `SYNC-2026-11-09-17`. OTT 날짜 기준을 유지하고 Prisma 쿼리 규칙/검토 후보 수동 publish 상태를 반영했다.
+- 공통 문서: `SYNC-2026-11-09-18`. OTT 날짜 기준을 유지하고 APP-01 통합 및 독립 검증 대기를 반영했다.
   계약 참조의 `policyRevision=SYNC-2026-11-09-13`은 계약 작성 기준으로 보존하며, 이번 문서 변경으로 재고정하지 않는다.
   API 스키마·migration·acceptance 승인 상태는 변경하지 않았다. 최신 입력 정책은 제품 연결 때 계약 고정본과 대조한다.
 
@@ -56,7 +56,8 @@ Node 24.19.0 / Nest 12.4.0 / Prisma 7.10.1 / PostgreSQL 16.14가 로컬 구현�
 | DATA-02A | 공식 RSS 후보 CLI·검토 입력/보류·내보내기 구현 및 작성자 실행, 담당 해제 | 후속 DATA-02B로 고정 키 매핑/수동 publish 구현. 독립 통합 검증은 별도 | backend `docs/tasks/DATA-02-ott-candidates.md`, `docs/ott-candidates.md` |
 | DATA-01 / OTT 근거 | 공식 공개 페이지·3개 RSS 실제 접근 확인 완료, 작성자 조사. 어댑터/인증 API·전수 coverage 미확인. 담당 해제 | 공지 후보 수집/검토를 DATA-02A로 진행. 전수 coverage/허용 조건은 계속 확인 필요 | backend `docs/research/2026-11-09-ott-feasibility.md`, `docs/tasks/DATA-01-ott-feasibility.md` |
 | 계약 독립 검토 / VFY-01~04 | 대기, 담당 없음 | 기준 초안·고정 SHA/계약 조합으로 독립 검토 및 evidence v2/runner 설계. 구현 완료로 취급하지 않음 | 공통 `plan.md`, verifier `requirements/proposals/` |
-| APP-01 | 미착수, 담당 없음 | 고정 계약으로 공개 API client→캘린더/상세 연결. 실제/가상 데이터 표시, 날짜 정밀도 유지 | app `docs/repository-plan.md` |
+| APP-01 | 구현 및 작성자 통합 점검 완료, 담당 해제. 독립 검증 대기 | 상세 요청 400 원인(`country` 불허)을 수정하고 iOS 빌드/백엔드 상세 HTTP 200 확인. 다음은 verifier의 고정 SHA 독립 검증, iOS 날짜 탭 UI 조작 검사 | app `docs/ai/tasks/APP-01-integration.md` |
+| APP-01G | 상태 동기화 및 검증 인계 진행 | 세 저장소 공통 사본 동기화·고정 SHA 인계, UI 날짜 탭→상세 미실행 범위 기록 | app `docs/ai/tasks/APP-01-finalize.md` |
 | BE-AUTH / 개인 쓰기 | 미착수, 담당 없음 | 세션·계정 삭제/동기화 충돌 세부 설계 후 Google 실제 인증·사용자 격리 구현 | backend 계약, 공통 P03 |
 
 BE-03 이후 사용자 지시로 Prisma Client 우선 규칙을 문서화/코드 반영하고 다음 작업인 DATA-02B를 진행했다. 날짜 정책/계약 스키마는 유지했다.
@@ -74,7 +75,8 @@ BE-03 결과: build/28개 자체 검사, 기존 빌드와 21개 API 응답·양�
 
 BE-04 / DATA-02B 결과: 전체47개 자체 검사, 별도 임시 DB 반복/정정/identity 거부, 기존21API/커서 호환 확인. 공식 근거4건 수동 publish 두 번 후 provider4+fixture7 및 provider 최초 변경이력4 유지. 시간대 null인4건은 date_only다. 새 임시 포트 API 조회 후 종료했다.
 고정 코드 별도 리뷰: BE-04 Lovelace(5개/noEmit, HTTP sandbox 제한), DATA-02B Volta(임시 build/39개 scoped)가 각각 추가 지적 없음을 보고했다. 두 reviewer는 실제 PostgreSQL을 실행하지 않았다. verifier/reviews의 개별 기록 참조.
-다음 작업: APP-01 공개 API/iOS 달력·상세 연결 및 별도 VFY evidence v2/고정 SHA 통합 검사. 극장 영화 최소 샘플과 자동 OTT 범위 보강은 후속이다.
+APP-01 업데이트(2026-11-09): 실제 로컬 backend API와 iPhone 17 Pro Simulator에서 달력 표시·필터 응답 확인. 상세 API에 앱이 허용되지 않은 `country`를 보낸 HTTP 400을 확인해 앱에서 제거했고 재요청 HTTP 200, iOS 빌드 성공. 날짜 선택→상세 전체 UI 조작 및 독립 검증은 미확인이다. 세부 기록은 `docs/ai/tasks/APP-01-integration.md`와 `APP-01-finalize.md`에 있다.
+다음 작업: APP-01 고정 SHA 독립 검증과 VFY evidence v2/runner 확장. 극장 영화 최소 샘플과 자동 OTT 범위 보강은 후속이다.
 한 공지에 여러 작품·서로 다른 공지에 같은 작품, 정정 시 기존 이벤트 ID 보존을 다뤄야 한다.
 키를 준비한 다른 출처 최소 응답 확인, 계약 독립 검토/evidence v2·runner 확장은 병행 가능하다.
 LEARN-0008 후보 단계, LEARN-0009 서버 계층, LEARN-0010 Prisma 쿼리, LEARN-0011 검토 후보 제품 반영에 실제 선택/검사/한계를 기록했다.

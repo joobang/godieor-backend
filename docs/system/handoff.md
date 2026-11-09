@@ -1,7 +1,9 @@
 # 계정·모델 사이에서 작업 이어받기
 
-revision: `CONTEXT-2026-11-09-06`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
-공통 문서는 `SYNC-2026-11-09-17`이다. Prisma Client 우선 규칙과 검토 후보 수동 publish를 반영했고 OTT 날짜 정책/API 스키마는 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
+revision: `CONTEXT-2026-11-09-07`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+공통 문서는 `SYNC-2026-11-09-18`이다. APP-01 통합 및 독립 검증 대기 상태를 반영했고 OTT 날짜 정책/API 스키마는 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
+
+APP-01G 인계 기준: app `f36adb748b3a452db105475ffbcae5abe8d3d02f`, backend `85ea4f3398d949e4f59313232306c3325956b7a6`, verifier `109f918799d6c818ae30ba5af4a5cedb112573e8`. API `0.1.0-draft.2`, contract manifest SHA-256 `8dfc69a8c6a5f9feb91f2d0cf6d661eec16a1aacb8e980b7abe880cd0b1f3b1e`, migration SHA-256 `29ef8ef0d520f44b6a633e8f017144a3e2b2199189461a88ba99bc296c42f5b9`. acceptance 초안, verifier evidence v1 앱 전용으로 통합 PASS 없음. UI 조작 미확인 범위는 app `docs/ai/tasks/APP-01-finalize.md` 참조. 문서 변경 커밋 이후 HEAD는 Git으로 확인한다.
 
 ## 시작
 
