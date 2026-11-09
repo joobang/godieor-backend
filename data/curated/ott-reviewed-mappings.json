@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "mappings": [
+    {
+      "candidateId": "9be5d184f11c98f94cc50a3bc23e00fa2640c119fe7767881f3aed3b1f84342c",
+      "revision": "e57e7ba1c761de2160f27208229d56a725f35604d9c371058a648340e786092e",
+      "contentKey": "work-000001",
+      "eventKey": "event-000001"
+    },
+    {
+      "candidateId": "fa3d1924488f137539610a1dfd4a44305bdbdba1abd33c464cb6edd199f816e9",
+      "revision": "3786c54a8b23ae4b078df2d8510522cb5ef5b570d80b50476b50244e57f73eb4",
+      "contentKey": "work-000002",
+      "eventKey": "event-000002"
+    },
+    {
+      "candidateId": "e474938e17b92dd2bde5c17da25d31c50fa7f2f2888968aff46e3691a357fc40",
+      "revision": "2d93d9e668ac9fa654a91b76dcc6c23fff05582ef7dce603e2d6fdd28d08051c",
+      "contentKey": "work-000003",
+      "eventKey": "event-000003",
+      "sourceUrl": "https://cjnews.cj.net/%eb%a7%a4%ea%b1%b0%ec%a7%84c-%eb%94%b0%ec%8a%a4%ed%95%9c-%eb%b4%84-%ed%96%87%ec%82%b4%ea%b3%bc-%ed%95%a8%ea%bb%98%ed%95%98%eb%8a%94-4%ec%9b%94-cj-enm-%ec%8b%a0%ea%b7%9c-%ec%bd%98%ed%85%90%ec%b8%a0/"
+    },
+    {
+      "candidateId": "9b725d0a6647c5c0e3b6b2b08c6226c5ce4cbe18d944aa3516c2d16bc1db317f",
+      "revision": "155186a00951980d0b1ad00f7aef4ea5c647ef006ba7c9f6ece4796c70ccda31",
+      "contentKey": "work-000004",
+      "eventKey": "event-000004"
+    }
+  ]
+}

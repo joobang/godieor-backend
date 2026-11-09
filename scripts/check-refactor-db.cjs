@@ -312,6 +312,8 @@ async function main() {
     console.log(
       "일정 연기 시 ID/이전 날짜 보존, 수집 실패 시 마지막 성공·기존 일정 보존 확인",
     );
+    phase = "reviewed candidate publication";
+    await require("./check-reviewed-db.cjs")(root, prisma);
   } catch (error) {
     const message =
       error instanceof Error

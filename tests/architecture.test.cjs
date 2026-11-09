@@ -157,7 +157,14 @@ test("Nest HTTP 경계가 서비스·레포지토리 분리 후에도 계약 동
       ...Object.values(pipes),
       HealthService,
       { provide: CatalogRepository, useValue: repository },
-      { provide: HealthRepository, useValue: { async checkConnection() {} } },
+      {
+        provide: HealthRepository,
+        useValue: {
+          async checkConnection() {
+            return [{ origin: "fixture", _count: 1 }];
+          },
+        },
+      },
       {
         provide: RUNTIME_CONFIG,
         useValue: { cursorKey: "synthetic-signing-key-with-32-characters" },

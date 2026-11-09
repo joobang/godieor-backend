@@ -27,3 +27,5 @@ ADR에는 상태(proposed/accepted/superseded), 날짜, 실제 사용자 선택 
 - [ADR-011 · Nest 기능 모듈과 Controller/Service/Repository](011-nest-feature-layering.md)
 
 - [ADR-012 Prisma Client 우선](012-prisma-client-first.md)
+
+- [ADR-013 검토 후보의 안정 키와 publish](013-reviewed-publish.md)

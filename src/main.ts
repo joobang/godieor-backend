@@ -13,9 +13,7 @@ async function main() {
   configureHttp(app);
   const config = app.get<RuntimeConfig>(RUNTIME_CONFIG);
   await app.listen(config.port, config.host);
-  console.log(
-    `GODIEOR 로컬 API: http://${config.host}:${config.port}/v1 (가상 데이터 모드)`,
-  );
+  console.log(`GODIEOR 로컬 API: http://${config.host}:${config.port}/v1`);
 }
 main().catch(() => {
   console.error("API 시작 실패. 환경 설정·DB 연결·포트를 확인하세요.");

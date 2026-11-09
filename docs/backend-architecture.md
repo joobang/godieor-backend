@@ -68,3 +68,7 @@ test:db는 캐시에 있는 Compose 고정 이미지를 사용해 별도 tmpfs P
 ## 쿼리 작성
 
 Prisma Client 우선 규칙과 SQL 예외는 [query-policy.md](query-policy.md)를 따른다. BE-04에서 미정 목록·이전 날짜 이력·연결 확인을 Client로 전환했다. 계산 정렬/월별 window 집계만 바인딩 SQL과 런타임 검사를 유지한다.
+
+## 검토 후보 제품 반영
+
+ReviewedOttModule은 수동 publish CLI 전용이다. ReviewedPublishService → 후보/매핑 Repository → Adapter → 기존 CollectionService/Repository로 이어진다. API scheduler에 연결하지 않는다. [실행·잠금·한계](reviewed-publish.md)를 따른다. 자체 검사는 현재47개이며 이전 BE-03의28개 기록은 당시 실행 사실이다.
