@@ -5,6 +5,8 @@
 [ADR-003](003-runtime-topology.md): 로컬 실행부터 시작하고 최종 API/DB는 클라우드, 앱은 iPhone, verifier는 Mac으로 확정했다.
 정확한 버전·클라우드 제공자는 [정책 P02](../system/policies.md)에 추가 결정이 필요하다.
 
+[ADR-005](005-content-range-refresh.md): OTT 4곳·게임 정식 출시·2026년 이후·하루 1회 수집을 기록했다.
+
 ADR에는 상태(proposed/accepted/superseded), 날짜, 실제 사용자 선택 근거, 문제/제약,
 대안 비교, 선택 이유·포기한 이점, 검사/공식 출처, 재검토 조건을 기록한다.
 사용자 선택 전에는 accepted나 승인자를 만들지 않는다.
