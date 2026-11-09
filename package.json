@@ -7,15 +7,18 @@
     "node": ">=24.11 <25"
   },
   "scripts": {
-    "build": "prisma generate && tsc -p tsconfig.json",
+    "build": "node scripts/clean-dist.mjs && prisma generate && tsc -p tsconfig.json",
     "start": "node --env-file=.env dist/src/main.js",
     "db:up": "docker compose up -d --wait postgres",
     "db:stop": "docker compose stop postgres",
     "db:migrate": "prisma migrate deploy",
     "db:generate": "prisma generate",
-    "collect:fixture": "node --env-file=.env dist/src/collect.js",
-    "candidates": "node dist/src/collect-candidates.js",
-    "test:candidates": "npm run build && node --test tests/candidates.test.cjs"
+    "collect:fixture": "node --env-file=.env dist/src/cli/collect-fixture.js",
+    "candidates": "node dist/src/cli/collect-candidates.js",
+    "test:candidates": "npm run build && node --test tests/candidates.test.cjs",
+    "test:architecture": "npm run build && node --test tests/architecture.test.cjs",
+    "test": "npm run build && node --test tests/*.test.cjs",
+    "test:db": "npm run build && node scripts/check-refactor-db.cjs"
   },
   "dependencies": {
     "@nestjs/common": "12.4.0",
