@@ -1,6 +1,6 @@
 # 계정·모델 사이에서 작업 이어받기
 
-revision: `CONTEXT-2026-11-09-07`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+revision: `CONTEXT-2026-11-09-08`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
 공통 문서는 `SYNC-2026-11-09-18`이다. APP-01 통합 및 독립 검증 대기 상태를 반영했고 OTT 날짜 정책/API 스키마는 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
 
 APP-01G 인계 기준: app `f36adb748b3a452db105475ffbcae5abe8d3d02f`, backend `85ea4f3398d949e4f59313232306c3325956b7a6`, verifier `109f918799d6c818ae30ba5af4a5cedb112573e8`. API `0.1.0-draft.2`, contract manifest SHA-256 `8dfc69a8c6a5f9feb91f2d0cf6d661eec16a1aacb8e980b7abe880cd0b1f3b1e`, migration SHA-256 `29ef8ef0d520f44b6a633e8f017144a3e2b2199189461a88ba99bc296c42f5b9`. acceptance 초안, verifier evidence v1 앱 전용으로 통합 PASS 없음. UI 조작 미확인 범위는 app `docs/ai/tasks/APP-01-finalize.md` 참조. 문서 변경 커밋 이후 HEAD는 Git으로 확인한다.
@@ -84,3 +84,7 @@ Codex는 현재 파일/정책과 대조해 반영하고 새 전달본을 생성�
 ## APP-01H 후속 인계
 
 앱 구현4dbb8d1(브랜치 codex/app-01-review-fixes), backend 코드85ea4f3 및 기존 계약/migration 조합. 작성자 UI 탐색 확인과 독립 정적 리뷰 수정 기록은 status.md 최신 절/APP-01H 카드 참조. 다음 VFY-01 관찰점 점검→VFY-02 evidence v2이며 기준 승인·통합 PASS는 별도다.
+
+## VFY-02 인계
+
+verifier d15601e에서 v1/v2 지원. 통합runner는 --require-schema-version 2 필수. 실제 파일 수집/snapshot/실행 진위는 아직 후속 VFY-03/04이며 input hash 일치만으로 통합PASS를 주장하지 않는다. 새 작업은 status.md의 VFY-01/02 최신절과 verifier/docs/evidence-v2.md부터 확인한다.
