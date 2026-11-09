@@ -1,6 +1,6 @@
 # 사용자가 결정할 정책
 
-revision: `SYNC-2026-11-09-16`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
+revision: `SYNC-2026-11-09-17`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
 P01은 현재 SwiftUI·iOS 17 이상 뼈대를 유지하며 진행한다. P02의 NestJS·PostgreSQL·Prisma, TypeORM 제외는 **사용자 확정**이다.
 최종 실행 위치와 로컬 우선 단계도 확정됐다. 로컬 버전은 하단 기술 선택에 고정했고 클라우드 제공자·나머지 정책은 아래 미정 범위를 따른다. 선택 제안은 사용자 확정 정책이 아니다.
 P03은 Google 로그인한 사용자가 이용 가능하며 설정·찜을 계정에 귀속하고 서버 저장/복원하는 방향으로 확정했다. 작품·개별 일정 찜을 모두 지원하며 세션 상세는 후속 설계다.
@@ -144,3 +144,7 @@ P11의 현재 규칙은 `type(scope): 한글 설명`이다. scope는 선택이�
 사용자가 NestJS의 Controller→Service→Repository 구조 부재를 지적했다.
 기능별 Nest 모듈과 명시적 계층 책임으로 수정한다. HTTP·유스케이스·영속 IO를 섞지 않고 Client/Adapter에 외부 IO를 둔다.
 프레임워크 도입 사실과 적절한 애플리케이션 구조를 갖춘 사실을 혼동하지 않는다.
+
+## Prisma 사용 방식 · 2026-11-09 사용자 지시 반영
+
+Prisma Client를 기본으로 사용하고 필요한 SQL만 이유를 기록한다. Controller→Service→Repository 경계를 유지한다. SQL 예외/바인딩/출력 검사 원본은 backend/docs/query-policy.md다. OTT 수동 publish 구현은 확정 날짜/국가/플랫폼/최초 공개 근거 정책을 바꾸거나 자동 전수 coverage를 보장하지 않는다.

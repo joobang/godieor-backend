@@ -1,6 +1,6 @@
 # 세 저장소 작업 계획
 
-revision: `SYNC-2026-11-09-16`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
+revision: `SYNC-2026-11-09-17`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
 현재 단계는 정책 결정 진행 중이다. 기존 SwiftUI 구성 유지, NestJS + PostgreSQL + Prisma, TypeORM 제외는 확정됐다.
 **로컬 실행을 먼저 달성하고 최종적으로 iPhone 앱 + 클라우드 API/DB, Mac verifier로 운영한다.** 로컬 버전/도구는 확정했고 클라우드 제공자는 미정이다. 표의 완료 조건은 작업 제안이며 승인 acceptance가 아니다.
 
@@ -9,7 +9,8 @@ revision: `SYNC-2026-11-09-16`. 원본 `godieor-app/docs/system/`, 다른 두 �
 - 완료: iOS 시작 뼈대, 앱 전용 판정기 bootstrap, 독립 리뷰 사례, 학습 카탈로그.
 - 완료: backend 클론, 세 저장소 책임·의존성·정책 질문 문서화.
 - 완료: 로컬 공개 API·Prisma 23 모델/초기 migration·전용 PostgreSQL·가상 제공처 수집과 문서 출처 조사.
-- 미완료: Google/개인 쓰기·iOS API 연결·실제 데이터 연동·호스팅 확정, snapshot/runner,
+- 완료: Prisma Client 우선 쿼리 전환·OTT 검토 후보 고정 키 매핑과 수동 publish, 로컬 실제4+가상7 조회.
+- 미완료: Google/개인 쓰기·iOS API 연결·자동 전수 수집/나머지 분야 실데이터·호스팅 확정, snapshot/runner,
   evidence v2, 실제 권한 격리, 원격 배포, 승인된 정식 검증 run.
 
 ## 첫 로컬 실행 목표
@@ -131,7 +132,7 @@ DDL 실행·제품 테스트·migration 적용·정식 run은 이번 계약 작�
 사용자가 정확한 년·월·일을 확보한 OTT 일정만 반영하고 불완전 날짜는 후보 보류하는 정책을 수락했다.
 backend에 RSS/공식 링크 후보 CLI·검토·날짜 보류·변경 시 검토 무효화·검토 후보 내보내기와 자체 검사를 추가했다.
 실행 결과는 backend `docs/tasks/DATA-02-ott-candidates.md`, 사용법은 `docs/ott-candidates.md`를 따른다.
-다음은 검토 후보의 안정 작품/시즌/이벤트 매핑, 공지 수정·연기 보존과 기존 publish 연결이다.
+당시 다음 작업이던 고정 키 매핑과 publish 연결은 아래 DATA-02B에서 구현했다.
 후보 CLI 단계에서 전수 실데이터 연동이나 독립 통합 검증 완료를 선언하지 않는다.
 
 
@@ -140,4 +141,10 @@ backend에 RSS/공식 링크 후보 CLI·검토·날짜 보류·변경 시 검�
 새 기능보다 Nest 계층 구조 정리를 우선했다. Controller/Service/Repository와 수집 Client/Adapter를 기능 모듈로 분리했다.
 빌드/28개 자체 검사와 별도 임시 DB의 저장·재수집·연기/실패 보존, 전후 21개 API 응답/커서 호환을 확인했다.
 독립 코드 리뷰는 고정 커밋 대상으로 별도 수행하며 제품/승인 acceptance의 통합 PASS와 구분한다.
-다음 제품 작업은 여전히 검토 후보의 안정 작품·시즌·이벤트 매핑과 publish 연결이다.
+후속 BE-04 / DATA-02B에서 쿼리 규칙과 검토 후보 제품 반영을 구현했다.
+
+## BE-04 / DATA-02B · 2026-11-09
+
+Prisma Client 우선·SQL 예외 규칙을 문서화하고 단순 조회를 전환했다. 검토된 OTT 후보는 명시적 고정 키 매핑으로 수동 publish한다. 작성자47개 자체 검사·별도 DB 저장/수정/거부 회귀·로컬 실데이터4건 조회를 실행했다. 독립 통합 검증/앱 연결은 미완료다.
+
+다음 우선순위 제안: APP-01 공개 API client → 큰 월 캘린더/일별 목록/상세 연결(기본 영화+OTT, dataOrigin 표시)과 별도 VFY evidence v2/고정 SHA 검사. 이어서 극장 영화 출처 최소 샘플 검증·다중 작품 공지/자동 OTT 수집 보강. Google/개인 쓰기는 세션·사용자 격리 설계부터 진행한다. 원본 실행은 backend 작업 카드, 쿼리는 query-policy.md, 후보 반영은 reviewed-publish.md다.
