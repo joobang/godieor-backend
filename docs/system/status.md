@@ -1,6 +1,6 @@
 # 현재 상태 · 새 개발 대화의 시작점
 
-문서 revision: `CONTEXT-2026-11-09-07`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
+문서 revision: `CONTEXT-2026-11-09-08`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
 확인일: 2026-11-09 KST. 이 문서는 현재 상태의 요약이다. 정책 원본은 product/policies,
 계약 원본은 backend/contracts, 실행 사실은 각 작업 기록, 승인 기준은 verifier/requirements다.
 충돌 시 날짜만 보고 정책을 덮어쓰지 말고 원본·Git 변경을 확인한다. 아래 과거 실행은 현재 프로세스 생존을 보장하지 않는다.
@@ -21,7 +21,7 @@
 |---|---|---|---|
 | app | SwiftUI iOS 시작 화면, 공개 API client, 월간 달력·일별 목록·상세 조회, 국가/시간대/OTT/게임기기 로컬 필터, 시뮬레이터 빌드·실제 backend 연동 화면 확인 | Google 로그인·계정 동기화, 독립 통합 검증 및 UI 자동 조작 | `docs/ai/tasks/APP-01-public-calendar.md`, `docs/ai/tasks/APP-01-options-filters.md`, `docs/ai/tasks/APP-01-integration.md` |
 | backend | NestJS 공개 조회 API, Prisma 23 모델·초기 SQL migration, 로컬 PostgreSQL, fixture 파이프라인. 작성자가 빌드·가상 7건 수집·API 조회 실행. RSS 후보/검토 CLI, 기능별 Nest 계층 분리, BE-04 Client 우선, DATA-02B 검토 후보 수동 publish | 자동 전수 제공처 수집, Google/개인 쓰기, iOS 연결, 독립 통합 검증 | `docs/tasks/BE-01-local-pipeline.md`, `docs/tasks/DATA-02-ott-candidates.md`, `docs/reviewed-publish.md` (계약 작성 시점 범위는 `contracts/implementation.md`) |
-| verifier | acceptance 초안, app-only evidence v1 집계기, bootstrap 자기 검사·리뷰 기록 | evidence v2, 자동 snapshot/runner/AI 어댑터, 실제 OS 격리, 승인 기준에 의한 통합 run | `README.md`, `docs/bootstrap-validation.md` |
+| verifier | acceptance 초안, v1 앱전용 + v2 전체조합 binding 집계기,48개 자기검사·독립 코드리뷰 | 자동 snapshot/runner/AI 어댑터, 실제 OS 격리, 승인 기준에 의한 통합 run | `README.md`, `docs/bootstrap-validation.md` |
 
 현재 로컬 DB는 가상7건 + 공식 공지의 작성자 검토를 명시적으로 수동 반영한 OTT4건이다. 미검토 후보는 staging에 남긴다. 모든 실데이터/전수 수집이 완료된 것은 아니다. acceptance는 draft이며 세 저장소 통합 PASS는 없다.
 Node 24.19.0 / Nest 12.4.0 / Prisma 7.10.1 / PostgreSQL 16.14가 로컬 구현에 고정돼 있다.
@@ -104,3 +104,9 @@ LEARN-0008 후보 단계, LEARN-0009 서버 계층, LEARN-0010 Prisma 쿼리, LE
 원본 카드: app docs/ai/tasks/APP-01-review-fixes.md. 상세 최신 상태/개최국 및 날짜 요청 UUID/revision 보호 수정 완료. 작성자 Simulator 날짜 선택→목록→상세, OTT 해제/복원과 재실행 후 필터 유지 확인. 최종 iOS 빌드 성공. 별도 컨텍스트 정적 리뷰 IR001~004 수정 후 추가 지적 없음 보고. 리뷰는 실제 UI/DB 실행이나 승인 판정이 아니다. 응답 지연/409 주입·DST/전국가 전수 UI 미실행. verifier/reviews/2026-11-09-app-public-calendar.md 및 LEARN-0012 참조.
 
 현재 APP-01H 담당 해제. 다음 작업은 verifier VFY-01의 현재 정책 대비 관찰점 정리와 기존 VFY-02 evidence v2 구현이다. APP-01 UI 탐색을 미실행으로 기술한 위 과거 문단은 당시 기록이며 최신 확인 범위는 본 절/카드를 우선한다. acceptance draft 및 통합 PASS 없음 유지. backend는 문서만 변경, 실행 코드 기준85ea4f3.
+
+## VFY-01/02 최신 후속 (2026-11-09 KST)
+
+verifier 코드 d15601e, 브랜치 codex/vfy-02-evidence-v2. VFY-01 관찰점 제안 작성(기준 승인 전), VFY-02 parser/validator·v1호환 및 전체subject 바인딩 구현 완료. 모든 check/review에 app/backend base·head SHA, 계약manifest, migration집합manifest, acceptance, verifier상태 digest를 묶는다. 통합 호출자는 --require-schema-version 2를 강제해야 한다.48개 자체검사 및 별도 코드 reviewer의 동일 자기검사/재현 후 추가 지적 없음 보고. 가상CLI는 REVIEW_REQUIRED(exit2). 기준 초안 SHA c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063 유지.
+
+원본 verifier/docs/tasks/VFY-02-evidence-v2.md, 형식 docs/evidence-v2.md, 리뷰 reviews/2026-11-09-evidence-v2.md, LEARN-0013. 담당 해제. 다음 VFY-03 고정 snapshot/별도 build 사본·일회용DB 설계 및 VFY-04 실행runner. 이전 v1-only/미구현 문단은 당시 기록이다. v2는 선언 일관성 검사이며 실제 실행·격리 증명이 아니다. 제품 통합PASS 없음.
