@@ -1,0 +1,424 @@
+{
+  "researchOnly": true,
+  "importedIntoProduct": false,
+  "scope": "unauthenticated public HTTP and RSS reads; not playback or provider API verification",
+  "http": [
+    {
+      "url": "https://about.netflix.com/robots.txt",
+      "checkedAt": "2026-11-09T03:44:36+00:00",
+      "status": 200,
+      "finalUrl": "https://about.netflix.com/robots.txt",
+      "contentType": "text/plain",
+      "bytesRead": 76,
+      "sha256": "1dc5e79d397ff0b53d8ed89605c2a765bfb2c5bb5c3d9c511fce01d7d52cb5c3",
+      "robotsObservation": "일반 규칙 /api/ 제외"
+    },
+    {
+      "url": "https://news.coupang.com/robots.txt",
+      "checkedAt": "2026-11-09T03:44:36+00:00",
+      "status": 200,
+      "finalUrl": "https://news.coupang.com/robots.txt",
+      "contentType": "text/plain; charset=utf-8",
+      "bytesRead": 420,
+      "sha256": "17d8525e43f76e57227e03be2ef5a54b7f3020b5377fd1b7340c0a98e54ce011",
+      "robotsObservation": "관리 경로 제외와 bot별 규칙 존재"
+    },
+    {
+      "url": "https://cjnews.cj.net/robots.txt",
+      "checkedAt": "2026-11-09T03:44:36+00:00",
+      "status": 200,
+      "finalUrl": "https://cjnews.cj.net/robots.txt",
+      "contentType": "text/plain",
+      "bytesRead": 167,
+      "sha256": "5fda7108c23adde8a5e5b461930692f6b52a80602b6f20500cf5427afe977be9",
+      "robotsObservation": "관리/검색 경로 제외"
+    },
+    {
+      "url": "https://www.disneyplus.com/robots.txt",
+      "checkedAt": "2026-11-09T03:44:36+00:00",
+      "status": 200,
+      "finalUrl": "https://www.disneyplus.com/robots.txt",
+      "contentType": "text/plain",
+      "bytesRead": 2794,
+      "sha256": "ea1fedfeaf8ce8df678df9ffb629dbbd7b3492aaa57814b5d8390d8dda1719cd",
+      "robotsObservation": "일반 봇 전체 제외, 지정 봇별 별도 허용/제외 규칙"
+    },
+    {
+      "url": "https://about.netflix.com/ko/news/tantara-date-announcement",
+      "checkedAt": "2026-11-09T03:44:36+00:00",
+      "status": 200,
+      "finalUrl": "https://about.netflix.com/ko/news/tantara-date-announcement",
+      "contentType": "text/html; charset=utf-8",
+      "bytesRead": 68631,
+      "sha256": "7117c0032ddc77a9510ab9b0023f8721c46b9e239d9d623eb957e2ffbe21efee",
+      "metadata": [
+        {
+          "rel": "canonical",
+          "href": "https://about.netflix.com/news/tantara-date-announcement",
+          "data-next-head": ""
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (en)",
+          "href": "/en/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (fr)",
+          "href": "/fr/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (es)",
+          "href": "/es/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (es_es)",
+          "href": "/es_es/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (de)",
+          "href": "/de/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (it)",
+          "href": "/it/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (ja)",
+          "href": "/ja/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (pt_br)",
+          "href": "/pt_br/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (pt_pt)",
+          "href": "/pt_pt/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (ko)",
+          "href": "/ko/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (zh_cn)",
+          "href": "/zh_cn/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (zh_tw)",
+          "href": "/zh_tw/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (ar)",
+          "href": "/ar/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (tr)",
+          "href": "/tr/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (pl)",
+          "href": "/pl/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (th)",
+          "href": "/th/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (ro)",
+          "href": "/ro/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (el)",
+          "href": "/el/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (id)",
+          "href": "/id/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (ru)",
+          "href": "/ru/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "Netflix Press Site (vi)",
+          "href": "/vi/feed.xml"
+        }
+      ],
+      "sampleMarkers": {
+        "천천히 강렬하게": true,
+        "하우스 오브 드래곤": false,
+        "유미의 세포들": false,
+        "재혼 황후": false,
+        "11월 3일": false,
+        "12월 11일": true,
+        "2026": true
+      }
+    },
+    {
+      "url": "https://news.coupang.com/archives/63151/",
+      "checkedAt": "2026-11-09T03:44:36+00:00",
+      "status": 200,
+      "finalUrl": "https://news.coupang.com/archives/63151/",
+      "contentType": "text/html; charset=UTF-8",
+      "bytesRead": 101599,
+      "sha256": "51924a7658e554845bde5430d6432d3004a7af96df7a0454dfa8dee9b04c9e85",
+      "metadata": [
+        {
+          "name": "robots",
+          "content": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        },
+        {
+          "rel": "canonical",
+          "href": "https://news.coupang.com/archives/63151/"
+        },
+        {
+          "property": "article:publisher",
+          "content": "https://www.facebook.com/coupangnewsroom"
+        },
+        {
+          "property": "article:published_time",
+          "content": "2026-06-02T01:37:09+00:00"
+        },
+        {
+          "property": "article:modified_time",
+          "content": "2026-06-02T01:37:42+00:00"
+        }
+      ],
+      "sampleMarkers": {
+        "천천히 강렬하게": false,
+        "하우스 오브 드래곤": true,
+        "유미의 세포들": false,
+        "재혼 황후": false,
+        "11월 3일": false,
+        "12월 11일": false,
+        "2026": true
+      }
+    },
+    {
+      "url": "https://cjnews.cj.net/?p=75075",
+      "checkedAt": "2026-11-09T03:44:37+00:00",
+      "status": 200,
+      "finalUrl": "https://cjnews.cj.net/?p=75075",
+      "contentType": "text/html; charset=UTF-8",
+      "bytesRead": 124224,
+      "sha256": "ec235440e063f4cc7396c5da14738bb8b1a07116cce89f5c78be588e2e7f9079",
+      "metadata": [
+        {
+          "property": "article:section2",
+          "content": "CJ ENM 엔터테인먼트부문"
+        },
+        {
+          "name": "robots",
+          "content": "max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        },
+        {
+          "rel": "canonical",
+          "href": "https://cjnews.cj.net/%eb%a7%a4%ea%b1%b0%ec%a7%84c-%eb%94%b0%ec%8a%a4%ed%95%9c-%eb%b4%84-%ed%96%87%ec%82%b4%ea%b3%bc-%ed%95%a8%ea%bb%98%ed%95%98%eb%8a%94-4%ec%9b%94-cj-enm-%ec%8b%a0%ea%b7%9c-%ec%bd%98%ed%85%90%ec%b8%a0/"
+        },
+        {
+          "property": "article:published_time",
+          "content": "2026-04-02T15:46:45+09:00"
+        },
+        {
+          "property": "article:modified_time",
+          "content": "2026-08-04T14:44:09+09:00"
+        },
+        {
+          "property": "article:section",
+          "content": "엔터테인먼트·미디어"
+        },
+        {
+          "property": "article:tag",
+          "content": "구기동프렌즈"
+        },
+        {
+          "property": "article:tag",
+          "content": "육아인턴"
+        },
+        {
+          "property": "article:tag",
+          "content": "김재원"
+        },
+        {
+          "property": "article:tag",
+          "content": "김고은"
+        },
+        {
+          "property": "article:tag",
+          "content": "ENM엔터"
+        },
+        {
+          "property": "article:tag",
+          "content": "유미의세포들시즌3"
+        },
+        {
+          "property": "article:tag",
+          "content": "은밀한감사"
+        },
+        {
+          "property": "article:tag",
+          "content": "언니네산지직송in칼라페"
+        }
+      ],
+      "sampleMarkers": {
+        "천천히 강렬하게": false,
+        "하우스 오브 드래곤": false,
+        "유미의 세포들": true,
+        "재혼 황후": false,
+        "11월 3일": false,
+        "12월 11일": false,
+        "2026": true
+      }
+    },
+    {
+      "url": "https://www.disneyplus.com/ko-kr",
+      "checkedAt": "2026-11-09T03:44:37+00:00",
+      "status": 200,
+      "finalUrl": "https://www.disneyplus.com/ko-kr",
+      "contentType": "text/html; charset=utf-8",
+      "bytesRead": 1212103,
+      "sha256": "99288038e5aa7bc570293f672e8269e1c7df8796b6ee6600c5d44256ef183da6",
+      "metadata": [
+        {
+          "rel": "canonical",
+          "href": "https://www.disneyplus.com/ko-kr",
+          "data-next-head": ""
+        },
+        {
+          "name": "robots",
+          "content": "index",
+          "data-next-head": ""
+        }
+      ],
+      "sampleMarkers": {
+        "천천히 강렬하게": false,
+        "하우스 오브 드래곤": false,
+        "유미의 세포들": false,
+        "재혼 황후": true,
+        "11월 3일": true,
+        "12월 11일": false,
+        "2026": true
+      }
+    },
+    {
+      "url": "https://news.coupang.com/feed/",
+      "checkedAt": "2026-11-09T03:44:37+00:00",
+      "status": 200,
+      "finalUrl": "https://news.coupang.com/feed/",
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "bytesRead": 147097,
+      "sha256": "db5c33feb314be7eef00adfc51bcd0123368b539e7755dcc44d613dfe9edaca0",
+      "rssMarkers": {
+        "<rss": true,
+        "<item>": true,
+        "<pubDate>": true,
+        "<link>": true
+      }
+    },
+    {
+      "url": "https://cjnews.cj.net/feed/",
+      "checkedAt": "2026-11-09T03:44:37+00:00",
+      "status": 200,
+      "finalUrl": "https://cjnews.cj.net/feed/",
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "bytesRead": 759041,
+      "sha256": "b012f6e6e73d916eb4e80f1bd65569202810cdf18218c3b971e854b8571462c1",
+      "rssMarkers": {
+        "<rss": true,
+        "<item>": true,
+        "<pubDate>": true,
+        "<link>": true
+      }
+    }
+  ],
+  "feeds": [
+    {
+      "url": "https://about.netflix.com/ko/feed.xml",
+      "checkedAt": "2026-11-09T03:45:20+00:00",
+      "status": 200,
+      "bytesRead": 13718,
+      "contentType": "application/rss+xml; charset=utf-8",
+      "sha256": "9a240021aca0ecc843282ac59d36f58346b10cb149d3ce6ebb8a0e1aea2a252d",
+      "rootTag": "rss",
+      "itemCount": 15,
+      "atomEntryCount": 0,
+      "firstItemDates": [
+        "2026년 11월 5일",
+        "2026년 10월 30일"
+      ],
+      "lastItemDate": "2026년 8월 23일"
+    },
+    {
+      "url": "https://news.coupang.com/feed/",
+      "checkedAt": "2026-11-09T03:45:20+00:00",
+      "status": 200,
+      "bytesRead": 147097,
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "sha256": "db5c33feb314be7eef00adfc51bcd0123368b539e7755dcc44d613dfe9edaca0",
+      "rootTag": "rss",
+      "itemCount": 12,
+      "atomEntryCount": 0,
+      "firstItemDates": [
+        "Mon, 09 Nov 2026 03:00:01 +0000",
+        "Sat, 07 Nov 2026 23:57:14 +0000"
+      ],
+      "lastItemDate": "Thu, 05 Nov 2026 00:48:03 +0000"
+    },
+    {
+      "url": "https://cjnews.cj.net/feed/",
+      "checkedAt": "2026-11-09T03:45:20+00:00",
+      "status": 200,
+      "bytesRead": 759041,
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "sha256": "b012f6e6e73d916eb4e80f1bd65569202810cdf18218c3b971e854b8571462c1",
+      "rootTag": "rss",
+      "itemCount": 50,
+      "atomEntryCount": 0,
+      "firstItemDates": [
+        "Mon, 09 Nov 2026 00:00:00 +0000",
+        "Sun, 08 Nov 2026 23:30:00 +0000"
+      ],
+      "lastItemDate": "Thu, 22 Oct 2026 01:34:35 +0000"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # 계정·모델 사이에서 작업 이어받기
 
-revision: `CONTEXT-2026-11-09-02`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+revision: `CONTEXT-2026-11-09-03`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
 공통 문서는 `SYNC-2026-11-09-14`다. 이전 revision에서 커밋 표기만 보완했고 제품/API 의미는 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
 
 ## 시작
