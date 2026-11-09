@@ -3,6 +3,12 @@
 NestJS + Prisma + PostgreSQL로 영화·OTT 드라마 시즌 최초 공개·게임 정식 출시·EPL 경기 일정을 제공한다.
 현재 **로컬 공개 API와 가상 제공처 파이프라인**을 구성했다. 실제 제공처·Google/계정 쓰기·iOS 연결은 아직 없다.
 
+## 새 계정·대화에서 이어받기
+
+[현재 상태](docs/system/status.md) → [인계 절차](docs/system/handoff.md) → 해당 작업 카드 순으로 읽는다.
+현재 상태 문서 원본은 app이다. 아래 실행 안내와 구분하며, 과거 실행 기록을 현재 프로세스 생존으로 해석하지 않는다.
+웹 전달본은 app의 `python3 scripts/export-context.py`로 생성한다.
+
 ## 시작
 
 Node 24를 선택하고 다음 순서로 실행한다.

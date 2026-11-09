@@ -1,6 +1,9 @@
 # GODIEOR backend 개발 규칙
 
 - GODIEOR는 iOS 앱·backend·독립 검증의 세 저장소로 구성된다. KNU/wd-harness를 수정하거나 확장하지 않는다.
+- 새 대화/계정은 `docs/system/status.md` → `docs/system/handoff.md`부터 읽고 Git HEAD·branch·dirty 상태를 확인한다.
+  작업 카드 원본은 이 저장소 `docs/tasks/`에 두며 app의 `docs/ai/task-template.md`를 사용한다.
+  시작·인계·종료 절차에 따라 상태/카드/공통 사본을 갱신한다. 동시 개발은 작업별 `codex/` 브랜치·별도 worktree를 사용한다.
 - 먼저 `docs/system/architecture.md`, `plan.md`, `policies.md`를 읽는다.
   공통 문서 원본은 app의 `docs/system/`이며 같은 revision의 사본을 함께 갱신한다.
 - 현재 backend는 로컬 공개 API·Prisma migration·가상 수집 단계다. NestJS + PostgreSQL + Prisma, TypeORM 제외는 사용자 확정이다.
