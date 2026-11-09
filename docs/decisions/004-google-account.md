@@ -29,3 +29,8 @@ Google Drive/Calendar 접근이나 서비스용 Google API 비밀을 앱에 배�
 - [Google iOS backend authentication](https://developers.google.com/identity/sign-in/ios/backend-auth)
 - [Google iOS 설정](https://developers.google.com/identity/sign-in/ios/start-integrating)
 - [Apple App Review 4.8](https://developer.apple.com/app-store/review/guidelines/#login-services)
+
+## 공개 조회 정책 후속 확정
+
+추천안 수락으로 비로그인 캘린더/상세 조회를 허용하고 찜·설정의 계정 저장은 Google 로그인 후 제공한다.
+필수 로그인 화면 여부에 대한 기존 미정은 이 결정으로 대체한다. 공개 조회 API는 개인 데이터를 포함하지 않는다.
