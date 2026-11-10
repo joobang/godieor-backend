@@ -1,6 +1,6 @@
 # 현재 상태 · 새 개발 대화의 시작점
 
-문서 revision: `CONTEXT-2026-11-10-06`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
+문서 revision: `CONTEXT-2026-11-10-07`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
 확인일: 2026-11-10 KST. 이 문서는 현재 상태의 요약이다. 정책 원본은 product/policies,
 계약 원본은 backend/contracts, 실행 사실은 각 작업 기록, 승인 기준은 verifier/requirements다.
 충돌 시 날짜만 보고 정책을 덮어쓰지 말고 원본·Git 변경을 확인한다. 아래 과거 실행은 현재 프로세스 생존을 보장하지 않는다.
@@ -183,3 +183,14 @@ caller HOME/기존 파일의 실제 접근 거부·전용 Darwin T 소유권·�
 실행 staging /Users/Shared/godieor-ios-check-143ffcc4, app95be3b6/verifier-v2 8b85f18.
 현재 테스트 계정 비공개 인증 대기이며 실제 UID502 재검사/Foundation/Xcode 빌드는 아직 미실행.
 이전 결과의 atomic 실패/P5 open/격리 미검증/통합 PASS 없음 유지. 독립 리뷰도 대기다.
+
+## 전용 계정 인증 차단 · 2026-11-10 09:26 KST
+
+재개 기준 app bf8a303 / backend 36c6994 / verifier f547362, 세 저장소 clean에서 시작했다.
+비공개 인증으로 전용 계정 실행을 두 번 시도했지만 두 번 모두 su exit1 / `su: Sorry`로 거부됐다.
+진단 wrapper는 시작되지 않았고 /Users/Shared/godieor-ios-check-143ffcc4/incoming은 비어 있다.
+계정 UID502/HOME/shell과 개발 HOME deny ACL은 읽기 전용 재확인했으나 실제 UID502 접근 검사,
+Foundation 및 제한 Xcode 빌드는 미실행이다. 암호 오류인지 계정 인증 정책인지 단정하지 않는다.
+다음은 macOS에서 godieorbuild 로그인 가능 여부 확인 후 비공개 인증으로 기존 고정 실행을 재개하는 것이다.
+추가 인증 반복·계정 설정 변경 없음. 원본 verifier/docs/tasks/VFY-03-dedicated-ios-probe.md,
+LEARN-0014. 담당 codex-dedicated-ios-12 해제. P5/격리 미검증·독립 리뷰 대기·통합 PASS 없음 유지.

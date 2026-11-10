@@ -1,6 +1,6 @@
 # 계정·모델 사이에서 작업 이어받기
 
-revision: `CONTEXT-2026-11-10-06`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+revision: `CONTEXT-2026-11-10-07`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
 공통 문서는 `SYNC-2026-11-09-18`이다. APP-01 통합 및 독립 검증 대기 상태를 반영했고 OTT 날짜 정책/API 스키마는 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
 
 APP-01G 인계 기준: app `f36adb748b3a452db105475ffbcae5abe8d3d02f`, backend `85ea4f3398d949e4f59313232306c3325956b7a6`, verifier `109f918799d6c818ae30ba5af4a5cedb112573e8`. API `0.1.0-draft.2`, contract manifest SHA-256 `8dfc69a8c6a5f9feb91f2d0cf6d661eec16a1aacb8e980b7abe880cd0b1f3b1e`, migration SHA-256 `29ef8ef0d520f44b6a633e8f017144a3e2b2199189461a88ba99bc296c42f5b9`. acceptance 초안, verifier evidence v1 앱 전용으로 통합 PASS 없음. UI 조작 미확인 범위는 app `docs/ai/tasks/APP-01-finalize.md` 참조. 문서 변경 커밋 이후 HEAD는 Git으로 확인한다.
@@ -152,3 +152,14 @@ caller HOME/기존 파일의 실제 접근 거부·전용 Darwin T 소유권·�
 실행 staging /Users/Shared/godieor-ios-check-143ffcc4, app95be3b6/verifier-v2 8b85f18.
 현재 테스트 계정 비공개 인증 대기이며 실제 UID502 재검사/Foundation/Xcode 빌드는 아직 미실행.
 이전 결과의 atomic 실패/P5 open/격리 미검증/통합 PASS 없음 유지. 독립 리뷰도 대기다.
+
+## 전용 계정 인증 차단 · 2026-11-10 09:26 KST
+
+재개 기준 app bf8a303 / backend 36c6994 / verifier f547362, 세 저장소 clean에서 시작했다.
+비공개 인증으로 전용 계정 실행을 두 번 시도했지만 두 번 모두 su exit1 / `su: Sorry`로 거부됐다.
+진단 wrapper는 시작되지 않았고 /Users/Shared/godieor-ios-check-143ffcc4/incoming은 비어 있다.
+계정 UID502/HOME/shell과 개발 HOME deny ACL은 읽기 전용 재확인했으나 실제 UID502 접근 검사,
+Foundation 및 제한 Xcode 빌드는 미실행이다. 암호 오류인지 계정 인증 정책인지 단정하지 않는다.
+다음은 macOS에서 godieorbuild 로그인 가능 여부 확인 후 비공개 인증으로 기존 고정 실행을 재개하는 것이다.
+추가 인증 반복·계정 설정 변경 없음. 원본 verifier/docs/tasks/VFY-03-dedicated-ios-probe.md,
+LEARN-0014. 담당 codex-dedicated-ios-12 해제. P5/격리 미검증·독립 리뷰 대기·통합 PASS 없음 유지.
