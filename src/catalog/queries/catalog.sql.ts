@@ -31,6 +31,8 @@ function conditions(query: CatalogQuery) {
     Prisma.sql`e.kind IN (${Prisma.join(kinds)})`,
     Prisma.sql`(e.kind = 'epl_match' OR e.release_market IN (${query.country}, 'WORLD'))`,
   ];
+  if (process.env.CATALOG_PROVIDER_ONLY === "true")
+    clauses.push(Prisma.sql`e.origin = 'provider'`);
   if (query.contentId)
     clauses.push(Prisma.sql`e.content_id = ${query.contentId}::uuid`);
   if (query.services.length)

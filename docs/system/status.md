@@ -1,5 +1,12 @@
 # 현재 상태 · 새 개발 대화 시작점
 
+## APP-DEMO-01 간소화·데모 준비 (2026-11-10)
+
+- 사용자 요청: 하트/북마크를 화면 하트 하나로 통합(작품 존재 시 작품, 그 외 일정), 달력 하단 마지막 성공/개별 제공처 진단 제거. iOS unsigned Simulator 빌드 성공.
+- backend `CATALOG_PROVIDER_ONLY=true`로 가상 일정과 가상 제공처 freshness를 목록·달력·미정 조회에서 제외. Render 무료 웹/DB Blueprint·GitHub CI 초안 및 `docs/demo-deployment.md` 준비. 새 Render DB는 미생성·미적재, 실제 공식 OTT 4건은 기존 로컬 DB에 수동 적재된 이력만 있음. 영화/게임/EPL 실수집 미완료.
+- backend `tsc --noEmit` 성공, `npm test`는 기본 Node20 및 기존 dist unlink EPERM으로 시작 전 실패. 최신 Node24 환경의 전체 재검사 및 독립 검증 필요.
+- **아직 클라우드 배포/자동 배포 활성화·실폰 앱 업데이트 없음.** 네이티브 Swift 수정은 새 빌드 설치 필요, 서버 데이터/응답만 배포 후 기존 앱에 반영 가능. app 카드 `docs/ai/tasks/APP-DEMO-01.md`. 기존 pbxproj 개인 서명 설정 미커밋 보존.
+
 ## APP-AUTH-12 계정 동기화 표시 (2026-11-10 최신)
 
 - 사용자가 iPhone 실제 Google 로그인이 정상이라고 확인함. 서버 설정/찜 왕복·재실행 세션 복원은 별도 테스트 대상.

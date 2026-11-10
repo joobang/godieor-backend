@@ -1,5 +1,9 @@
 # 계정·모델 사이에서 작업 이어받기
 
+## APP-DEMO-01 인계 (2026-11-10)
+
+사용자 우선순위는 UI 소규모 수정 → 검증된 실데이터 → 클라우드 데모 → 자동 배포. app ContentView의 두 찜 버튼을 하나의 하트로 합쳐 contentId가 있으면 작품 찜, 없으면 일정 찜으로 저장하고 캘린더 아래 개별 제공처/마지막 성공 정보를 숨겼다. backend `CATALOG_PROVIDER_ONLY`는 이벤트 조회(날짜/미정)와 freshness에서 fixture를 필터링한다. Render Blueprint/CI/운영 절차 초안 작성, 외부 리소스 미생성. 이 환경에서 iOS unsigned 빌드 성공·backend `tsc --noEmit` 성공, `npm test`는 Node20과 기존 dist 쓰기 EPERM으로 미통과. 공식 OTT 4건 실데이터는 과거 로컬 적재뿐이며 새 클라우드 DB에 아직 없다. 앱 프로젝트 기존 서명/HTTPS 설정 dirty 보존. 원본 카드 app `docs/ai/tasks/APP-DEMO-01.md`, backend 배포 절차 `docs/demo-deployment.md`. API 계약·migration·verifier acceptance 변경 없음, 승인/PASS 주장 금지. 다음은 Node24 전체 검증, 공식 데이터 재검토 후 새 DB 적재, Render/GitHub 연결과 실기기 HTTPS 빌드 및 사용자 확인이다.
+
 ## APP-AUTH-12 최신 인계 (2026-11-10)
 
 사용자가 iPhone Google 로그인이 정상이라고 확인. APP-AUTH-12에서 계정 설정·찜의 원격 전체 조회 진행/성공 시각/실패 UI와 로컬 필터 저장 안내를 추가했다. 작성자 unsigned iOS Simulator Debug 빌드 성공. 실기기 신규 UI, 재실행 세션 복원, 설정/찜 다른 기기 왕복, 독립 검증은 미실행. 기존 Xcode signing/API override 미커밋 변경은 보존한다. 다음 세션은 app 카드와 Git 상태를 확인하고 iPhone 실험으로 진행한다. 전용 macOS 계정 방식은 폐기 상태 유지.

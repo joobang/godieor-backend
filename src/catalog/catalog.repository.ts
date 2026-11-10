@@ -43,6 +43,9 @@ export class CatalogRepository {
       .map(([kind]) => kind as EventRow["kind"]);
     return {
       AND: [
+        ...(process.env.CATALOG_PROVIDER_ONLY === "true"
+          ? [{ origin: "provider" as const }]
+          : []),
         { kind: { in: kinds } },
         {
           OR: [
@@ -119,6 +122,9 @@ export class CatalogRepository {
   private scopes(transaction: Tx, query: CatalogQuery) {
     return transaction.collection_scope.findMany({
       where: {
+        ...(process.env.CATALOG_PROVIDER_ONLY === "true"
+          ? { provider: { origin: "provider" as const } }
+          : {}),
         category: {
           in: query.categories as ("movie" | "ott" | "game" | "epl")[],
         },
