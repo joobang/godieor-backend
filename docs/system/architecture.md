@@ -1,3 +1,5 @@
+> **현재 정책(2026-11-10)**: 전용 macOS 계정 검증방식 폐기. 기존계정에서 고정source의 로컬검사와 unsigned iOS빌드 진행. 현재 status.md 및 verifier/docs/local-verification.md 우선. 격리진단은 제품개발·출시 선행조건이 아니다.
+
 # GODIEOR · 세 저장소 공통 아키텍처
 
 - 문서 revision: `SYNC-2026-11-10-01`
