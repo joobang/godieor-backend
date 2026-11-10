@@ -1,6 +1,11 @@
 # 현재 상태 · 새 개발 대화 시작점
 
-문서 revision: CONTEXT-2026-11-10-19. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+문서 revision: CONTEXT-2026-11-10-20. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+
+## APP-AUTH-08 Google iOS OAuth 클라이언트 연결 (2026-11-10)
+
+- 사용자가 제공한 iOS OAuth Client ID를 앱 Debug/Release Xcode 빌드 설정에 반영하고 reversed callback scheme을 등록했다. backend 기존 비밀 .env의 키를 GOOGLE_IOS_CLIENT_ID로 변경하여 같은 audience를 설정했다(.env는 Git 제외).
+- 원본 카드 app `docs/ai/tasks/APP-AUTH-08.md`. HTTPS backend URL은 여전히 placeholder로 남아 있으며 실제 Google 로그인·실기기 설정/찜 왕복·독립 검증은 미실행이다. API 계약·migration/acceptance 변경 없음.
 
 ## BE-AUTH-06 Google 실연결 준비 (2026-11-10)
 

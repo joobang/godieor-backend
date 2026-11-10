@@ -1,6 +1,10 @@
 # 계정·모델 사이에서 작업 이어받기
 
-revision: `CONTEXT-2026-11-10-19`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+revision: `CONTEXT-2026-11-10-20`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+
+## APP-AUTH-08 인계 (2026-11-10)
+
+사용자 제공 Google iOS OAuth 공개 Client ID를 app Xcode Debug/Release에 반영하고 callback URL scheme을 역순 ID로 등록. backend 로컬 .env도 같은 GOOGLE_IOS_CLIENT_ID로 설정(비밀 변수 내용 공개/커밋 금지). 앱 카드 `docs/ai/tasks/APP-AUTH-08.md`. 실제 HTTPS API URL 준비 후 iPhone Google 계정 로그인·설정/찜 동기화·세션 복원을 시험해야 하며 독립 검증/전체 PASS는 미실행. 전용 Mac 계정 폐기 유지.
 
 ## BE-AUTH-06 인계 (2026-11-10)
 
