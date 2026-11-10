@@ -1,3 +1,7 @@
+## OPS-01 Render + Supabase 무료 배포 (2026-11-10)
+
+사용자가 Render Free API + Supabase Free PostgreSQL/Storage를 확정했고 오늘 배포를 목표로 한다. backend `render.yaml`에서 Render 30일 만료 DB를 제거하고 `DATABASE_URL` secret을 입력받도록 변경. 연결 및 무료 과금 방지 절차는 backend `docs/demo-deployment.md`, 원본 작업 카드 `docs/tasks/OPS-01-render-supabase.md`, ADR-014. 실 Supabase/Render 생성·migration·공식 데이터 적재·폰 운영 URL 전환은 아직 미확인. iOS pbxproj 개인 설정은 유지.
+
 # 현재 상태 · 새 개발 대화 시작점
 
 ## APP-DEMO-01 간소화·데모 준비 (2026-11-10)

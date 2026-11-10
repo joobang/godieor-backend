@@ -2,7 +2,7 @@
 
 # GODIEOR · 세 저장소 공통 아키텍처
 
-- 문서 revision: `SYNC-2026-11-10-01`
+- 문서 revision: `SYNC-2026-11-10-03`
 - 상태: **책임 분리·저장소 3개, NestJS + PostgreSQL + Prisma 및 TypeORM 제외는 사용자 확정**. 최종 실행 형태와 로컬 우선 진행도 사용자 확정이다. 로컬 버전은 하단 구현 기록에 고정했다. 클라우드 제공자·나머지 세부 정책은 미정이다.
 - 공통 문서 원본: `godieor-app/docs/system/`. backend/verifier의 같은 경로는 동기화 사본이다.
 - 공통 문서: `architecture.md`, `plan.md`, `policies.md`. 변경 시 세 사본을 함께 갱신한다.
@@ -164,7 +164,7 @@ reviewer는 코드와 근거를 읽고 지적하며 제품이나 승인 기준�
 - 본인 iPhone만 사용하는 목표가 로컬 네트워크에서만 사용하는 제품을 뜻하지 않는다.
 - 우선 로컬에서 API·DB·앱 연결을 재현한 뒤 원격 환경으로 옮긴다. 클라우드 제공자를 정하는 일이 로컬 개발의 선행 조건은 아니다.
 - 기존 SwiftUI·iOS 17 이상 시작 구성을 유지한다. backend는 NestJS + PostgreSQL + Prisma, TypeORM 제외다.
-- 로컬은 Node 24.19.0/Nest 12.4.0/Prisma 7.10.1/PostgreSQL 16.14와 전용 Docker Compose로 구성했다. 클라우드 제공자는 미정이다.
+- 로컬은 Node 24.19.0/Nest 12.4.0/Prisma 7.10.1/PostgreSQL 16.14와 전용 Docker Compose로 구성했다. 클라우드 제공자는 2026-11-10 Render Free API + Supabase Free PostgreSQL/Storage로 확정했다.
 - 무료 우선 클라우드 제공자·API/DB 호스팅·인증·설치/배포 수단은 후속 결정이다. 가입·유료 전환·배포는 이번 문서 갱신 범위가 아니다.
 - 이전 Workers/D1 제안과 비용 수치는 새 선택의 비용 근거로 사용하지 않는다. 선정 시 공식 조건을 다시 확인한다.
 - 로컬 iPhone 연결은 기기에서 Mac API에 도달할 수 있는 주소·네트워크를 사용한다. iPhone의 localhost를 Mac 주소로 가정하지 않는다.
@@ -253,3 +253,7 @@ P10 사용자 선택: 전용 macOS 표준 사용자에서 자동 검증 빌드, 
 인증서·Apple ID는 기존 개발 사용자에 유지한다. verifier/docs/dedicated-account-setup.md의
 계정 준비→최소 입력 전달→사전점검→제한 Foundation/Xcode→후손 수명 게이트 순서로 진행한다.
 계정 생성·staging 자동화·단일 run 잠금·전체 수명 격리는 아직 미완료다. 통합 PASS 없음.
+
+## 2026-11-10 클라우드 데모 결정
+
+사용자 확정: Render Free의 NestJS API, Supabase Free의 PostgreSQL 및 필요 시 Storage를 사용한다. 비용 발생을 원치 않으므로 Render 결제수단 미등록·Supabase Free 유지가 배포 조건이다. 무료 한도 초과 때 즉시 중단은 보장되지 않으며 제한 정책/사용량을 별도 확인한다. 배포 및 실제 데이터 검증은 아직 수행하지 않았다. 실행 원본은 backend `docs/decisions/014-render-supabase-demo.md`와 `docs/demo-deployment.md`.

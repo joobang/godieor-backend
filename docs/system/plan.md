@@ -2,9 +2,9 @@
 
 # 세 저장소 작업 계획
 
-revision: `SYNC-2026-11-10-01`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
+revision: `SYNC-2026-11-10-03`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
 현재 단계는 정책 결정 진행 중이다. 기존 SwiftUI 구성 유지, NestJS + PostgreSQL + Prisma, TypeORM 제외는 확정됐다.
-**로컬 실행을 먼저 달성하고 최종적으로 iPhone 앱 + 클라우드 API/DB, Mac verifier로 운영한다.** 로컬 버전/도구는 확정했고 클라우드 제공자는 미정이다. 표의 완료 조건은 작업 제안이며 승인 acceptance가 아니다.
+**로컬 실행을 먼저 달성하고 최종적으로 iPhone 앱 + 클라우드 API/DB, Mac verifier로 운영한다.** 로컬 버전/도구는 확정했고 클라우드 제공자는 Render Free API + Supabase Free PostgreSQL/Storage로 확정했다. 표의 완료 조건은 작업 제안이며 승인 acceptance가 아니다.
 
 ## 현재 완료와 미완료
 
@@ -157,3 +157,7 @@ P10 사용자 선택: 전용 macOS 표준 사용자에서 자동 검증 빌드, 
 인증서·Apple ID는 기존 개발 사용자에 유지한다. verifier/docs/dedicated-account-setup.md의
 계정 준비→최소 입력 전달→사전점검→제한 Foundation/Xcode→후손 수명 게이트 순서로 진행한다.
 계정 생성·staging 자동화·단일 run 잠금·전체 수명 격리는 아직 미완료다. 통합 PASS 없음.
+
+## 2026-11-10 클라우드 데모 확정
+
+Render Free 웹 API + Supabase Free PostgreSQL/필요 시 Storage를 사용한다. 결제수단 없이 무료 플랜을 유지하며 초과 사용 시 서비스 제한을 수용한다. 실제 배포/데이터 적재/실기기 확인은 아직 완료되지 않았다. 작업 원본은 backend `docs/tasks/OPS-01-render-supabase.md`.

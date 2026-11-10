@@ -2,9 +2,9 @@
 
 # 사용자가 결정할 정책
 
-revision: `SYNC-2026-11-10-01`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
+revision: `SYNC-2026-11-10-03`. 원본 `godieor-app/docs/system/`, 다른 두 저장소는 동기화 사본.
 P01은 현재 SwiftUI·iOS 17 이상 뼈대를 유지하며 진행한다. P02의 NestJS·PostgreSQL·Prisma, TypeORM 제외는 **사용자 확정**이다.
-최종 실행 위치와 로컬 우선 단계도 확정됐다. 로컬 버전은 하단 기술 선택에 고정했고 클라우드 제공자·나머지 정책은 아래 미정 범위를 따른다. 선택 제안은 사용자 확정 정책이 아니다.
+최종 실행 위치와 로컬 우선 단계도 확정됐다. 로컬 버전은 하단 기술 선택에 고정했고 클라우드 제공자는 Render Free API + Supabase Free PostgreSQL/Storage로 확정했고 나머지 정책은 아래 미정 범위를 따른다. 선택 제안은 사용자 확정 정책이 아니다.
 P03은 Google 로그인한 사용자가 이용 가능하며 설정·찜을 계정에 귀속하고 서버 저장/복원하는 방향으로 확정했다. 작품·개별 일정 찜을 모두 지원하며 세션 상세는 후속 설계다.
 선택 후 실제 사용자 답변과 날짜를 기록하고, 검사 방법은 별도 검토/승인한다.
 
@@ -19,7 +19,7 @@ GODIEOR(고디어), iOS, 영화·OTT 드라마·게임·EPL, 앱/백엔드/검�
 사용자: “2번 pg, nest로 가자. 그리고 typeorm 말고 다른거써보자.”
 따라서 framework=NestJS, database=PostgreSQL, TypeORM 제외를 확정한다.
 후속 사용자 답변: “프리즈마로 간다.” 따라서 ORM=Prisma도 확정한다. Drizzle은 이전 비교 제안으로 남긴다.
-DB/ORM/Node/Nest의 정확한 버전과 클라우드 제공자는 미정이다. 제품 acceptance 승인은 별도다.
+DB/ORM/Node/Nest의 정확한 버전과 클라우드 제공자는 Render Free API + Supabase Free PostgreSQL/Storage로 확정했다. 제품 acceptance 승인은 별도다.
 
 후속 사용자 답변: “좋아 우리가 구성한대로 최종 구성형태로 이렇게하자. 일단 로컬 실행을 목표로가보자.”
 최종 형태는 iPhone에 설치한 앱 → 클라우드 NestJS API → Prisma를 통해 클라우드 PostgreSQL이며,
@@ -158,3 +158,7 @@ P10의 실행 방식으로 전용 macOS 표준 계정을 선택했다. 기존 �
 전용 계정은 자동 검증용 서명 없는 Simulator 빌드를 담당한다. Apple ID·인증서·개인 키체인을 공유하지 않는다.
 선택 확정과 계정 생성/실행/격리 입증은 별개다. 계정 생성은 관리자 인증 필요·아직 미실행.
 verifier/docs/dedicated-account-setup.md 및 docs/tasks/VFY-03-dedicated-account.md 참조.
+
+## 2026-11-10 클라우드 데모 확정
+
+Render Free 웹 API + Supabase Free PostgreSQL/필요 시 Storage를 사용한다. 결제수단 없이 무료 플랜을 유지하며 초과 사용 시 서비스 제한을 수용한다. 실제 배포/데이터 적재/실기기 확인은 아직 완료되지 않았다. 작업 원본은 backend `docs/tasks/OPS-01-render-supabase.md`.
