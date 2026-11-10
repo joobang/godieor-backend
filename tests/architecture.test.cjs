@@ -17,8 +17,10 @@ const pipes = require("../dist/src/catalog/dto/catalog-query.pipe");
 const { HealthController } = require("../dist/src/health/health.controller");
 const { HealthService } = require("../dist/src/health/health.service");
 const { HealthRepository } = require("../dist/src/health/health.repository");
-const { AuthModule } = require("../dist/src/auth/auth.module");
-const { UsersModule } = require("../dist/src/users/users.module");
+const { AuthController } = require("../dist/src/auth/auth.controller");
+const { AuthService } = require("../dist/src/auth/auth.service");
+const { UsersController } = require("../dist/src/users/users.controller");
+const { UsersService } = require("../dist/src/users/users.service");
 const {
   RUNTIME_CONFIG,
 } = require("../dist/src/common/config/runtime-config.module");
@@ -149,9 +151,11 @@ test("Nest HTTP 경계가 서비스·레포지토리 분리 후에도 계약 동
   };
   class BoundaryTestModule {}
   Module({
-    imports: [AuthModule, UsersModule],
-    controllers: [CatalogController, HealthController],
+    imports: [],
+    controllers: [CatalogController, HealthController, AuthController, UsersController],
     providers: [
+      { provide: AuthService, useValue: { google() { throw new (require("@nestjs/common").BadRequestException)(); } } },
+      { provide: UsersService, useValue: { user() { throw new (require("@nestjs/common").UnauthorizedException)(); }, settings() { throw new (require("@nestjs/common").UnauthorizedException)(); } } },
       CatalogService,
       CursorService,
       ...Object.values(pipes),
@@ -249,10 +253,10 @@ test("Nest HTTP 경계가 서비스·레포지토리 분리 후에도 계약 동
     );
   });
   await t.test(
-    "미구현 인증/개인 API는 계속 차단하며 no-store를 유지한다",
+    "인증 필수 API는 입력을 검사하고 no-store를 유지한다",
     async () => {
       const google = await fetch(url + "/v1/auth/google", { method: "POST" });
-      assert.equal(google.status, 503);
+      assert.equal(google.status, 400);
       assert.equal(google.headers.get("cache-control"), "no-store");
       const personal = await get("/me/settings");
       assert.equal(personal.response.status, 401);

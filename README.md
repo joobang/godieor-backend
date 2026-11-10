@@ -1,7 +1,7 @@
 # GODIEOR Backend
 
 NestJS + Prisma + PostgreSQL로 영화·OTT 드라마 시즌 최초 공개·게임 정식 출시·EPL 경기 일정을 제공한다.
-현재 **로컬 공개 API·가상 수집과 검토한 OTT 공지의 수동 publish**를 구현했다. Google/계정 쓰기·iOS 연결·자동 전수 수집은 아직 없다.
+현재 **로컬 공개 API·가상 수집과 검토한 OTT 공지의 수동 publish**를 구현했다. Google 계정 인증·세션·설정/찜 API는 초기 구현 후 자체 테스트를 완료했다. 실제 Google OAuth·단말과 DB 통합 검증, 자동 전수 수집은 아직 없다.
 
 ## 새 계정·대화에서 이어받기
 
@@ -13,7 +13,7 @@ NestJS + Prisma + PostgreSQL로 영화·OTT 드라마 시즌 최초 공개·게�
 
 [기능 모듈·계층 책임](docs/backend-architecture.md): catalog/health는 Controller → Service → Repository, 수집은 Service → Repository/Adapter다.
 [Prisma Client 우선·SQL 예외 규칙](docs/query-policy.md)을 따른다.
-auth/users는 미구현 차단 서비스이며 후보 CLI도 별도 Nest 모듈·DI를 사용한다.
+auth/users는 Google JWKS 토큰 검증·난수 세션·사용자별 설정/찜 관리 기능이며 후보 CLI도 별도 Nest 모듈·DI를 사용한다.
 
 ## 시작
 
@@ -31,6 +31,10 @@ npm start
 
 [실행/중단·환경 설정](docs/local-development.md). 현재 DB 127.0.0.1:55432, API 127.0.0.1:3000/v1.
 현재 로컬 DB에는 가상7건과 공식 공지를 작성자가 검토해 반영한 OTT4건이 함께 있다. dataOrigin으로 구분한다. API/DB는 전용 Compose 볼륨을 사용한다.
+
+## Google 계정 기능 (실 OAuth 통합 검증 대기)
+
+`GOOGLE_IOS_CLIENT_ID`를 등록된 Google iOS OAuth 클라이언트 ID로 설정해야 `/v1/auth/google`에서 Google ID token을 검증한다. 로그인은 30일 난수 서비스 bearer token을 반환하며 DB에는 해시만 저장한다. `/v1/me`, `/v1/me/settings`, `/v1/me/favorites`와 찜 PUT/DELETE는 인증이 필요하다. 설정은 expectedVersion, 찜 목록은 버전 고정 cursor로 충돌을 검출한다. 로그아웃은 `/v1/auth/session` DELETE로 해당 세션을 폐기한다. API 초안 0.1.0-draft.2와 DB migration은 변경하지 않았다. 자체 테스트 `npm test` 51개 통과; 실제 Google 로그인/DB 연동은 별도 검증 필요.
 
 ## OTT 공지 후보 단계
 
