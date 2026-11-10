@@ -1,5 +1,9 @@
 # 계정·모델 사이에서 작업 이어받기
 
+## APP-AUTH-12 최신 인계 (2026-11-10)
+
+사용자가 iPhone Google 로그인이 정상이라고 확인. APP-AUTH-12에서 계정 설정·찜의 원격 전체 조회 진행/성공 시각/실패 UI와 로컬 필터 저장 안내를 추가했다. 작성자 unsigned iOS Simulator Debug 빌드 성공. 실기기 신규 UI, 재실행 세션 복원, 설정/찜 다른 기기 왕복, 독립 검증은 미실행. 기존 Xcode signing/API override 미커밋 변경은 보존한다. 다음 세션은 app 카드와 Git 상태를 확인하고 iPhone 실험으로 진행한다. 전용 macOS 계정 방식은 폐기 상태 유지.
+
 revision: `CONTEXT-2026-11-10-20`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
 
 ## APP-AUTH-08 인계 (2026-11-10)

@@ -1,5 +1,12 @@
 # 현재 상태 · 새 개발 대화 시작점
 
+## APP-AUTH-12 계정 동기화 표시 (2026-11-10 최신)
+
+- 사용자가 iPhone 실제 Google 로그인이 정상이라고 확인함. 서버 설정/찜 왕복·재실행 세션 복원은 별도 테스트 대상.
+- app `docs/ai/tasks/APP-AUTH-12.md`: 진행 중 표시, 마지막 전체 조회 성공 시각, 최근 실패 표시. 로그아웃·계정 전환 시 기록 초기화. 로컬 필터 변경은 저장 버튼을 눌러야 계정에 반영된다는 설명 추가.
+- 작성자 iOS Simulator unsigned Debug 빌드 성공. 실기기 설치/독립 검증/전체제품 PASS는 미실행. API·migration·acceptance 변경 없음.
+- 다음은 실제 iPhone에서 저장→종료·재실행 복원 및 찜·계정 격리 확인.
+
 문서 revision: CONTEXT-2026-11-10-24. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
 
 ## 사용자 폰 HTTPS 확인 · 서명 Team 선택 대기 (2026-11-10, 최신)
