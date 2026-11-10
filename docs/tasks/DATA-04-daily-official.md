@@ -19,3 +19,13 @@
 - app base a4c08d5, 변경 `ios/GODIEOR/PublicAPI.swift`의 OTT 카테고리 표기. 기존 `project.pbxproj` 개인 서명 수정은 별도 미커밋.
 - backend base c051d98 → head 6da3358. OpenAPI 계약·Prisma 마이그레이션 변경 포함. verifier 3111879 clean, acceptance/verdict 변경 없음.
 - 앱 unsigned simulator xcodebuild 종료 0, 단 CoreSimulatorService 연결 오류 로그가 출력되어 기기 런타임 테스트로 보지 않음. 실제 iPhone/DB/외부 인증 및 통합 검증 미실행.
+
+## DATA-05 실제 키·공식 API·로컬 DB 검증 (2026-11-11)
+
+- 요구사항 PROD-005~009. 기준 backend bcc71c9, app 0bb7b8c, verifier 6b9e286. 담당 codex-context-01 종료 및 해제.
+- 범위 EPL 미공개 미래 시즌 404 대응, IGDB 한국 출시일 date 필드 파싱, 회귀 테스트. 실패 예상은 미발행 시즌, d 누락, DB migration 누락 및 대량 적재 실패.
+- 사용자 Git 제외 .env에 네 개 키 설정, 추적 .env.example 키 비어 있음. 비밀 출력/커밋 없음.
+- 실제 API KOBIS 1,902/EPL 380/IGDB 한국 PC 1건 정규화. npm test 63/63 통과.
+- 최초 일간 수집은 DB의 OTT 카테고리 마이그레이션 미적용으로 P2022 실패. prisma migrate status 확인 후 prisma migrate deploy로 기존 migration 적용. 다시 실행해 1,902/380/1건 적재 성공. 같은 날 재실행 시 세 제공처 모두 already_collected_today. DB event 총 영화1,904/OTT6/게임3/EPL381(기존 자료 포함).
+- IGDB 한국 지역의 Android/iOS 발매 2건은 지원 기기 분류 범위 밖이므로 제외. 원천 전체 출고 범위 보장은 미확인.
+- 로컬 DB만 변경. OTT 자동 전수 수집·Supabase/Render 배포·GitHub Actions 활성화·독립 검증 미완료. app 개인 signing 수정 보존. 새 ADR/LEARN-ID 없음(기존 공식 수집기 버그 수정).

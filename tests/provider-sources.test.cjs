@@ -47,6 +47,22 @@ test("EPL uncertain SCHEDULED kickoff does not become a false exact time", async
   }
 });
 
+test("EPL skips unpublished future season 404 but keeps current matches", async () => {
+  const previous = process.env.FOOTBALL_DATA_API_KEY;
+  process.env.FOOTBALL_DATA_API_KEY = "fake-test-key";
+  try {
+    await mockProvider(async () => {
+      const records = await new PremierLeagueAdapter().fetch({category:"epl",market:"WORLD"}, "daily");
+      assert.equal(records.length, 1);
+    }, async url => url.searchParams.get("season") === "2027"
+      ? {ok:false,status:404}
+      : ok({matches:[{id:1,status:"TIMED",utcDate:"2026-11-20T12:00:00Z",homeTeam:{id:1,name:"Home"},awayTeam:{id:2,name:"Away"}}]}));
+  } finally {
+    if (previous === undefined) delete process.env.FOOTBALL_DATA_API_KEY;
+    else process.env.FOOTBALL_DATA_API_KEY = previous;
+  }
+});
+
 test("IGDB uses platform-specific Korean day-precision release only", async () => {
   const saved = [process.env.IGDB_CLIENT_ID, process.env.IGDB_CLIENT_SECRET];
   process.env.IGDB_CLIENT_ID = "fake-id";
@@ -59,7 +75,7 @@ test("IGDB uses platform-specific Korean day-precision release only", async () =
     }, async url => url.toString().includes("twitch")
       ? ok({ access_token: "fake-token" })
       : ok([
-          {id:1,game:{id:99,name:"Sample Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:9,date_format:0,y:2026,m:11,d:20},
+          {id:1,date:1795132800,game:{id:99,name:"Sample Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:9,date_format:0,y:2026,m:11},
           {id:2,game:{id:99,name:"Sample Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:9,date_format:2,y:2026},
         ]));
   } finally {

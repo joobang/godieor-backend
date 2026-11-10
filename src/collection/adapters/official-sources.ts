@@ -88,7 +88,13 @@ export class PremierLeagueAdapter implements ProviderAdapter {
     for (const startYear of seasons) {
       const url = new URL("https://api.football-data.org/v4/competitions/PL/matches");
       url.searchParams.set("season", String(startYear));
-      const response = await getJson(url, { "X-Auth-Token": key });
+      const http = await fetch(url, {
+        headers: { "X-Auth-Token": key }, signal: AbortSignal.timeout(15000),
+      });
+      // The upcoming season may not have been published yet.
+      if (http.status === 404 && startYear > season) continue;
+      if (!http.ok) throw new Error("PROVIDER_HTTP_ERROR");
+      const response = object(await http.json());
       if (!Array.isArray(response.matches)) throw new Error("INVALID_PROVIDER_RESPONSE");
       for (const value of response.matches) {
         const match = object(value);
@@ -150,7 +156,7 @@ export class IgdbAdapter implements ProviderAdapter {
     const out: unknown[] = [];
     // IGDB allows 500 rows/request. Limit discovery to 2000 records to avoid silent partial success.
     for (let offset = 0; offset <= 2000; offset += 500) {
-      const query = `fields id,game.id,game.name,game.game_type,platform.id,platform.name,release_region,date_format,d,m,y,updated_at; where date > ${from} & date < ${to} & release_region = 9; sort date asc; limit 500; offset ${offset};`;
+      const query = `fields id,date,game.id,game.name,game.game_type,platform.id,platform.name,release_region,date_format,m,y,updated_at; where date > ${from} & date < ${to} & release_region = 9; sort date asc; limit 500; offset ${offset};`;
       const response = await fetch("https://api.igdb.com/v4/release_dates", {
         method: "POST",
         headers: { "Client-ID": clientId, Authorization: `Bearer ${token}`, "Content-Type": "text/plain" },
@@ -166,7 +172,7 @@ export class IgdbAdapter implements ProviderAdapter {
         const platform = object(release.platform);
         // Only day-precision dates. Month/quarter/year/TBD cannot be put on a specific day.
         if (release.date_format !== 0 || typeof release.y !== "number" ||
-            typeof release.m !== "number" || typeof release.d !== "number") continue;
+            typeof release.m !== "number" || typeof release.date !== "number") continue;
         // Explicit game-type classification: 0 main game (exclude DLC, editions, beta).
         if (game.game_type !== 0 || typeof game.id !== "number") continue;
         const platformName = text(platform.name).toLowerCase();
@@ -175,8 +181,9 @@ export class IgdbAdapter implements ProviderAdapter {
             : platformName.includes("switch") ? "switch"
               : platformName.includes("pc") || platformName.includes("windows") || platformName.includes("linux") || platformName.includes("mac") ? "pc" : null;
         if (!device || !text(game.name)) continue;
-        const day = dateOnly(`${release.y}${String(release.m).padStart(2, "0")}${String(release.d).padStart(2, "0")}`);
-        if (!day) continue;
+        const releaseDate = DateTime.fromSeconds(release.date, { zone: "utc" });
+        const day = releaseDate.isValid ? releaseDate.toISODate() : null;
+        if (!day || releaseDate.year !== release.y || releaseDate.month !== release.m) continue;
         out.push({
           externalId: String(release.id), variantKey: `kr-${platform.id}`,
           kind: "game_release", title: text(game.name),

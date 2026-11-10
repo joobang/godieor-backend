@@ -1,3 +1,9 @@
+## DATA-05 공식 API 실응답·로컬 적재 (2026-11-11)
+
+- 키 4개는 backend Git 제외 .env에 설정, 추적 .env.example은 비어 있음. EPL 다음 미공개 시즌 404 처리, IGDB date 필드 출시일 처리 수정.
+- backend npm test 63/63. 로컬 PostgreSQL 202611100001_ott_categories migration 적용 후 공식 수집 KOBIS 1,902/EPL 380/IGDB 1 성공. 동일일 재실행 3개 모두 already_collected_today. 로컬 event 전체 영화 1,904/OTT 6/게임 3/EPL 381(기존 데이터 포함).
+- 클라우드 DB 미적재, OTT 전수·원격 일정 자동화·독립 검증 미완료. 원본 backend docs/tasks/DATA-04-daily-official.md. iOS 개인 signing 변경 보존.
+
 ## DATA-04 공식 일정 일일 수집 구현 (2026-11-11)
 
 - backend 코드 6da3358. KOBIS 영화, football-data EPL, IGDB 게임 어댑터와 06:00 KST GitHub Actions 예약, OTT 카테고리/DB/API 모델 구현. backend 자체 테스트 62/62 통과. app의 OTT 카테고리 라벨을 추가했다. 작업 카드 backend docs/tasks/DATA-04-daily-official.md, app docs/ai/tasks/APP-DATA-04.md.
