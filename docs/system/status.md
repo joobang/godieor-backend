@@ -1,6 +1,6 @@
 # 현재 상태 · 새 개발 대화 시작점
 
-문서 revision: CONTEXT-2026-11-10-11. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+문서 revision: CONTEXT-2026-11-10-12. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
 
 ## 최신 사용자 확정 (최우선)
 
@@ -19,6 +19,12 @@
 - 작업 카드 `docs/ai/tasks/APP-BE-AUTH-01.md`. backend Google JWT 서명·audience·issuer·만료 검증, 30일 SHA-256 opaque service session 발급/단일 폐기, 사용자별 설정 CAS(version 409)·작품/일정 찜 멱등 변경·서명된 계정별 페이지 커서 구현. 동시 최초 Google 로그인 P2002 재시도. iOS Google ASWebAuthenticationSession 코드+PKCE+nonce 검증, Keychain 저장/복원, 설정 저장/불러오기, 찜 UI 추가. API 계약/migration 변경 없음.
 - 작성자 자체 검사: backend `npm test` 51/51 성공(JWT/세션/커서/설정 4 신규 subtest 포함), iOS `xcodebuild ... -derivedDataPath /private/tmp/godieor-auth-derived CODE_SIGNING_ALLOWED=NO build` 성공. 최초 기본 DerivedData 빌드 시 쓰기 권한 오류는 별도 writable DerivedData에서 재실행 성공. Google 실제 Client ID·실서버·실DB 왕복 및 독립 runner 미실행. 기기 필터 로컬 복원과 계정 설정 sync는 별개.
 - 전용 Mac 계정 재개하지 않음. 구현 자체검사만 완료, 전체제품 PASS/review 승인 아님.
+
+## APP-AUTH-02/03 보완 (2026-11-10)
+
+- APP-AUTH-02(app d8358ec): iOS 계정 API 주소를 Debug/Release 빌드 설정의 HTTPS 주소로 주입하고, 찜 목록 페이지 충돌(409)에는 전체 목록을 최대 한 번 재조회한다. 등록 OAuth Client ID·reversed scheme과 실제 HTTPS 서버 주소는 아직 준비되지 않았다.
+- APP-AUTH-03(`docs/ai/tasks/APP-AUTH-03.md`, 이번 변경): 계정 전환 중 이전 세션의 늦은 응답이 사용자/설정/찜 상태를 덮어쓰지 않도록 generation과 요청 시작 token을 고정한다. 로그아웃 시 로컬 세션을 즉시 정리하고 이전 bearer token을 사용하여 서버 폐기를 시도한다. 폐기 실패 시 서버 세션은 만료 전까지 남을 수 있다.
+- APP-AUTH-03 자체 iOS unsigned build와 diff 검사를 기록하며 실네트워크 지연 재현/Google 인증/실DB·독립검증은 아직 수행하지 않았다. backend 기존 dist 테스트 45개 중 44개 통과, HTTP 테스트 1개는 로컬 listen EPERM으로 실행 실패했다. verifier acceptance/verdict는 변경하지 않는다.
 
 ## 마지막 실제 실행
 
@@ -39,7 +45,7 @@ P5 setsid후손수명정리/전체OS격리는 해결한것이 아니며 제품�
 
 ## 이어받을 다음 작업
 
-1. BE-AUTH/APP-AUTH 기본 구현과 자체 검사 완료. 다음은 등록된 Google iOS OAuth Client, 단말용 HTTPS backend 및 일회용 DB를 이용한 실제 인증/동기화/충돌·계정격리 통합 검증과 독립 리뷰. 계정 삭제/세션 관리 정책은 미확정.
+1. BE-AUTH/APP-AUTH 기본 구현과 APP-AUTH-02/03 방어 변경은 작성자 자체 빌드까지 진행. 다음은 등록된 Google iOS OAuth Client, 단말용 HTTPS backend 및 일회용 DB를 이용한 실제 인증/동기화/충돌·계정격리 통합 검증과 독립 리뷰. 로그아웃 서버 폐기 실패·계정 삭제/세션 관리 정책은 후속 확인 필요.
 2. 제품개발: 극장영화 등 데이터출처 최소샘플/범위·근거 확인과 실Google OAuth와 개인쓰기 통합런 검증 설계·구현. OTT는 연월일확인가능한 시즌최초공개만, 월/연도만 있는자료 제외. 자동전수coverage는 확인되지 않았다.
 3. 새기능마다 자체검사·분리컨텍스트리뷰·고정SHA 인계. 현재 card 담당해제. 공통문서통합은 한세션만 한다.
 

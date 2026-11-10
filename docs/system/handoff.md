@@ -1,12 +1,14 @@
 # 계정·모델 사이에서 작업 이어받기
 
-revision: `CONTEXT-2026-11-10-11`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+revision: `CONTEXT-2026-11-10-12`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
 공통 문서는 `SYNC-2026-11-10-02`이다. APP-01 통합 및 독립 검증 대기 상태를 반영했고 OTT 날짜 정책/API 스키마는 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
 
 
 ## 2026-11-10 신규 계정 구현 인계
 
 APP-BE-AUTH-01 카드에 Google/서비스세션/서버설정·찜 코드와 검증을 기록했다. backend 51 테스트 및 iOS unsigned build 자체 성공. 실 Google OAuth/실DB·기기간 왕복/독립 통합 검증은 아직 수행하지 않았다. 등록된 OAuth client/HTTPS 접근 준비가 필요하며 verifier verdict/acceptance는 건드리지 않는다. 원본 문서는 app/docs/system이고 backend/verifier 사본은 동일 revision. 전용 Mac 계정 방식은 계속 폐기 상태다.
+
+APP-AUTH-02(app d8358ec)은 HTTPS 계정 API 주소 빌드 주입과 찜 cursor 충돌 재시도. APP-AUTH-03(app `docs/ai/tasks/APP-AUTH-03.md`)은 계정 전환 중 지연 응답 차단과 로그아웃 시 로컬 즉시 정리/기존 token으로 서버 폐기를 추가한다. 요청 시작 bearer token을 연속 API 호출에 고정한다. 기존 backend dist 테스트 44/45(1개 listen EPERM), iOS unsigned build는 별도 기록. 실기기 Google OAuth/실DB·계정격리/독립 검토는 여전히 대기이며 서버 로그아웃 폐기 실패는 잔여 위험이다.
 
 ## 시작
 
