@@ -1,6 +1,6 @@
 # 현재 상태 · 새 개발 대화 시작점
 
-문서 revision: CONTEXT-2026-11-10-13. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+문서 revision: CONTEXT-2026-11-10-14. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
 
 ## 최신 사용자 확정 (최우선)
 
@@ -31,6 +31,12 @@
 - backend 원본 카드 `docs/tasks/BE-AUTH-04.md`: 실제 UsersRepository/UsersService를 fake Prisma 트랜잭션에서 호출해 두 계정의 설정 격리·CAS 409, 찜 멱등·계정별 버전, 페이지 커서 계정/버전 경계를 검증하는 2개 회귀 검사 추가. 기존 JWT 테스트에서 Base64URL 마지막 글자만 수정하는 비결정적 변조 방식은 서명 바이트 직접 변경으로 교정.
 - 작성자 로컬 전체 backend 테스트는 허용된 HTTP bind 환경에서 `node --test tests/*.test.cjs` **53/53 통과**(기존 dist). 일반 sandbox 실행은 47개 중 45개 통과/HTTP listen EPERM 및 수정 전 불안정 JWT assertion 2개 실패; 수정 후 허용 환경 결과를 별도 기록했다. 실제 PostgreSQL, OAuth/HTTPS 기기간 동기화, 독립 검증은 수행하지 않았다. 새 계약·migration 없음.
 
+## BE-AUTH-05 실제 임시 PostgreSQL 자체검사 (2026-11-10)
+
+- 원본 backend `docs/tasks/BE-AUTH-05.md`. 기존 `scripts/check-refactor-db.cjs` 임시DB/migration 시나리오에 실제 Prisma AuthRepository/UsersRepository 검사 추가. Google subject 계정 생성·동일 사용자 다중 세션, 서로 다른 계정 설정 격리·CAS 409, 찜 멱등/삭제·페이지 커서 사용자/버전 결합, 특정 세션 폐기 후 다른 세션 유지 확인.
+- Node24.19.0, `GODIEOR_TEST_POSTGRES_IMAGE=postgres:16-alpine npm run test:db` exit0; 기존 스모크도 통과, tmpfs DB 컨테이너 정리. `npm test` 53/53 성공. 기본 고정 PostgreSQL digest 이미지는 로컬에 없으므로 별도 명시 이미지로 실행했고 이 차이를 작업 카드에 기록. 고정 digest 실환경 재실행은 미완료.
+- 실제 Google OAuth ID token 검증/HTTPS iPhone/기기간 왕복과 독립 verifier 결과는 미실행. 기준 draft/PENDING 유지, 전체제품 PASS 아님. 전용 Mac 계정 검증 방식 폐기 유지.
+
 ## 마지막 실제 실행
 
 - verifier 코드 de0560faed63673f0f17904a825f1973a0fd9b5d, 브랜치 codex/int-01-secret-check. 최종문서HEAD는Git/전달본으로확인. 원본 verifier/docs/tasks/INT-01-secret-check.md, 정책 docs/secret-check.md.
@@ -50,7 +56,7 @@ P5 setsid후손수명정리/전체OS격리는 해결한것이 아니며 제품�
 
 ## 이어받을 다음 작업
 
-1. BE-AUTH/APP-AUTH 기본 구현·APP-AUTH-02/03 보완 및 BE-AUTH-04 계정 저장소 자체 회귀 검사까지 진행. 다음은 등록된 Google iOS OAuth Client, 단말용 HTTPS backend 및 일회용 DB를 이용한 실제 인증/동기화/충돌·계정격리 통합 검증과 독립 리뷰. 로그아웃 서버 폐기 실패·계정 삭제/세션 관리 정책은 후속 확인 필요.
+1. BE-AUTH/APP-AUTH 기본 구현·APP-AUTH-02/03 보완 및 BE-AUTH-04 계정 저장소 자체 회귀 검사까지 진행. 일회용 PostgreSQL 작성자 검사는 BE-AUTH-05에서 완료(로컬 이미지 digest 차이 기록). 다음은 등록된 Google iOS OAuth Client, 단말용 HTTPS backend 및 실제 단말/기기간 인증·동기화와 독립 리뷰. 로그아웃 서버 폐기 실패·계정 삭제/세션 관리 정책은 후속 확인 필요.
 2. 제품개발: 극장영화 등 데이터출처 최소샘플/범위·근거 확인과 실Google OAuth와 개인쓰기 통합런 검증 설계·구현. OTT는 연월일확인가능한 시즌최초공개만, 월/연도만 있는자료 제외. 자동전수coverage는 확인되지 않았다.
 3. 새기능마다 자체검사·분리컨텍스트리뷰·고정SHA 인계. 현재 card 담당해제. 공통문서통합은 한세션만 한다.
 

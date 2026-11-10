@@ -10,9 +10,12 @@ async function main() {
   const root = resolve(__dirname, "..");
   const container = "godieor-be03-" + randomBytes(5).toString("hex");
   const password = randomBytes(24).toString("hex");
-  const image = /image:\s+(\S+)/.exec(
+  const pinnedImage = /image:\s+(\S+)/.exec(
     readFileSync(join(root, "compose.yaml"), "utf8"),
   )[1];
+  // Explicit local override for offline self-checks; the pinned image remains default.
+  const image = process.env.GODIEOR_TEST_POSTGRES_IMAGE || pinnedImage;
+  if (image !== pinnedImage) console.log("임시 DB 검사: 명시한 로컬 이미지 사용 (고정 digest 아님)");
   const docker = (args) =>
     execFileSync("docker", args, {
       encoding: "utf8",
@@ -113,6 +116,8 @@ async function main() {
     console.log(
       "임시 DB: migration/전체 Nest DI/가상 7건 저장·재조회·반복 수집 ID 보존 확인",
     );
+    phase = "real PostgreSQL account synchronization";
+    await require("./check-account-db.cjs")(prisma);
 
     const read = async (base, path) => {
       const response = await fetch(base + "/v1" + path);
