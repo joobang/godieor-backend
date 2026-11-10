@@ -1,6 +1,10 @@
 # 현재 상태 · 새 개발 대화 시작점
 
-문서 revision: CONTEXT-2026-11-10-23. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+문서 revision: CONTEXT-2026-11-10-24. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+
+## 사용자 폰 HTTPS 확인 · 서명 Team 선택 대기 (2026-11-10, 최신)
+
+사용자가iPhone Safari health표시를확인했다고보고. 허용CoreDevice조회에서기존페어링iPhone1개/개발자모드enabled 및읽기연결exit0 확인. 아직앱설치/정상Google로그인/기기간왕복은미실행. 프로젝트DEVELOPMENT_TEAM미지정이므로다음은사용자가Xcode에서본인Team선택후실제HTTPS주소buildoverride로서명빌드·설치. 개인Apple계정/새credential선택은자동으로가정하지않는다. 원본 APP-AUTH-11카드에기록,공개문서에기기식별자미복사.
 
 ## APP-AUTH-11 Mac HTTPS 확인·iPhone 단계 대기 (2026-11-10, 최신)
 

@@ -139,3 +139,7 @@ Mac 로컬 API(127.0.0.1:3000)를 같은 Wi-Fi 테스트 iPhone에 TLS로 노출
 Mac실제HTTPS CA/hostname검증·health/options200·비인증/invalidtoken401 및unsigned iPhoneOS build성공. 원본 app/docs/ai/tasks/APP-AUTH-11.md. 공개CA와구체적인현재주소는app/work/iphone/에있고개인키를공유하지않는다. 서버는기존사용자프로세스를유지했다.
 
 사용자가동일Wi-Fi iPhone에개발CA프로파일설치후일반→정보→인증서신뢰설정에서해당CA를직접신뢰하고Safari health를확인해야한다. Mac계정분리·GoogleClient재등록·기존서버재시작을자동선행작업으로만들지마라. 실제폰/정상Google로그인/기기간왕복은미확인. 원본IP/서버생존은재확인하고인증서경고를우회하지않는다.
+
+## 사용자 폰 health 확인 후 재개
+
+폰Safari health는사용자확인완료. CoreDevice읽기연결/개발자모드확인. 다음실행전Xcode의DEVELOPMENT_TEAM본인계정선택이필요하며아직미지정이다. 사용자Team설정후서명빌드·설치·Google로그인으로진행한다. 폰인증서설치나기존서버준비를다시첫단계로돌리지말고실행하지않은정상로그인/동기화성공을선언하지않는다.
