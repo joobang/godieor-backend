@@ -155,3 +155,8 @@ Mac실제HTTPS CA/hostname검증·health/options200·비인증/invalidtoken401 �
 ## 사용자 폰 health 확인 후 재개
 
 폰Safari health는사용자확인완료. CoreDevice읽기연결/개발자모드확인. 다음실행전Xcode의DEVELOPMENT_TEAM본인계정선택이필요하며아직미지정이다. 사용자Team설정후서명빌드·설치·Google로그인으로진행한다. 폰인증서설치나기존서버준비를다시첫단계로돌리지말고실행하지않은정상로그인/동기화성공을선언하지않는다.
+## DATA-03 인계 (2026-11-10)
+
+- backend `16fb65f`: `npm run publish:catalog -- --file <절대경로>`로 검토된 영화·게임·EPL Canonical JSON을 provider-origin으로 적재하는 경로 구현. 입력 전체 선검사, 중복 키 거부, 기존 작품/팀/시장 정체성 preflight 보호. 작업 카드 backend `docs/tasks/DATA-03-reviewed-catalog.md`.
+- 작성자 `npm run build` 성공, 신규 5/5 및 기존 포함 58/58 테스트 통과. 첫 기본 sandbox build는 기존 dist 삭제 EPERM, 허용 실행에서 성공. 실제 공식 데이터/DB 재적재/API end-to-end/독립 검증은 미실행.
+- 다음 단계는 공식 1차 출처 기반 영화·게임·EPL 레코드의 수동 근거 검토와 로컬 적재. Render+Supabase 배포는 아직 하지 않음. app iOS 프로젝트 signing/HTTPS 미커밋 설정 그대로 보존.

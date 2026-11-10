@@ -144,3 +144,8 @@ iOS/무료로컬우선, 한국/KST기본·국가/시간대선택, 기본영화+O
 ## 새 계정/모델 시작
 
 AGENTS → 이파일 → handoff → 해당원본카드 순으로읽고 각저장소 HEAD/branch/dirty를 확인한다. 최신본읽기전 코드수정/인증반복을 하지 않는다. 웹전달은 scripts/export-context.py로생성하고 --check한다. 커밋은 영문type+한글설명, push/외부배포는 별도요청범위다.
+## DATA-03 영화·게임·EPL 검토 일정 적재 경로 (2026-11-10)
+
+- backend `16fb65f`에서 `publish:catalog` 수동 검토 JSON 적재 CLI와 stable event/content/team ID 보호를 구현. 합성 입력 단위 테스트 5/5, 전체 백엔드 58/58 통과. 백엔드 작업 카드 `docs/tasks/DATA-03-reviewed-catalog.md`.
+- 실제 공식 영화·게임·EPL 데이터는 **아직 검토/적재하지 않음**. 현재 신규 실데이터 공개 API 조회, 운영 DB, 배포, 독립 검증도 미실행. 다음은 공식 출처 대조→입력 JSON→로컬 DB 적재 및 API 검증→사용자 배포 요청 시 Render+Supabase 연결.
+- API 계약/마이그레이션/독립 승인 기준 변경 없음. 기존 iOS pbxproj dirty 설정 유지.
