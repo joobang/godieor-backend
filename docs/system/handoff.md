@@ -1,6 +1,6 @@
 # 계정·모델 사이에서 작업 이어받기
 
-revision: `CONTEXT-2026-11-10-05`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+revision: `CONTEXT-2026-11-10-06`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
 공통 문서는 `SYNC-2026-11-09-18`이다. APP-01 통합 및 독립 검증 대기 상태를 반영했고 OTT 날짜 정책/API 스키마는 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
 
 APP-01G 인계 기준: app `f36adb748b3a452db105475ffbcae5abe8d3d02f`, backend `85ea4f3398d949e4f59313232306c3325956b7a6`, verifier `109f918799d6c818ae30ba5af4a5cedb112573e8`. API `0.1.0-draft.2`, contract manifest SHA-256 `8dfc69a8c6a5f9feb91f2d0cf6d661eec16a1aacb8e980b7abe880cd0b1f3b1e`, migration SHA-256 `29ef8ef0d520f44b6a633e8f017144a3e2b2199189461a88ba99bc296c42f5b9`. acceptance 초안, verifier evidence v1 앱 전용으로 통합 PASS 없음. UI 조작 미확인 범위는 app `docs/ai/tasks/APP-01-finalize.md` 참조. 문서 변경 커밋 이후 HEAD는 Git으로 확인한다.
@@ -142,3 +142,13 @@ ACL 적용 후 UID502 재검사·전용 Darwin T의 최소 허용·run 잠금·�
 계정 생성/기초검사 완료, 실제 전체 격리·P5·통합 검증은 미완료. 담당 codex-account-10 해제.
 비밀번호 값은 작업 카드·명령·로그·전달본에 기록하지 않았고 일회성 비밀 파일은 폐기했다.
 원본 verifier/docs/tasks/VFY-03-dedicated-account.md, LEARN-0014. 통합 PASS 없음 유지.
+
+## 전용 UID 제한 iOS 진단 구현 checkpoint · 2026-11-10
+
+verifier 코드8b85f18(초기9cbeb19), 세 저장소 codex/vfy-dedicated-ios-probe.
+caller HOME/기존 파일의 실제 접근 거부·전용 Darwin T 소유권·고정 입력 해시·협조적 run 잠금을
+확인한 뒤 전용 T만 추가 허용하는 별도 진단기를 추가했다. 기존 runner profile은 유지한다.
+81개 자체검사 통과. 원본 verifier/docs/tasks/VFY-03-dedicated-ios-probe.md.
+실행 staging /Users/Shared/godieor-ios-check-143ffcc4, app95be3b6/verifier-v2 8b85f18.
+현재 테스트 계정 비공개 인증 대기이며 실제 UID502 재검사/Foundation/Xcode 빌드는 아직 미실행.
+이전 결과의 atomic 실패/P5 open/격리 미검증/통합 PASS 없음 유지. 독립 리뷰도 대기다.

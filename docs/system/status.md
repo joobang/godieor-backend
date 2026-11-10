@@ -1,6 +1,6 @@
 # 현재 상태 · 새 개발 대화의 시작점
 
-문서 revision: `CONTEXT-2026-11-10-05`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
+문서 revision: `CONTEXT-2026-11-10-06`. 원본은 app의 이 파일이며 backend/verifier에는 동일 사본을 둔다.
 확인일: 2026-11-10 KST. 이 문서는 현재 상태의 요약이다. 정책 원본은 product/policies,
 계약 원본은 backend/contracts, 실행 사실은 각 작업 기록, 승인 기준은 verifier/requirements다.
 충돌 시 날짜만 보고 정책을 덮어쓰지 말고 원본·Git 변경을 확인한다. 아래 과거 실행은 현재 프로세스 생존을 보장하지 않는다.
@@ -173,3 +173,13 @@ ACL 적용 후 UID502 재검사·전용 Darwin T의 최소 허용·run 잠금·�
 계정 생성/기초검사 완료, 실제 전체 격리·P5·통합 검증은 미완료. 담당 codex-account-10 해제.
 비밀번호 값은 작업 카드·명령·로그·전달본에 기록하지 않았고 일회성 비밀 파일은 폐기했다.
 원본 verifier/docs/tasks/VFY-03-dedicated-account.md, LEARN-0014. 통합 PASS 없음 유지.
+
+## 전용 UID 제한 iOS 진단 구현 checkpoint · 2026-11-10
+
+verifier 코드8b85f18(초기9cbeb19), 세 저장소 codex/vfy-dedicated-ios-probe.
+caller HOME/기존 파일의 실제 접근 거부·전용 Darwin T 소유권·고정 입력 해시·협조적 run 잠금을
+확인한 뒤 전용 T만 추가 허용하는 별도 진단기를 추가했다. 기존 runner profile은 유지한다.
+81개 자체검사 통과. 원본 verifier/docs/tasks/VFY-03-dedicated-ios-probe.md.
+실행 staging /Users/Shared/godieor-ios-check-143ffcc4, app95be3b6/verifier-v2 8b85f18.
+현재 테스트 계정 비공개 인증 대기이며 실제 UID502 재검사/Foundation/Xcode 빌드는 아직 미실행.
+이전 결과의 atomic 실패/P5 open/격리 미검증/통합 PASS 없음 유지. 독립 리뷰도 대기다.
