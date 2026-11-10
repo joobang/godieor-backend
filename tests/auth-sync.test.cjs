@@ -26,7 +26,11 @@ test('Google JWT signature, issuer, audience and expiry are checked', async (t) 
   for (const change of [{aud:'other'},{iss:'attacker'},{exp:now-1},{iat:now+1000}]) {
     await assert.rejects(client.verify(makeToken(privateKey,{...valid,...change})),{status:401});
   }
-  const tampered = makeToken(privateKey,valid).replace(/.$/, 'a');
+  const signed = makeToken(privateKey,valid);
+  const segments = signed.split('.');
+  const signature = Buffer.from(segments[2], 'base64url');
+  signature[0] ^= 0x01;
+  const tampered = `${segments[0]}.${segments[1]}.${signature.toString('base64url')}`;
   await assert.rejects(client.verify(tampered),{status:401});
 });
 
