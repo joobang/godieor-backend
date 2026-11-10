@@ -1,6 +1,6 @@
 # 현재 상태 · 새 개발 대화 시작점
 
-문서 revision: CONTEXT-2026-11-10-08. 공통정책 SYNC-2026-11-10-01. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+문서 revision: CONTEXT-2026-11-10-09. 공통정책 SYNC-2026-11-10-01. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
 
 ## 최신 사용자 확정 (최우선)
 
@@ -12,16 +12,17 @@
 |---|---|---|
 | app | SwiftUI 공개API client·월간달력·일별목록·상세·지역/시간대/OTT/기기필터, 상세최신상태/개최국/날짜응답경합 수정, 작성자 날짜→목록→상세 UI 확인 | Google실제인증/찜/계정설정 동기화, 전체독립UI검사 |
 | backend | Nest controller→service→repository, Prisma Client우선·SQL예외정책, PostgreSQL23모델·migration, fixture7+공식OTT공지4건 수동반영 파이프라인 | 영화·게임·EPL 실연동/OTT자동전수수집, Google/개인쓰기 |
-| verifier | evidencev1앱전용/v2전체조합binding, rawGit snapshot/build분리, 임시DB와단계로그, backend제한실행·iOS기존계정unsigned빌드 | 7개필수검사 연결, 자동AI어댑터·전체제품통합run·승인 |
+| verifier | evidencev1앱전용/v2전체조합binding, rawGit snapshot/build분리, 임시DB와단계로그, backend제한실행·iOS기존계정unsigned빌드 | 5개필수검사 후속 연결, 자동AI어댑터·전체제품통합run·승인 |
 
 ## 마지막 실제 실행
 
-- 검증기 코드 b77b5a1328acc1410fcd34b008023ef01a96de4a, 브랜치 codex/local-verification. 코드변경후 공통문서HEAD는 Git/웹전달본으로 확인한다.
-- 마지막 run /private/tmp/godieor-local-ad8f1b57. 입력 app4630795a7fd31b568497481d43cb3ef619f6c89f / backendbcf1f463498ae99d2e747aba97facf5e66977103. 당시verifier82cfdb7+dirty/state hash이며 최신SHA실행으로 재라벨하지 않는다.
-- node버전/경계probe/**기존계정 iOS unsigned 빌드**/dependencies/Prisma generate/tsc/backend47tests/일회용DB migration/반복수집·달력상세smoke 모두exit0. 임시 godieor-vfy-* 컨테이너 잔존없음 확인. 기존제품DB를 변경한 검사가 아니다.
-- verifier scripts/self-test.sh 84개통과. 별도컨텍스트 Meitner는 자기검사/모의7조합 확인, 추가재현결함없음 보고. 실제Xcode/DB실행은 작성자실행이다.
-- 결과는 ERROR: event-identity/time-semantics/filter-intersection/settings-roundtrip/provider-contract/ios-user-flow/secret-check 7개는 미실행·미연결 SKIPPED. ios-build만 실제PASS, reviewPENDING, isolation_verified=false. 전체제품PASS/승인은 없다.
-- 산출물사본 verifier/work/handoff/godieor-local-ad8f1b57 (Git제외), 상세원본 verifier/docs/tasks/VFY-local-verification.md, 실행정책 docs/local-verification.md, 리뷰 reviews/2026-11-10-local-verification.md, LEARN-0015.
+- 검증기 코드 dff5d9a7bad96cdfb551f67aec97b95038e89f2b, 브랜치 codex/int-01-api-checks. 최종문서HEAD는Git/웹전달본 확인. 원본카드 verifier/docs/tasks/INT-01-api-checks.md.
+- 마지막run /private/tmp/godieor-api-c24b082a, app423dd644c37f8bd2ef29e16462cd7865329a1831 / backendf378ac8(전체SHA는evidence). 당시verifier7d84304+dirty/state hash이며 최신커밋실행으로 재라벨하지 않는다. 이후receipt예외처리1줄은90개자기검사로 재확인했다.
+- node/경계probe/iOSunsigned/dependencies/generate/tsc/backend47tests/migration/API3suite/database-smoke 모두exit0. 기존제품DB사용없음, 임시DB컨테이너잔존없음 확인.
+- API: event-identity92 assertions, time-semantics76, api-filter-observations57. verifier작성synthetic입력·명시기대값. 동일제목다른작품·시장/variant/시즌·재수집/정정/연기취소/실패보존, KST·DST·월경계·unknown/date_only, 국가/서비스/기기 포함제외를 관찰했다.
+- evidence의 ios-build/event-identity/time-semantics는PASS(API둘은backend component). 필터는최신계약/예전초안차이로부분성공SKIPPED. settings-roundtrip/provider-contract/ios-user-flow/secret-check도SKIPPED: 전체ERROR, reviewPENDING, isolation_verified=false. 제품통합PASS/승인 없음.
+- 검증기자체90개통과. 분리컨텍스트 Fermat는90개 및 모형정상/variant무시·제목병합변이/중첩receipt오류를 확인. 실제Nest/PostgreSQL장기run은 작성자실행으로구분. 리뷰 reviews/2026-11-10-independent-api-checks.md.
+- 산출물사본 verifier/work/handoff/godieor-api-c24b082a(Git제외), 형식 docs/api-checks.md, LEARN-0016. 이전로컬검증전환/전용계정폐기 기록은 VFY-local-verification 카드/LEARN-0015에 유지.
 
 ## 현재 검증 방식
 
@@ -31,7 +32,7 @@ P5 setsid후손수명정리/전체OS격리는 해결한것이 아니며 제품�
 
 ## 이어받을 다음 작업
 
-1. 전용계정 인증복구 대신 INT-01: 독립API 날짜/identity/필터 관찰점을 실제실행과 연결한다. 기존backend자체47개 전체통과를 모든GD필수검사PASS로 전용하지 않는다.
+1. INT-01A API식별/날짜 component 연결완료·담당해제. 다음은 iOS 사용자흐름/설정 복원·비밀검사 및 필터기준관찰점정리. 필터최신계약과 예전초안문구차이를 승인없이 몰래바꾸지 않는다. API검사성공을 UI/실제provider 성공으로 전용하지 않는다.
 2. 제품개발: 극장영화 등 데이터출처 최소샘플/범위·근거 확인과 Google/개인쓰기 설계·구현. OTT는 연월일확인가능한 시즌최초공개만, 월/연도만 있는자료 제외. 자동전수coverage는 확인되지 않았다.
 3. 새기능마다 자체검사·분리컨텍스트리뷰·고정SHA 인계. 현재 card 담당해제. 공통문서통합은 한세션만 한다.
 
