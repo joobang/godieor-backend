@@ -1,6 +1,13 @@
 # 현재 상태 · 새 개발 대화 시작점
 
-문서 revision: CONTEXT-2026-11-10-21. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+문서 revision: CONTEXT-2026-11-10-22. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+
+## APP-AUTH-10 공개·계정 API 주소 통일 (2026-11-10, 최신)
+
+- app 코드9f04c67fac1b2f554e84e7ea186b87ff76cc6bfa. 공유APIEndpointConfiguration으로env→Info.plist의동일HTTPS설정을공개달력/상세와계정로그인/설정/찜에적용했다. 기존PublicAPI의bundle설정무시·iPhone localhostfallback을수정했다. Simulator공개loopback과계정HTTPS경계는보존했다.
+- 순수Swift회귀검사·unsigned Simulator전체빌드(기본/테스트HTTPSoverride)성공. 실제생성Info.plist의reserved테스트주소를양쪽mode resolver로대조성공. 첫swiftc cacheEPERM은별도/private/tmp module cache로해결했다.
+- 별도Lagrange리뷰의case비교회귀를수정하고Swift/diff재검토통과. 실제iPhone/Google로그인/계정왕복/HTTPSproxy연결은미실행, 제품PASS아님. API·migration·acceptance불변. source의backendURL은아직placeholder다.
+- 원본 app/docs/ai/tasks/APP-AUTH-10.md, 운영절차 docs/ai/local-iphone-auth.md, LEARN-0018. 담당해제. 다음은기존APP-AUTH09도구로실제MacLAN→backendHTTPS접속확인후기기소유자CA신뢰/로그인/설정·찜왕복이다. 계정기능코드는이미구현돼중복구현하지않는다.
 
 ## APP-AUTH-09 로컬 iPhone HTTPS 접속 준비 (2026-11-10)
 
@@ -26,7 +33,7 @@
 
 | 저장소 | 구현·확인 | 미완료 |
 |---|---|---|
-| app | SwiftUI 공개API client·월간달력·일별목록·상세·지역/시간대/OTT/기기필터, 상세최신상태/개최국/날짜응답경합 수정, 작성자 날짜→목록→상세 UI 확인 | Google OAuth 실자격증명/실기기 인증·기기간 동기화/전체독립UI검사 |
+| app | SwiftUI 공개API client·월간달력·일별목록·상세·지역/시간대/OTT/기기필터, 상세최신상태/개최국/날짜응답경합 수정, 작성자 날짜→목록→상세 UI 확인 | 실Google/실기기 인증·기기간 동기화/전체독립UI검사 |
 | backend | Nest controller→service→repository, Prisma Client우선·SQL예외정책, PostgreSQL23모델·migration, fixture7+공식OTT공지4건 수동반영 파이프라인 | 영화·게임·EPL 실연동/OTT자동전수수집, 실Google OAuth와 개인쓰기 통합런 검증 |
 | verifier | evidencev1앱전용/v2전체조합binding, rawGit snapshot/build분리, 임시DB와단계로그, backend제한실행·iOS기존계정unsigned빌드 | 4개필수검사 후속·제품구현, 자동AI어댑터·전체제품통합run·승인 |
 
@@ -92,7 +99,7 @@ P5 setsid후손수명정리/전체OS격리는 해결한것이 아니며 제품�
 
 ## 이어받을 다음 작업
 
-1. APP-AUTH-07 인증 쓰기 401 세션 정리까지 구현. BE-AUTH/APP-AUTH 초기 구현 및 BE-AUTH-05 일회용 PostgreSQL 자체 검사는 기존 카드에 기록(로컬 이미지 digest 차이). 다음은 등록된 Google iOS OAuth Client, 단말용 HTTPS backend 및 실제 단말/기기간 인증·설정·찜 동기화와 독립 리뷰. 로그아웃 서버 폐기 실패·계정 삭제/세션 관리 정책은 후속 확인 필요.
+1. APP-AUTH-07 인증 쓰기 401 세션 정리까지 구현. BE-AUTH/APP-AUTH 초기 구현 및 BE-AUTH-05 일회용 PostgreSQL 자체 검사는 기존 카드에 기록(로컬 이미지 digest 차이). Google iOS OAuth Client값은등록·반영됐고 APP-AUTH-10 주소통일까지완료. 다음은실제단말용 HTTPS backend 연결과 단말/기기간 인증·설정·찜 왕복 및 독립 검증. 로그아웃 서버 폐기 실패·계정 삭제/세션 관리 정책은 후속 확인 필요.
 2. 제품개발: 극장영화 등 데이터출처 최소샘플/범위·근거 확인과 실Google OAuth와 개인쓰기 통합런 검증 설계·구현. OTT는 연월일확인가능한 시즌최초공개만, 월/연도만 있는자료 제외. 자동전수coverage는 확인되지 않았다.
 3. 새기능마다 자체검사·분리컨텍스트리뷰·고정SHA 인계. 현재 card 담당해제. 공통문서통합은 한세션만 한다.
 

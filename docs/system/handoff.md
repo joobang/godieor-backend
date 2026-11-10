@@ -124,8 +124,12 @@ Codex는 현재 파일/정책과 대조해 반영하고 새 전달본을 생성�
 기존계정에서 검토한고정source로 iOS서명없는빌드와 backend/임시DB 검사를수행한다. iOS local-reviewed와 backend sandboxed를구분, isolation_verified=false 유지. 증거binding/독립리뷰/실패·미실행표시/승인기준을 유지한다. 로컬실행성공과 전체제품PASS를구분한다.
 
 새대화 요청:
-> 세저장소 AGENTS와 app/docs/system/status.md·handoff.md, verifier/docs/tasks/INT-01-secret-check.md·docs/secret-check.md·docs/local-verification.md를읽고 Git상태를확인해라. 전용Mac계정방식은폐기됐다. 검사107개/고정run의iOS·backend·API·DB·literal비밀검사는성공했지만 필터/계정설정/제공처/UI흐름4개미완료로전체ERROR다. 가상UI로로컬설정복원은확인했으나 Google/계정서버기능미구현이다. 다음제품작업은BE-AUTH 세션/설정·찜 동기화 설계·구현이며 새로운카드로범위/미정정책/자격증명필요조건부터확인해라. 기준승인/전체PASS를만들지마라.
+> 세저장소 AGENTS와 app/docs/system/status.md·handoff.md, verifier/docs/tasks/INT-01-secret-check.md·docs/secret-check.md·docs/local-verification.md를읽고 Git상태를확인해라. 전용Mac계정방식은폐기됐다. 검사107개/고정run의iOS·backend·API·DB·literal비밀검사는성공했지만 필터/계정설정/제공처/UI흐름4개미완료로전체ERROR다. 가상UI로로컬설정복원은확인했으나 Google/계정서버코드는구현됐으나실Google/실단말왕복은미확인이다. 다음작업은최신APP-AUTH-09/10카드를읽고실제HTTPS기기연결부터확인해라. 이미구현한인증/동기화를중복구현하지마라. 기준승인/전체PASS를만들지마라.
 
 ## APP-AUTH-09 인계 (2026-11-10)
 
 Mac 로컬 API(127.0.0.1:3000)를 같은 Wi-Fi 테스트 iPhone에 TLS로 노출하는 개발 도구를 app/scripts에 추가했다. 인증서 설치·실제 주소 설정 절차는 `docs/ai/local-iphone-auth.md`, 카드 `docs/ai/tasks/APP-AUTH-09.md`. 실기기 연결·Google 로그인·서버 동기화·독립 검증은 미실행. 전용 Mac 계정 방식 재개하지 않음.
+
+## APP-AUTH-10 최신 인계
+
+공개/계정API주소해석을 app9f04c67에서통일. Swift주소회귀와실제번들Info값검사·iOSunsigned빌드성공, 분리컨텍스트재검토완료. 실제Google/iPhone/HTTPSproxy는미실행. 다음세션은 APP-AUTH-10→09→local-iphone-auth 문서를읽고실제주소·backend가동을확인한다. 전용Mac계정방식재개/인증코드중복구현금지. 키/인증서신뢰·실폰조작은사용자범위와구분하고실행하지않은성공을선언하지않는다.
