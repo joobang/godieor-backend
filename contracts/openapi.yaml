@@ -1877,6 +1877,11 @@
           "enum":
             - "fixture"
             - "provider"
+        "ottCategory":
+          "anyOf":
+            - "type": "string"
+              "enum": ["movie", "series", "original_series", "variety", "other"]
+            - "type": "null"
         "updatedAt":
           "type": "string"
           "format": "date-time"
@@ -1896,6 +1901,7 @@
         - "devices"
         - "match"
         - "dataOrigin"
+        - "ottCategory"
         - "updatedAt"
       "allOf":
         -

@@ -3,6 +3,7 @@ import { NestFactory } from "@nestjs/core";
 import { CollectionModule } from "../collection/collection.module";
 import { CollectionService } from "../collection/collection.service";
 async function main() {
+  process.env.COLLECTION_INCLUDE_FIXTURE = "true";
   const args = process.argv.slice(2);
   const invalid = args.find(
     (arg) => !["--mode=backfill", "--mode=daily", "--force"].includes(arg),

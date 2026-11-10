@@ -47,6 +47,7 @@ const recordSchema = z
       "game_release",
       "epl_match",
     ]),
+    ottCategory: z.enum(["movie", "series", "original_series", "variety", "other"]).nullable().optional(),
     title: identifier,
     content: content.nullable(),
     seasonNumber: z.number().int().positive().nullable(),
@@ -98,7 +99,7 @@ export function normalize(value: unknown, scope: Scope): Canonical {
       r.kind === "theatrical_release"
         ? "movie"
         : r.kind === "ott_season_premiere"
-          ? "drama"
+          ? r.ottCategory === "movie" ? "movie" : "drama"
           : "game";
     if (!r.content || r.content.kind !== expected || r.home || r.away)
       throw new Error("INVALID_CONTENT");
@@ -113,6 +114,10 @@ export function normalize(value: unknown, scope: Scope): Canonical {
     (!r.services.length || r.market === "WORLD")
   )
     throw new Error("MISSING_OTT_EVIDENCE");
+  if (r.kind !== "ott_season_premiere" && r.ottCategory != null)
+    throw new Error("INVALID_OTT_CATEGORY");
+  if (r.kind === "ott_season_premiere" && r.ottCategory === "movie" && r.seasonNumber !== null)
+    throw new Error("INVALID_OTT_CATEGORY");
   if (r.kind !== "game_release" && r.devices.length)
     throw new Error("INVALID_DEVICE");
   if (r.kind === "game_release" && !r.devices.length)

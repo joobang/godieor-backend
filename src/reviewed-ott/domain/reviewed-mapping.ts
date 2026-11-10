@@ -86,10 +86,11 @@ export function prepareReviewed(input: unknown, state: State): Canonical[] {
         externalId: mapping.eventKey,
         variantKey: "premiere",
         kind: "ott_season_premiere",
+        ottCategory: review.contentKind === "drama" ? "series" : review.contentKind,
         title: review.title,
         content: {
           externalId: mapping.contentKey,
-          kind: "drama",
+          kind: review.contentKind === "movie" ? "movie" : "drama",
           title: review.title,
         },
         seasonNumber: review.seasonNumber,

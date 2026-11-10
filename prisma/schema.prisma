@@ -125,6 +125,7 @@ model drama_season {
 model event {
   id                            String           @id @db.Uuid
   kind                          event_kind
+  ott_category                  String?
   content_id                    String?          @db.Uuid
   content_type                  content_kind?
   season_id                     String?          @db.Uuid

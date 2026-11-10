@@ -35,6 +35,7 @@ export function presentEvent(e: EventRow, zone: string) {
   return {
     id: e.id,
     kind: e.kind,
+    ottCategory: e.kind === "ott_season_premiere" ? (e.ott_category ?? "series") : null,
     title: e.title,
     contentId: e.content_id,
     season: e.drama_season

@@ -29,7 +29,7 @@ export const reviewSchema = z
       .string()
       .regex(/^[A-Z]{2}$/)
       .nullable(),
-    contentKind: z.enum(["drama", "other", "unknown"]),
+    contentKind: z.enum(["drama", "movie", "original_series", "variety", "other", "unknown"]),
     premiereConfirmed: z.boolean(),
     date: z
       .string()
@@ -208,7 +208,7 @@ export function eligibility(candidate: Candidate): string[] {
   else if (review.date < "2026-01-01") reasons.push("before_2026");
   if (!review.platform) reasons.push("unconfirmed_platform");
   if (!review.market) reasons.push("unconfirmed_market");
-  if (review.contentKind !== "drama") reasons.push("not_confirmed_drama");
+  if (["other", "unknown"].includes(review.contentKind)) reasons.push("unclassified_ott_content");
   if (!review.premiereConfirmed) reasons.push("not_confirmed_premiere");
   return reasons;
 }

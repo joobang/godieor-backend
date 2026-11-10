@@ -31,7 +31,7 @@ export class ReviewedMappingRepository {
         where: {
           provider_key_content_type_external_id: {
             provider_key: REVIEWED_PROVIDER_KEY,
-            content_type: "drama",
+            content_type: record.content!.kind,
             external_id: record.content!.externalId,
           },
         },

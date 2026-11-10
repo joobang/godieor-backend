@@ -273,6 +273,7 @@ export class CollectionRepository {
     const t = r.time;
     const data = {
       kind: r.kind,
+      ott_category: r.kind === "ott_season_premiere" ? (r.ottCategory ?? "series") : null,
       title: r.title,
       content_id: contentId,
       content_type: r.content?.kind ?? null,
