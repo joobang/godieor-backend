@@ -19,6 +19,38 @@ function json(value: unknown): Prisma.InputJsonValue {
 @Injectable()
 export class CollectionRepository {
   constructor(private readonly db: PrismaService) {}
+  // Review-only ingestion: protect stable IDs already referenced by account favorites.
+  // Called under the provider collector lock before any records are written.
+  async assertReviewedCatalogIdentities(provider: string, records: readonly Canonical[]) {
+    for (const record of records) {
+      const source = await this.db.event_source.findUnique({
+        where: { provider_key_external_id_variant_key: {
+          provider_key: provider, external_id: record.externalId, variant_key: record.variantKey,
+        } },
+        include: { event: true },
+      });
+      if (!source) continue;
+      const event = source.event;
+      if (event.kind !== record.kind || event.origin !== "provider" ||
+          event.release_market !== record.market) throw new Error("IDENTITY_CHANGED");
+      if (record.content) {
+        const mapped = await this.db.content_source.findUnique({
+          where: { provider_key_content_type_external_id: {
+            provider_key: provider, content_type: record.content.kind, external_id: record.content.externalId,
+          } },
+        });
+        if (!mapped || mapped.content_id !== event.content_id) throw new Error("IDENTITY_CHANGED");
+      } else if (event.content_id !== null) throw new Error("IDENTITY_CHANGED");
+      if (record.home && record.away) {
+        const [home, away] = await Promise.all([record.home, record.away].map((team) =>
+          this.db.team_source.findUnique({ where: { provider_key_external_id: {
+            provider_key: provider, external_id: team.externalId,
+          } } })));
+        if (!home || !away || home.team_id !== event.home_team_id ||
+            away.team_id !== event.away_team_id) throw new Error("IDENTITY_CHANGED");
+      } else if (event.home_team_id !== null || event.away_team_id !== null) throw new Error("IDENTITY_CHANGED");
+    }
+  }
   async register(adapters: ProviderAdapter[]) {
     await this.db.$transaction(async (tx) => {
       let changed = false;

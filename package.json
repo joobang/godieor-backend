@@ -20,6 +20,7 @@
     "test": "npm run build && node --test tests/*.test.cjs",
     "test:db": "npm run build && node scripts/check-refactor-db.cjs",
     "publish:reviewed": "node --env-file=.env dist/src/cli/publish-reviewed.js",
+    "publish:catalog": "node --env-file=.env dist/src/cli/publish-catalog.js",
     "test:reviewed": "npm run build && node --test tests/reviewed-publish.test.cjs"
   },
   "dependencies": {
