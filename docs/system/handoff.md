@@ -1,6 +1,6 @@
 # 계정·모델 사이에서 작업 이어받기
 
-revision: `CONTEXT-2026-11-10-09`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+revision: `CONTEXT-2026-11-10-10`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
 공통 문서는 `SYNC-2026-11-10-01`이다. APP-01 통합 및 독립 검증 대기 상태를 반영했고 OTT 날짜 정책/API 스키마는 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
 
 
@@ -83,9 +83,9 @@ Codex는 현재 파일/정책과 대조해 반영하고 새 전달본을 생성�
 
 ## 현재 실행·인계 정책 (2026-11-10)
 
-전용macOS계정 방식은 사용자지시로폐기했다. godieorbuild로그인·su·비밀번호·ACL확장/복구를 다음필수작업으로 요구하지 않는다. OS계정자체는이작업에서삭제하지 않았다. 현재코드 verifier dff5d9a 및 docs/local-verification.md를 따른다.
+전용macOS계정 방식은 사용자지시로폐기했다. godieorbuild로그인·su·비밀번호·ACL확장/복구를 다음필수작업으로 요구하지 않는다. OS계정자체는이작업에서삭제하지 않았다. 현재코드 verifier de0560f 및 docs/local-verification.md를 따른다.
 
 기존계정에서 검토한고정source로 iOS서명없는빌드와 backend/임시DB 검사를수행한다. iOS local-reviewed와 backend sandboxed를구분, isolation_verified=false 유지. 증거binding/독립리뷰/실패·미실행표시/승인기준을 유지한다. 로컬실행성공과 전체제품PASS를구분한다.
 
 새대화 요청:
-> 세저장소 AGENTS와 app/docs/system/status.md·handoff.md, verifier/docs/tasks/INT-01-api-checks.md·docs/api-checks.md·docs/local-verification.md를 읽고 Git상태를확인해라. 전용계정방식은폐기됐으니재개하지마라. INT-01A에서 API식별/날짜검사가연결됐고 iOS/backend/임시DB/API가실행됐지만 필터부분검사와 UI/설정/제공처/비밀검사5개미완료로전체ERROR다. 다음작업은 남은사용자흐름/설정·비밀검사 및 제품데이터연동이다. API성공을 전체제품PASS로 확대하거나 기준승인을만들지마라. 새작업카드로이어가라.
+> 세저장소 AGENTS와 app/docs/system/status.md·handoff.md, verifier/docs/tasks/INT-01-secret-check.md·docs/secret-check.md·docs/local-verification.md를읽고 Git상태를확인해라. 전용Mac계정방식은폐기됐다. 검사107개/고정run의iOS·backend·API·DB·literal비밀검사는성공했지만 필터/계정설정/제공처/UI흐름4개미완료로전체ERROR다. 가상UI로로컬설정복원은확인했으나 Google/계정서버기능미구현이다. 다음제품작업은BE-AUTH 세션/설정·찜 동기화 설계·구현이며 새로운카드로범위/미정정책/자격증명필요조건부터확인해라. 기준승인/전체PASS를만들지마라.
