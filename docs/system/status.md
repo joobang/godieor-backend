@@ -1,6 +1,11 @@
 # 현재 상태 · 새 개발 대화 시작점
 
-문서 revision: CONTEXT-2026-11-10-20. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+문서 revision: CONTEXT-2026-11-10-21. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+
+## APP-AUTH-09 로컬 iPhone HTTPS 접속 준비 (2026-11-10)
+
+- `scripts/dev-https.sh`/`scripts/dev-https.py`로 Mac 개인 Wi-Fi IP에서 HTTPS → 127.0.0.1:3000 프록시를 실행하는 개발 절차 추가. 세부내용 `docs/ai/local-iphone-auth.md`, 작업 카드 `docs/ai/tasks/APP-AUTH-09.md`.
+- 인증서 발급과 IP 바인딩, 로컬 Syntax/iOS unsigned build 자체검사는 별도 카드 기록. 실제 Mac 네트워크/기기 인증서 신뢰, backend 기동·Google 로그인·기기간 설정/찜 왕복은 미실행. 독립 PASS 아님. API·migration/acceptance 변경 없음.
 
 ## APP-AUTH-08 Google iOS OAuth 클라이언트 연결 (2026-11-10)
 
