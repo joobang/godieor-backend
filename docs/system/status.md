@@ -1,6 +1,6 @@
 # 현재 상태 · 새 개발 대화 시작점
 
-문서 revision: CONTEXT-2026-11-10-16. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+문서 revision: CONTEXT-2026-11-10-17. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
 
 ## 최신 사용자 확정 (최우선)
 
@@ -25,6 +25,11 @@
 - APP-AUTH-02(app d8358ec): iOS 계정 API 주소를 Debug/Release 빌드 설정의 HTTPS 주소로 주입하고, 찜 목록 페이지 충돌(409)에는 전체 목록을 최대 한 번 재조회한다. 등록 OAuth Client ID·reversed scheme과 실제 HTTPS 서버 주소는 아직 준비되지 않았다.
 - APP-AUTH-03(`docs/ai/tasks/APP-AUTH-03.md`, 이번 변경): 계정 전환 중 이전 세션의 늦은 응답이 사용자/설정/찜 상태를 덮어쓰지 않도록 generation과 요청 시작 token을 고정한다. 로그아웃 시 로컬 세션을 즉시 정리하고 이전 bearer token을 사용하여 서버 폐기를 시도한다. 폐기 실패 시 서버 세션은 만료 전까지 남을 수 있다.
 - APP-AUTH-03 자체 iOS unsigned build와 diff 검사를 기록하며 실네트워크 지연 재현/Google 인증/실DB·독립검증은 아직 수행하지 않았다. backend 기존 dist 테스트 45개 중 44개 통과, HTTP 테스트 1개는 로컬 listen EPERM으로 실행 실패했다. verifier acceptance/verdict는 변경하지 않는다.
+
+## APP-AUTH-06 기기 필터의 계정 경계 (2026-11-10)
+
+- 앱 `docs/ai/tasks/APP-AUTH-06.md`: 계정 필터 소유자 표식 추가. 로그아웃·401·계정 전환 시 기본 필터로 초기화하고 재시작에서 정상 계정 복구 후 원격 설정을 재적용한다. 비로그인 임시 필터는 유지한다.
+- 작성자 iOS generic Simulator unsigned build 성공. CoreSimulator 서비스 경고 관찰. 실 Google/HTTPS·401 UI·두 기기·독립 검증 미실행. 계약·migration·verifier acceptance 불변.
 
 ## APP-AUTH-05 계정 refresh 순서/찜 쓰기 경합 수정 (2026-11-10)
 
