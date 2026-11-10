@@ -1,6 +1,6 @@
 # 현재 상태 · 새 개발 대화 시작점
 
-문서 revision: CONTEXT-2026-11-10-15. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+문서 revision: CONTEXT-2026-11-10-16. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
 
 ## 최신 사용자 확정 (최우선)
 
@@ -25,6 +25,11 @@
 - APP-AUTH-02(app d8358ec): iOS 계정 API 주소를 Debug/Release 빌드 설정의 HTTPS 주소로 주입하고, 찜 목록 페이지 충돌(409)에는 전체 목록을 최대 한 번 재조회한다. 등록 OAuth Client ID·reversed scheme과 실제 HTTPS 서버 주소는 아직 준비되지 않았다.
 - APP-AUTH-03(`docs/ai/tasks/APP-AUTH-03.md`, 이번 변경): 계정 전환 중 이전 세션의 늦은 응답이 사용자/설정/찜 상태를 덮어쓰지 않도록 generation과 요청 시작 token을 고정한다. 로그아웃 시 로컬 세션을 즉시 정리하고 이전 bearer token을 사용하여 서버 폐기를 시도한다. 폐기 실패 시 서버 세션은 만료 전까지 남을 수 있다.
 - APP-AUTH-03 자체 iOS unsigned build와 diff 검사를 기록하며 실네트워크 지연 재현/Google 인증/실DB·독립검증은 아직 수행하지 않았다. backend 기존 dist 테스트 45개 중 44개 통과, HTTP 테스트 1개는 로컬 listen EPERM으로 실행 실패했다. verifier acceptance/verdict는 변경하지 않는다.
+
+## APP-AUTH-05 계정 refresh 순서/찜 쓰기 경합 수정 (2026-11-10)
+
+- 앱 `docs/ai/tasks/APP-AUTH-05.md`: 겹치는 refresh 중 최신 시작 요청만 계정 상태를 반영하고 설정 저장 중 시작한 remote settings snapshot이 완료된 저장을 덮지 않도록 revision 분리. 찜 저장 후 재조회를 pending 해제 이후 예약하여 APP-AUTH-04 후속 재조회의 스냅샷 누락을 수정.
+- 작성자 로컬 iOS generic Simulator unsigned build 성공. CoreSimulator runtime 서비스 경고는 발생했으나 컴파일 완료. 실 Google/HTTPS 기기·실제 지연 HTTP 경합·독립 runner 미실행. API/migration 및 verifier acceptance 불변.
 
 ## APP-AUTH-04 앱 복귀 동기화와 찜 중복 요청 방어 (2026-11-10)
 
@@ -61,7 +66,7 @@ P5 setsid후손수명정리/전체OS격리는 해결한것이 아니며 제품�
 
 ## 이어받을 다음 작업
 
-1. APP-AUTH-04 앱 복귀 sync/찜 중복 방어까지 구현. BE-AUTH/APP-AUTH 기본 구현·APP-AUTH-02/03 보완 및 BE-AUTH-04 계정 저장소 자체 회귀 검사까지 진행. 일회용 PostgreSQL 작성자 검사는 BE-AUTH-05에서 완료(로컬 이미지 digest 차이 기록). 다음은 등록된 Google iOS OAuth Client, 단말용 HTTPS backend 및 실제 단말/기기간 인증·동기화와 독립 리뷰. 로그아웃 서버 폐기 실패·계정 삭제/세션 관리 정책은 후속 확인 필요.
+1. APP-AUTH-05 계정 refresh 경합/찜 저장 후 재조회 수정까지 구현. BE-AUTH/APP-AUTH 기본 구현·APP-AUTH-02/03 보완 및 BE-AUTH-04 계정 저장소 자체 회귀 검사까지 진행. 일회용 PostgreSQL 작성자 검사는 BE-AUTH-05에서 완료(로컬 이미지 digest 차이 기록). 다음은 등록된 Google iOS OAuth Client, 단말용 HTTPS backend 및 실제 단말/기기간 인증·동기화와 독립 리뷰. 로그아웃 서버 폐기 실패·계정 삭제/세션 관리 정책은 후속 확인 필요.
 2. 제품개발: 극장영화 등 데이터출처 최소샘플/범위·근거 확인과 실Google OAuth와 개인쓰기 통합런 검증 설계·구현. OTT는 연월일확인가능한 시즌최초공개만, 월/연도만 있는자료 제외. 자동전수coverage는 확인되지 않았다.
 3. 새기능마다 자체검사·분리컨텍스트리뷰·고정SHA 인계. 현재 card 담당해제. 공통문서통합은 한세션만 한다.
 

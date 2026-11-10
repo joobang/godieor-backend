@@ -1,6 +1,6 @@
 # 계정·모델 사이에서 작업 이어받기
 
-revision: `CONTEXT-2026-11-10-15`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+revision: `CONTEXT-2026-11-10-16`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
 공통 문서는 `SYNC-2026-11-10-02`이다. APP-01 통합 및 독립 검증 대기 상태를 반영했고 OTT 날짜 정책/API 스키마는 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
 
 
@@ -11,6 +11,10 @@ APP-BE-AUTH-01 카드에 Google/서비스세션/서버설정·찜 코드와 검�
 APP-AUTH-02(app d8358ec)은 HTTPS 계정 API 주소 빌드 주입과 찜 cursor 충돌 재시도. APP-AUTH-03(app `docs/ai/tasks/APP-AUTH-03.md`)은 계정 전환 중 지연 응답 차단과 로그아웃 시 로컬 즉시 정리/기존 token으로 서버 폐기를 추가한다. 요청 시작 bearer token을 연속 API 호출에 고정한다. 기존 backend dist 테스트 44/45(1개 listen EPERM), iOS unsigned build는 별도 기록. 실기기 Google OAuth/실DB·계정격리/독립 검토는 여전히 대기이며 서버 로그아웃 폐기 실패는 잔여 위험이다.
 
 BE-AUTH-04(backend `docs/tasks/BE-AUTH-04.md`)는 UsersService/Repository 경로의 계정 격리·설정 CAS·찜 멱등/커서 회귀 검사 2개를 추가하고 JWT 변조 테스트의 Base64URL 마지막 문자 비결정성을 수정했다. 허용된 HTTP 바인딩 환경에서 전체 backend 기존 dist 검사 53/53 통과, 일반 sandbox에서는 listen EPERM을 관찰했다. fake Prisma 기반 작성자 자체 검사이며 실제 DB/Google OAuth/HTTPS/독립 검증 결과로 확대하지 않는다. API 계약·migration 불변, 전용 Mac 계정 방식 폐기 유지.
+
+## APP-AUTH-05 인계 (2026-11-10)
+
+앱 `docs/ai/tasks/APP-AUTH-05.md`: 여러 refresh 중 최신 시작 응답만 반영하고 설정 저장과 refresh 응답의 충돌을 revision으로 방지. 찜 쓰기 완료 후 pending 해제 → 서버 재조회 순서로 바꿔 APP-AUTH-04의 후속 재조회 누락을 수정. iOS unsigned build 성공, 실행 중 CoreSimulator runtime 경고 관찰. Google 실로그인/실기기 지연 응답/2기기 동기화/독립 검토 미실행, 계약 및 마이그레이션 변경 없음.
 
 ## APP-AUTH-04 인계 (2026-11-10)
 
