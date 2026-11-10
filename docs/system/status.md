@@ -1,6 +1,14 @@
 # 현재 상태 · 새 개발 대화 시작점
 
-문서 revision: CONTEXT-2026-11-10-22. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+문서 revision: CONTEXT-2026-11-10-23. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+
+## APP-AUTH-11 Mac HTTPS 확인·iPhone 단계 대기 (2026-11-10, 최신)
+
+- app문서기록bb6b60b, 원본 docs/ai/tasks/APP-AUTH-11.md. 기존loopback API와LAN HTTPSproxy가실행중임을확인했고재시작/중단하지않았다.
+- CA체인·IPhostname 검증을유지한실제LAN TLS health/options200, 비인증settings/잘못된idToken401 확인. 정상Google로그인·계정쓰기·폰왕복검사는아니다.
+- 실제현재HTTPS주소를buildoverride한 unsigned iPhoneOS generic build성공, 실제번들Info값확인. 서명/폰설치는미실행이며sourceURL placeholder는그대로다.
+- 공개CA .cer·지문·현재주소/설치안내를 app/work/iphone/(Git제외)에준비. 개인키는복사하지않았고Mac/iPhone신뢰설정은변경하지않았다. 현재자체서명로컬방식은기기소유자가CA프로파일설치후별도TLS신뢰를켜야한다(Apple공식안내 local-iphone-auth.md).
+- 담당해제·사용자폰단계대기. 다음은동일Wi-Fi iPhone Safari health접속확인→Xcode실기기서명설치→Google로그인·재실행·설정/찜왕복. 서비스생존/IP는다음세션재확인. 신규코드/독립리뷰/제품통합PASS는없다.
 
 ## APP-AUTH-10 공개·계정 API 주소 통일 (2026-11-10, 최신)
 
@@ -99,7 +107,7 @@ P5 setsid후손수명정리/전체OS격리는 해결한것이 아니며 제품�
 
 ## 이어받을 다음 작업
 
-1. APP-AUTH-07 인증 쓰기 401 세션 정리까지 구현. BE-AUTH/APP-AUTH 초기 구현 및 BE-AUTH-05 일회용 PostgreSQL 자체 검사는 기존 카드에 기록(로컬 이미지 digest 차이). Google iOS OAuth Client값은등록·반영됐고 APP-AUTH-10 주소통일까지완료. 다음은실제단말용 HTTPS backend 연결과 단말/기기간 인증·설정·찜 왕복 및 독립 검증. 로그아웃 서버 폐기 실패·계정 삭제/세션 관리 정책은 후속 확인 필요.
+1. APP-AUTH-07 인증 쓰기 401 세션 정리까지 구현. BE-AUTH/APP-AUTH 초기 구현 및 BE-AUTH-05 일회용 PostgreSQL 자체 검사는 기존 카드에 기록(로컬 이미지 digest 차이). Google iOS OAuth Client값은등록·반영됐고 APP-AUTH-10 주소통일까지완료. Mac실제HTTPS연결까지APP-AUTH-11에서확인. 다음은사용자iPhone CA신뢰/Safari health와실기기 인증·설정·찜왕복 및 독립검증. 로그아웃 서버 폐기 실패·계정 삭제/세션 관리 정책은 후속 확인 필요.
 2. 제품개발: 극장영화 등 데이터출처 최소샘플/범위·근거 확인과 실Google OAuth와 개인쓰기 통합런 검증 설계·구현. OTT는 연월일확인가능한 시즌최초공개만, 월/연도만 있는자료 제외. 자동전수coverage는 확인되지 않았다.
 3. 새기능마다 자체검사·분리컨텍스트리뷰·고정SHA 인계. 현재 card 담당해제. 공통문서통합은 한세션만 한다.
 
