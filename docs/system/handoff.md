@@ -1,6 +1,10 @@
 # 계정·모델 사이에서 작업 이어받기
 
-revision: `CONTEXT-2026-11-10-18`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+revision: `CONTEXT-2026-11-10-19`. 원본 app `docs/system/`, backend/verifier에는 동일 사본.
+
+## BE-AUTH-06 인계 (2026-11-10)
+
+backend `docs/tasks/BE-AUTH-06.md`에서 초기 `.env` 생성 키를 실제 사용 키 `GOOGLE_IOS_CLIENT_ID`와 맞췄다. 기존 `.env`는 수동으로 수정한다. Google Cloud iOS OAuth Client ID/역순 callback scheme과 iPhone이 접근 가능한 HTTPS API URL이 사용자 준비 사항이다. backend 작성자 테스트 Node24 환경 53/53 통과; 기본 Node20 sandbox의 dist unlink EPERM 기록. Google 실제 로그인, 기기간 동기화, 독립 verifier 미실행. 전용 macOS 계정 폐기 유지, 계약 및 migration/acceptance 변경 없음.
 공통 문서는 `SYNC-2026-11-10-02`이다. APP-01 통합 및 독립 검증 대기 상태를 반영했고 OTT 날짜 정책/API 스키마는 유지한다. 별도 맥락 저장소·DB·서버 없이 기존 문서를 사용한다.
 
 

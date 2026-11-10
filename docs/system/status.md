@@ -1,6 +1,12 @@
 # 현재 상태 · 새 개발 대화 시작점
 
-문서 revision: CONTEXT-2026-11-10-18. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+문서 revision: CONTEXT-2026-11-10-19. 공통정책 SYNC-2026-11-10-02. 원본 app/docs/system, backend/verifier 동일사본. 확인일 2026-11-10 KST.
+
+## BE-AUTH-06 Google 실연결 준비 (2026-11-10)
+
+- backend `docs/tasks/BE-AUTH-06.md`: `.env.example`과 `scripts/setup-local.mjs`가 생성하던 `GOOGLE_CLIENT_ID`를 실제 JWT 검사 코드가 읽는 `GOOGLE_IOS_CLIENT_ID`로 수정했다. 기존 `.env`는 직접 키 변경이 필요하다.
+- backend `docs/local-development.md`에 Google Cloud iOS OAuth 등록(Bundle ID `com.joobang.godieor`), reversed callback scheme, 동일한 backend audience, 실기기용 HTTPS API 준비를 기록했다.
+- 작성자 backend `npm test` Node24/허용 환경 **53/53 통과**. 최초 Node20 일반 실행은 `dist` unlink EPERM으로 실패했다. 실제 OAuth 클라이언트, HTTPS 서버, iPhone 왕복과 독립 검증은 아직 미실행이다. API 계약·migration/acceptance 불변.
 
 ## 최신 사용자 확정 (최우선)
 

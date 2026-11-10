@@ -53,7 +53,18 @@ COLLECTION_SCHEDULE_ENABLED=true이면 API 프로세스가 06:00 KST에 수집�
 계약 DDL은 설계 참조, prisma/migrations가 적용 원본이다. CHECK/부분 인덱스를 db push로 대체하지 않는다.
 Prisma schema를 바꾸면 별도 migration을 생성·검토한다. 이미 적용한 migration을 수정하지 않는다.
 처음에는 알려진 제공처 키만 병합하고, 제공처가 다른 작품의 자동 병합은 근거/정책 확정 후 추가한다.
-Google 로그인·개인 쓰기·실제 API 키 설정은 후속 작업이며 mock 로그인으로 우회하지 않았다.
+Google 로그인·계정별 설정/찜 API와 iOS 클라이언트 구현은 존재하지만 실제 OAuth 등록 및 iPhone↔HTTPS 서버 통합 검증은 아직이다. mock 로그인으로 우회하지 않았다.
+
+## Google 로그인 실기기 연결 준비 (BE-AUTH-06)
+
+1. Google Cloud Console에서 프로젝트와 OAuth 동의 화면을 준비한다. 테스트 모드라면 사용할 Google 계정을 테스트 사용자로 등록하고 필요한 OAuth 동의 화면 항목을 완료한다.
+2. **iOS** 유형 OAuth 클라이언트를 생성한다. 앱 Bundle ID는 `com.joobang.godieor`이며, 생성된 **OAuth Client ID**를 확인한다. iOS 클라이언트 ID를 역순으로 표현한 **reversed client ID**를 앱의 callback URL scheme에 사용한다. Google Cloud가 표시한 설정값과 실제 redirect URI(`<reversed-scheme>:/oauth2redirect`)가 일치하는지 확인한다.
+3. 앱 `ios/GODIEOR.xcodeproj/project.pbxproj`의 Debug/Release `GODIEOR_GOOGLE_CLIENT_ID`와 `GODIEOR_GOOGLE_CALLBACK_SCHEME` placeholder를 발급된 값으로 설정한다. 이 값들은 OAuth 공개 식별자이며 client secret을 iOS에 넣지 않는다.
+4. backend `.env`의 `GOOGLE_IOS_CLIENT_ID`를 **동일한 iOS OAuth Client ID**로 설정한다. 이전 생성기에 의해 `.env`에 `GOOGLE_CLIENT_ID`가 있다면 키 이름을 직접 변경한다. `setup-local.mjs`는 기존 `.env`를 덮어쓰지 않는다. 비밀번호·토큰·client secret을 공유 문서/채팅/소스에 기록하지 않는다.
+5. iPhone에서 접근 가능한 **유효한 HTTPS** API 주소를 준비하고 앱 Debug/Release `GODIEOR_API_BASE_URL`을 `https://<host>/v1`로 지정한다. 기본 서버는 `API_HOST=127.0.0.1`로 로컬 Mac에서만 접근 가능하므로, 실기기는 안전하게 구성된 TLS 프록시/터널/서버가 필요하다. 호스트와 실제 배포 방식은 아직 결정되지 않았다.
+6. 실제 Google 계정으로 로그인 → 세션 복원 → 설정 저장 및 다른 기기 반영 → 찜 추가/삭제 → 로그아웃/401을 확인한다. 현재 이 실기기 왕복과 독립 검증은 미실행이며 전체 제품 PASS를 의미하지 않는다.
+
+사용자가 준비할 것은 Google Cloud의 **iOS OAuth Client ID**, reversed callback scheme, 접근 가능한 HTTPS API 주소/연결 방식 선택이다. 유료 Apple 개발자 멤버십이나 별도 macOS 계정은 이 로컬 unsigned 빌드 단계에 필요하지 않다.
 
 
 ## 구조 변경 후 검사 · BE-03
