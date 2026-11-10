@@ -1,3 +1,9 @@
+## DATA-04 공식 일정 일일 수집 구현 (2026-11-11)
+
+- backend 코드 6da3358. KOBIS 영화, football-data EPL, IGDB 게임 어댑터와 06:00 KST GitHub Actions 예약, OTT 카테고리/DB/API 모델 구현. backend 자체 테스트 62/62 통과. app의 OTT 카테고리 라벨을 추가했다. 작업 카드 backend docs/tasks/DATA-04-daily-official.md, app docs/ai/tasks/APP-DATA-04.md.
+- **실제 원천 인증/운영 DB 적재/OTT 전체 자동 수집/클라우드 배포/독립 검증 미실행.** backend의 Git 추적 .env.example에 실키가 있어 커밋에서 제외했고 Git 제외 .env는 해당 키가 비어 있다. 개인 signing pbxproj 변경 보존. 키 안전 이전 후 실수집 검증 필요.
+- 다음은 키 분리 → 원천별 소량 실수집/중복 재수집 검증 → OTT 제공처 확장 → 사용자가 요청한 무료 클라우드 배포 순서. verifier 승인 상태는 변경하지 않음.
+
 ## OPS-01 Render + Supabase 무료 배포 (2026-11-10)
 
 사용자가 Render Free API + Supabase Free PostgreSQL/Storage를 확정했고 오늘 배포를 목표로 한다. backend `render.yaml`에서 Render 30일 만료 DB를 제거하고 `DATABASE_URL` secret을 입력받도록 변경. 연결 및 무료 과금 방지 절차는 backend `docs/demo-deployment.md`, 원본 작업 카드 `docs/tasks/OPS-01-render-supabase.md`, ADR-014. 실 Supabase/Render 생성·migration·공식 데이터 적재·폰 운영 URL 전환은 아직 미확인. iOS pbxproj 개인 설정은 유지.

@@ -52,6 +52,10 @@ BE-AUTH-04(backend `docs/tasks/BE-AUTH-04.md`)는 UsersService/Repository 경로
 
 backend `docs/tasks/BE-AUTH-05.md` 원본에서 작성자 실행 결과 관리. 임시 PostgreSQL에서 실제 Prisma 계정/서비스세션 발급·폐기, 사용자별 설정 CAS 409, 찜 멱등/커서 계정·버전 경계 자체검사 통과. `npm test` 53/53, `test:db` exit0. 다만 고정 digest 이미지가 로컬에 없어서 `GODIEOR_TEST_POSTGRES_IMAGE=postgres:16-alpine`을 명시해 로컬 이미지로 실행했으며 고정 이미지 재검증 필요. 운영 DB 사용 없음, 임시 컨테이너 제거. 계약/migration 변경 없음. Google 실인증·HTTPS iOS·멀티기기 왕복·독립 검증 미실행, verifier draft/PENDING 그대로다.
 
+## 2026-11-11 DATA-04 작업 인계
+
+backend 6da3358 공식 제공처 일일 수집 코드 및 app OTT 분류 응답 표시 구현. 테스트 backend 62/62, 앱 unsigned build 종료 0(CoreSimulator 경고). 실제 인증/DB 반영 및 OTT 전수 수집 검증은 남았다. backend 추적 .env.example에 사용자 실키가 있어 미커밋이며, 무시된 .env의 제공처 키는 비어 있다. 키 이전 전 git add -A 금지. 개인 iOS pbxproj 변경 보존. 상세 기록 backend docs/tasks/DATA-04-daily-official.md와 app docs/ai/tasks/APP-DATA-04.md. 독립 verifier 판단은 변경 없음.
+
 ## 시작
 
 1. 역할(설계/구현, 독립 검토)을 확인하고 작업 저장소 `AGENTS.md`를 읽는다.
