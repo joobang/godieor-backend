@@ -1,0 +1,14 @@
+{
+  "platform": "netflix",
+  "sourceUrl": "https://about.netflix.com/ko/news/tantara-date-announcement",
+  "observedAt": "2026-11-11T04:30:00Z",
+  "items": [{
+    "title": "천천히 강렬하게",
+    "date": "2026-12-11",
+    "market": "KR",
+    "contentKind": "original_series",
+    "seasonNumber": 1,
+    "premiereConfirmed": true,
+    "evidence": "Netflix 한국 뉴스룸 2026-10-22 공개일 발표: 넷플릭스 시리즈 천천히 강렬하게 2026-12-11 전 세계 공개, 한국 포함. 기사에 오후 5시 명시. staging은 날짜만 표현하며 UTC 시각을 임의 생성하지 않음."
+  }]
+}

@@ -240,3 +240,7 @@ backend IGDB KR 출시일에서 iOS/Android 분류를 지원하고 game_device e
 
 - backend `docs/tasks/DATA-17-disney-coupang-candidates.md`에서 Disney 공식 기사 1건과 쿠팡 공식 추천작 3건을 검토용 staging으로 추가. 기존 82→86건, 재실행 중복 0, 제품 게시 0. 4건 모두 시장/한국 첫 공개 미확인; 쿠팡 3건 공개 날짜 null. 실 DB 게시 9건은 DATA-16 이전 결과.
 - 후속은 한국 현지 최초일 증빙 확보와 검토 후 게시, 신뢰할 수 있는 여러 작품 공식 목록 탐색, Render/Supabase 배포 준비. 독립 verifier PASS/운영 반영 아님. 개인 iOS signing 변경 보존.
+## DATA-19 인계 (2026-11-11)
+
+11~12월 StreamPick 비교표 35개 제공처별 행을 발견용 참고자료로 저장하고 staging과 제목/날짜 대조 도구 추가. backend 기존 후보 88→90(`천천히 강렬하게` 한국 최초 공개 확인, `스타일 워즈` 한국 스트리밍 날짜만 확인); StreamPick 35행 중 여전히 제목 미매칭 30행. 신규 DB 게시 0, 전체 월별 자동 수집 미완료. 개별 테스트 4/4 PASS, 전체 npm test 환경 EPERM/Node20 미통과. 다음은 공식 KR 일정 확장·후보→검토/게시 연결·실 DB 조회·Node24 전체 검증. backend 카드 `docs/tasks/DATA-19-ott-coverage-audit.md`; 앱 signing 보존. 계약/마이그레이션/독립 승인 변경 없음.
+

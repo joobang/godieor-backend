@@ -1,0 +1,14 @@
+{
+  "platform": "disney_plus",
+  "sourceUrl": "https://www.disneyplus.com/ko-kr",
+  "observedAt": "2026-11-11T04:30:00Z",
+  "items": [{
+    "title": "스타일 워즈",
+    "date": "2026-11-11",
+    "market": "KR",
+    "contentKind": "original_series",
+    "seasonNumber": 1,
+    "premiereConfirmed": false,
+    "evidence": "Disney+ 한국 공식 홈: 스타일 워즈 시즌1 11월 11일 스트리밍. 한국 내 스트리밍 예정 날짜만 확인, 최초 공개 여부 및 시각은 별도 확인 필요."
+  }]
+}
