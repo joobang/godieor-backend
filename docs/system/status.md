@@ -1,3 +1,7 @@
+## DATA-24 TMDB 검토 OTT 포스터 연동 (2026-11-11)
+
+- backend `collect:tmdb`에 검토 완료 한국 OTT 작품의 포스터 연결 추가. 제목·종류·OTT 일치/단일 TMDB ID만 허용, 기존 이미지 보존. 로컬 DB 2개 포스터 UPDATE, 일정 신규 게시 0(11~12월 기존 9건). backend 86/86 테스트 통과, 독립 검증/클라우드 미실행. backend 카드 `docs/tasks/DATA-24-tmdb-reviewed-poster-link.md`; 다음은 공식 KR 최초 공개 후보의 review→publish 연결.
+
 ## DATA-18 한국 OTT 최초 공개 근거 2건 후보 추가 (2026-11-11)
 
 - Disney+ 한국 페이지 `재혼 황후` 시즌1 2026-11-03, 쿠팡플레이 공식 보도자료 `스마일 클리닉` 2026-12-03 한국 첫 공개 근거를 backend `data/lineups/`에 각각 저장. Disney 글로벌 시장 미확인 기존 후보는 보존. source 시각 미명시/lineup 날짜 전용 모델이므로 둘 다 `date_only`.

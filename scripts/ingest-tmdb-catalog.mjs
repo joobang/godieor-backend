@@ -3,6 +3,7 @@
 import { randomUUID } from 'node:crypto';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { Pool } from 'pg';
+import { selectPoster } from './enrich-reviewed-tmdb.mjs';
 
 const token = process.env.TMDB_API_READ_ACCESS_TOKEN;
 if (!token) throw new Error('TMDB_API_READ_ACCESS_TOKEN is required');
@@ -74,7 +75,7 @@ for (const kind of ['tv', 'movie']) {
 }
 
 const pool = new Pool({ connectionString: database, max: 3 });
-let inserted = 0, updated = 0;
+let inserted = 0, updated = 0, reviewedPostersUpdated = 0;
 try {
   const client = await pool.connect();
   try {
@@ -95,6 +96,26 @@ try {
         inserted++;
       }
     }
+    // The reviewed OTT publisher owns dates. Enrich its existing content only.
+    const reviewed = await client.query(`SELECT DISTINCT e.content_id AS "contentId", e.title,
+      c.kind::text AS kind, c.poster_url AS "posterUrl", es.service::text AS platform
+      FROM event e JOIN event_source src ON src.event_id=e.id
+      JOIN content c ON c.id=e.content_id JOIN event_service es ON es.event_id=e.id
+      WHERE src.provider_key='ott_reviewed' AND e.release_market='KR'`);
+    const proposals = new Map();
+    const catalog = [...discovered.values()];
+    for (const event of reviewed.rows) {
+      const proposal = selectPoster(event, catalog);
+      if (!proposal) continue;
+      const previous = proposals.get(event.contentId);
+      if (previous && previous.posterUrl !== proposal.posterUrl) proposals.set(event.contentId, { conflict: true });
+      else if (!previous) proposals.set(event.contentId, proposal);
+    }
+    for (const [id, proposal] of proposals) {
+      if (proposal.conflict) continue;
+      const result = await client.query('UPDATE content SET poster_url=$1, updated_at=now() WHERE id=$2 AND poster_url IS NULL', [proposal.posterUrl, id]);
+      reviewedPostersUpdated += result.rowCount;
+    }
     await client.query('COMMIT');
   } catch (error) { await client.query('ROLLBACK'); throw error; }
   finally { client.release(); }
@@ -102,5 +123,5 @@ try {
   await mkdir('work/tmdb', { recursive: true });
   const report = { observedAt: new Date().toISOString(), market: 'KR', source: 'TMDB', type: 'metadata-discovery-only', pagesPerService: pages, coverage, uniqueTitles: discovered.size, inserted, updated, stored: count.rows[0], rows: [...discovered.values()] };
   await writeFile('work/tmdb/latest.json', JSON.stringify(report, null, 2));
-  console.log(JSON.stringify({ market: report.market, coverage, uniqueTitles: report.uniqueTitles, inserted, updated, stored: report.stored, calendarPublished: 0 }, null, 2));
+  console.log(JSON.stringify({ market: report.market, coverage, uniqueTitles: report.uniqueTitles, inserted, updated, reviewedPostersUpdated, stored: report.stored, calendarPublished: 0 }, null, 2));
 } finally { await pool.end(); }

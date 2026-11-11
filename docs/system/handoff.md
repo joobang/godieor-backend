@@ -1,3 +1,7 @@
+## DATA-24 인계 (2026-11-11)
+
+TMDB 카탈로그 568개는 달력 게시와 별개다. 검토 완료 KR OTT 포스터를 제목·플랫폼·종류·단일 TMDB 매칭으로 보완, 로컬 DB 포스터 2개 UPDATE. 신규 일정 0, 11~12월 기존 9건, 테스트 86/86. 카드 `docs/tasks/DATA-24-tmdb-reviewed-poster-link.md`. 다음은 공식 공개일 후보 검토·게시 연결. `.env.example` 실키 및 개인 signing dirty 보존, 독립 승인·클라우드 미실행.
+
 ## DATA-18 인계 (2026-11-11)
 
 backend 공식 KR 공개 후보 2건(`재혼 황후` 11/03·`스마일 클리닉` 12/03) 추가, staging 86→88, 재실행 중복 0, 테스트 75/75. 신규 게시 0, DB 재조회/독립 검증/클라우드 배포 미실행. 원본 backend `docs/tasks/DATA-18-kr-ott-premiere-evidence.md`. 다음 담당은 reviewed candidate 수동 검토 연결 후 실제 DB 게시 여부 확인. iOS signing 미커밋 보존.

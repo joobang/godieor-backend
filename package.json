@@ -24,6 +24,7 @@
     "parse:netflix-lineup": "node scripts/parse-netflix-tudum.mjs",
     "parse:tving-lineup": "node scripts/parse-tvingads-lineup.mjs",
     "collect:tmdb": "node --env-file=.env scripts/ingest-tmdb-catalog.mjs",
+    "enrich:reviewed-tmdb": "node --env-file=.env scripts/enrich-reviewed-tmdb.mjs",
     "test:candidates": "npm run build && node --test tests/candidates.test.cjs",
     "test:architecture": "npm run build && node --test tests/architecture.test.cjs",
     "test": "npm run build && node --test tests/*.test.cjs tests/*.test.mjs",
