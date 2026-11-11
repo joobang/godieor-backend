@@ -1,3 +1,8 @@
+## DATA-14 handoff (2026-11-11)
+
+- Netflix Tudum dated titles 69 stored as review-only metadata in backend data/lineups/netflix-2026-11-tudum-observed.json; 69 created and 69 unchanged on replay; staging total 80 including earlier TVING tentative 11, 0 new published.
+- Next: verify each title against Korean service availability and first-release date before publication; confirm image rights before using posters. Backend self-test 75/75, no verifier approval, no cloud deployment.
+
 ## DATA-12 인계 (2026-11-11)
 
 - Netflix Tudum 월간 **저장된 텍스트/Markdown**의 날짜별 복수 작품을 검토용 JSON으로 변환하는 `parse-netflix-tudum.mjs` 추가. 입력 JSON은 기존 `stage-ott-lineup.mjs`와 연결. 실제 공식 HTML 자동 다운로드/TVING 파싱이 아니며 한국 최초 공개·게시를 주장하지 않는다.

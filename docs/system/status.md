@@ -1,3 +1,9 @@
+## DATA-14 Netflix observed monthly lineup (2026-11-11)
+
+- Backend data/lineups/netflix-2026-11-tudum-observed.json records 69 dated title rows from https://www.netflix.com/tudum/articles/new-on-netflix?lv=true (accessed 2026-11-11). This is a partial manually transcribed source listing, not an automatic website fetch.
+- Review staging created 69 Netflix rows and retains 11 earlier tentative TVING rows, total 80. Re-run unchanged 69. Zero new database publications; earlier published OTT count remains 7 based on prior run (not independently queried this turn).
+- KR availability, KR premiere, and poster licensing are unverified. All new rows have market=null, premiereConfirmed=false, imageUrl omitted. Backend self tests 75/75 pass; independent verification and cloud deployment not run.
+
 ## DATA-12 Netflix 공식 월간 텍스트 목록 파서 (2026-11-11)
 
 - backend `scripts/parse-netflix-tudum.mjs`: Netflix Tudum 월간 공개 목록의 저장된 텍스트/Markdown에서 날짜별 여러 작품·시즌을 검토용 JSON으로 변환. 시장/한국 최초 공개는 확인하지 않으며 `market=null`, `premiereConfirmed=false`, 제품 게시 없음. 카드 `backend/docs/tasks/DATA-10-ott-lineup-pipeline.md`의 DATA-12.
