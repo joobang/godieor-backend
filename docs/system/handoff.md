@@ -252,3 +252,8 @@ backend `scripts/ingest-tmdb-catalog.mjs`, `docs/tasks/DATA-20-tmdb-kr-catalog.m
 ## DATA-22 인계 (2026-11-11)
 
 backend 매핑에 Disney+ `재혼 황후` 11/03, Coupang Play `스마일 클리닉` 12/03 KR 최초 공개 2건 추가. 로컬 DB `ott_reviewed` 9→11, SQL로 신규 두 행 날짜·서비스·KR·date_only·instant_at NULL 확인, 자체 `npm test` 81/81. 상세 `backend/docs/tasks/DATA-22-reviewed-disney-coupang-publish.md`. 클라우드·폰·독립 검증 미실행. 다음은 한국 4대 OTT 공식 자료 확대/DB·API·폰 실확인. 기존 앱 signing 및 backend .env.example dirty 보존.
+## DATA-23 OTT 실게시 비교 인계 (2026-11-11)
+
+- backend `docs/tasks/DATA-23-ott-published-coverage.md`: `npm run audit:ott-published`로 StreamPick 발견 참고행 35개와 로컬 KR 검토 게시 OTT(11~12월 9건) 비교. 완전 일치 1, 시즌 확인 안 됨 3, 날짜 불일치 0, 미게시 31. 31건의 한국 첫 공개를 확인한 것은 아니며 임의 자동 게시 금지.
+- backend 자체 테스트 83/83. DB 게시 0/클라우드·iPhone·독립 검증 미실행. backend `.env.example`, app pbxproj 기존 dirty 보존. 다음은 공식 한국 플랫폼·날짜·시즌 근거 확인 후 reviewed publish 및 동일 재감사. 승인/acceptance/계약 변경 없음.
+

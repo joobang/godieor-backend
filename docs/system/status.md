@@ -256,3 +256,8 @@ AGENTS → 이파일 → handoff → 해당원본카드 순으로읽고 각저�
 
 - `재혼 황후`(Disney+, 2026-11-03), `스마일 클리닉`(쿠팡플레이, 2026-12-03) 검토 후 로컬 `ott_reviewed` 9→11건. SELECT에서 KR/서비스/날짜/`date_only`/`instant_at=NULL` 확인, backend 자체 `npm test` 81/81 성공. 카드 `backend/docs/tasks/DATA-22-reviewed-disney-coupang-publish.md`.
 - 공식 OTT 전체 커버리지, Render/Supabase, iPhone 실제 표시, 독립 검증 미완료. 기존 개인 iOS signing 및 backend .env.example dirty 유지.
+## DATA-23 OTT 게시 커버리지 측정 (2026-11-11)
+
+- backend 읽기 전용 `audit:ott-published` 도구 및 테스트 추가. StreamPick 4개 플랫폼 11~12월 참고 35행과 로컬 `ott_reviewed` 실제 DB 게시 9건(연중 11건)을 비교: 완전 일치 1, 날짜 일치·시즌 미확인 3, 날짜 불일치 0, 미게시 31. 31건을 검증된 한국 최초 공개 누락으로 간주하지 않음.
+- DB 신규 게시 0. 원본 카드 `backend/docs/tasks/DATA-23-ott-published-coverage.md`. backend 자체 테스트 83/83. API·migration·acceptance 변경 없음. iOS signing 및 backend `.env.example` 개인 dirty 보존. 클라우드·실폰·독립 검증 미실행. 다음은 미게시 후보의 공식 한국 출처 수집·검증 후 로컬 게시와 비교 재실행.
+
