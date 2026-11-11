@@ -1,3 +1,8 @@
+## DATA-15 한국 넷플릭스 최초 공개 근거 2건 (2026-11-11)
+
+- Netflix 한국 뉴스룸 `푸른길`(11/20, 시리즈), `가능한 사랑`(11/6, 영화) 공식 일자 확인 후 backend `data/lineups/netflix-kr-2026-11-*.json` 2개로 저장, 후보 staging 80→82건. 재실행 중복 0. **신규 DB 게시는 0건**, 기존 7건은 앞선 기록이며 이번에 DB 재조회하지 않음.
+- backend 자체 `npm test` 75/75, 독립 검증/클라우드 게시/실기기 조회 미실행. backend 카드 `docs/tasks/DATA-15-netflix-korean-confirmed.md`. iOS 개인 signing 변경 보존. 다음 단계는 수동 review→실DB 게시 및 OTT 다른 제공처 확대.
+
 ## DATA-14 Netflix observed monthly lineup (2026-11-11)
 
 - Backend data/lineups/netflix-2026-11-tudum-observed.json records 69 dated title rows from https://www.netflix.com/tudum/articles/new-on-netflix?lv=true (accessed 2026-11-11). This is a partial manually transcribed source listing, not an automatic website fetch.

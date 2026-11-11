@@ -1,3 +1,8 @@
+## DATA-15 인계 (2026-11-11)
+
+- 한국 Netflix 뉴스룸의 2개 공식 작품별 날짜를 확인해 backend 공식 lineup JSON 후보로 추가. stage 80→82건, 동일 파일 재실행은 unchanged=1, 신규 published=0. backend `npm test` 75/75. 상세 `backend/docs/tasks/DATA-15-netflix-korean-confirmed.md`.
+- **다음** 후보를 DB candidate 검토·매핑하고 실제 로컬 DB에 게시 후 개수를 SQL로 확인. 현재 staging과 `publish:reviewed`는 별도 경로. 독립 검증/Render·Supabase 배포 없음. 앱 개인 서명 dirty 변경 유지.
+
 ## DATA-14 handoff (2026-11-11)
 
 - Netflix Tudum dated titles 69 stored as review-only metadata in backend data/lineups/netflix-2026-11-tudum-observed.json; 69 created and 69 unchanged on replay; staging total 80 including earlier TVING tentative 11, 0 new published.

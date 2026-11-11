@@ -1,0 +1,11 @@
+{
+  "platform": "netflix",
+  "sourceUrl": "https://about.netflix.com/ko/news/possible-love-final-trailer",
+  "observedAt": "2026-11-11T03:47:00Z",
+  "items": [{
+    "title": "가능한 사랑", "date": "2026-11-06", "market": "KR",
+    "contentKind": "movie", "seasonNumber": null,
+    "premiereConfirmed": true,
+    "evidence": "Netflix 한국 뉴스룸 2026-10-20: 영화 가능한 사랑, 11월 6일 넷플릭스 공개. 극장 공개일과 구별; 시각 미기재."
+  }]
+}

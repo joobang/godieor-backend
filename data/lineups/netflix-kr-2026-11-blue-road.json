@@ -1,0 +1,11 @@
+{
+  "platform": "netflix",
+  "sourceUrl": "https://about.netflix.com/ko/news/main-trailer-of-the-blue-road-sees-son-suk-ku-and-eita-nagayama-team-up-on-a-gruesome-cross-border-murder-investigation",
+  "observedAt": "2026-11-11T03:47:00Z",
+  "items": [{
+    "title": "푸른길", "date": "2026-11-20", "market": "KR",
+    "contentKind": "original_series", "seasonNumber": null,
+    "premiereConfirmed": true,
+    "evidence": "Netflix 한국 뉴스룸 2026-11-05: 넷플릭스 시리즈 푸른길, 11월 20일(금) 오직 넷플릭스 공개. 시각 미기재."
+  }]
+}
