@@ -39,3 +39,7 @@ ReviewedOttModule은 수동 CLI만 사용한다. API의 fixture scheduler에 연
 새 Nest HTTP 인스턴스에서 상세 4건·Disney+ 11월 달력·health mixed를 확인하고 종료했다. 기존 3000 포트의 이전 프로세스를 재시작하지 않았다. 새 코드는 `npm start`로 실행할 수 있다. health의 realProvidersConnected는 provider 행의 존재를 뜻하며 실시간 외부 인증/접속 점검이 아니다.
 
 검사: `npm test` 47개 통과. `npm run test:db`는 일회용 PostgreSQL에서 반복 저장/날짜·시즌 보완/identity 변경 거부/오래된 매핑/불완전 배치를 검사한다. 실제 로컬 DB를 삭제하는 검사가 아니다. 자세한 실행 기록은 [DATA-02B](tasks/DATA-02B-reviewed-publish.md), 결정은 ADR-013 / LEARN-0011이다.
+
+## 2026-11-11 검토 7건으로 확대
+
+로컬 후보 3건(Netflix 예능 `데블스 플랜: 데드 어게인` 11/10·영화 `심장소리` 11/02, TVING 오리지널 시리즈 `대리수능` 11/23)을 공식 공지로 검토해 기존 4건 포함 7건을 로컬 PostgreSQL에 게시했다. 첫 시도는 기존 Netflix 후보 STALE_MAPPING으로 게시 전 차단됐고, 해당 공식 날짜 재확인 및 후보 revision 갱신 후 `npm run publish:reviewed -- --file data/curated/ott-reviewed-mappings.json`이 exit0(`published 7`)으로 완료됐다. 새 DB·클라우드 반영, 자동 전수·이미지 적재·독립 검증은 미실행. 세부 근거와 작업 명령은 [DATA-09](tasks/DATA-09-ott-reviewed-expansion.md).

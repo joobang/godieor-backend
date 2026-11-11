@@ -3,7 +3,7 @@
   "mappings": [
     {
       "candidateId": "9be5d184f11c98f94cc50a3bc23e00fa2640c119fe7767881f3aed3b1f84342c",
-      "revision": "e57e7ba1c761de2160f27208229d56a725f35604d9c371058a648340e786092e",
+      "revision": "5368794fbc76d1532670d8d9860b07bb3a00d5f8946b980211951b690cca271c",
       "contentKey": "work-000001",
       "eventKey": "event-000001"
     },
@@ -25,6 +25,24 @@
       "revision": "155186a00951980d0b1ad00f7aef4ea5c647ef006ba7c9f6ece4796c70ccda31",
       "contentKey": "work-000004",
       "eventKey": "event-000004"
+    },
+    {
+      "candidateId": "54ed71b45c5069b4a08df98d28fd727e34810f3925db0af9e2d517fb2d269f1e",
+      "revision": "c5f1171139be257c4670e6390b85306341186151dcb5c5e20f80e8a495ee7116",
+      "contentKey": "work-000005",
+      "eventKey": "event-000005"
+    },
+    {
+      "candidateId": "5b25ea2c64fa0228951152be1451b764323348bbd08040ae11e221b87be5f74c",
+      "revision": "3b5c1e8927ca4b29bf293cc37b5cd9114fdbd5e71a0fcb54fd8b9984eb8c832f",
+      "contentKey": "work-000006",
+      "eventKey": "event-000006"
+    },
+    {
+      "candidateId": "53c19a6f62ddea488a29e9d76dcf586cbcbde462fcad2b1c909579185796e07b",
+      "revision": "3b62425967e994d28e0d4ecbe94a1bafd890cf9ae19b5286057eefcccfa15e5b",
+      "contentKey": "work-000007",
+      "eventKey": "event-000007"
     }
   ]
 }

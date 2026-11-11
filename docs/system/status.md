@@ -1,3 +1,9 @@
+## DATA-09 OTT 검토 실데이터 7건 반영 (2026-11-11)
+
+- backend `docs/tasks/DATA-09-ott-reviewed-expansion.md`: Netflix `데블스 플랜: 데드 어게인`·`심장소리`, TVING `대리수능` 공식 근거를 검토해 기존 4건 포함 로컬 DB `ott_reviewed` 7건 게시 성공.
+- 최초 기존 Netflix 후보의 STALE_MAPPING 차단 후 공식 날짜 확인·revision 갱신. `npm run publish:reviewed -- --file data/curated/ott-reviewed-mappings.json` exit0, 7건 반영. 전체 자동 OTT 커버리지·포스터 완성·독립 검증은 아님.
+- 신규 Supabase DB/Render 서비스 실제 배포·iPhone 운영 URL 전환 미실행. 다음은 Free 프로젝트 계정 연결과 DB migration/원천 수집/검토 데이터 게시 및 HTTP·iPhone 검증. 개인 iOS signing 미커밋 상태 보존.
+
 ## DATA-07 세계 게임 출시일 확대 (2026-11-11)
 
 - backend `docs/tasks/DATA-07-global-game-releases.md`: IGDB WORLD에 북미·유럽·아시아·전세계 출시 지역 포함. KR/JP/AU/NZ/CN/BR 개별 지역 유지, 날짜별 페이징·요청 간격·대량 DB 게시 시간 조정.

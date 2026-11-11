@@ -1,3 +1,9 @@
+## DATA-09 OTT 7건 로컬 게시 인계 (2026-11-11)
+
+- backend 원본 `docs/tasks/DATA-09-ott-reviewed-expansion.md`, `docs/reviewed-publish.md`, `docs/demo-deployment.md`를 참고. 세 공식 후보 수동 검토 후 기존 네 건 포함 `ott_reviewed` 7건 로컬 게시(exit0). 최초 STALE_MAPPING은 재검토 후 해결. 작성자 로컬 실행 결과, 전체제품 PASS 아님.
+- backend 첫 상태 b6e55456e, app 998465ed49b7. Git 변경은 신규 작업 카드·공식 매핑·문서; 앱 개인 `project.pbxproj` dirty는 기존 사용자 설정으로 별도 보존. API 계약·migration/verifier 승인기준은 미변경.
+- 다음은 실제 Render+Supabase Free 계정 연결 확인 → DB migration 및 실수집/OTT 검토 재게시 → 공개 API·Google 계정 설정·찜 왕복 테스트 → 동일 Render HTTPS URL로 앱 재빌드/실기기 설치. 외부 배포와 포스터·OTT 자동 전수 수집은 아직 미실행.
+
 ## DATA-07 세계 게임 출시일 확대 (2026-11-11)
 
 - backend `docs/tasks/DATA-07-global-game-releases.md`: IGDB WORLD에 북미·유럽·아시아·전세계 출시 지역 포함. KR/JP/AU/NZ/CN/BR 개별 지역 유지, 날짜별 페이징·요청 간격·대량 DB 게시 시간 조정.

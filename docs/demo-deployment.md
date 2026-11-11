@@ -13,3 +13,7 @@
 7. iOS Xcode에서 공개/계정 API URL을 동일한 `https://<render-subdomain>.onrender.com/v1`로 빌드 설정하고 **재설치**한다. 그 뒤 백엔드 API/DB 데이터 변경은 서버 배포 후 기존 앱에 반영된다. SwiftUI 화면·로컬 로직 변경은 다시 앱을 빌드·설치해야 한다.
 
 Render GitHub 연동의 Auto-Deploy는 **After CI Checks Pass** 사용. GitHub Actions는 앱 코드를 원격으로 설치하거나 iOS 바이너리를 배포하지 않는다. 기존 개인 Xcode Signing 설정과 로컬 HTTPS 인증서 설치는 별개다. 외부 공개 전 비밀/개인정보/운영 계정 접근 권한을 확인해야 한다.
+
+## 2026-11-11 로컬 실데이터 현황
+
+현재 로컬 DB에 수동 검토된 공식 OTT 일정은 7건이다([DATA-09](tasks/DATA-09-ott-reviewed-expansion.md)). 위 5번의 4건 수치는 과거 시점 기록이다. Supabase 신규 DB에는 해당 데이터가 아직 없으며 검토 후보를 재생성한 다음 게시해야 한다. Render 서비스 생성·운영 HTTPS 연결·앱 재설치는 미실행이다.
