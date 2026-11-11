@@ -167,7 +167,7 @@ export class CollectionRepository {
           data: { status: "succeeded", finished_at: finished },
         });
       },
-      { timeout: 30000 },
+      { timeout: adapter.key === "igdb" ? 180000 : 30000 },
     );
   }
   async failRun(scopeId: string, runId: string, code: string) {

@@ -1,3 +1,9 @@
+## DATA-07 세계 게임 출시일 확대 (2026-11-11)
+
+- backend `docs/tasks/DATA-07-global-game-releases.md`: IGDB WORLD에 북미·유럽·아시아·전세계 출시 지역 포함. KR/JP/AU/NZ/CN/BR 개별 지역 유지, 날짜별 페이징·요청 간격·대량 DB 게시 시간 조정.
+- 작성자 `npm test` **63/63 통과**, 실제 `npm run collect:daily` 성공. 로컬 DB GAME 출처 이벤트 WORLD **4,761**, JP **75**, BR **4**, KR **3**, AU **3**, NZ **2**, CN **1**. GTA VI WORLD 2026-11-19 조회됨(플랫폼별 중복은 별도 이벤트). IGDB 시점 데이터 기준.
+- 로컬 DB 적재 성공, **클라우드 DB 적재·실기기 UI·독립 검증·OTT 전수/이미지 수집 미실행**. iOS signing 미커밋 변경 보존, verifier 기준·계약·migration 불변.
+
 ## DATA-05 공식 API 실응답·로컬 적재 (2026-11-11)
 
 - 키 4개는 backend Git 제외 .env에 설정, 추적 .env.example은 비어 있음. EPL 다음 미공개 시즌 404 처리, IGDB date 필드 출시일 처리 수정.

@@ -136,8 +136,12 @@ export class IgdbAdapter implements ProviderAdapter {
   readonly key = "igdb";
   readonly name = "IGDB 게임 출시일";
   readonly origin = "provider" as const;
-  readonly scopes: Scope[] = [{ category: "game", market: "KR" }];
-  async fetch(_scope: Scope, mode: "backfill" | "daily"): Promise<unknown[]> {
+  // IGDB release_region values identify release territories, not the user's locale.
+  // Keep country releases separate from the worldwide release calendar.
+  readonly scopes: Scope[] = ["WORLD", "KR", "JP", "AU", "NZ", "CN", "BR"].map(
+    (market) => ({ category: "game", market }),
+  );
+  async fetch(scope: Scope, mode: "backfill" | "daily"): Promise<unknown[]> {
     const clientId = process.env.IGDB_CLIENT_ID;
     const clientSecret = process.env.IGDB_CLIENT_SECRET;
     if (!clientId || !clientSecret) throw new Error("MISSING_PROVIDER_KEY");
@@ -150,55 +154,68 @@ export class IgdbAdapter implements ProviderAdapter {
     if (!tokenResponse.ok) throw new Error("PROVIDER_AUTH_ERROR");
     const token = text(object(await tokenResponse.json()).access_token);
     if (!token) throw new Error("PROVIDER_AUTH_ERROR");
+    const regionByMarket: Record<string, number> = {
+      WORLD: 8, KR: 9, JP: 5, AU: 3, NZ: 4, CN: 6, BR: 10,
+    };
+    const regions = scope.market === "WORLD" ? [1, 2, 7, 8] : [regionByMarket[scope.market]];
+    if (regions.some((region) => !region)) throw new Error("INVALID_IGDB_REGION");
     const now = Math.floor(Date.now() / 1000);
     const from = now - (mode === "backfill" ? 365 : 30) * 86400;
     const to = now + 400 * 86400;
     const out: unknown[] = [];
-    // IGDB allows 500 rows/request. Limit discovery to 2000 records to avoid silent partial success.
-    for (let offset = 0; offset <= 2000; offset += 500) {
-      const query = `fields id,date,game.id,game.name,game.game_type,platform.id,platform.name,release_region,date_format,m,y,updated_at; where date > ${from} & date < ${to} & release_region = 9; sort date asc; limit 500; offset ${offset};`;
-      const response = await fetch("https://api.igdb.com/v4/release_dates", {
-        method: "POST",
-        headers: { "Client-ID": clientId, Authorization: `Bearer ${token}`, "Content-Type": "text/plain" },
-        body: query, signal: AbortSignal.timeout(15000),
-      });
-      if (!response.ok) throw new Error("PROVIDER_HTTP_ERROR");
-      const items: unknown = await response.json();
-      if (!Array.isArray(items)) throw new Error("INVALID_PROVIDER_RESPONSE");
-      for (const row of items) {
-        const release = object(row);
-        if (typeof release.id !== "number") continue;
-        const game = object(release.game);
-        const platform = object(release.platform);
-        // Only day-precision dates. Month/quarter/year/TBD cannot be put on a specific day.
-        if (release.date_format !== 0 || typeof release.y !== "number" ||
-            typeof release.m !== "number" || typeof release.date !== "number") continue;
-        // Explicit game-type classification: 0 main game (exclude DLC, editions, beta).
-        if (game.game_type !== 0 || typeof game.id !== "number") continue;
-        const platformName = text(platform.name).toLowerCase();
-        const device = platformName === "ios" || platformName.includes("iphone") || platformName.includes("ipad") ? "ios"
-          : platformName === "android" ? "android"
-          : platformName.includes("playstation") ? "playstation"
-          : platformName.includes("xbox") ? "xbox"
-            : platformName.includes("switch") ? "switch"
-              : platformName.includes("pc") || platformName.includes("windows") || platformName.includes("linux") || platformName.includes("mac") ? "pc" : null;
-        if (!device || !text(game.name)) continue;
-        const releaseDate = DateTime.fromSeconds(release.date, { zone: "utc" });
-        const day = releaseDate.isValid ? releaseDate.toISODate() : null;
-        if (!day || releaseDate.year !== release.y || releaseDate.month !== release.m) continue;
-        out.push({
-          externalId: String(release.id), variantKey: `kr-${platform.id}`,
-          kind: "game_release", title: text(game.name),
-          content: { externalId: String(game.id), kind: "game", title: text(game.name) },
-          seasonNumber: null, status: "scheduled",
-          time: { type: "date_only", value: day },
-          market: "KR", venueCountry: null, services: [], devices: [device],
-          home: null, away: null,
-          sourceUrl: "https://www.igdb.com/", sourceUpdatedAt: null,
-        });
+    // Page in 30-day windows to avoid truncating prolific regions at an arbitrary 2000-row cap.
+    for (const region of regions) {
+      for (let start = from; start < to; start += 30 * 86400) {
+        const end = Math.min(start + 30 * 86400, to);
+        for (let offset = 0; offset <= 10000; offset += 500) {
+          const query = `fields id,date,game.id,game.name,game.game_type,platform.id,platform.name,release_region,date_format,m,y,updated_at; where date >= ${start} & date < ${end} & release_region = ${region}; sort date asc; limit 500; offset ${offset};`;
+          // IGDB limits requests to four per second. Keep sequential fetches below the limit.
+          await new Promise((resolve) => setTimeout(resolve, 275));
+          const response = await fetch("https://api.igdb.com/v4/release_dates", {
+            method: "POST",
+            headers: { "Client-ID": clientId, Authorization: `Bearer ${token}`, "Content-Type": "text/plain" },
+            body: query, signal: AbortSignal.timeout(15000),
+          });
+          if (!response.ok) throw new Error("PROVIDER_HTTP_ERROR");
+          const items: unknown = await response.json();
+          if (!Array.isArray(items)) throw new Error("INVALID_PROVIDER_RESPONSE");
+          for (const row of items) {
+            const release = object(row);
+            if (typeof release.id !== "number") continue;
+            if (!release.game || !release.platform) continue;
+            const game = object(release.game);
+            const platform = object(release.platform);
+            // Only day-precision dates. Month/quarter/year/TBD cannot be put on a specific day.
+            if (release.date_format !== 0 || typeof release.y !== "number" ||
+                typeof release.m !== "number" || typeof release.date !== "number") continue;
+            // Explicit game-type classification: 0 main game (exclude DLC, editions, beta).
+            if (game.game_type !== 0 || typeof game.id !== "number") continue;
+            const platformName = text(platform.name).toLowerCase();
+            const device = platformName === "ios" || platformName.includes("iphone") || platformName.includes("ipad") ? "ios"
+              : platformName === "android" ? "android"
+              : platformName.includes("playstation") ? "playstation"
+              : platformName.includes("xbox") ? "xbox"
+                : platformName.includes("switch") ? "switch"
+                  : platformName.includes("pc") || platformName.includes("windows") || platformName.includes("linux") || platformName.includes("mac") ? "pc" : null;
+            if (!device || !text(game.name)) continue;
+            const releaseDate = DateTime.fromSeconds(release.date, { zone: "utc" });
+            const day = releaseDate.isValid ? releaseDate.toISODate() : null;
+            if (!day || releaseDate.year !== release.y || releaseDate.month !== release.m) continue;
+            out.push({
+              externalId: String(release.id), variantKey: `${scope.market.toLowerCase()}-${platform.id}`,
+              kind: "game_release", title: text(game.name),
+              content: { externalId: String(game.id), kind: "game", title: text(game.name) },
+              seasonNumber: null, status: "scheduled",
+              time: { type: "date_only", value: day },
+              market: scope.market, venueCountry: null, services: [], devices: [device],
+              home: null, away: null,
+              sourceUrl: "https://www.igdb.com/", sourceUpdatedAt: null,
+            });
+          }
+          if (items.length < 500) break;
+          if (offset === 10000) throw new Error("PROVIDER_PAGE_LIMIT");
+        }
       }
-      if (items.length < 500) break;
-      if (offset === 2000) throw new Error("PROVIDER_PAGE_LIMIT");
     }
     return out;
   }
