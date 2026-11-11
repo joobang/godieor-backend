@@ -248,3 +248,7 @@ backend IGDB KR 출시일에서 iOS/Android 분류를 지원하고 game_device e
 
 backend `scripts/ingest-tmdb-catalog.mjs`, `docs/tasks/DATA-20-tmdb-kr-catalog.md`: 로컬 DB 고유 작품 568건·포스터 568건, 반복 적재 신규 0건, backend 자체 테스트 81/81 성공. 국내 OTT 공개일 확인/신규 달력 게시 0건(기존 9건 유지). 서비스별 매핑은 아직 로컬 수집 보고서에만 있으며 클라우드/앱 API 미반영. 다음은 한국 첫 공개 공식 날짜 근거 확보→검토된 이벤트 게시→실DB/API/폰 확인이다. 승인·독립 PASS 아님. Xcode 개인 signing dirty 유지.
 
+
+## DATA-22 인계 (2026-11-11)
+
+backend 매핑에 Disney+ `재혼 황후` 11/03, Coupang Play `스마일 클리닉` 12/03 KR 최초 공개 2건 추가. 로컬 DB `ott_reviewed` 9→11, SQL로 신규 두 행 날짜·서비스·KR·date_only·instant_at NULL 확인, 자체 `npm test` 81/81. 상세 `backend/docs/tasks/DATA-22-reviewed-disney-coupang-publish.md`. 클라우드·폰·독립 검증 미실행. 다음은 한국 4대 OTT 공식 자료 확대/DB·API·폰 실확인. 기존 앱 signing 및 backend .env.example dirty 보존.

@@ -251,3 +251,8 @@ AGENTS → 이파일 → handoff → 해당원본카드 순으로읽고 각저�
 - 로컬 PostgreSQL에 TMDB KR 제공처 검색 결과 고유 작품 568건·포스터 URL 568건 저장, 재실행 추가 INSERT 0건. Netflix/TVING/Disney+ 및 쿠팡플레이 TV 검색(쿠팡 영화 제공처는 TMDB 목록에 없음). 5페이지 제한의 작품 목록이며 11~12월 첫 공개 일정이 아니다.
 - 검토된 OTT 날짜 이벤트는 기존 9건이고 이 적재로 추가된 달력 이벤트는 0건. 서버 자체 테스트 81/81 통과, 독립 검증·클라우드·실기기 미실행. 카드 `docs/tasks/DATA-20-tmdb-kr-catalog.md`, 비밀키는 .env에만 보존.
 
+
+## DATA-22 한국 OTT 공식 공개일 2건 로컬 게시 (2026-11-11)
+
+- `재혼 황후`(Disney+, 2026-11-03), `스마일 클리닉`(쿠팡플레이, 2026-12-03) 검토 후 로컬 `ott_reviewed` 9→11건. SELECT에서 KR/서비스/날짜/`date_only`/`instant_at=NULL` 확인, backend 자체 `npm test` 81/81 성공. 카드 `backend/docs/tasks/DATA-22-reviewed-disney-coupang-publish.md`.
+- 공식 OTT 전체 커버리지, Render/Supabase, iPhone 실제 표시, 독립 검증 미완료. 기존 개인 iOS signing 및 backend .env.example dirty 유지.
