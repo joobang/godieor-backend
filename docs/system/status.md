@@ -178,3 +178,9 @@ AGENTS → 이파일 → handoff → 해당원본카드 순으로읽고 각저�
 - backend `docs/tasks/DATA-08-game-cover-metadata.md`: IGDB `game.cover.image_id`를 게임 콘텐츠의 기존 `poster_url`로 저장하는 경로 추가. 기존 값이 있는 콘텐츠는 이미지 미제공 시 보존.
 - 작성자 backend 전체 테스트 63/63, 수집 어댑터 표지 메타데이터 회귀 테스트 5/5 성공. 로컬 API 포트 3000 연결 실패로 실제 응답과 iPhone UI 확인은 미실행. 실원천/DB 재적재·OTT/영화 이미지·클라우드 배포·독립검증 미완료.
 
+# DATA-08 IGDB 실수집·포스터 확인 (2026-11-11)
+
+- backend `docs/tasks/DATA-08-game-cover-metadata.md` 후속: 로컬 PostgreSQL에서 IGDB 강제 재수집 7개 지역 성공. 게임 작품 3,181건 중 포스터 URL **3,152건**(재수집 전 3,165건 중 0건), 제공처 이벤트 4,870건 확인.
+- 로컬 API 작품 상세 `GET /v1/contents/:id`에 `posterUrl` 응답 확인. `GET /v1/events` 일정 목록에는 아직 포스터 URL이 없어 카드 직접 노출은 후속 계약/앱 작업 필요. 임시 API 종료.
+- 실제 iPhone 카드 표시·이미지 CDN 확인·클라우드 DB 배포·영화/OTT 포스터·독립 검증 미실행. 앱 signing 미커밋 변경 보존. backend 카드에 실행 결과 기록.
+

@@ -182,3 +182,9 @@ backend IGDB KR 출시일에서 iOS/Android 분류를 지원하고 game_device e
 - backend `docs/tasks/DATA-08-game-cover-metadata.md` 기준 IGDB 커버 이미지 ID → 기존 `content.poster_url` 경로 구현. 앱 API 계약/DB migration/verifier acceptance 변경 없음.
 - 실제 IGDB 강제 재수집·DB poster 수 확인·API/폰 카드 표시 점검이 다음 행동. 로컬 API 3000 미기동, iOS 개인 signing 미커밋 파일 유지. OTT/영화 포스터와 운영 배포 미완료.
 
+# DATA-08 IGDB 로컬 포스터 실수집 인계 (2026-11-11)
+
+- backend `docs/tasks/DATA-08-game-cover-metadata.md`: IGDB만 강제 재수집, WORLD/KR/JP/AU/NZ/CN/BR 7개 범위 성공. DB 작품 3,181건 중 `poster_url` 3,152건 확인.
+- 임시 로컬 API(3099) `GET /v1/events` 게임 30건과 작품 상세의 실제 `posterUrl` 조회 성공. 이벤트 목록 응답에는 포스터가 없음. 후속은 카드 이미지 API/앱 연동, 영화·OTT 이미지 원천, 실제 iPhone/클라우드 확인.
+- app `ios/GODIEOR.xcodeproj/project.pbxproj` 사용자 개인 서명 변경 유지. verifier 기준/verdict 변경 없음, 독립 검증 미실행. 계약·migration 변경 없음.
+
