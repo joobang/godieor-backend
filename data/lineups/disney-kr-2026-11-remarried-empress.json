@@ -1,0 +1,16 @@
+{
+  "platform": "disney_plus",
+  "sourceUrl": "https://www.disneyplus.com/ko-kr",
+  "observedAt": "2026-11-11T04:15:00Z",
+  "items": [
+    {
+      "title": "재혼 황후",
+      "date": "2026-11-03",
+      "market": "KR",
+      "contentKind": "original_series",
+      "seasonNumber": 1,
+      "premiereConfirmed": true,
+      "evidence": "Disney+ 한국어 한국 지역 공식 홈에 '재혼 황후 시즌 1 11월 3일 스트리밍'이라고 표시. Disney 공식 2026-11-03 발표(https://thewaltdisneycompany.com/news/remarried-empress-early-premiere/)에서 당일 첫 4화 조기 공개 및 최초 공개였음을 확인. 시각과 시간대는 공식 근거에 없어 날짜만 기록."
+    }
+  ]
+}

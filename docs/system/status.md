@@ -1,3 +1,9 @@
+## DATA-18 한국 OTT 최초 공개 근거 2건 후보 추가 (2026-11-11)
+
+- Disney+ 한국 페이지 `재혼 황후` 시즌1 2026-11-03, 쿠팡플레이 공식 보도자료 `스마일 클리닉` 2026-12-03 한국 첫 공개 근거를 backend `data/lineups/`에 각각 저장. Disney 글로벌 시장 미확인 기존 후보는 보존. source 시각 미명시/lineup 날짜 전용 모델이므로 둘 다 `date_only`.
+- backend 검토용 staging 후보 86→88건, 2개 파일 각각 반복 입력 중복 0. backend `npm test` 75/75 통과. **신규 제품 DB 게시 0건**; 기존 9건은 DATA-16 기록이고 이번 DB 재조회 없음. 독립 검증·클라우드/실폰 반영 미실행. 카드 `backend/docs/tasks/DATA-18-kr-ott-premiere-evidence.md`.
+- 다음: lineup staging → 별도 reviewed candidate 수동 등록/검토/매핑·DB 게시 경로를 연결하고 실제 SELECT, 제공처 공식 일정 확대, Render+Supabase 배포. iOS 개인 signing dirty 보존.
+
 ## DATA-16 Netflix KR 공식 최초 공개 후보 2건 로컬 DB 게시 (2026-11-11)
 
 - 기존 Netflix 공식 기사 후보 `푸른길`(2026-11-20, original_series), `가능한 사랑`(2026-11-06, movie)을 구현 담당 근거 검토 후 backend 기존 `ott_reviewed` 매핑에 추가. 7→9건 로컬 PostgreSQL 게시 성공; 직접 SELECT로 9건 중 신규 두 건 제목/날짜/KR/netflix/`date_only` 및 `instant_at=NULL` 확인.

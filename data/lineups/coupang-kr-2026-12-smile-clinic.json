@@ -1,0 +1,16 @@
+{
+  "platform": "coupang_play",
+  "sourceUrl": "https://news.coupang.com/archives/68074/",
+  "observedAt": "2026-11-11T04:15:00Z",
+  "items": [
+    {
+      "title": "스마일 클리닉",
+      "date": "2026-12-03",
+      "market": "KR",
+      "contentKind": "original_series",
+      "seasonNumber": null,
+      "premiereConfirmed": true,
+      "evidence": "쿠팡 뉴스룸 2026-11-02 공식 보도자료: 독립 시트콤 '스마일 클리닉' 2026-12-03(목) 오후 5시 쿠팡플레이 첫 공개, 이후 매주 목요일 공개. KST 지역 문맥의 시각이나 본 lineup의 date_only 모델에는 시각 필드가 없어 임의 instant 생성하지 않음."
+    }
+  ]
+}

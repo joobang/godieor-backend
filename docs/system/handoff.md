@@ -1,3 +1,7 @@
+## DATA-18 인계 (2026-11-11)
+
+backend 공식 KR 공개 후보 2건(`재혼 황후` 11/03·`스마일 클리닉` 12/03) 추가, staging 86→88, 재실행 중복 0, 테스트 75/75. 신규 게시 0, DB 재조회/독립 검증/클라우드 배포 미실행. 원본 backend `docs/tasks/DATA-18-kr-ott-premiere-evidence.md`. 다음 담당은 reviewed candidate 수동 검토 연결 후 실제 DB 게시 여부 확인. iOS signing 미커밋 보존.
+
 ## DATA-16 인계 (2026-11-11)
 
 - backend `docs/tasks/DATA-16-netflix-reviewed-publish.md`: Netflix 한국 기사 후보 두 건을 `work/ott-candidates`에서 구현 담당 검토, `data/curated/ott-reviewed-mappings.json`에 신규 고정 키 8·9 추가. `npm run publish:reviewed -- --file data/curated/ott-reviewed-mappings.json` 성공(9건). 직접 로컬 DB SELECT에서 신규 `가능한 사랑`(2026-11-06)/`푸른길`(2026-11-20) 확인. 각각 `date_only`, `instant_at=NULL`, `KR`, `netflix`. `npm test` 75/75.
