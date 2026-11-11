@@ -1,3 +1,10 @@
+## DATA-12 Netflix 공식 월간 텍스트 목록 파서 (2026-11-11)
+
+- backend `scripts/parse-netflix-tudum.mjs`: Netflix Tudum 월간 공개 목록의 저장된 텍스트/Markdown에서 날짜별 여러 작품·시즌을 검토용 JSON으로 변환. 시장/한국 최초 공개는 확인하지 않으며 `market=null`, `premiereConfirmed=false`, 제품 게시 없음. 카드 `backend/docs/tasks/DATA-10-ott-lineup-pipeline.md`의 DATA-12.
+- 2026년 11월 실제 공식 목록은 이번 작업에서 검증하지 못함. 로컬 Netflix/TVING DNS 실패로 실제 HTML·robots·TVING 사이트 자동 수집 미확인. 실제 사이트 입력 파싱 완료 0건, 기존 DB OTT 7건 유지.
+- 자체 `node --test` 관련 9/9 및 전체 `npm test` 72/72 성공(기본 sandbox dist unlink EPERM 후 허용된 실행에서 성공). 독립 검증/DB 게시/클라우드 배포 미실행.
+- 다음은 Netflix/TVING 공식 HTML 접근 조건·원문 데이터 추출/한국 지역 근거를 확인하고 다작품 자동 수집으로 확장. iOS 개인 signing 변경 유지.
+
 ## DATA-09 OTT 검토 실데이터 7건 반영 (2026-11-11)
 
 - backend `docs/tasks/DATA-09-ott-reviewed-expansion.md`: Netflix `데블스 플랜: 데드 어게인`·`심장소리`, TVING `대리수능` 공식 근거를 검토해 기존 4건 포함 로컬 DB `ott_reviewed` 7건 게시 성공.

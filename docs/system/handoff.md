@@ -1,3 +1,10 @@
+## DATA-12 인계 (2026-11-11)
+
+- Netflix Tudum 월간 **저장된 텍스트/Markdown**의 날짜별 복수 작품을 검토용 JSON으로 변환하는 `parse-netflix-tudum.mjs` 추가. 입력 JSON은 기존 `stage-ott-lineup.mjs`와 연결. 실제 공식 HTML 자동 다운로드/TVING 파싱이 아니며 한국 최초 공개·게시를 주장하지 않는다.
+- 로컬 DNS 오류로 Netflix/TVING 공식 HTML·robots 응답 확인 실패. 웹 검색에서 Netflix 2026년 11월 공식 다작품 목록 확인. 실수집 0건, 기존 OTT 게시 7건. backend 작업 카드 DATA-12와 ADR-015에 경계 기록.
+- `node --test` 관련 9/9, 전체 `npm test` 72/72 성공(첫 sandbox dist unlink EPERM). app 사용자 Xcode signing dirty 유지. 추가 독립 검증/배포 없음.
+- 다음은 공식 사이트 접근 허용·HTML 구조 실측 후 Netflix/TVING 자동 후보화와 한국 날짜 검토.
+
 ## DATA-09 OTT 7건 로컬 게시 인계 (2026-11-11)
 
 - backend 원본 `docs/tasks/DATA-09-ott-reviewed-expansion.md`, `docs/reviewed-publish.md`, `docs/demo-deployment.md`를 참고. 세 공식 후보 수동 검토 후 기존 네 건 포함 `ott_reviewed` 7건 로컬 게시(exit0). 최초 STALE_MAPPING은 재검토 후 해결. 작성자 로컬 실행 결과, 전체제품 PASS 아님.

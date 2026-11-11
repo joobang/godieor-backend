@@ -31,3 +31,13 @@ backend 정책 승인·앱/계약/마이그레이션/verifier verdict 변동 없
 - 실제 검사: `node --test tests/ott-lineup.test.mjs` 7/7 성공, `npm test` 빌드 및 70/70 성공(최초 기본 sandbox에서 dist unlink EPERM, 권한 허용 후 성공), `git diff --check` 성공.
 - 미실행: 공식 HTML 자동 수집, 실제 서비스 DB 적재, 포스터 다운로드, 독립 verifier 검사. 다음은 Netflix/TVING 공식 목록 구조와 robots/이용 조건 실측 후 소스별 어댑터 구현 및 staging→검토→게시 연결.
 - LEARN-ID: 해당 없음. ADR-015에 연계된 예방 설계이며 실제 장애 측정이나 독립 검증 결과가 아님.
+
+## DATA-12 · Netflix Tudum 월간 목록 텍스트 파서 (2026-11-11)
+
+- requirement PROD-005/007/009. 담당 `codex-ott-lineup-12` (종료 시 해제). 기준 backend `7756369` clean, app `b4e73ca` signing pbxproj 사용자 dirty, verifier `264ed4c` clean. 현재 동일 브랜치 `codex/app-auth-phone-ready`, backend 작업 범위 외 파일 수정 금지.
+- 구현: `scripts/parse-netflix-tudum.mjs`는 공식 페이지에서 사용자가 저장한 **텍스트/Markdown**의 월별 날짜 섹션과 여러 `### 작품` 행, 선택적 시즌 번호를 읽어 기존 `stage:ott-lineup`이 수용하는 입력 JSON을 생성한다. `market=null`, `premiereConfirmed=false`, `contentKind=unknown`(시즌 표시 존재 시 original_series)으로 출력하며 DB 게시하지 않는다. 입력 파일과 결과물은 별도로 보관한다.
+- 명령: `node scripts/parse-netflix-tudum.mjs saved-page.md work/november-lineup.json 2026 11 https://www.netflix.com/tudum/articles/new-on-netflix` → `node scripts/stage-ott-lineup.mjs work/november-lineup.json`. 원문을 직접 방문해 복사·텍스트로 저장해야 하며 자동 HTTP 다운로드 기능은 없다.
+- 예상 실패: 2026년 11월 이외의 날짜/작품 혼입, 제목 중복, 페이지 구조 변경에 따른 누락, 미국 서비스 편입일을 한국 첫 공개일로 오인, 자동 접근 허용 여부 미확인. 파서는 날짜 있는 항목만 추출하고 Coming soon/날짜 미정은 별도 후속 과제다. 게시 0건.
+- 실측: Netflix Tudum 2026년 11월 실원문 날짜별 제목은 이번 작업에서 확인하지 못함. 하지만 로컬 맥 DNS 오류로 Netflix·TVING HTTP/robots 실제 응답 수집 실패. TVING Ads HTML 구조·이용조건 조사, Netflix 자동 HTML 파싱/실원문 전수 수집은 미완료. 실사이트에서 추출 완료한 후보 **0건**. fixture를 실제 수집으로 세지 않는다.
+- LEARN-ID 해당 없음(ADR-015에 수집 경계/근거 보존 기록). 계약/migration/acceptance/verifier verdict 불변. 외부 검증/클라우드 DB/실폰 데이터 확인 미실행.
+- 실제 자체 검사: `node --test tests/netflix-tudum.test.mjs tests/ott-lineup.test.mjs` 9/9 성공, `npm test` 전체 72/72 성공. 일반 sandbox에서 기존 `dist/src/app.module.js` 삭제 EPERM 발생 후 허용된 실행에서 전체 완료. `git diff --check` 확인. parser 테스트는 독립 합성 fixture이며 실사이트 스크레이핑 성공의 증거가 아니다.
