@@ -1,0 +1,14 @@
+{
+  "platform": "netflix",
+  "sourceUrl": "https://about.netflix.com/ko/news/heartbeat-arrives-netflix-november-2",
+  "observedAt": "2026-11-11T05:05:00Z",
+  "items": [{
+    "title": "심장소리",
+    "date": "2026-11-02",
+    "market": "KR",
+    "contentKind": "movie",
+    "seasonNumber": null,
+    "premiereConfirmed": false,
+    "evidence": "Netflix 한국 뉴스룸 2026-10-30 공식 기사: 단편영화 심장소리 2026-11-02 전 세계 넷플릭스 공개. 2022년 전주국제영화제 선공개 작품이므로 작품 세계최초공개로 표현하지 않음. OTT 서비스 최초 공개 여부는 심사 필요."
+  }]
+}

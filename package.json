@@ -19,6 +19,7 @@
     "stage:ott-lineup": "node scripts/stage-ott-lineup.mjs",
     "audit:ott-coverage": "node scripts/audit-ott-coverage.mjs work/ott-lineups/state.json data/reference/streampick-2026-11-12-counts.json",
     "compare:ott-reference": "node scripts/compare-ott-reference.mjs",
+    "queue:ott-discovery": "node scripts/build-ott-discovery-queue.mjs",
     "parse:netflix-lineup": "node scripts/parse-netflix-tudum.mjs",
     "parse:tving-lineup": "node scripts/parse-tvingads-lineup.mjs",
     "test:candidates": "npm run build && node --test tests/candidates.test.cjs",

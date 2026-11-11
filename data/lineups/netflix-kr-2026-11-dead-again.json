@@ -1,0 +1,14 @@
+{
+  "platform": "netflix",
+  "sourceUrl": "https://about.netflix.com/ko/news/the-devils-plan-dead-again-teaser",
+  "observedAt": "2026-11-11T05:05:00Z",
+  "items": [{
+    "title": "데블스 플랜: 데드 어게인",
+    "date": "2026-11-10",
+    "market": "KR",
+    "contentKind": "variety",
+    "seasonNumber": null,
+    "premiereConfirmed": true,
+    "evidence": "Netflix 한국 뉴스룸 2026-10-13 공식 기사: 데블스 플랜: 데드 어게인 2026-11-10 전 세계 공개. StreamPick '데블스 플랜 시즌3' 표기와 공식 작품명을 동일시하지 않고 별도 검토."
+  }]
+}
