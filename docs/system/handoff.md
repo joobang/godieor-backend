@@ -244,3 +244,7 @@ backend IGDB KR 출시일에서 iOS/Android 분류를 지원하고 game_device e
 
 11~12월 StreamPick 비교표 35개 제공처별 행을 발견용 참고자료로 저장하고 staging과 제목/날짜 대조 도구 추가. backend 기존 후보 88→90(`천천히 강렬하게` 한국 최초 공개 확인, `스타일 워즈` 한국 스트리밍 날짜만 확인); StreamPick 35행 중 여전히 제목 미매칭 30행. 신규 DB 게시 0, 전체 월별 자동 수집 미완료. 개별 테스트 4/4 PASS, 전체 npm test 환경 EPERM/Node20 미통과. 다음은 공식 KR 일정 확장·후보→검토/게시 연결·실 DB 조회·Node24 전체 검증. backend 카드 `docs/tasks/DATA-19-ott-coverage-audit.md`; 앱 signing 보존. 계약/마이그레이션/독립 승인 변경 없음.
 
+## DATA-20 TMDB 한국 OTT 메타데이터 인계 (2026-11-11)
+
+backend `scripts/ingest-tmdb-catalog.mjs`, `docs/tasks/DATA-20-tmdb-kr-catalog.md`: 로컬 DB 고유 작품 568건·포스터 568건, 반복 적재 신규 0건, backend 자체 테스트 81/81 성공. 국내 OTT 공개일 확인/신규 달력 게시 0건(기존 9건 유지). 서비스별 매핑은 아직 로컬 수집 보고서에만 있으며 클라우드/앱 API 미반영. 다음은 한국 첫 공개 공식 날짜 근거 확보→검토된 이벤트 게시→실DB/API/폰 확인이다. 승인·독립 PASS 아님. Xcode 개인 signing dirty 유지.
+
