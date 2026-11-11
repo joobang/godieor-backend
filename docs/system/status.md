@@ -210,3 +210,7 @@ AGENTS → 이파일 → handoff → 해당원본카드 순으로읽고 각저�
 - backend `docs/tasks/DATA-10-ott-lineup-pipeline.md`: 수동 확인한 OTT 공개 목록을 작품별 staging JSON에 저장. 재수집 중복 방지, 변경 revision 증가, 기존 review 무효화, 파일 잠금·원자 저장·손상된 상태 방어. 제품 DB 게시 없음.
 - backend `npm test` 빌드 및 70/70 통과(기본 sandbox에서 `dist` unlink EPERM 후 허용 재실행 성공). 공식 사이트 HTML 자동 수집·추가 OTT 게시·독립 검증·클라우드 배포는 미실행. 게시 OTT 7건 유지.
 - 다음: Netflix/TVING 공식 공개 목록 구조와 접근 조건 실측, 플랫폼별 수집 어댑터 및 사람 검토→게시 연결. iOS 개인 signing 변경 보존.
+## DATA-13 TVING Ads 예정작 후보 파서 (2026-11-11)
+
+- backend `docs/tasks/DATA-13-tving-lineup.md`: TVING·Wavve 통합 예정작의 저장된 텍스트를 검토용 후보로 변환. 잠정 11건 로컬 staging(재실행 중복 0), 신규 DB 게시 0, 기존 OTT 게시 7건 유지. 실사이트 HTML·robots·약관·한국 최초 공개/이미지 권한 미확인.
+- 자체 전체 75/75, 관련 10/10 성공. 독립 검증/클라우드 미실행, iOS signing 보존. 다음은 원문 대조 및 한국 공개일 개별 검토.

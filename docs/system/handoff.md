@@ -213,3 +213,7 @@ backend IGDB KR 출시일에서 iOS/Android 분류를 지원하고 game_device e
 - backend `scripts/stage-ott-lineup.mjs`가 검토용 후보 state를 저장하며 동일 작품 재수집·날짜 변경 시 revision과 review 상태를 관리한다. 원본 카드 backend `docs/tasks/DATA-10-ott-lineup-pipeline.md`.
 - `npm test` 빌드 및 70/70 통과, 실제 서비스 HTML 파싱·DB 게시·운영 배포·독립 verifier 실행은 아직 미완료. 기존 게시 OTT 7건 유지.
 - 다음 담당은 Netflix/TVING 공식 목록의 구조·접근 조건부터 확인하고 사람 검토 단계를 거치는 어댑터를 구현한다. iOS 개인 Xcode signing 변경은 커밋하지 않는다.
+## DATA-13 인계 (2026-11-11)
+
+- backend `scripts/parse-tvingads-lineup.mjs`는 저장된 TVING Ads 텍스트를 예정작 후보 JSON으로 파싱한다. 잠정 후보 11건, 반복 실행 중복 0건, 신규 게시 0건/기존 게시 OTT 7건. 원본 HTML·robots·약관·한국 최초 공개/포스터 권한 미확인.
+- 전체 자체검사 75/75, 관련 10/10. API 계약·migration·verifier acceptance 불변, 클라우드/독립 검증 미실행. 다음은 실제 원문 근거 대조·이용 조건 확인 후 개별 심사. iOS 개인 signing 변경 유지.

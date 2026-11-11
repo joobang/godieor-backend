@@ -18,6 +18,7 @@
     "candidates": "node dist/src/cli/collect-candidates.js",
     "stage:ott-lineup": "node scripts/stage-ott-lineup.mjs",
     "parse:netflix-lineup": "node scripts/parse-netflix-tudum.mjs",
+    "parse:tving-lineup": "node scripts/parse-tvingads-lineup.mjs",
     "test:candidates": "npm run build && node --test tests/candidates.test.cjs",
     "test:architecture": "npm run build && node --test tests/architecture.test.cjs",
     "test": "npm run build && node --test tests/*.test.cjs tests/*.test.mjs",
