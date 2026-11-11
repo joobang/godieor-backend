@@ -194,3 +194,10 @@ backend IGDB KR 출시일에서 iOS/Android 분류를 지원하고 game_device e
 - 임시 로컬 API(3099) `GET /v1/events` 게임 30건과 작품 상세의 실제 `posterUrl` 조회 성공. 이벤트 목록 응답에는 포스터가 없음. 후속은 카드 이미지 API/앱 연동, 영화·OTT 이미지 원천, 실제 iPhone/클라우드 확인.
 - app `ios/GODIEOR.xcodeproj/project.pbxproj` 사용자 개인 서명 변경 유지. verifier 기준/verdict 변경 없음, 독립 검증 미실행. 계약·migration 변경 없음.
 
+
+
+## DATA-10 OTT 공개 목록 인계 (2026-11-11)
+
+- backend ADR `docs/decisions/015-ott-release-lineups.md`, 카드 `docs/tasks/DATA-10-ott-lineup-pipeline.md` 및 `scripts/prepare-ott-lineup.mjs` 참고. 현재 CLI는 **수동 검토된 목록만** 미게시 후보로 변환하며 사이트 자동 스크레이핑/DB 게시 기능이 아님.
+- 기본 `npm test`에 `tests/*.test.mjs` 포함, 빌드와 전체 66/66 검사 성공. 소스 날짜/국가 근거와 최초 공개 여부를 다시 심사해야 한다. 운영 OTT 게시 7건은 그대로다.
+- 차기 구현은 Netflix·TVING 우선 실제 페이지 구조/접근 및 복수 작품 파싱, 검토용 staging/공식 증거 첨부, 이미지 출처 관리. Disney+·Coupang Play도 접근 가능성을 실측해야 한다. 실제 적재/배포 및 verifier 독립 승인 없음. app `ios/GODIEOR.xcodeproj/project.pbxproj` 개인 signing dirty 유지.

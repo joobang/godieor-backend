@@ -190,3 +190,11 @@ AGENTS → 이파일 → handoff → 해당원본카드 순으로읽고 각저�
 - 로컬 API 작품 상세 `GET /v1/contents/:id`에 `posterUrl` 응답 확인. `GET /v1/events` 일정 목록에는 아직 포스터 URL이 없어 카드 직접 노출은 후속 계약/앱 작업 필요. 임시 API 종료.
 - 실제 iPhone 카드 표시·이미지 CDN 확인·클라우드 DB 배포·영화/OTT 포스터·독립 검증 미실행. 앱 signing 미커밋 변경 보존. backend 카드에 실행 결과 기록.
 
+
+## DATA-10 OTT 월간 공개 목록 후보 전환 (2026-11-11)
+
+- 사용자 승인: OTT 기사 RSS 중심 후보 탐색을 보조로 낮추고 Netflix·TVING·Disney+·Coupang Play의 공개/편성 목록을 우선 검토. 날짜·한국 지역·시즌 최초 공개 근거가 없는 자료는 달력 게시 금지.
+- backend `docs/decisions/015-ott-release-lineups.md`, `docs/tasks/DATA-10-ott-lineup-pipeline.md`: 수동 확인한 목록 JSON의 작품별 심사 후보 변환 스크립트 작성. 자동 사이트 수집·운영 적재는 아직 구현/실행하지 않음.
+- backend `npm test`: build 및 66개 테스트 통과(합성 OTT 후보 검증 3개 포함). 현재 기존 게시 OTT는 7건이며 이번 작업으로 증가하지 않음.
+- 1차 공개 페이지 확인: Netflix 한국 뉴스룸의 작품별 공식 날짜 근거 확인, Disney+ 한국 `공개 예정` 목록 페이지는 확인되지만 공개일 구조는 미검증. TVING Ads·Coupang Play 월간 전체 목록의 자동 수집 가능성은 미확인. 외부 자료의 2026 공개 표기도 실제 DB 반영 전 재확인.
+- 다음: 사이트별 실응답/robots/이용조건 검토 → 다작품 파서 → 후보 staging 연결 → 한국 최초 공개 날짜 수동 심사 → 로컬 DB 검증·하루 1회 배치. 독립 검증/배포 미실행, 앱 개인 signing 수정 보존.

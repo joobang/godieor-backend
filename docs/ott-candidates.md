@@ -80,3 +80,30 @@ Netflix 천천히 강렬하게 / Coupang 하우스 오브 드래곤 시즌3 / TV
 ## 후속 제품 반영 · DATA-02B
 
 현재 검토본의 명시적 고정 키 매핑을 받아 수동 publish하는 [별도 절차](reviewed-publish.md)를 구현했다. 이 문서의 export는 여전히 중간 후보 파일이며 자동 제품 공개/독립 승인이 아니다.
+
+## DATA-10 · 작품별 공개 목록 우선 수집으로 전환 (2026-11-11)
+
+뉴스룸 RSS는 보조 발견 경로이며 실제 작품별 월간 공개 목록으로 후보 수집을 확대한다. [ADR-015](decisions/015-ott-release-lineups.md)를 우선 적용한다. 기존 collect는 뉴스룸 방식 그대로이므로 7건 공개일 전수 확보가 됐다고 해석하지 않는다.
+
+준비된 작품 목록 JSON을 한 번에 후보로 변환하는 CLI:
+
+```sh
+node scripts/prepare-ott-lineup.mjs /private/tmp/ott-lineup-input.json /private/tmp/ott-lineup-candidates.json
+```
+
+최소 입력 예시(가상 자료):
+
+```json
+{
+  "platform": "netflix",
+  "sourceUrl": "https://www.netflix.com/tudum/articles/new-on-netflix",
+  "observedAt": "2026-11-11T02:00:00Z",
+  "items": [{
+    "title": "가상 작품", "date": "2026-11-19", "market": null,
+    "contentKind": "drama", "seasonNumber": null,
+    "premiereConfirmed": false, "evidence": "가상 목록에서 본 신규 제공일, 한국 첫 공개일 미확인"
+  }]
+}
+```
+
+이 CLI는 공식 사이트 자동 크롤러가 아니며 후보 데이터만 출력한다. 출시 후보를 서비스별 실제 첫 공개 이벤트로 게시하려면 한국 서비스/최초 공개일을 별도로 확인하고 기존 검토·게시 절차를 통과해야 한다.

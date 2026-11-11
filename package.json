@@ -18,7 +18,7 @@
     "candidates": "node dist/src/cli/collect-candidates.js",
     "test:candidates": "npm run build && node --test tests/candidates.test.cjs",
     "test:architecture": "npm run build && node --test tests/architecture.test.cjs",
-    "test": "npm run build && node --test tests/*.test.cjs",
+    "test": "npm run build && node --test tests/*.test.cjs tests/*.test.mjs",
     "test:db": "npm run build && node scripts/check-refactor-db.cjs",
     "publish:reviewed": "node --env-file=.env dist/src/cli/publish-reviewed.js",
     "publish:catalog": "node --env-file=.env dist/src/cli/publish-catalog.js",
