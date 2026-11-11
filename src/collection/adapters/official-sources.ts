@@ -168,7 +168,7 @@ export class IgdbAdapter implements ProviderAdapter {
       for (let start = from; start < to; start += 30 * 86400) {
         const end = Math.min(start + 30 * 86400, to);
         for (let offset = 0; offset <= 10000; offset += 500) {
-          const query = `fields id,date,game.id,game.name,game.game_type,platform.id,platform.name,release_region,date_format,m,y,updated_at; where date >= ${start} & date < ${end} & release_region = ${region}; sort date asc; limit 500; offset ${offset};`;
+          const query = `fields id,date,game.id,game.name,game.game_type,game.cover.image_id,platform.id,platform.name,release_region,date_format,m,y,updated_at; where date >= ${start} & date < ${end} & release_region = ${region}; sort date asc; limit 500; offset ${offset};`;
           // IGDB limits requests to four per second. Keep sequential fetches below the limit.
           await new Promise((resolve) => setTimeout(resolve, 275));
           const response = await fetch("https://api.igdb.com/v4/release_dates", {
@@ -201,10 +201,14 @@ export class IgdbAdapter implements ProviderAdapter {
             const releaseDate = DateTime.fromSeconds(release.date, { zone: "utc" });
             const day = releaseDate.isValid ? releaseDate.toISODate() : null;
             if (!day || releaseDate.year !== release.y || releaseDate.month !== release.m) continue;
+            const imageId = game.cover && typeof game.cover === "object"
+              ? text(object(game.cover).image_id) : "";
+            const posterUrl = /^[a-z0-9_]+$/i.test(imageId)
+              ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${imageId}.jpg` : null;
             out.push({
               externalId: String(release.id), variantKey: `${scope.market.toLowerCase()}-${platform.id}`,
               kind: "game_release", title: text(game.name),
-              content: { externalId: String(game.id), kind: "game", title: text(game.name) },
+              content: { externalId: String(game.id), kind: "game", title: text(game.name), posterUrl },
               seasonNumber: null, status: "scheduled",
               time: { type: "date_only", value: day },
               market: scope.market, venueCountry: null, services: [], devices: [device],

@@ -12,6 +12,7 @@ const content = z
     externalId: identifier,
     kind: z.enum(["movie", "drama", "game"]),
     title: identifier,
+    posterUrl: z.url().max(2000).nullable().optional(),
   })
   .strict();
 const team = z.object({ externalId: identifier, name: identifier }).strict();

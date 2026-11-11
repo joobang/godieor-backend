@@ -78,6 +78,7 @@ test("IGDB collects worldwide and country releases separately without inventing 
       assert.equal(worldwide.length, 4);
       assert.deepEqual(new Set(worldwide.map(x => x.externalId)), new Set(["5", "7", "8", "9"]));
       assert.equal(normalize(worldwide[0], {category:"game",market:"WORLD"}).market, "WORLD");
+      assert.equal(worldwide.find(x => x.externalId === "5").content.posterUrl, "https://images.igdb.com/igdb/image/upload/t_cover_big/co1234.jpg");
       const japanese = await adapter.fetch({category:"game",market:"JP"}, "daily");
       assert.equal(japanese.length, 1);
       assert.equal(normalize(japanese[0], {category:"game",market:"JP"}).market, "JP");
@@ -92,7 +93,7 @@ test("IGDB collects worldwide and country releases separately without inventing 
           {id:1,date:1795132800,game:{id:99,name:"Sample Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:9,date_format:0,y:2026,m:11},
           {id:3,date:1795132800,game:{id:99,name:"Sample Game",game_type:0},platform:{id:39,name:"iOS"},release_region:9,date_format:0,y:2026,m:11},
           {id:4,date:1795132800,game:{id:99,name:"Sample Game",game_type:0},platform:{id:34,name:"Android"},release_region:9,date_format:0,y:2026,m:11},
-          {id:5,date:1795132800,game:{id:99,name:"Sample Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:8,date_format:0,y:2026,m:11},
+          {id:5,date:1795132800,game:{id:99,name:"Sample Game",game_type:0,cover:{image_id:"co1234"}},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:8,date_format:0,y:2026,m:11},
           {id:6,date:1795132800,game:{id:99,name:"Sample Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:5,date_format:0,y:2026,m:11},
           {id:7,date:1795132800,game:{id:101,name:"US Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:2,date_format:0,y:2026,m:11},
           {id:8,date:1795132800,game:{id:102,name:"EU Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:1,date_format:0,y:2026,m:11},

@@ -173,3 +173,8 @@ AGENTS → 이파일 → handoff → 해당원본카드 순으로읽고 각저�
 - 로컬/클라우드 migration 적용, 모바일 출시일 재수집, 폰 배포·실기기·독립 검증은 아직 미확인. backend 카드 `docs/tasks/DATA-06-mobile-platforms.md`, app 카드 `docs/ai/tasks/APP-DATA-06.md`.
 - 개인 Xcode signing pbxproj 변경은 보존. OTT 전수·이미지 적재는 후속 작업으로 남음.
 
+# DATA-08 게임 포스터 메타데이터 (2026-11-11)
+
+- backend `docs/tasks/DATA-08-game-cover-metadata.md`: IGDB `game.cover.image_id`를 게임 콘텐츠의 기존 `poster_url`로 저장하는 경로 추가. 기존 값이 있는 콘텐츠는 이미지 미제공 시 보존.
+- 작성자 backend 전체 테스트 63/63, 수집 어댑터 표지 메타데이터 회귀 테스트 5/5 성공. 로컬 API 포트 3000 연결 실패로 실제 응답과 iPhone UI 확인은 미실행. 실원천/DB 재적재·OTT/영화 이미지·클라우드 배포·독립검증 미완료.
+

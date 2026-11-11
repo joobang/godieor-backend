@@ -199,12 +199,18 @@ export class CollectionRepository {
     if (found) {
       await tx.content.update({
         where: { id: found.content_id },
-        data: { title: c.title, updated_at: new Date() },
+        data: {
+          title: c.title,
+          ...(c.posterUrl ? { poster_url: c.posterUrl } : {}),
+          updated_at: new Date(),
+        },
       });
       return found.content_id;
     }
     const id = randomUUID();
-    await tx.content.create({ data: { id, kind: c.kind, title: c.title } });
+    await tx.content.create({ data: {
+      id, kind: c.kind, title: c.title, poster_url: c.posterUrl ?? null,
+    } });
     await tx.content_source.create({ data: { ...key, content_id: id } });
     return id;
   }
