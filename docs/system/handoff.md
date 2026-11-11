@@ -232,3 +232,7 @@ backend IGDB KR 출시일에서 iOS/Android 분류를 지원하고 game_device e
 
 - backend `scripts/parse-tvingads-lineup.mjs`는 저장된 TVING Ads 텍스트를 예정작 후보 JSON으로 파싱한다. 잠정 후보 11건, 반복 실행 중복 0건, 신규 게시 0건/기존 게시 OTT 7건. 원본 HTML·robots·약관·한국 최초 공개/포스터 권한 미확인.
 - 전체 자체검사 75/75, 관련 10/10. API 계약·migration·verifier acceptance 불변, 클라우드/독립 검증 미실행. 다음은 실제 원문 근거 대조·이용 조건 확인 후 개별 심사. iOS 개인 signing 변경 유지.
+# DATA-17 OTT 후보 확장 인계 (2026-11-11)
+
+- backend `docs/tasks/DATA-17-disney-coupang-candidates.md`에서 Disney 공식 기사 1건과 쿠팡 공식 추천작 3건을 검토용 staging으로 추가. 기존 82→86건, 재실행 중복 0, 제품 게시 0. 4건 모두 시장/한국 첫 공개 미확인; 쿠팡 3건 공개 날짜 null. 실 DB 게시 9건은 DATA-16 이전 결과.
+- 후속은 한국 현지 최초일 증빙 확보와 검토 후 게시, 신뢰할 수 있는 여러 작품 공식 목록 탐색, Render/Supabase 배포 준비. 독립 verifier PASS/운영 반영 아님. 개인 iOS signing 변경 보존.

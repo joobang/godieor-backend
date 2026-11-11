@@ -1,0 +1,34 @@
+{
+  "platform": "coupang_play",
+  "sourceUrl": "https://news.coupang.com/archives/68161/",
+  "observedAt": "2026-11-11T04:10:00Z",
+  "items": [
+    {
+      "title": "랜턴스",
+      "date": null,
+      "market": null,
+      "contentKind": "original_series",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "쿠팡 공식 뉴스룸 2026-11-05 '쿠팡플레이 금주의 추천작: 11월 1주 차'에 HBO 시리즈 랜턴스 소개. 기사 내 '공개 2026'은 연도 정보이며 한국 쿠팡플레이 최초 공개일 근거 아님."
+    },
+    {
+      "title": "DTF 세인트루이스",
+      "date": null,
+      "market": null,
+      "contentKind": "original_series",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "쿠팡 공식 뉴스룸 2026-11-05 추천작 기사에 HBO 오리지널 DTF 세인트루이스 소개. '공개 2026' 표기는 최초 서비스 공개 날짜를 특정하지 않아 날짜 미정 후보로 보존."
+    },
+    {
+      "title": "마티 슈프림",
+      "date": null,
+      "market": null,
+      "contentKind": "movie",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "쿠팡 공식 뉴스룸 2026-11-05 추천작 기사에 영화 마티 슈프림 소개. 표기된 공개 연도 2026은 한국 쿠팡플레이 최초 공개일이 아니므로 날짜를 기입하지 않음."
+    }
+  ]
+}

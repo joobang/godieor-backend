@@ -230,3 +230,8 @@ AGENTS → 이파일 → handoff → 해당원본카드 순으로읽고 각저�
 
 - backend `docs/tasks/DATA-13-tving-lineup.md`: TVING·Wavve 통합 예정작의 저장된 텍스트를 검토용 후보로 변환. 잠정 11건 로컬 staging(재실행 중복 0), 신규 DB 게시 0, 기존 OTT 게시 7건 유지. 실사이트 HTML·robots·약관·한국 최초 공개/이미지 권한 미확인.
 - 자체 전체 75/75, 관련 10/10 성공. 독립 검증/클라우드 미실행, iOS signing 보존. 다음은 원문 대조 및 한국 공개일 개별 검토.
+# DATA-17 Disney+·쿠팡플레이 공식 후보 추가 (2026-11-11)
+
+- Disney 공식 기사에서 `재혼 황후` 2026-11-03 공개 후보 1건, 쿠팡 공식 추천 기사에서 날짜 미확인 작품 3건을 backend lineup JSON으로 보존하고 검토 staging 82→86건으로 확대. 중복 재실행 신규 0건.
+- 4건 모두 한국 서비스 최초 공개 여부 미확인(`market=null`, `premiereConfirmed=false`), 제품 DB 신규 게시 0건. 로컬 OTT 게시 9건은 이전 DATA-16 기록이며 이번에 재조회하지 않음. backend 카드 `docs/tasks/DATA-17-disney-coupang-candidates.md`.
+- 다음은 각 OTT 한국 최초 공개 날짜 검증/검토 후 게시 및 Render+Supabase 배포. 개인 iOS signing dirty 보존. 독립 검증/실폰/클라우드 미실행.
