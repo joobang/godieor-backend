@@ -1,6 +1,28 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { monthRange, candidateDates, evaluateReference, reverseLookup, discoverByDate, reportSummary, auditCachedCatalog, summarizeCached } from '../scripts/tmdb-date-discovery.mjs';
+import { monthRange, candidateDates, evaluateReference, reverseLookup, discoverByDate, reportSummary, auditCachedCatalog, summarizeCached, titleMatchesReference } from '../scripts/tmdb-date-discovery.mjs';
+
+test('TMDB quoted Korean title wrapper matches only full localized title', () => {
+  assert.equal(titleMatchesReference("'두 번째 스윙' - Stick", '두 번째 스윙'), true);
+  assert.equal(titleMatchesReference("'나쁜 원숭이' - Bad Monkey", '나쁜 원숭이'), true);
+  assert.equal(titleMatchesReference("'두 번째 스윙' - Stick", '두 번째'), false);
+  assert.equal(titleMatchesReference('두 번째 스윙 주니어', '두 번째 스윙'), false);
+});
+
+test('reference summary counts TV and film dates separately from KR provider hints', () => {
+  const tv = evaluateReference({ date: '2026-11-03', service: 'tving', title: '드라마', season: 2 }, [
+    { seasonNumber: 2, krProviderMatched: true, dates: { seasonFirstDate: '2026-11-03' } },
+  ]);
+  const film = evaluateReference({ date: '2026-11-04', service: 'netflix', title: '영화' }, [
+    { type: 'movie', seasonNumber: null, krProviderMatched: true, dates: { movieReleaseDate: '2026-11-04' } },
+  ]);
+  const unavailable = evaluateReference({ date: '2026-11-05', service: 'netflix', title: '미확인', season: 1 }, []);
+  const summary = reportSummary([tv, film, unavailable]);
+  assert.equal(summary.tmdbDateMatched, 2);
+  assert.equal(summary.krProviderAndDateMatched, 2);
+  assert.deepEqual(summary.byService.netflix, { reference: 2, dateMatched: 1, providerAndDateMatched: 1 });
+  assert.deepEqual(summary.byService.tving, { reference: 1, dateMatched: 1, providerAndDateMatched: 1 });
+});
 
 test('cached reference audit separates missed title, provider and first-date policy', () => {
   const reference = [
@@ -95,6 +117,8 @@ test('date discovery includes TV episode air_date and detects capped pages', asy
   assert.equal(result.coverage.find((c) => c.kind === 'tv' && c.filter === 'air_date').truncated, true);
   assert.equal(result.rows.find((r) => r.type === 'tv').seriesFirstDate, '2022-01-01');
   assert.ok(result.coverage.some((c) => c.kind === 'tv' && c.filter === 'first_air_date'));
+  const netflix = result.coverage.filter((c) => c.kind === 'tv' && c.service === 'netflix');
+  assert.equal(netflix[0].retrieved, netflix[1].retrieved);
 });
 
 test('failed title lookups are not silently classified as missing titles', async () => {

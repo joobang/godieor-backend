@@ -28,6 +28,21 @@ export function candidateDates(tv, season) {
   };
 }
 
+// TMDB Korean titles can be displayed as "'localized name' - Original name".
+// Accept that specific wrapper without broadly substring-matching unrelated works.
+export function titleMatchesReference(tmdbName, referenceTitle) {
+  if (typeof tmdbName !== 'string' || typeof referenceTitle !== 'string') return false;
+  const normalized = (value) => value.normalize('NFC').trim().toLocaleLowerCase('ko');
+  const name = normalized(tmdbName);
+  const reference = normalized(referenceTitle);
+  if (!reference) return false;
+  if (name === reference) return true;
+  return ["'", '‘', '“', '"'].some((quote, index) => {
+    const closing = ["'", '’', '”', '"'][index];
+    return name.startsWith(`${quote}${reference}${closing} - `);
+  });
+}
+
 export function auditCachedCatalog(referenceRows, catalogRows) {
   const key = (title) => title.normalize('NFC').trim().toLocaleLowerCase('ko');
   const byTitle = new Map();
@@ -142,7 +157,7 @@ export async function reverseLookup(referenceRows, request, { searchPages = 2 } 
     // not claim that a search hit proves the exact StreamPick work.
     for (const hit of search.hits) {
       if (!hit.id) continue;
-      const exactTitle = [hit.name, hit.original_name].some((name) => name?.normalize('NFC') === key);
+      const exactTitle = [hit.name, hit.original_name].some((name) => titleMatchesReference(name, key));
       if (!exactTitle) continue;
       const id = hit.id;
       try {
@@ -186,7 +201,7 @@ export async function reverseLookup(referenceRows, request, { searchPages = 2 } 
       movieSearchTruncated = movieSearch.truncated ?? false;
       if (movieSearch.error) errors.push(`movie:${movieSearch.error}`);
       for (const hit of movieSearch.hits) {
-        if (!hit.id || ![hit.title, hit.original_title].some((name) => name?.normalize('NFC') === key)) continue;
+        if (!hit.id || ![hit.title, hit.original_title].some((name) => titleMatchesReference(name, key))) continue;
         try {
           if (!movieCache.has(hit.id)) movieCache.set(hit.id, await request(`/movie/${hit.id}`, { language: 'ko-KR' }));
           if (!movieProviderCache.has(hit.id)) movieProviderCache.set(hit.id, await request(`/movie/${hit.id}/watch/providers`));
@@ -223,11 +238,12 @@ export async function discoverByDate(request, months, { maxPages = 20 } = {}) {
       if (!ids.length) { coverage.push({ kind, service: service.key, providerIds: [], count: 0, reason: 'provider_not_found' }); continue; }
       for (const window of windows) {
         let totalPages = 0;
-        let retrieved = 0;
         const strategies = kind === 'tv'
           ? [{ 'air_date.gte': window.start, 'air_date.lte': window.end }, { 'first_air_date.gte': window.start, 'first_air_date.lte': window.end }]
           : [{ 'primary_release_date.gte': window.start, 'primary_release_date.lte': window.end }];
         for (const strategy of strategies) {
+          let retrieved = 0;
+          totalPages = 0;
           const params = { watch_region: 'KR', with_watch_providers: ids.join('|'), with_watch_monetization_types: 'flatrate',
             language: 'ko-KR', sort_by: 'popularity.desc', ...strategy };
           let total = 1;
@@ -264,10 +280,23 @@ export async function discoverByDate(request, months, { maxPages = 20 } = {}) {
 export function reportSummary(rows) {
   const statuses = {};
   for (const row of rows) statuses[row.status] = (statuses[row.status] ?? 0) + 1;
+  const dateMatched = (row) => ['tmdb_season_date_match', 'tmdb_movie_release_date_match'].includes(row.status);
+  const providerAndDateMatched = (row) => dateMatched(row) && row.matches.some((m) => m.dateMatches && m.krProviderMatched);
+  const byService = {};
+  for (const row of rows) {
+    const current = byService[row.service] ?? { reference: 0, dateMatched: 0, providerAndDateMatched: 0 };
+    current.reference++;
+    if (dateMatched(row)) current.dateMatched++;
+    if (providerAndDateMatched(row)) current.providerAndDateMatched++;
+    byService[row.service] = current;
+  }
   return { totalReference: rows.length, statuses,
     seasonDateMatched: rows.filter((r) => r.status === 'tmdb_season_date_match').length,
     movieReleaseDateMatched: rows.filter((r) => r.status === 'tmdb_movie_release_date_match').length,
     krProviderAndSeasonDateMatched: rows.filter((r) => r.status === 'tmdb_season_date_match' && r.matches.some((m) => m.dateMatches && m.seasonMatches && m.krProviderMatched)).length,
+    tmdbDateMatched: rows.filter(dateMatched).length,
+    krProviderAndDateMatched: rows.filter(providerAndDateMatched).length,
+    byService,
     lookupErrors: rows.filter((r) => r.errors?.length).length };
 }
 
