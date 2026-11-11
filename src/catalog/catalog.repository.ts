@@ -84,7 +84,7 @@ export class CatalogRepository {
                       some: {
                         device: {
                           in: query.devices as (
-                            "pc" | "playstation" | "xbox" | "switch"
+                            "pc" | "playstation" | "xbox" | "switch" | "ios" | "android"
                           )[],
                         },
                       },

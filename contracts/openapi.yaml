@@ -1669,6 +1669,8 @@
         - "playstation"
         - "xbox"
         - "switch"
+        - "ios"
+        - "android"
     "EventKind":
       "type": "string"
       "enum":
@@ -2287,7 +2289,7 @@
           "items":
             "$ref": "#/components/schemas/Device"
           "uniqueItems": true
-          "maxItems": 4
+          "maxItems": 6
         "view":
           "type": "string"
           "enum":
@@ -2331,7 +2333,7 @@
           "items":
             "$ref": "#/components/schemas/Device"
           "uniqueItems": true
-          "maxItems": 4
+          "maxItems": 6
         "view":
           "type": "string"
           "enum":

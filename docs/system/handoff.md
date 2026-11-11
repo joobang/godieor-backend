@@ -167,3 +167,7 @@ Mac실제HTTPS CA/hostname검증·health/options200·비인증/invalidtoken401 �
 ## DATA-05 공식 수집 로컬 검증 인계 (2026-11-11)
 
 backend .env에 공식 제공처 키 4개가 설정됐고 추적 .env.example 키는 비어 있음. EPL 2027시즌 미공개 404 처리와 IGDB 한국 출시일 date 타임스탬프 파싱 수정. backend 자체 테스트 63/63 성공. 로컬 PostgreSQL에 기존 OTT 카테고리 마이그레이션 적용 후 KOBIS 1,902/EPL 380/IGDB 1건 적재, 같은 날 재실행 모두 skip. 클라우드 DB/OTT 자동 전수/독립 검증 미완료. backend docs/tasks/DATA-04-daily-official.md 참조. iOS 개인 signing 변경 보존.
+# DATA-06 모바일 플랫폼 인계 (2026-11-11)
+
+backend IGDB KR 출시일에서 iOS/Android 분류를 지원하고 game_device enum migration과 OpenAPI options/settings를 확장했다. iOS 동적 필터·상세 기기명 표시도 변경했다. 자체 backend 63/63, unsigned Simulator 빌드 성공. 로컬 DB migration 적용 및 IGDB 강제 재수집 성공(3건, iOS/Android 각 1건 확인). iPhone 설치/클라우드 migration·서버 배포·독립 검증은 미완료. app 개인 pbxproj 서명 설정은 건드리지 않았다. 원본 카드 backend `docs/tasks/DATA-06-mobile-platforms.md`, app `docs/ai/tasks/APP-DATA-06.md`. 후속은 migration 적용 후 IGDB 재수집, 모바일 필터/계정 저장 확인. OTT 전수·이미지 적재는 별도 미완료.
+

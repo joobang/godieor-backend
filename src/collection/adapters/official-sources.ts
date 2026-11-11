@@ -176,7 +176,9 @@ export class IgdbAdapter implements ProviderAdapter {
         // Explicit game-type classification: 0 main game (exclude DLC, editions, beta).
         if (game.game_type !== 0 || typeof game.id !== "number") continue;
         const platformName = text(platform.name).toLowerCase();
-        const device = platformName.includes("playstation") ? "playstation"
+        const device = platformName === "ios" || platformName.includes("iphone") || platformName.includes("ipad") ? "ios"
+          : platformName === "android" ? "android"
+          : platformName.includes("playstation") ? "playstation"
           : platformName.includes("xbox") ? "xbox"
             : platformName.includes("switch") ? "switch"
               : platformName.includes("pc") || platformName.includes("windows") || platformName.includes("linux") || platformName.includes("mac") ? "pc" : null;

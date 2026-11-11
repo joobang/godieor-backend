@@ -63,19 +63,21 @@ test("EPL skips unpublished future season 404 but keeps current matches", async 
   }
 });
 
-test("IGDB uses platform-specific Korean day-precision release only", async () => {
+test("IGDB uses platform-specific Korean day-precision releases including mobile", async () => {
   const saved = [process.env.IGDB_CLIENT_ID, process.env.IGDB_CLIENT_SECRET];
   process.env.IGDB_CLIENT_ID = "fake-id";
   process.env.IGDB_CLIENT_SECRET = "fake-secret";
   try {
     await mockProvider(async () => {
       const records = await new IgdbAdapter().fetch({category:"game",market:"KR"}, "daily");
-      assert.equal(records.length, 1);
-      assert.deepEqual(normalize(records[0], {category:"game",market:"KR"}).devices, ["pc"]);
+      assert.equal(records.length, 3);
+      assert.deepEqual(records.map(x => normalize(x, {category:"game",market:"KR"}).devices[0]), ["pc", "ios", "android"]);
     }, async url => url.toString().includes("twitch")
       ? ok({ access_token: "fake-token" })
       : ok([
           {id:1,date:1795132800,game:{id:99,name:"Sample Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:9,date_format:0,y:2026,m:11},
+          {id:3,date:1795132800,game:{id:99,name:"Sample Game",game_type:0},platform:{id:39,name:"iOS"},release_region:9,date_format:0,y:2026,m:11},
+          {id:4,date:1795132800,game:{id:99,name:"Sample Game",game_type:0},platform:{id:34,name:"Android"},release_region:9,date_format:0,y:2026,m:11},
           {id:2,game:{id:99,name:"Sample Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:9,date_format:2,y:2026},
         ]));
   } finally {

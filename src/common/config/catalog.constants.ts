@@ -6,7 +6,7 @@ export const SERVICES = [
   "coupang_play",
   "tving",
 ] as const;
-export const DEVICES = ["pc", "playstation", "xbox", "switch"] as const;
+export const DEVICES = ["pc", "playstation", "xbox", "switch", "ios", "android"] as const;
 export const TIME_ZONES = [
   ...new Set(["UTC", ...Intl.supportedValuesOf("timeZone")]),
 ];

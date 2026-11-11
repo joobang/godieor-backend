@@ -161,3 +161,9 @@ AGENTS → 이파일 → handoff → 해당원본카드 순으로읽고 각저�
 - backend `16fb65f`에서 `publish:catalog` 수동 검토 JSON 적재 CLI와 stable event/content/team ID 보호를 구현. 합성 입력 단위 테스트 5/5, 전체 백엔드 58/58 통과. 백엔드 작업 카드 `docs/tasks/DATA-03-reviewed-catalog.md`.
 - 실제 공식 영화·게임·EPL 데이터는 **아직 검토/적재하지 않음**. 현재 신규 실데이터 공개 API 조회, 운영 DB, 배포, 독립 검증도 미실행. 다음은 공식 출처 대조→입력 JSON→로컬 DB 적재 및 API 검증→사용자 배포 요청 시 Render+Supabase 연결.
 - API 계약/마이그레이션/독립 승인 기준 변경 없음. 기존 iOS pbxproj dirty 설정 유지.
+# DATA-06 모바일 게임 기기 필터 (2026-11-11)
+
+- Android/iOS 기기 타입과 한국 IGDB 출시일 분류, backend 계약/DB migration 추가. iOS 게임 기기 선택 필터에 표시. backend 자체 테스트 63/63, unsigned Simulator 빌드 통과.
+- 로컬/클라우드 migration 적용, 모바일 출시일 재수집, 폰 배포·실기기·독립 검증은 아직 미확인. backend 카드 `docs/tasks/DATA-06-mobile-platforms.md`, app 카드 `docs/ai/tasks/APP-DATA-06.md`.
+- 개인 Xcode signing pbxproj 변경은 보존. OTT 전수·이미지 적재는 후속 작업으로 남음.
+

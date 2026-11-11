@@ -347,6 +347,8 @@ enum game_device {
   playstation
   xbox
   switch
+  ios
+  android
 }
 
 enum ott_service {

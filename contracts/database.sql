@@ -7,7 +7,7 @@ CREATE TYPE event_kind AS ENUM ('theatrical_release', 'ott_season_premiere', 'ga
 CREATE TYPE event_status AS ENUM ('scheduled', 'postponed', 'cancelled');
 CREATE TYPE time_precision AS ENUM ('instant', 'date_only', 'unknown');
 CREATE TYPE ott_service AS ENUM ('netflix', 'disney_plus', 'coupang_play', 'tving');
-CREATE TYPE game_device AS ENUM ('pc', 'playstation', 'xbox', 'switch');
+CREATE TYPE game_device AS ENUM ('pc', 'playstation', 'xbox', 'switch', 'ios', 'android');
 CREATE TYPE data_origin AS ENUM ('fixture', 'provider');
 CREATE TYPE coverage_state AS ENUM ('unconfigured', 'unsupported', 'partial', 'available');
 CREATE TYPE attempt_state AS ENUM ('never', 'running', 'succeeded', 'failed');
