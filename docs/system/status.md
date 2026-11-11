@@ -1,3 +1,8 @@
+## DATA-16 Netflix KR 공식 최초 공개 후보 2건 로컬 DB 게시 (2026-11-11)
+
+- 기존 Netflix 공식 기사 후보 `푸른길`(2026-11-20, original_series), `가능한 사랑`(2026-11-06, movie)을 구현 담당 근거 검토 후 backend 기존 `ott_reviewed` 매핑에 추가. 7→9건 로컬 PostgreSQL 게시 성공; 직접 SELECT로 9건 중 신규 두 건 제목/날짜/KR/netflix/`date_only` 및 `instant_at=NULL` 확인.
+- backend `npm test` 75/75 통과, 작업 카드 `backend/docs/tasks/DATA-16-netflix-reviewed-publish.md`. 검토자는 구현 담당이며 독립 승인 아님. iOS 개인 signing 변경 보존. 클라우드 게시·실폰 반영·OTT 전체 커버리지·독립 검증 미실행. 다음은 다른 OTT 제공처의 한국 공식 공개 근거 확대 및 Render+Supabase 배포 준비.
+
 ## DATA-15 한국 넷플릭스 최초 공개 근거 2건 (2026-11-11)
 
 - Netflix 한국 뉴스룸 `푸른길`(11/20, 시리즈), `가능한 사랑`(11/6, 영화) 공식 일자 확인 후 backend `data/lineups/netflix-kr-2026-11-*.json` 2개로 저장, 후보 staging 80→82건. 재실행 중복 0. **신규 DB 게시는 0건**, 기존 7건은 앞선 기록이며 이번에 DB 재조회하지 않음.

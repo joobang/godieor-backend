@@ -1,3 +1,8 @@
+## DATA-16 인계 (2026-11-11)
+
+- backend `docs/tasks/DATA-16-netflix-reviewed-publish.md`: Netflix 한국 기사 후보 두 건을 `work/ott-candidates`에서 구현 담당 검토, `data/curated/ott-reviewed-mappings.json`에 신규 고정 키 8·9 추가. `npm run publish:reviewed -- --file data/curated/ott-reviewed-mappings.json` 성공(9건). 직접 로컬 DB SELECT에서 신규 `가능한 사랑`(2026-11-06)/`푸른길`(2026-11-20) 확인. 각각 `date_only`, `instant_at=NULL`, `KR`, `netflix`. `npm test` 75/75.
+- 로컬 후보 상태·DB는 Git 제외; 다른 장치 또는 클라우드에 동일 9건을 적용하려면 공식 후보 수집/검토 상태 복원 필요. 구현 담당의 검토는 독립 승인 아님. 앱 개인 signing 미커밋 파일 보존, 배포/실폰/독립 검증 미실행. 다음은 TVING·Disney+·Coupang Play 공식 일정 확장 또는 Render+Supabase 실제 배포.
+
 ## DATA-15 인계 (2026-11-11)
 
 - 한국 Netflix 뉴스룸의 2개 공식 작품별 날짜를 확인해 backend 공식 lineup JSON 후보로 추가. stage 80→82건, 동일 파일 재실행은 unchanged=1, 신규 published=0. backend `npm test` 75/75. 상세 `backend/docs/tasks/DATA-15-netflix-korean-confirmed.md`.
