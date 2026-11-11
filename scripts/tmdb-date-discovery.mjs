@@ -28,6 +28,44 @@ export function candidateDates(tv, season) {
   };
 }
 
+export function auditCachedCatalog(referenceRows, catalogRows) {
+  const key = (title) => title.normalize('NFC').trim().toLocaleLowerCase('ko');
+  const byTitle = new Map();
+  for (const item of catalogRows) {
+    const title = key(item.title ?? '');
+    if (!title) continue;
+    const group = byTitle.get(title) ?? [];
+    group.push(item);
+    byTitle.set(title, group);
+  }
+  return referenceRows.map(([date, service, title, season]) => {
+    const titleMatches = byTitle.get(key(title)) ?? [];
+    const serviceMatches = titleMatches.filter((item) => item.services?.includes(service));
+    const firstDateMatches = serviceMatches.filter((item) => item.tmdbFirstDate === date);
+    const status = titleMatches.length === 0 ? 'title_not_in_cache'
+      : serviceMatches.length === 0 ? 'service_not_in_cache'
+      : firstDateMatches.length > 0 ? 'series_first_date_matches'
+      : 'series_first_date_differs';
+    return { date, service, title, season, status,
+      candidates: titleMatches.map(({ tmdbId, type, tmdbFirstDate, services }) => ({ tmdbId, type, tmdbFirstDate, services })) };
+  });
+}
+
+export function summarizeCached(rows) {
+  const status = {};
+  const services = {};
+  for (const row of rows) {
+    status[row.status] = (status[row.status] ?? 0) + 1;
+    const service = services[row.service] ?? { total: 0, titleFound: 0, serviceFound: 0, firstDateMatched: 0 };
+    service.total++;
+    if (row.candidates.length) service.titleFound++;
+    if (['series_first_date_matches', 'series_first_date_differs'].includes(row.status)) service.serviceFound++;
+    if (row.status === 'series_first_date_matches') service.firstDateMatched++;
+    services[row.service] = service;
+  }
+  return { total: rows.length, status, services };
+}
+
 export function evaluateReference(reference, matches, errors = []) {
   if (!matches.length) return { ...reference, status: errors.length ? 'lookup_failed' : 'title_not_found', matches: [], errors };
   const expectedSeason = reference.season;
@@ -35,12 +73,13 @@ export function evaluateReference(reference, matches, errors = []) {
     const info = match.dates ?? {};
     const seasonKnown = match.seasonNumber != null;
     const seasonMatches = expectedSeason == null || (seasonKnown && match.seasonNumber === expectedSeason);
-    const dateMatches = [info.seasonFirstDate, info.firstEpisodeDate].includes(reference.date);
+    const dateMatches = [info.seasonFirstDate, info.firstEpisodeDate, info.movieReleaseDate].includes(reference.date);
     const episodeOnly = (info.episodeDates ?? []).includes(reference.date) && !dateMatches;
     return { ...match, seasonMatches, dateMatches, episodeOnly };
   });
   let status = 'date_mismatch';
-  if (evaluated.some((m) => m.seasonMatches && m.dateMatches)) status = 'tmdb_season_date_match';
+  if (evaluated.some((m) => m.seasonMatches && m.dateMatches && m.type !== 'movie')) status = 'tmdb_season_date_match';
+  else if (evaluated.some((m) => m.seasonMatches && m.dateMatches && m.type === 'movie')) status = 'tmdb_movie_release_date_match';
   else if (evaluated.some((m) => m.seasonMatches && m.episodeOnly)) status = 'episode_only_match';
   else if (evaluated.some((m) => !m.seasonMatches && m.dateMatches)) status = 'different_season';
   else if (evaluated.every((m) => m.dates == null)) status = errors.length ? 'lookup_failed' : 'date_not_available';
@@ -76,6 +115,9 @@ export async function reverseLookup(referenceRows, request, { searchPages = 2 } 
   const tvCache = new Map();
   const seasonCache = new Map();
   const providerCache = new Map();
+  const movieSearchCache = new Map();
+  const movieCache = new Map();
+  const movieProviderCache = new Map();
   const results = [];
   for (const [date, service, title, season] of referenceRows) {
     const errors = [];
@@ -123,8 +165,45 @@ export async function reverseLookup(referenceRows, request, { searchPages = 2 } 
         }
       } catch (e) { errors.push(`${id}:${e.message}`); }
     }
+    // A reference without a season may be a film. Query movie separately;
+    // TMDB movie release_date is only a global release hint, never KR OTT proof.
+    let movieSearchTruncated = false;
+    if (season == null) {
+      if (!movieSearchCache.has(key)) {
+        const hits = [];
+        try {
+          const first = await request('/search/movie', { query: title, language: 'ko-KR', page: 1 });
+          hits.push(...(first.results ?? []));
+          const pages = Math.min(searchPages, first.total_pages ?? 1);
+          for (let page = 2; page <= pages; page++) {
+            const data = await request('/search/movie', { query: title, language: 'ko-KR', page });
+            hits.push(...(data.results ?? []));
+          }
+          movieSearchCache.set(key, { hits, truncated: (first.total_pages ?? 1) > searchPages });
+        } catch (e) { movieSearchCache.set(key, { hits: [], error: e.message }); }
+      }
+      const movieSearch = movieSearchCache.get(key);
+      movieSearchTruncated = movieSearch.truncated ?? false;
+      if (movieSearch.error) errors.push(`movie:${movieSearch.error}`);
+      for (const hit of movieSearch.hits) {
+        if (!hit.id || ![hit.title, hit.original_title].some((name) => name?.normalize('NFC') === key)) continue;
+        try {
+          if (!movieCache.has(hit.id)) movieCache.set(hit.id, await request(`/movie/${hit.id}`, { language: 'ko-KR' }));
+          if (!movieProviderCache.has(hit.id)) movieProviderCache.set(hit.id, await request(`/movie/${hit.id}/watch/providers`));
+          const movie = movieCache.get(hit.id);
+          const provider = movieProviderCache.get(hit.id);
+          const krProviders = ['flatrate', 'ads', 'free', 'rent', 'buy'].flatMap((bucket) => provider.results?.KR?.[bucket] ?? []);
+          const providerPattern = SERVICES.find((s) => s.key === service)?.pattern;
+          matches.push({ type: 'movie', tmdbId: hit.id, tmdbTitle: movie.title, seasonNumber: null,
+            providerNames: [...new Set(krProviders.map((p) => p.provider_name))],
+            krProviderMatched: providerPattern ? krProviders.some((p) => providerPattern.test(p.provider_name)) : false,
+            dates: { movieReleaseDate: movie.release_date ?? null } });
+        } catch (e) { errors.push(`movie:${hit.id}:${e.message}`); }
+      }
+    }
     const result = evaluateReference({ date, service, title, season }, matches, errors);
     result.searchTruncated = search.truncated ?? false;
+    result.movieSearchTruncated = movieSearchTruncated;
     result.searchResultCount = search.hits.length;
     results.push(result);
   }
@@ -187,6 +266,7 @@ export function reportSummary(rows) {
   for (const row of rows) statuses[row.status] = (statuses[row.status] ?? 0) + 1;
   return { totalReference: rows.length, statuses,
     seasonDateMatched: rows.filter((r) => r.status === 'tmdb_season_date_match').length,
+    movieReleaseDateMatched: rows.filter((r) => r.status === 'tmdb_movie_release_date_match').length,
     krProviderAndSeasonDateMatched: rows.filter((r) => r.status === 'tmdb_season_date_match' && r.matches.some((m) => m.dateMatches && m.seasonMatches && m.krProviderMatched)).length,
     lookupErrors: rows.filter((r) => r.errors?.length).length };
 }
@@ -198,6 +278,7 @@ async function main() {
   const live = args.includes('--live');
   const output = args.find((x) => x.startsWith('--output='))?.slice(9) ?? '/private/tmp/godieor-tmdb-date-discovery.json';
   const catalog = JSON.parse(await readFile('work/tmdb/latest.json', 'utf8'));
+  const cachedAudit = auditCachedCatalog(reference.rows, catalog.rows ?? []);
   const referenceRows = reference.rows.map(([date, service, title, season]) => {
     const matches = (catalog.rows ?? []).filter((c) => c.title === title && c.services?.includes(service));
     return { date, service, title, season, catalogMatched: matches.length > 0, catalogIds: matches.map((m) => m.tmdbId) };
@@ -220,11 +301,11 @@ async function main() {
   }
   const result = { observedAt: new Date().toISOString(), liveAttempted: live, liveError, referenceSource: reference.source,
     catalogObservedAt: catalog.observedAt, catalogCoverage: { total: referenceRows.length, matched: referenceRows.filter((r) => r.catalogMatched).length },
-    referenceRows, reverse, summary: reportSummary(reverse), dateDiscovery,
+    referenceRows, cachedAudit, cachedSummary: summarizeCached(cachedAudit), reverse, summary: reportSummary(reverse), dateDiscovery,
     caveat: 'Global TMDB air/episode dates and KR watch availability do not prove the premiere date on a Korean OTT. Nothing published.' };
   await mkdir(dirname(output), { recursive: true });
   await writeFile(output, `${JSON.stringify(result, null, 2)}\n`);
-  console.log(JSON.stringify({ catalogCoverage: result.catalogCoverage, liveError, reverse: result.summary,
+  console.log(JSON.stringify({ catalogCoverage: result.catalogCoverage, cachedSummary: result.cachedSummary, liveError, reverse: result.summary,
     discovered: dateDiscovery.rows.length, coverage: dateDiscovery.coverage.map(({ kind, service, window, filter, truncated, error }) => ({ kind, service, month: window.start.slice(0, 7), filter, truncated, error })), calendarPublished: 0 }, null, 2));
 }
 

@@ -19,3 +19,11 @@
 - 기존 가정(568개, StreamPick 35행)은 로컬 데이터 스냅샷 기준. 9건 제품 캘린더는 이전 기록이며 이번 작업에서 DB 재조회하지 않았다. 배포·독립 검증 없음.
 
 다음 담당: TMDB DNS 가능 환경에서 `node --env-file=.env scripts/tmdb-date-discovery.mjs --live` 재실행하여 35행의 `status`와 날짜 기반 발견 결과를 확인하고, 한국 플랫폼별 **공식 최초 공개 근거**가 확보된 시즌만 reviewed 게시 절차로 연결한다. 날짜만 일치해도 자동 게시하지 않는다. 기존 `.env.example`, `package.json`, 앱 signing 및 다른 세션의 미추적 파일은 그대로 보존.
+
+## 2026-11-12 후속 · 캐시 누락 분석 및 영화 역검색
+
+- 로컬 568건 카탈로그와 StreamPick 참고행 35개를 재분류: `title_not_in_cache` **22**, `service_not_in_cache` **1**, `series_first_date_differs` **8**, `series_first_date_matches` **4**. 제목+제공처가 모두 있는 경우는 12개다. 서비스별 참고행/제목발견/제공처발견/첫 날짜 동일: Netflix **18/8/7/3**, TVING **12/2/2/0**, Disney+ **5/3/3/1**. 이는 오프라인 스냅샷 비교이며 실제 TMDB 재조회는 아니다.
+- 역조회에 시즌 번호 없는 참조를 위한 `/search/movie`, `/movie/{id}`, `/movie/{id}/watch/providers` 조회 추가. 영화 `release_date` 일치와 TV 시즌·1화 `air_date` 일치를 다른 상태로 기록하며 영화 검색 페이지 절단도 노출. 영화 글로벌 공개일과 KR 제공처는 한국 OTT 최초 공개 근거가 아니다.
+- 실제 명령: `/opt/homebrew/bin/node --test tests/tmdb-date-discovery.test.mjs tests/tmdb-season-audit.test.mjs` → **12/12 PASS**. `/opt/homebrew/bin/node scripts/tmdb-date-discovery.mjs --output=/private/tmp/godieor-tmdb-date-audit-v3.json` → **exit 0**, 참조 35건 분류 저장, `liveAttempted=false`, 원격 역조회 0건, 신규 달력 게시 0건.
+- 이전 라이브 API DNS `ENOTFOUND`가 해소되었다는 증거가 없어 추가 원격 시도는 하지 않았다. 35행 날짜 일치 수·누락 개선량은 **검증 불가**. 다음 작업은 네트워크가 가능한 환경에서 실제 역조회 35행과 월별 discover 결과를 수집하고, 다국어 이명·동명작을 검토한 뒤 공식 한국 OTT 최초 공개 증빙을 연결하는 것.
+- API/마이그레이션/acceptance 변경 없음. 독립 verifier, DB 게시, 배포 미실행. 기존 다른 작업 dirty 변경은 보존. ADR-015 참조; 별도 LEARN-ID 없음(기존 날짜 후보 정책에 대한 구현 보완).
