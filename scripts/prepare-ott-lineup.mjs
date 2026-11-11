@@ -51,7 +51,7 @@ export function prepareLineup(input) {
     if (typeof item.premiereConfirmed !== 'boolean') fail('INVALID_PREMIERE');
     // Availability/arrival and first platform premiere are different concepts.
     if (item.premiereConfirmed && (!date || !market || ['unknown', 'other'].includes(contentKind))) fail('UNSUPPORTED_PREMIERE');
-    const key = [platform, market, title.toLocaleLowerCase('en'), seasonNumber ?? '', date ?? ''].join('|');
+    const key = [platform, market, title.normalize('NFC').toLocaleLowerCase('en'), seasonNumber ?? ''].join('|');
     if (seen.has(key)) fail('DUPLICATE_TITLE_ROW');
     seen.add(key);
     return {

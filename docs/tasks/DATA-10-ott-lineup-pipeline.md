@@ -22,3 +22,12 @@
 4. 실제 적재·재실행·DB 건수·KST 날짜 검증 후 1일 1회 예약·Render/Supabase 배포.
 
 backend 정책 승인·앱/계약/마이그레이션/verifier verdict 변동 없음. 다음 담당은 본 카드와 ADR-015 참조.
+
+## DATA-11 · 작품별 후보 staging (2026-11-11)
+
+- requirement: PROD-005/007/009. 담당 codex-ott-lineup-11 (완료·해제). 기준 backend 3048d08, app 4e9ffcc, verifier 5407595. 브랜치 codex/app-auth-phone-ready.
+- `stage-ott-lineup.mjs` 추가: 수동 확인 공식 목록의 작품별 후보를 `work/ott-lineups/state.json`에 영속 저장. 재실행 중복 방지, 변경 revision 증가 및 review 무효화, 잠금과 원자 교체, 기존 상태 및 입력 배치 선검사. 제품 DB 게시 없음(`published=0`). `stage:ott-lineup` npm 명령 추가.
+- 예상 오류: 글로벌 공개 날짜를 국내 최초 공개일로 오인, 손상된 기존 상태, 중복 ID, 변경 중 부분 저장. 확인되지 않은 공개일·이미지는 사람 검토 전 게시 금지.
+- 실제 검사: `node --test tests/ott-lineup.test.mjs` 7/7 성공, `npm test` 빌드 및 70/70 성공(최초 기본 sandbox에서 dist unlink EPERM, 권한 허용 후 성공), `git diff --check` 성공.
+- 미실행: 공식 HTML 자동 수집, 실제 서비스 DB 적재, 포스터 다운로드, 독립 verifier 검사. 다음은 Netflix/TVING 공식 목록 구조와 robots/이용 조건 실측 후 소스별 어댑터 구현 및 staging→검토→게시 연결.
+- LEARN-ID: 해당 없음. ADR-015에 연계된 예방 설계이며 실제 장애 측정이나 독립 검증 결과가 아님.

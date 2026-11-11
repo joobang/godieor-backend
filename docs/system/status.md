@@ -198,3 +198,8 @@ AGENTS → 이파일 → handoff → 해당원본카드 순으로읽고 각저�
 - backend `npm test`: build 및 66개 테스트 통과(합성 OTT 후보 검증 3개 포함). 현재 기존 게시 OTT는 7건이며 이번 작업으로 증가하지 않음.
 - 1차 공개 페이지 확인: Netflix 한국 뉴스룸의 작품별 공식 날짜 근거 확인, Disney+ 한국 `공개 예정` 목록 페이지는 확인되지만 공개일 구조는 미검증. TVING Ads·Coupang Play 월간 전체 목록의 자동 수집 가능성은 미확인. 외부 자료의 2026 공개 표기도 실제 DB 반영 전 재확인.
 - 다음: 사이트별 실응답/robots/이용조건 검토 → 다작품 파서 → 후보 staging 연결 → 한국 최초 공개 날짜 수동 심사 → 로컬 DB 검증·하루 1회 배치. 독립 검증/배포 미실행, 앱 개인 signing 수정 보존.
+## DATA-11 OTT 작품별 검토 후보 staging (2026-11-11)
+
+- backend `docs/tasks/DATA-10-ott-lineup-pipeline.md`: 수동 확인한 OTT 공개 목록을 작품별 staging JSON에 저장. 재수집 중복 방지, 변경 revision 증가, 기존 review 무효화, 파일 잠금·원자 저장·손상된 상태 방어. 제품 DB 게시 없음.
+- backend `npm test` 빌드 및 70/70 통과(기본 sandbox에서 `dist` unlink EPERM 후 허용 재실행 성공). 공식 사이트 HTML 자동 수집·추가 OTT 게시·독립 검증·클라우드 배포는 미실행. 게시 OTT 7건 유지.
+- 다음: Netflix/TVING 공식 공개 목록 구조와 접근 조건 실측, 플랫폼별 수집 어댑터 및 사람 검토→게시 연결. iOS 개인 signing 변경 보존.

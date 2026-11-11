@@ -201,3 +201,8 @@ backend IGDB KR 출시일에서 iOS/Android 분류를 지원하고 game_device e
 - backend ADR `docs/decisions/015-ott-release-lineups.md`, 카드 `docs/tasks/DATA-10-ott-lineup-pipeline.md` 및 `scripts/prepare-ott-lineup.mjs` 참고. 현재 CLI는 **수동 검토된 목록만** 미게시 후보로 변환하며 사이트 자동 스크레이핑/DB 게시 기능이 아님.
 - 기본 `npm test`에 `tests/*.test.mjs` 포함, 빌드와 전체 66/66 검사 성공. 소스 날짜/국가 근거와 최초 공개 여부를 다시 심사해야 한다. 운영 OTT 게시 7건은 그대로다.
 - 차기 구현은 Netflix·TVING 우선 실제 페이지 구조/접근 및 복수 작품 파싱, 검토용 staging/공식 증거 첨부, 이미지 출처 관리. Disney+·Coupang Play도 접근 가능성을 실측해야 한다. 실제 적재/배포 및 verifier 독립 승인 없음. app `ios/GODIEOR.xcodeproj/project.pbxproj` 개인 signing dirty 유지.
+## DATA-11 OTT 후보 staging 인계 (2026-11-11)
+
+- backend `scripts/stage-ott-lineup.mjs`가 검토용 후보 state를 저장하며 동일 작품 재수집·날짜 변경 시 revision과 review 상태를 관리한다. 원본 카드 backend `docs/tasks/DATA-10-ott-lineup-pipeline.md`.
+- `npm test` 빌드 및 70/70 통과, 실제 서비스 HTML 파싱·DB 게시·운영 배포·독립 verifier 실행은 아직 미완료. 기존 게시 OTT 7건 유지.
+- 다음 담당은 Netflix/TVING 공식 목록의 구조·접근 조건부터 확인하고 사람 검토 단계를 거치는 어댑터를 구현한다. iOS 개인 Xcode signing 변경은 커밋하지 않는다.
