@@ -64,6 +64,31 @@ test('공개일 변경은 같은 작품의 신규 revision이며 검토를 무�
   assert.equal(state.candidates[0].revision, 2);
   assert.equal(state.candidates[0].review, null);
 });
+test('시즌 번호가 뒤늦게 확인돼도 같은 한국 공개 후보를 중복 적재하지 않는다', () => {
+  const input = lineup();
+  input.items[0].market = 'KR';
+  const state = { version: 1, stage: 'lineup-review-staging', candidates: [] };
+  const original = prepareLineup(input);
+  mergeLineup(state, original, '2026-11-11T02:00:00Z');
+  const originalId = state.candidates[0].id;
+  input.items[0].seasonNumber = 2;
+  const enriched = prepareLineup(input);
+  const first = mergeLineup(state, enriched, '2026-11-12T02:00:00Z');
+  assert.deepEqual([first.created, first.changed, first.stored], [0, 1, 1]);
+  assert.equal(state.candidates[0].id, originalId);
+  assert.equal(state.candidates[0].candidate.seasonNumber, 2);
+  assert.equal(mergeLineup(state, enriched, '2026-11-12T03:00:00Z').stored, 1);
+
+  // Repair the duplicate that earlier versions would have created.
+  const old = structuredClone(state.candidates[0]);
+  old.candidate.seasonNumber = null;
+  old.candidate.id = originalId;
+  const newRecord = structuredClone(state.candidates[0]);
+  newRecord.id = enriched.candidates[0].id;
+  newRecord.candidate.id = newRecord.id;
+  state.candidates = [old, newRecord];
+  assert.equal(mergeLineup(state, enriched, '2026-11-12T04:00:00Z').stored, 1);
+});
 test('스테이징 파일은 재실행해도 중복 없이 유지하고 잘못된 입력은 상태를 유지한다', async () => {
   const root = await mkdtemp(join(tmpdir(), 'godieor-lineup-test-'));
   try {

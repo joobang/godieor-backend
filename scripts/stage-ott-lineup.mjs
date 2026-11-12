@@ -29,6 +29,23 @@ export function mergeLineup(state, prepared, now) {
   if (typeof now !== 'string' || !Number.isFinite(Date.parse(now))) throw new Error('INVALID_TIME');
   const ids = new Set();
   const existing = new Map(state.candidates.map((record) => [record.id, record]));
+  // A season hint can arrive after the first official listing. Keep the original
+  // candidate identity, and discard an earlier unreviewed duplicate from older runs.
+  const superseded = new Set();
+  const originalWithUnknownSeason = (item) => state.candidates.filter((record) => {
+    const old = record.candidate;
+    return old.seasonNumber === null && item.seasonNumber !== null &&
+      old.platform === item.platform && old.sourceUrl === item.sourceUrl &&
+      old.market === item.market && old.title === item.title && old.date === item.date &&
+      record.review === null && !superseded.has(record.id);
+  });
+  const previouslyEnriched = (item) => state.candidates.filter((record) => {
+    const old = record.candidate;
+    return old.seasonNumber === item.seasonNumber && item.seasonNumber !== null &&
+      old.platform === item.platform && old.sourceUrl === item.sourceUrl &&
+      old.market === item.market && old.title === item.title && old.date === item.date &&
+      record.review === null && !superseded.has(record.id);
+  });
   // Preflight the whole batch before modifying state.
   for (const item of prepared.candidates) {
     if (!item || typeof item.id !== 'string' || !/^[a-f0-9]{64}$/.test(item.id) ||
@@ -37,9 +54,26 @@ export function mergeLineup(state, prepared, now) {
     ids.add(item.id);
   }
   let created = 0, changed = 0, unchanged = 0;
-  for (const item of prepared.candidates) {
+  for (let item of prepared.candidates) {
     const fingerprint = hash([item.platform, item.sourceUrl, item.title, item.market, item.contentKind, item.seasonNumber, item.date, item.premiereConfirmed, item.imageUrl, item.evidence]);
     let record = existing.get(item.id);
+    if (!record) {
+      const enrichedRecords = previouslyEnriched(item);
+      if (enrichedRecords.length === 1) {
+        record = enrichedRecords[0];
+        item = { ...item, id: record.id };
+      }
+    }
+    const oldSeasonRecords = originalWithUnknownSeason(item);
+    if (oldSeasonRecords.length === 1) {
+      const oldRecord = oldSeasonRecords[0];
+      if (record) superseded.add(oldRecord.id);
+      else {
+        // Keep a stable identity when only metadata (season) was enriched.
+        record = oldRecord;
+        item = { ...item, id: record.id };
+      }
+    }
     if (!record) {
       record = { id: item.id, firstSeenAt: now, lastSeenAt: now, fingerprint, revision: 1, candidate: item, review: null };
       state.candidates.push(record);
@@ -56,6 +90,7 @@ export function mergeLineup(state, prepared, now) {
       }
     }
   }
+  if (superseded.size) state.candidates = state.candidates.filter((record) => !superseded.has(record.id));
   return { stage: state.stage, created, changed, unchanged, stored: state.candidates.length, published: 0 };
 }
 async function writeAtomic(file, data) {
