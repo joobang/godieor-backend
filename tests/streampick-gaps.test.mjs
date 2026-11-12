@@ -66,3 +66,14 @@ test('official source finds titles omitted by TMDB provider filtering, independe
   assert.equal(result.rows[1].date,'2026-11-25');
   assert.equal(result.rows.every(row => row.publishEligible===false),true);
 });
+
+test('same OTT new season is separate from existing season even on another date', () => {
+  const result = reconcileGaps({ rows: [{ title: '연속극', platform: 'netflix', date: '2026-11-11', seasonNumber: 1,
+    dateMatched: true }] }, [{ platform: 'netflix', sourceUrl: 'https://www.netflix.com/kr', items: [
+    { title: '연속극', date: '2026-12-11', seasonNumber: 2, market: 'KR', premiereConfirmed: true },
+  ] }]);
+  assert.equal(result.total, 2);
+  assert.equal(result.rows[0].classification, 'tmdb_date_only');
+  assert.equal(result.rows[1].seasonNumber, 2);
+  assert.equal(result.rows[1].date, '2026-12-11');
+});

@@ -5,7 +5,10 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 const normalize = (s) => String(s ?? '').normalize('NFKC').toLocaleLowerCase('ko').replace(/[\s\p{P}\p{S}]/gu, '');
-const keyOf = (r) => `${r.platform}|${normalize(r.title)}|${r.date}`;
+const titlePlatformOf = (r) => `${r.platform}|${normalize(r.title)}`;
+const seasonOf = (r) => r.seasonNumber ?? r.season ?? null;
+const seasonCompatible = (a, b) => seasonOf(a) == null || seasonOf(b) == null || seasonOf(a) === seasonOf(b);
+const keyOf = (r) => `${titlePlatformOf(r)}|${r.date}|${seasonOf(r) ?? ''}`;
 
 export function reconcileGaps(tmdbReport, lineups) {
   if (!Array.isArray(tmdbReport?.rows) || !Array.isArray(lineups)) throw new Error('INVALID_INPUT');
@@ -23,16 +26,16 @@ export function reconcileGaps(tmdbReport, lineups) {
       matches.push({ sourceUrl: lineup.sourceUrl, premiereConfirmed: item.premiereConfirmed === true,
         evidence: item.evidence ?? null, seasonNumber: item.seasonNumber ?? null });
       evidence.set(key, matches);
-      const titleKey = `${lineup.platform}|${normalize(item.title)}`;
+      const titleKey = titlePlatformOf({ ...item, platform: lineup.platform });
       const titleItems = byTitleAndPlatform.get(titleKey) ?? [];
       titleItems.push({ date: item.date, ...matches.at(-1) });
       byTitleAndPlatform.set(titleKey, titleItems);
     }
   }
   const rows = tmdbReport.rows.map((row) => {
-    const officialCandidates = evidence.get(keyOf(row)) ?? [];
-    const alternateOfficialDates = (byTitleAndPlatform.get(`${row.platform}|${normalize(row.title)}`) ?? [])
-      .filter((e) => e.date && e.date !== row.date);
+    const sameTitle = (byTitleAndPlatform.get(titlePlatformOf(row)) ?? []).filter((e) => seasonCompatible(row, e));
+    const officialCandidates = sameTitle.filter((e) => e.date === row.date);
+    const alternateOfficialDates = sameTitle.filter((e) => e.date && e.date !== row.date);
     const confirmed = officialCandidates.some((e) => e.premiereConfirmed &&
       (row.seasonNumber == null || e.seasonNumber === row.seasonNumber));
     const classification = alternateOfficialDates.length ? 'official_date_conflict'
@@ -41,7 +44,7 @@ export function reconcileGaps(tmdbReport, lineups) {
       : row.dateMatched && row.krProviderMatched ? 'tmdb_date_and_provider_only'
       : row.dateMatched && row.koreanOrigin ? 'korean_origin_target_provider_unlisted'
       : row.dateMatched ? 'tmdb_date_only' : 'tmdb_date_unmatched';
-    return { title: row.title, platform: row.platform, date: row.date, contentId: row.contentId,
+    return { title: row.title, platform: row.platform, date: row.date, seasonNumber: seasonOf(row), contentId: row.contentId,
       tmdbId: row.tmdbId, tmdbStatus: row.status, tmdbDateFields: row.dates,
       krProviderNames: row.krProviderNames, originCountries: row.originCountries??[],
       broadcastNetworks: row.broadcastNetworks??[], koreanOrigin: row.koreanOrigin===true,
@@ -51,11 +54,12 @@ export function reconcileGaps(tmdbReport, lineups) {
   // A platform's own schedule can discover a title that TMDB's provider filter never returned.
   // Keep each platform/date as a separate event candidate; no cross-platform date inference.
   const discoveredKeys = new Set(tmdbReport.rows.map(keyOf));
-  const discoveredTitlePlatforms = new Set(tmdbReport.rows.map((row) => `${row.platform}|${normalize(row.title)}`));
   for (const [key, row] of officialRows) {
-    if (discoveredKeys.has(key)) continue;
-    // Date disagreement is already represented on the TMDB row as official_date_conflict.
-    if (discoveredTitlePlatforms.has(`${row.platform}|${normalize(row.title)}`)) continue;
+    if (discoveredKeys.has(key) || tmdbReport.rows.some((tmdb) =>
+      titlePlatformOf(tmdb) === titlePlatformOf(row) && tmdb.date === row.date && seasonCompatible(tmdb, row))) continue;
+    // A date disagreement for the SAME season is already represented as a conflict.
+    if (tmdbReport.rows.some((tmdb) => titlePlatformOf(tmdb) === titlePlatformOf(row) &&
+      seasonCompatible(tmdb, row))) continue;
     const officialCandidates = evidence.get(key) ?? [];
     rows.push({ ...row, contentId: null, tmdbId: null, tmdbStatus: 'not_matched',
       tmdbDateFields: null, krProviderNames: [], originCountries: [], broadcastNetworks: [],
