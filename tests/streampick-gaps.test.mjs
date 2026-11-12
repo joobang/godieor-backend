@@ -1,6 +1,64 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { reconcileGaps } from '../scripts/reconcile-streampick-gaps.mjs';
+import { reconcileGaps, withCandidateEvidence } from '../scripts/reconcile-streampick-gaps.mjs';
+
+test('latest Netflix KR candidate evidence resolves a stale TMDB-only gap without publishing', () => {
+  const report = { rows: [{ title: '더 바디', platform: 'netflix', date: '2026-11-11',
+    seasonNumber: 1, dateMatched: true, krProviderMatched: false }] };
+  const state = { candidates: [{ id: 'candidate-1', url: 'https://about.netflix.com/ko/new-to-watch',
+    revisions: [{ token: 'revision-2', lineupEvidence: { title: '더 바디', platform: 'netflix',
+      market: 'KR', date: '2026-11-11', seasonNumber: 1, premiereConfirmed: false } }],
+    review: { value: { revision: 'revision-1' } } }] };
+  const merged = withCandidateEvidence(report, [], state);
+  const result = reconcileGaps(report, merged);
+  assert.equal(result.total, 1);
+  assert.equal(result.rows[0].classification, 'official_kr_listing_needs_premiere_review');
+  assert.equal(result.rows[0].officialCandidates[0].candidateId, 'candidate-1');
+  assert.equal(result.rows[0].officialCandidates[0].reviewStatus, 'needs_review');
+  assert.equal(result.rows[0].publishEligible, false);
+});
+
+test('same official source/title/date is enriched without duplicate evidence', () => {
+  const report = { rows: [{ title: '더 바디', platform: 'netflix', date: '2026-11-11' }] };
+  const lineups = [{ platform: 'netflix', sourceUrl: 'https://about.netflix.com/ko/new-to-watch',
+    items: [{ title: '더 바디', date: '2026-11-11', market: 'KR', premiereConfirmed: false }] }];
+  const state = { candidates: [{ id: 'candidate-1', url: lineups[0].sourceUrl,
+    revisions: [{ token: 'r2', lineupEvidence: { title: '더 바디', platform: 'netflix',
+      date: '2026-11-11', market: 'KR', seasonNumber: 1, premiereConfirmed: false,
+      evidence: 'Netflix KR dated listing' } }], review: null }] };
+  const merged = withCandidateEvidence(report, lineups, state);
+  assert.equal(merged[0].items.length, 1);
+  assert.equal(merged[0].items[0].seasonNumber, 1);
+  assert.equal(reconcileGaps(report, merged).rows[0].officialCandidates.length, 1);
+  assert.equal(lineups[0].items[0].candidateId, undefined);
+});
+
+test('candidate evidence respects title, platform, market and season', () => {
+  const report = { rows: [{ title: '연속극', platform: 'netflix', date: '2026-11-11', seasonNumber: 2 }] };
+  const mk = (id, platform, market, seasonNumber) => ({ id, url: 'https://example.com/' + id,
+    revisions: [{ token: id, lineupEvidence: { title: '연속극', platform, market,
+      date: '2026-11-11', seasonNumber, premiereConfirmed: false } }] });
+  const merged = withCandidateEvidence(report, [], { candidates: [
+    mk('other-platform', 'tving', 'KR', 2), mk('other-market', 'netflix', 'US', 2),
+    mk('other-season', 'netflix', 'KR', 1), mk('matched', 'netflix', 'KR', 2),
+  ] });
+  const result = reconcileGaps(report, merged);
+  assert.equal(result.rows[0].officialCandidates.length, 1);
+  assert.equal(result.rows[0].officialCandidates[0].candidateId, 'matched');
+  assert.equal(result.total, 2);
+  assert.equal(result.rows[1].seasonNumber, 1);
+});
+
+test('gap-only report does not inflate StreamPick denominator with unrelated official arrivals', () => {
+  const report = { rows: [{ title: '더 바디', platform: 'netflix', date: '2026-11-11' }] };
+  const lineups = [{ platform: 'netflix', sourceUrl: 'https://example.com', items: [
+    { title: '더 바디', date: '2026-11-11', market: 'KR', premiereConfirmed: false },
+    { title: '별개 작품', date: '2026-11-22', market: 'KR', premiereConfirmed: true },
+  ] }];
+  const result = reconcileGaps(report, lineups, { includeOfficialDiscoveries: false });
+  assert.equal(result.total, 1);
+  assert.equal(result.rows[0].classification, 'official_kr_listing_needs_premiere_review');
+});
 
 test('KR official listing without premiere confirmation stays excluded from publication', () => {
   const report = { rows: [{ title: '스타일 워즈', platform: 'disney_plus', date: '2026-11-11',

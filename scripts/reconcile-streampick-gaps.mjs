@@ -10,7 +10,40 @@ const seasonOf = (r) => r.seasonNumber ?? r.season ?? null;
 const seasonCompatible = (a, b) => seasonOf(a) == null || seasonOf(b) == null || seasonOf(a) === seasonOf(b);
 const keyOf = (r) => `${titlePlatformOf(r)}|${r.date}|${seasonOf(r) ?? ''}`;
 
-export function reconcileGaps(tmdbReport, lineups) {
+// The persisted review queue contains official title/date evidence that might not
+// exist in the checked-in lineup snapshots. Only join requested gap titles: the
+// reference is a review list, not permission to publish all 75 Netflix arrivals.
+export function withCandidateEvidence(tmdbReport, lineups, state) {
+  if (!Array.isArray(tmdbReport?.rows) || !Array.isArray(lineups) || !Array.isArray(state?.candidates))
+    throw new Error('INVALID_CANDIDATE_INPUT');
+  const merged = lineups.map((lineup) => ({ ...lineup,
+    items: Array.isArray(lineup.items) ? lineup.items.map((item) => ({ ...item })) : [] }));
+  const targets = new Set(tmdbReport.rows.map(titlePlatformOf));
+  for (const candidate of state.candidates) {
+    const latest = candidate.revisions?.at(-1);
+    const row = latest?.lineupEvidence;
+    if (!row || row.market !== 'KR' || !targets.has(titlePlatformOf(row))) continue;
+    // A past review becomes stale whenever the evidence revision changes.
+    const reviewStatus = candidate.review?.value?.revision === latest.token ? 'reviewed' : 'needs_review';
+    const queueReference = { candidateId: candidate.id, revisionToken: latest.token, reviewStatus };
+    let source = merged.find((x) => x.platform === row.platform && x.sourceUrl === candidate.url);
+    if (!source) {
+      source = { platform: row.platform, sourceUrl: candidate.url, items: [] };
+      merged.push(source);
+    }
+    const existing = source.items.find((item) =>
+      normalize(item.title) === normalize(row.title) && item.date === row.date &&
+      seasonCompatible(item, row));
+    if (existing) {
+      Object.assign(existing, row, queueReference);
+    } else {
+      source.items.push({ ...row, ...queueReference });
+    }
+  }
+  return merged;
+}
+
+export function reconcileGaps(tmdbReport, lineups, { includeOfficialDiscoveries = true } = {}) {
   if (!Array.isArray(tmdbReport?.rows) || !Array.isArray(lineups)) throw new Error('INVALID_INPUT');
   const evidence = new Map();
   const byTitleAndPlatform = new Map();
@@ -24,7 +57,9 @@ export function reconcileGaps(tmdbReport, lineups) {
         date: item.date, seasonNumber: item.seasonNumber ?? null });
       const matches = evidence.get(key) ?? [];
       matches.push({ sourceUrl: lineup.sourceUrl, premiereConfirmed: item.premiereConfirmed === true,
-        evidence: item.evidence ?? null, seasonNumber: item.seasonNumber ?? null });
+        evidence: item.evidence ?? null, seasonNumber: item.seasonNumber ?? null,
+        ...(item.candidateId ? { candidateId: item.candidateId, revisionToken: item.revisionToken,
+          reviewStatus: item.reviewStatus } : {}) });
       evidence.set(key, matches);
       const titleKey = titlePlatformOf({ ...item, platform: lineup.platform });
       const titleItems = byTitleAndPlatform.get(titleKey) ?? [];
@@ -54,7 +89,7 @@ export function reconcileGaps(tmdbReport, lineups) {
   // A platform's own schedule can discover a title that TMDB's provider filter never returned.
   // Keep each platform/date as a separate event candidate; no cross-platform date inference.
   const discoveredKeys = new Set(tmdbReport.rows.map(keyOf));
-  for (const [key, row] of officialRows) {
+  for (const [key, row] of includeOfficialDiscoveries ? officialRows : []) {
     if (discoveredKeys.has(key) || tmdbReport.rows.some((tmdb) =>
       titlePlatformOf(tmdb) === titlePlatformOf(row) && tmdb.date === row.date && seasonCompatible(tmdb, row))) continue;
     // A date disagreement for the SAME season is already represented as a conflict.
@@ -82,7 +117,12 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     const tmdb = JSON.parse(await readFile(inputPath, 'utf8'));
     const lineups = await Promise.all((await readdir(dir)).filter((f) => f.endsWith('.json'))
       .map((f) => readFile(resolve(dir, f), 'utf8').then(JSON.parse)));
-    const result = reconcileGaps(tmdb, lineups);
+    const statePath = process.argv[5] ?? 'work/ott-candidates/state.json';
+    const state = JSON.parse(await readFile(statePath, 'utf8'));
+    // Gap accounting must retain the original 11 StreamPick-only targets.
+    // The full official lineup is a separate discovery population.
+    const result = reconcileGaps(tmdb, withCandidateEvidence(tmdb, lineups, state),
+      { includeOfficialDiscoveries: false });
     await writeFile(outPath, JSON.stringify(result, null, 2) + '\n');
     console.log(JSON.stringify({ total: result.total, summary: result.summary, rows: result.rows.map(({title,platform,date,classification}) => ({title,platform,date,classification})), publishedCountDelta: 0 }, null, 2));
   } catch (error) { console.error(`STREAMPICK_RECONCILIATION_FAILED:${error.message}`); process.exitCode = 1; }
