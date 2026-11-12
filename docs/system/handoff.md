@@ -1,7 +1,30 @@
+## OTT 작업 최신 인계 (2026-11-12)
+
+- 새 에이전트는 app `docs/system/ott-handoff-2026-11-12.md`에서 DATA-43 로컬 게시·DATA-44 미분류 분석·남은 공식 제공일 검토·다음 실행 명령을 확인한다. 신규 게시/DB 재측정 없이 문서만 정리한 인계다.
+
 ## DATA-44 인계 (2026-11-12)
 
 - backend `docs/tasks/DATA-44-netflix-review-backlog.md`에75건/미분류44건 재현 분류와 행별 후속 검토표. `scripts/classify-ott-review-backlog.mjs`, `data/reference/netflix-kr-*-2026-11-12.json` 및 검토 매핑 snapshot 사용. 검색미발견33/후보날짜이전10/이후1, 기존검토2+시즌미확인1+매핑미일치41. 날짜차이를 입점/재공개로 단정하지 않음.
 - 최종Node22 npm test145/145 통과(기존dirty/미추적포함working tree), 권장Node24·독립검증미실행. 웹/DB이번조회0·신규게시0, 이전로컬42건은재측정아님. 다음은33건공식videoID원제/종류확인→11건정체성/플랫폼날짜의미→알리시아의법시즌확인. 앱코드/계약/migration/verdict변경없음. 공통문서이번머리말만선택커밋, 기존본문dirty/signing/다른도구보존. 담당codex-data44-01해제.
+
+## DATA-43 인계 (2026-11-12)
+
+- backend Netflix KR 75개 중 TMDB 영화/시즌 날짜 단일 매칭을 수동 교차검토해 신규 25건 review/매핑/로컬 DB 게시. 공식 11~12월 4OTT 게시 17→42건, 전체 reviewed mapping 19→44. Node22 npm test 138/138 통과. 문무·나인 투 식스·전지적 집착 시점 한국 OTT 최초 제공일 미확인 유지.
+- 원본 카드 backend/docs/tasks/DATA-43-netflix-reviewed-batch.md 및 curated review JSON. 다음은 Netflix KR 공식 75건 나머지 44건 유형 분류와 OTT 입점일 구분, TVING/Disney/Coupang 공식 수집 확대. 기존 상태 dirty·signing 보존. 검증/클라우드/실폰 미실행.
+
+## DATA-27 StreamPick 11건 TMDB/국내 공식 근거 대조 (2026-11-12)
+
+- backend `docs/tasks/DATA-27-streampick-tmdb-provenance.md`: StreamPick-only 신작 11/11 TMDB 날짜 일치, KR 제공처 일치 6/11. 한국 공식 OTT 같은 날짜 단서 `유일무이 로맨스`·`스타일 워즈` 2건은 최초 공개 미확정. 현재 분류: TMDB 날짜+제공처만 5, 날짜만 4, 한국 공식 공개일 단서 2. 자동 게시 0. DB 기존 9건은 과거 조회값이며 이번 DB 재조회 없음. backend 전체 테스트 105/105 통과, 독립 검증/배포 미실행.
+- 다음: 시즌 날짜 기반 누락 후보 배치 연결, 공식 첫 공개 검증, reviewed 게시 뒤 DB 재집계. 기존 dirty 및 앱 signing 보존.
+
+## DATA-26 StreamPick 전체 달력/로컬 DB 건수 차이 (2026-11-12)
+
+- StreamPick 실제 HTML 캘린더(11~12월) 전체 885 이벤트 = 회차 849 + 신작 36. 대상 4 OTT 연결행 신작 15(Netflix 10, TVING 3, Disney+ 2, Coupang 0), 회차 703. 한국 OTT 최초 공개만 게시하는 현재 분류와 `episode`를 섞어 집계하면 큰 차이 발생.
+- 로컬 DB 9건 vs StreamPick 신작 15건: 날짜·제목·플랫폼 일치 4, StreamPick에만 있는 신작 후보 11, DB에만 있는 5. 후보는 미검토이므로 신규 게시 0. backend `docs/tasks/DATA-26-stream-count-gap.md` 원본, `scripts/audit_streampick_calendar.py` 감사 도구, 2/2 자체검사 통과. 추후 11개 후보 공식 KR 근거 확인 및 회차 기능 범위 결정 필요. 독립 검증·배포 미실행.
+
+## DATA-25 TMDB 역대조 인계 (2026-11-12)
+
+backend `docs/tasks/DATA-25-tmdb-dated-discovery.md`: StreamPick 2026년 11~12월 샘플 35행 중 TMDB 시즌/영화 공개일 단서 31행, KR 제공처까지 일치 25행. TMDB의 `'한국어 제목' - English title` 래핑 2행 누락 수정, 4행은 시즌 API 404 2행 및 제목 검색 미발견 2행. 월별 KR 제공처 discover 211 고유 TMDB ID는 참고 후보이며 한국 OTT 최초 공개 이벤트 수가 아니다. 자체 테스트 14/14, DB 게시 0. 기존 3개 저장소 공통 문서 변경은 동일 사본 유지, 기타 dirty는 보존. 다음은 한국 공식 최초 공개 근거 확인, 월별 후보 수집과 검토/게시 연결. 독립 검증·배포 없음.
 
 ## DATA-24 인계 (2026-11-11)
 
@@ -266,3 +289,30 @@ backend 매핑에 Disney+ `재혼 황후` 11/03, Coupang Play `스마일 클리�
 - backend `docs/tasks/DATA-23-ott-published-coverage.md`: `npm run audit:ott-published`로 StreamPick 발견 참고행 35개와 로컬 KR 검토 게시 OTT(11~12월 9건) 비교. 완전 일치 1, 시즌 확인 안 됨 3, 날짜 불일치 0, 미게시 31. 31건의 한국 첫 공개를 확인한 것은 아니며 임의 자동 게시 금지.
 - backend 자체 테스트 83/83. DB 게시 0/클라우드·iPhone·독립 검증 미실행. backend `.env.example`, app pbxproj 기존 dirty 보존. 다음은 공식 한국 플랫폼·날짜·시즌 근거 확인 후 reviewed publish 및 동일 재감사. 승인/acceptance/계약 변경 없음.
 
+## DATA-25 인계 (2026-11-12)
+
+TMDB `first_air_date`/`release_date`만으로 시즌 공개를 찾던 568건 인기순 카탈로그를 보완하기 위해 backend에 날짜 기반 discover + StreamPick 35행 제목 역검색/시즌·1화 날짜 확인을 구현했다. 기존 카탈로그의 제목·서비스 일치는 12/35, 새 코드 검사는 9/9. TMDB DNS `ENOTFOUND`로 실제 35행 역대조는 미완료. 실행 결과 `/private/tmp/godieor-tmdb-date-discovery.json`, 원본 backend `docs/tasks/DATA-25-tmdb-dated-discovery.md`. 제품 신규 게시 0; 다음은 DNS 가능 환경에서 `node --env-file=.env scripts/tmdb-date-discovery.mjs --live` 실행 후 공식 KR 최초 공개일 검토. `.env.example`, `package.json`, iOS signing 및 기존 미추적 파일 보존. 독립 승인/배포 없음.
+
+## DATA-25 추가 인계 (2026-11-12)
+
+TMDB 568개 캐시 vs StreamPick 35행: 제목 미발견 22·제공처 불일치 1·첫 방영일 불일치 8·일치 4. 시즌 없는 참조를 위한 영화 검색/상세/한국 provider 경로와 별도 글로벌 영화 개봉일 판정 추가. backend 관련 테스트 12/12 PASS; `/private/tmp/godieor-tmdb-date-audit-v3.json` 오프라인 결과. 실제 TMDB 역조회는 네트워크 DNS 장애가 해소된 증거가 없어 재실행하지 않았으므로 실시간 커버리지 불명. 공식 한국 플랫폼 공개일 검증·DB 게시·verifier 실행·배포 미완료. 원본 카드 backend `docs/tasks/DATA-25-tmdb-dated-discovery.md`. 기존 dirty `.env.example`, `package.json`, iOS signing, 다른 스크립트 유지. 계약·마이그레이션·승인 기준 변경 없음.
+
+## DATA-28 신작 누락 11개 인계 (2026-11-12)
+
+backend `docs/tasks/DATA-28-official-release-gap-check.md`에 분류·근거·남은 작업 기록. Netflix 한국 신규 4개 검토 후보, 공식 날짜 충돌 1개 분리. 기존 OTT 게시 데이터 변경 없음. TMDB의 글로벌 날짜와 한국 플랫폼 첫 출시 확인 구분. 독립 승인/배포 없음.
+
+## DATA-29 문무 제공처 필터 인계 (2026-11-12)
+
+backend `docs/tasks/DATA-29-munmu-provider-gap.md` 참조. 한국 제작·KBS2 첫 방송(11/14)에도 TMDB KR 제공처는 wavve만 있고 Netflix는 없음. backend 누락 조사 결과에서 한국 제작/방송사/다른 제공처 단서 보존, target OTT 공개 증거 확정은 보류. 독립검증·운영 게시 없음.
+
+## DATA-30 공식 소스+TMDB 및 OTT 표시 인계 (2026-11-12)
+
+- backend 대조는 TMDB 결과에 없는 공식 KR OTT 목록도 플랫폼/날짜별 검토 후보로 보존. 제품 자동 게시 없음. iOS 일간 카드/월간 미리보기에 OTT 브랜드 텍스트 배지 추가, 스키마·API 계약·마이그레이션 불변. backend 전체 111/111, app unsigned iOS build 성공. verifier 독립 실행 없음. 원본 backend `docs/tasks/DATA-30-official-tmdb-platform-events.md`. 다음은 공식 월별 목록 실수집/첫공개 확인 및 reviewed 등록 후 실제 일정 검증.
+
+## DATA-31 공식 OTT 우선 TMDB 인계 (2026-11-12)
+
+backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/시즌마다 TMDB 역검색하는 읽기 전용 보고서 추가. 같은 OTT의 별도 시즌 후보 분리. 기존 공식 KR 날짜 후보 14건, 실 TMDB 요청은 `fetch failed`로 14건 모두 조회 실패(게시 0). backend 전체 자체검사 114/114 PASS(포트 허용 환경). 기존 iOS 카드 OTT 텍스트 배지 유지, 이미지 로고 미적용. 원본 backend `docs/tasks/DATA-31-official-first-tmdb-enrichment.md`. 독립 검증/DB 게시/배포 미실행. 기존 dirty 파일 보존.
+## DATA-38 인계 (2026-11-12)
+
+- backend 카드 `docs/tasks/DATA-38-kr-premiere-reviewed-publish.md`, 기준 `9e5e48b`. 공식 한국 첫 공개 TVING 11/09 `유일무이 로맨스`, Disney+ 11/11 `스타일 워즈` 두 건 수동 검토 후 `ott_reviewed` 로컬 게시 13건. 11~12월 DB 11건 중 두 건 날짜·시즌 일치. `npm test` 129/129, 독립 verifier/클라우드 미실행.
+- 이후 작업: Netflix 한국 최초 공개 미확정 4건, 공식 날짜 충돌 `오버액션 갱`, TMDB 단독 4건 원천 OTT 확인. 기존 문서 dirty는 이전 사용자 변경으로 보존.
