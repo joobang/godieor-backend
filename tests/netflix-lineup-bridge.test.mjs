@@ -30,6 +30,9 @@ test('75 Netflix entries retain distinct official item IDs, without publishing o
     assert.equal(state.candidates.length, 75);
     assert.equal(reviewedExport(state).length, 0);
     assert.ok(state.candidates.every((x) => x.revisions[0].publishedAt === null));
+    assert.ok(state.candidates.every((x) => x.revisions[0].lineupEvidence?.premiereConfirmed === false));
+    assert.equal(state.candidates[0].revisions[0].lineupEvidence.title, official.items[0].title);
+    assert.equal(state.candidates[0].revisions[0].lineupEvidence.date, official.items[0].date);
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
 
@@ -47,6 +50,7 @@ test('lineup items coexist with legacy article review; evidence edits invalidate
   const rows = netflixDiscoveries(official).slice(0, 2);
   merge(base, rows, now);
   const [first, second] = rows.map((x) => candidateId(x.source, x.url, x.itemKey));
+  assert.equal(base.candidates.find((x) => x.id === first)?.revisions.at(-1)?.lineupEvidence?.title, rows[0].lineupEvidence.title);
   assert.notEqual(first, second);
   assert.equal(reviewedExport(base).length, 1);
   merge(base, [{ ...rows[0], contentHash: 'f'.repeat(64) }], now);

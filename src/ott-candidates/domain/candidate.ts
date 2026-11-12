@@ -67,6 +67,19 @@ export const reviewSchema = z
       ctx.addIssue({ code: "custom", message: "YEAR_CONFLICT" });
   });
 export type Review = z.infer<typeof reviewSchema>;
+const lineupEvidenceSchema = z.object({
+  platform: z.literal("netflix"),
+  title: shortText,
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable(),
+  market: z.string().regex(/^[A-Z]{2}$/).nullable(),
+  contentKind: z.enum(["movie", "original_series", "drama", "variety", "documentary", "animation", "other", "unknown"]),
+  seasonNumber: z.number().int().positive().nullable(),
+  premiereConfirmed: z.boolean(),
+  evidence: z.string().min(1).max(1000),
+  imageUrl: z.string().url().nullable(),
+  sourceItem: z.number().int().positive(),
+}).strict();
+export type LineupEvidence = z.infer<typeof lineupEvidenceSchema>;
 const revisionSchema = z
   .object({
     token: digest,
@@ -75,6 +88,7 @@ const revisionSchema = z
     headline: shortText,
     publishedRaw: z.string().max(200).nullable(),
     publishedAt: stamp.nullable(),
+    lineupEvidence: lineupEvidenceSchema.optional(),
   })
   .strict();
 const candidateSchema = z
@@ -128,6 +142,7 @@ export type Discovery = {
   publishedRaw: string | null;
   publishedAt: string | null;
   contentHash: string;
+  lineupEvidence?: LineupEvidence;
 };
 export const hash = (text: string): string =>
   createHash("sha256").update(text).digest("hex");
@@ -200,6 +215,7 @@ export function merge(state: State, entries: Discovery[], now: string): void {
         headline: entry.headline,
         publishedRaw: entry.publishedRaw,
         publishedAt: entry.publishedAt,
+        ...(entry.lineupEvidence ? { lineupEvidence: lineupEvidenceSchema.parse(entry.lineupEvidence) } : {}),
       });
       candidate.review = null;
     }

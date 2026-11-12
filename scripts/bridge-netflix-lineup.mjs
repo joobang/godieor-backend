@@ -22,11 +22,17 @@ export function netflixDiscoveries(input) {
     seen.add(itemKey);
     const headline = `${row.title}${row.seasonNumber === null ? '' : ` 시즌 ${row.seasonNumber}`}`;
     const sourceEvidence = [row.title, row.date, row.market, row.contentKind,
-      row.seasonNumber, row.premiereConfirmed, row.evidence, row.imageUrl];
+      row.seasonNumber, row.premiereConfirmed, row.evidence, row.imageUrl, row.sourceItem];
     return {
       source: 'netflix', url, itemKey, headline,
       // Official lineup date is not the publication timestamp of the source article.
       publishedRaw: null, publishedAt: null,
+      lineupEvidence: {
+        platform: row.platform, title: row.title, date: row.date,
+        market: row.market, contentKind: row.contentKind,
+        seasonNumber: row.seasonNumber, premiereConfirmed: row.premiereConfirmed,
+        evidence: row.evidence, imageUrl: row.imageUrl, sourceItem: row.sourceItem,
+      },
       contentHash: hash(JSON.stringify(sourceEvidence)),
     };
   });
