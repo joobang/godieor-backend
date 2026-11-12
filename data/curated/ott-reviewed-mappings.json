@@ -67,6 +67,18 @@
       "revision": "c5beed61bcb8066c472bf3329949398bb4a26989330cb6b6e311d0b639a4ad92",
       "contentKey": "work-000011",
       "eventKey": "event-000011"
+    },
+    {
+      "candidateId": "0b5ab9c901ebbbd534414c479d0b3dff0fa5482e90d5269507bf883bebb59446",
+      "revision": "9b6a54bbf87b374c00f61bb73885960db85fc0f079c1e163ecc84ee1ae0269d2",
+      "contentKey": "work-000012",
+      "eventKey": "event-000012"
+    },
+    {
+      "candidateId": "314dd90fefe988ad264dc1994454519b5a5172dc3c71ae357ad521d683b30c95",
+      "revision": "127086dd872d2aea45d3e80637a4dda4305a7a4e320237b0e93605b39dc7ca6a",
+      "contentKey": "work-000013",
+      "eventKey": "event-000013"
     }
   ]
 }

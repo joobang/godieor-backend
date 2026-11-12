@@ -1,0 +1,14 @@
+{
+  "platform": "disney_plus",
+  "sourceUrl": "https://www.disneyplus.com/ko-kr/browse/entity-48718a21-c9c9-487a-a655-d81a9f44c7de",
+  "observedAt": "2026-11-12T04:35:00Z",
+  "items": [{
+    "title": "스타일 워즈",
+    "date": "2026-11-11",
+    "market": "KR",
+    "contentKind": "variety",
+    "seasonNumber": 1,
+    "premiereConfirmed": true,
+    "evidence": "Disney+ 한국 작품 페이지와 https://www.cineplay.co.kr/ko-kr/articles/30750 의 한국 11/11 첫 1·2화 공개, https://press.disneyplus.com/news/next-on-disney-plus-november-2026 시즌1 2화 최초 공개 교차 확인."
+  }]
+}
