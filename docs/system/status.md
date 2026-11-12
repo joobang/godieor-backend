@@ -1,3 +1,8 @@
+## DATA-44 Netflix 미분류 44건 사유·기존 검토 대조 (2026-11-12)
+
+- 원본 `backend/docs/tasks/DATA-44-netflix-review-backlog.md`. DATA-43 저장 관측 기준 공식 75건=날짜 단일 매칭31+나머지44. 44건은 TMDB 검색 미발견33/후보 날짜 이전10/이후1. 기존 검토 매핑 동일 조건2, 시즌 확인 필요1, 미일치41이며 DB 미게시 수를 뜻하지 않는다. 재입점·작품 종류 자동 확정/게시 없음.
+- 읽기 전용 분류 CLI·재현 입력/보고서·합성 회귀 검사 추가. Node22 전체 자체검사145/145(기존 dirty 포함 working tree), 보고서 반복 출력 동일. 실웹/DB 재조회·신규게시0, 클라우드/실폰/독립 검증 미실행. 이전42건은 DATA-43 측정 유지. 다음은 공식 videoID 상세로33건 정체성/종류 확인 및11건 날짜 의미·기존 시즌 대조. 개인 signing·기존 dirty 보존.
+
 ## DATA-24 TMDB 검토 OTT 포스터 연동 (2026-11-11)
 
 - backend `collect:tmdb`에 검토 완료 한국 OTT 작품의 포스터 연결 추가. 제목·종류·OTT 일치/단일 TMDB ID만 허용, 기존 이미지 보존. 로컬 DB 2개 포스터 UPDATE, 일정 신규 게시 0(11~12월 기존 9건). backend 86/86 테스트 통과, 독립 검증/클라우드 미실행. backend 카드 `docs/tasks/DATA-24-tmdb-reviewed-poster-link.md`; 다음은 공식 KR 최초 공개 후보의 review→publish 연결.

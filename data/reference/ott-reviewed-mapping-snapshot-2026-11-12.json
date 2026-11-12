@@ -1,0 +1,315 @@
+{
+  "kind": "reviewed-mapping-snapshot",
+  "asOf": "2026-11-12",
+  "databaseQueried": false,
+  "rows": [
+    {
+      "title": "천천히 강렬하게",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-12-11",
+      "seasonNumber": null
+    },
+    {
+      "title": "하우스 오브 드래곤 시즌3",
+      "platform": "coupang_play",
+      "market": "KR",
+      "date": "2026-06-23",
+      "seasonNumber": 3
+    },
+    {
+      "title": "유미의 세포들 시즌3",
+      "platform": "tving",
+      "market": "KR",
+      "date": "2026-04-13",
+      "seasonNumber": 3
+    },
+    {
+      "title": "비엔나 게임",
+      "platform": "disney_plus",
+      "market": "KR",
+      "date": "2026-11-18",
+      "seasonNumber": null
+    },
+    {
+      "title": "데블스 플랜: 데드 어게인",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-10",
+      "seasonNumber": 3
+    },
+    {
+      "title": "심장소리",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-02",
+      "seasonNumber": null
+    },
+    {
+      "title": "대리수능",
+      "platform": "tving",
+      "market": "KR",
+      "date": "2026-11-23",
+      "seasonNumber": null
+    },
+    {
+      "title": "푸른길",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-20",
+      "seasonNumber": null
+    },
+    {
+      "title": "가능한 사랑",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-06",
+      "seasonNumber": null
+    },
+    {
+      "title": "재혼 황후",
+      "platform": "disney_plus",
+      "market": "KR",
+      "date": "2026-11-03",
+      "seasonNumber": 1
+    },
+    {
+      "title": "스마일 클리닉",
+      "platform": "coupang_play",
+      "market": "KR",
+      "date": "2026-12-03",
+      "seasonNumber": null
+    },
+    {
+      "title": "유일무이 로맨스",
+      "platform": "tving",
+      "market": "KR",
+      "date": "2026-11-09",
+      "seasonNumber": 1
+    },
+    {
+      "title": "스타일 워즈",
+      "platform": "disney_plus",
+      "market": "KR",
+      "date": "2026-11-11",
+      "seasonNumber": 1
+    },
+    {
+      "title": "배스 X 마키나",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-03",
+      "seasonNumber": 1
+    },
+    {
+      "title": "반려견의 완벽한 크리스마스",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-04",
+      "seasonNumber": null
+    },
+    {
+      "title": "시한부 1년, 남자를 사다",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-05",
+      "seasonNumber": null
+    },
+    {
+      "title": "더 바디",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-11",
+      "seasonNumber": 1
+    },
+    {
+      "title": "알리시아의 법",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-11",
+      "seasonNumber": 1
+    },
+    {
+      "title": "오버액션 갱",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-05",
+      "seasonNumber": null
+    },
+    {
+      "title": "마이크 타이슨: 마이크가 돌아왔다",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-03",
+      "seasonNumber": null
+    },
+    {
+      "title": "마취",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-04",
+      "seasonNumber": 1
+    },
+    {
+      "title": "테이큰: 나탈리 할로웨이 실종 사건",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-04",
+      "seasonNumber": 1
+    },
+    {
+      "title": "니뇨: 명성의 대가",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-04",
+      "seasonNumber": null
+    },
+    {
+      "title": "블랙 도브",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-05",
+      "seasonNumber": 2
+    },
+    {
+      "title": "포위된 시간",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-06",
+      "seasonNumber": 1
+    },
+    {
+      "title": "보호받지 못한 자: 머더 인 갈리시아",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-06",
+      "seasonNumber": null
+    },
+    {
+      "title": "두지의 멍멍하우스",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-09",
+      "seasonNumber": 1
+    },
+    {
+      "title": "토크 서바이벌: 토크가 재밌어야 살아남는 드라마",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-10",
+      "seasonNumber": 4
+    },
+    {
+      "title": "키아로스쿠로: 빛과 어둠",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-11",
+      "seasonNumber": 1
+    },
+    {
+      "title": "시간이 지울 수 없는 죄",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-11",
+      "seasonNumber": null
+    },
+    {
+      "title": "크리스마스 가스펠",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-11",
+      "seasonNumber": null
+    },
+    {
+      "title": "연애 실험: 블라인드 러브 아랍편",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-12",
+      "seasonNumber": 2
+    },
+    {
+      "title": "에토스",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-12",
+      "seasonNumber": 2
+    },
+    {
+      "title": "더 브로스",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-12",
+      "seasonNumber": 2
+    },
+    {
+      "title": "황후 엘리자베트",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-12",
+      "seasonNumber": 3
+    },
+    {
+      "title": "하트랜드",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-13",
+      "seasonNumber": null
+    },
+    {
+      "title": "스타의 보디가드",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-18",
+      "seasonNumber": null
+    },
+    {
+      "title": "이타주의자들",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-19",
+      "seasonNumber": 1
+    },
+    {
+      "title": "난리굿 패밀리",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-20",
+      "seasonNumber": 2
+    },
+    {
+      "title": "스텝스",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-20",
+      "seasonNumber": null
+    },
+    {
+      "title": "불편한 파트너: 상금을 잡아라",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-25",
+      "seasonNumber": 4
+    },
+    {
+      "title": "풀 나이트",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-26",
+      "seasonNumber": 1
+    },
+    {
+      "title": "사냥하는 아내들",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-26",
+      "seasonNumber": 2
+    },
+    {
+      "title": "콰지모도, 파리의 영혼",
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-27",
+      "seasonNumber": null
+    }
+  ]
+}

@@ -1,3 +1,8 @@
+## DATA-44 인계 (2026-11-12)
+
+- backend `docs/tasks/DATA-44-netflix-review-backlog.md`에75건/미분류44건 재현 분류와 행별 후속 검토표. `scripts/classify-ott-review-backlog.mjs`, `data/reference/netflix-kr-*-2026-11-12.json` 및 검토 매핑 snapshot 사용. 검색미발견33/후보날짜이전10/이후1, 기존검토2+시즌미확인1+매핑미일치41. 날짜차이를 입점/재공개로 단정하지 않음.
+- 최종Node22 npm test145/145 통과(기존dirty/미추적포함working tree), 권장Node24·독립검증미실행. 웹/DB이번조회0·신규게시0, 이전로컬42건은재측정아님. 다음은33건공식videoID원제/종류확인→11건정체성/플랫폼날짜의미→알리시아의법시즌확인. 앱코드/계약/migration/verdict변경없음. 공통문서이번머리말만선택커밋, 기존본문dirty/signing/다른도구보존. 담당codex-data44-01해제.
+
 ## DATA-24 인계 (2026-11-11)
 
 TMDB 카탈로그 568개는 달력 게시와 별개다. 검토 완료 KR OTT 포스터를 제목·플랫폼·종류·단일 TMDB 매칭으로 보완, 로컬 DB 포스터 2개 UPDATE. 신규 일정 0, 11~12월 기존 9건, 테스트 86/86. 카드 `docs/tasks/DATA-24-tmdb-reviewed-poster-link.md`. 다음은 공식 공개일 후보 검토·게시 연결. `.env.example` 실키 및 개인 signing dirty 보존, 독립 승인·클라우드 미실행.

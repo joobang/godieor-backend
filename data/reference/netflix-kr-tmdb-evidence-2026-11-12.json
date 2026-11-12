@@ -1,0 +1,4542 @@
+{
+  "kind": "official-first-tmdb-review",
+  "tmdbQueried": true,
+  "rows": [
+    {
+      "date": "2026-11-02",
+      "platform": "netflix",
+      "title": "나의 베스트 프렌드",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-02; Netflix videoID 82046358. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-02",
+        "service": "netflix",
+        "title": "나의 베스트 프렌드",
+        "season": null,
+        "status": "date_mismatch",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1257147,
+            "tmdbTitle": "나의 베스트 프렌드",
+            "seasonNumber": null,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "movieReleaseDate": "2026-09-03"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-02",
+      "platform": "netflix",
+      "title": "케이팝 데몬 헌터스: 보너스 콘텐츠",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-02; Netflix videoID 82661317. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-02",
+        "service": "netflix",
+        "title": "케이팝 데몬 헌터스: 보너스 콘텐츠",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-02",
+      "platform": "netflix",
+      "title": "케이팝 데몬 헌터스: 플레이리스트",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-02; Netflix videoID 83135831. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-02",
+        "service": "netflix",
+        "title": "케이팝 데몬 헌터스: 플레이리스트",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-03",
+      "platform": "netflix",
+      "title": "마이크 타이슨: 마이크가 돌아왔다",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-03; Netflix videoID 82055986. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-03",
+        "service": "netflix",
+        "title": "마이크 타이슨: 마이크가 돌아왔다",
+        "season": null,
+        "status": "tmdb_movie_release_date_match",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1804941,
+            "tmdbTitle": "마이크 타이슨: 마이크가 돌아왔다",
+            "seasonNumber": null,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "movieReleaseDate": "2026-11-03"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-03",
+      "platform": "netflix",
+      "title": "배스 X 마키나",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-03; Netflix videoID 81218437. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-03",
+        "service": "netflix",
+        "title": "배스 X 마키나",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 314271,
+            "tmdbTitle": "배스 X 마키나",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2026-11-03",
+              "seasonFirstDate": "2026-11-03",
+              "firstEpisodeDate": "2026-11-03"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-04",
+      "platform": "netflix",
+      "title": "PAW Patrol: The Game",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-04; Netflix videoID 83098128. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-04",
+        "service": "netflix",
+        "title": "PAW Patrol: The Game",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-04",
+      "platform": "netflix",
+      "title": "니뇨: 명성의 대가",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-04; Netflix videoID 81763154. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-04",
+        "service": "netflix",
+        "title": "니뇨: 명성의 대가",
+        "season": null,
+        "status": "tmdb_movie_release_date_match",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1816668,
+            "tmdbTitle": "니뇨: 명성의 대가",
+            "seasonNumber": null,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "movieReleaseDate": "2026-11-04"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-04",
+      "platform": "netflix",
+      "title": "마취",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-04; Netflix videoID 81707670. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-04",
+        "service": "netflix",
+        "title": "마취",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 312006,
+            "tmdbTitle": "마취",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2026-11-04",
+              "seasonFirstDate": "2026-11-04",
+              "firstEpisodeDate": "2026-11-04"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 2
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-04",
+      "platform": "netflix",
+      "title": "반려견의 완벽한 크리스마스",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-04; Netflix videoID 82090597. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-04",
+        "service": "netflix",
+        "title": "반려견의 완벽한 크리스마스",
+        "season": null,
+        "status": "tmdb_movie_release_date_match",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1570488,
+            "tmdbTitle": "반려견의 완벽한 크리스마스",
+            "seasonNumber": null,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "movieReleaseDate": "2026-11-04"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-04",
+      "platform": "netflix",
+      "title": "테이큰: 나탈리 할로웨이 실종 사건",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-04; Netflix videoID 81764502. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-04",
+        "service": "netflix",
+        "title": "테이큰: 나탈리 할로웨이 실종 사건",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 338684,
+            "tmdbTitle": "테이큰: 나탈리 할로웨이 실종 사건",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2026-11-04",
+              "seasonFirstDate": "2026-11-04",
+              "firstEpisodeDate": "2026-11-04"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-05",
+      "platform": "netflix",
+      "title": "딜왈리 디왈리",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-05; Netflix videoID 83167469. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-05",
+        "service": "netflix",
+        "title": "딜왈리 디왈리",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-05",
+      "platform": "netflix",
+      "title": "블랙 도브",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-05; Netflix videoID 81775952. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-05",
+        "service": "netflix",
+        "title": "블랙 도브",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 225385,
+            "tmdbTitle": "블랙 도브",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2024-12-05",
+              "seasonFirstDate": "2024-12-05",
+              "firstEpisodeDate": "2024-12-05"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 225385,
+            "tmdbTitle": "블랙 도브",
+            "seasonNumber": 2,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2024-12-05",
+              "seasonFirstDate": "2026-11-05",
+              "firstEpisodeDate": "2026-11-05"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-05",
+      "platform": "netflix",
+      "title": "시한부 1년, 남자를 사다",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-05; Netflix videoID 81505776. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-05",
+        "service": "netflix",
+        "title": "시한부 1년, 남자를 사다",
+        "season": null,
+        "status": "tmdb_movie_release_date_match",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1654940,
+            "tmdbTitle": "시한부 1년, 남자를 사다",
+            "seasonNumber": null,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "movieReleaseDate": "2026-11-05"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-05",
+      "platform": "netflix",
+      "title": "오버액션 갱",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-05; Netflix videoID 81993326. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-05",
+        "service": "netflix",
+        "title": "오버액션 갱",
+        "season": null,
+        "status": "date_mismatch",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1630420,
+            "tmdbTitle": "오버액션 갱",
+            "seasonNumber": null,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "movieReleaseDate": "2026-11-04"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-05",
+      "platform": "netflix",
+      "title": "이런, 북극!",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-05; Netflix videoID 81997254. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-05",
+        "service": "netflix",
+        "title": "이런, 북극!",
+        "season": null,
+        "status": "date_mismatch",
+        "matches": [
+          {
+            "tmdbId": 249023,
+            "tmdbTitle": "이런, 북극!",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2025-01-07",
+              "seasonFirstDate": "2025-01-07",
+              "firstEpisodeDate": "2025-01-07"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 249023,
+            "tmdbTitle": "이런, 북극!",
+            "seasonNumber": 2,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2025-01-07",
+              "seasonFirstDate": "2026-09-08",
+              "firstEpisodeDate": "2026-09-08"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-05",
+      "platform": "netflix",
+      "title": "하이 엔드: 명품 시계 절도단",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-05; Netflix videoID 81904803. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-05",
+        "service": "netflix",
+        "title": "하이 엔드: 명품 시계 절도단",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-06",
+      "platform": "netflix",
+      "title": "ABC마우스",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-06; Netflix videoID 82878686. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-06",
+        "service": "netflix",
+        "title": "ABC마우스",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-06",
+      "platform": "netflix",
+      "title": "가능한 사랑",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-06; Netflix videoID 82106490. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-06",
+        "service": "netflix",
+        "title": "가능한 사랑",
+        "season": null,
+        "status": "date_mismatch",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1483525,
+            "tmdbTitle": "가능한 사랑",
+            "seasonNumber": null,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "movieReleaseDate": "2026-09-23"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-06",
+      "platform": "netflix",
+      "title": "보호받지 못한 자: 머더 인 갈리시아",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-06; Netflix videoID 82112156. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-06",
+        "service": "netflix",
+        "title": "보호받지 못한 자: 머더 인 갈리시아",
+        "season": null,
+        "status": "tmdb_movie_release_date_match",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1794569,
+            "tmdbTitle": "보호받지 못한 자: 머더 인 갈리시아",
+            "seasonNumber": null,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "movieReleaseDate": "2026-11-06"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-06",
+      "platform": "netflix",
+      "title": "포위된 시간",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-06; Netflix videoID 81625054. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-06",
+        "service": "netflix",
+        "title": "포위된 시간",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 297491,
+            "tmdbTitle": "포위된 시간",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2026-11-06",
+              "seasonFirstDate": "2026-11-06",
+              "firstEpisodeDate": "2026-11-06"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-08",
+      "platform": "netflix",
+      "title": "WWE Crown Jewel",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-08; Netflix videoID 82848233. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-08",
+        "service": "netflix",
+        "title": "WWE Crown Jewel",
+        "season": null,
+        "status": "date_mismatch",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 548946,
+            "tmdbTitle": "WWE 크라운 주얼 2018",
+            "seasonNumber": null,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "movieReleaseDate": "2018-11-02"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-09",
+      "platform": "netflix",
+      "title": "두지의 멍멍하우스",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-09; Netflix videoID 81678021. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-09",
+        "service": "netflix",
+        "title": "두지의 멍멍하우스",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 336478,
+            "tmdbTitle": "두지의 멍멍하우스",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2026-11-09",
+              "seasonFirstDate": "2026-11-09",
+              "firstEpisodeDate": "2026-11-09"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-09",
+      "platform": "netflix",
+      "title": "좋은 변호사",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-09; Netflix videoID 81955038. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-09",
+        "service": "netflix",
+        "title": "좋은 변호사",
+        "season": null,
+        "status": "date_mismatch",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1616419,
+            "tmdbTitle": "좋은 변호사",
+            "seasonNumber": null,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "movieReleaseDate": "2026-09-11"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-10",
+      "platform": "netflix",
+      "title": "Thomas & Friends: Whistle & Go",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-10; Netflix videoID 82662589. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-10",
+        "service": "netflix",
+        "title": "Thomas & Friends: Whistle & Go",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-10",
+      "platform": "netflix",
+      "title": "데블스 플랜",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-10; Netflix videoID 82132424. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-10",
+        "service": "netflix",
+        "title": "데블스 플랜",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 214582,
+            "tmdbTitle": "데블스 플랜",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2023-09-26",
+              "seasonFirstDate": "2023-09-26",
+              "firstEpisodeDate": "2023-09-26"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 214582,
+            "tmdbTitle": "데블스 플랜",
+            "seasonNumber": 2,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2023-09-26",
+              "seasonFirstDate": "2025-05-06",
+              "firstEpisodeDate": "2025-05-06"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 214582,
+            "tmdbTitle": "데블스 플랜",
+            "seasonNumber": 3,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2023-09-26",
+              "seasonFirstDate": "2026-11-10",
+              "firstEpisodeDate": "2026-11-10"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-10",
+      "platform": "netflix",
+      "title": "저넬 제임스: 미치게 로맨틱",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-10; Netflix videoID 81751140. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-10",
+        "service": "netflix",
+        "title": "저넬 제임스: 미치게 로맨틱",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-10",
+      "platform": "netflix",
+      "title": "토크 서바이벌: 토크가 재밌어야 살아남는 드라마",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-10; Netflix videoID 82052279. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-10",
+        "service": "netflix",
+        "title": "토크 서바이벌: 토크가 재밌어야 살아남는 드라마",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 157926,
+            "tmdbTitle": "토크 서바이벌: 토크가 재밌어야 살아남는 드라마",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2022-03-08",
+              "seasonFirstDate": "2022-03-08",
+              "firstEpisodeDate": "2022-03-08"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 157926,
+            "tmdbTitle": "토크 서바이벌: 토크가 재밌어야 살아남는 드라마",
+            "seasonNumber": 2,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2022-03-08",
+              "seasonFirstDate": "2023-10-10",
+              "firstEpisodeDate": "2023-10-10"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 157926,
+            "tmdbTitle": "토크 서바이벌: 토크가 재밌어야 살아남는 드라마",
+            "seasonNumber": 3,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2022-03-08",
+              "seasonFirstDate": "2024-09-03",
+              "firstEpisodeDate": "2024-09-03"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 157926,
+            "tmdbTitle": "토크 서바이벌: 토크가 재밌어야 살아남는 드라마",
+            "seasonNumber": 4,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2022-03-08",
+              "seasonFirstDate": "2026-11-10",
+              "firstEpisodeDate": "2026-11-10"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-11",
+      "platform": "netflix",
+      "title": "더 바디",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-11; Netflix videoID 81983579. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-11",
+        "service": "netflix",
+        "title": "더 바디",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 291507,
+            "tmdbTitle": "더 바디",
+            "seasonNumber": 1,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "seriesFirstDate": "2026-11-11",
+              "seasonFirstDate": "2026-11-11",
+              "firstEpisodeDate": "2026-11-11"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          },
+          {
+            "type": "movie",
+            "tmdbId": 111083,
+            "tmdbTitle": "더 바디",
+            "seasonNumber": null,
+            "providerNames": [
+              "Watcha"
+            ],
+            "krProviderMatched": false,
+            "dates": {
+              "movieReleaseDate": "2012-12-21"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "type": "movie",
+            "tmdbId": 28308,
+            "tmdbTitle": "더 바디",
+            "seasonNumber": null,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "movieReleaseDate": "2001-04-13"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "type": "movie",
+            "tmdbId": 229850,
+            "tmdbTitle": "더 바디",
+            "seasonNumber": null,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "movieReleaseDate": "2013-08-25"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 2
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-11",
+      "platform": "netflix",
+      "title": "리처드 애버던",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-11; Netflix videoID 83018004. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-11",
+        "service": "netflix",
+        "title": "리처드 애버던",
+        "season": null,
+        "status": "date_mismatch",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1666787,
+            "tmdbTitle": "리처드 애버던",
+            "seasonNumber": null,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "movieReleaseDate": "2026-11-06"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-11",
+      "platform": "netflix",
+      "title": "시간이 지울 수 없는 죄",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-11; Netflix videoID 81914991. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-11",
+        "service": "netflix",
+        "title": "시간이 지울 수 없는 죄",
+        "season": null,
+        "status": "tmdb_movie_release_date_match",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1664682,
+            "tmdbTitle": "시간이 지울 수 없는 죄",
+            "seasonNumber": null,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "movieReleaseDate": "2026-11-11"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-11",
+      "platform": "netflix",
+      "title": "알리시아의 법",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-11; Netflix videoID 82013595. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-11",
+        "service": "netflix",
+        "title": "알리시아의 법",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-11",
+      "platform": "netflix",
+      "title": "우당탕탕 공룡들",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-11; Netflix videoID 83312495. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-11",
+        "service": "netflix",
+        "title": "우당탕탕 공룡들",
+        "season": null,
+        "status": "date_mismatch",
+        "matches": [
+          {
+            "tmdbId": 249018,
+            "tmdbTitle": "우당탕탕 공룡들",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2024-03-28",
+              "seasonFirstDate": "2024-03-28",
+              "firstEpisodeDate": "2024-03-28"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-11",
+      "platform": "netflix",
+      "title": "크리스마스 가스펠",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-11; Netflix videoID 82138246. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-11",
+        "service": "netflix",
+        "title": "크리스마스 가스펠",
+        "season": null,
+        "status": "tmdb_movie_release_date_match",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1559980,
+            "tmdbTitle": "크리스마스 가스펠",
+            "seasonNumber": null,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "movieReleaseDate": "2026-11-11"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-11",
+      "platform": "netflix",
+      "title": "키아로스쿠로: 빛과 어둠",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-11; Netflix videoID 81707978. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-11",
+        "service": "netflix",
+        "title": "키아로스쿠로: 빛과 어둠",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 336243,
+            "tmdbTitle": "키아로스쿠로: 빛과 어둠",
+            "seasonNumber": 1,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "seriesFirstDate": "2026-11-11",
+              "seasonFirstDate": "2026-11-11",
+              "firstEpisodeDate": "2026-11-11"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-12",
+      "platform": "netflix",
+      "title": "네버 서렌더",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 81996126. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-12",
+        "service": "netflix",
+        "title": "네버 서렌더",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-12",
+      "platform": "netflix",
+      "title": "더 브로스",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 82028115. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-12",
+        "service": "netflix",
+        "title": "더 브로스",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 251842,
+            "tmdbTitle": "더 브로스",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2024-04-18",
+              "seasonFirstDate": "2024-04-18",
+              "firstEpisodeDate": "2024-04-18"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 251842,
+            "tmdbTitle": "더 브로스",
+            "seasonNumber": 2,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2024-04-18",
+              "seasonFirstDate": "2026-11-12",
+              "firstEpisodeDate": "2026-11-12"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-12",
+      "platform": "netflix",
+      "title": "앨런",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 81382720. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-12",
+        "service": "netflix",
+        "title": "앨런",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 2
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-12",
+      "platform": "netflix",
+      "title": "에토스",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 81231418. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-12",
+        "service": "netflix",
+        "title": "에토스",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 112745,
+            "tmdbTitle": "에토스",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2020-11-12",
+              "seasonFirstDate": "2020-11-12",
+              "firstEpisodeDate": "2020-11-12"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 112745,
+            "tmdbTitle": "에토스",
+            "seasonNumber": 2,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2020-11-12",
+              "seasonFirstDate": "2026-11-12",
+              "firstEpisodeDate": "2026-11-12"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-12",
+      "platform": "netflix",
+      "title": "연애 실험: 블라인드 러브 아랍편",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 81653508. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-12",
+        "service": "netflix",
+        "title": "연애 실험: 블라인드 러브 아랍편",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 247634,
+            "tmdbTitle": "연애 실험: 블라인드 러브 아랍편",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2024-10-10",
+              "seasonFirstDate": "2024-10-10",
+              "firstEpisodeDate": "2024-10-10"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 247634,
+            "tmdbTitle": "연애 실험: 블라인드 러브 아랍편",
+            "seasonNumber": 2,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2024-10-10",
+              "seasonFirstDate": "2026-11-12",
+              "firstEpisodeDate": "2026-11-12"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-12",
+      "platform": "netflix",
+      "title": "응급실의 기적",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 82027981. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-12",
+        "service": "netflix",
+        "title": "응급실의 기적",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-12",
+      "platform": "netflix",
+      "title": "크리스마스까지만",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 81625025. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-12",
+        "service": "netflix",
+        "title": "크리스마스까지만",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-12",
+      "platform": "netflix",
+      "title": "황후 엘리자베트",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 81761806. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-12",
+        "service": "netflix",
+        "title": "황후 엘리자베트",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 131488,
+            "tmdbTitle": "황후 엘리자베트",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2022-09-29",
+              "seasonFirstDate": "2022-09-29",
+              "firstEpisodeDate": "2022-09-29"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 131488,
+            "tmdbTitle": "황후 엘리자베트",
+            "seasonNumber": 2,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2022-09-29",
+              "seasonFirstDate": "2024-11-22",
+              "firstEpisodeDate": "2024-11-22"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 131488,
+            "tmdbTitle": "황후 엘리자베트",
+            "seasonNumber": 3,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2022-09-29",
+              "seasonFirstDate": "2026-11-12",
+              "firstEpisodeDate": "2026-11-12"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-13",
+      "platform": "netflix",
+      "title": "머더 인 갈리시아",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-13; Netflix videoID 82023390. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-13",
+        "service": "netflix",
+        "title": "머더 인 갈리시아",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-13",
+      "platform": "netflix",
+      "title": "스타 & 웨딩: 아넬레와 버자",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-13; Netflix videoID 83073031. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-13",
+        "service": "netflix",
+        "title": "스타 & 웨딩: 아넬레와 버자",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-13",
+      "platform": "netflix",
+      "title": "하트랜드",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-13; Netflix videoID 81486332. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-13",
+        "service": "netflix",
+        "title": "하트랜드",
+        "season": null,
+        "status": "tmdb_movie_release_date_match",
+        "matches": [
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 0,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2010-12-12",
+              "firstEpisodeDate": "2010-12-12"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2007-10-14",
+              "firstEpisodeDate": "2007-10-14"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 2,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2008-10-05",
+              "firstEpisodeDate": "2008-10-05"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 3,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2009-10-04",
+              "firstEpisodeDate": "2009-10-04"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 4,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2010-09-26",
+              "firstEpisodeDate": "2010-09-26"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 5,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2011-09-18",
+              "firstEpisodeDate": "2011-09-18"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 6,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2012-09-16",
+              "firstEpisodeDate": "2012-09-16"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 7,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2013-10-06",
+              "firstEpisodeDate": "2013-10-06"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 8,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2014-09-28",
+              "firstEpisodeDate": "2014-09-28"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 9,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2015-10-04",
+              "firstEpisodeDate": "2015-10-04"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 10,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2016-10-02",
+              "firstEpisodeDate": "2016-10-02"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 11,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2017-09-24",
+              "firstEpisodeDate": "2017-09-24"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 12,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2019-01-06",
+              "firstEpisodeDate": "2019-01-06"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 13,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2019-09-22",
+              "firstEpisodeDate": "2019-09-22"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 14,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2021-01-10",
+              "firstEpisodeDate": "2021-01-10"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 15,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2021-10-17",
+              "firstEpisodeDate": "2021-10-17"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 16,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2022-10-02",
+              "firstEpisodeDate": "2022-10-02"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 17,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2023-10-01",
+              "firstEpisodeDate": "2023-10-01"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 18,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2024-09-29",
+              "firstEpisodeDate": "2024-09-29"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 19,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2025-10-05",
+              "firstEpisodeDate": "2025-10-05"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 14929,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": 20,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2007-10-14",
+              "seasonFirstDate": "2026-10-04",
+              "firstEpisodeDate": "2026-10-04"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "type": "movie",
+            "tmdbId": 1543469,
+            "tmdbTitle": "하트랜드",
+            "seasonNumber": null,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "movieReleaseDate": "2026-11-13"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 2
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-15",
+      "platform": "netflix",
+      "title": "컹크의 색다른 영화 이야기",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-15; Netflix videoID 82171490. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-15",
+        "service": "netflix",
+        "title": "컹크의 색다른 영화 이야기",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-17",
+      "platform": "netflix",
+      "title": "Mike Ward: Modest",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-17; Netflix videoID 81697863. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-17",
+        "service": "netflix",
+        "title": "Mike Ward: Modest",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-18",
+      "platform": "netflix",
+      "title": "고르돈",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-18; Netflix videoID 81657615. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-18",
+        "service": "netflix",
+        "title": "고르돈",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-18",
+      "platform": "netflix",
+      "title": "로 오브 비스트",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-18; Netflix videoID 81769098. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-18",
+        "service": "netflix",
+        "title": "로 오브 비스트",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-18",
+      "platform": "netflix",
+      "title": "발렌치나의 열두 별자리",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-18; Netflix videoID 81289599. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-18",
+        "service": "netflix",
+        "title": "발렌치나의 열두 별자리",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-18",
+      "platform": "netflix",
+      "title": "스타의 보디가드",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-18; Netflix videoID 81749470. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-18",
+        "service": "netflix",
+        "title": "스타의 보디가드",
+        "season": null,
+        "status": "tmdb_movie_release_date_match",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1551025,
+            "tmdbTitle": "스타의 보디가드",
+            "seasonNumber": null,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "movieReleaseDate": "2026-11-18"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-18",
+      "platform": "netflix",
+      "title": "윈 더 몰: 쇼핑 전쟁",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-18; Netflix videoID 81906730. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-18",
+        "service": "netflix",
+        "title": "윈 더 몰: 쇼핑 전쟁",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-19",
+      "platform": "netflix",
+      "title": "이타주의자들",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-19; Netflix videoID 81681911. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-19",
+        "service": "netflix",
+        "title": "이타주의자들",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 308007,
+            "tmdbTitle": "이타주의자들",
+            "seasonNumber": 1,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "seriesFirstDate": "2026-11-19",
+              "seasonFirstDate": "2026-11-19",
+              "firstEpisodeDate": "2026-11-19"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-20",
+      "platform": "netflix",
+      "title": "난리굿 패밀리",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-20; Netflix videoID 82643834. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-20",
+        "service": "netflix",
+        "title": "난리굿 패밀리",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 275204,
+            "tmdbTitle": "난리굿 패밀리",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2021-10-14",
+              "seasonFirstDate": "2021-10-14",
+              "firstEpisodeDate": "2021-10-14"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 275204,
+            "tmdbTitle": "난리굿 패밀리",
+            "seasonNumber": 2,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2021-10-14",
+              "seasonFirstDate": "2026-11-20",
+              "firstEpisodeDate": "2026-11-20"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-20",
+      "platform": "netflix",
+      "title": "스텝스",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-20; Netflix videoID 81212809. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-20",
+        "service": "netflix",
+        "title": "스텝스",
+        "season": null,
+        "status": "tmdb_movie_release_date_match",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1595124,
+            "tmdbTitle": "스텝스",
+            "seasonNumber": null,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "movieReleaseDate": "2026-11-20"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-20",
+      "platform": "netflix",
+      "title": "제 아들을 대신하여",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-20; Netflix videoID 81724626. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-20",
+        "service": "netflix",
+        "title": "제 아들을 대신하여",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-20",
+      "platform": "netflix",
+      "title": "푸른길",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-20; Netflix videoID 81941627. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-20",
+        "service": "netflix",
+        "title": "푸른길",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 300523,
+            "tmdbTitle": "푸른길",
+            "seasonNumber": 1,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "seriesFirstDate": "2026-11-20",
+              "seasonFirstDate": "2026-11-20",
+              "firstEpisodeDate": "2026-11-20"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-20",
+      "platform": "netflix",
+      "title": "프라임타임 전도사$",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-20; Netflix videoID 81774139. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-20",
+        "service": "netflix",
+        "title": "프라임타임 전도사$",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-23",
+      "platform": "netflix",
+      "title": "세서미 스트리트",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-23; Netflix videoID 82641828. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-23",
+        "service": "netflix",
+        "title": "세서미 스트리트",
+        "season": null,
+        "status": "date_mismatch",
+        "matches": [
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 0,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": null,
+              "firstEpisodeDate": null
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1969-11-10",
+              "firstEpisodeDate": "1969-11-10"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 2,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1970-11-09",
+              "firstEpisodeDate": "1970-11-09"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 3,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1971-11-08",
+              "firstEpisodeDate": "1971-11-08"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 4,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1972-11-27",
+              "firstEpisodeDate": "1972-11-27"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 5,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1973-11-19",
+              "firstEpisodeDate": "1973-11-19"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 6,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1974-11-04",
+              "firstEpisodeDate": "1974-11-04"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 7,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1975-12-01",
+              "firstEpisodeDate": "1975-12-01"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 8,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1976-11-29",
+              "firstEpisodeDate": "1976-11-29"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 9,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1977-11-28",
+              "firstEpisodeDate": "1977-11-28"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 10,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1978-11-27",
+              "firstEpisodeDate": "1978-11-27"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 11,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1979-11-26",
+              "firstEpisodeDate": "1979-11-26"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 12,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1980-11-24",
+              "firstEpisodeDate": "1980-11-24"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 13,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1981-11-23",
+              "firstEpisodeDate": "1981-11-23"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 14,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1982-11-22",
+              "firstEpisodeDate": "1982-11-22"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 15,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1983-11-21",
+              "firstEpisodeDate": "1983-11-21"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 16,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1984-11-19",
+              "firstEpisodeDate": "1984-11-19"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 17,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1985-11-18",
+              "firstEpisodeDate": "1985-11-18"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 18,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1986-11-17",
+              "firstEpisodeDate": "1986-11-17"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 19,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1987-11-16",
+              "firstEpisodeDate": "1987-11-16"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 20,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1988-11-21",
+              "firstEpisodeDate": "1988-11-21"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 21,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1989-11-13",
+              "firstEpisodeDate": "1989-11-13"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 22,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1990-11-12",
+              "firstEpisodeDate": "1990-11-12"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 23,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1991-11-11",
+              "firstEpisodeDate": "1991-11-11"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 24,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1992-11-09",
+              "firstEpisodeDate": "1992-11-09"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 25,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1993-11-22",
+              "firstEpisodeDate": "1993-11-22"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 26,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1994-11-21",
+              "firstEpisodeDate": "1994-11-21"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 27,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1995-11-20",
+              "firstEpisodeDate": "1995-11-20"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 28,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1996-11-18",
+              "firstEpisodeDate": "1996-11-18"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 29,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1997-11-17",
+              "firstEpisodeDate": "1997-11-17"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 30,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "1998-11-16",
+              "firstEpisodeDate": "1998-11-16"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 31,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2000-01-03",
+              "firstEpisodeDate": "2000-01-03"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 32,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2001-01-01",
+              "firstEpisodeDate": "2001-01-01"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 33,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2002-02-04",
+              "firstEpisodeDate": "2002-02-04"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 34,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2003-04-07",
+              "firstEpisodeDate": "2003-04-07"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 35,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2004-02-15",
+              "firstEpisodeDate": "2004-02-15"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 36,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2005-04-04",
+              "firstEpisodeDate": "2005-04-04"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 37,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2006-08-14",
+              "firstEpisodeDate": "2006-08-14"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 38,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2007-08-13",
+              "firstEpisodeDate": "2007-08-13"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 39,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2008-08-11",
+              "firstEpisodeDate": "2008-08-11"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 40,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2009-11-10",
+              "firstEpisodeDate": "2009-11-10"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 41,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2010-09-27",
+              "firstEpisodeDate": "2010-09-27"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 42,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2011-09-26",
+              "firstEpisodeDate": "2011-09-26"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 43,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2012-09-24",
+              "firstEpisodeDate": "2012-09-24"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 44,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2013-09-16",
+              "firstEpisodeDate": "2013-09-16"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 45,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2014-09-14",
+              "firstEpisodeDate": "2014-09-15"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 46,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2016-01-15",
+              "firstEpisodeDate": "2016-01-16"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 47,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2017-01-06",
+              "firstEpisodeDate": "2017-01-07"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 48,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2017-11-17",
+              "firstEpisodeDate": "2017-11-18"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 49,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2018-11-16",
+              "firstEpisodeDate": "2018-11-17"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 50,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2019-11-15",
+              "firstEpisodeDate": "2019-11-16"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 51,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2020-11-11",
+              "firstEpisodeDate": "2020-11-12"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 52,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2021-11-10",
+              "firstEpisodeDate": "2021-11-11"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 53,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2022-11-01",
+              "firstEpisodeDate": "2022-11-03"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 54,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2023-11-07",
+              "firstEpisodeDate": "2023-11-09"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 55,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2025-01-14",
+              "firstEpisodeDate": "2025-01-16"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 502,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": 56,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "1969-11-10",
+              "seasonFirstDate": "2025-11-10",
+              "firstEpisodeDate": "2025-11-10"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "type": "movie",
+            "tmdbId": 566688,
+            "tmdbTitle": "세서미 스트리트",
+            "seasonNumber": null,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "movieReleaseDate": ""
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 2
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-23",
+      "platform": "netflix",
+      "title": "캐런 리드 재판",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-23; Netflix videoID 81777232. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-23",
+        "service": "netflix",
+        "title": "캐런 리드 재판",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-24",
+      "platform": "netflix",
+      "title": "네이트 바가치: 이 정도면 잘했지",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-24; Netflix videoID 81735281. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-24",
+        "service": "netflix",
+        "title": "네이트 바가치: 이 정도면 잘했지",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-24",
+      "platform": "netflix",
+      "title": "롭 로: 아웃사이더",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-24; Netflix videoID 81952500. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-24",
+        "service": "netflix",
+        "title": "롭 로: 아웃사이더",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-24",
+      "platform": "netflix",
+      "title": "마지막 주문을 받습니다",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-24; Netflix videoID 82980714. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-24",
+        "service": "netflix",
+        "title": "마지막 주문을 받습니다",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-25",
+      "platform": "netflix",
+      "title": "모스키토 볼: 전장의 마지막 터치다운",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-25; Netflix videoID 81661161. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-25",
+        "service": "netflix",
+        "title": "모스키토 볼: 전장의 마지막 터치다운",
+        "season": null,
+        "status": "date_mismatch",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1458300,
+            "tmdbTitle": "모스키토 볼: 전장의 마지막 터치다운",
+            "seasonNumber": null,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "movieReleaseDate": "2026-10-29"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-25",
+      "platform": "netflix",
+      "title": "불편한 파트너: 상금을 잡아라",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-25; Netflix videoID 82092148. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-25",
+        "service": "netflix",
+        "title": "불편한 파트너: 상금을 잡아라",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 224330,
+            "tmdbTitle": "불편한 파트너: 상금을 잡아라",
+            "seasonNumber": 0,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2023-10-09",
+              "seasonFirstDate": "2025-12-17",
+              "firstEpisodeDate": "2025-12-17"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 224330,
+            "tmdbTitle": "불편한 파트너: 상금을 잡아라",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2023-10-09",
+              "seasonFirstDate": "2023-10-08",
+              "firstEpisodeDate": "2023-10-09"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 224330,
+            "tmdbTitle": "불편한 파트너: 상금을 잡아라",
+            "seasonNumber": 2,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2023-10-09",
+              "seasonFirstDate": "2025-01-01",
+              "firstEpisodeDate": "2025-01-02"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 224330,
+            "tmdbTitle": "불편한 파트너: 상금을 잡아라",
+            "seasonNumber": 3,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2023-10-09",
+              "seasonFirstDate": "2025-12-02",
+              "firstEpisodeDate": "2025-12-03"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 224330,
+            "tmdbTitle": "불편한 파트너: 상금을 잡아라",
+            "seasonNumber": 4,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2023-10-09",
+              "seasonFirstDate": "2026-11-25",
+              "firstEpisodeDate": "2026-11-25"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-26",
+      "platform": "netflix",
+      "title": "24시간 온콜",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-26; Netflix videoID 81763934. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-26",
+        "service": "netflix",
+        "title": "24시간 온콜",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-26",
+      "platform": "netflix",
+      "title": "NFL 넷플릭스 게임데이: 패커스 vs 램스",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-26; Netflix videoID 82917757. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-26",
+        "service": "netflix",
+        "title": "NFL 넷플릭스 게임데이: 패커스 vs 램스",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-26",
+      "platform": "netflix",
+      "title": "사냥하는 아내들",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-26; Netflix videoID 82141457. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-26",
+        "service": "netflix",
+        "title": "사냥하는 아내들",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 244447,
+            "tmdbTitle": "사냥하는 아내들",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2025-07-21",
+              "seasonFirstDate": "2025-07-21",
+              "firstEpisodeDate": "2025-07-21"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 244447,
+            "tmdbTitle": "사냥하는 아내들",
+            "seasonNumber": 2,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2025-07-21",
+              "seasonFirstDate": "2026-11-26",
+              "firstEpisodeDate": "2026-11-26"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-26",
+      "platform": "netflix",
+      "title": "토스 판데르팔크 납치 사건",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-26; Netflix videoID 81716315. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-26",
+        "service": "netflix",
+        "title": "토스 판데르팔크 납치 사건",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-26",
+      "platform": "netflix",
+      "title": "풀 나이트",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-26; Netflix videoID 81991077. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-26",
+        "service": "netflix",
+        "title": "풀 나이트",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 326247,
+            "tmdbTitle": "풀 나이트",
+            "seasonNumber": 1,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "seriesFirstDate": "2026-11-26",
+              "seasonFirstDate": "2026-11-26",
+              "firstEpisodeDate": "2026-11-26"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-26",
+      "platform": "netflix",
+      "title": "필리핀의 크리스마스 선물",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-26; Netflix videoID 82044874. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-26",
+        "service": "netflix",
+        "title": "필리핀의 크리스마스 선물",
+        "season": null,
+        "status": "date_mismatch",
+        "matches": [
+          {
+            "tmdbId": 313701,
+            "tmdbTitle": "필리핀의 크리스마스 선물",
+            "seasonNumber": 1,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "seriesFirstDate": "2026-12-03",
+              "seasonFirstDate": "2026-12-03",
+              "firstEpisodeDate": "2026-12-03"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-27",
+      "platform": "netflix",
+      "title": "그 아이",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-27; Netflix videoID 81780038. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-27",
+        "service": "netflix",
+        "title": "그 아이",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 2
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-27",
+      "platform": "netflix",
+      "title": "콰지모도, 파리의 영혼",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-27; Netflix videoID 82013434. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-27",
+        "service": "netflix",
+        "title": "콰지모도, 파리의 영혼",
+        "season": null,
+        "status": "tmdb_movie_release_date_match",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 1480665,
+            "tmdbTitle": "콰지모도, 파리의 영혼",
+            "seasonNumber": null,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "movieReleaseDate": "2026-11-27"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-27",
+      "platform": "netflix",
+      "title": "타이슨 퓨리",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-27; Netflix videoID 82046214. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-27",
+        "service": "netflix",
+        "title": "타이슨 퓨리",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    },
+    {
+      "date": "2026-11-28",
+      "platform": "netflix",
+      "title": "샐리시의 12가지 크리스마스 게임",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "officialSources": [
+        {
+          "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-28; Netflix videoID 82723082. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+        }
+      ],
+      "tmdb": {
+        "date": "2026-11-28",
+        "service": "netflix",
+        "title": "샐리시의 12가지 크리스마스 게임",
+        "season": null,
+        "status": "title_not_found",
+        "matches": [],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 0
+      },
+      "reviewStatus": "official_listing_needs_premiere_review",
+      "publishEligible": false
+    }
+  ],
+  "total": 75,
+  "publishedCountDelta": 0,
+  "observation": {
+    "asOf": "2026-11-12",
+    "origin": "DATA-43 saved TMDB reverse-lookup observation, reused offline in DATA-44",
+    "originalSha256": "bdc9bea07d2ff5aabc33c30a6d302055d93212f5704811705183e662f38c4ba0",
+    "transformation": "Removed matches[].dates.episodeDates only; dates/identities/status/errors/truncation flags preserved. This is not a new live lookup."
+  }
+}

@@ -1,0 +1,1267 @@
+{
+  "kind": "official-ott-review-backlog",
+  "total": 75,
+  "singleDatedIdentity": 31,
+  "backlog": 44,
+  "backlogReasons": {
+    "candidate_dates_after_listing": 1,
+    "candidate_dates_before_listing": 10,
+    "title_not_found": 33
+  },
+  "backlogMappedReviews": {
+    "mapped_review_same_title_date_season": 2,
+    "mapped_review_season_requires_review": 1,
+    "no_matching_mapped_review": 41
+  },
+  "databaseQueried": false,
+  "liveSourcesQueried": false,
+  "publishedCountDelta": 0,
+  "warning": "Candidate identities are search hints. Earlier dates do not establish a Korean catalog arrival; mapped reviews do not establish current DB publication.",
+  "rows": [
+    {
+      "platform": "netflix",
+      "title": "케이팝 데몬 헌터스: 플레이리스트",
+      "date": "2026-11-02",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "케이팝 데몬 헌터스: 보너스 콘텐츠",
+      "date": "2026-11-02",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "나의 베스트 프렌드",
+      "date": "2026-11-02",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "candidate_dates_before_listing",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [
+        "2026-09-03"
+      ],
+      "candidateIdentities": [
+        "movie:1257147"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "배스 X 마키나",
+      "date": "2026-11-03",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2026-11-03"
+      ],
+      "candidateIdentities": [
+        "tv:314271"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "마이크 타이슨: 마이크가 돌아왔다",
+      "date": "2026-11-03",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_same_title_date_season",
+      "candidateDates": [
+        "2026-11-03"
+      ],
+      "candidateIdentities": [
+        "movie:1804941"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "PAW Patrol: The Game",
+      "date": "2026-11-04",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "마취",
+      "date": "2026-11-04",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2026-11-04"
+      ],
+      "candidateIdentities": [
+        "tv:312006"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "테이큰: 나탈리 할로웨이 실종 사건",
+      "date": "2026-11-04",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2026-11-04"
+      ],
+      "candidateIdentities": [
+        "tv:338684"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "니뇨: 명성의 대가",
+      "date": "2026-11-04",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_same_title_date_season",
+      "candidateDates": [
+        "2026-11-04"
+      ],
+      "candidateIdentities": [
+        "movie:1816668"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "반려견의 완벽한 크리스마스",
+      "date": "2026-11-04",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_same_title_date_season",
+      "candidateDates": [
+        "2026-11-04"
+      ],
+      "candidateIdentities": [
+        "movie:1570488"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "이런, 북극!",
+      "date": "2026-11-05",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "candidate_dates_before_listing",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [
+        "2025-01-07",
+        "2026-09-08"
+      ],
+      "candidateIdentities": [
+        "tv:249023"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "블랙 도브",
+      "date": "2026-11-05",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2024-12-05",
+        "2026-11-05"
+      ],
+      "candidateIdentities": [
+        "tv:225385"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "하이 엔드: 명품 시계 절도단",
+      "date": "2026-11-05",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "오버액션 갱",
+      "date": "2026-11-05",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "candidate_dates_before_listing",
+      "mappedReview": "mapped_review_same_title_date_season",
+      "candidateDates": [
+        "2026-11-04"
+      ],
+      "candidateIdentities": [
+        "movie:1630420"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "딜왈리 디왈리",
+      "date": "2026-11-05",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "시한부 1년, 남자를 사다",
+      "date": "2026-11-05",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_same_title_date_season",
+      "candidateDates": [
+        "2026-11-05"
+      ],
+      "candidateIdentities": [
+        "movie:1654940"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "ABC마우스",
+      "date": "2026-11-06",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "포위된 시간",
+      "date": "2026-11-06",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2026-11-06"
+      ],
+      "candidateIdentities": [
+        "tv:297491"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "보호받지 못한 자: 머더 인 갈리시아",
+      "date": "2026-11-06",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_same_title_date_season",
+      "candidateDates": [
+        "2026-11-06"
+      ],
+      "candidateIdentities": [
+        "movie:1794569"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "가능한 사랑",
+      "date": "2026-11-06",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "candidate_dates_before_listing",
+      "mappedReview": "mapped_review_same_title_date_season",
+      "candidateDates": [
+        "2026-09-23"
+      ],
+      "candidateIdentities": [
+        "movie:1483525"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "WWE Crown Jewel",
+      "date": "2026-11-08",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "candidate_dates_before_listing",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [
+        "2018-11-02"
+      ],
+      "candidateIdentities": [
+        "movie:548946"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "두지의 멍멍하우스",
+      "date": "2026-11-09",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2026-11-09"
+      ],
+      "candidateIdentities": [
+        "tv:336478"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "좋은 변호사",
+      "date": "2026-11-09",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "candidate_dates_before_listing",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [
+        "2026-09-11"
+      ],
+      "candidateIdentities": [
+        "movie:1616419"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "Thomas & Friends: Whistle & Go",
+      "date": "2026-11-10",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "데블스 플랜",
+      "date": "2026-11-10",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [
+        "2023-09-26",
+        "2025-05-06",
+        "2026-11-10"
+      ],
+      "candidateIdentities": [
+        "tv:214582"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "토크 서바이벌: 토크가 재밌어야 살아남는 드라마",
+      "date": "2026-11-10",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2022-03-08",
+        "2023-10-10",
+        "2024-09-03",
+        "2026-11-10"
+      ],
+      "candidateIdentities": [
+        "tv:157926"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "저넬 제임스: 미치게 로맨틱",
+      "date": "2026-11-10",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "우당탕탕 공룡들",
+      "date": "2026-11-11",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "candidate_dates_before_listing",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [
+        "2024-03-28"
+      ],
+      "candidateIdentities": [
+        "tv:249018"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "더 바디",
+      "date": "2026-11-11",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2001-04-13",
+        "2012-12-21",
+        "2013-08-25",
+        "2026-11-11"
+      ],
+      "candidateIdentities": [
+        "tv:291507",
+        "movie:111083",
+        "movie:28308",
+        "movie:229850"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "알리시아의 법",
+      "date": "2026-11-11",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "키아로스쿠로: 빛과 어둠",
+      "date": "2026-11-11",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2026-11-11"
+      ],
+      "candidateIdentities": [
+        "tv:336243"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "리처드 애버던",
+      "date": "2026-11-11",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "candidate_dates_before_listing",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [
+        "2026-11-06"
+      ],
+      "candidateIdentities": [
+        "movie:1666787"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "시간이 지울 수 없는 죄",
+      "date": "2026-11-11",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_same_title_date_season",
+      "candidateDates": [
+        "2026-11-11"
+      ],
+      "candidateIdentities": [
+        "movie:1664682"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "크리스마스 가스펠",
+      "date": "2026-11-11",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_same_title_date_season",
+      "candidateDates": [
+        "2026-11-11"
+      ],
+      "candidateIdentities": [
+        "movie:1559980"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "연애 실험: 블라인드 러브 아랍편",
+      "date": "2026-11-12",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2024-10-10",
+        "2026-11-12"
+      ],
+      "candidateIdentities": [
+        "tv:247634"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "에토스",
+      "date": "2026-11-12",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2020-11-12",
+        "2026-11-12"
+      ],
+      "candidateIdentities": [
+        "tv:112745"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "응급실의 기적",
+      "date": "2026-11-12",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "더 브로스",
+      "date": "2026-11-12",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2024-04-18",
+        "2026-11-12"
+      ],
+      "candidateIdentities": [
+        "tv:251842"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "황후 엘리자베트",
+      "date": "2026-11-12",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2022-09-29",
+        "2024-11-22",
+        "2026-11-12"
+      ],
+      "candidateIdentities": [
+        "tv:131488"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "네버 서렌더",
+      "date": "2026-11-12",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "크리스마스까지만",
+      "date": "2026-11-12",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "앨런",
+      "date": "2026-11-12",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "스타 & 웨딩: 아넬레와 버자",
+      "date": "2026-11-13",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "머더 인 갈리시아",
+      "date": "2026-11-13",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "하트랜드",
+      "date": "2026-11-13",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_same_title_date_season",
+      "candidateDates": [
+        "2007-10-14",
+        "2008-10-05",
+        "2009-10-04",
+        "2010-09-26",
+        "2010-12-12",
+        "2011-09-18",
+        "2012-09-16",
+        "2013-10-06",
+        "2014-09-28",
+        "2015-10-04",
+        "2016-10-02",
+        "2017-09-24",
+        "2019-01-06",
+        "2019-09-22",
+        "2021-01-10",
+        "2021-10-17",
+        "2022-10-02",
+        "2023-10-01",
+        "2024-09-29",
+        "2025-10-05",
+        "2026-10-04",
+        "2026-11-13"
+      ],
+      "candidateIdentities": [
+        "tv:14929",
+        "movie:1543469"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "컹크의 색다른 영화 이야기",
+      "date": "2026-11-15",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "Mike Ward: Modest",
+      "date": "2026-11-17",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "고르돈",
+      "date": "2026-11-18",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "발렌치나의 열두 별자리",
+      "date": "2026-11-18",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "로 오브 비스트",
+      "date": "2026-11-18",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "윈 더 몰: 쇼핑 전쟁",
+      "date": "2026-11-18",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "스타의 보디가드",
+      "date": "2026-11-18",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_same_title_date_season",
+      "candidateDates": [
+        "2026-11-18"
+      ],
+      "candidateIdentities": [
+        "movie:1551025"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "이타주의자들",
+      "date": "2026-11-19",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2026-11-19"
+      ],
+      "candidateIdentities": [
+        "tv:308007"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "난리굿 패밀리",
+      "date": "2026-11-20",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2021-10-14",
+        "2026-11-20"
+      ],
+      "candidateIdentities": [
+        "tv:275204"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "푸른길",
+      "date": "2026-11-20",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_same_title_date_season",
+      "candidateDates": [
+        "2026-11-20"
+      ],
+      "candidateIdentities": [
+        "tv:300523"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "스텝스",
+      "date": "2026-11-20",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_same_title_date_season",
+      "candidateDates": [
+        "2026-11-20"
+      ],
+      "candidateIdentities": [
+        "movie:1595124"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "프라임타임 전도사$",
+      "date": "2026-11-20",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "제 아들을 대신하여",
+      "date": "2026-11-20",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "캐런 리드 재판",
+      "date": "2026-11-23",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "세서미 스트리트",
+      "date": "2026-11-23",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "candidate_dates_before_listing",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [
+        "1969-11-10",
+        "1970-11-09",
+        "1971-11-08",
+        "1972-11-27",
+        "1973-11-19",
+        "1974-11-04",
+        "1975-12-01",
+        "1976-11-29",
+        "1977-11-28",
+        "1978-11-27",
+        "1979-11-26",
+        "1980-11-24",
+        "1981-11-23",
+        "1982-11-22",
+        "1983-11-21",
+        "1984-11-19",
+        "1985-11-18",
+        "1986-11-17",
+        "1987-11-16",
+        "1988-11-21",
+        "1989-11-13",
+        "1990-11-12",
+        "1991-11-11",
+        "1992-11-09",
+        "1993-11-22",
+        "1994-11-21",
+        "1995-11-20",
+        "1996-11-18",
+        "1997-11-17",
+        "1998-11-16",
+        "2000-01-03",
+        "2001-01-01",
+        "2002-02-04",
+        "2003-04-07",
+        "2004-02-15",
+        "2005-04-04",
+        "2006-08-14",
+        "2007-08-13",
+        "2008-08-11",
+        "2009-11-10",
+        "2010-09-27",
+        "2011-09-26",
+        "2012-09-24",
+        "2013-09-16",
+        "2014-09-14",
+        "2016-01-15",
+        "2017-01-06",
+        "2017-11-17",
+        "2018-11-16",
+        "2019-11-15",
+        "2020-11-11",
+        "2021-11-10",
+        "2022-11-01",
+        "2023-11-07",
+        "2025-01-14",
+        "2025-11-10"
+      ],
+      "candidateIdentities": [
+        "tv:502",
+        "movie:566688"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "네이트 바가치: 이 정도면 잘했지",
+      "date": "2026-11-24",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "마지막 주문을 받습니다",
+      "date": "2026-11-24",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "롭 로: 아웃사이더",
+      "date": "2026-11-24",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "불편한 파트너: 상금을 잡아라",
+      "date": "2026-11-25",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2023-10-08",
+        "2025-01-01",
+        "2025-12-02",
+        "2025-12-17",
+        "2026-11-25"
+      ],
+      "candidateIdentities": [
+        "tv:224330"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "모스키토 볼: 전장의 마지막 터치다운",
+      "date": "2026-11-25",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "candidate_dates_before_listing",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [
+        "2026-10-29"
+      ],
+      "candidateIdentities": [
+        "movie:1458300"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "NFL 넷플릭스 게임데이: 패커스 vs 램스",
+      "date": "2026-11-26",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "토스 판데르팔크 납치 사건",
+      "date": "2026-11-26",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "24시간 온콜",
+      "date": "2026-11-26",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "풀 나이트",
+      "date": "2026-11-26",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2026-11-26"
+      ],
+      "candidateIdentities": [
+        "tv:326247"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "필리핀의 크리스마스 선물",
+      "date": "2026-11-26",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "candidate_dates_after_listing",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [
+        "2026-12-03"
+      ],
+      "candidateIdentities": [
+        "tv:313701"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "사냥하는 아내들",
+      "date": "2026-11-26",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_season_requires_review",
+      "candidateDates": [
+        "2025-07-21",
+        "2026-11-26"
+      ],
+      "candidateIdentities": [
+        "tv:244447"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "콰지모도, 파리의 영혼",
+      "date": "2026-11-27",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "single_dated_identity",
+      "mappedReview": "mapped_review_same_title_date_season",
+      "candidateDates": [
+        "2026-11-27"
+      ],
+      "candidateIdentities": [
+        "movie:1480665"
+      ],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "그 아이",
+      "date": "2026-11-27",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "타이슨 퓨리",
+      "date": "2026-11-27",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    },
+    {
+      "platform": "netflix",
+      "title": "샐리시의 12가지 크리스마스 게임",
+      "date": "2026-11-28",
+      "seasonNumber": null,
+      "market": "KR",
+      "reason": "title_not_found",
+      "mappedReview": "no_matching_mapped_review",
+      "candidateDates": [],
+      "candidateIdentities": [],
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "eligibleForAutomaticPublication": false
+    }
+  ]
+}
