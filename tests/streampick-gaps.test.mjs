@@ -49,3 +49,19 @@ test('Korean TV origin is preserved even when target OTT provider is unlisted', 
   assert.deepEqual(row.broadcastNetworks,['KBS2']);
   assert.equal(row.publishEligible,false);
 });
+
+test('official source finds titles omitted by TMDB provider filtering, independently per OTT and date', () => {
+  const result = reconcileGaps({rows:[{title:'더 바디',platform:'netflix',date:'2026-11-11',dateMatched:true,
+    krProviderMatched:false}]}, [
+    {platform:'netflix',sourceUrl:'https://about.netflix.com/ko/news/body',items:[
+      {title:'더 바디',date:'2026-11-11',market:'KR',premiereConfirmed:true}]},
+    {platform:'tving',sourceUrl:'https://www.tving.com/contents/body',items:[
+      {title:'더 바디',date:'2026-11-25',market:'KR',premiereConfirmed:true}]},
+  ]);
+  assert.equal(result.total,2);
+  assert.equal(result.rows[0].classification,'official_kr_premiere_candidate');
+  assert.equal(result.rows[1].classification,'official_kr_premiere_without_tmdb_match');
+  assert.equal(result.rows[1].platform,'tving');
+  assert.equal(result.rows[1].date,'2026-11-25');
+  assert.equal(result.rows.every(row => row.publishEligible===false),true);
+});

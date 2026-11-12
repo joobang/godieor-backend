@@ -11,11 +11,14 @@ export function reconcileGaps(tmdbReport, lineups) {
   if (!Array.isArray(tmdbReport?.rows) || !Array.isArray(lineups)) throw new Error('INVALID_INPUT');
   const evidence = new Map();
   const byTitleAndPlatform = new Map();
+  const officialRows = new Map();
   for (const lineup of lineups) {
     if (!Array.isArray(lineup.items)) continue;
     for (const item of lineup.items) {
       if (item.market !== 'KR') continue;
       const key = keyOf({ ...item, platform: lineup.platform });
+      if (item.date) officialRows.set(key, { title: item.title, platform: lineup.platform,
+        date: item.date, seasonNumber: item.seasonNumber ?? null });
       const matches = evidence.get(key) ?? [];
       matches.push({ sourceUrl: lineup.sourceUrl, premiereConfirmed: item.premiereConfirmed === true,
         evidence: item.evidence ?? null, seasonNumber: item.seasonNumber ?? null });
@@ -45,6 +48,19 @@ export function reconcileGaps(tmdbReport, lineups) {
       otherKoreanProviders: row.otherKoreanProviders??[], officialCandidates, alternateOfficialDates, classification,
       publishEligible: false };
   });
+  // A platform's own schedule can discover a title that TMDB's provider filter never returned.
+  // Keep each platform/date as a separate event candidate; no cross-platform date inference.
+  const discoveredKeys = new Set(tmdbReport.rows.map(keyOf));
+  for (const [key, row] of officialRows) {
+    if (discoveredKeys.has(key)) continue;
+    const officialCandidates = evidence.get(key) ?? [];
+    rows.push({ ...row, contentId: null, tmdbId: null, tmdbStatus: 'not_matched',
+      tmdbDateFields: null, krProviderNames: [], originCountries: [], broadcastNetworks: [],
+      koreanOrigin: false, otherKoreanProviders: [], officialCandidates,
+      alternateOfficialDates: [], classification: officialCandidates.some((item) => item.premiereConfirmed)
+        ? 'official_kr_premiere_without_tmdb_match' : 'official_kr_listing_without_tmdb_match',
+      publishEligible: false });
+  }
   const classes = [...new Set(rows.map((r) => r.classification))];
   return { total: rows.length, summary: Object.fromEntries(classes.map((c) => [c, rows.filter((r) => r.classification === c).length])),
     note: 'Review provenance, season, market and Korean OTT first premiere before using the existing reviewed publication path.',
