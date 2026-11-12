@@ -17,7 +17,8 @@ test('provider availability does not imply Korean premiere and official dates mu
   const report = { rows: [{ title: '가나다', platform: 'netflix', date: '2026-11-03', dateMatched: true, krProviderMatched: true }] };
   const result = reconcileGaps(report, [{ platform: 'netflix', sourceUrl: 'https://www.netflix.com/kr',
     items: [{ title: '가나다', date: '2026-11-04', market: 'KR', premiereConfirmed: true }] }]);
-  assert.equal(result.rows[0].classification, 'tmdb_date_and_provider_only');
+  assert.equal(result.rows[0].classification, 'official_date_conflict');
+  assert.equal(result.rows[0].alternateOfficialDates[0].date, '2026-11-04');
 });
 
 test('confirmed official date is still a review candidate, not automatic publication', () => {
@@ -26,4 +27,15 @@ test('confirmed official date is still a review candidate, not automatic publica
     items: [{ title: '유일무이 로맨스', date: '2026-11-09', market: 'KR', premiereConfirmed: true }] }]);
   assert.equal(result.rows[0].classification, 'official_kr_premiere_candidate');
   assert.equal(result.rows[0].publishEligible, false);
+});
+
+test('actual Netflix one-day disagreement is preserved for review', () => {
+  const report = { rows: [{ title: '오버액션 갱', platform: 'netflix', date: '2026-11-04',
+    dateMatched: true, krProviderMatched: true, dates: { movieReleaseDate: '2026-11-04' } }] };
+  const lineups = [{ platform: 'netflix', sourceUrl: 'https://about.netflix.com/ko/new-to-watch',
+    items: [{ title: '오버액션 갱', date: '2026-11-05', market: 'KR', premiereConfirmed: false }] }];
+  const { rows } = reconcileGaps(report, lineups);
+  assert.equal(rows[0].classification, 'official_date_conflict');
+  assert.equal(rows[0].alternateOfficialDates[0].date, '2026-11-05');
+  assert.equal(rows[0].publishEligible, false);
 });

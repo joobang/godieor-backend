@@ -1,0 +1,40 @@
+{
+  "platform": "netflix",
+  "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+  "observedAt": "2026-11-12T00:00:00Z",
+  "items": [
+    {
+      "title": "배스 X 마키나",
+      "date": "2026-11-03",
+      "market": "KR",
+      "contentKind": "animation",
+      "seasonNumber": 1,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 신규 콘텐츠 공식 목록(2026-11-12 조회): 2026.11.03; 시즌 전체 신작/한국 플랫폼 최초 제공 여부는 별도 수동 검토."
+    },
+    {
+      "title": "반려견의 완벽한 크리스마스",
+      "date": "2026-11-04",
+      "market": "KR",
+      "contentKind": "movie",
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 신규 콘텐츠 공식 목록(2026-11-12 조회): 2026.11.04; 한국 서비스 게시 시점 및 플랫폼 첫 공개 여부 수동 검토."
+    },
+    {
+      "title": "오버액션 갱",
+      "date": "2026-11-05",
+      "market": "KR",
+      "contentKind": "movie",
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 신규 콘텐츠 공식 목록(2026-11-12 조회): 2026.11.05. StreamPick/TMDB 2026-11-04와 날짜 1일 차이. 공개 시각/시장 원인 재검토 필요."
+    },
+    {
+      "title": "시한부 1년, 남자를 사다",
+      "date": "2026-11-05",
+      "market": "KR",
+      "contentKind": "movie",
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 신규 콘텐츠 공식 목록(2026-11-12 조회): 2026.11.05; 플랫폼 최초 공개 여부 수동 검토."
+    }
+  ]
+}
