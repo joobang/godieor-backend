@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "observedOn": "2026-11-12",
+  "authority": "source_specific_dates_not_target_ott_premieres",
+  "items": [
+    {
+      "title": "오버액션 갱",
+      "platform": "netflix",
+      "streamPickDate": "2026-11-04",
+      "sourceDate": "2026-11-05",
+      "sourceKind": "target_ott_korean_arrival",
+      "sourceName": "Netflix Korea",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "contentKind": "movie",
+      "note": "Netflix 한국 공식 신규 콘텐츠 목록은 11/05. StreamPick/TMDB 11/04와 상이하며 UTC 차이라고 단정하지 않음. 플랫폼 최초 공개인지도 별도 검토."
+    },
+    {
+      "title": "전지적 집착 시점",
+      "platform": "tving",
+      "streamPickDate": "2026-11-08",
+      "sourceDate": "2026-11-08",
+      "sourceKind": "broadcast_first_air",
+      "sourceName": "MBC",
+      "sourceUrl": "https://enews.imbc.com/News/RetrieveNewsInfo/522679",
+      "contentKind": "variety",
+      "note": "MBC 11/08 첫 방송 공식 확인. TVING 한국 첫 제공 날짜는 미확인. 예능 장르는 OTT 드라마 수집 대상과 별개로 판단 필요."
+    },
+    {
+      "title": "문무",
+      "platform": "netflix",
+      "streamPickDate": "2026-11-14",
+      "sourceDate": "2026-11-14",
+      "sourceKind": "broadcast_first_air",
+      "sourceName": "KBS2",
+      "sourceUrl": "https://www.kbs.co.kr/",
+      "contentKind": "drama",
+      "note": "KBS2 11/14 21:20 첫 방송. Netflix 한국 첫 제공 날짜 미확인; TMDB KR 제공처에는 wavve만 관찰된 기록이 있음."
+    },
+    {
+      "title": "나인 투 식스",
+      "platform": "netflix",
+      "streamPickDate": "2026-11-25",
+      "sourceDate": "2026-11-25",
+      "sourceKind": "broadcast_first_air",
+      "sourceName": "SBS",
+      "sourceUrl": "https://programs.sbs.co.kr/drama/ninetosix/about/90022?div=tv_total_new",
+      "contentKind": "drama",
+      "note": "SBS 11/25 21:00 첫 방송을 공식 표기. Netflix 한국 첫 제공 날짜 미확인."
+    }
+  ]
+}
