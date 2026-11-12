@@ -19,6 +19,7 @@ test('provider availability does not imply Korean premiere and official dates mu
     items: [{ title: '가나다', date: '2026-11-04', market: 'KR', premiereConfirmed: true }] }]);
   assert.equal(result.rows[0].classification, 'official_date_conflict');
   assert.equal(result.rows[0].alternateOfficialDates[0].date, '2026-11-04');
+  assert.equal(result.total, 1);
 });
 
 test('confirmed official date is still a review candidate, not automatic publication', () => {

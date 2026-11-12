@@ -51,8 +51,11 @@ export function reconcileGaps(tmdbReport, lineups) {
   // A platform's own schedule can discover a title that TMDB's provider filter never returned.
   // Keep each platform/date as a separate event candidate; no cross-platform date inference.
   const discoveredKeys = new Set(tmdbReport.rows.map(keyOf));
+  const discoveredTitlePlatforms = new Set(tmdbReport.rows.map((row) => `${row.platform}|${normalize(row.title)}`));
   for (const [key, row] of officialRows) {
     if (discoveredKeys.has(key)) continue;
+    // Date disagreement is already represented on the TMDB row as official_date_conflict.
+    if (discoveredTitlePlatforms.has(`${row.platform}|${normalize(row.title)}`)) continue;
     const officialCandidates = evidence.get(key) ?? [];
     rows.push({ ...row, contentId: null, tmdbId: null, tmdbStatus: 'not_matched',
       tmdbDateFields: null, krProviderNames: [], originCountries: [], broadcastNetworks: [],
