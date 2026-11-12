@@ -39,3 +39,13 @@ test('actual Netflix one-day disagreement is preserved for review', () => {
   assert.equal(rows[0].alternateOfficialDates[0].date, '2026-11-05');
   assert.equal(rows[0].publishEligible, false);
 });
+
+test('Korean TV origin is preserved even when target OTT provider is unlisted', () => {
+  const report={rows:[{title:'문무',platform:'netflix',date:'2026-11-14',dateMatched:true,
+    krProviderMatched:false,koreanOrigin:true,originCountries:['KR'],broadcastNetworks:['KBS2'],
+    krProviderNames:['wavve'],otherKoreanProviders:['wavve']}]};
+  const row=reconcileGaps(report,[]).rows[0];
+  assert.equal(row.classification,'korean_origin_target_provider_unlisted');
+  assert.deepEqual(row.broadcastNetworks,['KBS2']);
+  assert.equal(row.publishEligible,false);
+});

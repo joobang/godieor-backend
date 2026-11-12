@@ -25,11 +25,18 @@ export async function inspectMissingCandidates(candidates, request) {
     const dateMatched=premiereHint.includes(row.date);
     const episodeOnly=kind==='tv' && !dateMatched && dates.episodeDates?.includes(row.date);
     const providerMatched=Boolean(providerPattern && available.some(x=>providerPattern.test(x.provider_name)));
+    const originCountries=kind==='tv' ? (detail?.origin_country??[]) : (detail?.production_countries??[]).map(x=>x.iso_3166_1);
+    const broadcastNetworks=kind==='tv' ? (detail?.networks??[]).map(x=>x.name).filter(Boolean) : [];
+    const koreanOrigin=originCountries.includes('KR');
+    const otherKoreanProviders=providerNames.filter(name=>!providerPattern?.test(name));
     const status=!detail ? 'detail_lookup_failed' : kind==='tv' && !season ? 'season_unavailable'
-      : dateMatched && providerMatched ? 'date_and_kr_provider_hint' : dateMatched ? 'date_hint_only'
+      : dateMatched && providerMatched ? 'date_and_kr_provider_hint'
+      : dateMatched && koreanOrigin ? 'korean_origin_provider_unlisted'
+      : dateMatched ? 'date_hint_only'
       : episodeOnly ? 'episode_only_hint' : 'date_mismatch';
     rows.push({...row,kind,tmdbId:Number(id),tmdbTitle:detail?.name??detail?.title??null,
       dates,krProviderNames:providerNames,krProviderMatched:providerMatched,dateMatched,
+      originCountries,broadcastNetworks,koreanOrigin,otherKoreanProviders,
       episodeOnly,status,errors,officialKoreanPremiereConfirmed:false,publishingAllowed:false});
   }
   return {authority:'third_party_discovery_only',source:'StreamPick TMDB IDs + TMDB API',

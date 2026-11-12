@@ -36,10 +36,13 @@ export function reconcileGaps(tmdbReport, lineups) {
       : confirmed ? 'official_kr_premiere_candidate'
       : officialCandidates.length ? 'official_kr_listing_needs_premiere_review'
       : row.dateMatched && row.krProviderMatched ? 'tmdb_date_and_provider_only'
+      : row.dateMatched && row.koreanOrigin ? 'korean_origin_target_provider_unlisted'
       : row.dateMatched ? 'tmdb_date_only' : 'tmdb_date_unmatched';
     return { title: row.title, platform: row.platform, date: row.date, contentId: row.contentId,
       tmdbId: row.tmdbId, tmdbStatus: row.status, tmdbDateFields: row.dates,
-      krProviderNames: row.krProviderNames, officialCandidates, alternateOfficialDates, classification,
+      krProviderNames: row.krProviderNames, originCountries: row.originCountries??[],
+      broadcastNetworks: row.broadcastNetworks??[], koreanOrigin: row.koreanOrigin===true,
+      otherKoreanProviders: row.otherKoreanProviders??[], officialCandidates, alternateOfficialDates, classification,
       publishEligible: false };
   });
   const classes = [...new Set(rows.map((r) => r.classification))];
