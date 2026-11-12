@@ -1,6 +1,21 @@
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
 import { auditPublished } from '../scripts/audit-ott-published.mjs';
+import { readFileSync } from 'node:fs';
+
+test('DATA-40 original gap-11 includes English alias for the same verified Korean Netflix season', () => {
+  const reference = JSON.parse(readFileSync(new URL('../data/reference/streampick-2026-11-12-gap11.json', import.meta.url)));
+  const source = JSON.parse(readFileSync(new URL('../data/lineups/netflix-kr-2026-11-alicia-premiere-confirmed.json', import.meta.url)));
+  const aliases = source.items.map((item) => ({ ...item, platform: source.platform }));
+  const published = [{ title: '알리시아의 법', date: '2026-11-11', platform: 'netflix', seasonNumber: 1 }];
+  const report = auditPublished(reference, published, aliases);
+  assert.equal(report.referenceRows, 11);
+  assert.equal(report.rows.find((row) => row.title === "Alicia's Law").status, 'published_match');
+  assert.equal(report.statusCounts.published_match, 1);
+  assert.equal(auditPublished(reference, published).statusCounts.published_match, 0);
+  assert.equal(auditPublished(reference, published.map((row) => ({ ...row, seasonNumber: 2 })), aliases)
+    .statusCounts.published_match, 0);
+});
 
 test('compares published dates and seasons without claiming third-party dates are official', () => {
   const reference = { authority: 'third_party_discovery_only', rows: [

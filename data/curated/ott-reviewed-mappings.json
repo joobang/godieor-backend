@@ -103,6 +103,12 @@
       "revision": "beb04f7dfc6f6d2a555109778f03bca31ac32baf520bd33e8795f724a40e8a6b",
       "contentKey": "work-000017",
       "eventKey": "event-000017"
+    },
+    {
+      "candidateId": "b9ac0e7986802ac033d9810f403755ac8d8e4f584f2b36b551829ca2c5b1e9fd",
+      "revision": "702e488ceae1d3946baa7884d7cfc80f355ae6924a7e686eaa7ba67fd131ad1f",
+      "contentKey": "work-000018",
+      "eventKey": "event-000018"
     }
   ]
 }

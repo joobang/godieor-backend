@@ -1,0 +1,17 @@
+{
+  "platform": "netflix",
+  "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+  "observedAt": "2026-11-12T05:00:00Z",
+  "items": [
+    {
+      "title": "알리시아의 법",
+      "aliases": ["Alicia's Law"],
+      "date": "2026-11-11",
+      "market": "KR",
+      "contentKind": "original_series",
+      "seasonNumber": 1,
+      "premiereConfirmed": true,
+      "evidence": "Netflix 한국 신규 공개 목록에서 알리시아의 법 11/11(Netflix video 82013595, 작품 페이지 82013594로 redirect), Netflix 멕시코 공식 2026-10-14 발표에서 Alicia's Law 시즌1 Part 1 11/11 글로벌 첫 공개. 한국 작품 페이지 https://www.netflix.com/kr/title/82013594, 공식 발표 https://about.netflix.com/en/news/fernanda-castillo-stars-in-alicias-law-trailer. Part 2 12/09는 같은 시즌의 후속 회차로 신규 시즌 첫 공개와 구분."
+    }
+  ]
+}

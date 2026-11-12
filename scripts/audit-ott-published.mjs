@@ -9,7 +9,7 @@ const normalized = (s) => s.normalize('NFKC').toLocaleLowerCase('ko').replace(/[
 const identity = (platform, title) => `${platform}|${normalized(title)}`;
 const supported = new Set(['netflix', 'tving', 'disney_plus', 'coupang_play']);
 
-export function auditPublished(reference, published) {
+export function auditPublished(reference, published, aliasEvidence = []) {
   if (reference?.authority !== 'third_party_discovery_only' || !Array.isArray(reference.rows) || !Array.isArray(published)) {
     throw new Error('INVALID_AUDIT_INPUT');
   }
@@ -32,7 +32,16 @@ export function auditPublished(reference, published) {
   for (const [date, platform, title, season] of reference.rows) {
     if (!/^2026-(11|12)-\d{2}$/.test(date) || !supported.has(platform) || typeof title !== 'string' ||
       !(season === null || Number.isInteger(season) && season > 0)) throw new Error('INVALID_REFERENCE_ROW');
-    const candidates = byTitle.get(identity(platform, title)) ?? [];
+    const direct = byTitle.get(identity(platform, title)) ?? [];
+    // Provider-verified title aliases are tied to a platform, date and season.
+    // This prevents a similar translated title or a later season from matching.
+    const aliased = aliasEvidence.filter((e) => e.platform === platform && e.date === date &&
+      Array.isArray(e.aliases) && e.aliases.some((alias) => normalized(alias) === normalized(title)) &&
+      (season === null || e.seasonNumber === season))
+      .flatMap((e) => byTitle.get(identity(platform, e.title)) ?? [])
+      .filter((e) => e.date === date);
+    const candidates = [...new Map([...direct, ...aliased].map((e) =>
+      [`${e.platform}|${e.title}|${e.date}|${e.seasonNumber ?? ''}`, e])).values()];
     const dated = candidates.filter((entry) => entry.date === date);
     // Unknown published season is not proof that a listed season matches.
     const confirmed = dated.some((entry) => season === null || entry.seasonNumber === season);
@@ -57,8 +66,9 @@ export function auditPublished(reference, published) {
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   let pool;
   try {
-    const [{ default: pg }, reference] = await Promise.all([
+    const [{ default: pg }, reference, aliases] = await Promise.all([
       import('pg'), readFile(process.argv[2] ?? 'data/reference/streampick-2026-11-12-titles.json', 'utf8').then(JSON.parse),
+      readFile('data/lineups/netflix-kr-2026-11-alicia-premiere-confirmed.json', 'utf8').then(JSON.parse),
     ]);
     if (!process.env.DATABASE_URL) throw new Error('DATABASE_URL_REQUIRED');
     pool = new pg.Pool({ connectionString: process.env.DATABASE_URL, max: 1 });
@@ -72,7 +82,8 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
         AND e.local_date >= DATE '2026-11-01' AND e.local_date < DATE '2027-01-01'
       ORDER BY date, e.title, platform
     `);
-    console.log(JSON.stringify(auditPublished(reference, result.rows), null, 2));
+    console.log(JSON.stringify(auditPublished(reference, result.rows,
+      aliases.items.map((item) => ({ ...item, platform: aliases.platform }))), null, 2));
   } catch (error) {
     console.error('OTT_PUBLISHED_AUDIT_FAILED:', error.message);
     process.exitCode = 1;

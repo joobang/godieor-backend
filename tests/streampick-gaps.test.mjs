@@ -3,6 +3,23 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { reconcileGaps, withCandidateEvidence } from '../scripts/reconcile-streampick-gaps.mjs';
 
+test('DATA-40 verified Netflix Korean title matches an English StreamPick alias once', () => {
+  const confirmed = JSON.parse(readFileSync(new URL('../data/lineups/netflix-kr-2026-11-alicia-premiere-confirmed.json', import.meta.url)));
+  const row = { title: "Alicia's Law", platform: 'netflix', date: '2026-11-11',
+    seasonNumber: 1, dateMatched: true, krProviderMatched: false };
+  const result = reconcileGaps({ rows: [row] }, [confirmed]);
+  assert.equal(result.total, 1);
+  assert.equal(result.summary.official_kr_premiere_candidate, 1);
+  assert.equal(result.rows[0].officialCandidates.length, 1);
+  assert.equal(result.rows[0].publishEligible, false);
+  const wrongSeason = reconcileGaps({ rows: [{ ...row, seasonNumber: 2 }] }, [confirmed],
+    { includeOfficialDiscoveries: false });
+  assert.equal(wrongSeason.rows[0].classification, 'tmdb_date_only');
+  const wrongPlatform = reconcileGaps({ rows: [{ ...row, platform: 'tving' }] }, [confirmed],
+    { includeOfficialDiscoveries: false });
+  assert.equal(wrongPlatform.rows[0].classification, 'tmdb_date_only');
+});
+
 test('DATA-39 four reviewed Netflix KR premieres resolve missing provider hints without merging the date conflict', () => {
   const confirmed = JSON.parse(readFileSync(new URL('../data/lineups/netflix-kr-2026-11-four-premieres-confirmed.json', import.meta.url)));
   const report = { rows: [

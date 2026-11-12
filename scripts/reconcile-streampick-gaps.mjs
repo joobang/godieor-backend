@@ -61,10 +61,14 @@ export function reconcileGaps(tmdbReport, lineups, { includeOfficialDiscoveries 
         ...(item.candidateId ? { candidateId: item.candidateId, revisionToken: item.revisionToken,
           reviewStatus: item.reviewStatus } : {}) });
       evidence.set(key, matches);
-      const titleKey = titlePlatformOf({ ...item, platform: lineup.platform });
-      const titleItems = byTitleAndPlatform.get(titleKey) ?? [];
-      titleItems.push({ date: item.date, ...matches.at(-1) });
-      byTitleAndPlatform.set(titleKey, titleItems);
+      // A verified provider title can differ from a third-party/TMDB title.
+      // Explicit aliases live with the evidence; do not infer translations.
+      for (const title of new Set([item.title, ...(Array.isArray(item.aliases) ? item.aliases : [])])) {
+        const titleKey = titlePlatformOf({ title, platform: lineup.platform });
+        const titleItems = byTitleAndPlatform.get(titleKey) ?? [];
+        titleItems.push({ date: item.date, ...matches.at(-1) });
+        byTitleAndPlatform.set(titleKey, titleItems);
+      }
     }
   }
   const rows = tmdbReport.rows.map((row) => {
@@ -91,7 +95,9 @@ export function reconcileGaps(tmdbReport, lineups, { includeOfficialDiscoveries 
   const discoveredKeys = new Set(tmdbReport.rows.map(keyOf));
   for (const [key, row] of includeOfficialDiscoveries ? officialRows : []) {
     if (discoveredKeys.has(key) || tmdbReport.rows.some((tmdb) =>
-      titlePlatformOf(tmdb) === titlePlatformOf(row) && tmdb.date === row.date && seasonCompatible(tmdb, row))) continue;
+      (titlePlatformOf(tmdb) === titlePlatformOf(row) || (byTitleAndPlatform.get(titlePlatformOf(tmdb)) ?? [])
+        .some((e) => e.date === row.date && seasonCompatible(tmdb, e))) &&
+      tmdb.date === row.date && seasonCompatible(tmdb, row))) continue;
     // A date disagreement for the SAME season is already represented as a conflict.
     if (tmdbReport.rows.some((tmdb) => titlePlatformOf(tmdb) === titlePlatformOf(row) &&
       seasonCompatible(tmdb, row))) continue;
