@@ -82,6 +82,7 @@ const candidateSchema = z
     id: digest,
     source: sourceSchema,
     url: z.string().max(2000),
+    itemKey: z.string().regex(/^(netflix-video:\d+|lineup:[a-f0-9]{64})$/).optional(),
     firstSeenAt: stamp,
     lastSeenAt: stamp,
     revisions: z.array(revisionSchema).min(1),
@@ -122,6 +123,7 @@ const legacyStateSchema = stateSchema.extend({
 export type Discovery = {
   source: Source;
   url: string;
+  itemKey?: string;
   headline: string;
   publishedRaw: string | null;
   publishedAt: string | null;
@@ -129,6 +131,9 @@ export type Discovery = {
 };
 export const hash = (text: string): string =>
   createHash("sha256").update(text).digest("hex");
+export function candidateId(source: Source, url: string, itemKey?: string): string {
+  return hash(source + "\n" + url + (itemKey ? "\n" + itemKey : ""));
+}
 export function canonicalUrl(source: Source, text: string): string {
   const url = new URL(text);
   if (
@@ -165,13 +170,14 @@ export function publishedDate(raw: string | null): string | null {
 }
 export function merge(state: State, entries: Discovery[], now: string): void {
   for (const entry of entries) {
-    const id = hash(entry.source + "\n" + entry.url);
+    const id = candidateId(entry.source, entry.url, entry.itemKey);
     let candidate = state.candidates.find((x) => x.id === id);
     if (!candidate) {
       candidate = {
         id,
         source: entry.source,
         url: entry.url,
+        ...(entry.itemKey ? { itemKey: entry.itemKey } : {}),
         firstSeenAt: now,
         lastSeenAt: now,
         revisions: [],
@@ -260,7 +266,7 @@ export function decodeState(input: unknown): {
   for (const candidate of state.candidates) {
     if (
       canonicalUrl(candidate.source, candidate.url) !== candidate.url ||
-      hash(candidate.source + "\n" + candidate.url) !== candidate.id ||
+      candidateId(candidate.source, candidate.url, candidate.itemKey) !== candidate.id ||
       ids.has(candidate.id)
     )
       throw new Error("INVALID_STORED_ID");
