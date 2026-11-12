@@ -1,0 +1,255 @@
+{
+  "scope": "author_local_db_and_http",
+  "asOf": "2026-11-12",
+  "before": {
+    "scope": "local_reviewed_ott_only",
+    "referenceAuthority": "third_party_discovery_only",
+    "referenceRows": 11,
+    "publishedInWindow": 42,
+    "publishedByMonthPlatform": {
+      "2026-11/netflix": 35,
+      "2026-11/disney_plus": 3,
+      "2026-11/tving": 2,
+      "2026-12/coupang_play": 1,
+      "2026-12/netflix": 1
+    },
+    "statusCounts": {
+      "published_match": 7,
+      "season_unverified": 0,
+      "date_disagreement": 1,
+      "not_published": 3
+    },
+    "rows": [
+      {
+        "date": "2026-11-03",
+        "platform": "netflix",
+        "title": "배스 X 마키나",
+        "season": 1,
+        "status": "published_match"
+      },
+      {
+        "date": "2026-11-04",
+        "platform": "netflix",
+        "title": "반려견의 완벽한 크리스마스",
+        "season": null,
+        "status": "published_match"
+      },
+      {
+        "date": "2026-11-04",
+        "platform": "netflix",
+        "title": "오버액션 갱",
+        "season": null,
+        "status": "date_disagreement"
+      },
+      {
+        "date": "2026-11-05",
+        "platform": "netflix",
+        "title": "시한부 1년, 남자를 사다",
+        "season": null,
+        "status": "published_match"
+      },
+      {
+        "date": "2026-11-08",
+        "platform": "tving",
+        "title": "전지적 집착 시점",
+        "season": 1,
+        "status": "not_published"
+      },
+      {
+        "date": "2026-11-09",
+        "platform": "tving",
+        "title": "유일무이 로맨스",
+        "season": 1,
+        "status": "published_match"
+      },
+      {
+        "date": "2026-11-11",
+        "platform": "disney_plus",
+        "title": "스타일 워즈",
+        "season": 1,
+        "status": "published_match"
+      },
+      {
+        "date": "2026-11-11",
+        "platform": "netflix",
+        "title": "더 바디",
+        "season": 1,
+        "status": "published_match"
+      },
+      {
+        "date": "2026-11-11",
+        "platform": "netflix",
+        "title": "Alicia's Law",
+        "season": 1,
+        "status": "published_match"
+      },
+      {
+        "date": "2026-11-14",
+        "platform": "netflix",
+        "title": "문무",
+        "season": 1,
+        "status": "not_published"
+      },
+      {
+        "date": "2026-11-25",
+        "platform": "netflix",
+        "title": "나인 투 식스",
+        "season": 1,
+        "status": "not_published"
+      }
+    ],
+    "note": "제3자 목록과 로컬 게시물 비교. 미게시 행을 실제 한국 공개로 간주하지 않음. 날짜만 같아도 시즌 미확인은 별도 표시."
+  },
+  "after": {
+    "scope": "author_local_db_and_http",
+    "publishedInWindow": 53,
+    "netflixInNovember": 46,
+    "newRows": [
+      {
+        "id": "9449f6b2-7e94-4ef9-b79d-f5b2460de6a4",
+        "eventKey": "event-000045",
+        "title": "하이 엔드: 명품 시계 절도단",
+        "date": "2026-11-05",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": null
+      },
+      {
+        "id": "0b70927a-959b-4d7c-91e9-b495c17d5b8e",
+        "eventKey": "event-000046",
+        "title": "딜왈리 디왈리",
+        "date": "2026-11-05",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": null
+      },
+      {
+        "id": "7c6816b8-8ef3-461d-889f-fffcffeb6dbb",
+        "eventKey": "event-000047",
+        "title": "저넬 제임스: 미치게 로맨틱",
+        "date": "2026-11-10",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": null
+      },
+      {
+        "id": "420a62c0-7917-4d92-8b5f-98056dcd75bf",
+        "eventKey": "event-000048",
+        "title": "응급실의 기적",
+        "date": "2026-11-12",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": 1
+      },
+      {
+        "id": "e9094348-38b3-479f-bf6d-f403ee544115",
+        "eventKey": "event-000049",
+        "title": "네버 서렌더",
+        "date": "2026-11-12",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": null
+      },
+      {
+        "id": "6a3879f9-5c8e-46e0-b4ee-4bd3db4b29a6",
+        "eventKey": "event-000050",
+        "title": "크리스마스까지만",
+        "date": "2026-11-12",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": null
+      },
+      {
+        "id": "e81bb091-ebde-4127-9301-c3655be45529",
+        "eventKey": "event-000051",
+        "title": "윈 더 몰: 쇼핑 전쟁",
+        "date": "2026-11-18",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": 1
+      },
+      {
+        "id": "5afa7340-0f9b-499b-97e4-8869e42fd7b7",
+        "eventKey": "event-000052",
+        "title": "롭 로: 아웃사이더",
+        "date": "2026-11-24",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": null
+      },
+      {
+        "id": "4ec8be9d-d8f0-4909-a2be-a1565537764e",
+        "eventKey": "event-000053",
+        "title": "토스 판데르팔크 납치 사건",
+        "date": "2026-11-26",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": 1
+      },
+      {
+        "id": "e7b3ff9e-d977-4218-ac06-5bdfbf8846b2",
+        "eventKey": "event-000054",
+        "title": "타이슨 퓨리",
+        "date": "2026-11-27",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": null
+      },
+      {
+        "id": "d801f620-7111-4a0f-8efc-7343206f9eb4",
+        "eventKey": "event-000055",
+        "title": "샐리시의 12가지 크리스마스 게임",
+        "date": "2026-11-28",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": 1
+      }
+    ],
+    "httpStatus": 200,
+    "httpItems": 53,
+    "newIdsInHttp": 11,
+    "independentVerification": false,
+    "cloudDeployed": false,
+    "iphoneVerified": false
+  },
+  "idempotencyBefore": {
+    "events": 55,
+    "new_event_changes": 11
+  },
+  "idempotencyAfter": {
+    "events": 55,
+    "new_event_changes": 11
+  },
+  "selfTests": {
+    "command": "npm test",
+    "node": "22.22.3",
+    "passed": 149,
+    "failed": 0,
+    "includesExistingDirtyWorkingTree": true
+  },
+  "independentVerification": false,
+  "cloudDeployed": false,
+  "iphoneVerified": false
+}

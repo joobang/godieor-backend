@@ -1,3 +1,8 @@
+## DATA-45 인계 (2026-11-12)
+
+- app `docs/system/ott-handoff-2026-11-12.md`에서 최신 사실·다음 순서 확인. backend 원본 카드 `docs/tasks/DATA-45-netflix-official-identities.md`, 공식ID별44건 관측/영문제목대조 CLI/실TMDB결과/11개curated review 및55개mapping 저장. title2는 원제로 사용하지 않으며 redirect/예고편만으로 시즌·한국 첫날 확정 금지.
+- 실제로컬11~12월KR OTT42→53, Netflix11월35→46. SQL/임시HTTP신규11건 확인, 재게시중복증가0, Node22 npm test149/149(기존dirty포함). 독립verifier/클라우드/실폰/Node24 미실행. 다음: 상세실패16건, TMDB미발견2, 검색잘림4, 날짜차이11 확인 후 근거가 있는 배치만 review→publish. API/앱코드/계약/migration/승인기준 불변, 기존서명/환경/미추적 도구 보존. 담당codex-data45-01 해제.
+
 ## OTT 작업 최신 인계 (2026-11-12)
 
 - 새 에이전트는 app `docs/system/ott-handoff-2026-11-12.md`에서 DATA-43 로컬 게시·DATA-44 미분류 분석·남은 공식 제공일 검토·다음 실행 명령을 확인한다. 신규 게시/DB 재측정 없이 문서만 정리한 인계다.

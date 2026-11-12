@@ -1,0 +1,362 @@
+{
+  "version": 1,
+  "platform": "netflix",
+  "market": "KR",
+  "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+  "asOf": "2026-11-12",
+  "reviewScope": "Author review of KR official listing + videoID-bound official English title/format + unique untruncated dated TMDB identity; not independent approval.",
+  "items": [
+    {
+      "videoId": 81904803,
+      "review": {
+        "id": "5b2f04a70c48bf750b45a5998b5d681dcd7bfc65b25110e70ef4cb6dd4e49a50",
+        "revision": "d79dbf613da7f6eb672979b7e6a129c5fac03785b3dcf5fe751d3a1ad92fff28",
+        "reviewer": "GODIEOR 구현 담당 공식 videoID/영문 제목/TMDB 대조 2026-11-12",
+        "title": "하이 엔드: 명품 시계 절도단",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-05",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 신규 목록 videoID 81904803 날짜 2026-11-05; 공식 상세 https://www.netflix.com/title/81904803 영문 제목 High End: The Watch Theft Ring 및 Documentary Films; TMDB movie/1817773 영화 공개 날짜 일치. 한국 플랫폼 날짜 검토; 전세계/극장 최초일과 항상 같다는 의미 아님. DATA-45 작성자 검토, 독립 승인 아님."
+      },
+      "tmdb": {
+        "type": "movie",
+        "id": 1817773,
+        "seasonNumber": null
+      },
+      "officialDetailUrl": "https://www.netflix.com/title/81904803",
+      "mapping": {
+        "candidateId": "5b2f04a70c48bf750b45a5998b5d681dcd7bfc65b25110e70ef4cb6dd4e49a50",
+        "revision": "d79dbf613da7f6eb672979b7e6a129c5fac03785b3dcf5fe751d3a1ad92fff28",
+        "contentKey": "work-000045",
+        "eventKey": "event-000045"
+      }
+    },
+    {
+      "videoId": 83167469,
+      "review": {
+        "id": "72715e078a61956dc1d341772001b1b6e921081c8a4aa0bb7d94a22da50ef5be",
+        "revision": "2afe3457d331aab19b6f0f3c0dde1a2da1dd4ac7d65bd65b1e07960d7187afb5",
+        "reviewer": "GODIEOR 구현 담당 공식 videoID/영문 제목/TMDB 대조 2026-11-12",
+        "title": "딜왈리 디왈리",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-05",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 신규 목록 videoID 83167469 날짜 2026-11-05; 공식 상세 https://www.netflix.com/title/83167469 영문 제목 Dilwali Diwali 및 Drama Movies; Comedy Movies; TMDB movie/1810711 영화 공개 날짜 일치. 한국 플랫폼 날짜 검토; 전세계/극장 최초일과 항상 같다는 의미 아님. DATA-45 작성자 검토, 독립 승인 아님."
+      },
+      "tmdb": {
+        "type": "movie",
+        "id": 1810711,
+        "seasonNumber": null
+      },
+      "officialDetailUrl": "https://www.netflix.com/title/83167469",
+      "mapping": {
+        "candidateId": "72715e078a61956dc1d341772001b1b6e921081c8a4aa0bb7d94a22da50ef5be",
+        "revision": "2afe3457d331aab19b6f0f3c0dde1a2da1dd4ac7d65bd65b1e07960d7187afb5",
+        "contentKey": "work-000046",
+        "eventKey": "event-000046"
+      }
+    },
+    {
+      "videoId": 81751140,
+      "review": {
+        "id": "15e4365746938308d5a61c4e4c85f0697d9ef3b7dd9a6bf31ba0c5e1f4f46a0f",
+        "revision": "f8d866531b7409cbf9625f58b36bbecd3742cfc4b270e490b2fa4246cd617d6c",
+        "reviewer": "GODIEOR 구현 담당 공식 videoID/영문 제목/TMDB 대조 2026-11-12",
+        "title": "저넬 제임스: 미치게 로맨틱",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "variety",
+        "premiereConfirmed": true,
+        "date": "2026-11-10",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 신규 목록 videoID 81751140 날짜 2026-11-10; 공식 상세 https://www.netflix.com/title/81751140 영문 제목 Janelle James: How Romantic 및 Stand-Up Comedy; TMDB movie/1820172 영화 공개 날짜 일치. 한국 플랫폼 날짜 검토; 전세계/극장 최초일과 항상 같다는 의미 아님. DATA-45 작성자 검토, 독립 승인 아님."
+      },
+      "tmdb": {
+        "type": "movie",
+        "id": 1820172,
+        "seasonNumber": null
+      },
+      "officialDetailUrl": "https://www.netflix.com/title/81751140",
+      "mapping": {
+        "candidateId": "15e4365746938308d5a61c4e4c85f0697d9ef3b7dd9a6bf31ba0c5e1f4f46a0f",
+        "revision": "f8d866531b7409cbf9625f58b36bbecd3742cfc4b270e490b2fa4246cd617d6c",
+        "contentKey": "work-000047",
+        "eventKey": "event-000047"
+      }
+    },
+    {
+      "videoId": 82027981,
+      "review": {
+        "id": "add72c639a3e1777501e9561c35dd662321d6c57f0afa710cf31dd4d43913c98",
+        "revision": "9aeba8ded3c67c0df1e853d9660d5490cacf63269428368b92d23dd145a630c2",
+        "reviewer": "GODIEOR 구현 담당 공식 videoID/영문 제목/TMDB 대조 2026-11-12",
+        "title": "응급실의 기적",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-12",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 신규 목록 videoID 82027981 날짜 2026-11-12; 공식 상세 https://www.netflix.com/title/82027980 영문 제목 Miracles of the ER 및 Medical TV Shows; Season 1 Trailer; TMDB tv/312661 시즌 1 첫 공개 날짜 일치. 한국 플랫폼 날짜 검토; 전세계/극장 최초일과 항상 같다는 의미 아님. DATA-45 작성자 검토, 독립 승인 아님."
+      },
+      "tmdb": {
+        "type": "tv",
+        "id": 312661,
+        "seasonNumber": 1
+      },
+      "officialDetailUrl": "https://www.netflix.com/title/82027980",
+      "mapping": {
+        "candidateId": "add72c639a3e1777501e9561c35dd662321d6c57f0afa710cf31dd4d43913c98",
+        "revision": "9aeba8ded3c67c0df1e853d9660d5490cacf63269428368b92d23dd145a630c2",
+        "contentKey": "work-000048",
+        "eventKey": "event-000048"
+      }
+    },
+    {
+      "videoId": 81996126,
+      "review": {
+        "id": "92ce125d5dfb42e29a3e03b0829418a74f69af248c16617d997261896359c328",
+        "revision": "81adf257910950f9f7da366ee3686d33bc052a730cf92897fe3b161127260449",
+        "reviewer": "GODIEOR 구현 담당 공식 videoID/영문 제목/TMDB 대조 2026-11-12",
+        "title": "네버 서렌더",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-12",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 신규 목록 videoID 81996126 날짜 2026-11-12; 공식 상세 https://www.netflix.com/title/81996126 영문 제목 Never Surrender 및 Action & Adventure Movies; TMDB movie/1616687 영화 공개 날짜 일치. 한국 플랫폼 날짜 검토; 전세계/극장 최초일과 항상 같다는 의미 아님. DATA-45 작성자 검토, 독립 승인 아님."
+      },
+      "tmdb": {
+        "type": "movie",
+        "id": 1616687,
+        "seasonNumber": null
+      },
+      "officialDetailUrl": "https://www.netflix.com/title/81996126",
+      "mapping": {
+        "candidateId": "92ce125d5dfb42e29a3e03b0829418a74f69af248c16617d997261896359c328",
+        "revision": "81adf257910950f9f7da366ee3686d33bc052a730cf92897fe3b161127260449",
+        "contentKey": "work-000049",
+        "eventKey": "event-000049"
+      }
+    },
+    {
+      "videoId": 81625025,
+      "review": {
+        "id": "93fb520c5ef49595b5397f0b18019a92ce943a08371099ece9ad134d4d87e57e",
+        "revision": "7ac89cbffd144834f4affa1346c4df96e0f98ce945a0f9e87163fc09b2df4070",
+        "reviewer": "GODIEOR 구현 담당 공식 videoID/영문 제목/TMDB 대조 2026-11-12",
+        "title": "크리스마스까지만",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-12",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 신규 목록 videoID 81625025 날짜 2026-11-12; 공식 상세 https://www.netflix.com/title/81625025 영문 제목 The Christmas Switch 및 Swedish; Comedy Movies; TMDB movie/1757174 영화 공개 날짜 일치. 한국 플랫폼 날짜 검토; 전세계/극장 최초일과 항상 같다는 의미 아님. DATA-45 작성자 검토, 독립 승인 아님."
+      },
+      "tmdb": {
+        "type": "movie",
+        "id": 1757174,
+        "seasonNumber": null
+      },
+      "officialDetailUrl": "https://www.netflix.com/title/81625025",
+      "mapping": {
+        "candidateId": "93fb520c5ef49595b5397f0b18019a92ce943a08371099ece9ad134d4d87e57e",
+        "revision": "7ac89cbffd144834f4affa1346c4df96e0f98ce945a0f9e87163fc09b2df4070",
+        "contentKey": "work-000050",
+        "eventKey": "event-000050"
+      }
+    },
+    {
+      "videoId": 81906730,
+      "review": {
+        "id": "060b0ee32fc50e3583a5416b8b98c6c0695a152001f88b4de3ad67917b71deda",
+        "revision": "95e6fb290dbb438561ab8cc98e9569ff1d843a8373d0fe6a9ac39c70152f7022",
+        "reviewer": "GODIEOR 구현 담당 공식 videoID/영문 제목/TMDB 대조 2026-11-12",
+        "title": "윈 더 몰: 쇼핑 전쟁",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "variety",
+        "premiereConfirmed": true,
+        "date": "2026-11-18",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 신규 목록 videoID 81906730 날짜 2026-11-18; 공식 상세 https://www.netflix.com/title/81906729 영문 제목 Win the Mall 및 Reality TV; Season 1 Trailer; TMDB tv/336592 시즌 1 첫 공개 날짜 일치. 한국 플랫폼 날짜 검토; 전세계/극장 최초일과 항상 같다는 의미 아님. DATA-45 작성자 검토, 독립 승인 아님."
+      },
+      "tmdb": {
+        "type": "tv",
+        "id": 336592,
+        "seasonNumber": 1
+      },
+      "officialDetailUrl": "https://www.netflix.com/title/81906729",
+      "mapping": {
+        "candidateId": "060b0ee32fc50e3583a5416b8b98c6c0695a152001f88b4de3ad67917b71deda",
+        "revision": "95e6fb290dbb438561ab8cc98e9569ff1d843a8373d0fe6a9ac39c70152f7022",
+        "contentKey": "work-000051",
+        "eventKey": "event-000051"
+      }
+    },
+    {
+      "videoId": 81952500,
+      "review": {
+        "id": "0f4f14c4087f44b7434f6c2f21aaf44653dbf37e37a776c0dc8de31dcbd0e20b",
+        "revision": "79a7cfb1bd8d545fc6ff4cbcdd7bd317010a4194408e76f6d3be27bc3959081d",
+        "reviewer": "GODIEOR 구현 담당 공식 videoID/영문 제목/TMDB 대조 2026-11-12",
+        "title": "롭 로: 아웃사이더",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-24",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 신규 목록 videoID 81952500 날짜 2026-11-24; 공식 상세 https://www.netflix.com/title/81952500 영문 제목 Rob Lowe: The Outsider 및 Documentary Films; TMDB movie/1802703 영화 공개 날짜 일치. 한국 플랫폼 날짜 검토; 전세계/극장 최초일과 항상 같다는 의미 아님. DATA-45 작성자 검토, 독립 승인 아님."
+      },
+      "tmdb": {
+        "type": "movie",
+        "id": 1802703,
+        "seasonNumber": null
+      },
+      "officialDetailUrl": "https://www.netflix.com/title/81952500",
+      "mapping": {
+        "candidateId": "0f4f14c4087f44b7434f6c2f21aaf44653dbf37e37a776c0dc8de31dcbd0e20b",
+        "revision": "79a7cfb1bd8d545fc6ff4cbcdd7bd317010a4194408e76f6d3be27bc3959081d",
+        "contentKey": "work-000052",
+        "eventKey": "event-000052"
+      }
+    },
+    {
+      "videoId": 81716315,
+      "review": {
+        "id": "ef9de147a80ee0ef4890b1102dd3f8ac45924b77b54485e60ea43bc0106010a9",
+        "revision": "24181abfd86d6d514f9d1aa87e8e7e4974117eb49c785a54fe8b020e030b554a",
+        "reviewer": "GODIEOR 구현 담당 공식 videoID/영문 제목/TMDB 대조 2026-11-12",
+        "title": "토스 판데르팔크 납치 사건",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-26",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 신규 목록 videoID 81716315 날짜 2026-11-26; 공식 상세 https://www.netflix.com/title/81716314 영문 제목 Toos: The Van der Valk Kidnapping 및 TV Dramas; Limited Series Trailer; TMDB tv/302837 시즌 1 첫 공개 날짜 일치. 한국 플랫폼 날짜 검토; 전세계/극장 최초일과 항상 같다는 의미 아님. DATA-45 작성자 검토, 독립 승인 아님."
+      },
+      "tmdb": {
+        "type": "tv",
+        "id": 302837,
+        "seasonNumber": 1
+      },
+      "officialDetailUrl": "https://www.netflix.com/title/81716314",
+      "mapping": {
+        "candidateId": "ef9de147a80ee0ef4890b1102dd3f8ac45924b77b54485e60ea43bc0106010a9",
+        "revision": "24181abfd86d6d514f9d1aa87e8e7e4974117eb49c785a54fe8b020e030b554a",
+        "contentKey": "work-000053",
+        "eventKey": "event-000053"
+      }
+    },
+    {
+      "videoId": 82046214,
+      "review": {
+        "id": "8a6af9d1058bc1b616996f97e49125414aa3f64c63a72ddb9755693fafa877ac",
+        "revision": "17b621cf29b212baf798ccf3056db60e1efe83fb206030731d13553e290c202d",
+        "reviewer": "GODIEOR 구현 담당 공식 videoID/영문 제목/TMDB 대조 2026-11-12",
+        "title": "타이슨 퓨리",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-27",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 신규 목록 videoID 82046214 날짜 2026-11-27; 공식 상세 https://www.netflix.com/title/82046214 영문 제목 Tyson Fury 및 Documentary Films; TMDB movie/1811599 영화 공개 날짜 일치. 한국 플랫폼 날짜 검토; 전세계/극장 최초일과 항상 같다는 의미 아님. DATA-45 작성자 검토, 독립 승인 아님."
+      },
+      "tmdb": {
+        "type": "movie",
+        "id": 1811599,
+        "seasonNumber": null
+      },
+      "officialDetailUrl": "https://www.netflix.com/title/82046214",
+      "mapping": {
+        "candidateId": "8a6af9d1058bc1b616996f97e49125414aa3f64c63a72ddb9755693fafa877ac",
+        "revision": "17b621cf29b212baf798ccf3056db60e1efe83fb206030731d13553e290c202d",
+        "contentKey": "work-000054",
+        "eventKey": "event-000054"
+      }
+    },
+    {
+      "videoId": 82723082,
+      "review": {
+        "id": "bfa8afe066b30c0db294fb26c55ef01012b2384b69ef817547ca86730d1fdb8c",
+        "revision": "49c24630b7dd0acbd85f8c4c3df16f85b0978bdf9659afbd5e345091203fde7a",
+        "reviewer": "GODIEOR 구현 담당 공식 videoID/영문 제목/TMDB 대조 2026-11-12",
+        "title": "샐리시의 12가지 크리스마스 게임",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "variety",
+        "premiereConfirmed": true,
+        "date": "2026-11-28",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 신규 목록 videoID 82723082 날짜 2026-11-28; 공식 상세 https://www.netflix.com/title/82723081 영문 제목 Salish's 12 Games of Christmas 및 Reality TV; Season 1 Trailer; TMDB tv/341600 시즌 1 첫 공개 날짜 일치. 한국 플랫폼 날짜 검토; 전세계/극장 최초일과 항상 같다는 의미 아님. DATA-45 작성자 검토, 독립 승인 아님."
+      },
+      "tmdb": {
+        "type": "tv",
+        "id": 341600,
+        "seasonNumber": 1
+      },
+      "officialDetailUrl": "https://www.netflix.com/title/82723081",
+      "mapping": {
+        "candidateId": "bfa8afe066b30c0db294fb26c55ef01012b2384b69ef817547ca86730d1fdb8c",
+        "revision": "49c24630b7dd0acbd85f8c4c3df16f85b0978bdf9659afbd5e345091203fde7a",
+        "contentKey": "work-000055",
+        "eventKey": "event-000055"
+      }
+    }
+  ]
+}

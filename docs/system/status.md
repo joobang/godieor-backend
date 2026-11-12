@@ -1,3 +1,8 @@
+## DATA-45 공식 videoID 대조·Netflix11건 로컬 게시 (2026-11-12)
+
+- OTT 전용 인계 `docs/system/ott-handoff-2026-11-12.md` 갱신. 원본 backend `docs/tasks/DATA-45-netflix-official-identities.md`. 기존44건의 공식 상세 조회 시도:28건 제목/형식 확인,16건 도구 조회 실패. NFL1건 제외 후27건 실TMDB대조, 날짜 일치14 중 기존1/검색잘림2 제외한11건 수동 검토·게시.
+- 같은11~12월KR4OTT 로컬DB42→53(+11), Netflix11월35→46, 연중전체매핑44→55. SQL신규11건 date_only/instant NULL·시즌 확인, 임시API200/53행/신규11ID 확인, 재게시 이벤트55/신규변경이력11 유지. Node22 작성자검사149/149(기존dirty포함). 클라우드/실폰/권장Node24/독립검증 미실행. 다음은 공식 상세 실패16건·TMDB미발견2건·검색잘림4건·날짜차이11건 검토. 개인설정/기존dirty 보존.
+
 ## OTT 인계 진입점 (2026-11-12 · 문서 동기화)
 
 - 다른 에이전트는 app `docs/system/ott-handoff-2026-11-12.md`부터 최신 인계 링크를 따라갈 것. DATA-43 실제 로컬 DB 42건, DATA-44 분류만 수행(추가 DB 게시 0). 이 문서 갱신은 DB/API/앱/검증 결과를 변경하지 않는다.
