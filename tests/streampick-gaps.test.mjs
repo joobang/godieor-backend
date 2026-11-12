@@ -1,6 +1,27 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { reconcileGaps, withCandidateEvidence } from '../scripts/reconcile-streampick-gaps.mjs';
+
+test('DATA-39 four reviewed Netflix KR premieres resolve missing provider hints without merging the date conflict', () => {
+  const confirmed = JSON.parse(readFileSync(new URL('../data/lineups/netflix-kr-2026-11-four-premieres-confirmed.json', import.meta.url)));
+  const report = { rows: [
+    { title: '배스 X 마키나', platform: 'netflix', date: '2026-11-03', seasonNumber: 1, dateMatched: true },
+    { title: '반려견의 완벽한 크리스마스', platform: 'netflix', date: '2026-11-04', dateMatched: true },
+    { title: '시한부 1년, 남자를 사다', platform: 'netflix', date: '2026-11-05', dateMatched: true },
+    { title: '더 바디', platform: 'netflix', date: '2026-11-11', seasonNumber: 1, dateMatched: true },
+    { title: '오버액션 갱', platform: 'netflix', date: '2026-11-04', dateMatched: true },
+  ] };
+  const prior = { platform: 'netflix', sourceUrl: confirmed.sourceUrl, items: [
+    ...confirmed.items.map((item) => ({ ...item, premiereConfirmed: false })),
+    { title: '오버액션 갱', date: '2026-11-05', market: 'KR', premiereConfirmed: false },
+  ] };
+  const reconciled = reconcileGaps(report, [prior, confirmed], { includeOfficialDiscoveries: false });
+  assert.equal(reconciled.total, 5);
+  assert.equal(reconciled.summary.official_kr_premiere_candidate, 4);
+  assert.equal(reconciled.summary.official_date_conflict, 1);
+  assert.equal(reconciled.rows.every((row) => row.publishEligible === false), true);
+});
 
 test('latest Netflix KR candidate evidence resolves a stale TMDB-only gap without publishing', () => {
   const report = { rows: [{ title: '더 바디', platform: 'netflix', date: '2026-11-11',

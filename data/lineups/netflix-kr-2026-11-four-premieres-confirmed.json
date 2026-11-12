@@ -1,0 +1,43 @@
+{
+  "platform": "netflix",
+  "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+  "observedAt": "2026-11-12T05:00:00Z",
+  "items": [
+    {
+      "title": "배스 X 마키나",
+      "date": "2026-11-03",
+      "market": "KR",
+      "contentKind": "original_series",
+      "seasonNumber": 1,
+      "premiereConfirmed": true,
+      "evidence": "Netflix 한국 공식 신규 공개 11/03 + https://about.netflix.com/en/news/netflix-unveils-upcoming-anime-slate-out-of-annecy-festival 의 신규 애니 시즌1 첫 공개 11/03."
+    },
+    {
+      "title": "반려견의 완벽한 크리스마스",
+      "date": "2026-11-04",
+      "market": "KR",
+      "contentKind": "movie",
+      "seasonNumber": null,
+      "premiereConfirmed": true,
+      "evidence": "Netflix 한국 공식 신규 공개 11/04 + https://media.netflix.com/en/only-on-netflix/82090597 영화 11/04 공개, Netflix 2026 신규 영화."
+    },
+    {
+      "title": "시한부 1년, 남자를 사다",
+      "date": "2026-11-05",
+      "market": "KR",
+      "contentKind": "movie",
+      "seasonNumber": null,
+      "premiereConfirmed": true,
+      "evidence": "Netflix 한국 공식 신규 공개 11/05 + https://about.netflix.com/en/news/one-year-to-live-buy-a-man-trailer 제작/기획 Netflix 영화 단독 첫 공개 11/05."
+    },
+    {
+      "title": "더 바디",
+      "date": "2026-11-11",
+      "market": "KR",
+      "contentKind": "original_series",
+      "seasonNumber": 1,
+      "premiereConfirmed": true,
+      "evidence": "Netflix 한국 공개 날짜 11/11 + https://www.netflix.com/tudum/articles/the-body-plot-release-date-news 신작 8화 시즌1 첫 공개 11/11; 한국 Netflix title/81983578."
+    }
+  ]
+}
