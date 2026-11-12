@@ -12,7 +12,7 @@ const match = (type, tmdbId, dateMatches = true, krProviderMatched = true, seaso
   ({ type, tmdbId, dateMatches, krProviderMatched, seasonNumber, episodeOnly: false,
     dates: seasonNumber ? { seasonFirstDate: '2026-11-12' } : {} });
 
-test('TMDB 날짜·한국 제공처·고유 ID가 일치하면 종류와 시즌만 보강한다', () => {
+test('한국 공식 목록 + TMDB 날짜·고유 ID 일치로 종류와 시즌만 보강한다', () => {
   const enrichment = { kind: 'official-first-tmdb-review', rows: [
     row('드라마', [match(undefined, 123, true, true, 2)]),
     row('영화', [match('movie', 456)]),
@@ -27,7 +27,7 @@ test('TMDB 날짜·한국 제공처·고유 ID가 일치하면 종류와 시즌�
   assert.equal(result.items.every((x) => x.date === '2026-11-12' && x.premiereConfirmed === false), true);
 });
 
-test('날짜 불일치, 해외 제공, 여러 후보는 원본을 보존한다', () => {
+test('날짜 불일치와 여러 후보는 원본을 보존한다; 제공처 스냅샷 부재는 보강을 막지 않는다', () => {
   const enrichment = { kind: 'official-first-tmdb-review', rows: [
     row('드라마', [match('tv', 123, false, true, 2)]),
     row('영화', [match('movie', 11), match('movie', 12)]),
@@ -35,6 +35,28 @@ test('날짜 불일치, 해외 제공, 여러 후보는 원본을 보존한다',
   ] };
   const source = lineup();
   const result = mergeOfficialTmdbLineup(source, enrichment);
-  assert.deepEqual(result.lineup, source);
-  assert.deepEqual([result.coverage.classified, result.coverage.ambiguous], [0, 1]);
+  assert.equal(result.lineup.items[0].contentKind, 'unknown');
+  assert.equal(result.lineup.items[1].contentKind, 'movie');
+  assert.equal(result.lineup.items[1].premiereConfirmed, false);
+  assert.equal(result.lineup.items[2].contentKind, 'unknown');
+  assert.deepEqual([result.coverage.classified, result.coverage.ambiguous], [1, 1]);
+  assert.equal(result.coverage.classifiedWithoutTmdbKrProvider, 1);
+});
+
+test('공식 한국 목록이 아닌 시장에는 TMDB 일치만으로 종류를 보강하지 않는다', () => {
+  const input = lineup();
+  input.items[0].market = null;
+  const result = mergeOfficialTmdbLineup(input, { kind: 'official-first-tmdb-review', rows: [
+    row('드라마', [match(undefined, 123, true, false, 2)]),
+  ] });
+  assert.equal(result.lineup.items[0].contentKind, 'unknown');
+  assert.equal(result.coverage.classified, 0);
+});
+
+test('TMDB의 서로 다른 동일일자 작품 후보가 있으면 보강하지 않는다', () => {
+  const result = mergeOfficialTmdbLineup(lineup(), { kind: 'official-first-tmdb-review', rows: [
+    row('드라마', [match(undefined, 123, true, false, 1), match(undefined, 456, true, false, 1)]),
+  ] });
+  assert.equal(result.lineup.items[0].contentKind, 'unknown');
+  assert.equal(result.coverage.ambiguous, 1);
 });

@@ -17,16 +17,18 @@ export function mergeOfficialTmdbLineup(lineup, enrichment) {
     if (indexes.has(key)) throw new Error('DUPLICATE_ENRICHMENT');
     indexes.set(key, row);
   }
-  let classified = 0, retained = 0, ambiguous = 0;
+  let classified = 0, retained = 0, ambiguous = 0, classifiedWithoutTmdbKrProvider = 0;
   const items = lineup.items.map((item) => {
     const evidence = indexes.get(keyOf(lineup.platform, item.title, item.date, item.seasonNumber));
     if (item.market !== 'KR' || !item.date || item.contentKind !== 'unknown' || !evidence?.tmdb) {
       retained++;
       return item;
     }
-    // A matching global date and KR provider is a useful identity hint, not a Korean first-premiere proof.
+    // The first-party KR lineup already establishes platform availability.
+    // TMDB's current KR watch-provider snapshot may omit a scheduled/older title.
+    // Use TMDB only as a date/identity hint; never infer first-premiere approval.
     const matches = evidence.tmdb.matches?.filter((match) =>
-      match.dateMatches === true && match.krProviderMatched === true &&
+      match.dateMatches === true &&
       match.episodeOnly !== true && (match.type === 'movie' ||
         (Number.isSafeInteger(match.seasonNumber) && match.seasonNumber > 0 && match.dates?.seasonFirstDate === item.date)) &&
       Number.isSafeInteger(match.tmdbId) && match.tmdbId > 0) ?? [];
@@ -39,17 +41,18 @@ export function mergeOfficialTmdbLineup(lineup, enrichment) {
     const match = [...identities.values()][0];
     const seasonNumber = match.type === 'movie' ? null : match.seasonNumber;
     classified++;
+    if (match.krProviderMatched !== true) classifiedWithoutTmdbKrProvider++;
     return {
       ...item,
       contentKind: match.type === 'movie' ? 'movie' : 'original_series',
       seasonNumber,
       // Preserve official KR date and first-premiere status; TMDB alone cannot approve publication.
-      evidence: `${item.evidence} TMDB 보조 식별: ${match.type === 'movie' ? 'movie' : 'tv'}/${match.tmdbId}${seasonNumber ? `/season/${seasonNumber}` : ''}; KR 제공처·공개일 일치(최초 공개 근거 아님).`.slice(0, 1000),
+      evidence: `${item.evidence} TMDB 보조 식별: ${match.type === 'movie' ? 'movie' : 'tv'}/${match.tmdbId}${seasonNumber ? `/season/${seasonNumber}` : ''}; TMDB 날짜 일치, KR 플랫폼 등록은 공식 목록 근거(최초 공개 근거 아님).`.slice(0, 1000),
     };
   });
   const result = { ...lineup, items };
   prepareLineup(result);
-  return { lineup: result, coverage: { total: items.length, classified, retained, ambiguous, publishEligible: items.filter((x) => x.premiereConfirmed).length } };
+  return { lineup: result, coverage: { total: items.length, classified, classifiedWithoutTmdbKrProvider, retained, ambiguous, publishEligible: items.filter((x) => x.premiereConfirmed).length } };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
