@@ -1,0 +1,246 @@
+[
+  {
+    "command": [
+      "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+      "--version"
+    ],
+    "exit_code": 0,
+    "started_at": "2026-11-13T03:10:22.650485+00:00",
+    "finished_at": "2026-11-13T03:10:22.673057+00:00",
+    "timeout": false,
+    "log": "/private/tmp/godieor-data51-fixed-run-retry/logs/node-version.log",
+    "log_sha256": "4409d3bfa08b82f385bd424eeda65fc63b756129f0e89e82df77f1fecafccc14",
+    "id": "node-version",
+    "execution_policy": "sandboxed"
+  },
+  {
+    "command": [
+      "/usr/bin/python3",
+      "-c",
+      "import pathlib\ndef denied_read(path):\n try: pathlib.Path(path).read_bytes()\n except PermissionError: return\n raise SystemExit(4)\ndenied_read('/private/tmp/godieor-data51-fixed-run-retry/private-canary')\ndenied_read('/Users/dojoohwan/workspace/godieor-app/AGENTS.md')\np=pathlib.Path('/private/tmp/godieor-data51-fixed-run-retry/source/app/AGENTS.md')\nassert p.read_bytes()\ntry: p.write_text(\"forbidden\")\nexcept PermissionError: pass\nelse: raise SystemExit(5)\np=pathlib.Path('/private/tmp/godieor-data51-fixed-run-retry/build/home/probe')\np.write_text(\"ok\");assert p.read_text()==\"ok\""
+    ],
+    "exit_code": 0,
+    "started_at": "2026-11-13T03:10:22.673655+00:00",
+    "finished_at": "2026-11-13T03:10:24.416336+00:00",
+    "timeout": false,
+    "log": "/private/tmp/godieor-data51-fixed-run-retry/logs/boundary-probe.log",
+    "log_sha256": "6ad7b5b5027a3558209c91bd0ff3aa807d75a42291ad947f39944ceeb08da145",
+    "id": "boundary-probe",
+    "execution_policy": "sandboxed"
+  },
+  {
+    "command": [
+      "/usr/bin/xcodebuild",
+      "-project",
+      "/private/tmp/godieor-data51-fixed-run-retry/build/app/ios/GODIEOR.xcodeproj",
+      "-scheme",
+      "GODIEOR",
+      "-configuration",
+      "Debug",
+      "-sdk",
+      "iphonesimulator",
+      "-destination",
+      "generic/platform=iOS Simulator",
+      "-derivedDataPath",
+      "/private/tmp/godieor-data51-fixed-run-retry/build/app/work/DerivedData",
+      "CODE_SIGNING_ALLOWED=NO",
+      "build"
+    ],
+    "exit_code": 0,
+    "started_at": "2026-11-13T03:10:24.416736+00:00",
+    "finished_at": "2026-11-13T03:10:30.108186+00:00",
+    "timeout": false,
+    "log": "/private/tmp/godieor-data51-fixed-run-retry/logs/ios-build.log",
+    "log_sha256": "e94ab9cbeedae6843c5755e1ac44cc6a425f1f34a3e413157a5debeffcf289d6",
+    "id": "ios-build",
+    "execution_policy": "local-reviewed"
+  },
+  {
+    "command": [
+      "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+      "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/lib/node_modules/npm/bin/npm-cli.js",
+      "ci",
+      "--ignore-scripts",
+      "--registry=https://registry.npmjs.org/",
+      "--userconfig=/private/tmp/godieor-data51-fixed-run-retry/build/home/npm-user.config",
+      "--globalconfig=/private/tmp/godieor-data51-fixed-run-retry/build/home/npm-global.config",
+      "--prefer-offline",
+      "--cache",
+      "/private/tmp/godieor-data51-fixed-run-retry/build/home/npm-cache"
+    ],
+    "exit_code": 0,
+    "started_at": "2026-11-13T03:10:30.109005+00:00",
+    "finished_at": "2026-11-13T03:10:31.924431+00:00",
+    "timeout": false,
+    "log": "/private/tmp/godieor-data51-fixed-run-retry/logs/dependencies.log",
+    "log_sha256": "6b86962d02e7a8b7c7e2025027f360d724d4428ea314c50069eebf6edfe8f06f",
+    "id": "dependencies",
+    "execution_policy": "sandboxed"
+  },
+  {
+    "command": [
+      "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+      "node_modules/prisma/build/index.js",
+      "generate"
+    ],
+    "exit_code": 0,
+    "started_at": "2026-11-13T03:10:31.924892+00:00",
+    "finished_at": "2026-11-13T03:10:34.390910+00:00",
+    "timeout": false,
+    "log": "/private/tmp/godieor-data51-fixed-run-retry/logs/generate.log",
+    "log_sha256": "5886ee14eabc49d64f40d1fc6358070472c25fd83c86e819d0f97ac733c577cb",
+    "id": "generate",
+    "execution_policy": "sandboxed"
+  },
+  {
+    "command": [
+      "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+      "node_modules/typescript/bin/tsc",
+      "-p",
+      "tsconfig.json"
+    ],
+    "exit_code": 0,
+    "started_at": "2026-11-13T03:10:34.391346+00:00",
+    "finished_at": "2026-11-13T03:10:35.285880+00:00",
+    "timeout": false,
+    "log": "/private/tmp/godieor-data51-fixed-run-retry/logs/compile.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "id": "compile",
+    "execution_policy": "sandboxed"
+  },
+  {
+    "command": [
+      "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+      "--test",
+      "tests/account-repository.test.cjs",
+      "tests/architecture.test.cjs",
+      "tests/auth-sync.test.cjs",
+      "tests/candidates.test.cjs",
+      "tests/contract-integrity.test.cjs",
+      "tests/enrich-reviewed-tmdb.test.mjs",
+      "tests/merge-official-tmdb-lineup.test.mjs",
+      "tests/netflix-disambiguation.test.mjs",
+      "tests/netflix-identity-aliases.test.mjs",
+      "tests/netflix-kr-schedule.test.mjs",
+      "tests/netflix-lineup-bridge.test.mjs",
+      "tests/netflix-tudum.test.mjs",
+      "tests/official-ott-triage.test.mjs",
+      "tests/official-tmdb-enrichment.test.mjs",
+      "tests/ott-coverage.test.mjs",
+      "tests/ott-discovery-queue.test.mjs",
+      "tests/ott-gap-provenance.test.mjs",
+      "tests/ott-lineup.test.mjs",
+      "tests/ott-published-audit.test.mjs",
+      "tests/ott-reference-compare.test.mjs",
+      "tests/ott-review-backlog.test.mjs",
+      "tests/provider-sources.test.cjs",
+      "tests/query-policy.test.cjs",
+      "tests/reviewed-catalog.test.cjs",
+      "tests/reviewed-publish.test.cjs",
+      "tests/streampick-gaps.test.mjs",
+      "tests/tmdb-date-discovery.test.mjs",
+      "tests/tvingads-lineup.test.mjs",
+      "tests/verify-streampick-tmdb.test.mjs"
+    ],
+    "exit_code": 0,
+    "started_at": "2026-11-13T03:10:35.287147+00:00",
+    "finished_at": "2026-11-13T03:11:00.634964+00:00",
+    "timeout": false,
+    "log": "/private/tmp/godieor-data51-fixed-run-retry/logs/backend-tests.log",
+    "log_sha256": "2a30eba96ef632e28369c217237e33062ed84b26972fbda17efc68ad2327321c",
+    "id": "backend-tests",
+    "execution_policy": "sandboxed"
+  },
+  {
+    "command": [
+      "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+      "node_modules/prisma/build/index.js",
+      "migrate",
+      "deploy"
+    ],
+    "exit_code": 0,
+    "started_at": "2026-11-13T03:11:01.564830+00:00",
+    "finished_at": "2026-11-13T03:11:02.512054+00:00",
+    "timeout": false,
+    "log": "/private/tmp/godieor-data51-fixed-run-retry/logs/migration.log",
+    "log_sha256": "805244a6d56002dcf7feca6ccc5fac5b3fe727d15816cc574c230910ee0eee3d",
+    "id": "migration",
+    "execution_policy": "sandboxed"
+  },
+  {
+    "command": [
+      "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+      "/private/tmp/godieor-data51-fixed-run-retry/trusted/api-checks.cjs",
+      "event-identity"
+    ],
+    "exit_code": 0,
+    "started_at": "2026-11-13T03:11:02.513057+00:00",
+    "finished_at": "2026-11-13T03:11:03.427667+00:00",
+    "timeout": false,
+    "log": "/private/tmp/godieor-data51-fixed-run-retry/logs/api-event-identity.log",
+    "log_sha256": "518785d6937b216cc46f68880785070d97aca7b13c2e9cd76b145f335742f2bd",
+    "id": "api-event-identity",
+    "execution_policy": "sandboxed"
+  },
+  {
+    "command": [
+      "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+      "/private/tmp/godieor-data51-fixed-run-retry/trusted/api-checks.cjs",
+      "time-semantics"
+    ],
+    "exit_code": 0,
+    "started_at": "2026-11-13T03:11:03.428362+00:00",
+    "finished_at": "2026-11-13T03:11:03.952582+00:00",
+    "timeout": false,
+    "log": "/private/tmp/godieor-data51-fixed-run-retry/logs/api-time-semantics.log",
+    "log_sha256": "8b91c96eed17b2a77b545a7c4554745a7adeeca9c7d9a05aa357108148888ae0",
+    "id": "api-time-semantics",
+    "execution_policy": "sandboxed"
+  },
+  {
+    "command": [
+      "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+      "/private/tmp/godieor-data51-fixed-run-retry/trusted/api-checks.cjs",
+      "api-filter-observations"
+    ],
+    "exit_code": 0,
+    "started_at": "2026-11-13T03:11:03.953075+00:00",
+    "finished_at": "2026-11-13T03:11:04.463222+00:00",
+    "timeout": false,
+    "log": "/private/tmp/godieor-data51-fixed-run-retry/logs/api-api-filter-observations.log",
+    "log_sha256": "944f5e0d113efa3aea1d33fb267b46341a87d4769a1bc184dfb509064eba43e6",
+    "id": "api-api-filter-observations",
+    "execution_policy": "sandboxed"
+  },
+  {
+    "command": [
+      "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+      "/private/tmp/godieor-data51-fixed-run-retry/trusted/database-smoke.cjs"
+    ],
+    "exit_code": 0,
+    "started_at": "2026-11-13T03:11:04.463803+00:00",
+    "finished_at": "2026-11-13T03:11:04.986418+00:00",
+    "timeout": false,
+    "log": "/private/tmp/godieor-data51-fixed-run-retry/logs/database-smoke.log",
+    "log_sha256": "e3876ef18b374b3dd730b5233c2bf147039044de3a2a6fd117fb7a71e0fcfccf",
+    "id": "database-smoke",
+    "execution_policy": "sandboxed"
+  },
+  {
+    "command": [
+      "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+      "-m",
+      "godieor_verifier.secret_check",
+      "--run",
+      "/private/tmp/godieor-data51-fixed-run-retry"
+    ],
+    "exit_code": 1,
+    "started_at": "2026-11-13T03:11:05.246866+00:00",
+    "finished_at": "2026-11-13T03:11:06.238153+00:00",
+    "timeout": false,
+    "log": "/private/tmp/godieor-data51-fixed-run-retry/secret-check.log",
+    "log_sha256": "ae3a27d00f015a159c5ea40e8768388286370df63562dfe847bc87b54a7941b4",
+    "id": "secret-check",
+    "execution_policy": "verifier-scanner"
+  }
+]

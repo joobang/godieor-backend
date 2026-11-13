@@ -1,0 +1,129 @@
+{
+  "scope": "implementer local SQL and temporary HTTP; not independent approval",
+  "existing63Unchanged": true,
+  "publishedInWindow": 62,
+  "netflixInNovember": 54,
+  "counts": {
+    "events": 64,
+    "new_changes": 1
+  },
+  "newRow": {
+    "id": "acaff6c2-88c0-47e9-8322-1137d65b062c",
+    "key": "event-000064",
+    "title": "문무",
+    "kind": "ott_season_premiere",
+    "ott_category": "series",
+    "precision": "date_only",
+    "date": "2026-11-14",
+    "instant_at": null,
+    "market": "KR",
+    "season": null,
+    "platform": "tving"
+  },
+  "httpStatus": 200,
+  "httpItems": 62,
+  "event": {
+    "id": "acaff6c2-88c0-47e9-8322-1137d65b062c",
+    "kind": "ott_season_premiere",
+    "ottCategory": "series",
+    "title": "문무",
+    "contentId": "321cc283-dcb4-4377-8e80-9bd2d6d91480",
+    "season": null,
+    "status": "scheduled",
+    "time": {
+      "type": "date_only",
+      "date": "2026-11-14"
+    },
+    "releaseMarket": "KR",
+    "venueCountry": null,
+    "services": [
+      "tving"
+    ],
+    "devices": [],
+    "match": null,
+    "dataOrigin": "provider",
+    "updatedAt": "2026-11-13T03:06:32.437Z"
+  },
+  "detail": {
+    "event": {
+      "id": "acaff6c2-88c0-47e9-8322-1137d65b062c",
+      "kind": "ott_season_premiere",
+      "ottCategory": "series",
+      "title": "문무",
+      "contentId": "321cc283-dcb4-4377-8e80-9bd2d6d91480",
+      "season": null,
+      "status": "scheduled",
+      "time": {
+        "type": "date_only",
+        "date": "2026-11-14"
+      },
+      "releaseMarket": "KR",
+      "venueCountry": null,
+      "services": [
+        "tving"
+      ],
+      "devices": [],
+      "match": null,
+      "dataOrigin": "provider",
+      "updatedAt": "2026-11-13T03:06:32.437Z"
+    },
+    "sources": [
+      {
+        "providerKey": "ott_reviewed",
+        "url": "https://www.tving.com/contents/P001791650",
+        "observedAt": "2026-11-13T03:06:33.442Z",
+        "sourceUpdatedAt": null
+      }
+    ],
+    "previousTime": null
+  },
+  "calendarDay": {
+    "date": "2026-11-14",
+    "total": 1,
+    "previews": [
+      {
+        "id": "acaff6c2-88c0-47e9-8322-1137d65b062c",
+        "kind": "ott_season_premiere",
+        "ottCategory": "series",
+        "title": "문무",
+        "contentId": "321cc283-dcb4-4377-8e80-9bd2d6d91480",
+        "season": null,
+        "status": "scheduled",
+        "time": {
+          "type": "date_only",
+          "date": "2026-11-14"
+        },
+        "releaseMarket": "KR",
+        "venueCountry": null,
+        "services": [
+          "tving"
+        ],
+        "devices": [],
+        "match": null,
+        "dataOrigin": "provider",
+        "updatedAt": "2026-11-13T03:06:32.437Z"
+      }
+    ]
+  },
+  "optionsContractVersion": "0.1.0-draft.4",
+  "migrations": [
+    {
+      "migration_name": "202611090001_initial",
+      "finished": true
+    },
+    {
+      "migration_name": "202611100001_ott_categories",
+      "finished": true
+    },
+    {
+      "migration_name": "202611110001_mobile_game_devices",
+      "finished": true
+    },
+    {
+      "migration_name": "202611130001_ott_documentary",
+      "finished": true
+    }
+  ],
+  "cloudDeployed": false,
+  "iphoneVerified": false
+}

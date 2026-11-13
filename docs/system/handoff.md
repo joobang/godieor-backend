@@ -1,3 +1,10 @@
+## DATA-51 문무 티빙 공개일 확인·로컬 게시 (2026-11-13)
+
+- 원본 backend `docs/tasks/DATA-51-tving-dates.md`, `docs/tasks/evidence/data51/`. 공식 티빙 작품·이번 주 일정에서 문무 11/14 공개를 확인해 TVING 별도 이벤트로 게시했다. 같은 11~12월 KR 4OTT 범위 61→62건, 연중 매핑/이벤트64건. 시각·시즌 번호는 추정하지 않아 date_only/instantNULL/seasonNULL로 보존했다. Netflix 문무 후보의 날짜는 여전히 미확인이다.
+- 공식 TVING 작품 permalink를 수동 검토 출처로 지원(자동 피드 추가 아님). 다른 호스트·login/player/live·임의query와 다른 플랫폼 게시를 차단했다. 관련38/38 및 Node24 추적 전체156/156, 고정 커밋 재시도 서버156/156·unsigned iOS·임시DB migration/반복수집/API 검사 성공. 최초 Prisma 생성 ECONNRESET 후 재시도 성공 이력도 보존했다.
+- SQL·임시HTTP200/62행/신규ID·출처·원 날짜 확인. 재게시 이벤트64/신규변경이력1 유지, 기존63개 event 전체행 불변. source별 staging175/재실행 신규0. 나머지 티빙4개 첫날은 보류한다. 계약/migration/승인 기준 변경 없음.
+- 최종 runner ERROR: secret-check 환경변수 참조 탐지1건, 필수4개 SKIPPED, 독립review/acceptance승인 대기. 실폰 최신 표시·클라우드·OS격리 검증 미실행. 중단된 근거 저장·인계·커밋을 후속 사용자 요청으로 마무리했다. 기존 개인dirty 보존, 담당 해제.
+
 ## DATA-50 공식 후보 5개 추가·PAW 게임 식별 (2026-11-13)
 
 - 원본 backend `docs/tasks/DATA-50-official-gap-review.md`. 공식Netflix game83098128→AppStore6818349835와정확한제목·개발자·Games를대조해PAW의정체성미확인을해결,OTT에서게임제외(Academy별칭아님). 게임일정게시0.

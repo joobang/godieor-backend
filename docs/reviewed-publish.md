@@ -1,5 +1,10 @@
 # 검토한 OTT 후보를 제품 일정으로 반영
 
+## 현재 로컬 반영 · DATA-51 / 2026-11-13
+
+문무의 TVING 공식 작품 화면에 명시된 11월14일 공개를 검토해 로컬 게시했다. 한국 11~12월 4OTT62건/연중64매핑이며 재게시 중복0을 확인했다. 공식 TVING permalink의 수동 source=tving을 지원한다. ‘시즌 1개’를 시즌 번호로 해석하지 않아 문무 season=null을 유지한다. Netflix의 동일 작품 일자를 확인한 것은 아니다. [DATA-51](tasks/DATA-51-tving-dates.md), ADR018과 검사 근거를 따른다. 나머지4개 첫날과 독립 승인·실폰·클라우드는 미완료다.
+
+
 ## 현재 로컬 반영 · DATA-49 / 2026-11-13
 
 로컬 DB에 다큐 migration을 적용하고 캐런 리드 재판(Netflix KR2026-11-23, documentaryFormat=series/시즌1)을 검토·게시했다. 11~12월KR4OTT61건/연중63매핑, 재게시중복0. SQL·임시API분류와원날짜 확인. 다른DB는각자migration/state재현이필요하다. [작업기록](tasks/DATA-49-reviewed-documentary.md).

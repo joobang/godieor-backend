@@ -1,0 +1,107 @@
+{
+  "scope": "implementer local checks, not independent approval",
+  "run": "/private/tmp/godieor-data51-fixed-run-retry",
+  "finalExit": 3,
+  "stepExits": {
+    "node-version": 0,
+    "boundary-probe": 0,
+    "ios-build": 0,
+    "dependencies": 0,
+    "generate": 0,
+    "compile": 0,
+    "backend-tests": 0,
+    "migration": 0,
+    "api-event-identity": 0,
+    "api-time-semantics": 0,
+    "api-api-filter-observations": 0,
+    "database-smoke": 0,
+    "secret-check": 1
+  },
+  "firstRun": {
+    "out": "/private/tmp/godieor-data51-fixed-run",
+    "finalExit": 3,
+    "stepExits": {
+      "node-version": 0,
+      "boundary-probe": 0,
+      "ios-build": 0,
+      "dependencies": 0,
+      "generate": 1,
+      "secret-check": 1
+    },
+    "cause": "Prisma generate ECONNRESET"
+  },
+  "binding": {
+    "app": {
+      "base_sha": "1d9b3ad19e043788f4ddb5323138e4c3f59f7a03",
+      "head_sha": "1d9b3ad19e043788f4ddb5323138e4c3f59f7a03"
+    },
+    "backend": {
+      "base_sha": "8bf03cbc194d44e4081d0b08f968f32db05100f3",
+      "head_sha": "6b97697a3db87c3ec40cf3d81c459da9e35daf9b"
+    },
+    "contract": {
+      "version": "0.1.0-draft.4",
+      "sha256": "96cc08536324f8b5a7c537783caa93a1ce33de533526032e01621282fb601122"
+    },
+    "migrations": {
+      "sha256": "853337eadc11cd3c8c619c9e53d961cb7eead5fe0a79368c5d167324598bb697"
+    },
+    "acceptance": {
+      "version": "0.1.0-draft",
+      "sha256": "c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063"
+    },
+    "verifier": {
+      "sha": "21470dda7efef92b9df68326beb0e987ea1b4991",
+      "dirty": false,
+      "state_sha256": "acdd1eb1246cd3d219276d51008665a139957ee659308008b34d316f6f0cc9f0"
+    }
+  },
+  "secret": {
+    "status": "FAIL",
+    "policy": "literal-secrets-1",
+    "findings": [
+      {
+        "root": "backend-source",
+        "path_id": "d64c905860023115cac4ec738c3f34a255c1890f1c0c26ca7870a05e0f9d601a",
+        "rule": "credential-assignment",
+        "line": 51
+      },
+      {
+        "root": "backend-source",
+        "path_id": "85d131ebf08bdf08ca4882493622bcfca02deb86738e81bcc5132ddab79c6882",
+        "rule": "credential-assignment",
+        "line": 146
+      },
+      {
+        "root": "backend-source",
+        "path_id": "2fd489345b5e90cf00fc65f9ebc9a4af05537cfc51965849074514317b14d6c3",
+        "rule": "credential-url",
+        "line": 236
+      }
+    ],
+    "errors": []
+  },
+  "localPublication": {
+    "windowBefore": 61,
+    "windowAfter": 62,
+    "allYearEvents": 64,
+    "newChanges": 1,
+    "existing63Unchanged": true
+  },
+  "candidateStaging": {
+    "total": 175,
+    "new": 1,
+    "repeatNew": 0
+  },
+  "workingTreeTestTail": [
+    "✔ Korean KBS premiere with wavve does not disappear when Netflix is absent from TMDB (0.395ms)",
+    "ℹ tests 156",
+    "ℹ suites 0",
+    "ℹ pass 156",
+    "ℹ fail 0",
+    "ℹ cancelled 0",
+    "ℹ skipped 0",
+    "ℹ todo 0",
+    "ℹ duration_ms 25431.677458"
+  ]
+}

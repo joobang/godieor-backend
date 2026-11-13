@@ -1,0 +1,17 @@
+Loaded Prisma config from prisma.config.ts.
+
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+Error: aborted
+    at TLSSocket.socketCloseListener (node:_http_client:734:19)
+    at TLSSocket.emit (node:events:526:24)
+    at node:net:362:12
+    at TCP.done (node:internal/tls/wrap:788:7) {
+  code: 'ECONNRESET',
+  attemptNumber: 1,
+  retriesLeft: 2
+}
+
+Node.js v24.22.3

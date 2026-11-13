@@ -1,0 +1,46 @@
+✔ 게시일은 수집 메타데이터이고 공개 날짜/시즌으로 자동 대입하지 않는다 (4.359292ms)
+✔ 연/월만 있는 검토 입력은 후보에 보존하고 내보내기에서 제외한다 (1.966167ms)
+✔ 정확한 날짜만 있어도 시간/시즌을 만들지 않고 후보를 내보낸다 (0.62925ms)
+✔ 잘못된 날짜/시간/시간대/연도 불일치를 거부한다 (1.167875ms)
+✔ 시각은 시간대가 없으면 UTC instant로 승격하지 않는다 (0.2655ms)
+✔ 국가/플랫폼/드라마/최초 공개 근거가 없거나 2026 이전이면 보류한다 (0.921416ms)
+✔ 같은 공지 재수집은 중복을 만들지 않고 변경 시 이전 검토를 무효화한다 (0.4785ms)
+✔ 뉴스룸 발행사와 작품 플랫폼은 독립이다 (0.148958ms)
+✔ RSS와 수동 링크의 출처를 제한하고 추적 쿼리만 제거한다 (0.15175ms)
+✔ 불완전 XML/DTD/상충하는 중복은 실패시키고 빈 RSS는 허용한다 (0.333625ms)
+✔ robots는 일반 봇 제한을 따르고 더 구체적인 allow 규칙을 적용한다 (0.254208ms)
+✔ 일부 소스 실패/빈 응답이 기존 후보를 삭제하지 않는다 (21.263958ms)
+✔ 출처 응답 크기를 제한하고 redirect를 따라가지 않는다 (0.99825ms)
+✔ 임시 저장소에 원자적으로 보존하고 동시 writer를 거부한다 (8.056416ms)
+✔ 수집/검토 변경은 이전 내보내기 파일을 무효화한다 (32.061042ms)
+✔ v1 후보 이력을 보존해 v2로 올리고 구버전 검토/내보내기를 무효화한다 (14.314ms)
+✔ 미지원/손상 상태는 내보내기를 삭제하기 전에 거부한다 (9.197417ms)
+✔ 후보 모듈은 제품 설정/DB 없이 부팅하고 임시 디렉터리/소스 주입을 지원한다 (9.691959ms)
+✔ service list/export는 최신 검토와 내보내기를 보존하고 review는 무효화한다 (45.099375ms)
+✔ 실제 CLI add/list/review/export와 오류 종료/비밀 비출력을 유지한다 (1106.124458ms)
+✔ manual TVING program permalinks remain stable and never become an automatic feed (0.618625ms)
+✔ explicit stable keys survive title/date/season corrections; missing time stays date-only (5.04425ms)
+✔ same title does not merge separate curator content/event keys (1.70025ms)
+✔ missing, stale and ineligible review inputs all refuse publication preparation (1.576833ms)
+✔ strict mapping schema requires version, nonempty explicit keys and rejects ambiguous batch (0.946125ms)
+✔ local time converts only with exact roundtrip and one possible offset (1.611042ms)
+✔ CJ query needs explicit official query-free canonical URL; off-host/credentials/query/hash refuse (0.513833ms)
+✔ identity permits unknown→known season, refuses known→other/null and market/platform/content changes (0.259708ms)
+✔ mapping repository uses Prisma relation reads and compares actual persisted identity (0.284167ms)
+✔ adapter snapshots are immutable; fetch validates every market under the existing collector lock (1.130958ms)
+✔ Nest provider wiring registers empty then prepared scopes, uses reviewed adapter only, refuses unconfigured collect (4.707125ms)
+✔ candidate writer lock spans mapping read, validation and collection; invalid late input publishes nothing (34.272291ms)
+✔ failed collection still clears configured adapter and releases candidate lock (0.271125ms)
+✔ CLI requires explicit mapping and sanitizes invalid arguments and bootstrap errors (719.852042ms)
+✔ CLI closes created context on success and publish failure without printing private errors (284.124958ms)
+✔ documentary keeps its category and explicit movie/series format without inventing time or season (0.711666ms)
+✔ documentary requires an explicit format, rejects movie seasons and unrelated format fields (0.499459ms)
+✔ TVING manual review preserves a date-only premiere, unknown season and official program source (0.218041ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1459.401875
