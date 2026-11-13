@@ -544,3 +544,15 @@ test("실제 CLI add/list/review/export와 오류 종료/비밀 비출력을 유
     await rm(directory, { recursive: true, force: true });
   }
 });
+
+test("manual TVING program permalinks remain stable and never become an automatic feed", () => {
+  const input={source:"tving",url:"https://www.tving.com/contents/P000000001",headline:"가상 티빙 작품",publishedRaw:null,evidenceRevision:"synthetic-date-observation"};
+  const s=blank();const id=c.addCandidate(s,input,now);const rev=s.candidates[0].revisions[0].token;
+  assert.equal(c.addCandidate(s,input,now),id);assert.equal(s.candidates.length,1);
+  assert.equal(s.candidates[0].revisions.at(-1).token,rev);
+  assert.equal(s.candidates[0].revisions[0].publishedAt,null);
+  assert.equal(c.SOURCES.tving.feed,null);assert.ok(!c.FEED_SOURCES.includes("tving"));
+  assert.equal(c.decodeState(s).state.candidates[0].source,"tving");
+  for(const url of ["http://www.tving.com/contents/P000000001","https://tving.com/contents/P000000001","https://www.tving.com.attacker.invalid/contents/P000000001","https://www.tving.com@attacker.invalid/contents/P000000001","https://www.tving.com/account/login","https://www.tving.com/player/E000000001","https://www.tving.com/live/C1","https://www.tving.com/contents/P000000001?source_page_type=WEEKLY_SCHEDULE","https://www.tving.com/contents/P000000001?token=synthetic"])
+    assert.throws(()=>c.addCandidate(blank(),{...input,url},now));
+});

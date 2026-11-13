@@ -648,3 +648,11 @@ test("documentary requires an explicit format, rejects movie seasons and unrelat
   assert.throws(()=>normalize({...record,content:{...record.content,kind:"game"}},{category:"ott",market:"KR"}));
   assert.throws(()=>normalize({...record,kind:"theatrical_release",services:[]},{category:"movie",market:"KR"}));
 });
+
+test("TVING manual review preserves a date-only premiere, unknown season and official program source", () => {
+  const f=fixture({platform:"tving",date:"2027-03-14",seasonNumber:null},"tving","https://www.tving.com/contents/P000000001");
+  const r=prepareReviewed(f.input,f.state)[0];assert.deepEqual(r.services,["tving"]);
+  assert.equal(r.sourceUrl,"https://www.tving.com/contents/P000000001");assert.deepEqual(r.time,{type:"date_only",value:"2027-03-14"});assert.equal(r.seasonNumber,null);
+  f.input.mappings[0].sourceUrl="https://www.tving.com/player/E000000001";
+  assert.throws(()=>prepareReviewed(f.input,f.state));
+});

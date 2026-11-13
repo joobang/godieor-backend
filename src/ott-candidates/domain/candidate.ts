@@ -10,8 +10,9 @@ export const SOURCES = {
   coupang: { host: "news.coupang.com", feed: "https://news.coupang.com/feed/" },
   cj: { host: "cjnews.cj.net", feed: "https://cjnews.cj.net/feed/" },
   disney: { host: "www.disneyplus.com", feed: null },
+  tving: { host: "www.tving.com", feed: null },
 } as const;
-export const sourceSchema = z.enum(["netflix", "coupang", "cj", "disney"]);
+export const sourceSchema = z.enum(["netflix", "coupang", "cj", "disney", "tving"]);
 export type Source = z.infer<typeof sourceSchema>;
 const digest = z.string().regex(/^[a-f0-9]{64}$/);
 const stamp = z.iso.datetime({ offset: true });
@@ -165,6 +166,8 @@ export function canonicalUrl(source: Source, text: string): string {
     url.username ||
     url.password
   )
+    throw new Error("UNTRUSTED_SOURCE_URL");
+  if (source === "tving" && !/^\/contents\/P[0-9]+$/.test(url.pathname))
     throw new Error("UNTRUSTED_SOURCE_URL");
   for (const key of [...url.searchParams.keys()]) {
     if (key.startsWith("utm_") || key === "msockid")

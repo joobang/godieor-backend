@@ -29,7 +29,7 @@ add JSON 예시(가상 입력, 실제 페이지라고 표현하지 않음):
 {"source":"disney","url":"https://www.disneyplus.com/ko-kr/browse/example","headline":"가상 작품","publishedRaw":null,"evidenceRevision":"직접 확인한 근거 버전"}
 ```
 
-source는 netflix/coupang/cj/disney 중 하나다. URL은 해당 공식 host의 https만 허용한다.
+source는 netflix/coupang/cj/disney/tving 중 하나다. URL은 해당 공식 host의 https만 허용한다.
 단순 추적 쿼리는 제거한다. CJ의 ?p=숫자는 후보 링크로 보존하지만 제품 연결 때 canonical URL과 계약 제약을 대조해야 한다.
 본문은 저장하지 않고 RSS 본문/제목/게시일의 fingerprint만 저장한다. 수동 evidenceRevision은 관찰 버전 식별자이며 실제 HTML hash라고 주장하지 않는다.
 
@@ -107,3 +107,5 @@ node scripts/prepare-ott-lineup.mjs /private/tmp/ott-lineup-input.json /private/
 ```
 
 이 CLI는 공식 사이트 자동 크롤러가 아니며 후보 데이터만 출력한다. 출시 후보를 서비스별 실제 첫 공개 이벤트로 게시하려면 한국 서비스/최초 공개일을 별도로 확인하고 기존 검토·게시 절차를 통과해야 한다.
+
+DATA-51: TVING은 Disney+와 같이 수동 add/review만 지원한다. 정확한 `https://www.tving.com/contents/P숫자` 링크를 사용한다. login/player/live·임의query는거부한다. 화면의source_page_type은탐색파라미터이므로검토한query-free작품permalink를입력한다. 화면에연월일이없으면방송일·게시일로추정하지않는다. 시즌개수와시즌번호를구분한다. ADR018참조.
