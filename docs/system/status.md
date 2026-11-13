@@ -1,3 +1,9 @@
+## APP-AUTH-13 · 앱 계정 흐름 묶음 수정 (2026-11-13)
+
+- 원본 app `docs/ai/tasks/APP-AUTH-13.md`, ADR-003/LEARN-0020. 실제 AccountState 합성15개 시나리오에서4실패→수정15/15. 새 계정의 이전 설정·찜 잔류, 로그아웃 busy 잔류, 이전 defer의 새 busy 해제, 지연 설정 응답 덮어쓰기를 수정했다. 초기 오프라인 복원 재시도/active 재조회 UI 추가.
+- 코드 head dc3bab01d675e1fff28c8265dcf6d07606866992의 개인 pbxproj 제외 고정 소스 unsigned iOS 빌드 성공(CoreSimulator 서비스 경고, UI 실행 아님). 합성 HTTP/저장소/인증으로 검사했으며 실 Google·Keychain·폰/기기간 왕복·신규 독립runner는 미실행. 계약/migration/승인 기준·이전 ERROR/4 SKIPPED·review 대기 불변.
+- 제품DB 접근/신규 적재0. 다음은 달력→목록→상세·설정 복원의 빈 결과/실패/지연/마지막 성공 흐름 묶음이다. 앱 실제계정 왕복과 독립검증은 남은 범위로 유지. 개인 dirty 보존, 담당 해제. 공통 사본 revision APP-AUTH-13-2026-11-13.
+
 ## 제품 완성 우선 전환 · BE-AUTH-07 (2026-11-13)
 
 - 사용자 지적에 따라 작품별 추가 적재 반복을 중단했다. plan.md를 계정 사용 흐름·달력/상세·실제 조합 검증 중심으로 갱신하고, 데이터는 ott-batch-backlog.md의 원인 유형별 배치로 분리했다. 이번 신규 수집/게시0, 제품DB 접근 없음. DATA-52의 기간63건/연중65매핑은 이전 관측이다.
