@@ -621,3 +621,30 @@ test("CLI closes created context on success and publish failure without printing
     if (!fail) assert.match(result.stdout, /"published": 1/);
   }
 });
+
+test("documentary keeps its category and explicit movie/series format without inventing time or season", () => {
+  for (const [format,kind,season] of [["movie","movie",null],["series","drama",2],["series","drama",null]]) {
+    const f=fixture({contentKind:"documentary",documentaryFormat:format,seasonNumber:season});
+    const record=prepareReviewed(f.input,f.state)[0];
+    assert.equal(record.ottCategory,"documentary");
+    assert.equal(record.content.kind,kind);
+    assert.equal(record.seasonNumber,season);
+    assert.deepEqual(record.time,{type:"date_only",value:"2027-02-28"});
+    assert.deepEqual(record.services,["netflix"]);
+  }
+});
+
+test("documentary requires an explicit format, rejects movie seasons and unrelated format fields", () => {
+  for (const changes of [
+    {contentKind:"documentary"},
+    {contentKind:"documentary",documentaryFormat:"movie",seasonNumber:1},
+    {contentKind:"drama",documentaryFormat:"series"},
+    {contentKind:"documentary",documentaryFormat:"animation"},
+  ]) assert.throws(()=>fixture(changes));
+  const {normalize}=require("../dist/src/collection/domain/provider-record");
+  const f=fixture({contentKind:"documentary",documentaryFormat:"movie"});
+  const record=prepareReviewed(f.input,f.state)[0];
+  assert.throws(()=>normalize({...record,seasonNumber:1},{category:"ott",market:"KR"}));
+  assert.throws(()=>normalize({...record,content:{...record.content,kind:"game"}},{category:"ott",market:"KR"}));
+  assert.throws(()=>normalize({...record,kind:"theatrical_release",services:[]},{category:"movie",market:"KR"}));
+});

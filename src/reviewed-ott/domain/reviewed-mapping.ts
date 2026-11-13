@@ -90,7 +90,7 @@ export function prepareReviewed(input: unknown, state: State): Canonical[] {
         title: review.title,
         content: {
           externalId: mapping.contentKey,
-          kind: review.contentKind === "movie" ? "movie" : "drama",
+          kind: review.contentKind === "movie" || review.documentaryFormat === "movie" ? "movie" : "drama",
           title: review.title,
         },
         seasonNumber: review.seasonNumber,

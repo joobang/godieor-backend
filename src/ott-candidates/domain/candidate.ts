@@ -29,7 +29,8 @@ export const reviewSchema = z
       .string()
       .regex(/^[A-Z]{2}$/)
       .nullable(),
-    contentKind: z.enum(["drama", "movie", "original_series", "variety", "other", "unknown"]),
+    contentKind: z.enum(["drama", "movie", "original_series", "variety", "documentary", "other", "unknown"]),
+    documentaryFormat: z.enum(["movie", "series"]).optional(),
     premiereConfirmed: z.boolean(),
     date: z
       .string()
@@ -47,6 +48,12 @@ export const reviewSchema = z
   })
   .strict()
   .superRefine((r, ctx) => {
+    if (r.contentKind === "documentary" && !r.documentaryFormat)
+      ctx.addIssue({ code: "custom", message: "MISSING_DOCUMENTARY_FORMAT" });
+    if (r.contentKind !== "documentary" && r.documentaryFormat !== undefined)
+      ctx.addIssue({ code: "custom", message: "UNEXPECTED_DOCUMENTARY_FORMAT" });
+    if (r.documentaryFormat === "movie" && r.seasonNumber !== null)
+      ctx.addIssue({ code: "custom", message: "DOCUMENTARY_MOVIE_WITH_SEASON" });
     if (
       r.date &&
       (!DateTime.fromISO(r.date).isValid ||

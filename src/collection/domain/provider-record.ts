@@ -48,7 +48,7 @@ const recordSchema = z
       "game_release",
       "epl_match",
     ]),
-    ottCategory: z.enum(["movie", "series", "original_series", "variety", "other"]).nullable().optional(),
+    ottCategory: z.enum(["movie", "series", "original_series", "variety", "documentary", "other"]).nullable().optional(),
     title: identifier,
     content: content.nullable(),
     seasonNumber: z.number().int().positive().nullable(),
@@ -100,9 +100,9 @@ export function normalize(value: unknown, scope: Scope): Canonical {
       r.kind === "theatrical_release"
         ? "movie"
         : r.kind === "ott_season_premiere"
-          ? r.ottCategory === "movie" ? "movie" : "drama"
+          ? r.ottCategory === "documentary" ? r.content?.kind : r.ottCategory === "movie" ? "movie" : "drama"
           : "game";
-    if (!r.content || r.content.kind !== expected || r.home || r.away)
+    if (!r.content || (r.ottCategory === "documentary" && !["movie", "drama"].includes(r.content.kind)) || r.content.kind !== expected || r.home || r.away)
       throw new Error("INVALID_CONTENT");
   }
   if (
@@ -117,7 +117,7 @@ export function normalize(value: unknown, scope: Scope): Canonical {
     throw new Error("MISSING_OTT_EVIDENCE");
   if (r.kind !== "ott_season_premiere" && r.ottCategory != null)
     throw new Error("INVALID_OTT_CATEGORY");
-  if (r.kind === "ott_season_premiere" && r.ottCategory === "movie" && r.seasonNumber !== null)
+  if (r.kind === "ott_season_premiere" && (r.ottCategory === "movie" || r.content?.kind === "movie") && r.seasonNumber !== null)
     throw new Error("INVALID_OTT_CATEGORY");
   if (r.kind !== "game_release" && r.devices.length)
     throw new Error("INVALID_DEVICE");
