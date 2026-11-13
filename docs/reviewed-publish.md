@@ -43,3 +43,10 @@ ReviewedOttModule은 수동 CLI만 사용한다. API의 fixture scheduler에 연
 ## 2026-11-11 검토 7건으로 확대
 
 로컬 후보 3건(Netflix 예능 `데블스 플랜: 데드 어게인` 11/10·영화 `심장소리` 11/02, TVING 오리지널 시리즈 `대리수능` 11/23)을 공식 공지로 검토해 기존 4건 포함 7건을 로컬 PostgreSQL에 게시했다. 첫 시도는 기존 Netflix 후보 STALE_MAPPING으로 게시 전 차단됐고, 해당 공식 날짜 재확인 및 후보 revision 갱신 후 `npm run publish:reviewed -- --file data/curated/ott-reviewed-mappings.json`이 exit0(`published 7`)으로 완료됐다. 새 DB·클라우드 반영, 자동 전수·이미지 적재·독립 검증은 미실행. 세부 근거와 작업 명령은 [DATA-09](tasks/DATA-09-ott-reviewed-expansion.md).
+
+
+## 후보 분류와 게시 지원 유형 · DATA-47 관측 (2026-11-13)
+
+후보 목록이 형식을 보존할 수 있다는 사실은 그 유형을 게시할 수 있다는 뜻이 아니다. 현재 reviewSchema의 게시 가능한 contentKind는 movie, drama, original_series, variety이며 other/unknown은 eligibility에서 보류한다. Canonical/API ottCategory는 movie, series, original_series, variety, other다. 후보 lineup의 documentary/animation을 현재 게시 경로가 지원한다고 가정하지 않는다.
+
+DATA-47에서 공식 다큐 시리즈를 포함한6개 검토 입력은 documentary enum 단계에서 저장 전에 거부됐다. 후보state/매핑이 보존됨을 확인하고 지원되는5건만 별도 검토·게시했다. 유형을 다른 분류로 재명명하거나 enum 하나만 늘려 해결하지 않는다. 새 유형은 제품 범위·API 계약·정규화·iOS 표시의 일관성을 검토하고 별도 구현/검증해야 한다. 원본 사례와 실제 명령은 [DATA-47](tasks/DATA-47-netflix-official-recovery.md), 학습 연결은 LEARN-0011이다.

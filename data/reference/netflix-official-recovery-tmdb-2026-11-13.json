@@ -1,0 +1,1220 @@
+{
+  "kind": "netflix-identity-tmdb-crosscheck",
+  "observedAsOf": "2026-11-13",
+  "total": 16,
+  "queried": 8,
+  "publishedCountDelta": 0,
+  "rows": [
+    {
+      "videoId": 83135831,
+      "title": "케이팝 데몬 헌터스: 플레이리스트",
+      "date": "2026-11-02",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "title_not_found",
+      "sourceUrl": "https://www.netflix.com/title/83135831",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "우리랑 놀자!",
+      "listingGenreCode": 2070367,
+      "detailStatus": "observed",
+      "englishTitle": "KPop Demon Hunters PLAYlist",
+      "observedFormat": "unknown",
+      "canonicalVideoId": 83111321,
+      "canonicalUrl": "https://www.netflix.com/kr/title/83111321",
+      "seasonHint": null,
+      "formatEvidence": "short_form_collection",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1793606400000,
+      "observedListingDateKst": "2026-11-02",
+      "recoveredContentType": "short_form_collection",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "content_redirect_observed",
+      "disposition": "hold_collection_first_release_unverified",
+      "additionalSourceUrls": [
+        "https://about.netflix.com/en/new-to-watch?_amp=true"
+      ],
+      "identityNote": "Official page has named short-form collections; source subtitle is not a numeric season.",
+      "queryStatus": "detail_unavailable_or_outside_ott_scope",
+      "tmdb": null
+    },
+    {
+      "videoId": 82661317,
+      "title": "케이팝 데몬 헌터스: 보너스 콘텐츠",
+      "date": "2026-11-02",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "title_not_found",
+      "sourceUrl": "https://www.netflix.com/title/82661317",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "Dance Videos",
+      "listingGenreCode": 2070367,
+      "detailStatus": "observed",
+      "englishTitle": "KPop Demon Hunters Bonus Content",
+      "observedFormat": "unknown",
+      "canonicalVideoId": 82182322,
+      "canonicalUrl": "https://www.netflix.com/kr/title/82182322",
+      "seasonHint": null,
+      "formatEvidence": "bonus_collection",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1793606400000,
+      "observedListingDateKst": "2026-11-02",
+      "recoveredContentType": "bonus_collection",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "content_redirect_observed",
+      "disposition": "hold_collection_first_release_unverified",
+      "additionalSourceUrls": [
+        "https://about.netflix.com/en/new-to-watch?_amp=true"
+      ],
+      "queryStatus": "detail_unavailable_or_outside_ott_scope",
+      "tmdb": null
+    },
+    {
+      "videoId": 83098128,
+      "title": "PAW Patrol: The Game",
+      "date": "2026-11-04",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "title_not_found",
+      "sourceUrl": "https://www.netflix.com/title/83098128",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "PAW Patrol: The Game",
+      "listingGenreCode": 82627204,
+      "detailStatus": "web_tool_unavailable",
+      "englishTitle": null,
+      "observedFormat": "unknown",
+      "canonicalVideoId": null,
+      "canonicalUrl": null,
+      "seasonHint": null,
+      "formatEvidence": "unverified",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1793728800000,
+      "observedListingDateKst": "2026-11-04",
+      "recoveredContentType": "unverified",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "NSES-404",
+      "disposition": "unresolved_exact_game_identity",
+      "additionalSourceUrls": [],
+      "identityNote": "PAW Patrol Academy help is a different named game; no automatic alias to PAW Patrol: The Game.",
+      "queryStatus": "detail_unavailable_or_outside_ott_scope",
+      "tmdb": null
+    },
+    {
+      "videoId": 81997254,
+      "title": "이런, 북극!",
+      "date": "2026-11-05",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "candidate_dates_before_listing",
+      "sourceUrl": "https://www.netflix.com/title/81997254",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "시즌 2",
+      "listingGenreCode": 1305630,
+      "detailStatus": "observed",
+      "englishTitle": "North of North",
+      "observedFormat": "series",
+      "canonicalVideoId": 81616012,
+      "canonicalUrl": "https://www.netflix.com/kr/title/81616012",
+      "seasonHint": null,
+      "formatEvidence": "series",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1793865600000,
+      "observedListingDateKst": "2026-11-05",
+      "recoveredContentType": "series",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "content_redirect_observed",
+      "disposition": "tmdb_review",
+      "additionalSourceUrls": [
+        "https://about.netflix.com/en/new-to-watch?_amp=true"
+      ],
+      "queryStatus": "queried",
+      "tmdb": {
+        "date": "2026-11-05",
+        "service": "netflix",
+        "title": "North of North",
+        "season": null,
+        "status": "date_mismatch",
+        "matches": [
+          {
+            "tmdbId": 249023,
+            "tmdbTitle": "North of North",
+            "seasonNumber": 1,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2025-01-07",
+              "seasonFirstDate": "2025-01-07",
+              "firstEpisodeDate": "2025-01-07"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          },
+          {
+            "tmdbId": 249023,
+            "tmdbTitle": "North of North",
+            "seasonNumber": 2,
+            "providerNames": [
+              "Netflix",
+              "Netflix Standard with Ads"
+            ],
+            "krProviderMatched": true,
+            "dates": {
+              "seriesFirstDate": "2025-01-07",
+              "seasonFirstDate": "2026-09-08",
+              "firstEpisodeDate": "2026-09-08"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 35
+      }
+    },
+    {
+      "videoId": 82878686,
+      "title": "ABC마우스",
+      "date": "2026-11-06",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "title_not_found",
+      "sourceUrl": "https://www.netflix.com/title/82878686",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "ABC마우스",
+      "listingGenreCode": 81495678,
+      "detailStatus": "observed",
+      "englishTitle": "ABCmouse",
+      "observedFormat": "unknown",
+      "canonicalVideoId": null,
+      "canonicalUrl": null,
+      "seasonHint": null,
+      "formatEvidence": "game",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1793901600000,
+      "observedListingDateKst": "2026-11-06",
+      "recoveredContentType": "game",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "NSES-404",
+      "disposition": "exclude_game_from_ott",
+      "additionalSourceUrls": [
+        "https://help.netflix.com/en/games/abcmouse"
+      ],
+      "queryStatus": "detail_unavailable_or_outside_ott_scope",
+      "tmdb": null
+    },
+    {
+      "videoId": 82848233,
+      "title": "WWE Crown Jewel",
+      "date": "2026-11-08",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "candidate_dates_before_listing",
+      "sourceUrl": "https://www.netflix.com/title/82848233",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "2026",
+      "listingGenreCode": 81246427,
+      "detailStatus": "observed",
+      "englishTitle": "WWE Crown Jewel",
+      "observedFormat": "unknown",
+      "canonicalVideoId": 81930079,
+      "canonicalUrl": "https://www.netflix.com/kr/title/81930079",
+      "seasonHint": null,
+      "formatEvidence": "sports_entertainment",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1794069900000,
+      "observedListingDateKst": "2026-11-08",
+      "recoveredContentType": "sports_entertainment",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "content_redirect_observed",
+      "disposition": "exclude_wrestling_from_ott",
+      "additionalSourceUrls": [],
+      "queryStatus": "detail_unavailable_or_outside_ott_scope",
+      "tmdb": null
+    },
+    {
+      "videoId": 82662589,
+      "title": "Thomas & Friends: Whistle & Go",
+      "date": "2026-11-10",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "title_not_found",
+      "sourceUrl": "https://www.netflix.com/title/82662589",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "Thomas & Friends: Whistle & Go",
+      "listingGenreCode": 82627204,
+      "detailStatus": "observed",
+      "englishTitle": "Thomas & Friends: Whistle & Go",
+      "observedFormat": "unknown",
+      "canonicalVideoId": null,
+      "canonicalUrl": null,
+      "seasonHint": null,
+      "formatEvidence": "game",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1794240000000,
+      "observedListingDateKst": "2026-11-10",
+      "recoveredContentType": "game",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "NSES-404",
+      "disposition": "exclude_game_from_ott",
+      "additionalSourceUrls": [
+        "https://help.netflix.com/en/node/723236330607716"
+      ],
+      "queryStatus": "detail_unavailable_or_outside_ott_scope",
+      "tmdb": null
+    },
+    {
+      "videoId": 83312495,
+      "title": "우당탕탕 공룡들",
+      "date": "2026-11-11",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "candidate_dates_before_listing",
+      "sourceUrl": "https://www.netflix.com/title/83312495",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "우당탕탕 공룡들",
+      "listingGenreCode": 82627204,
+      "detailStatus": "observed",
+      "englishTitle": "Bad Dinosaurs",
+      "observedFormat": "unknown",
+      "canonicalVideoId": null,
+      "canonicalUrl": null,
+      "seasonHint": null,
+      "formatEvidence": "game",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1794326400000,
+      "observedListingDateKst": "2026-11-11",
+      "recoveredContentType": "game",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "NSES-404",
+      "disposition": "exclude_game_from_ott",
+      "additionalSourceUrls": [
+        "https://help.netflix.com/ko/node/609154836722788",
+        "https://help.netflix.com/en/games/netflix-playground"
+      ],
+      "queryStatus": "detail_unavailable_or_outside_ott_scope",
+      "tmdb": null
+    },
+    {
+      "videoId": 83073031,
+      "title": "스타 & 웨딩: 아넬레와 버자",
+      "date": "2026-11-13",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "title_not_found",
+      "sourceUrl": "https://www.netflix.com/title/83073031",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "아넬레와 부자",
+      "listingGenreCode": 100199,
+      "detailStatus": "observed",
+      "englishTitle": "Stars and Vows: Anele & Buzza",
+      "observedFormat": "reality_series",
+      "canonicalVideoId": 83073030,
+      "canonicalUrl": "https://www.netflix.com/kr/title/83073030",
+      "seasonHint": null,
+      "formatEvidence": "reality_series",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1794556800000,
+      "observedListingDateKst": "2026-11-13",
+      "recoveredContentType": "reality_series",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "content_redirect_observed",
+      "disposition": "tmdb_review",
+      "additionalSourceUrls": [
+        "https://www.netflix.com/za/title/83073030",
+        "https://media.netflix.com/en/only-on-netflix/83073030?countryCode=DK",
+        "https://www.netflix.com/tudum/articles/new-on-netflix?lv=true"
+      ],
+      "queryStatus": "queried",
+      "tmdb": {
+        "date": "2026-11-13",
+        "service": "netflix",
+        "title": "Stars and Vows: Anele & Buzza",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 341603,
+            "tmdbTitle": "Stars and Vows: Anele & Buzza",
+            "seasonNumber": 1,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "seriesFirstDate": "2026-11-13",
+              "seasonFirstDate": "2026-11-13",
+              "firstEpisodeDate": "2026-11-13"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      }
+    },
+    {
+      "videoId": 82023390,
+      "title": "머더 인 갈리시아",
+      "date": "2026-11-13",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "title_not_found",
+      "sourceUrl": "https://www.netflix.com/title/82023390",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "리미티드 시리즈",
+      "listingGenreCode": 81246423,
+      "detailStatus": "observed",
+      "englishTitle": "Murder in Galicia",
+      "observedFormat": "series",
+      "canonicalVideoId": 82023389,
+      "canonicalUrl": "https://www.netflix.com/kr/title/82023389",
+      "seasonHint": null,
+      "formatEvidence": "series",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1794556800000,
+      "observedListingDateKst": "2026-11-13",
+      "recoveredContentType": "series",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "content_redirect_observed",
+      "disposition": "tmdb_review",
+      "additionalSourceUrls": [
+        "https://www.netflix.com/title/82023389",
+        "https://about.netflix.com/en/news/murder-in-galicia-comes-to-netflix-on-13-november"
+      ],
+      "queryStatus": "queried",
+      "tmdb": {
+        "date": "2026-11-13",
+        "service": "netflix",
+        "title": "Murder in Galicia",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 303182,
+            "tmdbTitle": "Murder in Galicia",
+            "seasonNumber": 1,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "seriesFirstDate": "2026-11-13",
+              "seasonFirstDate": "2026-11-13",
+              "firstEpisodeDate": "2026-11-13"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      }
+    },
+    {
+      "videoId": 81289599,
+      "title": "발렌치나의 열두 별자리",
+      "date": "2026-11-18",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "title_not_found",
+      "sourceUrl": "https://www.netflix.com/title/81289599",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "발렌치나의 열두 별자리",
+      "listingGenreCode": 1305630,
+      "detailStatus": "observed",
+      "englishTitle": "Valentina and the 12 Signs",
+      "observedFormat": "series",
+      "canonicalVideoId": 80991539,
+      "canonicalUrl": "https://www.netflix.com/kr/title/80991539",
+      "seasonHint": null,
+      "formatEvidence": "series",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1794988800000,
+      "observedListingDateKst": "2026-11-18",
+      "recoveredContentType": "series",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "content_redirect_observed",
+      "disposition": "tmdb_review",
+      "additionalSourceUrls": [
+        "https://www.netflix.com/title/80991539",
+        "https://about.netflix.com/en/news/os-12-signos-de-valentina-sop"
+      ],
+      "queryStatus": "queried",
+      "tmdb": {
+        "date": "2026-11-18",
+        "service": "netflix",
+        "title": "Valentina and the 12 Signs",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 318420,
+            "tmdbTitle": "Valentina and the 12 Signs",
+            "seasonNumber": 1,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "seriesFirstDate": "2026-11-18",
+              "seasonFirstDate": "2026-11-18",
+              "firstEpisodeDate": "2026-11-18"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      }
+    },
+    {
+      "videoId": 81769098,
+      "title": "로 오브 비스트",
+      "date": "2026-11-18",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "title_not_found",
+      "sourceUrl": "https://www.netflix.com/title/81769098",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "로 오브 비스트",
+      "listingGenreCode": 81246423,
+      "detailStatus": "observed",
+      "englishTitle": "The Law of Beasts",
+      "observedFormat": "series",
+      "canonicalVideoId": 81769097,
+      "canonicalUrl": "https://www.netflix.com/kr/title/81769097",
+      "seasonHint": null,
+      "formatEvidence": "series",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1794988800000,
+      "observedListingDateKst": "2026-11-18",
+      "recoveredContentType": "series",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "content_redirect_observed",
+      "disposition": "tmdb_review",
+      "additionalSourceUrls": [
+        "https://www.netflix.com/title/81769097",
+        "https://about.netflix.com/en/news/the-official-trailer-for-the-law-of-beasts"
+      ],
+      "queryStatus": "queried",
+      "tmdb": {
+        "date": "2026-11-18",
+        "service": "netflix",
+        "title": "The Law of Beasts",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 332839,
+            "tmdbTitle": "The Law of Beasts",
+            "seasonNumber": 1,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "seriesFirstDate": "2026-11-18",
+              "seasonFirstDate": "2026-11-18",
+              "firstEpisodeDate": "2026-11-18"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      }
+    },
+    {
+      "videoId": 81777232,
+      "title": "캐런 리드 재판",
+      "date": "2026-11-23",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "title_not_found",
+      "sourceUrl": "https://www.netflix.com/title/81777232",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "캐런 리드 재판",
+      "listingGenreCode": 100148,
+      "detailStatus": "observed",
+      "englishTitle": "The Trials of Karen Read",
+      "observedFormat": "series",
+      "canonicalVideoId": 81777231,
+      "canonicalUrl": "https://www.netflix.com/kr/title/81777231",
+      "seasonHint": null,
+      "formatEvidence": "documentary_series",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1795420800000,
+      "observedListingDateKst": "2026-11-23",
+      "recoveredContentType": "documentary_series",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "content_redirect_observed",
+      "disposition": "tmdb_review",
+      "additionalSourceUrls": [
+        "https://www.netflix.com/title/81777231?src=tudum&trkId=259776131",
+        "https://www.netflix.com/tudum/articles/karen-read-john-okeefe-doc-series-news?inapp=true%2F"
+      ],
+      "queryStatus": "queried",
+      "tmdb": {
+        "date": "2026-11-23",
+        "service": "netflix",
+        "title": "The Trials of Karen Read",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 340615,
+            "tmdbTitle": "The Trials of Karen Read",
+            "seasonNumber": 1,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "seriesFirstDate": "2026-11-23",
+              "seasonFirstDate": "2026-11-23",
+              "firstEpisodeDate": "2026-11-23"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      }
+    },
+    {
+      "videoId": 82641828,
+      "title": "세서미 스트리트",
+      "date": "2026-11-23",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "candidate_dates_before_listing",
+      "sourceUrl": "https://www.netflix.com/title/82641828",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "4부",
+      "listingGenreCode": 2070367,
+      "detailStatus": "observed",
+      "englishTitle": "Sesame Street",
+      "observedFormat": "unknown",
+      "canonicalVideoId": 83075543,
+      "canonicalUrl": "https://www.netflix.com/kr/title/83075543",
+      "seasonHint": null,
+      "formatEvidence": "volume_release",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1795420800000,
+      "observedListingDateKst": "2026-11-23",
+      "recoveredContentType": "volume_release",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "content_redirect_observed",
+      "disposition": "hold_volume_is_not_season",
+      "additionalSourceUrls": [
+        "https://www.netflix.com/tudum/articles/new-on-netflix?lv=true"
+      ],
+      "identityNote": "Official page has named parts and volume 4 trailer, not evidence for seasonNumber=4. Earlier TMDB Sesame Street legacy series must not be assumed.",
+      "queryStatus": "detail_unavailable_or_outside_ott_scope",
+      "tmdb": null
+    },
+    {
+      "videoId": 81763934,
+      "title": "24시간 온콜",
+      "date": "2026-11-26",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "title_not_found",
+      "sourceUrl": "https://www.netflix.com/title/81763934",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "24시간 온콜",
+      "listingGenreCode": 1307182,
+      "detailStatus": "observed",
+      "englishTitle": "Always on Call",
+      "observedFormat": "series",
+      "canonicalVideoId": 81763933,
+      "canonicalUrl": "https://www.netflix.com/kr/title/81763933",
+      "seasonHint": null,
+      "formatEvidence": "series",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1795680000000,
+      "observedListingDateKst": "2026-11-26",
+      "recoveredContentType": "series",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "content_redirect_observed",
+      "disposition": "tmdb_review",
+      "additionalSourceUrls": [
+        "https://www.netflix.com/title/81763933",
+        "https://about.netflix.com/en/news/netflix-unveils-date-and-first-look-images-for-medical-drama-always-on-call"
+      ],
+      "queryStatus": "queried",
+      "tmdb": {
+        "date": "2026-11-26",
+        "service": "netflix",
+        "title": "Always on Call",
+        "season": null,
+        "status": "tmdb_season_date_match",
+        "matches": [
+          {
+            "tmdbId": 338930,
+            "tmdbTitle": "Always on Call",
+            "seasonNumber": 1,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "seriesFirstDate": "2026-11-26",
+              "seasonFirstDate": "2026-11-26",
+              "firstEpisodeDate": "2026-11-26"
+            },
+            "seasonMatches": true,
+            "dateMatches": true,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      }
+    },
+    {
+      "videoId": 82044874,
+      "title": "필리핀의 크리스마스 선물",
+      "date": "2026-11-26",
+      "market": "KR",
+      "platform": "netflix",
+      "previousReason": "candidate_dates_after_listing",
+      "sourceUrl": "https://www.netflix.com/title/82044874",
+      "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "listingSubtitle": "필리핀의 크리스마스 선물",
+      "listingGenreCode": 1307182,
+      "detailStatus": "observed",
+      "englishTitle": "A Filipino Christmas",
+      "observedFormat": "series",
+      "canonicalVideoId": 82044873,
+      "canonicalUrl": "https://www.netflix.com/kr/title/82044873",
+      "seasonHint": null,
+      "formatEvidence": "series",
+      "eligibleForAutomaticPublication": false,
+      "listingStartTime": 1795680000000,
+      "observedListingDateKst": "2026-11-26",
+      "recoveredContentType": "series",
+      "webToolOriginalUrlStatus": "unavailable",
+      "browserOriginalUrlStatus": "content_redirect_observed",
+      "disposition": "tmdb_review",
+      "additionalSourceUrls": [
+        "https://www.netflix.com/title/82044873",
+        "https://about.netflix.com/en/news/next-on-netflix-philippines-2026"
+      ],
+      "queryStatus": "queried",
+      "tmdb": {
+        "date": "2026-11-26",
+        "service": "netflix",
+        "title": "A Filipino Christmas",
+        "season": null,
+        "status": "date_mismatch",
+        "matches": [
+          {
+            "tmdbId": 313701,
+            "tmdbTitle": "A Filipino Christmas",
+            "seasonNumber": 1,
+            "providerNames": [],
+            "krProviderMatched": false,
+            "dates": {
+              "seriesFirstDate": "2026-12-03",
+              "seasonFirstDate": "2026-12-03",
+              "firstEpisodeDate": "2026-12-03"
+            },
+            "seasonMatches": true,
+            "dateMatches": false,
+            "episodeOnly": false
+          }
+        ],
+        "errors": [],
+        "searchTruncated": false,
+        "movieSearchTruncated": false,
+        "searchResultCount": 1
+      }
+    }
+  ],
+  "observationNote": "Live TMDB observation; only per-episode date arrays omitted. All identity, date, errors and truncation retained. No automatic publication.",
+  "additionalCastCrosscheck": {
+    "input": {
+      "kind": "netflix-official-disambiguation-input",
+      "asOf": "2026-11-13",
+      "rows": [
+        {
+          "videoId": 82023390,
+          "title": "머더 인 갈리시아",
+          "date": "2026-11-13",
+          "market": "KR",
+          "platform": "netflix",
+          "previousReason": "title_not_found",
+          "sourceUrl": "https://www.netflix.com/title/82023390",
+          "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "listingSubtitle": "리미티드 시리즈",
+          "listingGenreCode": 81246423,
+          "detailStatus": "observed",
+          "englishTitle": "Murder in Galicia",
+          "observedFormat": "series",
+          "canonicalVideoId": 82023389,
+          "canonicalUrl": "https://www.netflix.com/kr/title/82023389",
+          "seasonHint": null,
+          "formatEvidence": "series",
+          "eligibleForAutomaticPublication": false,
+          "listingStartTime": 1794556800000,
+          "observedListingDateKst": "2026-11-13",
+          "recoveredContentType": "series",
+          "webToolOriginalUrlStatus": "unavailable",
+          "browserOriginalUrlStatus": "content_redirect_observed",
+          "disposition": "tmdb_review",
+          "additionalSourceUrls": [
+            "https://www.netflix.com/title/82023389",
+            "https://about.netflix.com/en/news/murder-in-galicia-comes-to-netflix-on-13-november"
+          ],
+          "searchYear": 2026,
+          "expectedCountry": "ES",
+          "officialCast": [
+            "Tristán Ulloa",
+            "Carlos Blanco",
+            "Fer Fraga"
+          ]
+        },
+        {
+          "videoId": 81289599,
+          "title": "발렌치나의 열두 별자리",
+          "date": "2026-11-18",
+          "market": "KR",
+          "platform": "netflix",
+          "previousReason": "title_not_found",
+          "sourceUrl": "https://www.netflix.com/title/81289599",
+          "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "listingSubtitle": "발렌치나의 열두 별자리",
+          "listingGenreCode": 1305630,
+          "detailStatus": "observed",
+          "englishTitle": "Valentina and the 12 Signs",
+          "observedFormat": "series",
+          "canonicalVideoId": 80991539,
+          "canonicalUrl": "https://www.netflix.com/kr/title/80991539",
+          "seasonHint": null,
+          "formatEvidence": "series",
+          "eligibleForAutomaticPublication": false,
+          "listingStartTime": 1794988800000,
+          "observedListingDateKst": "2026-11-18",
+          "recoveredContentType": "series",
+          "webToolOriginalUrlStatus": "unavailable",
+          "browserOriginalUrlStatus": "content_redirect_observed",
+          "disposition": "tmdb_review",
+          "additionalSourceUrls": [
+            "https://www.netflix.com/title/80991539",
+            "https://about.netflix.com/en/news/os-12-signos-de-valentina-sop"
+          ],
+          "searchYear": 2026,
+          "expectedCountry": "BR",
+          "officialCast": [
+            "Giovanna Grigio",
+            "José Condessa",
+            "Jessica Marques"
+          ]
+        },
+        {
+          "videoId": 81769098,
+          "title": "로 오브 비스트",
+          "date": "2026-11-18",
+          "market": "KR",
+          "platform": "netflix",
+          "previousReason": "title_not_found",
+          "sourceUrl": "https://www.netflix.com/title/81769098",
+          "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "listingSubtitle": "로 오브 비스트",
+          "listingGenreCode": 81246423,
+          "detailStatus": "observed",
+          "englishTitle": "The Law of Beasts",
+          "observedFormat": "series",
+          "canonicalVideoId": 81769097,
+          "canonicalUrl": "https://www.netflix.com/kr/title/81769097",
+          "seasonHint": null,
+          "formatEvidence": "series",
+          "eligibleForAutomaticPublication": false,
+          "listingStartTime": 1794988800000,
+          "observedListingDateKst": "2026-11-18",
+          "recoveredContentType": "series",
+          "webToolOriginalUrlStatus": "unavailable",
+          "browserOriginalUrlStatus": "content_redirect_observed",
+          "disposition": "tmdb_review",
+          "additionalSourceUrls": [
+            "https://www.netflix.com/title/81769097",
+            "https://about.netflix.com/en/news/the-official-trailer-for-the-law-of-beasts"
+          ],
+          "searchYear": 2026,
+          "expectedCountry": "PL",
+          "officialCast": [
+            "Agnieszka Grochowska",
+            "Agnieszka Żulewska",
+            "Michał Pawlik"
+          ]
+        },
+        {
+          "videoId": 81763934,
+          "title": "24시간 온콜",
+          "date": "2026-11-26",
+          "market": "KR",
+          "platform": "netflix",
+          "previousReason": "title_not_found",
+          "sourceUrl": "https://www.netflix.com/title/81763934",
+          "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "listingSubtitle": "24시간 온콜",
+          "listingGenreCode": 1307182,
+          "detailStatus": "observed",
+          "englishTitle": "Always on Call",
+          "observedFormat": "series",
+          "canonicalVideoId": 81763933,
+          "canonicalUrl": "https://www.netflix.com/kr/title/81763933",
+          "seasonHint": null,
+          "formatEvidence": "series",
+          "eligibleForAutomaticPublication": false,
+          "listingStartTime": 1795680000000,
+          "observedListingDateKst": "2026-11-26",
+          "recoveredContentType": "series",
+          "webToolOriginalUrlStatus": "unavailable",
+          "browserOriginalUrlStatus": "content_redirect_observed",
+          "disposition": "tmdb_review",
+          "additionalSourceUrls": [
+            "https://www.netflix.com/title/81763933",
+            "https://about.netflix.com/en/news/netflix-unveils-date-and-first-look-images-for-medical-drama-always-on-call"
+          ],
+          "searchYear": 2026,
+          "expectedCountry": "NO",
+          "officialCast": [
+            "Sara Khorami",
+            "Thorbjørn Harr",
+            "Silje Storstein"
+          ]
+        }
+      ]
+    },
+    "report": {
+      "kind": "netflix-disambiguation-report",
+      "asOf": "2026-11-13",
+      "rows": [
+        {
+          "videoId": 82023390,
+          "title": "머더 인 갈리시아",
+          "date": "2026-11-13",
+          "market": "KR",
+          "platform": "netflix",
+          "previousReason": "title_not_found",
+          "sourceUrl": "https://www.netflix.com/title/82023390",
+          "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "listingSubtitle": "리미티드 시리즈",
+          "listingGenreCode": 81246423,
+          "detailStatus": "observed",
+          "englishTitle": "Murder in Galicia",
+          "observedFormat": "series",
+          "canonicalVideoId": 82023389,
+          "canonicalUrl": "https://www.netflix.com/kr/title/82023389",
+          "seasonHint": null,
+          "formatEvidence": "series",
+          "eligibleForAutomaticPublication": false,
+          "listingStartTime": 1794556800000,
+          "observedListingDateKst": "2026-11-13",
+          "recoveredContentType": "series",
+          "webToolOriginalUrlStatus": "unavailable",
+          "browserOriginalUrlStatus": "content_redirect_observed",
+          "disposition": "tmdb_review",
+          "additionalSourceUrls": [
+            "https://www.netflix.com/title/82023389",
+            "https://about.netflix.com/en/news/murder-in-galicia-comes-to-netflix-on-13-november"
+          ],
+          "searchYear": 2026,
+          "expectedCountry": "ES",
+          "officialCast": [
+            "Tristán Ulloa",
+            "Carlos Blanco",
+            "Fer Fraga"
+          ],
+          "searches": [
+            {
+              "params": {
+                "query": "Murder in Galicia",
+                "language": "en-US",
+                "first_air_date_year": 2026
+              },
+              "totalPages": 1,
+              "pagesRead": 1,
+              "truncated": false
+            }
+          ],
+          "candidates": [
+            {
+              "id": 303182,
+              "kind": "tv",
+              "title": "Murder in Galicia",
+              "originalTitle": "El crimen de Pazos",
+              "countries": [
+                "ES"
+              ],
+              "castMatches": [
+                "Tristán Ulloa",
+                "Carlos Blanco",
+                "Fer Fraga"
+              ],
+              "titleMatches": true,
+              "identityMatches": true,
+              "movieReleaseDate": null,
+              "seasons": [
+                {
+                  "number": 1,
+                  "firstDate": "2026-11-13"
+                }
+              ]
+            }
+          ],
+          "errors": [],
+          "status": "identity_and_date_match",
+          "matchedSeason": 1
+        },
+        {
+          "videoId": 81289599,
+          "title": "발렌치나의 열두 별자리",
+          "date": "2026-11-18",
+          "market": "KR",
+          "platform": "netflix",
+          "previousReason": "title_not_found",
+          "sourceUrl": "https://www.netflix.com/title/81289599",
+          "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "listingSubtitle": "발렌치나의 열두 별자리",
+          "listingGenreCode": 1305630,
+          "detailStatus": "observed",
+          "englishTitle": "Valentina and the 12 Signs",
+          "observedFormat": "series",
+          "canonicalVideoId": 80991539,
+          "canonicalUrl": "https://www.netflix.com/kr/title/80991539",
+          "seasonHint": null,
+          "formatEvidence": "series",
+          "eligibleForAutomaticPublication": false,
+          "listingStartTime": 1794988800000,
+          "observedListingDateKst": "2026-11-18",
+          "recoveredContentType": "series",
+          "webToolOriginalUrlStatus": "unavailable",
+          "browserOriginalUrlStatus": "content_redirect_observed",
+          "disposition": "tmdb_review",
+          "additionalSourceUrls": [
+            "https://www.netflix.com/title/80991539",
+            "https://about.netflix.com/en/news/os-12-signos-de-valentina-sop"
+          ],
+          "searchYear": 2026,
+          "expectedCountry": "BR",
+          "officialCast": [
+            "Giovanna Grigio",
+            "José Condessa",
+            "Jessica Marques"
+          ],
+          "searches": [
+            {
+              "params": {
+                "query": "Valentina and the 12 Signs",
+                "language": "en-US",
+                "first_air_date_year": 2026
+              },
+              "totalPages": 1,
+              "pagesRead": 1,
+              "truncated": false
+            }
+          ],
+          "candidates": [
+            {
+              "id": 318420,
+              "kind": "tv",
+              "title": "Valentina and the 12 Signs",
+              "originalTitle": "Os 12 Signos de Valentina",
+              "countries": [
+                "BR"
+              ],
+              "castMatches": [
+                "Giovanna Grigio",
+                "José Condessa"
+              ],
+              "titleMatches": true,
+              "identityMatches": true,
+              "movieReleaseDate": null,
+              "seasons": [
+                {
+                  "number": 1,
+                  "firstDate": "2026-11-18"
+                }
+              ]
+            }
+          ],
+          "errors": [],
+          "status": "identity_and_date_match",
+          "matchedSeason": 1
+        },
+        {
+          "videoId": 81769098,
+          "title": "로 오브 비스트",
+          "date": "2026-11-18",
+          "market": "KR",
+          "platform": "netflix",
+          "previousReason": "title_not_found",
+          "sourceUrl": "https://www.netflix.com/title/81769098",
+          "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "listingSubtitle": "로 오브 비스트",
+          "listingGenreCode": 81246423,
+          "detailStatus": "observed",
+          "englishTitle": "The Law of Beasts",
+          "observedFormat": "series",
+          "canonicalVideoId": 81769097,
+          "canonicalUrl": "https://www.netflix.com/kr/title/81769097",
+          "seasonHint": null,
+          "formatEvidence": "series",
+          "eligibleForAutomaticPublication": false,
+          "listingStartTime": 1794988800000,
+          "observedListingDateKst": "2026-11-18",
+          "recoveredContentType": "series",
+          "webToolOriginalUrlStatus": "unavailable",
+          "browserOriginalUrlStatus": "content_redirect_observed",
+          "disposition": "tmdb_review",
+          "additionalSourceUrls": [
+            "https://www.netflix.com/title/81769097",
+            "https://about.netflix.com/en/news/the-official-trailer-for-the-law-of-beasts"
+          ],
+          "searchYear": 2026,
+          "expectedCountry": "PL",
+          "officialCast": [
+            "Agnieszka Grochowska",
+            "Agnieszka Żulewska",
+            "Michał Pawlik"
+          ],
+          "searches": [
+            {
+              "params": {
+                "query": "The Law of Beasts",
+                "language": "en-US",
+                "first_air_date_year": 2026
+              },
+              "totalPages": 1,
+              "pagesRead": 1,
+              "truncated": false
+            }
+          ],
+          "candidates": [
+            {
+              "id": 332839,
+              "kind": "tv",
+              "title": "The Law of Beasts",
+              "originalTitle": "Prawo bestii",
+              "countries": [
+                "PL"
+              ],
+              "castMatches": [
+                "Agnieszka Grochowska",
+                "Agnieszka Żulewska",
+                "Michał Pawlik"
+              ],
+              "titleMatches": true,
+              "identityMatches": true,
+              "movieReleaseDate": null,
+              "seasons": [
+                {
+                  "number": 1,
+                  "firstDate": "2026-11-18"
+                }
+              ]
+            }
+          ],
+          "errors": [],
+          "status": "identity_and_date_match",
+          "matchedSeason": 1
+        },
+        {
+          "videoId": 81763934,
+          "title": "24시간 온콜",
+          "date": "2026-11-26",
+          "market": "KR",
+          "platform": "netflix",
+          "previousReason": "title_not_found",
+          "sourceUrl": "https://www.netflix.com/title/81763934",
+          "listingSourceUrl": "https://about.netflix.com/ko/new-to-watch",
+          "listingSubtitle": "24시간 온콜",
+          "listingGenreCode": 1307182,
+          "detailStatus": "observed",
+          "englishTitle": "Always on Call",
+          "observedFormat": "series",
+          "canonicalVideoId": 81763933,
+          "canonicalUrl": "https://www.netflix.com/kr/title/81763933",
+          "seasonHint": null,
+          "formatEvidence": "series",
+          "eligibleForAutomaticPublication": false,
+          "listingStartTime": 1795680000000,
+          "observedListingDateKst": "2026-11-26",
+          "recoveredContentType": "series",
+          "webToolOriginalUrlStatus": "unavailable",
+          "browserOriginalUrlStatus": "content_redirect_observed",
+          "disposition": "tmdb_review",
+          "additionalSourceUrls": [
+            "https://www.netflix.com/title/81763933",
+            "https://about.netflix.com/en/news/netflix-unveils-date-and-first-look-images-for-medical-drama-always-on-call"
+          ],
+          "searchYear": 2026,
+          "expectedCountry": "NO",
+          "officialCast": [
+            "Sara Khorami",
+            "Thorbjørn Harr",
+            "Silje Storstein"
+          ],
+          "searches": [
+            {
+              "params": {
+                "query": "Always on Call",
+                "language": "en-US",
+                "first_air_date_year": 2026
+              },
+              "totalPages": 1,
+              "pagesRead": 1,
+              "truncated": false
+            }
+          ],
+          "candidates": [
+            {
+              "id": 338930,
+              "kind": "tv",
+              "title": "Always on Call",
+              "originalTitle": "Legevakta",
+              "countries": [
+                "NO"
+              ],
+              "castMatches": [
+                "Sara Khorami",
+                "Thorbjørn Harr"
+              ],
+              "titleMatches": true,
+              "identityMatches": true,
+              "movieReleaseDate": null,
+              "seasons": [
+                {
+                  "number": 1,
+                  "firstDate": "2026-11-26"
+                }
+              ]
+            }
+          ],
+          "errors": [],
+          "status": "identity_and_date_match",
+          "matchedSeason": 1
+        }
+      ],
+      "publishedCountDelta": 0
+    }
+  }
+}

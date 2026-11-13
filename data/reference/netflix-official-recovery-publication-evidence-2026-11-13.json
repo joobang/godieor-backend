@@ -1,0 +1,344 @@
+{
+  "scope": "author_local_db_http_idempotency",
+  "asOf": "2026-11-13",
+  "sourceRecovery": {
+    "webToolUnavailable": 16,
+    "browserContentRedirects": 12,
+    "browserNses404": 4,
+    "gamesConfirmedByOfficialHelp": 3,
+    "exactPawIdentityUnresolved": 1
+  },
+  "resolutionCounts": {
+    "hold_collection_first_release_unverified": 2,
+    "unresolved_exact_game_identity": 1,
+    "hold_date_disagreement": 2,
+    "exclude_game_from_ott": 3,
+    "exclude_wrestling_from_ott": 1,
+    "published": 5,
+    "hold_publisher_category_unsupported": 1,
+    "hold_volume_is_not_season": 1
+  },
+  "resolutionRows": [
+    {
+      "videoId": 83135831,
+      "title": "케이팝 데몬 헌터스: 플레이리스트",
+      "canonicalVideoId": 83111321,
+      "contentType": "short_form_collection",
+      "resolution": "hold_collection_first_release_unverified",
+      "eventKey": null
+    },
+    {
+      "videoId": 82661317,
+      "title": "케이팝 데몬 헌터스: 보너스 콘텐츠",
+      "canonicalVideoId": 82182322,
+      "contentType": "bonus_collection",
+      "resolution": "hold_collection_first_release_unverified",
+      "eventKey": null
+    },
+    {
+      "videoId": 83098128,
+      "title": "PAW Patrol: The Game",
+      "canonicalVideoId": null,
+      "contentType": "unverified",
+      "resolution": "unresolved_exact_game_identity",
+      "eventKey": null
+    },
+    {
+      "videoId": 81997254,
+      "title": "이런, 북극!",
+      "canonicalVideoId": 81616012,
+      "contentType": "series",
+      "resolution": "hold_date_disagreement",
+      "eventKey": null
+    },
+    {
+      "videoId": 82878686,
+      "title": "ABC마우스",
+      "canonicalVideoId": null,
+      "contentType": "game",
+      "resolution": "exclude_game_from_ott",
+      "eventKey": null
+    },
+    {
+      "videoId": 82848233,
+      "title": "WWE Crown Jewel",
+      "canonicalVideoId": 81930079,
+      "contentType": "sports_entertainment",
+      "resolution": "exclude_wrestling_from_ott",
+      "eventKey": null
+    },
+    {
+      "videoId": 82662589,
+      "title": "Thomas & Friends: Whistle & Go",
+      "canonicalVideoId": null,
+      "contentType": "game",
+      "resolution": "exclude_game_from_ott",
+      "eventKey": null
+    },
+    {
+      "videoId": 83312495,
+      "title": "우당탕탕 공룡들",
+      "canonicalVideoId": null,
+      "contentType": "game",
+      "resolution": "exclude_game_from_ott",
+      "eventKey": null
+    },
+    {
+      "videoId": 83073031,
+      "title": "스타 & 웨딩: 아넬레와 버자",
+      "canonicalVideoId": 83073030,
+      "contentType": "reality_series",
+      "resolution": "published",
+      "eventKey": "event-000058"
+    },
+    {
+      "videoId": 82023390,
+      "title": "머더 인 갈리시아",
+      "canonicalVideoId": 82023389,
+      "contentType": "series",
+      "resolution": "published",
+      "eventKey": "event-000059"
+    },
+    {
+      "videoId": 81289599,
+      "title": "발렌치나의 열두 별자리",
+      "canonicalVideoId": 80991539,
+      "contentType": "series",
+      "resolution": "published",
+      "eventKey": "event-000060"
+    },
+    {
+      "videoId": 81769098,
+      "title": "로 오브 비스트",
+      "canonicalVideoId": 81769097,
+      "contentType": "series",
+      "resolution": "published",
+      "eventKey": "event-000061"
+    },
+    {
+      "videoId": 81777232,
+      "title": "캐런 리드 재판",
+      "canonicalVideoId": 81777231,
+      "contentType": "documentary_series",
+      "resolution": "hold_publisher_category_unsupported",
+      "eventKey": null
+    },
+    {
+      "videoId": 82641828,
+      "title": "세서미 스트리트",
+      "canonicalVideoId": 83075543,
+      "contentType": "volume_release",
+      "resolution": "hold_volume_is_not_season",
+      "eventKey": null
+    },
+    {
+      "videoId": 81763934,
+      "title": "24시간 온콜",
+      "canonicalVideoId": 81763933,
+      "contentType": "series",
+      "resolution": "published",
+      "eventKey": "event-000062"
+    },
+    {
+      "videoId": 82044874,
+      "title": "필리핀의 크리스마스 선물",
+      "canonicalVideoId": 82044873,
+      "contentType": "series",
+      "resolution": "hold_date_disagreement",
+      "eventKey": null
+    }
+  ],
+  "rejectedPreflight": {
+    "attemptedReviews": 6,
+    "exitCode": 1,
+    "reason": "reviewSchema contentKind documentary unsupported; Canonical/API taxonomy also excludes documentary",
+    "candidateStateByteUnchanged": true,
+    "mappingCountBeforeAndAfterRejectedAttempt": 57,
+    "databasePublicationAttempted": false
+  },
+  "before": {
+    "scope": "local_reviewed_ott_only",
+    "referenceAuthority": "third_party_discovery_only",
+    "referenceRows": 11,
+    "publishedInWindow": 55,
+    "publishedByMonthPlatform": {
+      "2026-11/netflix": 48,
+      "2026-11/disney_plus": 3,
+      "2026-11/tving": 2,
+      "2026-12/coupang_play": 1,
+      "2026-12/netflix": 1
+    },
+    "statusCounts": {
+      "published_match": 7,
+      "season_unverified": 0,
+      "date_disagreement": 1,
+      "not_published": 3
+    },
+    "rows": [
+      {
+        "date": "2026-11-03",
+        "platform": "netflix",
+        "title": "배스 X 마키나",
+        "season": 1,
+        "status": "published_match"
+      },
+      {
+        "date": "2026-11-04",
+        "platform": "netflix",
+        "title": "반려견의 완벽한 크리스마스",
+        "season": null,
+        "status": "published_match"
+      },
+      {
+        "date": "2026-11-04",
+        "platform": "netflix",
+        "title": "오버액션 갱",
+        "season": null,
+        "status": "date_disagreement"
+      },
+      {
+        "date": "2026-11-05",
+        "platform": "netflix",
+        "title": "시한부 1년, 남자를 사다",
+        "season": null,
+        "status": "published_match"
+      },
+      {
+        "date": "2026-11-08",
+        "platform": "tving",
+        "title": "전지적 집착 시점",
+        "season": 1,
+        "status": "not_published"
+      },
+      {
+        "date": "2026-11-09",
+        "platform": "tving",
+        "title": "유일무이 로맨스",
+        "season": 1,
+        "status": "published_match"
+      },
+      {
+        "date": "2026-11-11",
+        "platform": "disney_plus",
+        "title": "스타일 워즈",
+        "season": 1,
+        "status": "published_match"
+      },
+      {
+        "date": "2026-11-11",
+        "platform": "netflix",
+        "title": "더 바디",
+        "season": 1,
+        "status": "published_match"
+      },
+      {
+        "date": "2026-11-11",
+        "platform": "netflix",
+        "title": "Alicia's Law",
+        "season": 1,
+        "status": "published_match"
+      },
+      {
+        "date": "2026-11-14",
+        "platform": "netflix",
+        "title": "문무",
+        "season": 1,
+        "status": "not_published"
+      },
+      {
+        "date": "2026-11-25",
+        "platform": "netflix",
+        "title": "나인 투 식스",
+        "season": 1,
+        "status": "not_published"
+      }
+    ],
+    "note": "제3자 목록과 로컬 게시물 비교. 미게시 행을 실제 한국 공개로 간주하지 않음. 날짜만 같아도 시즌 미확인은 별도 표시."
+  },
+  "after": {
+    "scope": "author_local_db_and_http",
+    "publishedInWindow": 60,
+    "netflixInNovember": 53,
+    "newRows": [
+      {
+        "id": "fbfff2ff-f457-4a61-ada0-a7c90ee82d3f",
+        "eventKey": "event-000058",
+        "title": "스타 & 웨딩: 아넬레와 버자",
+        "date": "2026-11-13",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": 1
+      },
+      {
+        "id": "89beda83-5028-46cb-affd-d732fa1387f1",
+        "eventKey": "event-000059",
+        "title": "머더 인 갈리시아",
+        "date": "2026-11-13",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": 1
+      },
+      {
+        "id": "2d420e4f-9168-4388-9fb3-a14cce375c03",
+        "eventKey": "event-000060",
+        "title": "발렌치나의 열두 별자리",
+        "date": "2026-11-18",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": 1
+      },
+      {
+        "id": "cdc8b043-5730-4ffd-9c31-ed7e9b7643b5",
+        "eventKey": "event-000061",
+        "title": "로 오브 비스트",
+        "date": "2026-11-18",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": 1
+      },
+      {
+        "id": "e24dded2-f16d-4bee-9875-180098b7d5bd",
+        "eventKey": "event-000062",
+        "title": "24시간 온콜",
+        "date": "2026-11-26",
+        "precision": "date_only",
+        "instant_at": null,
+        "market": "KR",
+        "platform": "netflix",
+        "seasonNumber": 1
+      }
+    ],
+    "httpStatus": 200,
+    "httpItems": 60,
+    "newIdsInHttp": 5,
+    "independentVerification": false,
+    "cloudDeployed": false,
+    "iphoneVerified": false
+  },
+  "idempotencyBefore": {
+    "events": 62,
+    "new_event_changes": 5
+  },
+  "idempotencyAfter": {
+    "events": 62,
+    "new_event_changes": 5
+  },
+  "selfTests": {
+    "command": "npm test",
+    "node": "22.22.3",
+    "passed": 154,
+    "failed": 0,
+    "includesExistingDirtyWorkingTree": true
+  },
+  "independentVerification": false,
+  "cloudDeployed": false,
+  "iphoneVerified": false
+}

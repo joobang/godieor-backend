@@ -1,3 +1,8 @@
+## DATA-47 인계 (2026-11-13)
+
+- app `docs/system/ott-handoff-2026-11-12.md`를60건기준으로갱신. backend 원본 `docs/tasks/DATA-47-netflix-official-recovery.md`, 공식16건복구/실TMDB/5개curated review·62mapping/SQL·HTTP증거 저장. 문서 `docs/reviewed-publish.md`에후보분류와게시지원경계추가, verifier LEARN-0011에구현담당관측연결(독립승인아님).
+- 실제KR11~12월OTT55→60, SQL·임시API신규5건확인, 재게시증가0, Node22 npm test154/154(기존dirty포함). 다큐1건은review/Canonical/API 유형미지원으로보류, 실패6건배치는저장전거부·state/57매핑불변·DB게시미실행. 기존16건전체를계속조회실패로표시하지말고최종상태표확인. 다음: 다큐지원영향검토/PAW정체성/날짜의미/다른OTT확대. 승인기준·앱·계약·migration불변, 클라우드/실폰/Node24/독립검증미실행. 개인서명/환경/미추적도구보존. 담당codex-data47-01해제.
+
 ## DATA-46 인계 (2026-11-13)
 
 - app `docs/system/ott-handoff-2026-11-12.md`를 최신55건 기준으로 갱신. backend 원본 카드 `docs/tasks/DATA-46-netflix-search-disambiguation.md`, `scripts/disambiguate-netflix-tmdb.mjs`와 공식배우/국가 입력·실TMDB보고서·2건curated review·57개mapping 저장. 앨런11/12(시즌null), 고르돈11/18(시즌1) 수동 게시.

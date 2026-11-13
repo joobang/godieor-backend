@@ -1,0 +1,207 @@
+{
+  "version": 1,
+  "asOf": "2026-11-13",
+  "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+  "scope": "Author manual review; public browser verified season-to-series ID redirects, format and localized title; dated KR listing and unique TMDB season date. Not independent approval.",
+  "items": [
+    {
+      "videoId": 83073031,
+      "canonicalVideoId": 83073030,
+      "review": {
+        "id": "4c156841111bbe7d63dc62aff5d40e83ba6eea8018a7d57b028081b3551f84dd",
+        "revision": "d4da33042a503886bf739702ab2741139426594ce80515e0eb4f8c85902a5d1b",
+        "reviewer": "GODIEOR 구현 담당 공식 ID 연결/형식/TMDB 시즌 대조 2026-11-13",
+        "title": "스타 & 웨딩: 아넬레와 버자",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "variety",
+        "premiereConfirmed": true,
+        "date": "2026-11-13",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 2026-11-12 목록 videoID 83073031 날짜 2026-11-13; 2026-11-13 공개 브라우저에서 원 ID가 https://www.netflix.com/kr/title/83073030로 연결됨과 한국어 제목·형식 확인. 공식 영문명 Stars and Vows: Anele & Buzza 및 추가 공식 자료 대조; TMDB tv/341603 시즌1 첫 날짜 일치. 공식 시리즈/예능/다큐 형식·공개일 근거와 단일 TMDB 시즌을 수동 대조. 한국 플랫폼 일자이며 해외/극장 최초와 항상 같다는 뜻 아님. 작성자 수동 검토, 독립 승인 아님."
+      },
+      "mapping": {
+        "candidateId": "4c156841111bbe7d63dc62aff5d40e83ba6eea8018a7d57b028081b3551f84dd",
+        "revision": "d4da33042a503886bf739702ab2741139426594ce80515e0eb4f8c85902a5d1b",
+        "contentKey": "work-000058",
+        "eventKey": "event-000058"
+      },
+      "tmdb": {
+        "type": "tv",
+        "id": 341603,
+        "seasonNumber": 1
+      },
+      "officialSourceUrls": [
+        "https://www.netflix.com/kr/title/83073030",
+        "https://www.netflix.com/za/title/83073030",
+        "https://media.netflix.com/en/only-on-netflix/83073030?countryCode=DK",
+        "https://www.netflix.com/tudum/articles/new-on-netflix?lv=true"
+      ]
+    },
+    {
+      "videoId": 82023390,
+      "canonicalVideoId": 82023389,
+      "review": {
+        "id": "1211cbc6c3fde220045f3c3232a7306a45d73d54fc874aa4e9eebe713b2cdd79",
+        "revision": "3e7b8770f1058188b583fa9696057c6de01e228c2d83074b7d21f0f06fd1fe2c",
+        "reviewer": "GODIEOR 구현 담당 공식 ID 연결/형식/TMDB 시즌 대조 2026-11-13",
+        "title": "머더 인 갈리시아",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-13",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 2026-11-12 목록 videoID 82023390 날짜 2026-11-13; 2026-11-13 공개 브라우저에서 원 ID가 https://www.netflix.com/kr/title/82023389로 연결됨과 한국어 제목·형식 확인. 공식 영문명 Murder in Galicia 및 추가 공식 자료 대조; TMDB tv/303182 시즌1 첫 날짜 일치. 배우·제작국가 추가 대조 일치. 한국 플랫폼 일자이며 해외/극장 최초와 항상 같다는 뜻 아님. 작성자 수동 검토, 독립 승인 아님."
+      },
+      "mapping": {
+        "candidateId": "1211cbc6c3fde220045f3c3232a7306a45d73d54fc874aa4e9eebe713b2cdd79",
+        "revision": "3e7b8770f1058188b583fa9696057c6de01e228c2d83074b7d21f0f06fd1fe2c",
+        "contentKey": "work-000059",
+        "eventKey": "event-000059"
+      },
+      "tmdb": {
+        "type": "tv",
+        "id": 303182,
+        "seasonNumber": 1
+      },
+      "officialSourceUrls": [
+        "https://www.netflix.com/kr/title/82023389",
+        "https://www.netflix.com/title/82023389",
+        "https://about.netflix.com/en/news/murder-in-galicia-comes-to-netflix-on-13-november"
+      ]
+    },
+    {
+      "videoId": 81289599,
+      "canonicalVideoId": 80991539,
+      "review": {
+        "id": "5840049373dc2f1a2bcda45e2f96aff89eee602bc7a51deeccb3a929624db295",
+        "revision": "6af7254939e2d2601386f32c2b6e04bf52c1745d116745b7e8778ad4403f1c64",
+        "reviewer": "GODIEOR 구현 담당 공식 ID 연결/형식/TMDB 시즌 대조 2026-11-13",
+        "title": "발렌치나의 열두 별자리",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-18",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 2026-11-12 목록 videoID 81289599 날짜 2026-11-18; 2026-11-13 공개 브라우저에서 원 ID가 https://www.netflix.com/kr/title/80991539로 연결됨과 한국어 제목·형식 확인. 공식 영문명 Valentina and the 12 Signs 및 추가 공식 자료 대조; TMDB tv/318420 시즌1 첫 날짜 일치. 배우·제작국가 추가 대조 일치. 한국 플랫폼 일자이며 해외/극장 최초와 항상 같다는 뜻 아님. 작성자 수동 검토, 독립 승인 아님."
+      },
+      "mapping": {
+        "candidateId": "5840049373dc2f1a2bcda45e2f96aff89eee602bc7a51deeccb3a929624db295",
+        "revision": "6af7254939e2d2601386f32c2b6e04bf52c1745d116745b7e8778ad4403f1c64",
+        "contentKey": "work-000060",
+        "eventKey": "event-000060"
+      },
+      "tmdb": {
+        "type": "tv",
+        "id": 318420,
+        "seasonNumber": 1
+      },
+      "officialSourceUrls": [
+        "https://www.netflix.com/kr/title/80991539",
+        "https://www.netflix.com/title/80991539",
+        "https://about.netflix.com/en/news/os-12-signos-de-valentina-sop"
+      ]
+    },
+    {
+      "videoId": 81769098,
+      "canonicalVideoId": 81769097,
+      "review": {
+        "id": "970e1a8bab6646a86947958f95113043a489675dff0aa000f96d9df84c3dde59",
+        "revision": "f668b04a4643db0e3e26999353b9f18b07612e4aead07939163ca6e8262220d1",
+        "reviewer": "GODIEOR 구현 담당 공식 ID 연결/형식/TMDB 시즌 대조 2026-11-13",
+        "title": "로 오브 비스트",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-18",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 2026-11-12 목록 videoID 81769098 날짜 2026-11-18; 2026-11-13 공개 브라우저에서 원 ID가 https://www.netflix.com/kr/title/81769097로 연결됨과 한국어 제목·형식 확인. 공식 영문명 The Law of Beasts 및 추가 공식 자료 대조; TMDB tv/332839 시즌1 첫 날짜 일치. 배우·제작국가 추가 대조 일치. 한국 플랫폼 일자이며 해외/극장 최초와 항상 같다는 뜻 아님. 작성자 수동 검토, 독립 승인 아님."
+      },
+      "mapping": {
+        "candidateId": "970e1a8bab6646a86947958f95113043a489675dff0aa000f96d9df84c3dde59",
+        "revision": "f668b04a4643db0e3e26999353b9f18b07612e4aead07939163ca6e8262220d1",
+        "contentKey": "work-000061",
+        "eventKey": "event-000061"
+      },
+      "tmdb": {
+        "type": "tv",
+        "id": 332839,
+        "seasonNumber": 1
+      },
+      "officialSourceUrls": [
+        "https://www.netflix.com/kr/title/81769097",
+        "https://www.netflix.com/title/81769097",
+        "https://about.netflix.com/en/news/the-official-trailer-for-the-law-of-beasts"
+      ]
+    },
+    {
+      "videoId": 81763934,
+      "canonicalVideoId": 81763933,
+      "review": {
+        "id": "94b0dbcea62f91b1768f955f8bc681a3095244054ec25e5ad2385c8306cd6d8f",
+        "revision": "ecc0a3b1f846e338491c2b26bfd98c296b38ba39238ce718c3918ed8f01d0d9c",
+        "reviewer": "GODIEOR 구현 담당 공식 ID 연결/형식/TMDB 시즌 대조 2026-11-13",
+        "title": "24시간 온콜",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-26",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 2026-11-12 목록 videoID 81763934 날짜 2026-11-26; 2026-11-13 공개 브라우저에서 원 ID가 https://www.netflix.com/kr/title/81763933로 연결됨과 한국어 제목·형식 확인. 공식 영문명 Always on Call 및 추가 공식 자료 대조; TMDB tv/338930 시즌1 첫 날짜 일치. 배우·제작국가 추가 대조 일치. 한국 플랫폼 일자이며 해외/극장 최초와 항상 같다는 뜻 아님. 작성자 수동 검토, 독립 승인 아님."
+      },
+      "mapping": {
+        "candidateId": "94b0dbcea62f91b1768f955f8bc681a3095244054ec25e5ad2385c8306cd6d8f",
+        "revision": "ecc0a3b1f846e338491c2b26bfd98c296b38ba39238ce718c3918ed8f01d0d9c",
+        "contentKey": "work-000062",
+        "eventKey": "event-000062"
+      },
+      "tmdb": {
+        "type": "tv",
+        "id": 338930,
+        "seasonNumber": 1
+      },
+      "officialSourceUrls": [
+        "https://www.netflix.com/kr/title/81763933",
+        "https://www.netflix.com/title/81763933",
+        "https://about.netflix.com/en/news/netflix-unveils-date-and-first-look-images-for-medical-drama-always-on-call"
+      ]
+    }
+  ],
+  "blockedItems": [
+    {
+      "videoId": 81777232,
+      "title": "캐런 리드 재판",
+      "contentKind": "documentary",
+      "reason": "unsupported_review_and_canonical_ott_category",
+      "sourceUrls": [
+        "https://www.netflix.com/kr/title/81777231",
+        "https://www.netflix.com/title/81777231?src=tudum&trkId=259776131",
+        "https://www.netflix.com/tudum/articles/karen-read-john-okeefe-doc-series-news?inapp=true%2F"
+      ]
+    }
+  ]
+}

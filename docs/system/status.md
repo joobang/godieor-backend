@@ -1,3 +1,8 @@
+## DATA-47 공식 상세 복구·Netflix 5건 로컬 게시 (2026-11-13)
+
+- 원본 backend `docs/tasks/DATA-47-netflix-official-recovery.md`. 이전16건을 공개 브라우저로 확인:12콘텐츠redirect/4NSES-404, 공식도움말3게임확인. 최종5게시/1유형미지원/2날짜차이/3게임/2영상모음집/1Volume/1레슬링/1정체성미확인. 기존코드로8건TMDB·4건배우/국가 대조, 런타임코드변경없음.
+- 실제11~12월KR4OTT55→60(+5), Netflix11월53, 연중전체매핑/이벤트62. SQL·임시API200/60행/신규5ID, 재게시이벤트62/신규변경이력5 유지. Node22 자체154/154(기존dirty포함). 캐런리드다큐는현재게시유형미지원으로preflight거부, 후보state/57매핑보존확인후지원5건만반영. 계약/앱/migration/verdict 불변, LEARN-0011작성자관측추가. 다음은다큐유형변경안·PAW정체성·다른OTT공식근거확대. 클라우드/실폰/권장Node24/독립검증미실행, 기존dirty보존.
+
 ## DATA-46 동명 작품 재대조·Netflix 2건 로컬 게시 (2026-11-13)
 
 - 원본 backend `docs/tasks/DATA-46-netflix-search-disambiguation.md`. 검색잘림4/제목미발견2를 공식 배우·국가·연도로 대조. 앨런·고르돈2건 검토/게시, 동명 다른 작품2건 배제 후 날짜차이 유지, Nate 상세 메타데이터 부족/Mike 제목 미발견 보류. 기존4건 검색잘림은 해소.
