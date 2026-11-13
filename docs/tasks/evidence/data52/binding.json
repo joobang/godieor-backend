@@ -1,0 +1,15 @@
+{
+  "scope": "author backend-only local publication and working-tree tracked tests; not independent approval",
+  "appBaseHead": "a250e16b70fdcf181898ba05f27a53f1318736c1",
+  "backendBase": "e7bd91474af3cc5f36920931d7a33b41596f02bf",
+  "backendDataHead": "db66c4eb0a8f6a0435de972003633f75a80b3bcd",
+  "verifierBase": "3d52aab77bfb2ae6e6d1c01b9043423177ecb88a",
+  "contractVersion": "0.1.0-draft.4",
+  "contractManifestSha256": "96cc08536324f8b5a7c537783caa93a1ce33de533526032e01621282fb601122",
+  "migrationSetSha256": "853337eadc11cd3c8c619c9e53d961cb7eead5fe0a79368c5d167324598bb697",
+  "acceptanceSha256": "c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063",
+  "newFixedRunnerExecuted": false,
+  "lastFixedRunnerTask": "DATA-51",
+  "lastVerdict": "ERROR",
+  "runtimeSourceUnchanged": true
+}

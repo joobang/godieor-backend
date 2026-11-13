@@ -1,3 +1,9 @@
+## DATA-52 뜨거운 안녕 공식 공개일 확인·로컬 게시 (2026-11-13)
+
+- 원본 backend `docs/tasks/DATA-52-tving-release-evidence.md`, evidence/data52. 인증TVING공식SNS원문에서11/11독점공개와연도문맥을직접확인,공식작품P001793179과대조후1건게시. 게시시각을공개시각으로쓰지않고date_only/seasonNULL보존.
+- 같은KR11~12월4OTT62→63,연중65매핑/이벤트. SQL·임시API200/63행/신규ID·공식작품출처확인. 재게시이벤트65/신규변경1유지,기존64개event전체행불변. Node24추적CJS+ESM156/156. source별staging176/반복신규0.
+- 나머지TVING3개(보스의노골적취향/내새끼의연애3/브라더스)는정확한첫날보류. 앱/코드/계약/migration/승인기준변경없음. 신규fixed runner/실폰/클라우드/독립검증미실행,DATA-51전체ERROR유지. 다음은남은3개와기존목표OTT미확인근거보강. 개인dirty보존·담당해제.
+
 ## DATA-51 문무 티빙 공개일 확인·로컬 게시 (2026-11-13)
 
 - 원본 backend `docs/tasks/DATA-51-tving-dates.md`, `docs/tasks/evidence/data51/`. 공식 티빙 작품·이번 주 일정에서 문무 11/14 공개를 확인해 TVING 별도 이벤트로 게시했다. 같은 11~12월 KR 4OTT 범위 61→62건, 연중 매핑/이벤트64건. 시각·시즌 번호는 추정하지 않아 date_only/instantNULL/seasonNULL로 보존했다. Netflix 문무 후보의 날짜는 여전히 미확인이다.

@@ -1,0 +1,154 @@
+{
+  "scope": "implementer local SQL and temporary HTTP; not independent approval",
+  "existing64Unchanged": true,
+  "publishedInWindow": 63,
+  "netflixInNovember": 54,
+  "counts": {
+    "events": 65,
+    "new_changes": 1
+  },
+  "newRow": {
+    "id": "1fc0da1f-397e-4539-9507-410a75748954",
+    "key": "event-000065",
+    "title": "뜨거운 안녕",
+    "kind": "ott_season_premiere",
+    "ott_category": "series",
+    "precision": "date_only",
+    "date": "2026-11-11",
+    "instant_at": null,
+    "market": "KR",
+    "season": null,
+    "platform": "tving"
+  },
+  "httpStatus": 200,
+  "httpItems": 63,
+  "event": {
+    "id": "1fc0da1f-397e-4539-9507-410a75748954",
+    "kind": "ott_season_premiere",
+    "ottCategory": "series",
+    "title": "뜨거운 안녕",
+    "contentId": "c93e09ed-425c-40e7-a7a5-65458767c3b1",
+    "season": null,
+    "status": "scheduled",
+    "time": {
+      "type": "date_only",
+      "date": "2026-11-11"
+    },
+    "releaseMarket": "KR",
+    "venueCountry": null,
+    "services": [
+      "tving"
+    ],
+    "devices": [],
+    "match": null,
+    "dataOrigin": "provider",
+    "updatedAt": "2026-11-13T05:16:20.920Z"
+  },
+  "detail": {
+    "event": {
+      "id": "1fc0da1f-397e-4539-9507-410a75748954",
+      "kind": "ott_season_premiere",
+      "ottCategory": "series",
+      "title": "뜨거운 안녕",
+      "contentId": "c93e09ed-425c-40e7-a7a5-65458767c3b1",
+      "season": null,
+      "status": "scheduled",
+      "time": {
+        "type": "date_only",
+        "date": "2026-11-11"
+      },
+      "releaseMarket": "KR",
+      "venueCountry": null,
+      "services": [
+        "tving"
+      ],
+      "devices": [],
+      "match": null,
+      "dataOrigin": "provider",
+      "updatedAt": "2026-11-13T05:16:20.920Z"
+    },
+    "sources": [
+      {
+        "providerKey": "ott_reviewed",
+        "url": "https://www.tving.com/contents/P001793179",
+        "observedAt": "2026-11-13T05:16:22.022Z",
+        "sourceUpdatedAt": null
+      }
+    ],
+    "previousTime": null
+  },
+  "calendarDay": {
+    "date": "2026-11-11",
+    "total": 7,
+    "previews": [
+      {
+        "id": "1fc0da1f-397e-4539-9507-410a75748954",
+        "kind": "ott_season_premiere",
+        "ottCategory": "series",
+        "title": "뜨거운 안녕",
+        "contentId": "c93e09ed-425c-40e7-a7a5-65458767c3b1",
+        "season": null,
+        "status": "scheduled",
+        "time": {
+          "type": "date_only",
+          "date": "2026-11-11"
+        },
+        "releaseMarket": "KR",
+        "venueCountry": null,
+        "services": [
+          "tving"
+        ],
+        "devices": [],
+        "match": null,
+        "dataOrigin": "provider",
+        "updatedAt": "2026-11-13T05:16:20.920Z"
+      },
+      {
+        "id": "27eb6cfd-56a2-4c96-8fd6-bdf63a09519f",
+        "kind": "ott_season_premiere",
+        "ottCategory": "original_series",
+        "title": "더 바디",
+        "contentId": "0a4b0b62-08b4-4145-b567-d2f2444aad2e",
+        "season": {
+          "id": "5fbf2826-2f85-4d92-b6e5-8bcc3d24fba8",
+          "number": 1
+        },
+        "status": "scheduled",
+        "time": {
+          "type": "date_only",
+          "date": "2026-11-11"
+        },
+        "releaseMarket": "KR",
+        "venueCountry": null,
+        "services": [
+          "netflix"
+        ],
+        "devices": [],
+        "match": null,
+        "dataOrigin": "provider",
+        "updatedAt": "2026-11-12T04:45:59.809Z"
+      }
+    ]
+  },
+  "optionsContractVersion": "0.1.0-draft.4",
+  "migrations": [
+    {
+      "migration_name": "202611090001_initial",
+      "finished": true
+    },
+    {
+      "migration_name": "202611100001_ott_categories",
+      "finished": true
+    },
+    {
+      "migration_name": "202611110001_mobile_game_devices",
+      "finished": true
+    },
+    {
+      "migration_name": "202611130001_ott_documentary",
+      "finished": true
+    }
+  ],
+  "cloudDeployed": false,
+  "iphoneVerified": false
+}

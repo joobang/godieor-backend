@@ -1,0 +1,29 @@
+{
+  "scope": "summary of actual before snapshot; full public event rows retained in temporary run folder",
+  "snapshotPath": "/private/tmp/godieor-data52/db-before.json",
+  "snapshotSha256": "4ebd8a43e3e08b5a981e65a97c63b8eaae5f77bdf553f56a602c26b595a606fc",
+  "existingEventRows": 64,
+  "counts": {
+    "events": 64,
+    "new_changes": 0
+  },
+  "publishedInWindow": 62,
+  "migrations": [
+    {
+      "migration_name": "202611090001_initial",
+      "finished": true
+    },
+    {
+      "migration_name": "202611100001_ott_categories",
+      "finished": true
+    },
+    {
+      "migration_name": "202611110001_mobile_game_devices",
+      "finished": true
+    },
+    {
+      "migration_name": "202611130001_ott_documentary",
+      "finished": true
+    }
+  ]
+}
