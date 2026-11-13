@@ -1,0 +1,7 @@
+{
+  "scope": "implementer synthetic temporary PostgreSQL; not independent approval",
+  "baselineExpectedFailures": 2,
+  "fixedPassed": 2,
+  "productDataChanged": false,
+  "containerRemoved": true
+}

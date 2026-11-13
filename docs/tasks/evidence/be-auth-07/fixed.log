@@ -1,0 +1,5 @@
+PASS favorite items and version use one snapshot during another device write
+PASS settings save response belongs to its write, not the next device write
+Synthetic concurrency cases: 2/2 passed; no product DB or Google/phone access
+(node:60070) DeprecationWarning: Calling client.query() when the client is already executing a query is deprecated and will be removed in pg@9.0. Use async/await or an external async flow control mechanism instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)

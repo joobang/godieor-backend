@@ -1,0 +1,3 @@
+FAIL favorite items and version use one snapshot during another device write
+FAIL settings save response belongs to its write, not the next device write
+Synthetic concurrency cases: 0/2 passed; no product DB or Google/phone access

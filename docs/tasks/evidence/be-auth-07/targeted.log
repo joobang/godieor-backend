@@ -1,0 +1,14 @@
+✔ account settings retain ownership and reject a stale version without mutation (1.607875ms)
+✔ favorite mutations are account scoped, idempotent, and cursor snapshots are version bound (6.944959ms)
+✔ Google JWT signature, issuer, audience and expiry are checked (10.023875ms)
+✔ expired and revoked service sessions reject access and logout revokes active token (0.214583ms)
+✔ favorite cursor binds to account, version, page size and rejects tampering (0.453416ms)
+✔ settings input rejects duplicates before writing and uses authenticated user identity (0.188583ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 181.300791
