@@ -1,3 +1,8 @@
+## DATA-46 인계 (2026-11-13)
+
+- app `docs/system/ott-handoff-2026-11-12.md`를 최신55건 기준으로 갱신. backend 원본 카드 `docs/tasks/DATA-46-netflix-search-disambiguation.md`, `scripts/disambiguate-netflix-tmdb.mjs`와 공식배우/국가 입력·실TMDB보고서·2건curated review·57개mapping 저장. 앨런11/12(시즌null), 고르돈11/18(시즌1) 수동 게시.
+- 실제11~12월KR OTT53→55, SQL·임시HTTP신규2건 확인, 재게시중복0, Node22 npm test154/154(기존dirty포함). 미실행: 권장Node24/독립검증/클라우드/실폰. 기존검색잘림4건은2게시/2날짜차이로 정리; Mike는미발견, Nate는상세날짜·출연진 부족. 다음은 이보류건과공식상세실패16건/입점일의미 검토. 앱코드/계약/migration/verdict 불변, 개인서명/환경/미추적감사도구 보존. 담당codex-data46-01 해제.
+
 ## DATA-45 인계 (2026-11-12)
 
 - app `docs/system/ott-handoff-2026-11-12.md`에서 최신 사실·다음 순서 확인. backend 원본 카드 `docs/tasks/DATA-45-netflix-official-identities.md`, 공식ID별44건 관측/영문제목대조 CLI/실TMDB결과/11개curated review 및55개mapping 저장. title2는 원제로 사용하지 않으며 redirect/예고편만으로 시즌·한국 첫날 확정 금지.

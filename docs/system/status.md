@@ -1,3 +1,8 @@
+## DATA-46 동명 작품 재대조·Netflix 2건 로컬 게시 (2026-11-13)
+
+- 원본 backend `docs/tasks/DATA-46-netflix-search-disambiguation.md`. 검색잘림4/제목미발견2를 공식 배우·국가·연도로 대조. 앨런·고르돈2건 검토/게시, 동명 다른 작품2건 배제 후 날짜차이 유지, Nate 상세 메타데이터 부족/Mike 제목 미발견 보류. 기존4건 검색잘림은 해소.
+- 실제11~12월KR4OTT53→55(+2), Netflix11월48, 연중매핑/이벤트57. SQL·임시API200/55행/신규2ID, 재게시이벤트57/신규변경이력2 유지. Node22 자체154/154(기존dirty포함). 계약/앱코드/migration/승인기준 불변, 클라우드/실폰/권장Node24/독립검증 미실행. 다음은 공식 상세 실패16건·Mike 대체제목·Nate 상세보강·한국입점일과극장/방송일 차이 검토. OTT 전용 인계 갱신, 기존 개인설정·환경 dirty 보존.
+
 ## DATA-45 공식 videoID 대조·Netflix11건 로컬 게시 (2026-11-12)
 
 - OTT 전용 인계 `docs/system/ott-handoff-2026-11-12.md` 갱신. 원본 backend `docs/tasks/DATA-45-netflix-official-identities.md`. 기존44건의 공식 상세 조회 시도:28건 제목/형식 확인,16건 도구 조회 실패. NFL1건 제외 후27건 실TMDB대조, 날짜 일치14 중 기존1/검색잘림2 제외한11건 수동 검토·게시.

@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "asOf": "2026-11-13",
+  "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+  "scope": "Author review using archived KR listing + public official cast/country/year + TMDB detail/credits and date. No independent approval.",
+  "items": [
+    {
+      "videoId": 81382720,
+      "review": {
+        "id": "c0a07c9b0d0715fb05fc19cbd6179bfe81363551fdca22d42de156c86db95ab9",
+        "revision": "d35b18a1cadf3328a920a5bb780444bd067391efa2d5db8c6173f9794fbd2e52",
+        "reviewer": "GODIEOR 구현 담당 공식 배우/국가/TMDB 정체성 대조 2026-11-13",
+        "title": "앨런",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-12",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "2026-11-12 관측 Netflix KR 공식 월간 목록 videoID 81382720 날짜 2026-11-12; 공식 상세 영문명 Allen, 배우 T.J. Power, Charlotte Nicdao, Josh Helman, 제작국가 AU 대조. 2026-11-13 TMDB movie/1518204 상세·credits 및 영화 공개 날짜 일치. 연도 제한 검색 전체 페이지 확인. 한국 Netflix 날짜이며 전세계/극장 최초와 동일하다는 일반화 아님. 작성자 검토, 독립 승인 아님."
+      },
+      "mapping": {
+        "candidateId": "c0a07c9b0d0715fb05fc19cbd6179bfe81363551fdca22d42de156c86db95ab9",
+        "revision": "d35b18a1cadf3328a920a5bb780444bd067391efa2d5db8c6173f9794fbd2e52",
+        "contentKey": "work-000056",
+        "eventKey": "event-000056"
+      },
+      "tmdb": {
+        "id": 1518204,
+        "kind": "movie",
+        "castMatches": [
+          "T.J. Power",
+          "Charlotte Nicdao",
+          "Josh Helman"
+        ],
+        "countries": [
+          "AU"
+        ]
+      },
+      "sourceUrls": [
+        "https://www.netflix.com/title/81382720"
+      ]
+    },
+    {
+      "videoId": 81657615,
+      "review": {
+        "id": "b1eb683d1e11bc78a557569703187887e4d94d0aad60559a2477e107af02e660",
+        "revision": "7d46ba901201833d79177e81c24c399392f727ed1bd753c7d9ab10e379fe935b",
+        "reviewer": "GODIEOR 구현 담당 공식 배우/국가/TMDB 정체성 대조 2026-11-13",
+        "title": "고르돈",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-18",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "2026-11-12 관측 Netflix KR 공식 월간 목록 videoID 81657615 날짜 2026-11-18; 공식 상세 영문명 Gordon, 배우 Rodrigo de la Serna, Matías Recalt, Camila Peralta, 제작국가 AR 대조. 2026-11-13 TMDB tv/340280 상세·credits 및 시즌 1 첫 날짜 일치. 연도 제한 검색 전체 페이지 확인. 한국 Netflix 날짜이며 전세계/극장 최초와 동일하다는 일반화 아님. 작성자 검토, 독립 승인 아님."
+      },
+      "mapping": {
+        "candidateId": "b1eb683d1e11bc78a557569703187887e4d94d0aad60559a2477e107af02e660",
+        "revision": "7d46ba901201833d79177e81c24c399392f727ed1bd753c7d9ab10e379fe935b",
+        "contentKey": "work-000057",
+        "eventKey": "event-000057"
+      },
+      "tmdb": {
+        "id": 340280,
+        "kind": "tv",
+        "castMatches": [
+          "Rodrigo de la Serna",
+          "Matías Recalt",
+          "Camila Peralta"
+        ],
+        "countries": [
+          "AR"
+        ]
+      },
+      "sourceUrls": [
+        "https://www.netflix.com/title/81657615",
+        "https://about.netflix.com/es/news/gordon-llega-a-netflix-el-18-de-noviembre"
+      ]
+    }
+  ]
+}
