@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "asOf": "2026-11-13",
+  "scope": "author manual review; not independent approval",
+  "items": [
+    {
+      "videoId": 81777232,
+      "canonicalVideoId": 81777231,
+      "review": {
+        "id": "4abc62d9cef6089b106776c45299106c55c55cc5dbd47152ccd9f5494761c27d",
+        "revision": "0245b1ffc49b6c3c68b524a9aa2e6d65668004b223ef964ea3678a64b442bd8d",
+        "reviewer": "GODIEOR 구현 담당 공식 목록/다큐 형식 대조 2026-11-13",
+        "title": "캐런 리드 재판",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "documentary",
+        "documentaryFormat": "series",
+        "premiereConfirmed": true,
+        "date": "2026-11-23",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 공식 신규 목록 2026-11-12 관측: video81777232, 한국등록일11/23. 11/13 공식Tudum은11/23 첫공개·다큐시리즈 명시, 연결된공식title81777231은Season1예고편·Documentary Series/ Limited Series 표시. 기존실TMDB tv340615 시즌1/첫회11/23과일치. KR제공처미등재는날짜근거로쓰지않음. 공식원ID→시리즈ID연결은DATA47공개브라우저관측. 시각추정없음. 작성자검토이며독립승인아님."
+      },
+      "mapping": {
+        "candidateId": "4abc62d9cef6089b106776c45299106c55c55cc5dbd47152ccd9f5494761c27d",
+        "revision": "0245b1ffc49b6c3c68b524a9aa2e6d65668004b223ef964ea3678a64b442bd8d",
+        "contentKey": "work-000063",
+        "eventKey": "event-000063"
+      },
+      "tmdb": {
+        "type": "tv",
+        "id": 340615,
+        "seasonNumber": 1
+      },
+      "sources": [
+        {
+          "url": "https://about.netflix.com/ko/new-to-watch",
+          "observedAt": "2026-11-12",
+          "scope": "KR dated listing stored in candidate latest revision; today web tool only exposed first pagination page"
+        },
+        {
+          "url": "https://www.netflix.com/tudum/articles/karen-read-john-okeefe-doc-series-news",
+          "observedAt": "2026-11-13",
+          "scope": "official docuseries identity and Nov23 premiere; not independently KR-specific"
+        },
+        {
+          "url": "https://www.netflix.com/title/81777231?src=tudum&trackId=259776131&trkId=259776131",
+          "observedAt": "2026-11-13",
+          "scope": "official linked title, Documentary Series / Limited Series / Season1 trailer; not KR schedule evidence"
+        }
+      ]
+    }
+  ]
+}
