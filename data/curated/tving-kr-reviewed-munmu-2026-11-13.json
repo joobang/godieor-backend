@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "asOf": "2026-11-13",
+  "scope": "author public TVING UI/manual review; not independent approval",
+  "items": [
+    {
+      "discovery": {
+        "source": "tving",
+        "url": "https://www.tving.com/contents/P001791650",
+        "headline": "문무",
+        "publishedRaw": null,
+        "evidenceRevision": "DATA51-public-T VING-program-and-Nov14-schedule-observation-2026-11-13"
+      },
+      "review": {
+        "id": "48ffd8256db776576117f7a777f6762caa0a3e5ce0680fcf3e13bfea2a02ec43",
+        "revision": "50b0ab7804b5c9da3c4924ef9aba55da8d2cd3a6590c12f9625bb427a65b643c",
+        "reviewer": "GODIEOR 구현 담당 TVING 공개 작품/일정 UI 대조 2026-11-13",
+        "title": "문무",
+        "platform": "tving",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-14",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "2026-11-13 TVING공식작품P001791650 및이번주11/14일정에11월14일공개명시. CJ2026-11-13추천의문무/이현욱·장혁·김강우·박성웅과동일작품. 방송21:20과실제TVING시점차이안내를존중해날짜만저장. 시즌1개는개수로보고번호추정안함(null). Netflix후보와별도TVING이벤트. query-free작품permalink출처. 작성자검토/독립승인아님."
+      },
+      "mapping": {
+        "candidateId": "48ffd8256db776576117f7a777f6762caa0a3e5ce0680fcf3e13bfea2a02ec43",
+        "revision": "50b0ab7804b5c9da3c4924ef9aba55da8d2cd3a6590c12f9625bb427a65b643c",
+        "contentKey": "work-000064",
+        "eventKey": "event-000064"
+      },
+      "observation": {
+        "browserUrl": "https://www.tving.com/contents/P001791650?source_page_type=WEEKLY_SCHEDULE",
+        "scheduleUrl": "https://www.tving.com/service/schedule-weekly",
+        "releaseLabel": "11월 14일 공개",
+        "yearBinding": "current November2026 weekly schedule plus CJ article2026-11-13 and matching cast",
+        "seasonLabel": "시즌 1 개",
+        "seasonNumberInferred": false,
+        "disclaimer": "방영 시간과 티빙에서 시청 가능한 시점은 다를 수 있습니다."
+      }
+    }
+  ]
+}
