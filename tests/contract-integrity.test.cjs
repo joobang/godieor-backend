@@ -17,6 +17,7 @@ test('contract manifest fingerprints and declared version match actual contract 
   }
   const spec = readFileSync(resolve(root, 'openapi.yaml'), 'utf8');
   assert.equal(/"version":\s*"([^"]+)"/.exec(spec)?.[1], manifest.contractVersion);
+  assert.equal(/"contractVersion":\s*"const":\s*"([^"]+)"/.exec(spec)?.[1],manifest.contractVersion);
 });
 
 test('authored event examples include the existing nullable OTT classification field', () => {

@@ -2472,7 +2472,7 @@
       "additionalProperties": false
       "properties":
         "contractVersion":
-          "const": "0.1.0-draft.2"
+          "const": "0.1.0-draft.4"
         "categories":
           "type": "array"
           "items":
