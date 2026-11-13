@@ -239,6 +239,8 @@ export function eligibility(candidate: Candidate): string[] {
   if (!review.date) reasons.push("missing_exact_date");
   else if (review.date < "2026-01-01") reasons.push("before_2026");
   if (!review.platform) reasons.push("unconfirmed_platform");
+  if (candidate.source === "tving" && review.platform !== "tving")
+    reasons.push("source_platform_mismatch");
   if (!review.market) reasons.push("unconfirmed_market");
   if (["other", "unknown"].includes(review.contentKind)) reasons.push("unclassified_ott_content");
   if (!review.premiereConfirmed) reasons.push("not_confirmed_premiere");
