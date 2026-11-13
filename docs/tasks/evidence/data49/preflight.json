@@ -1,0 +1,21 @@
+{
+  "localOnly": true,
+  "migrations": [
+    {
+      "migration_name": "202611090001_initial",
+      "finished": true,
+      "rolled_back": false
+    },
+    {
+      "migration_name": "202611100001_ott_categories",
+      "finished": true,
+      "rolled_back": false
+    },
+    {
+      "migration_name": "202611110001_mobile_game_devices",
+      "finished": true,
+      "rolled_back": false
+    }
+  ],
+  "mappings": 62
+}

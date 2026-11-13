@@ -1,5 +1,9 @@
 # 검토한 OTT 후보를 제품 일정으로 반영
 
+## 현재 로컬 반영 · DATA-49 / 2026-11-13
+
+로컬 DB에 다큐 migration을 적용하고 캐런 리드 재판(Netflix KR2026-11-23, documentaryFormat=series/시즌1)을 검토·게시했다. 11~12월KR4OTT61건/연중63매핑, 재게시중복0. SQL·임시API분류와원날짜 확인. 다른DB는각자migration/state재현이필요하다. [작업기록](tasks/DATA-49-reviewed-documentary.md).
+
 ## Current support: DATA-48 / 2026-11-13
 
 The user confirmed OTT movies, series, variety and documentary support. Documentary review requires both `contentKind: documentary` and `documentaryFormat: movie|series`. A documentary movie cannot have a season; an unknown series season stays null. API classification remains documentary. Internal content.kind uses movie or the existing series representation, drama. Animation remains unsupported for publication; other/unknown stay ineligible.

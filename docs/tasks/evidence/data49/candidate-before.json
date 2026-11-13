@@ -1,0 +1,39 @@
+{
+  "id": "4abc62d9cef6089b106776c45299106c55c55cc5dbd47152ccd9f5494761c27d",
+  "source": "netflix",
+  "url": "https://about.netflix.com/ko/new-to-watch",
+  "itemKey": "netflix-video:81777232",
+  "firstSeenAt": "2026-11-12T02:45:17.597Z",
+  "lastSeenAt": "2026-11-12T04:12:52.022Z",
+  "revisions": [
+    {
+      "token": "5018b92e51e2b14035adf7a27d4cf6396bd03a3bd8335824756e7eaf9376e405",
+      "hash": "cc08b4b1704ff51bc8550a68ff7d0580e19dbbde124efb6f86f8b82a7772a054",
+      "observedAt": "2026-11-12T02:45:17.597Z",
+      "headline": "캐런 리드 재판",
+      "publishedRaw": null,
+      "publishedAt": null
+    },
+    {
+      "token": "0245b1ffc49b6c3c68b524a9aa2e6d65668004b223ef964ea3678a64b442bd8d",
+      "hash": "342a54e7a55d5f4f7a20aaebd0e83583bd872cefa7356387dc559bb14bf7b9b3",
+      "observedAt": "2026-11-12T04:12:18.349Z",
+      "headline": "캐런 리드 재판",
+      "publishedRaw": null,
+      "publishedAt": null,
+      "lineupEvidence": {
+        "platform": "netflix",
+        "title": "캐런 리드 재판",
+        "date": "2026-11-23",
+        "market": "KR",
+        "contentKind": "unknown",
+        "seasonNumber": null,
+        "premiereConfirmed": false,
+        "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-23; Netflix videoID 81777232. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요.",
+        "imageUrl": null,
+        "sourceItem": 59
+      }
+    }
+  ],
+  "review": null
+}

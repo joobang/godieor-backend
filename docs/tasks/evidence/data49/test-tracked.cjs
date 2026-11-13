@@ -1,0 +1,3 @@
+const fs=require('node:fs');const {spawnSync,execFileSync}=require('node:child_process');
+const files=execFileSync('git',['ls-files','tests'],{encoding:'utf8'}).split('\n').filter(x=>/\.test\.(cjs|mjs)$/.test(x)).sort();if(!files.length)throw Error('NO_TEST_FILES');
+const r=spawnSync(process.execPath,['--test',...files],{env:process.env,encoding:'utf8'});fs.writeFileSync('/private/tmp/godieor-data49/test-command.json',JSON.stringify([process.execPath,'--test',...files],null,2)+'\n');fs.writeFileSync('/private/tmp/godieor-data49/test-tracked.log',(r.stdout??'')+(r.stderr??''));console.log('Tracked tests exit '+r.status);process.exitCode=r.status??1;

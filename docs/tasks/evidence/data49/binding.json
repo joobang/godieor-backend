@@ -1,0 +1,30 @@
+{
+  "scope": "author local data publication; not a new independent runner report",
+  "app": {
+    "base": "9c0e0ffe2edb6f9adb295b0b7e667bd3daeb35a2",
+    "head": "9c0e0ffe2edb6f9adb295b0b7e667bd3daeb35a2"
+  },
+  "backend": {
+    "base": "d24fe56e69e4d24a86be1582a213a102526efe25",
+    "dataHead": "a5810166aa976ee0838ad08922c1ffb24af66410",
+    "testMode": "tracked source tests on working tree before data-only commit; not a new clean snapshot runner"
+  },
+  "verifier": {
+    "base": "1eaa7165a85920950c66c1f9dbe8e051dfb1c117",
+    "lastRunnerTask": "DATA-48",
+    "lastRunnerVerdict": "ERROR",
+    "newRunnerExecuted": false
+  },
+  "contractVersion": "0.1.0-draft.4",
+  "contractManifestSha256": "96cc08536324f8b5a7c537783caa93a1ce33de533526032e01621282fb601122",
+  "migrationSetSha256": "853337eadc11cd3c8c619c9e53d961cb7eead5fe0a79368c5d167324598bb697",
+  "migrationFiles": {
+    "202611090001_initial/migration.sql": "29ef8ef0d520f44b6a633e8f017144a3e2b2199189461a88ba99bc296c42f5b9",
+    "202611100001_ott_categories/migration.sql": "3f1fd7bf4049300bf2f05dc1f879771f27c6c3060ad8142b2e3ae0d60ba20119",
+    "202611110001_mobile_game_devices/migration.sql": "e8936f2541c4503a5d98f00f7063a54b4a7c2db9b23c4aca2b6c58ef07b21390",
+    "202611130001_ott_documentary/migration.sql": "d858fdf525aef2446435f6ee8f8ecacc3025c6ab189666a39c6ea1d6363f1ca3",
+    "migration_lock.toml": "1db17a8d051aa136110736752c5e1f8b7ed92b6ea8e803112fbbe2497047c210"
+  },
+  "acceptanceSha256": "c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063",
+  "independentReview": "not-run"
+}

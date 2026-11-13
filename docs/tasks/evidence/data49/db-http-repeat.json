@@ -1,0 +1,160 @@
+{
+  "scope": "implementer local SQL and temporary HTTP; not independent approval",
+  "existing62Unchanged": true,
+  "publishedInWindow": 61,
+  "netflixInNovember": 54,
+  "counts": {
+    "events": 63,
+    "new_changes": 1
+  },
+  "newRow": {
+    "id": "df6e46b1-070c-4db6-8e0d-64d98bf76c05",
+    "key": "event-000063",
+    "title": "캐런 리드 재판",
+    "kind": "ott_season_premiere",
+    "ott_category": "documentary",
+    "precision": "date_only",
+    "date": "2026-11-23",
+    "instant_at": null,
+    "market": "KR",
+    "season": 1,
+    "platform": "netflix"
+  },
+  "httpStatus": 200,
+  "httpItems": 61,
+  "event": {
+    "id": "df6e46b1-070c-4db6-8e0d-64d98bf76c05",
+    "kind": "ott_season_premiere",
+    "ottCategory": "documentary",
+    "title": "캐런 리드 재판",
+    "contentId": "2ed231f7-d27e-4d41-9c4a-0e2861f7dd54",
+    "season": {
+      "id": "248d8104-199a-4c31-a3d2-80e82aa54bb8",
+      "number": 1
+    },
+    "status": "scheduled",
+    "time": {
+      "type": "date_only",
+      "date": "2026-11-23"
+    },
+    "releaseMarket": "KR",
+    "venueCountry": null,
+    "services": [
+      "netflix"
+    ],
+    "devices": [],
+    "match": null,
+    "dataOrigin": "provider",
+    "updatedAt": "2026-11-13T02:16:31.324Z"
+  },
+  "detail": {
+    "event": {
+      "id": "df6e46b1-070c-4db6-8e0d-64d98bf76c05",
+      "kind": "ott_season_premiere",
+      "ottCategory": "documentary",
+      "title": "캐런 리드 재판",
+      "contentId": "2ed231f7-d27e-4d41-9c4a-0e2861f7dd54",
+      "season": {
+        "id": "248d8104-199a-4c31-a3d2-80e82aa54bb8",
+        "number": 1
+      },
+      "status": "scheduled",
+      "time": {
+        "type": "date_only",
+        "date": "2026-11-23"
+      },
+      "releaseMarket": "KR",
+      "venueCountry": null,
+      "services": [
+        "netflix"
+      ],
+      "devices": [],
+      "match": null,
+      "dataOrigin": "provider",
+      "updatedAt": "2026-11-13T02:16:31.324Z"
+    },
+    "sources": [
+      {
+        "providerKey": "ott_reviewed",
+        "url": "https://about.netflix.com/ko/new-to-watch",
+        "observedAt": "2026-11-13T02:17:11.204Z",
+        "sourceUpdatedAt": null
+      }
+    ],
+    "previousTime": null
+  },
+  "calendarDay": {
+    "date": "2026-11-23",
+    "total": 2,
+    "previews": [
+      {
+        "id": "bd93a472-6ec4-41a4-a6a3-ccf80328c346",
+        "kind": "ott_season_premiere",
+        "ottCategory": "original_series",
+        "title": "대리수능",
+        "contentId": "4ba80dbd-2383-40c0-b86f-75abd02a2e3f",
+        "season": null,
+        "status": "scheduled",
+        "time": {
+          "type": "date_only",
+          "date": "2026-11-23"
+        },
+        "releaseMarket": "KR",
+        "venueCountry": null,
+        "services": [
+          "tving"
+        ],
+        "devices": [],
+        "match": null,
+        "dataOrigin": "provider",
+        "updatedAt": "2026-11-11T02:04:47.668Z"
+      },
+      {
+        "id": "df6e46b1-070c-4db6-8e0d-64d98bf76c05",
+        "kind": "ott_season_premiere",
+        "ottCategory": "documentary",
+        "title": "캐런 리드 재판",
+        "contentId": "2ed231f7-d27e-4d41-9c4a-0e2861f7dd54",
+        "season": {
+          "id": "248d8104-199a-4c31-a3d2-80e82aa54bb8",
+          "number": 1
+        },
+        "status": "scheduled",
+        "time": {
+          "type": "date_only",
+          "date": "2026-11-23"
+        },
+        "releaseMarket": "KR",
+        "venueCountry": null,
+        "services": [
+          "netflix"
+        ],
+        "devices": [],
+        "match": null,
+        "dataOrigin": "provider",
+        "updatedAt": "2026-11-13T02:16:31.324Z"
+      }
+    ]
+  },
+  "optionsContractVersion": "0.1.0-draft.4",
+  "migrations": [
+    {
+      "migration_name": "202611090001_initial",
+      "finished": true
+    },
+    {
+      "migration_name": "202611100001_ott_categories",
+      "finished": true
+    },
+    {
+      "migration_name": "202611110001_mobile_game_devices",
+      "finished": true
+    },
+    {
+      "migration_name": "202611130001_ott_documentary",
+      "finished": true
+    }
+  ],
+  "cloudDeployed": false,
+  "iphoneVerified": false
+}
