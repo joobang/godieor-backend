@@ -33,7 +33,7 @@ export class CatalogService {
 
   options() {
     return {
-      contractVersion: "0.1.0-draft.2",
+      contractVersion: "0.1.0-draft.4",
       categories: CATEGORIES,
       services: SERVICES,
       devices: DEVICES,

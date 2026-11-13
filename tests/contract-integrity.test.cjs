@@ -35,3 +35,9 @@ test('authored event examples include the existing nullable OTT classification f
     inspect(JSON.parse(readFileSync(resolve(root, 'examples', name), 'utf8')));
   assert.ok(events > 0);
 });
+
+ test('public catalog options advertise the pinned contract version', () => {
+  require('reflect-metadata');
+  const {CatalogService}=require('../dist/src/catalog/catalog.service');
+  assert.equal(new CatalogService({},{}).options().contractVersion,manifest.contractVersion);
+});
