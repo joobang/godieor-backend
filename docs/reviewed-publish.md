@@ -1,5 +1,12 @@
 # 검토한 OTT 후보를 제품 일정으로 반영
 
+## Current support: DATA-48 / 2026-11-13
+
+The user confirmed OTT movies, series, variety and documentary support. Documentary review requires both `contentKind: documentary` and `documentaryFormat: movie|series`. A documentary movie cannot have a season; an unknown series season stays null. API classification remains documentary. Internal content.kind uses movie or the existing series representation, drama. Animation remains unsupported for publication; other/unknown stay ineligible.
+
+Apply migration `202611130001_ott_documentary` to the target local DB before publishing. DATA-48 tested temporary databases only and kept the existing 60-window-event/62-mapping dataset unchanged. The DATA-47 rejection below is historical; this section and ADR017 supersede that support limitation. See [DATA-48](tasks/DATA-48-ott-support-alignment.md) for fixed heads, actual checks and remaining independent verification.
+
+
 이 단계는 공식 공지의 작성자 검토를 제품 DB로 옮기는 수동 절차다. 자동 전수 수집·독립 승인과 구분한다. Google/개인 API 구현과 무관하다.
 
 ```sh

@@ -1,0 +1,14 @@
+{
+  "asOf": "2026-11-13",
+  "mappingCount": 62,
+  "currentRevisionsMatch": true,
+  "dbWindowCount": 60,
+  "previousEvidenceDbCount": 60,
+  "commonCopiesMatch": true,
+  "heads": {
+    "godieor-app": "b17c884671fffbfb318ee4072d644836f81012c6",
+    "godieor-backend": "9f7e1b2783d937474194b46b4b72679cdbbee9c9",
+    "godieor-verifier": "93589d888ea454e421ba33620eda617b4c9e2132"
+  },
+  "scope": "author read-only audit; not independent approval"
+}

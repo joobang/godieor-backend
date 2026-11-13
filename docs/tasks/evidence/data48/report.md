@@ -1,0 +1,217 @@
+# GODIEOR verification
+
+Verdict: **ERROR**
+
+Evaluated: 2026-11-13T01:57:46.937487+00:00
+
+Acceptance SHA-256: `c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063`
+
+Evidence SHA-256: `5073a0db814c496eba2fbe9c37e47d052751f669a1af062297c12e6c836a987c`
+
+입력 evidence를 집계한 결과다. 실제 실행·격리 진위는 별도 신뢰 경계에 속한다.
+
+## errors
+
+- filter-intersection: SKIPPED
+- settings-roundtrip: SKIPPED
+- provider-contract: SKIPPED
+- ios-user-flow: SKIPPED
+
+## failures
+
+- secret-check: 검사 실패 (exit=1)
+
+## review_required
+
+- 독립 AI 리뷰 대기
+- acceptance 미승인 초안
+- 실제 실행 권한 격리 미검증
+
+## Evidence
+
+```json
+{
+  "schema_version": 2,
+  "run_id": "godieor-data48-fixed-run-v6",
+  "started_at": "2026-11-13T01:56:42.636162+00:00",
+  "finished_at": "2026-11-13T01:57:46.936348+00:00",
+  "app": {
+    "base_sha": "b17c884671fffbfb318ee4072d644836f81012c6",
+    "head_sha": "4e64978050042079c4798c84898686149ac3133d"
+  },
+  "backend": {
+    "base_sha": "9f7e1b2783d937474194b46b4b72679cdbbee9c9",
+    "head_sha": "d0b5f6c38bcc1982e5551195f2b235b78095197c"
+  },
+  "contract": {
+    "version": "0.1.0-draft.4",
+    "sha256": "96cc08536324f8b5a7c537783caa93a1ce33de533526032e01621282fb601122"
+  },
+  "migrations": {
+    "sha256": "853337eadc11cd3c8c619c9e53d961cb7eead5fe0a79368c5d167324598bb697"
+  },
+  "acceptance": {
+    "version": "0.1.0-draft",
+    "sha256": "c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063"
+  },
+  "verifier": {
+    "sha": "1eaa7165a85920950c66c1f9dbe8e051dfb1c117",
+    "dirty": false,
+    "state_sha256": "acdd1eb1246cd3d219276d51008665a139957ee659308008b34d316f6f0cc9f0"
+  },
+  "execution": {
+    "mode": "external-runner",
+    "isolation_verified": false,
+    "tool_versions": {
+      "runner": "local-v1",
+      "node": "v24.22.3",
+      "ios_execution_policy": "local-reviewed (same UID; no OS isolation)"
+    }
+  },
+  "checks": [
+    {
+      "id": "ios-build",
+      "run_id": "godieor-data48-fixed-run-v6",
+      "app_head_sha": "4e64978050042079c4798c84898686149ac3133d",
+      "acceptance_sha256": "c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063",
+      "subject_sha256": "4fda8a2f61a23a298992eb530727742ddcb639dce16ed479b9ed56a183370a13",
+      "status": "PASS",
+      "command": [
+        "/usr/bin/xcodebuild",
+        "-project",
+        "/private/tmp/godieor-data48-fixed-run-v6/build/app/ios/GODIEOR.xcodeproj",
+        "-scheme",
+        "GODIEOR",
+        "-configuration",
+        "Debug",
+        "-sdk",
+        "iphonesimulator",
+        "-destination",
+        "generic/platform=iOS Simulator",
+        "-derivedDataPath",
+        "/private/tmp/godieor-data48-fixed-run-v6/build/app/work/DerivedData",
+        "CODE_SIGNING_ALLOWED=NO",
+        "build"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T01:56:47.735019+00:00",
+      "finished_at": "2026-11-13T01:56:53.376217+00:00",
+      "evidence": "/private/tmp/godieor-data48-fixed-run-v6/logs/ios-build.log"
+    },
+    {
+      "id": "event-identity",
+      "run_id": "godieor-data48-fixed-run-v6",
+      "app_head_sha": "4e64978050042079c4798c84898686149ac3133d",
+      "acceptance_sha256": "c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063",
+      "subject_sha256": "4fda8a2f61a23a298992eb530727742ddcb639dce16ed479b9ed56a183370a13",
+      "status": "PASS",
+      "command": [
+        "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+        "/private/tmp/godieor-data48-fixed-run-v6/trusted/api-checks.cjs",
+        "event-identity"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T01:57:43.267237+00:00",
+      "finished_at": "2026-11-13T01:57:44.225603+00:00",
+      "evidence": "/private/tmp/godieor-data48-fixed-run-v6/logs/api-event-identity.log",
+      "scope": "backend-api-synthetic",
+      "coverage": "API component; iOS flow is separate"
+    },
+    {
+      "id": "time-semantics",
+      "run_id": "godieor-data48-fixed-run-v6",
+      "app_head_sha": "4e64978050042079c4798c84898686149ac3133d",
+      "acceptance_sha256": "c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063",
+      "subject_sha256": "4fda8a2f61a23a298992eb530727742ddcb639dce16ed479b9ed56a183370a13",
+      "status": "PASS",
+      "command": [
+        "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+        "/private/tmp/godieor-data48-fixed-run-v6/trusted/api-checks.cjs",
+        "time-semantics"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T01:57:44.226244+00:00",
+      "finished_at": "2026-11-13T01:57:44.759036+00:00",
+      "evidence": "/private/tmp/godieor-data48-fixed-run-v6/logs/api-time-semantics.log",
+      "scope": "backend-api-synthetic",
+      "coverage": "API component; iOS flow is separate"
+    },
+    {
+      "id": "filter-intersection",
+      "run_id": "godieor-data48-fixed-run-v6",
+      "app_head_sha": "4e64978050042079c4798c84898686149ac3133d",
+      "acceptance_sha256": "c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063",
+      "subject_sha256": "4fda8a2f61a23a298992eb530727742ddcb639dce16ed479b9ed56a183370a13",
+      "status": "SKIPPED",
+      "command": [
+        "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+        "/private/tmp/godieor-data48-fixed-run-v6/trusted/api-checks.cjs",
+        "api-filter-observations"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-11-13T01:57:44.759460+00:00",
+      "finished_at": "2026-11-13T01:57:45.283950+00:00",
+      "evidence": "/private/tmp/godieor-data48-fixed-run-v6/logs/api-api-filter-observations.log",
+      "scope": "backend-api-synthetic",
+      "coverage": "current policy observations; draft conflict unresolved"
+    },
+    {
+      "id": "secret-check",
+      "run_id": "godieor-data48-fixed-run-v6",
+      "app_head_sha": "4e64978050042079c4798c84898686149ac3133d",
+      "acceptance_sha256": "c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063",
+      "subject_sha256": "4fda8a2f61a23a298992eb530727742ddcb639dce16ed479b9ed56a183370a13",
+      "status": "FAIL",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "-m",
+        "godieor_verifier.secret_check",
+        "--run",
+        "/private/tmp/godieor-data48-fixed-run-v6"
+      ],
+      "exit_code": 1,
+      "started_at": "2026-11-13T01:57:45.993973+00:00",
+      "finished_at": "2026-11-13T01:57:46.936218+00:00",
+      "evidence": "/private/tmp/godieor-data48-fixed-run-v6/secret-check.log",
+      "scope": "literal-credentials-and-labelled-pii",
+      "coverage": "fixed app/backend source, fixtures, completed step logs, unsigned app bundle; literal policy only"
+    },
+    {
+      "id": "settings-roundtrip",
+      "run_id": "godieor-data48-fixed-run-v6",
+      "app_head_sha": "4e64978050042079c4798c84898686149ac3133d",
+      "acceptance_sha256": "c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063",
+      "subject_sha256": "4fda8a2f61a23a298992eb530727742ddcb639dce16ed479b9ed56a183370a13",
+      "status": "SKIPPED"
+    },
+    {
+      "id": "provider-contract",
+      "run_id": "godieor-data48-fixed-run-v6",
+      "app_head_sha": "4e64978050042079c4798c84898686149ac3133d",
+      "acceptance_sha256": "c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063",
+      "subject_sha256": "4fda8a2f61a23a298992eb530727742ddcb639dce16ed479b9ed56a183370a13",
+      "status": "SKIPPED"
+    },
+    {
+      "id": "ios-user-flow",
+      "run_id": "godieor-data48-fixed-run-v6",
+      "app_head_sha": "4e64978050042079c4798c84898686149ac3133d",
+      "acceptance_sha256": "c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063",
+      "subject_sha256": "4fda8a2f61a23a298992eb530727742ddcb639dce16ed479b9ed56a183370a13",
+      "status": "SKIPPED"
+    }
+  ],
+  "review": {
+    "status": "PENDING",
+    "app_head_sha": "4e64978050042079c4798c84898686149ac3133d",
+    "acceptance_sha256": "c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063",
+    "subject_sha256": "4fda8a2f61a23a298992eb530727742ddcb639dce16ed479b9ed56a183370a13",
+    "run_id": "godieor-data48-fixed-run-v6",
+    "model": null,
+    "settings": {},
+    "started_at": null,
+    "finished_at": null,
+    "findings": []
+  }
+}
+```

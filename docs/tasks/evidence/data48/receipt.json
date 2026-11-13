@@ -1,0 +1,247 @@
+{
+  "scope": "implementer local execution; not independent approval",
+  "temporaryRun": "/private/tmp/godieor-data48-fixed-run-v6",
+  "finalExit": 3,
+  "binding": {
+    "app": {
+      "base_sha": "b17c884671fffbfb318ee4072d644836f81012c6",
+      "head_sha": "4e64978050042079c4798c84898686149ac3133d"
+    },
+    "backend": {
+      "base_sha": "9f7e1b2783d937474194b46b4b72679cdbbee9c9",
+      "head_sha": "d0b5f6c38bcc1982e5551195f2b235b78095197c"
+    },
+    "contract": {
+      "version": "0.1.0-draft.4",
+      "sha256": "96cc08536324f8b5a7c537783caa93a1ce33de533526032e01621282fb601122"
+    },
+    "migrations": {
+      "sha256": "853337eadc11cd3c8c619c9e53d961cb7eead5fe0a79368c5d167324598bb697"
+    },
+    "acceptance": {
+      "version": "0.1.0-draft",
+      "sha256": "c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063"
+    },
+    "verifier": {
+      "sha": "1eaa7165a85920950c66c1f9dbe8e051dfb1c117",
+      "dirty": false,
+      "state_sha256": "acdd1eb1246cd3d219276d51008665a139957ee659308008b34d316f6f0cc9f0"
+    }
+  },
+  "stepExits": {
+    "node-version": 0,
+    "boundary-probe": 0,
+    "ios-build": 0,
+    "dependencies": 0,
+    "generate": 0,
+    "compile": 0,
+    "backend-tests": 0,
+    "migration": 0,
+    "api-event-identity": 0,
+    "api-time-semantics": 0,
+    "api-api-filter-observations": 0,
+    "database-smoke": 0,
+    "secret-check": 1
+  },
+  "secretScan": {
+    "policy": "literal-secrets-1",
+    "status": "FAIL",
+    "findings": [
+      {
+        "root": "backend-source",
+        "path_id": "85d131ebf08bdf08ca4882493622bcfca02deb86738e81bcc5132ddab79c6882",
+        "rule": "credential-assignment",
+        "line": 146
+      },
+      {
+        "root": "backend-source",
+        "path_id": "2fd489345b5e90cf00fc65f9ebc9a4af05537cfc51965849074514317b14d6c3",
+        "rule": "credential-url",
+        "line": 236
+      }
+    ],
+    "errors": []
+  },
+  "backendTestsTail": [
+    "✔ Korean KBS premiere with wavve does not disappear when Netflix is absent from TMDB (0.463167ms)",
+    "ℹ tests 154",
+    "ℹ suites 0",
+    "ℹ pass 154",
+    "ℹ fail 0",
+    "ℹ cancelled 0",
+    "ℹ skipped 0",
+    "ℹ todo 0",
+    "ℹ duration_ms 25279.986666"
+  ],
+  "dbCounts": {
+    "krFourOttNovDec": 60,
+    "allYearMappings": 62,
+    "newPublishedThisTask": 0
+  },
+  "priorRuns": {
+    "2": {
+      "binding": {
+        "app": {
+          "base_sha": "b17c884671fffbfb318ee4072d644836f81012c6",
+          "head_sha": "daeb9e9ef3a7787e5137e80da908be18703361d5"
+        },
+        "backend": {
+          "base_sha": "9f7e1b2783d937474194b46b4b72679cdbbee9c9",
+          "head_sha": "e4ea2cf3c8c4af34bdfeb9d19b6b65ad0c48dcf1"
+        },
+        "contract": {
+          "version": "0.1.0-draft.3",
+          "sha256": "df65519bfde41a734d338dd971431d56ee8ec65a3a4c40f70f9db12bdfd83bbe"
+        },
+        "migrations": {
+          "sha256": "ffaa2cf8e369c2f0130fcacc15b900c0d740a5c589a7a1a9482febc1b60feb1a"
+        },
+        "verifier": {
+          "sha": "6580c05602bae2d5e235b68a1885411d0bb5a06e",
+          "dirty": false,
+          "state_sha256": "5d7e813ba4bd5d0dbc7170b7d09fb9893a5fb4e6ea7c3ee57e6a37d02f7697d3"
+        }
+      },
+      "stepExits": {
+        "node-version": 0,
+        "boundary-probe": 0,
+        "ios-build": 0,
+        "dependencies": 0,
+        "generate": 0,
+        "compile": 0,
+        "backend-tests": 0,
+        "migration": 0,
+        "api-event-identity": 0,
+        "api-time-semantics": 0,
+        "api-api-filter-observations": 0,
+        "database-smoke": 1,
+        "secret-check": 1
+      },
+      "finalExit": 3
+    },
+    "3": {
+      "binding": {
+        "app": {
+          "base_sha": "b17c884671fffbfb318ee4072d644836f81012c6",
+          "head_sha": "daeb9e9ef3a7787e5137e80da908be18703361d5"
+        },
+        "backend": {
+          "base_sha": "9f7e1b2783d937474194b46b4b72679cdbbee9c9",
+          "head_sha": "e4ea2cf3c8c4af34bdfeb9d19b6b65ad0c48dcf1"
+        },
+        "contract": {
+          "version": "0.1.0-draft.3",
+          "sha256": "df65519bfde41a734d338dd971431d56ee8ec65a3a4c40f70f9db12bdfd83bbe"
+        },
+        "migrations": {
+          "sha256": "ffaa2cf8e369c2f0130fcacc15b900c0d740a5c589a7a1a9482febc1b60feb1a"
+        },
+        "verifier": {
+          "sha": "dfe9c3112266f16883f69140ded3225982374287",
+          "dirty": false,
+          "state_sha256": "acdd1eb1246cd3d219276d51008665a139957ee659308008b34d316f6f0cc9f0"
+        }
+      },
+      "stepExits": {
+        "node-version": 0,
+        "boundary-probe": 0,
+        "ios-build": 0,
+        "dependencies": 0,
+        "generate": 0,
+        "compile": 0,
+        "backend-tests": 0,
+        "migration": 0,
+        "api-event-identity": 0,
+        "api-time-semantics": 0,
+        "api-api-filter-observations": 0,
+        "database-smoke": 0,
+        "secret-check": 1
+      },
+      "finalExit": 3
+    },
+    "4": {
+      "binding": {
+        "app": {
+          "base_sha": "b17c884671fffbfb318ee4072d644836f81012c6",
+          "head_sha": "2c371a7924613b07b508676e9c47c41f04a42387"
+        },
+        "backend": {
+          "base_sha": "9f7e1b2783d937474194b46b4b72679cdbbee9c9",
+          "head_sha": "727e71eb8c833529c53a6780e365e4292c18bd1e"
+        },
+        "contract": {
+          "version": "0.1.0-draft.4",
+          "sha256": "2cde5665facbebbd7ee634630e49b22048985b63f2a9cd70adc36cc73200d72c"
+        },
+        "migrations": {
+          "sha256": "853337eadc11cd3c8c619c9e53d961cb7eead5fe0a79368c5d167324598bb697"
+        },
+        "verifier": {
+          "sha": "2ed19ec64b8d0c57d364d8fde3971c261bb7aa7b",
+          "dirty": false,
+          "state_sha256": "acdd1eb1246cd3d219276d51008665a139957ee659308008b34d316f6f0cc9f0"
+        }
+      },
+      "stepExits": {
+        "node-version": 0,
+        "boundary-probe": 0,
+        "ios-build": 0,
+        "dependencies": 0,
+        "generate": 0,
+        "compile": 0,
+        "backend-tests": 0,
+        "migration": 0,
+        "api-event-identity": 0,
+        "api-time-semantics": 0,
+        "api-api-filter-observations": 0,
+        "database-smoke": 0,
+        "secret-check": 1
+      },
+      "finalExit": 3
+    },
+    "5": {
+      "binding": {
+        "app": {
+          "base_sha": "b17c884671fffbfb318ee4072d644836f81012c6",
+          "head_sha": "1859ccc419fd605e3bc1364b555c086dd72fce04"
+        },
+        "backend": {
+          "base_sha": "9f7e1b2783d937474194b46b4b72679cdbbee9c9",
+          "head_sha": "64669d8c9986d9c2a0f49ac6780644c41b689ba7"
+        },
+        "contract": {
+          "version": "0.1.0-draft.4",
+          "sha256": "2cde5665facbebbd7ee634630e49b22048985b63f2a9cd70adc36cc73200d72c"
+        },
+        "migrations": {
+          "sha256": "853337eadc11cd3c8c619c9e53d961cb7eead5fe0a79368c5d167324598bb697"
+        },
+        "acceptance": {
+          "version": "0.1.0-draft",
+          "sha256": "c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063"
+        },
+        "verifier": {
+          "sha": "157552c63849af4a2a664458ae2898cecab76d26",
+          "dirty": false,
+          "state_sha256": "acdd1eb1246cd3d219276d51008665a139957ee659308008b34d316f6f0cc9f0"
+        }
+      },
+      "stepExits": {
+        "node-version": 0,
+        "boundary-probe": 0,
+        "ios-build": 0,
+        "dependencies": 0,
+        "generate": 0,
+        "compile": 0,
+        "backend-tests": 0,
+        "migration": 0,
+        "api-event-identity": 0,
+        "api-time-semantics": 0,
+        "api-api-filter-observations": 0,
+        "database-smoke": 0,
+        "secret-check": 1
+      },
+      "finalExit": 3
+    }
+  }
+}

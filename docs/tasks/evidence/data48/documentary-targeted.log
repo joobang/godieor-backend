@@ -1,0 +1,26 @@
+✔ contract manifest fingerprints and declared version match actual contract files (31.631958ms)
+✔ authored event examples include the existing nullable OTT classification field (8.247208ms)
+✔ explicit stable keys survive title/date/season corrections; missing time stays date-only (10.76075ms)
+✔ same title does not merge separate curator content/event keys (0.754833ms)
+✔ missing, stale and ineligible review inputs all refuse publication preparation (2.659375ms)
+✔ strict mapping schema requires version, nonempty explicit keys and rejects ambiguous batch (1.625875ms)
+✔ local time converts only with exact roundtrip and one possible offset (1.355166ms)
+✔ CJ query needs explicit official query-free canonical URL; off-host/credentials/query/hash refuse (1.255416ms)
+✔ identity permits unknown→known season, refuses known→other/null and market/platform/content changes (0.349208ms)
+✔ mapping repository uses Prisma relation reads and compares actual persisted identity (0.320042ms)
+✔ adapter snapshots are immutable; fetch validates every market under the existing collector lock (0.8285ms)
+✔ Nest provider wiring registers empty then prepared scopes, uses reviewed adapter only, refuses unconfigured collect (4.775417ms)
+✔ candidate writer lock spans mapping read, validation and collection; invalid late input publishes nothing (34.92025ms)
+✔ failed collection still clears configured adapter and releases candidate lock (0.412416ms)
+✔ CLI requires explicit mapping and sanitizes invalid arguments and bootstrap errors (765.900209ms)
+✔ CLI closes created context on success and publish failure without printing private errors (289.540042ms)
+✔ documentary keeps its category and explicit movie/series format without inventing time or season (0.683416ms)
+✔ documentary requires an explicit format, rejects movie seasons and unrelated format fields (0.5155ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1471.408959

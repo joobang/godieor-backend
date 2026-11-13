@@ -1,0 +1,89 @@
+{
+  "scope": "synthetic temporary DB only; not full schema equivalence",
+  "checks": [
+    {
+      "schema": "reference",
+      "kind": "ott_season_premiere",
+      "category": "movie",
+      "expectedAllowed": true,
+      "passed": true
+    },
+    {
+      "schema": "reference",
+      "kind": "ott_season_premiere",
+      "category": "series",
+      "expectedAllowed": true,
+      "passed": true
+    },
+    {
+      "schema": "reference",
+      "kind": "ott_season_premiere",
+      "category": "documentary",
+      "expectedAllowed": true,
+      "passed": true
+    },
+    {
+      "schema": "reference",
+      "kind": "ott_season_premiere",
+      "category": "documentary",
+      "expectedAllowed": true,
+      "passed": true
+    },
+    {
+      "schema": "reference",
+      "kind": "ott_season_premiere",
+      "category": "animation",
+      "expectedAllowed": false,
+      "passed": true
+    },
+    {
+      "schema": "reference",
+      "kind": "theatrical_release",
+      "category": "series",
+      "expectedAllowed": false,
+      "passed": true
+    },
+    {
+      "schema": "migrated",
+      "kind": "ott_season_premiere",
+      "category": "movie",
+      "expectedAllowed": true,
+      "passed": true
+    },
+    {
+      "schema": "migrated",
+      "kind": "ott_season_premiere",
+      "category": "series",
+      "expectedAllowed": true,
+      "passed": true
+    },
+    {
+      "schema": "migrated",
+      "kind": "ott_season_premiere",
+      "category": "documentary",
+      "expectedAllowed": true,
+      "passed": true
+    },
+    {
+      "schema": "migrated",
+      "kind": "ott_season_premiere",
+      "category": "documentary",
+      "expectedAllowed": true,
+      "passed": true
+    },
+    {
+      "schema": "migrated",
+      "kind": "ott_season_premiere",
+      "category": "animation",
+      "expectedAllowed": false,
+      "passed": true
+    },
+    {
+      "schema": "migrated",
+      "kind": "theatrical_release",
+      "category": "series",
+      "expectedAllowed": false,
+      "passed": true
+    }
+  ]
+}

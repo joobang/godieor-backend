@@ -1,3 +1,9 @@
+## DATA-48 기록 검산·Node24 고정소스·다큐 지원 (2026-11-13)
+
+- 원본 backend `docs/tasks/DATA-48-ott-support-alignment.md`, evidence/data48. 실제KR11~12월4OTT60건/고정매핑62건 재검산, 신규게시0. 사용자 영화·시리즈·예능·다큐 확정에 따라 product/검토형태/정규화/새migration/API분류/iOS다큐배지 구현. 실제개발DB migration/다큐후보게시 미실행.
+- 검증기 ESM누락·가상수집smoke설정 수정, 계약manifest/소비자참조/options버전 동기화(draft.4). Node24 고정HEAD 서버154/154, verifier109/109, unsigned iOS/임시DB migration·반복수집/API/다큐DDL12경계/Swift해석 성공. 검사HEAD·digest는원본카드. 기존dirty포함 Node22결과와 구분.
+- 최종runner ERROR/exit3: secret-check가 실제키가 아닌runtime 환경변수참조1건을탐지(판정유지), 필수4항목SKIPPED/독립review대기/acceptance미승인. 독립PASS·OS격리·클라우드·최신실폰관찰 아님. 다음은literal규칙검토와로컬migration후다큐검토게시, 다른OTT공식근거확대. 기존개인dirty보존, 담당해제.
+
 ## DATA-47 인계 (2026-11-13)
 
 - app `docs/system/ott-handoff-2026-11-12.md`를60건기준으로갱신. backend 원본 `docs/tasks/DATA-47-netflix-official-recovery.md`, 공식16건복구/실TMDB/5개curated review·62mapping/SQL·HTTP증거 저장. 문서 `docs/reviewed-publish.md`에후보분류와게시지원경계추가, verifier LEARN-0011에구현담당관측연결(독립승인아님).
