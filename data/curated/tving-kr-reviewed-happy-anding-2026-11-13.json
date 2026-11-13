@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "asOf": "2026-11-13",
+  "scope": "author direct public official SNS and program observations; not independent approval",
+  "items": [
+    {
+      "discovery": {
+        "source": "tving",
+        "url": "https://www.tving.com/contents/P001793179",
+        "headline": "뜨거운 안녕",
+        "publishedRaw": null,
+        "evidenceRevision": "DATA52-official-instagram-release-date-observation-2026-11-13"
+      },
+      "review": {
+        "id": "a2e4b1e1bc0fc8e42b976a13bb9f3b003f6eac79d35bdd187d8c4e2254efe8dc",
+        "revision": "b704d9716c7308e5d02ade05e1a1bef68d868dbfc9be45aefaf9ec7ae4526da9",
+        "reviewer": "GODIEOR 구현 담당 TVING 공식 SNS 원문/작품 대조 2026-11-13",
+        "title": "뜨거운 안녕",
+        "platform": "tving",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-11",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "TVING작품P001793179과인증tving.official 공식게시물 https://www.instagram.com/p/Dfmbp5tAbTL/ 직접대조. 캡션은11월11일TVING독점공개를명시,본문작품/강훈·조현철·김정진태그일치. 게시time2026-11-11은연도문맥만확인,게시시각을공개시각으로쓰지않음. 시즌1개는개수여서번호null/날짜만저장. 작성자수동검토/독립승인아님."
+      },
+      "mapping": {
+        "candidateId": "a2e4b1e1bc0fc8e42b976a13bb9f3b003f6eac79d35bdd187d8c4e2254efe8dc",
+        "revision": "b704d9716c7308e5d02ade05e1a1bef68d868dbfc9be45aefaf9ec7ae4526da9",
+        "contentKey": "work-000065",
+        "eventKey": "event-000065"
+      },
+      "observation": {
+        "officialReleasePost": "https://www.instagram.com/p/Dfmbp5tAbTL/",
+        "observedAccount": "tving.official",
+        "verifiedBadgeObserved": true,
+        "releaseDateClaim": "2026-11-11",
+        "postPublishedAt": "2026-11-11T12:01:08.000Z",
+        "postTimeIsNotReleaseTime": true,
+        "captionDateClaim": "<뜨거운 안녕> TVING 11월 11일(수) 독점 공개",
+        "programUrl": "https://www.tving.com/contents/P001793179",
+        "yearBinding": "official post DOM time datetime2026; caption month/day/day-of-week and current same-title TVING program/cast",
+        "seasonCountLabel": "시즌 1 개",
+        "seasonNumberInferred": false,
+        "access": "initial navigation timed out; existing tab then showed public official caption and badge without login; web open cache miss; no mirror treated as primary",
+        "publicApiSourceScope": "API sources link to official program; date-proof SNS URL retained in reviewed artifact/evidence"
+      }
+    }
+  ]
+}
