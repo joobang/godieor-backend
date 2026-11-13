@@ -34,3 +34,4 @@ ADR에는 상태(proposed/accepted/superseded), 날짜, 실제 사용자 선택 
 - [017 OTT 다큐의 분류와 형태](017-ott-documentary.md)
 
 - [018 공식 TVING 수동 출처](018-tving-manual-source.md)
+- [019 계정 설정·찜 읽기 일관성](019-account-read-consistency.md)
