@@ -2,8 +2,8 @@
 "openapi": "3.1.1"
 "info":
   "title": "GODIEOR API 계약 초안"
-  "version": "0.1.0-draft.2"
-  "description": "SYS-02 / BE-01~02. 계약 초안. 로컬 공개 조회·가상 수집은 구현했고 Google/개인 기능은 미구현. contracts/implementation.md 참조."
+  "version": "0.1.0-draft.3"
+  "description": "DATA-48 계약 지문 정리 초안. 기존 공개·계정 API 및 OTT 분류/모바일 기기 계약을 고정한다. 구현/실행/미검증 범위는 contracts/implementation.md 참조."
 "servers":
   -
     "url": "http://localhost:3000/v1"

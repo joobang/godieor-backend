@@ -29,3 +29,5 @@ ADR에는 상태(proposed/accepted/superseded), 날짜, 실제 사용자 선택 
 - [ADR-012 Prisma Client 우선](012-prisma-client-first.md)
 
 - [ADR-013 검토 후보의 안정 키와 publish](013-reviewed-publish.md)
+
+- [ADR-016 계약 manifest와 소비자 참조 정리](016-contract-manifest-alignment.md)

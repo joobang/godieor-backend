@@ -1,18 +1,18 @@
 {
-  "contractVersion": "0.1.0-draft.2",
+  "contractVersion": "0.1.0-draft.3",
   "status": "draft-not-approved",
   "policyRevision": "SYNC-2026-11-09-13",
   "hashAlgorithm": "sha256",
   "files": {
-    "README.md": "0436284a65a419b3d8ee1e38feef578d238d4b5a02a77dc07fc22d6e52503083",
+    "README.md": "6ee66677f86b17d37e2903bd700b437b6258400cc47573036882bdfdceb0a60c",
     "database.md": "17fe8b5b6578494048b0ec063d38fb8c5ab0384df0819a4b4bd6a4775579cec3",
-    "database.sql": "84eced22d0a7d227fba54de861cea1a037069715df5a5571e08509eef41a88cf",
+    "database.sql": "99050ab4f4018d5343f9f45d02f8d50a0d288b8c265cd75914fa6694ef15217d",
     "examples/README.md": "13fbecc0d2048ef245f27d950b62ec002e0163bb90dfdd90ae1cf82f2a2f82ec",
-    "examples/calendar.json": "113ade2ffb24453d6c7843533b6d5c407c8f20c4536b2fb9ff09710bb2b6919c",
-    "examples/event-detail.json": "8402b32fb0ebf539c3014359d54cb9130ebf2761b300893d60c631b5bd33f53f",
-    "examples/events-page.json": "a2d29393051ab7e27c9e55c284da22afc29be186c32d588676779a5204c1f45b",
+    "examples/calendar.json": "2cb8e2fd927ced410e70e231a5994ffb22ef335e97536c4217f1250b65018ddd",
+    "examples/event-detail.json": "3d3dd3920a7fa693e11cb4e90def78750e9c82f806a53c5aa2c46eef0bb4ecae",
+    "examples/events-page.json": "45c3bb87e4325dc3a15f090d10f07110a79259cf283056996a62ded82a92f191",
     "examples/settings.json": "6556f1aa9313eb40b014f3bb2caea8b882eed3a658ad2bd2e5a303735b0831b5",
-    "implementation.md": "59074c6a710abbacb6b12c223bb64cbb9db70d83c3c6022f929f58d916feb98c",
-    "openapi.yaml": "c73ab7998625a6eaf32c9645c87c46c22651feb2fad9e4bc664630779d48e7da"
+    "implementation.md": "bb9b1de33945382e9441832fe007773ee93ca03cb4aa21db738ec55b2f769290",
+    "openapi.yaml": "f1179d05930de5c1a92d10cae44c3dac5ed4cc649f3cafe14182b9859eb437b2"
   }
 }

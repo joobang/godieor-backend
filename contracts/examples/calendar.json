@@ -73,7 +73,8 @@
           "devices": [],
           "match": null,
           "dataOrigin": "fixture",
-          "updatedAt": "2026-11-09T00:00:00Z"
+          "updatedAt": "2026-11-09T00:00:00Z",
+          "ottCategory": null
         }
       ]
     },
@@ -106,7 +107,8 @@
           "devices": [],
           "match": null,
           "dataOrigin": "fixture",
-          "updatedAt": "2026-11-09T00:00:00Z"
+          "updatedAt": "2026-11-09T00:00:00Z",
+          "ottCategory": "series"
         }
       ]
     },

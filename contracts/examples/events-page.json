@@ -18,7 +18,8 @@
       "devices": [],
       "match": null,
       "dataOrigin": "fixture",
-      "updatedAt": "2026-11-09T00:00:00Z"
+      "updatedAt": "2026-11-09T00:00:00Z",
+      "ottCategory": null
     },
     {
       "id": "00000000-0000-4000-8000-000000000002",
@@ -45,7 +46,8 @@
       "devices": [],
       "match": null,
       "dataOrigin": "fixture",
-      "updatedAt": "2026-11-09T00:00:00Z"
+      "updatedAt": "2026-11-09T00:00:00Z",
+      "ottCategory": "series"
     }
   ],
   "nextCursor": null,

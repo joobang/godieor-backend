@@ -1,7 +1,7 @@
 # GODIEOR API·DB 계약 초안
 
-- 버전: `0.1.0-draft.2` / 정책: `SYNC-2026-11-09-13` / 작업: SYS-02.
-- 연결: PROD-001~010, P03~P09/P13. **초안**. 로컬 Prisma schema·초기 migration·공개 API·가상 수집을 구현했다. 계정 기능과 독립 실행 검증은 아직 없다.
+- 버전: `0.1.0-draft.3` / 정책: `SYNC-2026-11-09-13` / 작업: SYS-02.
+- 연결: PROD-001~010, P03~P09/P13. **초안**. 현재 Prisma/migrations·공개/계정 API 구현과 작성자 로컬 검사 기록이 있다. 독립 제품 승인은 없으며 구체적인 실행 범위는 implementation.md를 따른다.
 - 소유 원본: backend의 [OpenAPI](openapi.yaml), [DB DDL](database.sql), 이 문서.
 - [DB 설계 설명](database.md), [가상 응답 예시](examples/calendar.json), [내용 해시](manifest.json).
 - OpenAPI 문법이 표현하지 못하는 조건부 요청·트랜잭션 의미도 이 문서의 계약이다. 작성자 계약 검토를 반영했으며 독립 검토/승인은 별도로 남아 있다.
@@ -127,3 +127,10 @@ source freshness는 부분 지원·미지원·미설정과 수집 실패를 구�
 ## 로컬 구현 상태
 
 [구현 범위](implementation.md)와 [실행 안내](../docs/local-development.md), [작성자 계약 검토](../docs/reviews/2026-11-09-contract-review.md)를 참고한다. 커서는 15분 유효하며 만료 시 400 INVALID_CURSOR로 재조회한다.
+
+
+## draft.3 지문 정리 · DATA-48 (2026-11-13)
+
+기존 draft.2 이후 이미 추가된 ios/android 기기, Event.ottCategory와 설정 devices 최대6개를 고정한다. 앱은 추가 nullable 분류를 읽고 기기 선택값을 서버에서 받는다. 새 다큐/애니 게시 유형이나 제품 범위를 이번 초안으로 확정하지 않는다. 참조DDL은 기존 OTT분류 migration의 컬럼/CHECK와 모바일 enum을 반영했으며 실제 적용 원본은 prisma/migrations다.
+
+이전 manifest의 OpenAPI/DDL 해시가 실물과 달라 고정 snapshot 실행이 준비 단계에서 거부됐다. 내용 검토 후 manifest와 소비자 참조를 새 draft.3으로 다시 연결한다. 이 정리는 작성자 계약 검토이며 acceptance나 독립 검증 승인 상태를 바꾸지 않는다. 원본 기록은 docs/tasks/DATA-48-ott-support-alignment.md, ADR-016이다.
