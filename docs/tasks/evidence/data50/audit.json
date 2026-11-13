@@ -1,0 +1,17 @@
+{
+  "scope": "author read-only local SQL and staging check; not independent approval",
+  "db": {
+    "window": 61,
+    "all_year": 63
+  },
+  "publicationDelta": 0,
+  "reviewedStateAndMappingsUnchanged": true,
+  "preservedHashes": {
+    "work/ott-candidates/state.json": "941be01e2f21c14174008cba71bb94d03bc05e5f3a18dbc9dac98ad467611319",
+    "data/curated/ott-reviewed-mappings.json": "0bbbab97349ba7971362e00fd0d79a995fb4e0decccc64b5679c317d546a0cd7"
+  },
+  "stagedNew": 5,
+  "stagingTotal": 174,
+  "repeatNew": 0,
+  "allNewDatesUnknown": true
+}

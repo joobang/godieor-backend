@@ -1,3 +1,9 @@
+## DATA-50 공식 후보 5개 추가·PAW 게임 식별 (2026-11-13)
+
+- 원본 backend `docs/tasks/DATA-50-official-gap-review.md`. 공식Netflix game83098128→AppStore6818349835와정확한제목·개발자·Games를대조해PAW의정체성미확인을해결,OTT에서게임제외(Academy별칭아님). 게임일정게시0.
+- 오늘CJ공식TVING추천작5개를정확한날짜null/첫공개미확정후보로추가: staging169→174,반복신규0. 문무TVING제공근거를NetflixKR날짜로이식하지않음. 전지적집착·문무Netflix·나인투식스Netflix3개는목표OTT일자미확인유지.
+- 관련기존18/18통과,SQL읽기61건/연중63건재확인,제품신규게시0·검토state/게시매핑hash불변. 앱/계약/migration/runtime변경없음. 전체검사/독립runner/실폰/클라우드재실행없음,이전ERROR유지. 다음: TVING5개정확한첫날확보/3개날짜미확인근거보강. 개인dirty보존·담당해제.
+
 ## DATA-49 다큐 시리즈 1건 로컬 게시 (2026-11-13)
 
 - 원본 backend `docs/tasks/DATA-49-reviewed-documentary.md`, evidence/data49. 로컬DB에 기존다큐migration적용 후 `캐런 리드 재판` Netflix KR11/23·시즌1·documentary/series를명시검토해게시. 같은11~12월KR4OTT60→61, Netflix11월54, 연중전체매핑/이벤트63. 신규1건date_only/instantNULL. 기존62개event전체row불변확인.

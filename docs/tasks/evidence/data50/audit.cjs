@@ -1,0 +1,11 @@
+const {createRequire}=require('node:module');const fs=require('node:fs');const crypto=require('node:crypto');const assert=require('node:assert/strict');const req=createRequire(process.cwd()+'/package.json');const {Pool}=req('pg');
+(async()=>{
+ assert.ok(['localhost','127.0.0.1','[::1]'].includes(new URL(process.env.DATABASE_URL).hostname));
+ const p=new Pool({connectionString:process.env.DATABASE_URL,max:1});try{
+  const counts=(await p.query("SELECT (SELECT count(DISTINCT e.id)::int FROM event e JOIN event_source s ON s.event_id=e.id JOIN event_service es ON es.event_id=e.id WHERE s.provider_key='ott_reviewed' AND e.release_market='KR' AND e.local_date>=DATE '2026-11-01' AND e.local_date<DATE '2027-01-01' AND es.service IN ('netflix','tving','disney_plus','coupang_play')) AS window,(SELECT count(*)::int FROM event_source WHERE provider_key='ott_reviewed') AS all_year")).rows[0];assert.deepEqual(counts,{window:61,all_year:63});
+  const expected=JSON.parse(fs.readFileSync('/private/tmp/godieor-data50/before-hashes.json'));for(const [file,hash]of Object.entries(expected))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'),hash);
+  const input=JSON.parse(fs.readFileSync('/private/tmp/godieor-data50/prepared.json'));assert.equal(input.total,5);for(const c of input.candidates){assert.equal(c.date,null);assert.equal(c.precision,'unknown');assert.equal(c.premiereConfirmed,false);assert.equal(c.published,false);}
+  const first=JSON.parse(fs.readFileSync('/private/tmp/godieor-data50/stage.json'));const repeat=JSON.parse(fs.readFileSync('/private/tmp/godieor-data50/stage-repeat.json'));assert.equal(first.created,5);assert.equal(repeat.created,0);assert.equal(repeat.changed,0);
+  const result={scope:'author read-only local SQL and staging check; not independent approval',db:counts,publicationDelta:0,reviewedStateAndMappingsUnchanged:true,preservedHashes:expected,stagedNew:5,stagingTotal:repeat.stored,repeatNew:0,allNewDatesUnknown:true};fs.writeFileSync('/private/tmp/godieor-data50/audit.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));
+ }finally{await p.end();}
+})().catch(()=>{console.error('READ_ONLY_AUDIT_FAILED');process.exitCode=1;});
