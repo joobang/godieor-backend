@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { monthRange, candidateDates, evaluateReference, reverseLookup, discoverByDate, reportSummary, auditCachedCatalog, summarizeCached, titleMatchesReference } from '../scripts/tmdb-date-discovery.mjs';
+import { monthRange, candidateDates, evaluateReference, reverseLookup, discoverByDate, discoverPagedAirDateWindows, reportSummary, auditCachedCatalog, summarizeCached, titleMatchesReference } from '../scripts/tmdb-date-discovery.mjs';
 
 test('TMDB quoted Korean title wrapper matches only full localized title', () => {
   assert.equal(titleMatchesReference("'두 번째 스윙' - Stick", '두 번째 스윙'), true);
@@ -169,4 +169,39 @@ test('unmapped discovery preserves truncation instead of falsely claiming full c
   assert.equal(coverage.truncated, true);
   assert.equal(coverage.totalPages, 3);
   assert.equal(coverage.pagesRead, 1);
+});
+
+test('global airing discovery divides capped windows and deduplicates IDs', async () => {
+  const visited = [];
+  const request = async (path, params) => {
+    if (path.startsWith('/watch/providers/')) return { results: [] };
+    if (path !== '/discover/tv') throw new Error('unexpected');
+    visited.push({ from: params['air_date.gte'], to: params['air_date.lte'], page: params.page });
+    const wholeMonth = params['air_date.gte'] === '2026-11-01' && params['air_date.lte'] === '2026-11-30';
+    return { total_pages: wholeMonth ? 4 : 1, results: [
+      { id: wholeMonth ? 3 : (params['air_date.gte'] === '2026-11-01' ? 11 : 12), name: 'Unique' },
+      { id: 55, name: 'Shared' },
+    ] };
+  };
+  const result = await discoverByDate(request, ['2026-11'], { includeUnmappedAiring: true, maxPages: 1 });
+  const segments = result.coverage.filter(c => c.filter === 'unmapped_air_date');
+  assert.equal(segments.length, 2);
+  assert.ok(segments.every(c => !c.truncated && !c.error));
+  assert.deepEqual(new Set(result.rows.map(r => r.tmdbId)), new Set([11, 12, 55]));
+  assert.ok(visited.some(c => c.from === '2026-11-01' && c.to === '2026-11-30'));
+});
+
+test('single-day overflow and failed shards retain incomplete coverage', async () => {
+  const request = async (path, params) => {
+    if (params['air_date.gte'] === '2026-11-01' && params['air_date.lte'] === '2026-11-01')
+      throw new Error('network outage');
+    return { total_pages: 3, results: [{ id: 88, name: 'Partial' }] };
+  };
+  const seen = [];
+  const segments = await discoverPagedAirDateWindows(request, { start: '2026-11-01', end: '2026-11-02' },
+    { maxPages: 1, onItem: item => seen.push(item.id) });
+  assert.equal(segments.length, 2);
+  assert.ok(segments.some(c => c.error === 'network outage' && c.truncated));
+  assert.ok(segments.some(c => c.totalPages === 3 && c.truncated));
+  assert.deepEqual(seen, [88]);
 });

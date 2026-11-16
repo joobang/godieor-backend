@@ -18,6 +18,47 @@ export function monthRange(month) {
   return { start: `${month}-01`, end: `${month}-${String(last).padStart(2, '0')}` };
 }
 
+// Split large global airing windows until the TMDB result pages fit the cap.
+// TMDB discover can only return up to 500 pages per query.
+export async function discoverPagedAirDateWindows(request, window, { maxPages = 20, onItem } = {}) {
+  const coverage = [];
+  const visit = async (part) => {
+    const params = { language: 'ko-KR', 'air_date.gte': part.start, 'air_date.lte': part.end,
+      sort_by: 'popularity.desc' };
+    let first;
+    try { first = await request('/discover/tv', { ...params, page: 1 }); }
+    catch (error) {
+      coverage.push({ kind: 'tv', service: null, window: part, filter: 'unmapped_air_date',
+        totalPages: null, pagesRead: 0, truncated: true, retrieved: 0, error: error.message });
+      return;
+    }
+    const totalPages = first.total_pages ?? 1;
+    const startDay = Date.parse(`${part.start}T00:00:00Z`);
+    const endDay = Date.parse(`${part.end}T00:00:00Z`);
+    if (totalPages > maxPages && startDay < endDay) {
+      const midpoint = new Date(startDay + Math.floor((endDay - startDay) / 86400000 / 2) * 86400000)
+        .toISOString().slice(0, 10);
+      const nextDay = new Date(Date.parse(`${midpoint}T00:00:00Z`) + 86400000).toISOString().slice(0, 10);
+      await visit({ start: part.start, end: midpoint });
+      await visit({ start: nextDay, end: part.end });
+      return;
+    }
+    let pagesRead = 1, retrieved = 0, error = null;
+    for (const item of first.results ?? []) { if (item.id) { onItem(item); retrieved++; } }
+    for (let page = 2; page <= Math.min(totalPages, maxPages, 500); page++) {
+      try {
+        const data = await request('/discover/tv', { ...params, page });
+        pagesRead++;
+        for (const item of data.results ?? []) { if (item.id) { onItem(item); retrieved++; } }
+      } catch (e) { error = e.message; break; }
+    }
+    coverage.push({ kind: 'tv', service: null, window: part, filter: 'unmapped_air_date',
+      totalPages, pagesRead, truncated: pagesRead < totalPages, retrieved, error });
+  };
+  await visit(window);
+  return coverage;
+}
+
 export function candidateDates(tv, season) {
   const episodes = (season?.episodes ?? []).filter((e) => /^\d{4}-\d{2}-\d{2}$/.test(e.air_date ?? ''));
   return {
@@ -304,25 +345,13 @@ export async function discoverByDate(request, months, { maxPages = 20, includeKo
     // KR watch-provider metadata is often absent for upcoming seasons. Widen
     // discovery without assigning a platform: availability must be checked later.
     for (const window of windows) {
-      let total = 1, pagesRead = 0, retrieved = 0, error = null;
-      for (let page = 1; page <= Math.min(total, maxPages, 500); page++) {
-        try {
-          const data = await request('/discover/tv', { language: 'ko-KR',
-            'air_date.gte': window.start, 'air_date.lte': window.end,
-            sort_by: 'popularity.desc', page });
-          total = data.total_pages ?? 1; pagesRead++;
-          for (const item of data.results ?? []) {
-            if (!item.id) continue;
-            const key = `tv:${item.id}`;
-            const row = rows.get(key) ?? { tmdbId: item.id, type: 'tv', title: item.name,
-              seriesFirstDate: item.first_air_date ?? null, movieReleaseDate: null, services: [], discoveredBy: [] };
-            if (!row.discoveredBy.includes('unmapped_air_date')) row.discoveredBy.push('unmapped_air_date');
-            rows.set(key, row); retrieved++;
-          }
-        } catch (e) { error = e.message; break; }
-      }
-      coverage.push({ kind: 'tv', service: null, window, filter: 'unmapped_air_date',
-        totalPages: total, pagesRead, truncated: pagesRead < total, retrieved, error });
+      coverage.push(...await discoverPagedAirDateWindows(request, window, { maxPages, onItem(item) {
+        const key = `tv:${item.id}`;
+        const row = rows.get(key) ?? { tmdbId: item.id, type: 'tv', title: item.name,
+          seriesFirstDate: item.first_air_date ?? null, movieReleaseDate: null, services: [], discoveredBy: [] };
+        if (!row.discoveredBy.includes('unmapped_air_date')) row.discoveredBy.push('unmapped_air_date');
+        rows.set(key, row);
+      } }));
     }
   }
   return { rows: [...rows.values()], coverage };
