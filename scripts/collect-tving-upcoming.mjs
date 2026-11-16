@@ -4,6 +4,7 @@ import { readFile,writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { parseOfficialSource } from './official-ott-source.mjs';
+import {tvnProgramLinks,parseTvnCast,matchCast} from './ott-identity-evidence.mjs';
 import { createTmdbClient,monthRange } from './tmdb-date-discovery.mjs';
 const normalized=(s)=>String(s??'').normalize('NFKC').toLowerCase().replace(/[\s\p{P}\p{S}]/gu,'');
 function next(html){const m=/<script\b(?=[^>]*\bid=["']__NEXT_DATA__["'])[^>]*>([\s\S]*?)<\/script>/i.exec(html);if(!m)throw Error('TVING_HOME_STRUCTURE_CHANGED');return JSON.parse(m[1]);}
@@ -27,6 +28,8 @@ export function upcomingPrograms(html){
 export async function collectUpcoming(request,fetchImpl,{knownBindings=[],monthlyCandidates=[],months=['2026-11','2026-12']}={}){
   months.forEach(monthRange);
   const html=async(url)=>{const r=await fetchImpl(url,{signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error(`PRIMARY_HTTP_${r.status}`);if(r.url&&new URL(r.url).origin!=='https://www.tving.com')throw Error('PRIMARY_REDIRECT_HOST_CHANGED');return r.text();};
+  const primary=async(url)=>{const r=await fetchImpl(url,{signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error(`PRIMARY_HTTP_${r.status}`);if(r.url&&new URL(r.url).origin!==new URL(url).origin)throw Error('PRIMARY_REDIRECT_HOST_CHANGED');return r.text();};
+  let broadcasterIndex=null;
   const programs=upcomingPrograms(await html('https://www.tving.com/'));
   const rows=[],errors=[],cache=new Map();
   async function get(path,params={}){const key=JSON.stringify([path,params]);if(!cache.has(key))cache.set(key,request(path,params));return cache.get(key);}
@@ -41,6 +44,17 @@ export async function collectUpcoming(request,fetchImpl,{knownBindings=[],monthl
       if(claims.length!==1||!months.includes(claims[0].date.slice(0,7))){row.status='ambiguous_or_outside_window';rows.push(row);continue;}
       if(!['드라마','예능'].includes(parsed.sourceWork?.category)){row.status='unsupported_content_category';rows.push(row);continue;}
       const claim=claims[0];row.officialPlatformDate=claim.date;
+      let sourceActors=parsed.sourceWork.actors;
+      if(sourceActors.length<2&&parsed.sourceWork.channel==='tvN'){
+        try{
+          broadcasterIndex??=primary('https://tvn.cjenm.com/ko/');
+          const urls=tvnProgramLinks(await broadcasterIndex,program.title);
+          if(urls.length===1){
+            row.supplementalIdentity=parseTvnCast(await primary(urls[0]),urls[0],program.title);
+            sourceActors=[...new Set([...sourceActors,...row.supplementalIdentity.actors])];
+          }else row.supplementalIdentityStatus=urls.length?'ambiguous_program_links':'program_link_not_found';
+        }catch(e){row.supplementalIdentityStatus='lookup_failed';row.supplementalIdentityError=e.message;}
+      }
       const known=knownBindings.filter(b=>b.sourceUrl===sourceUrl&&b.platform==='tving'&&b.identityVerified&&b.date===claim.date&&(claim.seasonNumber==null||b.seasonNumber===claim.seasonNumber));
       if(known.length>1){row.status='ambiguous_review_identity';rows.push(row);continue;}
       if(known.length===1){row.status='existing_review_identity';row.matches=[{tmdbId:known[0].tmdbId,seasonNumber:known[0].seasonNumber,reviewCandidateId:known[0].reviewCandidateId,identityMethod:'existing_explicit_binding'}];rows.push(row);continue;}
@@ -56,15 +70,11 @@ export async function collectUpcoming(request,fetchImpl,{knownBindings=[],monthl
         const tv=await get(`/tv/${hit.id}`,{language:'ko-KR'});
         if(tv.id!==hit.id)throw Error('TMDB_ID_MISMATCH');
         const credits=await get(`/tv/${hit.id}/aggregate_credits`,{language:'ko-KR'});
-        const matchedPeople=[...new Map((credits.cast??[]).filter(p=>Number.isInteger(p.id)&&p.id>0).map(p=>{
-          const names=new Set([normalized(p.name),normalized(p.original_name)].filter(Boolean));
-          const sourceNames=[...new Set((parsed.sourceWork?.actors??[]).filter(a=>names.has(normalized(a))))];
-          return [p.id,{tmdbPersonId:p.id,sourceNames}];
-        }).filter(([,p])=>p.sourceNames.length)).values()];
-        const matchedActors=[...new Set(matchedPeople.flatMap(p=>p.sourceNames))];
-        row.identityDiagnostics??=[];row.identityDiagnostics.push({tmdbId:hit.id,title:tv.name,matchedActors,matchedPeople,
-          sourceActorCount:(parsed.sourceWork?.actors??[]).length,status:matchedPeople.length<2?'insufficient_cast_identity':'cast_identity_matched'});
-        if(matchedPeople.length<2)continue;
+        const identity=await matchCast(sourceActors,credits.cast??[],get);
+        const {matchedPeople,matchedActors}=identity;
+        row.identityDiagnostics??=[];row.identityDiagnostics.push({tmdbId:hit.id,title:tv.name,...identity,
+          sourceActorCount:sourceActors.length,status:!identity.complete?'identity_lookup_incomplete':matchedPeople.length<2?'insufficient_cast_identity':'cast_identity_matched'});
+        if(!identity.complete||matchedPeople.length<2)continue;
         for(const season of tv.seasons??[]){
           if(season.season_number<1||claim.seasonNumber!=null&&season.season_number!==claim.seasonNumber)continue;
           const day=season.air_date;

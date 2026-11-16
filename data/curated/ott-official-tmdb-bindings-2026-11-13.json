@@ -835,6 +835,23 @@
       "bindingReviewedAsOf": "2026-11-13",
       "sourceFreshnessNote": "검토 기록의 기준일이며 이번 실행이 원문을 재조회했다는 뜻이 아님. 원본별 관측 시각은 bindingSource에서 확인.",
       "reviewCandidateId": "6d41c30274f337fe976af8b6d6f093b5487dc2f3d5040c741a3761ab7ed04df8"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 340978,
+      "seasonNumber": 1,
+      "platform": "tving",
+      "market": "KR",
+      "date": "2026-11-27",
+      "title": "그냥사람친구",
+      "sourceUrl": "https://www.tving.com/contents/P001794074",
+      "identityVerified": true,
+      "premiereConfirmed": true,
+      "evidence": "TVING https://www.tving.com/contents/P001794074 명시 2026-11-27 공개. tvN https://tvn.cjenm.com/ko/just-human-friends/ 같은제목·출연진5인과 TMDB tv/340978/season/1 첫날·첫회 날짜 일치. tvN날짜를OTT날짜로이식하지않음;시즌개수추정없음. DATA55 작성자교차검토/독립승인아님.",
+      "bindingSource": "data/curated/tving-identity-reviewed-2026-11-16.json",
+      "bindingReviewedAsOf": "2026-11-16",
+      "sourceFreshnessNote": "작성자 검토 기준일. 자동 원문 재조회 결과와 구분.",
+      "reviewCandidateId": "f77eafc57b70f9a37a6a1f1e6059a4199a272d257fc54cca0a40dded1fc86f0c"
     }
   ]
 }

@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "asOf": "2026-11-16",
+  "scope": "implementer explicit evidence review, not independent approval",
+  "reviewedPrograms": 9,
+  "additions": [
+    {
+      "discovery": {
+        "source": "tving",
+        "url": "https://www.tving.com/contents/P001794074",
+        "headline": "그냥사람친구",
+        "publishedRaw": null,
+        "evidenceRevision": "DATA55-official-program-cast-season-crosscheck-2026-11-16"
+      },
+      "review": {
+        "id": "f77eafc57b70f9a37a6a1f1e6059a4199a272d257fc54cca0a40dded1fc86f0c",
+        "revision": "16ba4948a93ea45c70f28f7c404a0fa5237da02930f8eb115e340dfe3c416ca9",
+        "reviewer": "GODIEOR 구현 담당 공식 작품·방송사 출연진·TMDB 시즌 교차검토 2026-11-16",
+        "title": "그냥사람친구",
+        "platform": "tving",
+        "market": "KR",
+        "contentKind": "variety",
+        "premiereConfirmed": true,
+        "date": "2026-11-27",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "TVING https://www.tving.com/contents/P001794074 명시 2026-11-27 공개. tvN https://tvn.cjenm.com/ko/just-human-friends/ 같은제목·출연진5인과 TMDB tv/340978/season/1 첫날·첫회 날짜 일치. tvN날짜를OTT날짜로이식하지않음;시즌개수추정없음. DATA55 작성자교차검토/독립승인아님."
+      },
+      "mapping": {
+        "candidateId": "f77eafc57b70f9a37a6a1f1e6059a4199a272d257fc54cca0a40dded1fc86f0c",
+        "revision": "16ba4948a93ea45c70f28f7c404a0fa5237da02930f8eb115e340dfe3c416ca9",
+        "contentKey": "work-000070",
+        "eventKey": "event-000070"
+      },
+      "tmdb": {
+        "id": 340978,
+        "season": 1,
+        "seasonFirstDate": "2026-11-27",
+        "firstEpisodeDate": "2026-11-27"
+      },
+      "identityEvidence": {
+        "sourceUrl": "https://tvn.cjenm.com/ko/just-human-friends/",
+        "programId": 275482,
+        "title": "그냥사람친구",
+        "actors": [
+          "김용건",
+          "박정수",
+          "이서진",
+          "한지민",
+          "주헌",
+          "정연"
+        ],
+        "evidenceRole": "identity_only",
+        "releaseDate": null
+      },
+      "matchedPeople": [
+        {
+          "tmdbPersonId": 1190844,
+          "sourceNames": [
+            "김용건"
+          ]
+        },
+        {
+          "tmdbPersonId": 1632258,
+          "sourceNames": [
+            "박정수"
+          ]
+        },
+        {
+          "tmdbPersonId": 77282,
+          "sourceNames": [
+            "이서진"
+          ]
+        },
+        {
+          "tmdbPersonId": 1010877,
+          "sourceNames": [
+            "한지민"
+          ]
+        },
+        {
+          "tmdbPersonId": 1875650,
+          "sourceNames": [
+            "정연"
+          ]
+        }
+      ]
+    }
+  ]
+}

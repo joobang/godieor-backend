@@ -77,7 +77,7 @@ export function parseOfficialSource(binding, html) {
     const year=info?.broad_dt?.slice(0,4);
     const claims=claim && /^\d{4}$/.test(year ?? '')?[{date:`${year}-${claim[2].padStart(2,'0')}-${claim[3].padStart(2,'0')}`,seasonNumber:claim[1]?Number(claim[1]):null,yearContext:'program_year_only'}]:[];
     return {...compare(binding,claims.filter((c)=>validDate(c.date)),'tving_program'),sourceIdentity:{programCode:requested,contentCode:info?.code},
-      sourceWork:{title:page.programName ?? info.title,category:info.category_name,actors:Array.isArray(info.actor)?info.actor:[],programYear:info.product_year,explicitSeason:claims[0]?.seasonNumber ?? null}};
+      sourceWork:{title:page.programName ?? info.title,category:info.category_name,channel:info.channel,actors:Array.isArray(info.actor)?info.actor:[],programYear:info.product_year,explicitSeason:claims[0]?.seasonNumber ?? null}};
   }
   if(binding.platform==='disney_plus' && url.hostname==='www.disneyplus.com' && /^\/ko-kr\/browse\/entity-[a-z0-9-]+$/.test(url.pathname)) {
     const page=nextData(html).props?.pageProps;

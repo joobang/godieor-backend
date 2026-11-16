@@ -11,6 +11,7 @@ function request({duplicateActor=false,conflict=false}={}){
   if(path==='/tv/9')return{id:9,name:'가상 신작',seasons:[{season_number:1,air_date:'2026-10-16'}]};
   if(path==='/tv/9/aggregate_credits')return{cast:duplicateActor?[{id:1,name:'배우 A'}]:[{id:1,name:'배우 A'},{id:2,name:'배우 B'}]};
   if(path==='/tv/9/season/1')return{season_number:1,air_date:'2026-10-16',episodes:[{episode_number:1,air_date:conflict?'2026-10-17':'2026-10-16'}]};
+  if(path.startsWith('/person/'))return{id:Number(path.split('/').at(-1)),also_known_as:[]};
   throw Error('unexpected synthetic request');
  };
 }
@@ -58,4 +59,22 @@ test('two names for the same TMDB person cannot count as two actors',async()=>{
  const r=await collectUpcoming(samePerson,fetcher());
  assert.equal(r.rows[0].status,'tmdb_identity_unconfirmed');
  assert.equal(r.rows[0].identityDiagnostics[0].matchedPeople.length,1);
+});
+
+test('missing TVING cast is supplemented by exact official tvN program; TVING date is retained',async()=>{
+ const p=program({contentInfo:{code:'E200',program_code:'P100',broad_dt:'20261116',actor:[],category_name:'예능',channel:'tvN'}});
+ const official=next({hostDomain:'https://tvn.cjenm.com',isoCd:'ko',preview:false,thisUri:'synthetic',fallback:{empty:null,cast:{data:{pgmSeq:7,pgmNm:'가상 신작',bdTm:'다른 방송 날짜',simplePrsnInfoList:[{prsnNm:'배우 A'},{prsnNm:'배우 B'}]}}}});
+ const base=fetcher(home(),p);
+ const primary=async url=>url.startsWith('https://tvn.cjenm.com')?{ok:true,url,text:async()=>url.endsWith('/ko/')?'<a href="/ko/synthetic/">[예정] 가상 신작</a>':official}:base(url);
+ const r=await collectUpcoming(request(),primary);
+ assert.equal(r.newReviewProposals,1);assert.equal(r.rows[0].officialPlatformDate,'2026-11-18');
+ assert.equal(r.rows[0].supplementalIdentity.releaseDate,null);assert.equal(r.rows[0].matches[0].matchedPeople.length,2);
+});
+test('wrong broadcaster program cannot supply missing identity evidence',async()=>{
+ const p=program({contentInfo:{code:'E200',program_code:'P100',broad_dt:'20261116',actor:[],category_name:'예능',channel:'tvN'}});
+ const base=fetcher(home(),p);
+ const primary=async url=>url.startsWith('https://tvn.cjenm.com')?{ok:true,url,text:async()=>url.endsWith('/ko/')?'<a href="/ko/synthetic/">가상 신작</a>':next({thisUri:'wrong'})}:base(url);
+ const r=await collectUpcoming(request(),primary);
+ assert.equal(r.newReviewProposals,0);assert.equal(r.rows[0].supplementalIdentityStatus,'lookup_failed');
+ assert.equal(r.rows[0].supplementalIdentityError,'TVN_PROGRAM_IDENTITY_CHANGED');
 });

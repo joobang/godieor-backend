@@ -415,6 +415,12 @@
       "revision": "f193dd7c5d51c0e453a688f4c50082e9a24ff0e0a985a2e023512cff329273cf",
       "contentKey": "work-000069",
       "eventKey": "event-000069"
+    },
+    {
+      "candidateId": "f77eafc57b70f9a37a6a1f1e6059a4199a272d257fc54cca0a40dded1fc86f0c",
+      "revision": "16ba4948a93ea45c70f28f7c404a0fa5237da02930f8eb115e340dfe3c416ca9",
+      "contentKey": "work-000070",
+      "eventKey": "event-000070"
     }
   ]
 }
