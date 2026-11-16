@@ -1,0 +1,23 @@
+{
+  "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+  "observedAt": "2026-11-16T02:48:14.004Z",
+  "coverage": {
+    "pagesFetched": 5,
+    "totalPages": 5,
+    "totalSourceItems": 81,
+    "fetchedPageItems": 81,
+    "uniqueInWindow": 78,
+    "complete": true
+  },
+  "items": [
+    {
+      "title": "배스 X 마키나",
+      "date": "2026-11-03",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-03; Netflix videoID 81218437. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    }
+  ]
+}

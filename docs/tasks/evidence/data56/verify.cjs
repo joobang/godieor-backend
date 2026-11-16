@@ -1,0 +1,17 @@
+const fs=require('node:fs'),assert=require('node:assert/strict'),{createRequire}=require('node:module');const req=createRequire(process.cwd()+'/package.json');req('reflect-metadata');const{Pool}=req('pg');
+(async()=>{assert.ok(['localhost','127.0.0.1','[::1]'].includes(new URL(process.env.DATABASE_URL).hostname));const p=new Pool({connectionString:process.env.DATABASE_URL,max:1});let app;
+try{
+ const all=(await p.query("SELECT src.external_id AS key,to_jsonb(e) AS event,(SELECT count(*)::int FROM event_change ch WHERE ch.event_id=e.id) AS changes FROM event_source src JOIN event e ON e.id=src.event_id WHERE src.provider_key='ott_reviewed' ORDER BY src.external_id")).rows;
+ assert.equal(all.length,70);const mode=process.argv[2];if(mode==='before'){fs.writeFileSync('/private/tmp/godieor-data56/db-before.json',JSON.stringify(all,null,2));console.log('before70');return;}
+ const old=JSON.parse(fs.readFileSync('/private/tmp/godieor-data56/db-before.json')),artifact=JSON.parse(fs.readFileSync('data/curated/ott-animation-reclassified-2026-11-16.json'));
+ for(const x of old){const now=all.find(y=>y.key===x.key);if(artifact.updates.some(a=>a.mapping.eventKey===x.key)){
+  assert.equal(now.event.ott_category,'animation');assert.deepEqual({...now.event,ott_category:x.event.ott_category,updated_at:x.event.updated_at},x.event);assert.equal(now.changes,x.changes+1);
+ }else assert.deepEqual(now,x);}
+ if(mode==='repeat')assert.deepEqual(all,JSON.parse(fs.readFileSync('/private/tmp/godieor-data56/db-final.json')));else fs.writeFileSync('/private/tmp/godieor-data56/db-final.json',JSON.stringify(all,null,2));
+ const{NestFactory}=req('@nestjs/core'),{AppModule}=req('./dist/src/app.module'),{configureHttp}=req('./dist/src/common/configure-http');app=await NestFactory.create(AppModule,{logger:false,abortOnError:false});configureHttp(app);await app.listen(0,'127.0.0.1');const base=await app.getUrl();
+ async function get(path){const r=await fetch(base+'/v1'+path);assert.equal(r.status,200);return r.json();}
+ const page=await get('/events?schedule=dated&from=2026-11-01&to=2027-01-01&country=KR&categories=ott&limit=100');assert.equal(page.items.length,68);
+ const opts=await get('/catalog/options');assert.equal(opts.contractVersion,'0.1.0-draft.5');const checked=[];
+ for(const a of artifact.updates){const stored=all.find(x=>x.key===a.mapping.eventKey),row=page.items.find(x=>x.id===stored.event.id);assert.equal(row.ottCategory,'animation');assert.equal(row.time.type,'date_only');assert.equal(row.time.date,a.review.date);assert.equal(stored.event.instant_at,null);const detail=await get('/events/'+row.id);assert.equal(detail.event.ottCategory,'animation');checked.push({id:row.id,title:row.title,date:row.time.date,season:row.season?.number??null,animationFormat:a.review.animationFormat});}
+ fs.mkdirSync('docs/tasks/evidence/data56',{recursive:true});fs.writeFileSync('docs/tasks/evidence/data56/db-http-'+mode+'.json',JSON.stringify({scope:'implementer local SQL/API; not independent approval',totalEvents:70,windowRows:68,newEvents:0,categoryCorrections:4,unchangedOtherFullRows:66,allEventIDsStable:true,datesSeasonsPlatformsUnchanged:true,repeatNoChanges:mode==='repeat',contractVersion:opts.contractVersion,checked},null,2)+'\n');console.log(mode+':70total/68window/animation4/other66unchanged/IDsStable');
+}finally{if(app)await app.close();await p.end();}})().catch(e=>{fs.writeFileSync('/private/tmp/godieor-data56/verify-failure.txt',e.stack);console.error('VERIFY_FAILED',e.name);process.exitCode=1;});

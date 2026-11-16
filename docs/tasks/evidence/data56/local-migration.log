@@ -1,0 +1,16 @@
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma/schema.prisma.
+Datasource "db": PostgreSQL database "godieor_local", schema "public" at "127.0.0.1:55432"
+
+5 migrations found in prisma/migrations
+
+Applying migration `202611160001_ott_animation`
+
+The following migration(s) have been applied:
+
+migrations/
+  └─ 202611160001_ott_animation/
+    └─ migration.sql
+
+All migrations have been successfully applied.

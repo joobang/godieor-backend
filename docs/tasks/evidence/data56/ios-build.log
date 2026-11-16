@@ -1,0 +1,617 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project /private/tmp/godieor-data56/app-fixed/ios/GODIEOR.xcodeproj -scheme GODIEOR -configuration Debug -sdk iphonesimulator -destination "generic/platform=iOS Simulator" -derivedDataPath /private/tmp/godieor-data56/DerivedData CODE_SIGNING_ALLOWED=NO build
+
+Build settings from command line:
+    CODE_SIGNING_ALLOWED = NO
+    SDKROOT = iphonesimulator26.5
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (1 target)
+    Target 'GODIEOR' in project 'GODIEOR' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: 55ac16793ef1d1f5ad8305781041f794
+Build description path: /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/XCBuildData/55ac16793ef1d1f5ad8305781041f794.xcbuilddata
+CreateBuildDirectory /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex
+    cd /tmp/godieor-data56/app-fixed/ios/GODIEOR.xcodeproj
+    builtin-create-build-directory /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex
+
+CreateBuildDirectory /tmp/godieor-data56/DerivedData/Build/Products
+    cd /tmp/godieor-data56/app-fixed/ios/GODIEOR.xcodeproj
+    builtin-create-build-directory /tmp/godieor-data56/DerivedData/Build/Products
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk /tmp/godieor-data56/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-6cfe768891a92b912361537c460fe42b.sdkstatcache
+    cd /tmp/godieor-data56/app-fixed/ios/GODIEOR.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -o /tmp/godieor-data56/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-6cfe768891a92b912361537c460fe42b.sdkstatcache
+
+CreateBuildDirectory /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /tmp/godieor-data56/app-fixed/ios/GODIEOR.xcodeproj
+    builtin-create-build-directory /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+CreateBuildDirectory /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /tmp/godieor-data56/app-fixed/ios/GODIEOR.xcodeproj
+    builtin-create-build-directory /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+CreateBuildDirectory /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+    cd /tmp/godieor-data56/app-fixed/ios/GODIEOR.xcodeproj
+    builtin-create-build-directory /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+
+CreateBuildDirectory /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator
+    cd /tmp/godieor-data56/app-fixed/ios/GODIEOR.xcodeproj
+    builtin-create-build-directory /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR-244020f3a869aa417ce24fb5c9713b9e-VFS-iphonesimulator/all-product-headers.yaml
+    cd /tmp/godieor-data56/app-fixed/ios/GODIEOR.xcodeproj
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR-244020f3a869aa417ce24fb5c9713b9e-VFS-iphonesimulator/all-product-headers.yaml
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.SwiftConstValuesFileList (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR_const_extract_protocols.json (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR_const_extract_protocols.json
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.LinkFileList (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.LinkFileList
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR_const_extract_protocols.json (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR_const_extract_protocols.json
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.SwiftFileList (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.SwiftFileList
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.SwiftConstValuesFileList (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR-OutputFileMap.json (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR-OutputFileMap.json
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.LinkFileList (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.LinkFileList
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.SwiftFileList (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.SwiftFileList
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR-OutputFileMap.json (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR-OutputFileMap.json
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR.hmap (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR.hmap
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR.DependencyStaticMetadataFileList (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR.DependencyMetadataFileList (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR.DependencyMetadataFileList
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-project-headers.hmap (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-project-headers.hmap
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-own-target-headers.hmap (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-own-target-headers.hmap
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-generated-files.hmap (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-generated-files.hmap
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-all-target-headers.hmap (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-all-target-headers.hmap
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-all-non-framework-target-headers.hmap (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-DebugDylibPath-normal-x86_64.txt (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-DebugDylibPath-normal-x86_64.txt
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-DebugDylibPath-normal-arm64.txt (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-DebugDylibPath-normal-arm64.txt
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-DebugDylibInstallName-normal-x86_64.txt (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-DebugDylibInstallName-normal-x86_64.txt
+
+WriteAuxiliaryFile /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-DebugDylibInstallName-normal-arm64.txt (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    write-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-DebugDylibInstallName-normal-arm64.txt
+
+MkDir /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    /bin/mkdir -p /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app
+
+ProcessInfoPlistFile /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/Info.plist /tmp/godieor-data56/app-fixed/ios/GODIEOR/Info.plist (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-infoPlistUtility /tmp/godieor-data56/app-fixed/ios/GODIEOR/Info.plist -producttype com.apple.product-type.application -genpkginfo /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/Info.plist
+
+Ld /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/Binary/__preview.dylib normal x86_64 (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -Os -L/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -F/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -install_name @rpath/GODIEOR.debug.dylib -Xlinker -dead_strip -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR_dependency_info.dat -o /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/Binary/__preview.dylib
+
+Ld /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/Binary/__preview.dylib normal arm64 (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -Os -L/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -F/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -install_name @rpath/GODIEOR.debug.dylib -Xlinker -dead_strip -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR_dependency_info.dat -o /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/Binary/__preview.dylib
+
+CreateUniversalBinary /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/__preview.dylib normal arm64\ x86_64 (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/Binary/__preview.dylib /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/Binary/__preview.dylib -output /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/__preview.dylib
+
+SwiftDriver GODIEOR normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name GODIEOR -Onone @/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.SwiftFileList -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -index-store-path /tmp/godieor-data56/DerivedData/Index.noindex/DataStore -swift-version 6 -I /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -F /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/godieor-data56/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-6cfe768891a92b912361537c460fe42b.sdkstatcache -output-file-map /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -sdk-module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.swiftmodule -validate-clang-modules-once -clang-build-session-file /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-generated-files.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-own-target-headers.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-project-headers.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources/x86_64 -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR-Swift.h -working-directory /tmp/godieor-data56/app-fixed/ios -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver GODIEOR normal arm64 com.apple.xcode.tools.swift.compiler (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name GODIEOR -Onone @/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.SwiftFileList -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -index-store-path /tmp/godieor-data56/DerivedData/Index.noindex/DataStore -swift-version 6 -I /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -F /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/godieor-data56/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-6cfe768891a92b912361537c460fe42b.sdkstatcache -output-file-map /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -sdk-module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.swiftmodule -validate-clang-modules-once -clang-build-session-file /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-generated-files.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-own-target-headers.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-project-headers.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources-normal/arm64 -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources/arm64 -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR-Swift.h -working-directory /tmp/godieor-data56/app-fixed/ios -experimental-emit-module-separately -disable-cmo
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/SwiftShims-7JNQU2AMDT1N9HCAPKPRQMOI2.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/ptrcheck-BSQ5TNZJZPEMS1M3I5344ZDMP.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_stddef-1NX7FP7C2OPUVNG4JXTVZCTU.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_SwiftConcurrencyShims-5A9CFE82CUDANSV3CNBU405JF.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/DeveloperToolsSupport-YO9MWO5R2FV9FN4FPOGK2JTZ.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_float-4NIS5BCTJWXFR75OYM82SPP9M.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_AvailabilityInternal-4N4NP4MH9IZBJ6RZC042YT4XH.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_stdbool-ERF4NTPXKCF0AER9CNOMF1AHD.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_stdarg-8PBAWR2RP1HV5NA1PANHL4YBV.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/ptrauth-1D353VHTU8G6VBTZ8065AJFWB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_SwiftConcurrencyShims-71O5VIO8GO6QP1NKU36BQ3C2L.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_stdbool-8B6MLGJ9OPFSWRZ5H62IN1TOX.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_stddef-E9E3CZH5JOWBCV3PES201UDV2.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_float-6P93MTS3YWQRUW84MHTC5R3P0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_AvailabilityInternal-26YUVRQDM8H5VTMGSFVY6L08N.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_DarwinFoundation1-39WKX3HJGE0LLC2JYQ9YH9713.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/SwiftShims-80HY70FTNVWBFK4LIRNMQ56JP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/ptrauth-7DTQC5SQCI8GBI2B78OT0HCA9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/ptrcheck-8W7LTUESH2B6YADT1AKRMNK0M.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/DeveloperToolsSupport-186P5XDAYM9TMWA9VXLUR1KQU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_stdarg-6KL3AAI5FOEGGAIVX64KJC83W.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_DarwinFoundation1-4R60ZH9Y60YG98FJV3BXSFGHD.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_limits-CE7LEDC6WXN818V8SAB9BVUAG.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_DarwinFoundation2-3QXNZ8YF4EC32JFJZ3RSREWBH.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_limits-AZBWCKIXGL10SHMKXR1EI2S57.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_DarwinFoundation2-3EGLHCJCWYHZFBW0VKOB214GH.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_stdint-5AVGXCWIWL5Z50HPB8IP0IW1Y.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_tgmath-DFXLK7PL49Z800CWT5DO36H15.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/sys_types-N0F7LP2GA1SAT32YWA9Z63UD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/sys_types-EDXWIJYV8G9TOZOOW5SJAUER8.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_stdint-CFXT51YFUHRGH3J1RGGUZ41HJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_tgmath-3YLGAAR87KBNC2YCM8F1AY39V.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_stdatomic-5DMXX1SPJKM69S5JETJR7NGOH.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_DarwinFoundation3-DF8CG5EXZLE48YHX493CHEGYJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_stdatomic-FCJECDFNJ1L1MC1T70SIGPMB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_intrinsics-7UL37YMTT7E19D1CR1OGEA72A.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_DarwinFoundation3-8K1O32E7ATWNRTKDYSLP0X9M.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_intrinsics-CKGLSW75JPSYRFETHH7KGCNOW.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_inttypes-14T4KTO4GV2X9L5UK1QR9J483.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Darwin-55Z5QTENG8T9Q637HFEBACVK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/_Builtin_inttypes-8H1NQ7MQUBO0RH5GWEAF6C1UE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Darwin-3F4U3J3HJA7CREMBTTRJCSRK2.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/simd-5XNS9B3RX0P121TSKN4MDEO8W.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/MachO-50JX3SOEOSN68OI41CH8I4YPP.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/ObjectiveC-ELFP5E98536ZWC7PNJ570LMK2.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/simd-8HQLCNHZ2YWHR5O1BDQHBBPFJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/MachO-6W2T15L5G8XJK454L4FI1V9JK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/ObjectiveC-C0CBBFGZH27KC2US1WP3FRBET.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/os_object-1LJS4PBO071Z4RUKEYWHCYA4J.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/os_workgroup-8LA6NF8AB9ZUJQOR210KTABZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/os_object-CLEJ3KYOUGHQFXCC3EKX302YK.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Dispatch-9COZDIK21FZS41R45K202646H.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/os_workgroup-47WCC23ZZKJP1Z4578Y6Y6SXN.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Spatial-664CLVGXJOKQ1FRNXWD5ETGEW.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Dispatch-2G6WFRXZHQPRT25EKKWVRW7B8.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CoreFoundation-DLR5TBYIJJR82ALSREZ3A7N2X.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/XPC-24179I1BE6YQ3R7EMMXJHZJ80.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CoreFoundation-5TRRC7CGYKVTZW23QPH2059UD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/XPC-BQP7JF1ZAM7U2BNPGVJOHPK05.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/os-C8XA4ST5DYJQMPO9ZO27IVNEK.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CFNetwork-BDERBH4TPECGI9D8X37WUZ2VL.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Security-C85O72QT3DFAUGRIMFP1LDXNQ.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CoreGraphics-6AY8N47ZM7EB3K849GQZX4WVF.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Spatial-6RYX80PQQOV0EOVI3WOEGT13W.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/os-9WF89HOTYCQARL20VYH7EHDZZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CoreGraphics-9OXTPKXFNEI3IIX1YKBC4ZAL0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Security-2B9V2SKT33EH5QVJBT8AFS6I7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CFNetwork-8F7IAJAXYAPOBPNFVR0802BW8.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Foundation-8Y43KZZWD7U2VFBUBMCHX9B2A.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CoreText-2ZBWDTWDMQ12O35BWA95YZYQ9.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/ImageIO-CP8RKUXWT7STNHCB1TPHJ2MG8.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Foundation-36NTQXC8OGJFCL97DX3R385CK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CoreText-9QFEEM2IYFH52ODMO90F07PM8.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/ImageIO-7S7MT317UODVFS2CLT7M6CJGZ.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/UserNotifications-7FPNPDCOQ9ANDMSVH56V2WBEH.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/FileProvider-E3UI8DEZ7TLWJ9XYUIKGSCP9U.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/DataDetection-5R0TW0SZ10I7KYQ8N4L6V86R5.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Accessibility-PNI7SG7Q0UB4M1RY6YM65X0Z.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/OpenGLES-DEBC0YIP3XMHYQV8SNI0E34CN.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Symbols-4OL8WFQWSETU59RFPVCT7LP9L.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CoreData-1G5ENCJCVU6YIOREJRV6EV71.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/LocalAuthentication-8LN3VF6DIQZ2W1D5FD0FJN1J8.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/IOSurface-2ID9PM74283LLYNYG8311A5Y0.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CoreTransferable-LNNIWP5B3JU48FZQZW1UW5TP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/OSLog-8DD0S56C83GKG2F10JGGFR3U7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/UniformTypeIdentifiers-7QY07TY8J5ZR8KFBDRYFKUSKP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/UserNotifications-8WUXECDE6DQFAXODPEEG4BTMJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/FileProvider-CM2JKCWCTXVKBF7K5E9IR66HM.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/DataDetection-CJFKE36Z3LNK9Z45XT1QU3JTP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/IOSurface-E4FADTT9TDWHFYM1B6KXPWYZ2.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CoreData-2JW2X8YEULSBBESQDH9OT2JTZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/UIUtilities-8ITIOGXT9ZXGAU62HXUWJXMI6.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Metal-ALMYLDWUT8WTU18ZYEHT9L7XV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CoreTransferable-BYJ04XLERRDREJOJVKT1UTB5E.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/UIUtilities-5BT0OBX6HBBT53IBWK6CUTSER.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/OpenGLES-2517R0Z3VUBC8HLBWQGNOMREU.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/OSLog-8ML0AH22DG2CU4O1FK3KMX4TN.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/UniformTypeIdentifiers-EHX5USNNOT400Y9D1Z7TS921C.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Symbols-4CPE3JVT03P0VE8LDD3Q8J5G9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/LocalAuthentication-71G7VR5KP412HC4IJSZGZ96R9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Metal-6527SC14LACUCRBKOT04SB773.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Accessibility-88W19GEVCO80HSVA2N7AQ275.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CoreVideo-3RJ0F3TDOKSD8NY5LKDUXHLKQ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CoreVideo-BUN048OHE8LT0Z26OL7TZ5HMW.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/QuartzCore-5S7DO9RXVEVDC6K2EXOXZJGZQ.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CoreImage-ALWP8M19ULG1BJRNBPNQUKDHE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/CoreImage-DOU9F2HE7ME4Q5V1ICN9PC2ZU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/QuartzCore-309BK6QS4NGJ01MB8ICUOI604.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/SwiftUICore-6HIWO8LAA2AZD0RD8UHCVO790.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/UIKit-A9LYR0FVW5BT8OV1JG819R3D6.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/SwiftUICore-12MKXUVHSN5E8HY01HTP9O8SP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/UIKit-2FIQ2NA5M9MH4CUJAEXB4DJ6K.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/SwiftUI-6LOTL9SUTB8KCO5T16Q18EHG4.pcm
+
+SwiftExplicitDependencyGeneratePcm x86_64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/AuthenticationServices-EBOK8YMPMTHSDISU655VUI8K4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/AuthenticationServices-658WQA6JHA53O7WCGTFOKDVJO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/godieor-data56/DerivedData/ModuleCache.noindex/SwiftUI-56N4IWW3MJ3JTZIFLGMDH3OL2.pcm
+
+SwiftEmitModule normal x86_64 Emitting\ module\ for\ GODIEOR (in target 'GODIEOR' from project 'GODIEOR')
+EmitSwiftModule normal x86_64 (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    
+
+SwiftCompile normal x86_64 Compiling\ GODIEORApp.swift /tmp/godieor-data56/app-fixed/ios/GODIEOR/GODIEORApp.swift (in target 'GODIEOR' from project 'GODIEOR')
+SwiftCompile normal x86_64 /tmp/godieor-data56/app-fixed/ios/GODIEOR/GODIEORApp.swift (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    
+
+SwiftCompile normal x86_64 Compiling\ ContentView.swift /tmp/godieor-data56/app-fixed/ios/GODIEOR/ContentView.swift (in target 'GODIEOR' from project 'GODIEOR')
+SwiftCompile normal x86_64 /tmp/godieor-data56/app-fixed/ios/GODIEOR/ContentView.swift (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    
+
+SwiftCompile normal x86_64 Compiling\ Account.swift /tmp/godieor-data56/app-fixed/ios/GODIEOR/Account.swift (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftCompile normal x86_64 /tmp/godieor-data56/app-fixed/ios/GODIEOR/Account.swift (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    
+
+SwiftCompile normal x86_64 Compiling\ PublicAPI.swift /tmp/godieor-data56/app-fixed/ios/GODIEOR/PublicAPI.swift (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftCompile normal x86_64 /tmp/godieor-data56/app-fixed/ios/GODIEOR/PublicAPI.swift (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    
+
+SwiftCompile normal arm64 Compiling\ Account.swift /tmp/godieor-data56/app-fixed/ios/GODIEOR/Account.swift (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftCompile normal arm64 /tmp/godieor-data56/app-fixed/ios/GODIEOR/Account.swift (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    
+
+SwiftCompile normal arm64 Compiling\ ContentView.swift /tmp/godieor-data56/app-fixed/ios/GODIEOR/ContentView.swift (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftCompile normal arm64 /tmp/godieor-data56/app-fixed/ios/GODIEOR/ContentView.swift (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ GODIEOR (in target 'GODIEOR' from project 'GODIEOR')
+
+EmitSwiftModule normal arm64 (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    
+
+SwiftCompile normal arm64 Compiling\ PublicAPI.swift /tmp/godieor-data56/app-fixed/ios/GODIEOR/PublicAPI.swift (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftCompile normal arm64 /tmp/godieor-data56/app-fixed/ios/GODIEOR/PublicAPI.swift (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    
+
+SwiftCompile normal arm64 Compiling\ GODIEORApp.swift /tmp/godieor-data56/app-fixed/ios/GODIEOR/GODIEORApp.swift (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftCompile normal arm64 /tmp/godieor-data56/app-fixed/ios/GODIEOR/GODIEORApp.swift (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    
+
+SwiftDriverJobDiscovery normal x86_64 Emitting module for GODIEOR (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftDriver\ Compilation\ Requirements GODIEOR normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name GODIEOR -Onone @/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.SwiftFileList -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -index-store-path /tmp/godieor-data56/DerivedData/Index.noindex/DataStore -swift-version 6 -I /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -F /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/godieor-data56/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-6cfe768891a92b912361537c460fe42b.sdkstatcache -output-file-map /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -sdk-module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.swiftmodule -validate-clang-modules-once -clang-build-session-file /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-generated-files.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-own-target-headers.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-project-headers.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources/x86_64 -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR-Swift.h -working-directory /tmp/godieor-data56/app-fixed/ios -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/x86_64-apple-ios-simulator.swiftmodule /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.swiftmodule (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.swiftmodule /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/x86_64-apple-ios-simulator.swiftmodule
+
+Copy /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/x86_64-apple-ios-simulator.swiftdoc /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.swiftdoc (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.swiftdoc /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/x86_64-apple-ios-simulator.swiftdoc
+
+Copy /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/x86_64-apple-ios-simulator.abi.json /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.abi.json (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.abi.json /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/x86_64-apple-ios-simulator.abi.json
+
+Copy /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.swiftsourceinfo (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.swiftsourceinfo /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for GODIEOR (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftDriver\ Compilation\ Requirements GODIEOR normal arm64 com.apple.xcode.tools.swift.compiler (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name GODIEOR -Onone @/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.SwiftFileList -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -index-store-path /tmp/godieor-data56/DerivedData/Index.noindex/DataStore -swift-version 6 -I /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -F /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/godieor-data56/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-6cfe768891a92b912361537c460fe42b.sdkstatcache -output-file-map /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -sdk-module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.swiftmodule -validate-clang-modules-once -clang-build-session-file /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-generated-files.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-own-target-headers.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-project-headers.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources-normal/arm64 -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources/arm64 -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR-Swift.h -working-directory /tmp/godieor-data56/app-fixed/ios -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/arm64-apple-ios-simulator.swiftmodule /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.swiftmodule (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.swiftmodule /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/arm64-apple-ios-simulator.swiftmodule
+
+SwiftMergeGeneratedHeaders /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources/GODIEOR-Swift.h /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR-Swift.h /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR-Swift.h (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-swiftHeaderTool -arch arm64 /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR-Swift.h -arch x86_64 /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR-Swift.h -o /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources/GODIEOR-Swift.h
+
+Copy /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/arm64-apple-ios-simulator.swiftdoc /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.swiftdoc (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.swiftdoc /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/arm64-apple-ios-simulator.swiftdoc
+
+Copy /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/arm64-apple-ios-simulator.abi.json /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.abi.json (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.abi.json /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+Copy /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.swiftsourceinfo (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-unsigned-binaries -strip-deterministic -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks -rename /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.swiftsourceinfo /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+SwiftDriverJobDiscovery normal arm64 Compiling PublicAPI.swift (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftDriverJobDiscovery normal x86_64 Compiling PublicAPI.swift (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftDriverJobDiscovery normal x86_64 Compiling GODIEORApp.swift (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftDriverJobDiscovery normal arm64 Compiling GODIEORApp.swift (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftDriverJobDiscovery normal arm64 Compiling Account.swift (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftDriverJobDiscovery normal x86_64 Compiling Account.swift (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftDriverJobDiscovery normal arm64 Compiling ContentView.swift (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftDriver\ Compilation GODIEOR normal arm64 com.apple.xcode.tools.swift.compiler (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name GODIEOR -Onone @/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.SwiftFileList -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -index-store-path /tmp/godieor-data56/DerivedData/Index.noindex/DataStore -swift-version 6 -I /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -F /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/godieor-data56/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-6cfe768891a92b912361537c460fe42b.sdkstatcache -output-file-map /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -sdk-module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.swiftmodule -validate-clang-modules-once -clang-build-session-file /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-generated-files.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-own-target-headers.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-project-headers.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources-normal/arm64 -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources/arm64 -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR-Swift.h -working-directory /tmp/godieor-data56/app-fixed/ios -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/Binary/GODIEOR.debug.dylib normal arm64 (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -Os -L/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -F/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -filelist /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.LinkFileList -install_name @rpath/GODIEOR.debug.dylib -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR_lto.o -rdynamic -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.swiftmodule @/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR-linker-args.resp -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -o /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/Binary/GODIEOR.debug.dylib
+
+SwiftDriverJobDiscovery normal x86_64 Compiling ContentView.swift (in target 'GODIEOR' from project 'GODIEOR')
+
+SwiftDriver\ Compilation GODIEOR normal x86_64 com.apple.xcode.tools.swift.compiler (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name GODIEOR -Onone @/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.SwiftFileList -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -target x86_64-apple-ios17.0-simulator -g -module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -index-store-path /tmp/godieor-data56/DerivedData/Index.noindex/DataStore -swift-version 6 -I /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -F /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/godieor-data56/DerivedData/SDKStatCaches.noindex/iphonesimulator26.5-23F81a-6cfe768891a92b912361537c460fe42b.sdkstatcache -output-file-map /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -sdk-module-cache-path /tmp/godieor-data56/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.swiftmodule -validate-clang-modules-once -clang-build-session-file /tmp/godieor-data56/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-generated-files.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-own-target-headers.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-project-headers.hmap -Xcc -I/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources-normal/x86_64 -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources/x86_64 -Xcc -I/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR-Swift.h -working-directory /tmp/godieor-data56/app-fixed/ios -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/Binary/GODIEOR.debug.dylib normal x86_64 (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -Os -L/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -F/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -filelist /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.LinkFileList -install_name @rpath/GODIEOR.debug.dylib -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -dead_strip -Xlinker -object_path_lto -Xlinker /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR_lto.o -rdynamic -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.swiftmodule @/tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR-linker-args.resp -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -o /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/Binary/GODIEOR.debug.dylib
+
+ConstructStubExecutorLinkFileList /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-ExecutorLinkFileList-normal-arm64.txt (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    construct-stub-executor-link-file-list /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/Binary/GODIEOR.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'GODIEOR' from project 'GODIEOR')
+
+Ld /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/Binary/GODIEOR normal arm64 (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -Os -L/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -F/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -rdynamic -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-ExecutorLinkFileList-normal-arm64.txt /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/Binary/GODIEOR.debug.dylib -o /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/Binary/GODIEOR
+
+CreateUniversalBinary /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/GODIEOR.debug.dylib normal arm64\ x86_64 (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/Binary/GODIEOR.debug.dylib /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/Binary/GODIEOR.debug.dylib -output /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/GODIEOR.debug.dylib
+
+ConstructStubExecutorLinkFileList /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-ExecutorLinkFileList-normal-x86_64.txt (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    construct-stub-executor-link-file-list /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/Binary/GODIEOR.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-ExecutorLinkFileList-normal-x86_64.txt
+note: Using stub executor library with Swift entry point. (in target 'GODIEOR' from project 'GODIEOR')
+
+Ld /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/Binary/GODIEOR normal x86_64 (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target x86_64-apple-ios17.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk -Os -L/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -F/tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -rdynamic -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-DebugDylibPath-normal-x86_64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-DebugDylibInstallName-normal-x86_64.txt -Xlinker -filelist -Xlinker /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR-ExecutorLinkFileList-normal-x86_64.txt /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/Binary/GODIEOR.debug.dylib -o /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/Binary/GODIEOR
+
+GenerateDSYMFile /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app.dSYM /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/GODIEOR.debug.dylib (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/GODIEOR.debug.dylib -o /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app.dSYM
+
+CreateUniversalBinary /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/GODIEOR normal arm64\ x86_64 (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo -create /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/Binary/GODIEOR /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/Binary/GODIEOR -output /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/GODIEOR
+
+GenerateDSYMFile /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app.dSYM /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/GODIEOR (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil -q /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/GODIEOR -o /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app.dSYM
+
+CopySwiftLibs /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/GODIEOR.debug.dylib --scan-folder /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/Frameworks --scan-folder /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/PlugIns --scan-folder /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/SystemExtensions --scan-folder /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+Ignoring --strip-bitcode because --sign was not passed
+
+ExtractAppIntentsMetadata (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name GODIEOR --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.5.sdk --xcode-version 17F113 --platform-family iOS --deployment-target 17.0 --bundle-identifier com.joobang.godieor --output /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app --target-triple arm64-apple-ios17.0-simulator --target-triple x86_64-apple-ios17.0-simulator --binary-file /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/GODIEOR --dependency-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR_dependency_info.dat --dependency-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR_dependency_info.dat --stringsdata-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --stringsdata-file /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.SwiftFileList --source-file-list /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.SwiftFileList --metadata-file-list /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR.DependencyMetadataFileList --static-metadata-file-list /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/arm64/GODIEOR.SwiftConstValuesFileList --swift-const-vals-list /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/Objects-normal/x86_64/GODIEOR.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-11-16 11:44:25.488 appintentsmetadataprocessor[26235:45059976] Starting appintentsmetadataprocessor export
+2026-11-16 11:44:25.496 appintentsmetadataprocessor[26235:45059976] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+AppIntentsSSUTraining (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/Info.plist --temp-dir-path /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/ssu --bundle-id com.joobang.godieor --product-path /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app --extracted-metadata-path /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/Metadata.appintents --metadata-file-list /tmp/godieor-data56/DerivedData/Build/Intermediates.noindex/GODIEOR.build/Debug-iphonesimulator/GODIEOR.build/GODIEOR.DependencyMetadataFileList --source-file /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app/Info.plist --archive-ssu-assets
+2026-11-16 11:44:25.511 appintentsnltrainingprocessor[26236:45059981] Parsing options for appintentsnltrainingprocessor
+2026-11-16 11:44:25.511 appintentsnltrainingprocessor[26236:45059981] Starting AppIntents SSU YAML Generation
+2026-11-16 11:44:25.512 appintentsnltrainingprocessor[26236:45059981] No AppShortcuts found - Skipping.
+
+RegisterExecutionPolicyException /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-RegisterExecutionPolicyException /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app
+
+Validate /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    builtin-validationUtility /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app -shallow-bundle -infoplist-subpath Info.plist
+
+Touch /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app (in target 'GODIEOR' from project 'GODIEOR')
+    cd /tmp/godieor-data56/app-fixed/ios
+    /usr/bin/touch -c /tmp/godieor-data56/DerivedData/Build/Products/Debug-iphonesimulator/GODIEOR.app
+
+** BUILD SUCCEEDED **
+

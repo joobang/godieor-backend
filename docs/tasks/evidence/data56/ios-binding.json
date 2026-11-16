@@ -1,0 +1,22 @@
+{
+  "appCodeHead": "8b5e17d549ff91011be4ebe8653e5d149c1033cd",
+  "scope": "fixed git archive; personal pbxproj excluded; unsigned iOS Simulator build only; not phone or independent approval",
+  "argv": [
+    "xcodebuild",
+    "-project",
+    "/private/tmp/godieor-data56/app-fixed/ios/GODIEOR.xcodeproj",
+    "-scheme",
+    "GODIEOR",
+    "-configuration",
+    "Debug",
+    "-sdk",
+    "iphonesimulator",
+    "-destination",
+    "generic/platform=iOS Simulator",
+    "-derivedDataPath",
+    "/private/tmp/godieor-data56/DerivedData",
+    "CODE_SIGNING_ALLOWED=NO",
+    "build"
+  ],
+  "exitCode": 0
+}

@@ -1,0 +1,45 @@
+✔ contract manifest fingerprints and declared version match actual contract files (3.12275ms)
+✔ authored event examples include the existing nullable OTT classification field (0.241042ms)
+✔ public catalog options advertise the pinned contract version (165.958208ms)
+✔ explicit stable keys survive title/date/season corrections; missing time stays date-only (7.113042ms)
+✔ same title does not merge separate curator content/event keys (0.581541ms)
+✔ missing, stale and ineligible review inputs all refuse publication preparation (1.700667ms)
+✔ strict mapping schema requires version, nonempty explicit keys and rejects ambiguous batch (1.456667ms)
+✔ local time converts only with exact roundtrip and one possible offset (1.736917ms)
+✔ CJ query needs explicit official query-free canonical URL; off-host/credentials/query/hash refuse (0.661292ms)
+✔ identity permits unknown→known season, refuses known→other/null and market/platform/content changes (0.303458ms)
+✔ mapping repository uses Prisma relation reads and compares actual persisted identity (0.419666ms)
+✔ adapter snapshots are immutable; fetch validates every market under the existing collector lock (0.867125ms)
+✔ Nest provider wiring registers empty then prepared scopes, uses reviewed adapter only, refuses unconfigured collect (5.435583ms)
+✔ candidate writer lock spans mapping read, validation and collection; invalid late input publishes nothing (35.827542ms)
+✔ failed collection still clears configured adapter and releases candidate lock (0.400208ms)
+✔ CLI requires explicit mapping and sanitizes invalid arguments and bootstrap errors (797.700375ms)
+✔ CLI closes created context on success and publish failure without printing private errors (332.972916ms)
+✔ documentary keeps its category and explicit movie/series format without inventing time or season (1.043291ms)
+✔ documentary requires an explicit format, rejects movie seasons and unrelated format fields (0.694833ms)
+✔ TVING manual review preserves a date-only premiere, unknown season and official program source (0.38375ms)
+✔ animation retains category with explicit movie/series format and preserves civil dates (0.344375ms)
+✔ animation rejects missing/mixed format, movie season, invalid medium and non-OTT usage (0.533958ms)
+✔ monthly discovery inspects new season on an old series, not series first-air date or ordinary episodes (14.909708ms)
+✔ series platform hint remains discoverable but cannot certify target season availability (0.234334ms)
+✔ official identity seed retains upcoming work with no TMDB provider; dual date check enables batch review only (0.243916ms)
+✔ different season first-air and episode-one dates stay conflicting (0.138333ms)
+✔ official date conflicts remain visible and never overwrite TMDB raw date (0.244959ms)
+✔ wrong identity, season, country and source cannot validate a candidate (0.096042ms)
+✔ missing provider response is unknown and does not veto explicit official evidence (0.266666ms)
+✔ a regular episode in target month is not a season premiere (0.097917ms)
+✔ partial discovery and source errors are preserved instead of reported as empty success (0.146333ms)
+✔ repeat staging is idempotent; changed date evidence creates one revision on same stable id (0.627583ms)
+✔ recorded official evidence is retained but not fresh batch-ready without source refresh (0.050875ms)
+✔ TVING broadcast date alone is not an explicit OTT release claim (0.854167ms)
+✔ refresh observation timestamp alone does not create a candidate revision (0.085125ms)
+✔ same release text on another TVING program cannot refresh an identity binding (0.083709ms)
+✔ confirmed animation scope keeps explicit medium hints while still requiring fresh OTT evidence (0.17ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1462.089833

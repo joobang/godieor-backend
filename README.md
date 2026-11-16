@@ -59,3 +59,5 @@ npm start
 `node --env-file=.env scripts/collect-tving-upcoming.mjs <새보고서.json>`으로 공개 TVING 예정작 전체의 명시 날짜·TMDB 식별 근거를 미승인 후보로 수집한다. Disney+/Netflix공지/CJ/TVING 공식 파서는 기존 TMDB 수집기의 재확인 단계에 연결했다. [실행·staging 절차](docs/reviewed-publish.md), [작업·한계](docs/tasks/DATA-54-official-route-parsers.md). 신규제품게시0/정확일치26/52이며 후보수를 서비스 커버리지로 세지 않는다.
 
 공식후보식별보강(DATA-55): 동일tvN프로그램의출연진과TMDB명시인물별칭을대조하며원천이름·인물ID를일대일로계산한다. [작성자검토배치/한계](docs/tasks/DATA-55-ott-identity-evidence.md). 로컬기간68행/정확26/52로전체참조누락은미해결이다.
+
+OTT애니지원(DATA56): 애니영화·시리즈형태를명시해검토·새DB제약/APIdraft.5·앱배지까지연결했다. 기존애니4개분류보정/신규이벤트0,실제68행/정확26/52. [원본기록](docs/tasks/DATA-56-ott-animation-support.md), ADR021. 독립승인/실폰/클라우드는미완료다.

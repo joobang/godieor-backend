@@ -1,0 +1,18 @@
+[
+  {
+    "reference": "/Users/dojoohwan/workspace/godieor-app/docs/api/contract-reference.json",
+    "backendCodeHead": "46751285a88f96ac88ea719a4e5daff791d96a5a",
+    "contractVersion": "0.1.0-draft.5",
+    "checkedFiles": 18,
+    "allHashesMatchCommittedSource": true,
+    "approvalChanged": false
+  },
+  {
+    "reference": "/Users/dojoohwan/workspace/godieor-verifier/docs/contracts/reference.json",
+    "backendCodeHead": "46751285a88f96ac88ea719a4e5daff791d96a5a",
+    "contractVersion": "0.1.0-draft.5",
+    "checkedFiles": 18,
+    "allHashesMatchCommittedSource": true,
+    "approvalChanged": false
+  }
+]

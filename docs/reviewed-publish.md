@@ -1,3 +1,7 @@
+## DATA-56 · 애니 영화·시리즈 지원 (2026-11-16)
+
+사용자확정으로애니도포함한다. review의contentKind=animation과animationFormat=movie|series를함께명시,영화형은seasonNumber=null을요구한다. 다큐형태필드와혼용하지않는다. API초안draft.5·새migration202611160001·앱애니표시를함께갱신했다. 기존70개전수대조에서애니4개를날짜/ID유지해분류보정,새이벤트0/기간68행/정확26/52다. [작업·근거](tasks/DATA-56-ott-animation-support.md), [전수대조표](tasks/evidence/data56/case-matrix.md). 후보범위hold를해제해도공식한국일자·시즌·검토/revision/고정키게이트를생략하지않는다.
+
 ## DATA-55 · 공식 출연진 식별 보강 (2026-11-16)
 
 기존 collect-tving-upcoming 명령은 TVING출연진이부족하고채널tvN인경우 공식tvN목록의정확제목프로그램으로정체성만보강한다. 날짜는TVING명시공개문구에서만얻고TMDB인물별칭/시즌첫날·첫회를대조한다. 원천이름과TMDB인물의일대일매칭,조회상한/실패를보존한다. 명령자체는계속미승인후보보고서만생성한다.

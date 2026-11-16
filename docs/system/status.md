@@ -1,3 +1,12 @@
+## DATA-56 · OTT 애니 지원·기존 분류 전수 보정 (2026-11-16)
+
+- 사용자 확정: ‘애니도 포함해 OTT 전체 대조’. 영화·시리즈·예능·다큐·애니를지원하며일반회차는제외한다. 원본 backend `docs/tasks/DATA-56-ott-animation-support.md`, ADR-021/LEARN-0011·0021.
+- 애니영화/시리즈를명시형태로검토·정규화하고새DB제약/API초안draft.5/앱‘OTT · 애니’표시까지연결했다. 기존70개전수대조에서스텝스·풀나이트·두지의멍멍하우스·배스X마키나4개분류만보정. 기간68행/연중70이벤트/신규0,전체ID·일정·다른66전체행/이력보존·재게시멱등확인.
+- 최신참조52행중애니는전체6/미일치5행이다(초기질문의5는미일치수). 정확26/52·미일치26·gateexit2유지,애니범위를넓혔다고근거없는5행을게시하지않았다. 독립TMDB현재120/누적124ID/48fresh(이전45),새형태힌트필드도입120revision/실제관측replay0신규·0수정. Coupang영화provider미등재incomplete유지.
+- backend코드46751285a88f96ac88ea719a4e5daff791d96a5a:현재트리/고정소스전체218/218,Prisma생성→빌드성공. app코드8b5e17d549ff91011be4ebe8653e5d149c1033cd의개인서명변경제외unsignediOS빌드성공,가상애니JSON해석/표시검사성공. 일회용DB분류경계18/18·로컬migration/SQL/API확인. 최초검사도구의경로/상세래퍼오류2개는수정후재실행으로구분.
+- 계약draft.5 manifestSHA256 0ffd7cbcdcb3c46b450e626ced90055e985308d728c279832aa00ec76b24e9c9, migration digest ec6966538bd599bf0dcee21ec0e0fb03a63b513ae01654d52b9e2badf5697fd7. app/verifier소비자참조는같은고정backend지문검사완료. acceptance/verdict·이전ERROR/4SKIPPED불변,새독립runner/리뷰·실폰/클라우드미실행. 개인dirty보존·담당해제,공통revision DATA-56-2026-11-16.
+- 다음은52행전수표 evidence/data56/case-matrix.md의미일치26행을목표OTT/시즌첫날근거별로보강한다. 애니5행도동일기준이며총수/분류지원/후보증가를누락해소로세지않는다. 공식homepage진단은읽기전용이며자동연결구현완료가아님.
+
 ## DATA-55 · 공식 출연진 식별 보강·검토 배치 (2026-11-16)
 
 - backend 코드 `3a5a4dd62040cded2b184cf84d073ed4fc6ea8fc`, 원본 `docs/tasks/DATA-55-ott-identity-evidence.md`, ADR-020/LEARN-0021. 사용자 최우선 OTT 신작·시즌 참조 누락 해소는 진행 중이다.

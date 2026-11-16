@@ -1,0 +1,65 @@
+{
+  "backendCodeHead": "46751285a88f96ac88ea719a4e5daff791d96a5a",
+  "scope": "git archive backend full build/tests; generated client created using synthetic unused DB URL; existing dependencies linked; no secrets copied or independent approval",
+  "steps": [
+    {
+      "name": "generate",
+      "argv": [
+        "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+        "node_modules/prisma/build/index.js",
+        "generate"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "build",
+      "argv": [
+        "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+        "node_modules/typescript/bin/tsc"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "tests",
+      "argv": [
+        "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+        "--test",
+        "tests/account-repository.test.cjs",
+        "tests/architecture.test.cjs",
+        "tests/auth-sync.test.cjs",
+        "tests/candidates.test.cjs",
+        "tests/contract-integrity.test.cjs",
+        "tests/enrich-reviewed-tmdb.test.mjs",
+        "tests/merge-official-tmdb-lineup.test.mjs",
+        "tests/netflix-disambiguation.test.mjs",
+        "tests/netflix-identity-aliases.test.mjs",
+        "tests/netflix-kr-schedule.test.mjs",
+        "tests/netflix-lineup-bridge.test.mjs",
+        "tests/netflix-tudum.test.mjs",
+        "tests/official-ott-source.test.mjs",
+        "tests/official-ott-triage.test.mjs",
+        "tests/official-tmdb-enrichment.test.mjs",
+        "tests/ott-coverage.test.mjs",
+        "tests/ott-discovery-queue.test.mjs",
+        "tests/ott-gap-provenance.test.mjs",
+        "tests/ott-identity-evidence.test.mjs",
+        "tests/ott-lineup.test.mjs",
+        "tests/ott-published-audit.test.mjs",
+        "tests/ott-reference-compare.test.mjs",
+        "tests/ott-review-backlog.test.mjs",
+        "tests/provider-sources.test.cjs",
+        "tests/query-policy.test.cjs",
+        "tests/reviewed-catalog.test.cjs",
+        "tests/reviewed-publish.test.cjs",
+        "tests/streampick-gaps.test.mjs",
+        "tests/tmdb-date-discovery.test.mjs",
+        "tests/tmdb-release-candidates.test.mjs",
+        "tests/tmdb-reviewed-batch.test.mjs",
+        "tests/tving-upcoming.test.mjs",
+        "tests/tvingads-lineup.test.mjs",
+        "tests/verify-streampick-tmdb.test.mjs"
+      ],
+      "exitCode": 0
+    }
+  ]
+}

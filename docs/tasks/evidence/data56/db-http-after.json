@@ -1,0 +1,42 @@
+{
+  "scope": "implementer local SQL/API; not independent approval",
+  "totalEvents": 70,
+  "windowRows": 68,
+  "newEvents": 0,
+  "categoryCorrections": 4,
+  "unchangedOtherFullRows": 66,
+  "allEventIDsStable": true,
+  "datesSeasonsPlatformsUnchanged": true,
+  "repeatNoChanges": false,
+  "contractVersion": "0.1.0-draft.5",
+  "checked": [
+    {
+      "id": "ded1ef61-563f-4b34-b43d-411b426d2ea6",
+      "title": "스텝스",
+      "date": "2026-11-20",
+      "season": null,
+      "animationFormat": "movie"
+    },
+    {
+      "id": "e198bb2e-5da2-46bf-a30c-f150e7b710d9",
+      "title": "풀 나이트",
+      "date": "2026-11-26",
+      "season": 1,
+      "animationFormat": "series"
+    },
+    {
+      "id": "1d4e16e0-9b6e-4e52-90d7-31bb9340d98d",
+      "title": "두지의 멍멍하우스",
+      "date": "2026-11-09",
+      "season": 1,
+      "animationFormat": "series"
+    },
+    {
+      "id": "5a3ea632-caf2-4638-8956-3222ecd77635",
+      "title": "배스 X 마키나",
+      "date": "2026-11-03",
+      "season": 1,
+      "animationFormat": "series"
+    }
+  ]
+}
