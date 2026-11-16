@@ -99,3 +99,47 @@ test('an incomplete TVING collection does not stage partial programmes or suppre
   assert.equal(commands.some(({ args }) => args.some((arg) => arg.endsWith('/publish-reviewed.js'))), true);
   assert.deepEqual(commands.find(({ args }) => args.includes('scripts/collect-tmdb-release-candidates.mjs')).options.acceptedExitCodes, [0, 2]);
 });
+
+test('Netflix network failure does not prevent the other providers, publication, or parity audit', async () => {
+  const input = new Map(await Promise.all([
+    'work/ott-candidates/state.json', 'data/curated/ott-reviewed-mappings.json',
+    'work/tmdb-release-candidates/latest.json',
+  ].map(async (path) => [path, JSON.parse(await readFile(path, 'utf8'))])));
+  const commands = [];
+  const result = await runPipeline({
+    run: async (args) => {
+      commands.push(args);
+      if (args.includes('scripts/collect-netflix-kr-schedule.mjs')) throw new Error('NETFLIX_KR_COLLECT_FAILED: fetch failed');
+      return JSON.stringify({ exitCode: 0, stdout: '{}' });
+    },
+    read: async (path) => JSON.stringify(input.get(path)),
+    auditRun: async () => ({ parity: false, referenceRows: 52, exactMatches: 26,
+      unresolved: 26, statusCounts: { published_match: 26, date_disagreement: 2, not_published: 24 } }),
+  });
+  assert.equal(result.status, 'published_with_discovery_gaps');
+  assert.equal(result.failedSources[0].label, 'netflix_official');
+  assert.equal(commands.some((a) => a.includes('scripts/bridge-netflix-lineup.mjs')), false);
+  for (const script of ['scripts/collect-tving-upcoming.mjs', 'scripts/collect-disneyplus-kr-lineup.mjs',
+    'scripts/collect-coupangplay-kr-lineup.mjs'])
+    assert.equal(commands.some((a) => a.includes(script)), true, script);
+  assert.equal(result.published, true);
+  assert.equal(result.audit.exactMatches, 26);
+});
+
+test('unavailable TMDB snapshot remains an explicit gap while official collectors continue', async () => {
+  const input = new Map(await Promise.all([
+    'work/ott-candidates/state.json', 'data/curated/ott-reviewed-mappings.json',
+  ].map(async (path) => [path, JSON.parse(await readFile(path, 'utf8'))])));
+  const commands = [];
+  const result = await runPipeline({
+    reuseRecentTmdb: true, publish: false,
+    fileStat: async () => ({ mtimeMs: Date.now() - 2 * 3600000 }),
+    run: async (args) => { commands.push(args); return JSON.stringify({ exitCode: 0, stdout: '{}' }); },
+    read: async (path) => JSON.stringify(path.includes('tmdb-release-candidates') ?
+      { kind: 'tmdb-first-ott-release-review', rows: [], discoveryCoverage: [], referenceInputUsed: false } : input.get(path)),
+  });
+  assert.equal(result.status, 'published_with_discovery_gaps');
+  assert.equal(result.gate.discoveryComplete, false);
+  assert.equal(result.failedSources[0].label, 'tmdb_recent_snapshot_reused');
+  assert.equal(commands.some((a) => a.includes('scripts/collect-coupangplay-kr-lineup.mjs')), true);
+});

@@ -1,3 +1,8 @@
+## DATA-67 · 공식 OTT 통합 실행 실패 격리 인계 (2026-11-16)
+
+- backend 원본 `docs/tasks/DATA-67-source-failure-isolation.md`. 수집원 실패 시 나머지 OTT 진행, 실패 원천 staging 생략, TMDB 만료 명시. 실제 Netflix78/TVING11/Ads6/Disney16/Coupang41, reviewed 70건 로컬 DB 게시. StreamPick 52행 정확26·날짜차이2·미게시24, 신규 확정·게시0. DB parity 미달, 전체 파이프라인 미완료.
+- 전체 262/262 PASS. 실제 full TMDB 전수 재수집 장시간으로 중단, `--reuse-recent-tmdb` 실연계는 exit2(TMDb 최근 스냅샷 만료). 다음은 미게시24 공식 KR 첫날 증거·시즌 식별→검토·자동 매핑/게시와 실측 재감사. 앱 개인 signing dirty 보존·독립검증 미실행. revision DATA-67-2026-11-16.
+
 ## DATA-66 · Disney+/Coupang 공식 작품 발견·TMDB 식별 연결 (2026-11-16)
 
 - backend 원본 `docs/tasks/DATA-66-undated-official-tmdb-link.md`. Disney+ 공식 예정작/쿠팡플레이 뉴스 추천작 수집을 통합 파이프라인에 연결하고 날짜 없는 한국 공식 작품도 TMDB 한글 제목 단일·복수·미발견·검색 미완료로 식별한다. 공식 원문에 한국 OTT 첫날이 없으면 TMDB 전역 날짜로 채우지 않는다.

@@ -1,3 +1,8 @@
+## DATA-67 · OTT 원천 실패 격리와 실제 DB 게시 감사 (2026-11-16)
+
+- backend 원본 `docs/tasks/DATA-67-source-failure-isolation.md`. Netflix/TMDB 원천 오류가 모든 OTT 수집을 종료시키는 경로를 격리하고 `failedSources`/단계별 상태를 남긴다. 공식 일정·TMDB 검증 없는 신규 첫날 자동 승인은 여전히 금지.
+- 실연계 Netflix78(5/5페이지)·TVING11·TVING Ads6·Disney+16·Coupang41, 기존 reviewed70 PostgreSQL 게시 성공, 새 게시0. 정확26/52·날짜차이2·미게시24, TMDB 최근 스냅샷 만료로 discovery 미완료. 자체 테스트 262/262, 독립 승인 미실행. 공통 revision DATA-67-2026-11-16.
+
 ## DATA-66 · Disney+/Coupang 공식 작품 발견·TMDB 식별 연결 (2026-11-16)
 
 - backend 원본 `docs/tasks/DATA-66-undated-official-tmdb-link.md`. Disney+ 공식 예정작/쿠팡플레이 뉴스 추천작 수집을 통합 파이프라인에 연결하고 날짜 없는 한국 공식 작품도 TMDB 한글 제목 단일·복수·미발견·검색 미완료로 식별한다. 공식 원문에 한국 OTT 첫날이 없으면 TMDB 전역 날짜로 채우지 않는다.
