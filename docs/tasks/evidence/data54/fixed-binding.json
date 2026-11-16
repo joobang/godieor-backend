@@ -1,0 +1,13 @@
+{
+  "backendCodeHead": "45695865fd07362a330328b78c70f9e8bc699020",
+  "scope": "git archive; CLI parser/collector tests only; no iOS rebuild or independent runner",
+  "argv": [
+    "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+    "--test",
+    "tests/official-ott-source.test.mjs",
+    "tests/tving-upcoming.test.mjs",
+    "tests/tmdb-release-candidates.test.mjs"
+  ],
+  "exitCode": 0,
+  "setupNote": "first extraction attempted unsupported Python tarfile filter keyword and failed before tests; rerun with validated archive paths"
+}

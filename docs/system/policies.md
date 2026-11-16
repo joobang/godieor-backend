@@ -1,3 +1,7 @@
+## DATA-54 실행 범위 보완 · 2026-11-16
+
+사용자가 지시한 공식 루트 교차검증 범위에서 공개 TVING 홈의 공개예정 목록과 프로그램 문구를 자동으로 수집해 미승인 staging에 저장한다. 이전 수동 permalink 지원은 이 공개 발견 경로로 확장됐다. 정식 OTT API 도입·미확인 일정의 제품 표시·공연/애니 범위 변경은 아니다. 기존 review/revision/고정키 절차와 날짜 미정 보존을 유지한다. 원본 backend DATA-54/ADR-020, 공통 revision DATA-54-2026-11-16.
+
 > **현재 정책(2026-11-10)**: 전용 macOS 계정 검증방식 폐기. 기존계정에서 고정source의 로컬검사와 unsigned iOS빌드 진행. 현재 status.md 및 verifier/docs/local-verification.md 우선. 격리진단은 제품개발·출시 선행조건이 아니다.
 
 # 사용자가 결정할 정책

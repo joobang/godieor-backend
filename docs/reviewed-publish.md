@@ -1,3 +1,15 @@
+## DATA-54 · 공식 루트·TVING 공개예정 전체 후보 (2026-11-16)
+
+```sh
+node --env-file=.env scripts/collect-tving-upcoming.mjs work/tving-upcoming-review.json
+node --input-type=module -e 'import {readFile,writeFile} from "node:fs/promises"; import {upcomingLineup} from "./scripts/collect-tving-upcoming.mjs"; const r=JSON.parse(await readFile("work/tving-upcoming-review.json","utf8")); await writeFile("work/tving-upcoming-lineup.json",JSON.stringify(upcomingLineup(r,new Date().toISOString()),null,2),{flag:"wx"});'
+node scripts/stage-ott-lineup.mjs work/tving-upcoming-lineup.json work/ott-lineups
+```
+
+Node24, 출력은 새파일 경로를 사용한다. 공개 TVING 홈 공개예정 전체→프로그램 명시공개문구→TMDB 정체성·시즌 조회이며 StreamPick 입력은 없다. 모든 후보는 미승인/첫공개미확정, DB게시 기능이 아니다. 월만 있으면 날짜null, 공연/미확정작품도 제외사유로 남긴다. 다른 공식URL의 기존이벤트는 새게시 제안으로 만들지 않는다. 최신9개는 기존검토3/기존다른출처1/정체성미확정3/공연1/정확일자없음1이며 신규게시0이다.
+
+기존 공식49개 재확인은48일치/1명시일자없음, TMDB함께 기존고정키 재검증44행이다. 제품67/정확26/참조52는 그대로다. 데이터 부족을 최신파서의 성공률로 가리지 않는다. 원본 DATA54/ADR020 참조.
+
 ## DATA-53 재개 · TMDB 수집→공식 재확인→게시 입력 연결 (2026-11-16)
 
 ```sh

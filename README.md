@@ -53,3 +53,7 @@ npm start
 앱은 [godieor-app](https://github.com/joobang/godieor-app), 독립 기준·검토·학습 기록은 [godieor-verifier](https://github.com/joobang/godieor-verifier).
 계약과 작성자의 실행 확인을 독립 검증 PASS로 표현하지 않는다. 기존 verifier v1은 backend 조합을 아직 실행 검증하지 못한다.
 커밋은 `type: 한글 설명` 형식(영문 타입)으로 작성하고 push·배포는 별도 요청 범위다.
+
+### 공식 공개예정 배치 수집 · DATA-54
+
+`node --env-file=.env scripts/collect-tving-upcoming.mjs <새보고서.json>`으로 공개 TVING 예정작 전체의 명시 날짜·TMDB 식별 근거를 미승인 후보로 수집한다. Disney+/Netflix공지/CJ/TVING 공식 파서는 기존 TMDB 수집기의 재확인 단계에 연결했다. [실행·staging 절차](docs/reviewed-publish.md), [작업·한계](docs/tasks/DATA-54-official-route-parsers.md). 신규제품게시0/정확일치26/52이며 후보수를 서비스 커버리지로 세지 않는다.
