@@ -433,3 +433,9 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 - 원본 backend `docs/tasks/DATA-58-tmdb-sharded-independent-discovery.md`. 요구: OTT 신작/시즌 자동 발견→한국 공식 최초 공개 근거→검토 후 게시. StreamPick 참조 52행은 사후 평가 전용.
 - 이전 실 TMDB 독립 월별 821작품 후보/월별 페이지 잘림 2구간. 글로벌 조회를 날짜 분할하고 상한 100페이지로 실측한 결과 3,303작품, 잘림0, API오류0. Coupang 영화 provider 미등재로 전체 완전성은 미확보. 과거 후보ID 49행은 다시 발견했지만 시즌/OTT 날짜 검증은 별도다.
 - backend Node24 관련32/32, mjs 전체157/157 자체 통과. 새 실제 분할 수집의 결과는 backend 작업 카드에 갱신. 제품 DB 게시/독립 runner/클라우드 미실행. API 계약·migration·verifier 기준 불변, 기존 app signing 및 backend 개인 dirty 제외. 다음은 분할 결과의 시즌 후보화와 공식 KR 최초 공개일 교차검증.
+## DATA-60 · 시즌 과거 글로벌 방영일 후보 누락 보완 (2026-11-16)
+
+- backend `3d92ba9`: 글로벌 첫 방영일이 조회월 이전인 경우 KR 시리즈 제공처가 있으면 최근 2년·최신 2시즌을 검토 후보로 보존. 한국 최초일 `dateHint=null`, 자동 게시=false. Node24 전체 164/164 통과. 제품 게시0; 기존 52행 정확26·날짜차이2·미게시24 불변.
+- Netflix 한국 신규공개는 자동 수집 지원. TVING Ads는 TVING/Wavve 혼합으로 저장 원문 파서만 지원. Disney+ 공개예정은 일반 회차 혼합으로 목록 자동수집 미완성.
+- 다음: 공식 공개 일정→TMDB 정체성·시즌 연결→공식 최초일 확인→검토·게시 경로 실측. 공통 revision DATA-60-2026-11-16; 계약·migration·verifier 기준·독립 PASS 불변.
+
