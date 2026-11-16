@@ -1,3 +1,7 @@
+## DATA-65 · TMDB Changes API 실연계 (2026-11-16)
+
+- backend 원본 `docs/tasks/DATA-65-tmdb-incremental-change-sync.md`. 실제 일간 TMDB 변경분 2,564 ID 조회·체크포인트 저장 성공, 기존 후보 70 ID 교차, 통합 파이프라인에 실행 단계 추가. Node 전체 253/253 통과. 공식 OTT 신규 수집·한국 첫날 자동확정·신규 DB 게시·일정 스케줄러·StreamPick 미게시24 해소는 미완료. 이전 26/52 수치 갱신 아님. revision DATA-65-2026-11-16.
+
 ## DATA-63 · OTT 공식 수집→DB 게시 통합 실행 (2026-11-16)
 
 - backend 원본 `docs/tasks/DATA-63-official-pipeline-orchestration.md`. 실제 Netflix 78항목·TVING 11항목(신규 영화2 포함) 수집, TMDB 최근1215행 스냅샷 검토, reviewed70건 DB 게시 성공. 신규 최초공개 게시0, StreamPick 최초일 정확26/52·날짜차이2·미게시24로 parity 미달. TVING 영화 M 코드 인식과 URL 검증 수정. Node 178/178 통과. TMDB provider 범위 불완전·독립 검증 미실행. 사용자 목표 미완료, revision DATA-63-2026-11-16.
@@ -468,4 +472,3 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 ## DATA-64 · TVING Ads 공식 보충 소스 연결 (2026-11-16)
 
 - backend 원본 `docs/tasks/DATA-64-tvingads-pipeline-integration.md`: 통합 파이프라인에 TVING/Wavve Ads 6건 수집·후보 staging 연결, 첫 공개 자동 확정은 금지. Netflix 78건·TVING 11건·Ads 6건 실제 수집 후 기존 reviewed70 로컬 DB 재게시. StreamPick 최초공개 기준 정확26/52, 날짜차이2, 미게시24(신규 게시0). 최근 TMDB 1215행 스냅샷 재사용 결과이며 discoveryComplete=false. Node179/179 통과, 독립 검증/클라우드 미실행. 갱신 revision DATA-64-2026-11-16.
-

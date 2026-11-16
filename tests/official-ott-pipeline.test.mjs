@@ -33,7 +33,8 @@ test('pipeline preserves reviewed publications and reports incomplete TMDB cover
   });
   assert.equal(result.status, 'published_with_discovery_gaps');
   assert.equal(result.published, true);
-  assert.equal(commands.length, 9);
+  assert.equal(commands.length, 10);
+  assert.equal(commands.some((args) => args.includes('scripts/sync-tmdb-changes.mjs')), true);
   assert.equal(commands.some((args) => args.includes('scripts/collect-tvingads-kr-lineup.mjs')), true);
   assert.equal(commands.some((args) => args.includes('scripts/stage-ott-lineup.mjs')), true);
   assert.equal(commands.some((args) => args.includes('scripts/complete-reviewed-mappings.mjs')), true);

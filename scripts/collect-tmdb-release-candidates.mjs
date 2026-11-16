@@ -81,7 +81,7 @@ export async function refreshOfficialBindings(bindings, fetchImpl = fetch) {
 }
 
 export async function collectReleaseCandidates(request, { months = ['2026-11', '2026-12'], maxPages = 500,
-  officialBindings = [], discovery = null } = {}) {
+  officialBindings = [], discovery = null, changedIds = [] } = {}) {
   if (!Array.isArray(months) || !months.length) throw new Error('INVALID_MONTHS');
   months.forEach(monthRange);
   if (!Number.isInteger(maxPages) || maxPages < 1 || maxPages > 500) throw new Error('INVALID_PAGE_LIMIT');
@@ -89,6 +89,14 @@ export async function collectReleaseCandidates(request, { months = ['2026-11', '
     maxPages, includeKoreanUpcoming: true, includeUnmappedAiring: true });
   const works = new Map(found.rows.map((row) => [`${row.type}:${row.tmdbId}`, {
     ...row, paths: [...new Set(['tmdb_monthly_discover', ...(row.discoveredBy ?? [])])] }]));
+  for (const item of changedIds) {
+    if (!['tv', 'movie'].includes(item.type) || !Number.isSafeInteger(item.tmdbId) || item.tmdbId < 1)
+      throw Error('INVALID_CHANGED_ID');
+    const key = `${item.type}:${item.tmdbId}`;
+    const current = works.get(key) ?? { type: item.type, tmdbId: item.tmdbId, paths: [] };
+    if (!current.paths.includes('tmdb_changes')) current.paths.push('tmdb_changes');
+    works.set(key, current);
+  }
   // Upcoming official titles may have no KR provider yet. Preserve them as a second independent source.
   for (const binding of officialBindings) {
     if (!['tv','movie'].includes(binding.type) || !Number.isSafeInteger(binding.tmdbId) || binding.tmdbId < 1 ||
@@ -206,7 +214,20 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     let officialBindings = officialFile ? JSON.parse(await readFile(officialFile, 'utf8')).items : [];
     if (!Array.isArray(officialBindings)) throw new Error('INVALID_OFFICIAL_BINDINGS');
     officialBindings = await refreshOfficialBindings(officialBindings);
-    const report = await collectReleaseCandidates(createTmdbClient(fetch, process.env.TMDB_API_READ_ACCESS_TOKEN), { officialBindings });
+    let changedIds = [];
+    try {
+      const changes = JSON.parse(await readFile('work/tmdb-changes/latest.json', 'utf8'));
+      if (changes.kind !== 'tmdb-incremental-changes' || changes.referenceInputUsed !== false || !Array.isArray(changes.rows))
+        throw Error('INVALID_TMDB_CHANGES');
+      // Changes API is global (today: thousands of unrelated edits). Refresh
+      // relevant previously discovered works; monthly discover finds new IDs.
+      let priorSnapshot = null;
+      try { priorSnapshot = JSON.parse(await readFile(`${dir}/latest.json`, 'utf8')); }
+      catch (error) { if (error.code !== 'ENOENT') throw error; }
+      const known = new Set((priorSnapshot?.rows ?? []).map((r) => `${r.type}:${r.tmdbId}`));
+      changedIds = changes.rows.filter((r) => known.has(`${r.type}:${r.tmdbId}`));
+    } catch (error) { if (error.code !== 'ENOENT') throw error; }
+    const report = await collectReleaseCandidates(createTmdbClient(fetch, process.env.TMDB_API_READ_ACCESS_TOKEN), { officialBindings, changedIds });
     let prior = null;
     try { prior = JSON.parse(await readFile(`${dir}/state.json`, 'utf8')); } catch (e) { if (e.code !== 'ENOENT') throw e; }
     const result = mergeCandidateState(prior, report, new Date().toISOString());

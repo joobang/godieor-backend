@@ -66,6 +66,7 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, run
     const netflix = join(temporary, 'netflix.json');
     const tving = join(temporary, 'tving.json');
     const tvingAds = join(temporary, 'tving-ads.json');
+    await step('tmdb_changes', ['--env-file=.env', 'scripts/sync-tmdb-changes.mjs']);
     await step('netflix_official', ['scripts/collect-netflix-kr-schedule.mjs', netflix]);
     await step('netflix_staging', ['scripts/bridge-netflix-lineup.mjs', netflix]);
     if (reuseRecentTmdb) {
