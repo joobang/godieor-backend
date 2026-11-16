@@ -1,3 +1,12 @@
+## DATA-70 · 공식 검토 신규 23건 실제 적재 완료 (2026-11-16)
+
+- 원본 backend `docs/tasks/DATA-70-reviewed-data-batch.md`, 데이터 head `242576321c1b557d301b319aa50c1fc35ede7204`, ADR-022/LEARN-0021.
+- 실제 로컬 PostgreSQL ott_reviewed **70→93, 신규23**: Netflix14 / Disney+4 / TVING2 / Coupang3. 11~12월68→90, 미래 아소카2027/01도 포함.
+- 공식 KR 일정·작품 고정ID·형태·최초일 보강/명시 공개 배너·프로그램 공개예정 문구·공식 뉴스의 작품별 제공 시작 문맥을 작성자가 검토했다. 미확정 TMDB·시즌을 만들지 않았고 날짜만/시즌null20건을 보존했다. 게임/일반회차/미정·불명확한 날짜는 게시하지 않음.
+- 실제 SQL/임시 API 목록·새23 상세200, 기존70 event 전체행·ID·이력 보존. 전체93 재게시 신규0/전체행·이력 불변. 자체276/276 및 binding관련23/23. 다음 일간 키 검사 added0/total93/rejected0.
+- 런타임 코드/API/migration/독립 기준·verdict 불변. 작성자 근거 검토 적재이며 일반 자동 신규 승인·제공처 전수·독립 통합PASS·폰/클라우드 완료와 구분한다. 개인 pbxproj 보존·담당 해제, 공통 revision DATA-70-2026-11-16.
+- 이번23 배치 적재·자체검사는 완료. 남은 미정/시즌 불명/명시 공식 날짜 없음은 curated 배치 held에 원인 보존. 기존 게시/이번23을 후속 실행에서 다시 신규로 세지 않는다.
+
 ## DATA-69 · 신규 첫 공개 근거 연결·일간 실행 결과 확정 (2026-11-16)
 
 - 원본 backend `docs/tasks/DATA-69-new-premiere-evidence.md`, 구현 `1e5fcf4db7141a798541682d4fdbc261508b6b43`, ADR-022/LEARN-0021. 이번 작업에서 StreamPick parity는 완료 기준 제외.
