@@ -117,6 +117,7 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
     if (disneyExit === 0) await optionalStep('disney_upcoming_staging', ['scripts/stage-ott-lineup.mjs', disney, 'work/ott-lineups']);
     const coupangExit = await optionalStep('coupang_news_official', ['scripts/collect-coupangplay-kr-lineup.mjs', coupang], [0, 1]);
     if (coupangExit === 0) await optionalStep('coupang_news_staging', ['scripts/stage-ott-lineup.mjs', coupang, 'work/ott-lineups']);
+    const coupangPremiereExit = await optionalStep('coupang_explicit_premiere_review', ['--env-file=.env', 'scripts/collect-coupang-premieres.mjs'], [0, 2]);
     // Persist identity leads for title-only official listings. No release dates are invented.
     let undatedLinkExit = disneyExit === 0 && coupangExit === 0 ? 0 : 2;
     if (disneyExit === 0 && coupangExit === 0) {
@@ -149,7 +150,7 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
     if (publish) await step('publish_reviewed', ['--env-file=.env', 'dist/src/cli/publish-reviewed.js', '--file', mappings]);
     const audit = publish && compareReference ? await auditRun(['--env-file=.env', 'scripts/audit-current-first-premieres.mjs']) : null;
     return {
-      status: failedSources.length || netflixExit !== 0 || tvingExit !== 0 || adsExit !== 0 || disneyExit !== 0 || coupangExit !== 0 || undatedLinkExit !== 0 || !gate.discoveryComplete || gate.tmdbErrors || gate.readyUnmapped.length
+      status: failedSources.length || netflixExit !== 0 || tvingExit !== 0 || adsExit !== 0 || disneyExit !== 0 || coupangExit !== 0 || undatedLinkExit !== 0 || coupangPremiereExit !== 0 || !gate.discoveryComplete || gate.tmdbErrors || gate.readyUnmapped.length
         ? 'published_with_discovery_gaps' : publish ? 'published' : 'validated_without_publish',
       gate, steps, failedSources, published: publish, audit: audit && { referenceRows: audit.referenceRows,
         exactMatches: audit.exactMatches, unresolved: audit.unresolved, statusCounts: audit.statusCounts,

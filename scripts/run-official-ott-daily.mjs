@@ -27,17 +27,23 @@ export async function acquireLock(directory = LOCK) {
 }
 
 export async function runDaily({ execute = spawn, lock = acquireLock, timeoutMs = 3 * 3600_000,
-  reportPath = 'work/ott-official-daily-last-run.json' } = {}) {
+  reuseRecentTmdb = false, reportPath = 'work/ott-official-daily-last-run.json' } = {}) {
   const release = await lock();
   try {
     const startedAt = new Date().toISOString();
     let result;
     try { result = await new Promise((done, reject) => {
       const child = execute(process.execPath,
-        ['scripts/run-official-ott-pipeline.mjs'], { stdio: ['ignore', 'pipe', 'pipe'] });
+        ['scripts/run-official-ott-pipeline.mjs', ...(reuseRecentTmdb ? ['--reuse-recent-tmdb'] : [])],
+        { stdio: ['ignore', 'pipe', 'pipe'], detached: process.platform !== 'win32' });
       let stdout = '', stderr = '';
       let timedOut = false;
-      const timer = setTimeout(() => { timedOut = true; child.kill('SIGTERM'); }, timeoutMs);
+      const stop = () => {
+        if (process.platform !== 'win32' && Number.isInteger(child.pid)) {
+          try { process.kill(-child.pid, 'SIGKILL'); } catch (e) { if (e.code !== 'ESRCH') throw e; }
+        } else child.kill('SIGKILL');
+      };
+      const timer = setTimeout(() => { timedOut = true; stop(); }, timeoutMs);
       child.stdout.on('data', (chunk) => { stdout += chunk; });
       child.stderr.on('data', (chunk) => { stderr += chunk; });
       child.on('error', (error) => { clearTimeout(timer); reject(error); });
@@ -49,7 +55,7 @@ export async function runDaily({ execute = spawn, lock = acquireLock, timeoutMs 
           const parsed = code === 0 || code === 2 ? JSON.parse(stdout) : null;
           done({ startedAt, finishedAt: new Date().toISOString(), exitCode: code,
             status: parsed?.status ?? 'failed', gate: parsed?.gate ?? null,
-            failedSources: parsed?.failedSources ?? [], error: code !== 0 && code !== 2 ? stderr.slice(-1200) : null });
+            failedSources: parsed?.failedSources ?? [], steps: parsed?.steps ?? [], error: code !== 0 && code !== 2 ? stderr.slice(-1200) : null });
         } catch (error) { reject(error); }
       });
     }); }
@@ -63,6 +69,8 @@ export async function runDaily({ execute = spawn, lock = acquireLock, timeoutMs 
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  runDaily().then((r) => { console.log(JSON.stringify(r)); if (r.exitCode !== 0) process.exitCode = r.exitCode || 1; })
+  if (Number(process.versions.node.split('.')[0]) !== 24) {
+    console.error('OFFICIAL_DAILY_FAILED: NODE_24_REQUIRED'); process.exitCode = 1;
+  } else runDaily({ reuseRecentTmdb: process.argv.includes('--reuse-recent-tmdb') }).then((r) => { console.log(JSON.stringify(r)); if (r.exitCode !== 0) process.exitCode = r.exitCode || 1; })
     .catch((error) => { console.error('OFFICIAL_DAILY_FAILED:', error.message); process.exitCode = 1; });
 }

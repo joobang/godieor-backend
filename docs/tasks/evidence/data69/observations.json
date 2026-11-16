@@ -1,0 +1,188 @@
+{
+  "observedDateKst": "2026-11-16",
+  "authorObservationNotIndependentApproval": true,
+  "tmdb": {
+    "discoveredWorks": 3305,
+    "total": 1217,
+    "readyForBatchReview": 49,
+    "discoveryComplete": false
+  },
+  "tmdbErrors": 0,
+  "discoveryGaps": [
+    {
+      "kind": "movie",
+      "service": "coupang_play",
+      "providerIds": [],
+      "count": 0,
+      "reason": "provider_not_found"
+    }
+  ],
+  "coupang": {
+    "sourceArticles": 4,
+    "sourceErrors": 0,
+    "rows": [
+      {
+        "title": "마이클",
+        "sourceUrl": "https://news.coupang.com/archives/68499/",
+        "date": "2026-11-13",
+        "seasonNumber": null,
+        "dateSemantics": "platform_release_claim",
+        "matches": [
+          {
+            "type": "movie",
+            "tmdbId": 936075,
+            "distinctCast": 2
+          }
+        ],
+        "holdReasons": [
+          "first_release_not_explicit",
+          "identity_lookup_incomplete"
+        ],
+        "errors": [
+          {
+            "type": "movie",
+            "error": "CAST_LOOKUP_INCOMPLETE"
+          }
+        ]
+      },
+      {
+        "title": "길디드 에이지 시즌 4",
+        "sourceUrl": "https://news.coupang.com/archives/68499/",
+        "date": "2026-11-03",
+        "seasonNumber": 4,
+        "dateSemantics": "platform_schedule_start",
+        "matches": [
+          {
+            "type": "tv",
+            "tmdbId": 81723,
+            "distinctCast": 3
+          }
+        ],
+        "holdReasons": [
+          "first_release_not_explicit"
+        ],
+        "errors": []
+      },
+      {
+        "title": "연애기숙학교 돌싱N모솔",
+        "sourceUrl": "https://news.coupang.com/archives/68499/",
+        "date": "2026-11-03",
+        "seasonNumber": null,
+        "dateSemantics": "platform_schedule_start",
+        "matches": [],
+        "holdReasons": [
+          "first_release_not_explicit",
+          "identity_or_season_unconfirmed"
+        ],
+        "errors": []
+      }
+    ]
+  },
+  "daily": {
+    "startedAt": "2026-11-16T09:09:06.201Z",
+    "finishedAt": "2026-11-16T09:10:56.434Z",
+    "exitCode": 2,
+    "status": "published_with_discovery_gaps",
+    "gate": {
+      "reviewedMappings": 70,
+      "readyUnmapped": [],
+      "officialAndTmdbReady": 49,
+      "discoveryComplete": false,
+      "tmdbErrors": 0
+    },
+    "failedSources": []
+  },
+  "steps": [
+    {
+      "label": "tmdb_changes",
+      "exitCode": 0
+    },
+    {
+      "label": "netflix_official",
+      "exitCode": 0
+    },
+    {
+      "label": "netflix_staging",
+      "exitCode": 0
+    },
+    {
+      "label": "tmdb_recent_snapshot_reused",
+      "exitCode": null
+    },
+    {
+      "label": "tving_official_tmdb",
+      "exitCode": 0
+    },
+    {
+      "label": "tving_staging",
+      "exitCode": 0
+    },
+    {
+      "label": "tving_ads_official",
+      "exitCode": 0
+    },
+    {
+      "label": "tving_ads_staging",
+      "exitCode": 0
+    },
+    {
+      "label": "disney_upcoming_official",
+      "exitCode": 0
+    },
+    {
+      "label": "disney_upcoming_staging",
+      "exitCode": 0
+    },
+    {
+      "label": "coupang_news_official",
+      "exitCode": 0
+    },
+    {
+      "label": "coupang_news_staging",
+      "exitCode": 0
+    },
+    {
+      "label": "coupang_explicit_premiere_review",
+      "exitCode": 2
+    },
+    {
+      "label": "undated_official_tmdb_link",
+      "exitCode": 2
+    },
+    {
+      "label": "auto_review_verified_first_releases",
+      "exitCode": 0
+    },
+    {
+      "label": "complete_reviewed_mappings",
+      "exitCode": 0
+    },
+    {
+      "label": "publish_reviewed",
+      "exitCode": 0
+    }
+  ],
+  "productPreservation": {
+    "events": 70,
+    "beforeHash": "c81de42ed1d365942e11039b10173b90f06caa3ea5f2c09649e9bf0cda77e2be",
+    "afterHash": "c81de42ed1d365942e11039b10173b90f06caa3ea5f2c09649e9bf0cda77e2be",
+    "existingRowsUnchanged": true,
+    "changeCountUnchanged": true,
+    "productPublicationDelta": 0
+  },
+  "tests": {
+    "node": "24.22.3",
+    "passed": 276,
+    "failed": 0,
+    "disposableDb": "synthetic 1 -> 2 -> 2, original event/history preserved",
+    "dbImage": "postgres:16-alpine",
+    "pinnedDbImageUsed": false
+  },
+  "schedule": {
+    "nodeMajor": 24,
+    "localHourKst": 9,
+    "registered": true,
+    "nextMorningExecutionObserved": false
+  },
+  "productPublicationDelta": 0
+}

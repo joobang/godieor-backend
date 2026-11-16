@@ -35,6 +35,8 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     const plist = launchdPlist();
     if (process.argv.includes('--print')) console.log(plist);
     else if (process.argv.includes('--install')) {
+      if (Number(process.versions.node.split('.')[0]) !== 24) throw Error('NODE_24_REQUIRED');
+      if (Intl.DateTimeFormat().resolvedOptions().timeZone !== 'Asia/Seoul') throw Error('LAUNCHD_REQUIRES_KST_SYSTEM_TIMEZONE');
       if (process.platform !== 'darwin') throw Error('MACOS_REQUIRED');
       await mkdir(join(homedir(), 'Library/LaunchAgents'), { recursive: true });
       await writeFile(location, plist, { mode: 0o600 });
