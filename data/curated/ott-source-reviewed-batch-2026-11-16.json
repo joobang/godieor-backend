@@ -1,0 +1,1275 @@
+{
+  "version": 1,
+  "task": "DATA-70",
+  "asOf": "2026-11-16T09:35:50.433Z",
+  "reviewType": "implementer-manual-source-review-not-independent-approval",
+  "referenceInputUsed": false,
+  "existingMappings": 70,
+  "additions": [
+    {
+      "title": "나의 베스트 프렌드",
+      "platform": "netflix",
+      "date": "2026-11-02",
+      "seasonNumber": null,
+      "contentKind": "movie",
+      "candidateId": "ecc57f16716a685b2699e21ce1a24f3fb9107c541cc89612b7744b02651f499a",
+      "revision": "64e3730c547c178db145967f5a3325a65675b8398d39b70ea089841eb04cc2db",
+      "source": "netflix",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "evidenceUrls": [
+        "https://about.netflix.com/ko/new-to-watch",
+        "https://www.netflix.com/kr/title/82046358"
+      ],
+      "sourceHashes": [
+        "4e97697b6bf57d6bb31ebc49dbdf77b9e88624ebe2a07d887afbdaaf30d7846d"
+      ],
+      "officialIdentity": {
+        "videoId": "82046358",
+        "canonicalUrl": "https://www.netflix.com/kr/title/82046358",
+        "requestedUrl": "https://www.netflix.com/kr/title/82046358",
+        "format": "Movie",
+        "firstTitleDate": "2026-11-02"
+      },
+      "rationale": "Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No season number inferred.",
+      "review": {
+        "id": "ecc57f16716a685b2699e21ce1a24f3fb9107c541cc89612b7744b02651f499a",
+        "revision": "64e3730c547c178db145967f5a3325a65675b8398d39b70ea089841eb04cc2db",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "나의 베스트 프렌드",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-02",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-02; https://about.netflix.com/ko/new-to-watch ; https://www.netflix.com/kr/title/82046358; {\"videoId\":\"82046358\",\"canonicalUrl\":\"https://www.netflix.com/kr/title/82046358\",\"requestedUrl\":\"https://www.netflix.com/kr/title/82046358\",\"format\":\"Movie\",\"firstTitleDate\":\"2026-11-02\"}; Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No s"
+      },
+      "mapping": {
+        "candidateId": "ecc57f16716a685b2699e21ce1a24f3fb9107c541cc89612b7744b02651f499a",
+        "revision": "64e3730c547c178db145967f5a3325a65675b8398d39b70ea089841eb04cc2db",
+        "contentKey": "work-000071",
+        "eventKey": "event-000071"
+      }
+    },
+    {
+      "title": "좋은 변호사",
+      "platform": "netflix",
+      "date": "2026-11-09",
+      "seasonNumber": null,
+      "contentKind": "movie",
+      "candidateId": "6dbeb87092f5950f06c1c513cfc8b9684e87e71a894ac81345ae23bb6aae5cb8",
+      "revision": "0563507dd0ab07e79d9e7b519815a3a782f443a733b60b5785469603b87f6346",
+      "source": "netflix",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "evidenceUrls": [
+        "https://about.netflix.com/ko/new-to-watch",
+        "https://www.netflix.com/kr/title/81955038"
+      ],
+      "sourceHashes": [
+        "388ef338704ee0e08c7303c48018eca663b70af5889313239677bce30366e8d6"
+      ],
+      "officialIdentity": {
+        "videoId": "81955038",
+        "canonicalUrl": "https://www.netflix.com/kr/title/81955038",
+        "requestedUrl": "https://www.netflix.com/kr/title/81955038",
+        "format": "Movie",
+        "firstTitleDate": "2026-11-09"
+      },
+      "rationale": "Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No season number inferred.",
+      "review": {
+        "id": "6dbeb87092f5950f06c1c513cfc8b9684e87e71a894ac81345ae23bb6aae5cb8",
+        "revision": "0563507dd0ab07e79d9e7b519815a3a782f443a733b60b5785469603b87f6346",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "좋은 변호사",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-09",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-09; https://about.netflix.com/ko/new-to-watch ; https://www.netflix.com/kr/title/81955038; {\"videoId\":\"81955038\",\"canonicalUrl\":\"https://www.netflix.com/kr/title/81955038\",\"requestedUrl\":\"https://www.netflix.com/kr/title/81955038\",\"format\":\"Movie\",\"firstTitleDate\":\"2026-11-09\"}; Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No s"
+      },
+      "mapping": {
+        "candidateId": "6dbeb87092f5950f06c1c513cfc8b9684e87e71a894ac81345ae23bb6aae5cb8",
+        "revision": "0563507dd0ab07e79d9e7b519815a3a782f443a733b60b5785469603b87f6346",
+        "contentKey": "work-000072",
+        "eventKey": "event-000072"
+      }
+    },
+    {
+      "title": "리처드 애버던",
+      "platform": "netflix",
+      "date": "2026-11-11",
+      "seasonNumber": null,
+      "contentKind": "documentary",
+      "documentaryFormat": "movie",
+      "candidateId": "86b010966c8936e5339122b5dd1abc3713f1c350b93f4ba57aaa61559b2278ad",
+      "revision": "c6fd9dedb0bbfe51173c6b428c4e4150548f8cae91090c7edca4ce1a1bea87da",
+      "source": "netflix",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "evidenceUrls": [
+        "https://about.netflix.com/ko/new-to-watch",
+        "https://www.netflix.com/kr/title/83018004"
+      ],
+      "sourceHashes": [
+        "1c5cea61a6c93260cb90e736825dbd34522da4b23adbae6d66f39549cbe2ea7e"
+      ],
+      "officialIdentity": {
+        "videoId": "83018004",
+        "canonicalUrl": "https://www.netflix.com/kr/title/83018004",
+        "requestedUrl": "https://www.netflix.com/kr/title/83018004",
+        "format": "Movie",
+        "firstTitleDate": "2026-11-11"
+      },
+      "rationale": "Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No season number inferred.",
+      "review": {
+        "id": "86b010966c8936e5339122b5dd1abc3713f1c350b93f4ba57aaa61559b2278ad",
+        "revision": "c6fd9dedb0bbfe51173c6b428c4e4150548f8cae91090c7edca4ce1a1bea87da",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "리처드 애버던",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "documentary",
+        "documentaryFormat": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-11",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-11; https://about.netflix.com/ko/new-to-watch ; https://www.netflix.com/kr/title/83018004; {\"videoId\":\"83018004\",\"canonicalUrl\":\"https://www.netflix.com/kr/title/83018004\",\"requestedUrl\":\"https://www.netflix.com/kr/title/83018004\",\"format\":\"Movie\",\"firstTitleDate\":\"2026-11-11\"}; Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No s"
+      },
+      "mapping": {
+        "candidateId": "86b010966c8936e5339122b5dd1abc3713f1c350b93f4ba57aaa61559b2278ad",
+        "revision": "c6fd9dedb0bbfe51173c6b428c4e4150548f8cae91090c7edca4ce1a1bea87da",
+        "contentKey": "work-000073",
+        "eventKey": "event-000073"
+      }
+    },
+    {
+      "title": "컹크의 색다른 영화 이야기",
+      "platform": "netflix",
+      "date": "2026-11-15",
+      "seasonNumber": null,
+      "contentKind": "original_series",
+      "candidateId": "f64e76159133d48332652bc98ca10f8b314a819fa69bf088a45cff46187faa64",
+      "revision": "e100043edd6963c1e430b9606a2005db8c2036150c7c6b95b5b9a453f1d54943",
+      "source": "netflix",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "evidenceUrls": [
+        "https://about.netflix.com/ko/new-to-watch",
+        "https://www.netflix.com/kr/title/83120594"
+      ],
+      "sourceHashes": [
+        "34f9a2dad3205fd763808cd5229e7fe72918661a0b2e1058640dbd1e757b9aad"
+      ],
+      "officialIdentity": {
+        "videoId": "82171490",
+        "canonicalUrl": "https://www.netflix.com/kr/title/83120594",
+        "requestedUrl": "https://www.netflix.com/kr/title/82171490",
+        "format": "TVSeries",
+        "firstTitleDate": "2026-11-15"
+      },
+      "rationale": "Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No season number inferred.",
+      "review": {
+        "id": "f64e76159133d48332652bc98ca10f8b314a819fa69bf088a45cff46187faa64",
+        "revision": "e100043edd6963c1e430b9606a2005db8c2036150c7c6b95b5b9a453f1d54943",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "컹크의 색다른 영화 이야기",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "original_series",
+        "premiereConfirmed": true,
+        "date": "2026-11-15",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-15; https://about.netflix.com/ko/new-to-watch ; https://www.netflix.com/kr/title/83120594; {\"videoId\":\"82171490\",\"canonicalUrl\":\"https://www.netflix.com/kr/title/83120594\",\"requestedUrl\":\"https://www.netflix.com/kr/title/82171490\",\"format\":\"TVSeries\",\"firstTitleDate\":\"2026-11-15\"}; Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. N"
+      },
+      "mapping": {
+        "candidateId": "f64e76159133d48332652bc98ca10f8b314a819fa69bf088a45cff46187faa64",
+        "revision": "e100043edd6963c1e430b9606a2005db8c2036150c7c6b95b5b9a453f1d54943",
+        "contentKey": "work-000074",
+        "eventKey": "event-000074"
+      }
+    },
+    {
+      "title": "Mike Ward: Modest",
+      "platform": "netflix",
+      "date": "2026-11-17",
+      "seasonNumber": null,
+      "contentKind": "movie",
+      "candidateId": "b2da5cb38dcb99121df480e8fa573a9bd2a43413718eb5bea2703478f7e4c54d",
+      "revision": "4445644427b4da66bd142b308fbded8ea2442ab6e80bcbb1ba4230ebc9d95a26",
+      "source": "netflix",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "evidenceUrls": [
+        "https://about.netflix.com/ko/new-to-watch",
+        "https://www.netflix.com/kr/title/81697863"
+      ],
+      "sourceHashes": [
+        "14e7db9184b1c2815f1287b3c7b095d9c09497f86119ed98ed3f68381f2af4f5"
+      ],
+      "officialIdentity": {
+        "videoId": "81697863",
+        "canonicalUrl": "https://www.netflix.com/kr/title/81697863",
+        "requestedUrl": "https://www.netflix.com/kr/title/81697863",
+        "format": "Movie",
+        "firstTitleDate": "2026-11-17"
+      },
+      "rationale": "Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No season number inferred.",
+      "review": {
+        "id": "b2da5cb38dcb99121df480e8fa573a9bd2a43413718eb5bea2703478f7e4c54d",
+        "revision": "4445644427b4da66bd142b308fbded8ea2442ab6e80bcbb1ba4230ebc9d95a26",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "Mike Ward: Modest",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-17",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-17; https://about.netflix.com/ko/new-to-watch ; https://www.netflix.com/kr/title/81697863; {\"videoId\":\"81697863\",\"canonicalUrl\":\"https://www.netflix.com/kr/title/81697863\",\"requestedUrl\":\"https://www.netflix.com/kr/title/81697863\",\"format\":\"Movie\",\"firstTitleDate\":\"2026-11-17\"}; Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No s"
+      },
+      "mapping": {
+        "candidateId": "b2da5cb38dcb99121df480e8fa573a9bd2a43413718eb5bea2703478f7e4c54d",
+        "revision": "4445644427b4da66bd142b308fbded8ea2442ab6e80bcbb1ba4230ebc9d95a26",
+        "contentKey": "work-000075",
+        "eventKey": "event-000075"
+      }
+    },
+    {
+      "title": "제 아들을 대신하여",
+      "platform": "netflix",
+      "date": "2026-11-20",
+      "seasonNumber": null,
+      "contentKind": "movie",
+      "candidateId": "eb504856d27593bbb4da487918a66bf3f1256f0460f91da1686628559b450c98",
+      "revision": "8b38f98bae5dc5a5860f908d00218eeda8a3904d3f60c24c4cfecd92905e0006",
+      "source": "netflix",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "evidenceUrls": [
+        "https://about.netflix.com/ko/new-to-watch",
+        "https://www.netflix.com/kr/title/81724626"
+      ],
+      "sourceHashes": [
+        "393ab6d97412284743d3bcbfe8de51b9d48bf2c53668b4b0417adb50adb22960"
+      ],
+      "officialIdentity": {
+        "videoId": "81724626",
+        "canonicalUrl": "https://www.netflix.com/kr/title/81724626",
+        "requestedUrl": "https://www.netflix.com/kr/title/81724626",
+        "format": "Movie",
+        "firstTitleDate": "2026-11-20"
+      },
+      "rationale": "Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No season number inferred.",
+      "review": {
+        "id": "eb504856d27593bbb4da487918a66bf3f1256f0460f91da1686628559b450c98",
+        "revision": "8b38f98bae5dc5a5860f908d00218eeda8a3904d3f60c24c4cfecd92905e0006",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "제 아들을 대신하여",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-20",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-20; https://about.netflix.com/ko/new-to-watch ; https://www.netflix.com/kr/title/81724626; {\"videoId\":\"81724626\",\"canonicalUrl\":\"https://www.netflix.com/kr/title/81724626\",\"requestedUrl\":\"https://www.netflix.com/kr/title/81724626\",\"format\":\"Movie\",\"firstTitleDate\":\"2026-11-20\"}; Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No s"
+      },
+      "mapping": {
+        "candidateId": "eb504856d27593bbb4da487918a66bf3f1256f0460f91da1686628559b450c98",
+        "revision": "8b38f98bae5dc5a5860f908d00218eeda8a3904d3f60c24c4cfecd92905e0006",
+        "contentKey": "work-000076",
+        "eventKey": "event-000076"
+      }
+    },
+    {
+      "title": "프라임타임 전도사$",
+      "platform": "netflix",
+      "date": "2026-11-20",
+      "seasonNumber": null,
+      "contentKind": "documentary",
+      "documentaryFormat": "movie",
+      "candidateId": "6a5e00a535e4a14a0946567cd1c8da53a066b3db7b54f733598e637373d979ad",
+      "revision": "ac8e7eb6697eca0e22960c96fcb7cfabb6aef6b1fbadefc3a47040f503a37e55",
+      "source": "netflix",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "evidenceUrls": [
+        "https://about.netflix.com/ko/new-to-watch",
+        "https://www.netflix.com/kr/title/81774139"
+      ],
+      "sourceHashes": [
+        "c907d52e9dcab83a1c09eb9951bfe34f8583f2ab4d1c950331e4854a2d3b2192"
+      ],
+      "officialIdentity": {
+        "videoId": "81774139",
+        "canonicalUrl": "https://www.netflix.com/kr/title/81774139",
+        "requestedUrl": "https://www.netflix.com/kr/title/81774139",
+        "format": "Movie",
+        "firstTitleDate": "2026-11-20"
+      },
+      "rationale": "Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No season number inferred.",
+      "review": {
+        "id": "6a5e00a535e4a14a0946567cd1c8da53a066b3db7b54f733598e637373d979ad",
+        "revision": "ac8e7eb6697eca0e22960c96fcb7cfabb6aef6b1fbadefc3a47040f503a37e55",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "프라임타임 전도사$",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "documentary",
+        "documentaryFormat": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-20",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-20; https://about.netflix.com/ko/new-to-watch ; https://www.netflix.com/kr/title/81774139; {\"videoId\":\"81774139\",\"canonicalUrl\":\"https://www.netflix.com/kr/title/81774139\",\"requestedUrl\":\"https://www.netflix.com/kr/title/81774139\",\"format\":\"Movie\",\"firstTitleDate\":\"2026-11-20\"}; Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No s"
+      },
+      "mapping": {
+        "candidateId": "6a5e00a535e4a14a0946567cd1c8da53a066b3db7b54f733598e637373d979ad",
+        "revision": "ac8e7eb6697eca0e22960c96fcb7cfabb6aef6b1fbadefc3a47040f503a37e55",
+        "contentKey": "work-000077",
+        "eventKey": "event-000077"
+      }
+    },
+    {
+      "title": "모스키토 볼: 전장의 마지막 터치다운",
+      "platform": "netflix",
+      "date": "2026-11-25",
+      "seasonNumber": null,
+      "contentKind": "movie",
+      "candidateId": "86d169a04c51eae06887365a6142bde95a06d280987b0996809dfb96caa1668a",
+      "revision": "2d26356bf2e643b49d7d54fe02630f4e796437823eb4d823bf5f8a10cc737b6f",
+      "source": "netflix",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "evidenceUrls": [
+        "https://about.netflix.com/ko/new-to-watch",
+        "https://www.netflix.com/kr/title/81661161"
+      ],
+      "sourceHashes": [
+        "14115d74b43e5b5af2763d98bb22eee027ee285fe49225b5f895d8bc8bab90be"
+      ],
+      "officialIdentity": {
+        "videoId": "81661161",
+        "canonicalUrl": "https://www.netflix.com/kr/title/81661161",
+        "requestedUrl": "https://www.netflix.com/kr/title/81661161",
+        "format": "Movie",
+        "firstTitleDate": "2026-11-25"
+      },
+      "rationale": "Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No season number inferred.",
+      "review": {
+        "id": "86d169a04c51eae06887365a6142bde95a06d280987b0996809dfb96caa1668a",
+        "revision": "2d26356bf2e643b49d7d54fe02630f4e796437823eb4d823bf5f8a10cc737b6f",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "모스키토 볼: 전장의 마지막 터치다운",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-25",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-25; https://about.netflix.com/ko/new-to-watch ; https://www.netflix.com/kr/title/81661161; {\"videoId\":\"81661161\",\"canonicalUrl\":\"https://www.netflix.com/kr/title/81661161\",\"requestedUrl\":\"https://www.netflix.com/kr/title/81661161\",\"format\":\"Movie\",\"firstTitleDate\":\"2026-11-25\"}; Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No s"
+      },
+      "mapping": {
+        "candidateId": "86d169a04c51eae06887365a6142bde95a06d280987b0996809dfb96caa1668a",
+        "revision": "2d26356bf2e643b49d7d54fe02630f4e796437823eb4d823bf5f8a10cc737b6f",
+        "contentKey": "work-000078",
+        "eventKey": "event-000078"
+      }
+    },
+    {
+      "title": "마지막 주문을 받습니다",
+      "platform": "netflix",
+      "date": "2026-11-24",
+      "seasonNumber": null,
+      "contentKind": "documentary",
+      "documentaryFormat": "movie",
+      "candidateId": "1225e97b99755202919790e5385d817eb30a93b6be38e8f0a51d3ad63a6e60fb",
+      "revision": "9fb8e68f3f641e7102e41f142a3da4cbb3317fdec8ae4e4d27c7b37c28ff9d2a",
+      "source": "netflix",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "evidenceUrls": [
+        "https://about.netflix.com/ko/new-to-watch",
+        "https://www.netflix.com/kr/title/82980714"
+      ],
+      "sourceHashes": [
+        "63e90faeb71fc5e293cf108cbadb66194c46be4e878c8e22260950e5020d24c8"
+      ],
+      "officialIdentity": {
+        "videoId": "82980714",
+        "canonicalUrl": "https://www.netflix.com/kr/title/82980714",
+        "requestedUrl": "https://www.netflix.com/kr/title/82980714",
+        "format": "Movie",
+        "firstTitleDate": "2026-11-24"
+      },
+      "rationale": "Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No season number inferred.",
+      "review": {
+        "id": "1225e97b99755202919790e5385d817eb30a93b6be38e8f0a51d3ad63a6e60fb",
+        "revision": "9fb8e68f3f641e7102e41f142a3da4cbb3317fdec8ae4e4d27c7b37c28ff9d2a",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "마지막 주문을 받습니다",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "documentary",
+        "documentaryFormat": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-24",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-24; https://about.netflix.com/ko/new-to-watch ; https://www.netflix.com/kr/title/82980714; {\"videoId\":\"82980714\",\"canonicalUrl\":\"https://www.netflix.com/kr/title/82980714\",\"requestedUrl\":\"https://www.netflix.com/kr/title/82980714\",\"format\":\"Movie\",\"firstTitleDate\":\"2026-11-24\"}; Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No s"
+      },
+      "mapping": {
+        "candidateId": "1225e97b99755202919790e5385d817eb30a93b6be38e8f0a51d3ad63a6e60fb",
+        "revision": "9fb8e68f3f641e7102e41f142a3da4cbb3317fdec8ae4e4d27c7b37c28ff9d2a",
+        "contentKey": "work-000079",
+        "eventKey": "event-000079"
+      }
+    },
+    {
+      "title": "네이트 바가치: 이 정도면 잘했지",
+      "platform": "netflix",
+      "date": "2026-11-24",
+      "seasonNumber": null,
+      "contentKind": "movie",
+      "candidateId": "93632c5597a475d8a09a9a0d4a0bb4200776586eb03a45c0a5d14eacb26c8af6",
+      "revision": "043c612594bed37622e75b85136293e15b6b2989e9aff9b9796d915debbc4d3a",
+      "source": "netflix",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "evidenceUrls": [
+        "https://about.netflix.com/ko/new-to-watch",
+        "https://www.netflix.com/kr/title/81735281"
+      ],
+      "sourceHashes": [
+        "d7cf192b252eb204d6268899cc21b73ff4cdff565e93d248ec573a03693decc3"
+      ],
+      "officialIdentity": {
+        "videoId": "81735281",
+        "canonicalUrl": "https://www.netflix.com/kr/title/81735281",
+        "requestedUrl": "https://www.netflix.com/kr/title/81735281",
+        "format": "Movie",
+        "firstTitleDate": "2026-11-24"
+      },
+      "rationale": "Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No season number inferred.",
+      "review": {
+        "id": "93632c5597a475d8a09a9a0d4a0bb4200776586eb03a45c0a5d14eacb26c8af6",
+        "revision": "043c612594bed37622e75b85136293e15b6b2989e9aff9b9796d915debbc4d3a",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "네이트 바가치: 이 정도면 잘했지",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-24",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-24; https://about.netflix.com/ko/new-to-watch ; https://www.netflix.com/kr/title/81735281; {\"videoId\":\"81735281\",\"canonicalUrl\":\"https://www.netflix.com/kr/title/81735281\",\"requestedUrl\":\"https://www.netflix.com/kr/title/81735281\",\"format\":\"Movie\",\"firstTitleDate\":\"2026-11-24\"}; Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No s"
+      },
+      "mapping": {
+        "candidateId": "93632c5597a475d8a09a9a0d4a0bb4200776586eb03a45c0a5d14eacb26c8af6",
+        "revision": "043c612594bed37622e75b85136293e15b6b2989e9aff9b9796d915debbc4d3a",
+        "contentKey": "work-000080",
+        "eventKey": "event-000080"
+      }
+    },
+    {
+      "title": "러셀 브랜드: 모른 척했던 비밀",
+      "platform": "netflix",
+      "date": "2026-11-13",
+      "seasonNumber": null,
+      "contentKind": "documentary",
+      "documentaryFormat": "movie",
+      "candidateId": "4522132f64adfe0fea724e100f1d8faa23dd54f1449fc21a5ec00a295d7aff94",
+      "revision": "e3a5409987212121a709857eff86092bb25f6cc3671a2bb3fe590641940b68de",
+      "source": "netflix",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "evidenceUrls": [
+        "https://about.netflix.com/ko/new-to-watch",
+        "https://www.netflix.com/kr/title/81746457"
+      ],
+      "sourceHashes": [
+        "88c1d127d25935de5ef2bc479576b7d484692dd2c619a1d522a7ddc9c014a7c8"
+      ],
+      "officialIdentity": {
+        "videoId": "81746457",
+        "canonicalUrl": "https://www.netflix.com/kr/title/81746457",
+        "requestedUrl": "https://www.netflix.com/kr/title/81746457",
+        "format": "Movie",
+        "firstTitleDate": "2026-11-13"
+      },
+      "rationale": "Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No season number inferred.",
+      "review": {
+        "id": "4522132f64adfe0fea724e100f1d8faa23dd54f1449fc21a5ec00a295d7aff94",
+        "revision": "e3a5409987212121a709857eff86092bb25f6cc3671a2bb3fe590641940b68de",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "러셀 브랜드: 모른 척했던 비밀",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "documentary",
+        "documentaryFormat": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-13",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-13; https://about.netflix.com/ko/new-to-watch ; https://www.netflix.com/kr/title/81746457; {\"videoId\":\"81746457\",\"canonicalUrl\":\"https://www.netflix.com/kr/title/81746457\",\"requestedUrl\":\"https://www.netflix.com/kr/title/81746457\",\"format\":\"Movie\",\"firstTitleDate\":\"2026-11-13\"}; Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No s"
+      },
+      "mapping": {
+        "candidateId": "4522132f64adfe0fea724e100f1d8faa23dd54f1449fc21a5ec00a295d7aff94",
+        "revision": "e3a5409987212121a709857eff86092bb25f6cc3671a2bb3fe590641940b68de",
+        "contentKey": "work-000081",
+        "eventKey": "event-000081"
+      }
+    },
+    {
+      "title": "그 아이",
+      "platform": "netflix",
+      "date": "2026-11-27",
+      "seasonNumber": null,
+      "contentKind": "movie",
+      "candidateId": "385892d918f804c1c8013fa4a39ed7032c655ebc96feb430ea0a56478f23570c",
+      "revision": "f2cfd2d8a5a21b670243fd0a70a91a627a829005ccf92525942b2a6639080127",
+      "source": "netflix",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "evidenceUrls": [
+        "https://about.netflix.com/ko/new-to-watch",
+        "https://www.netflix.com/kr/title/81780038"
+      ],
+      "sourceHashes": [
+        "ec3de1b5287781350facb506c09ce22a9f7ac3a21fb38c6ca6c054421170ba4d"
+      ],
+      "officialIdentity": {
+        "videoId": "81780038",
+        "canonicalUrl": "https://www.netflix.com/kr/title/81780038",
+        "requestedUrl": "https://www.netflix.com/kr/title/81780038",
+        "format": "Movie",
+        "firstTitleDate": "2026-11-27"
+      },
+      "rationale": "Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No season number inferred.",
+      "review": {
+        "id": "385892d918f804c1c8013fa4a39ed7032c655ebc96feb430ea0a56478f23570c",
+        "revision": "f2cfd2d8a5a21b670243fd0a70a91a627a829005ccf92525942b2a6639080127",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "그 아이",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-27",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-27; https://about.netflix.com/ko/new-to-watch ; https://www.netflix.com/kr/title/81780038; {\"videoId\":\"81780038\",\"canonicalUrl\":\"https://www.netflix.com/kr/title/81780038\",\"requestedUrl\":\"https://www.netflix.com/kr/title/81780038\",\"format\":\"Movie\",\"firstTitleDate\":\"2026-11-27\"}; Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No s"
+      },
+      "mapping": {
+        "candidateId": "385892d918f804c1c8013fa4a39ed7032c655ebc96feb430ea0a56478f23570c",
+        "revision": "f2cfd2d8a5a21b670243fd0a70a91a627a829005ccf92525942b2a6639080127",
+        "contentKey": "work-000082",
+        "eventKey": "event-000082"
+      }
+    },
+    {
+      "title": "필리핀의 크리스마스 선물",
+      "platform": "netflix",
+      "date": "2026-11-26",
+      "seasonNumber": null,
+      "contentKind": "drama",
+      "candidateId": "e7a32980a1167f9f9b86e030fc65b775f92db85c5fc20bd05a58b2691972af0b",
+      "revision": "5b5bd2d9a77af17cb50290afc610f4f505bb7da2ae40d4a0dd6d8a146464f20b",
+      "source": "netflix",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "evidenceUrls": [
+        "https://about.netflix.com/ko/new-to-watch",
+        "https://www.netflix.com/kr/title/82044873"
+      ],
+      "sourceHashes": [
+        "20d82f908b748d088d60ef285ed39b3932f45271bb9fc2a57eeef2d880394a09"
+      ],
+      "officialIdentity": {
+        "videoId": "82044874",
+        "canonicalUrl": "https://www.netflix.com/kr/title/82044873",
+        "requestedUrl": "https://www.netflix.com/kr/title/82044874",
+        "format": "TVSeries",
+        "firstTitleDate": "2026-11-26"
+      },
+      "rationale": "Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No season number inferred.",
+      "review": {
+        "id": "e7a32980a1167f9f9b86e030fc65b775f92db85c5fc20bd05a58b2691972af0b",
+        "revision": "5b5bd2d9a77af17cb50290afc610f4f505bb7da2ae40d4a0dd6d8a146464f20b",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "필리핀의 크리스마스 선물",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-26",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-26; https://about.netflix.com/ko/new-to-watch ; https://www.netflix.com/kr/title/82044873; {\"videoId\":\"82044874\",\"canonicalUrl\":\"https://www.netflix.com/kr/title/82044873\",\"requestedUrl\":\"https://www.netflix.com/kr/title/82044874\",\"format\":\"TVSeries\",\"firstTitleDate\":\"2026-11-26\"}; Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. N"
+      },
+      "mapping": {
+        "candidateId": "e7a32980a1167f9f9b86e030fc65b775f92db85c5fc20bd05a58b2691972af0b",
+        "revision": "5b5bd2d9a77af17cb50290afc610f4f505bb7da2ae40d4a0dd6d8a146464f20b",
+        "contentKey": "work-000083",
+        "eventKey": "event-000083"
+      }
+    },
+    {
+      "title": "The Tupac Tapes with Angie Martinez",
+      "platform": "netflix",
+      "date": "2026-11-27",
+      "seasonNumber": null,
+      "contentKind": "original_series",
+      "candidateId": "7624e1350767558d93245fd926ef3496f963e77c469d6433760aa088cc7aa9cc",
+      "revision": "2a0e78c010bf5229e696d6802a2e84c6e457e677bd58f7be7d42c484789ae22b",
+      "source": "netflix",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "evidenceUrls": [
+        "https://about.netflix.com/ko/new-to-watch",
+        "https://www.netflix.com/kr/title/83102680"
+      ],
+      "sourceHashes": [
+        "7b54e8fb870c5dd5ca03a50064122ed178f5507c0f0fd25df5479f2403b974e1"
+      ],
+      "officialIdentity": {
+        "videoId": "83102681",
+        "canonicalUrl": "https://www.netflix.com/kr/title/83102680",
+        "requestedUrl": "https://www.netflix.com/kr/title/83102681",
+        "format": "TVSeries",
+        "firstTitleDate": "2026-11-27"
+      },
+      "rationale": "Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. No season number inferred.",
+      "review": {
+        "id": "7624e1350767558d93245fd926ef3496f963e77c469d6433760aa088cc7aa9cc",
+        "revision": "2a0e78c010bf5229e696d6802a2e84c6e457e677bd58f7be7d42c484789ae22b",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "The Tupac Tapes with Angie Martinez",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "original_series",
+        "premiereConfirmed": true,
+        "date": "2026-11-27",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-27; https://about.netflix.com/ko/new-to-watch ; https://www.netflix.com/kr/title/83102680; {\"videoId\":\"83102681\",\"canonicalUrl\":\"https://www.netflix.com/kr/title/83102680\",\"requestedUrl\":\"https://www.netflix.com/kr/title/83102681\",\"format\":\"TVSeries\",\"firstTitleDate\":\"2026-11-27\"}; Author review: KR first-party schedule and same-work official first-title date agree; typed Netflix title identity, including explicit redirect, verified. N"
+      },
+      "mapping": {
+        "candidateId": "7624e1350767558d93245fd926ef3496f963e77c469d6433760aa088cc7aa9cc",
+        "revision": "2a0e78c010bf5229e696d6802a2e84c6e457e677bd58f7be7d42c484789ae22b",
+        "contentKey": "work-000084",
+        "eventKey": "event-000084"
+      }
+    },
+    {
+      "title": "미키의 나 홀로 집에",
+      "platform": "disney_plus",
+      "date": "2026-11-27",
+      "seasonNumber": null,
+      "contentKind": "animation",
+      "animationFormat": "movie",
+      "source": "disney",
+      "sourceUrl": "https://www.disneyplus.com/ko-kr/browse/entity-f43cd3b1-6dff-42e3-b02b-ee9b720bf29c",
+      "evidenceUrls": [
+        "https://www.disneyplus.com/ko-kr/browse/entity-f43cd3b1-6dff-42e3-b02b-ee9b720bf29c"
+      ],
+      "sourceHashes": [
+        "547948be7c2a5c66b1fc36c862752678dc2252d3d7a03db61de34d5f25fccbe1"
+      ],
+      "officialIdentity": {
+        "entity": "entity-f43cd3b1-6dff-42e3-b02b-ee9b720bf29c",
+        "format": "Movie",
+        "promotion": "2026년 11월 27일, 디즈니+에서 공개",
+        "isReplayTitle": false
+      },
+      "rationale": "Author review: KR/ko entity page explicit platform release promotion and Movie/TVSeries metadata, replay=false. Season retained only when explicitly stated; catalogue season counts not used.",
+      "candidateId": "1c0e209fdfb102fb26aa5710abd12e6fa53fc8ae5f491fdb405b1d1734c59d08",
+      "revision": "90a5333005b9de8dbfce4c1e87572289f6d62e3a4eff5025b68bd6bb2dc4e96d",
+      "review": {
+        "id": "1c0e209fdfb102fb26aa5710abd12e6fa53fc8ae5f491fdb405b1d1734c59d08",
+        "revision": "90a5333005b9de8dbfce4c1e87572289f6d62e3a4eff5025b68bd6bb2dc4e96d",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "미키의 나 홀로 집에",
+        "platform": "disney_plus",
+        "market": "KR",
+        "contentKind": "animation",
+        "animationFormat": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-27",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-27; https://www.disneyplus.com/ko-kr/browse/entity-f43cd3b1-6dff-42e3-b02b-ee9b720bf29c; {\"entity\":\"entity-f43cd3b1-6dff-42e3-b02b-ee9b720bf29c\",\"format\":\"Movie\",\"promotion\":\"2026년 11월 27일, 디즈니+에서 공개\",\"isReplayTitle\":false}; Author review: KR/ko entity page explicit platform release promotion and Movie/TVSeries metadata, replay=false. Season retained only when explicitly stated; catalogue season counts not used."
+      },
+      "mapping": {
+        "candidateId": "1c0e209fdfb102fb26aa5710abd12e6fa53fc8ae5f491fdb405b1d1734c59d08",
+        "revision": "90a5333005b9de8dbfce4c1e87572289f6d62e3a4eff5025b68bd6bb2dc4e96d",
+        "contentKey": "work-000085",
+        "eventKey": "event-000085"
+      }
+    },
+    {
+      "title": "아소카",
+      "platform": "disney_plus",
+      "date": "2027-01-20",
+      "seasonNumber": 2,
+      "contentKind": "original_series",
+      "source": "disney",
+      "sourceUrl": "https://www.disneyplus.com/ko-kr/browse/entity-e64c22fc-fc7c-4ada-bbec-ab8351b8db97",
+      "evidenceUrls": [
+        "https://www.disneyplus.com/ko-kr/browse/entity-e64c22fc-fc7c-4ada-bbec-ab8351b8db97"
+      ],
+      "sourceHashes": [
+        "20a5c4547c7206f2ea5230b4689b39dbc84df8283e982235677f3006c71e6e5f"
+      ],
+      "officialIdentity": {
+        "entity": "entity-e64c22fc-fc7c-4ada-bbec-ab8351b8db97",
+        "format": "TVSeries",
+        "promotion": "2027년 1월 20일, 디즈니+에서 시즌 2 공개",
+        "isReplayTitle": false
+      },
+      "rationale": "Author review: KR/ko entity page explicit platform release promotion and Movie/TVSeries metadata, replay=false. Season retained only when explicitly stated; catalogue season counts not used.",
+      "candidateId": "016de0b9b1552fa5def8dac8110e48f2b2c0276685e014a9e0be255992ad027a",
+      "revision": "7599e1f09834254fae1ab47edc53c81a672723af12f4bda8ff3eedad72ca6cac",
+      "review": {
+        "id": "016de0b9b1552fa5def8dac8110e48f2b2c0276685e014a9e0be255992ad027a",
+        "revision": "7599e1f09834254fae1ab47edc53c81a672723af12f4bda8ff3eedad72ca6cac",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "아소카",
+        "platform": "disney_plus",
+        "market": "KR",
+        "contentKind": "original_series",
+        "premiereConfirmed": true,
+        "date": "2027-01-20",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 2,
+        "announcedYear": 2027,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2027-01-20; https://www.disneyplus.com/ko-kr/browse/entity-e64c22fc-fc7c-4ada-bbec-ab8351b8db97; {\"entity\":\"entity-e64c22fc-fc7c-4ada-bbec-ab8351b8db97\",\"format\":\"TVSeries\",\"promotion\":\"2027년 1월 20일, 디즈니+에서 시즌 2 공개\",\"isReplayTitle\":false}; Author review: KR/ko entity page explicit platform release promotion and Movie/TVSeries metadata, replay=false. Season retained only when explicitly stated; catalogue season counts not used."
+      },
+      "mapping": {
+        "candidateId": "016de0b9b1552fa5def8dac8110e48f2b2c0276685e014a9e0be255992ad027a",
+        "revision": "7599e1f09834254fae1ab47edc53c81a672723af12f4bda8ff3eedad72ca6cac",
+        "contentKey": "work-000086",
+        "eventKey": "event-000086"
+      }
+    },
+    {
+      "title": "윔피 키드: 아찔한 휴가 일기",
+      "platform": "disney_plus",
+      "date": "2026-12-04",
+      "seasonNumber": null,
+      "contentKind": "animation",
+      "animationFormat": "movie",
+      "source": "disney",
+      "sourceUrl": "https://www.disneyplus.com/ko-kr/browse/entity-d31d78db-8489-424f-99b1-cc3640ede23c",
+      "evidenceUrls": [
+        "https://www.disneyplus.com/ko-kr/browse/entity-d31d78db-8489-424f-99b1-cc3640ede23c"
+      ],
+      "sourceHashes": [
+        "a9b86d1001575b73cdf7422c0248dbc96e7a516997e359ca8256e714772ec30d"
+      ],
+      "officialIdentity": {
+        "entity": "entity-d31d78db-8489-424f-99b1-cc3640ede23c",
+        "format": "Movie",
+        "promotion": "2026년 12월 4일, 디즈니+에서 공개",
+        "isReplayTitle": false
+      },
+      "rationale": "Author review: KR/ko entity page explicit platform release promotion and Movie/TVSeries metadata, replay=false. Season retained only when explicitly stated; catalogue season counts not used.",
+      "candidateId": "d3189b96432c61a6d9068b3bc420e2e976d2da7d2c0220492930bc8b3efb3f92",
+      "revision": "1f8520595b6c54a2812fb8ea9fe2d8505d22606916b64fc93add8749d5d5b17c",
+      "review": {
+        "id": "d3189b96432c61a6d9068b3bc420e2e976d2da7d2c0220492930bc8b3efb3f92",
+        "revision": "1f8520595b6c54a2812fb8ea9fe2d8505d22606916b64fc93add8749d5d5b17c",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "윔피 키드: 아찔한 휴가 일기",
+        "platform": "disney_plus",
+        "market": "KR",
+        "contentKind": "animation",
+        "animationFormat": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-12-04",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-12-04; https://www.disneyplus.com/ko-kr/browse/entity-d31d78db-8489-424f-99b1-cc3640ede23c; {\"entity\":\"entity-d31d78db-8489-424f-99b1-cc3640ede23c\",\"format\":\"Movie\",\"promotion\":\"2026년 12월 4일, 디즈니+에서 공개\",\"isReplayTitle\":false}; Author review: KR/ko entity page explicit platform release promotion and Movie/TVSeries metadata, replay=false. Season retained only when explicitly stated; catalogue season counts not used."
+      },
+      "mapping": {
+        "candidateId": "d3189b96432c61a6d9068b3bc420e2e976d2da7d2c0220492930bc8b3efb3f92",
+        "revision": "1f8520595b6c54a2812fb8ea9fe2d8505d22606916b64fc93add8749d5d5b17c",
+        "contentKey": "work-000087",
+        "eventKey": "event-000087"
+      }
+    },
+    {
+      "title": "디즈니 트위스티드 원더랜드: 애니메이션 - 에피소드 오브 사바나클로",
+      "platform": "disney_plus",
+      "date": "2026-12-23",
+      "seasonNumber": null,
+      "contentKind": "animation",
+      "animationFormat": "series",
+      "source": "disney",
+      "sourceUrl": "https://www.disneyplus.com/ko-kr/browse/entity-f81ee1cb-3794-4631-a8ff-adcf2c10e1f5",
+      "evidenceUrls": [
+        "https://www.disneyplus.com/ko-kr/browse/entity-f81ee1cb-3794-4631-a8ff-adcf2c10e1f5"
+      ],
+      "sourceHashes": [
+        "200888d94d2d533015bea72c434bac8d7986bd695d93599b410e450790d6392b"
+      ],
+      "officialIdentity": {
+        "entity": "entity-f81ee1cb-3794-4631-a8ff-adcf2c10e1f5",
+        "format": "TVSeries",
+        "promotion": "2026년 12월 23일, 디즈니+에서 공개",
+        "isReplayTitle": false
+      },
+      "rationale": "Author review: KR/ko entity page explicit platform release promotion and Movie/TVSeries metadata, replay=false. Season retained only when explicitly stated; catalogue season counts not used.",
+      "candidateId": "91a525a36e8016a99079a6bfc65feb56e2cfcbf3e703a2f6b2b2c1bead3580df",
+      "revision": "9e89fa6a5e97fc80bce0ab37607e5c0573b1b67e5f456419981ae39382c6bc92",
+      "review": {
+        "id": "91a525a36e8016a99079a6bfc65feb56e2cfcbf3e703a2f6b2b2c1bead3580df",
+        "revision": "9e89fa6a5e97fc80bce0ab37607e5c0573b1b67e5f456419981ae39382c6bc92",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "디즈니 트위스티드 원더랜드: 애니메이션 - 에피소드 오브 사바나클로",
+        "platform": "disney_plus",
+        "market": "KR",
+        "contentKind": "animation",
+        "animationFormat": "series",
+        "premiereConfirmed": true,
+        "date": "2026-12-23",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-12-23; https://www.disneyplus.com/ko-kr/browse/entity-f81ee1cb-3794-4631-a8ff-adcf2c10e1f5; {\"entity\":\"entity-f81ee1cb-3794-4631-a8ff-adcf2c10e1f5\",\"format\":\"TVSeries\",\"promotion\":\"2026년 12월 23일, 디즈니+에서 공개\",\"isReplayTitle\":false}; Author review: KR/ko entity page explicit platform release promotion and Movie/TVSeries metadata, replay=false. Season retained only when explicitly stated; catalogue season counts not used."
+      },
+      "mapping": {
+        "candidateId": "91a525a36e8016a99079a6bfc65feb56e2cfcbf3e703a2f6b2b2c1bead3580df",
+        "revision": "9e89fa6a5e97fc80bce0ab37607e5c0573b1b67e5f456419981ae39382c6bc92",
+        "contentKey": "work-000088",
+        "eventKey": "event-000088"
+      }
+    },
+    {
+      "title": "가금채",
+      "platform": "tving",
+      "date": "2026-11-18",
+      "seasonNumber": null,
+      "contentKind": "drama",
+      "candidateId": "cab00cac445a466d2da9cee903107cb2073cdc60b887cd30432662da3a7fe68b",
+      "revision": "d2689b5a1e7645a670b54e39feecf9a2ffab903fadad71deb024a066af7ea9c4",
+      "source": "tving",
+      "sourceUrl": "https://www.tving.com/contents/P001794057",
+      "evidenceUrls": [
+        "https://www.tving.com/contents/P001794057",
+        "https://www.tving.com/"
+      ],
+      "sourceHashes": [
+        "f401012e0cd0b95d9ccd5cfe63913c65f73b5ae0c05e8ef98857012fbc943ee0"
+      ],
+      "officialIdentity": {
+        "programCode": "P001794057",
+        "openText": "11월 18일 공개",
+        "yearContext": "2026",
+        "actors": [
+          "톈시웨이",
+          "펜타곤"
+        ]
+      },
+      "rationale": "Author review: official upcoming programme, stable P programme identity, explicit platform openText and programme year. Broad_dt day is not used; no external TMDB identity or season is invented.",
+      "review": {
+        "id": "cab00cac445a466d2da9cee903107cb2073cdc60b887cd30432662da3a7fe68b",
+        "revision": "d2689b5a1e7645a670b54e39feecf9a2ffab903fadad71deb024a066af7ea9c4",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "가금채",
+        "platform": "tving",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-18",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-18; https://www.tving.com/contents/P001794057 ; https://www.tving.com/; {\"programCode\":\"P001794057\",\"openText\":\"11월 18일 공개\",\"yearContext\":\"2026\",\"actors\":[\"톈시웨이\",\"펜타곤\"]}; Author review: official upcoming programme, stable P programme identity, explicit platform openText and programme year. Broad_dt day is not used; no external TMDB identity or season is invented."
+      },
+      "mapping": {
+        "candidateId": "cab00cac445a466d2da9cee903107cb2073cdc60b887cd30432662da3a7fe68b",
+        "revision": "d2689b5a1e7645a670b54e39feecf9a2ffab903fadad71deb024a066af7ea9c4",
+        "contentKey": "work-000089",
+        "eventKey": "event-000089"
+      }
+    },
+    {
+      "title": "아불시대사: 꾼들의 전쟁",
+      "platform": "tving",
+      "date": "2026-11-21",
+      "seasonNumber": null,
+      "contentKind": "drama",
+      "candidateId": "ada0ba77e9d4ba96a01eeb2513e908b2752d324a48c9783d6a6325192a30db38",
+      "revision": "acf6b4f17f3cce5d3f6cfa0050dccaf464fcbf54f94b91807638fb2f4485ba9d",
+      "source": "tving",
+      "sourceUrl": "https://www.tving.com/contents/P001794297",
+      "evidenceUrls": [
+        "https://www.tving.com/contents/P001794297",
+        "https://www.tving.com/"
+      ],
+      "sourceHashes": [
+        "36b0fcf7ed5da8b918458c8d8d0dbc2adf3af26df62765ae3ff2c00c0c7d8610"
+      ],
+      "officialIdentity": {
+        "programCode": "P001794297",
+        "openText": "11월 21일 공개",
+        "yearContext": "2026",
+        "actors": [
+          "리셴",
+          "리이퉁",
+          "류관린",
+          "우강",
+          "궈징린"
+        ]
+      },
+      "rationale": "Author review: official upcoming programme, stable P programme identity, explicit platform openText and programme year. Broad_dt day is not used; no external TMDB identity or season is invented.",
+      "review": {
+        "id": "ada0ba77e9d4ba96a01eeb2513e908b2752d324a48c9783d6a6325192a30db38",
+        "revision": "acf6b4f17f3cce5d3f6cfa0050dccaf464fcbf54f94b91807638fb2f4485ba9d",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "아불시대사: 꾼들의 전쟁",
+        "platform": "tving",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-21",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-21; https://www.tving.com/contents/P001794297 ; https://www.tving.com/; {\"programCode\":\"P001794297\",\"openText\":\"11월 21일 공개\",\"yearContext\":\"2026\",\"actors\":[\"리셴\",\"리이퉁\",\"류관린\",\"우강\",\"궈징린\"]}; Author review: official upcoming programme, stable P programme identity, explicit platform openText and programme year. Broad_dt day is not used; no external TMDB identity or season is invented."
+      },
+      "mapping": {
+        "candidateId": "ada0ba77e9d4ba96a01eeb2513e908b2752d324a48c9783d6a6325192a30db38",
+        "revision": "acf6b4f17f3cce5d3f6cfa0050dccaf464fcbf54f94b91807638fb2f4485ba9d",
+        "contentKey": "work-000090",
+        "eventKey": "event-000090"
+      }
+    },
+    {
+      "title": "마이클",
+      "platform": "coupang_play",
+      "date": "2026-11-13",
+      "seasonNumber": null,
+      "contentKind": "movie",
+      "candidateId": "56d9fead641305896d6d3b9ee3b40623b3e0e753bebb96798660921dd9e492e4",
+      "revision": "bd85c32cf16245cc5e1090b1d05760e61ea5d3eb9750528dd37a1dfdc4d8e34f",
+      "source": "coupang",
+      "sourceUrl": "https://news.coupang.com/archives/68499/",
+      "evidenceUrls": [
+        "https://news.coupang.com/archives/68499/"
+      ],
+      "sourceHashes": [
+        "343a446d0e4316dce062ed03c60faea436630990f95c6b54f9d80291ab7ff7f3"
+      ],
+      "officialIdentity": {
+        "article": "68499",
+        "releaseText": "11월 13일(금) 공개",
+        "sourceTitle": "마이클",
+        "tmdbType": "movie",
+        "tmdbId": 936075,
+        "globalDate": "2026-04-22"
+      },
+      "rationale": "Author reviewed official newly-added/exclusive movie section and exact KR platform date. Director Antoine Fuqua and Jafar Jackson distinguish 2026 Michael from 1996/2011 namesakes. Theatrical April date not copied.",
+      "review": {
+        "id": "56d9fead641305896d6d3b9ee3b40623b3e0e753bebb96798660921dd9e492e4",
+        "revision": "bd85c32cf16245cc5e1090b1d05760e61ea5d3eb9750528dd37a1dfdc4d8e34f",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "마이클",
+        "platform": "coupang_play",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-13",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-13; https://news.coupang.com/archives/68499/; {\"article\":\"68499\",\"releaseText\":\"11월 13일(금) 공개\",\"sourceTitle\":\"마이클\",\"tmdbType\":\"movie\",\"tmdbId\":936075,\"globalDate\":\"2026-04-22\"}; Author reviewed official newly-added/exclusive movie section and exact KR platform date. Director Antoine Fuqua and Jafar Jackson distinguish 2026 Michael from 1996/2011 namesakes. Theatrical April date not copied."
+      },
+      "mapping": {
+        "candidateId": "56d9fead641305896d6d3b9ee3b40623b3e0e753bebb96798660921dd9e492e4",
+        "revision": "bd85c32cf16245cc5e1090b1d05760e61ea5d3eb9750528dd37a1dfdc4d8e34f",
+        "contentKey": "work-000091",
+        "eventKey": "event-000091"
+      }
+    },
+    {
+      "title": "길디드 에이지",
+      "platform": "coupang_play",
+      "date": "2026-11-03",
+      "seasonNumber": 4,
+      "contentKind": "original_series",
+      "candidateId": "ca70e03d41cd4dcf2f70073ba4ff00a0feaa0a841b4d52c768c5103574c86302",
+      "revision": "2b1d861d0ff841f7c911e850d5533eb1b6b9ba9138b760ed6387f6fcb08eefe8",
+      "source": "coupang",
+      "sourceUrl": "https://news.coupang.com/archives/68499/",
+      "evidenceUrls": [
+        "https://news.coupang.com/archives/68499/"
+      ],
+      "sourceHashes": [
+        "343a446d0e4316dce062ed03c60faea436630990f95c6b54f9d80291ab7ff7f3"
+      ],
+      "officialIdentity": {
+        "article": "68499",
+        "releaseText": "11월 3일(화)부터 매주 화요일 저녁 8시",
+        "sourceTitle": "길디드 에이지 시즌 4",
+        "tmdbType": "tv",
+        "tmdbId": 81723,
+        "globalDate": "2026-11-01"
+      },
+      "rationale": "Author reviewed official newly-added programme section with dated schedule start. Season 4 stated in title / cohort 2 explicitly stated in own work section, with cast and TMDB season check. Global air date does not override KR platform date.",
+      "review": {
+        "id": "ca70e03d41cd4dcf2f70073ba4ff00a0feaa0a841b4d52c768c5103574c86302",
+        "revision": "2b1d861d0ff841f7c911e850d5533eb1b6b9ba9138b760ed6387f6fcb08eefe8",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "길디드 에이지",
+        "platform": "coupang_play",
+        "market": "KR",
+        "contentKind": "original_series",
+        "premiereConfirmed": true,
+        "date": "2026-11-03",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 4,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-03; https://news.coupang.com/archives/68499/; {\"article\":\"68499\",\"releaseText\":\"11월 3일(화)부터 매주 화요일 저녁 8시\",\"sourceTitle\":\"길디드 에이지 시즌 4\",\"tmdbType\":\"tv\",\"tmdbId\":81723,\"globalDate\":\"2026-11-01\"}; Author reviewed official newly-added programme section with dated schedule start. Season 4 stated in title / cohort 2 explicitly stated in own work section, with cast and TMDB season check. Global air date does not override KR platform date."
+      },
+      "mapping": {
+        "candidateId": "ca70e03d41cd4dcf2f70073ba4ff00a0feaa0a841b4d52c768c5103574c86302",
+        "revision": "2b1d861d0ff841f7c911e850d5533eb1b6b9ba9138b760ed6387f6fcb08eefe8",
+        "contentKey": "work-000092",
+        "eventKey": "event-000092"
+      }
+    },
+    {
+      "title": "연애기숙학교 돌싱N모솔",
+      "platform": "coupang_play",
+      "date": "2026-11-03",
+      "seasonNumber": 2,
+      "contentKind": "variety",
+      "candidateId": "9e2ec46c375ce3b9ba4925efd73d7ba0ef07d1385242ee15af68002122dc97b0",
+      "revision": "ac2a43f0a5001cac3de54688491b58d50cb54fc645d9cd9fd409b2b359b25093",
+      "source": "coupang",
+      "sourceUrl": "https://news.coupang.com/archives/68499/",
+      "evidenceUrls": [
+        "https://news.coupang.com/archives/68499/"
+      ],
+      "sourceHashes": [
+        "343a446d0e4316dce062ed03c60faea436630990f95c6b54f9d80291ab7ff7f3"
+      ],
+      "officialIdentity": {
+        "article": "68499",
+        "releaseText": "11월 3일(화)부터 매주 화요일 밤 11시 55분",
+        "sourceTitle": "연애기숙학교 돌싱N모솔",
+        "tmdbType": "tv",
+        "tmdbId": 319744,
+        "globalDate": "2026-11-03"
+      },
+      "rationale": "Author reviewed official newly-added programme section with dated schedule start. Season 4 stated in title / cohort 2 explicitly stated in own work section, with cast and TMDB season check. Global air date does not override KR platform date.",
+      "review": {
+        "id": "9e2ec46c375ce3b9ba4925efd73d7ba0ef07d1385242ee15af68002122dc97b0",
+        "revision": "ac2a43f0a5001cac3de54688491b58d50cb54fc645d9cd9fd409b2b359b25093",
+        "reviewer": "GODIEOR DATA-70 author source review 2026-11-16",
+        "title": "연애기숙학교 돌싱N모솔",
+        "platform": "coupang_play",
+        "market": "KR",
+        "contentKind": "variety",
+        "premiereConfirmed": true,
+        "date": "2026-11-03",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 2,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-03; https://news.coupang.com/archives/68499/; {\"article\":\"68499\",\"releaseText\":\"11월 3일(화)부터 매주 화요일 밤 11시 55분\",\"sourceTitle\":\"연애기숙학교 돌싱N모솔\",\"tmdbType\":\"tv\",\"tmdbId\":319744,\"globalDate\":\"2026-11-03\"}; Author reviewed official newly-added programme section with dated schedule start. Season 4 stated in title / cohort 2 explicitly stated in own work section, with cast and TMDB season check. Global air date does not override KR platform date"
+      },
+      "mapping": {
+        "candidateId": "9e2ec46c375ce3b9ba4925efd73d7ba0ef07d1385242ee15af68002122dc97b0",
+        "revision": "ac2a43f0a5001cac3de54688491b58d50cb54fc645d9cd9fd409b2b359b25093",
+        "contentKey": "work-000093",
+        "eventKey": "event-000093"
+      }
+    }
+  ],
+  "held": [
+    {
+      "title": "가능한 사랑",
+      "reason": "existing_reviewed_event",
+      "platform": "netflix"
+    },
+    {
+      "title": "이런, 북극!",
+      "reason": "first_title_date_or_identity_not_confirmed",
+      "dateHint": "2026-11-05",
+      "firstTitleDate": "2025-04-10"
+    },
+    {
+      "title": "우당탕탕 공룡들",
+      "reason": "first_title_date_or_identity_not_confirmed",
+      "dateHint": "2026-11-11",
+      "firstTitleDate": null
+    },
+    {
+      "title": "데블스 플랜",
+      "reason": "first_title_date_or_identity_not_confirmed",
+      "dateHint": "2026-11-10",
+      "firstTitleDate": "2023-09-26"
+    },
+    {
+      "title": "푸른길",
+      "reason": "existing_reviewed_event",
+      "platform": "netflix"
+    },
+    {
+      "title": "세서미 스트리트",
+      "reason": "first_title_date_or_identity_not_confirmed",
+      "dateHint": "2026-11-23",
+      "firstTitleDate": "2025-11-10"
+    },
+    {
+      "title": "비엔나 게임",
+      "reason": "existing_reviewed_event",
+      "platform": "disney_plus"
+    },
+    {
+      "title": "퍼시 잭슨과 올림포스의 신들",
+      "reason": "existing_reviewed_event",
+      "platform": "disney_plus"
+    },
+    {
+      "title": "현혹",
+      "platform": "disney_plus",
+      "reason": "exact_first_party_promotion_missing_or_replay",
+      "promotion": "디즈니+에서 공개 예정"
+    },
+    {
+      "title": "라이어",
+      "platform": "disney_plus",
+      "reason": "exact_first_party_promotion_missing_or_replay",
+      "promotion": null
+    },
+    {
+      "title": "재혼황후",
+      "platform": "disney_plus",
+      "reason": "exact_first_party_promotion_missing_or_replay",
+      "promotion": null
+    },
+    {
+      "title": "파이널 테이블",
+      "platform": "disney_plus",
+      "reason": "exact_first_party_promotion_missing_or_replay",
+      "promotion": null
+    },
+    {
+      "title": "스타일 워즈",
+      "platform": "disney_plus",
+      "reason": "exact_first_party_promotion_missing_or_replay",
+      "promotion": null
+    },
+    {
+      "title": "그레이 아나토미",
+      "platform": "disney_plus",
+      "reason": "exact_first_party_promotion_missing_or_replay",
+      "promotion": null
+    },
+    {
+      "title": "9-1-1: 내슈빌",
+      "platform": "disney_plus",
+      "reason": "exact_first_party_promotion_missing_or_replay",
+      "promotion": null
+    },
+    {
+      "title": "9-1-1",
+      "platform": "disney_plus",
+      "reason": "exact_first_party_promotion_missing_or_replay",
+      "promotion": null
+    },
+    {
+      "title": "키드냅 게임",
+      "platform": "disney_plus",
+      "reason": "exact_first_party_promotion_missing_or_replay",
+      "promotion": null
+    },
+    {
+      "title": "올즈 페어: 여신의 재판",
+      "platform": "disney_plus",
+      "reason": "exact_first_party_promotion_missing_or_replay",
+      "promotion": null
+    },
+    {
+      "title": "도그 스타: 마지막 희망",
+      "platform": "disney_plus",
+      "reason": "exact_first_party_promotion_missing_or_replay",
+      "promotion": "극장 개봉작 예고편 공개"
+    },
+    {
+      "title": "전현무계획",
+      "platform": "disney_plus",
+      "reason": "exact_first_party_promotion_missing_or_replay",
+      "promotion": null
+    },
+    {
+      "title": "슈퍼 트루퍼스 3",
+      "platform": "disney_plus",
+      "reason": "exact_first_party_promotion_missing_or_replay",
+      "promotion": null
+    }
+  ],
+  "existingCanonicalUnchanged": true
+}

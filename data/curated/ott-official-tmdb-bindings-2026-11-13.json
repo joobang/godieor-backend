@@ -852,6 +852,57 @@
       "bindingReviewedAsOf": "2026-11-16",
       "sourceFreshnessNote": "작성자 검토 기준일. 자동 원문 재조회 결과와 구분.",
       "reviewCandidateId": "f77eafc57b70f9a37a6a1f1e6059a4199a272d257fc54cca0a40dded1fc86f0c"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 936075,
+      "seasonNumber": null,
+      "platform": "coupang_play",
+      "market": "KR",
+      "date": "2026-11-13",
+      "title": "마이클",
+      "sourceUrl": "https://news.coupang.com/archives/68499/",
+      "identityVerified": true,
+      "premiereConfirmed": true,
+      "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-13; https://news.coupang.com/archives/68499/; {\"article\":\"68499\",\"releaseText\":\"11월 13일(금) 공개\",\"sourceTitle\":\"마이클\",\"tmdbType\":\"movie\",\"tmdbId\":936075,\"globalDate\":\"2026-04-22\"}; Author reviewed official newly-added/exclusive movie section and exact KR platform date. Director Antoine Fuqua and Jafar Jackson distinguish 2026 Michael from 1996/2011 namesakes. Theatrical April date not copied.",
+      "bindingSource": "data/curated/ott-source-reviewed-batch-2026-11-16.json",
+      "bindingReviewedAsOf": "2026-11-16",
+      "sourceFreshnessNote": "DATA-70 author review with actual official source; not independent approval or automatic refresh.",
+      "reviewCandidateId": "56d9fead641305896d6d3b9ee3b40623b3e0e753bebb96798660921dd9e492e4"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 81723,
+      "seasonNumber": 4,
+      "platform": "coupang_play",
+      "market": "KR",
+      "date": "2026-11-03",
+      "title": "길디드 에이지",
+      "sourceUrl": "https://news.coupang.com/archives/68499/",
+      "identityVerified": true,
+      "premiereConfirmed": true,
+      "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-03; https://news.coupang.com/archives/68499/; {\"article\":\"68499\",\"releaseText\":\"11월 3일(화)부터 매주 화요일 저녁 8시\",\"sourceTitle\":\"길디드 에이지 시즌 4\",\"tmdbType\":\"tv\",\"tmdbId\":81723,\"globalDate\":\"2026-11-01\"}; Author reviewed official newly-added programme section with dated schedule start. Season 4 stated in title / cohort 2 explicitly stated in own work section, with cast and TMDB season check. Global air date does not override KR platform date.",
+      "bindingSource": "data/curated/ott-source-reviewed-batch-2026-11-16.json",
+      "bindingReviewedAsOf": "2026-11-16",
+      "sourceFreshnessNote": "DATA-70 author review with actual official source; not independent approval or automatic refresh.",
+      "reviewCandidateId": "ca70e03d41cd4dcf2f70073ba4ff00a0feaa0a841b4d52c768c5103574c86302"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 319744,
+      "seasonNumber": 2,
+      "platform": "coupang_play",
+      "market": "KR",
+      "date": "2026-11-03",
+      "title": "연애기숙학교 돌싱N모솔",
+      "sourceUrl": "https://news.coupang.com/archives/68499/",
+      "identityVerified": true,
+      "premiereConfirmed": true,
+      "evidence": "DATA70 author-reviewed official KR platform premiere 2026-11-03; https://news.coupang.com/archives/68499/; {\"article\":\"68499\",\"releaseText\":\"11월 3일(화)부터 매주 화요일 밤 11시 55분\",\"sourceTitle\":\"연애기숙학교 돌싱N모솔\",\"tmdbType\":\"tv\",\"tmdbId\":319744,\"globalDate\":\"2026-11-03\"}; Author reviewed official newly-added programme section with dated schedule start. Season 4 stated in title / cohort 2 explicitly stated in own work section, with cast and TMDB season check. Global air date does not override KR platform date",
+      "bindingSource": "data/curated/ott-source-reviewed-batch-2026-11-16.json",
+      "bindingReviewedAsOf": "2026-11-16",
+      "sourceFreshnessNote": "DATA-70 author review with actual official source; not independent approval or automatic refresh.",
+      "reviewCandidateId": "9e2ec46c375ce3b9ba4925efd73d7ba0ef07d1385242ee15af68002122dc97b0"
     }
   ]
 }

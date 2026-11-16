@@ -1,0 +1,171 @@
+{
+  "scope": "author local SQL and temporary HTTP observations, not independent approval",
+  "totalEvents": 93,
+  "newEvents": 23,
+  "old70FullRowsIDsAndHistoryUnchanged": true,
+  "httpStatus": 200,
+  "repeatNoChanges": false,
+  "checked": [
+    {
+      "id": "118ac385-3b63-46c0-ae7b-8f63e1036172",
+      "title": "나의 베스트 프렌드",
+      "date": "2026-11-02",
+      "platform": "netflix",
+      "season": null
+    },
+    {
+      "id": "081ea882-c9bb-4d3a-9732-f96027f64257",
+      "title": "좋은 변호사",
+      "date": "2026-11-09",
+      "platform": "netflix",
+      "season": null
+    },
+    {
+      "id": "fac0b4ec-4338-4511-8619-5e777fd7222d",
+      "title": "리처드 애버던",
+      "date": "2026-11-11",
+      "platform": "netflix",
+      "season": null
+    },
+    {
+      "id": "1cb4c922-c0b6-4635-8f79-9f61d8da05f8",
+      "title": "컹크의 색다른 영화 이야기",
+      "date": "2026-11-15",
+      "platform": "netflix",
+      "season": null
+    },
+    {
+      "id": "2090c58d-db9d-42d4-abe2-bf18946ad729",
+      "title": "Mike Ward: Modest",
+      "date": "2026-11-17",
+      "platform": "netflix",
+      "season": null
+    },
+    {
+      "id": "3360581f-7270-4055-ab34-4aa4c9bfd9c2",
+      "title": "제 아들을 대신하여",
+      "date": "2026-11-20",
+      "platform": "netflix",
+      "season": null
+    },
+    {
+      "id": "1b403283-707e-4d85-a8a3-f4c1e626d00d",
+      "title": "프라임타임 전도사$",
+      "date": "2026-11-20",
+      "platform": "netflix",
+      "season": null
+    },
+    {
+      "id": "df9a4498-a61b-49bf-a5f9-3b182a9698a7",
+      "title": "모스키토 볼: 전장의 마지막 터치다운",
+      "date": "2026-11-25",
+      "platform": "netflix",
+      "season": null
+    },
+    {
+      "id": "bfd8137a-4f5d-442b-9470-b30208815d5a",
+      "title": "마지막 주문을 받습니다",
+      "date": "2026-11-24",
+      "platform": "netflix",
+      "season": null
+    },
+    {
+      "id": "fc8ec1d8-2a2b-442f-8e3c-4f0bc1f0dcbc",
+      "title": "네이트 바가치: 이 정도면 잘했지",
+      "date": "2026-11-24",
+      "platform": "netflix",
+      "season": null
+    },
+    {
+      "id": "109afb07-c892-4e72-aabc-cfc241c16853",
+      "title": "러셀 브랜드: 모른 척했던 비밀",
+      "date": "2026-11-13",
+      "platform": "netflix",
+      "season": null
+    },
+    {
+      "id": "d67f0252-7021-4017-8f52-7fbf01499bc9",
+      "title": "그 아이",
+      "date": "2026-11-27",
+      "platform": "netflix",
+      "season": null
+    },
+    {
+      "id": "86d9e2db-3881-4b70-8b43-9da2c714a608",
+      "title": "필리핀의 크리스마스 선물",
+      "date": "2026-11-26",
+      "platform": "netflix",
+      "season": null
+    },
+    {
+      "id": "5b5a1b96-515e-42bc-a47a-b4fa9eac07ce",
+      "title": "The Tupac Tapes with Angie Martinez",
+      "date": "2026-11-27",
+      "platform": "netflix",
+      "season": null
+    },
+    {
+      "id": "8f88d6a6-b9c6-45cd-b040-bd854a4dde9d",
+      "title": "미키의 나 홀로 집에",
+      "date": "2026-11-27",
+      "platform": "disney_plus",
+      "season": null
+    },
+    {
+      "id": "2324a714-c026-4061-9858-4f94ac7fb3ca",
+      "title": "아소카",
+      "date": "2027-01-20",
+      "platform": "disney_plus",
+      "season": 2
+    },
+    {
+      "id": "fbdfe3c7-3c29-4ca9-82d9-8d06df67654b",
+      "title": "윔피 키드: 아찔한 휴가 일기",
+      "date": "2026-12-04",
+      "platform": "disney_plus",
+      "season": null
+    },
+    {
+      "id": "87475108-081d-456c-bf34-81ed88ae89e5",
+      "title": "디즈니 트위스티드 원더랜드: 애니메이션 - 에피소드 오브 사바나클로",
+      "date": "2026-12-23",
+      "platform": "disney_plus",
+      "season": null
+    },
+    {
+      "id": "6940d13e-6daa-434b-914e-31f90fa34154",
+      "title": "가금채",
+      "date": "2026-11-18",
+      "platform": "tving",
+      "season": null
+    },
+    {
+      "id": "5fc4e2d0-7fd8-4616-8d12-390fe66ff551",
+      "title": "아불시대사: 꾼들의 전쟁",
+      "date": "2026-11-21",
+      "platform": "tving",
+      "season": null
+    },
+    {
+      "id": "87f69bac-b188-4e37-b2c4-ca428573dc81",
+      "title": "마이클",
+      "date": "2026-11-13",
+      "platform": "coupang_play",
+      "season": null
+    },
+    {
+      "id": "e8205f6e-322c-4240-a6c6-ad1db405df4d",
+      "title": "길디드 에이지",
+      "date": "2026-11-03",
+      "platform": "coupang_play",
+      "season": 4
+    },
+    {
+      "id": "e466f130-96a0-4e8b-a4da-1021a3903c83",
+      "title": "연애기숙학교 돌싱N모솔",
+      "date": "2026-11-03",
+      "platform": "coupang_play",
+      "season": 2
+    }
+  ]
+}

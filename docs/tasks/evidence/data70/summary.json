@@ -1,0 +1,20 @@
+{
+  "scope": "author SQL/API checks, not independent approval",
+  "before": 70,
+  "new": 23,
+  "after": 93,
+  "byPlatform": {
+    "netflix": 14,
+    "disney_plus": 4,
+    "tving": 2,
+    "coupang_play": 3
+  },
+  "unknownSeasonPreserved": 20,
+  "sourceOnlyIdentitiesRetained": 20,
+  "independentVerdictChanged": false,
+  "testPassed": 276,
+  "testFailed": 0,
+  "apiInitialProbe": "400 for unsupported >62-day range; corrected to contract-compliant windows, all 23 detail checks passed",
+  "pipelineCodeChanges": false,
+  "repeatNewEvents": 0
+}
