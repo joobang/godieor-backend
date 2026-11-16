@@ -1,3 +1,12 @@
+## DATA-69 · 신규 첫 공개 근거 연결·일간 실행 결과 확정 (2026-11-16)
+
+- 원본 backend `docs/tasks/DATA-69-new-premiere-evidence.md`, 구현 `1e5fcf4db7141a798541682d4fdbc261508b6b43`, ADR-022/LEARN-0021. 이번 작업에서 StreamPick parity는 완료 기준 제외.
+- 이전 실제 TMDB 전수 실행 완주를 관측: 3,305작품/1,217후보/49검토준비/요청오류0. Coupang 영화 provider 미등재로 discoveryComplete=false는 남는다.
+- 쿠팡 공식 기사에서 작품별 날짜·시즌·출연진을 보존하고, 명시 첫 공개+고유 TMDB/2인 출연진·TV 명시 시즌/첫 회 검증이면 기존 curated binding 없이 검토→고정 키→게시 경로로 연결한다. 현재 실제 날짜 주장3은 전부 보류(첫 공개 명시 없음/정체성·시즌 부족), 신규 실게시0.
+- Node24.22.3 영속 경로로 KST09시 LaunchAgent 재등록(Node20 설정 수정), 일간 수동실행 exit2/기존70게시. 단계별 결과 저장·타임아웃 수집 후손 종료 지원. 다음날 자동기동 미관측.
+- 자체검사276/276. 가상 신규 근거→일회용PostgreSQL 1→2→2/기존행·이력/날짜만 보존 검사 성공(로컬 postgres:16-alpine, 고정digest 아님). 실제 기존70행 hash·변경이력 보존 확인. 독립runner/리뷰·폰/클라우드 미실행, 계약/migration/acceptance·verdict 불변.
+- 다음은 실제 신규 첫 공개 공식 문구·고유 시즌 근거 확대→신규 DB 게시 실측. Netflix/TVING/Disney+ 신규 첫날의 일반 자동확정은 미완료다. 상세 원본/판정 보류 사유는 작업 카드와 evidence/data69. 개인 pbxproj 보존·담당 해제, 공통 revision DATA-69-2026-11-16.
+
 ## DATA-67 · 공식 OTT 통합 실행 실패 격리 인계 (2026-11-16)
 
 - backend 원본 `docs/tasks/DATA-67-source-failure-isolation.md`. 수집원 실패 시 나머지 OTT 진행, 실패 원천 staging 생략, TMDB 만료 명시. 실제 Netflix78/TVING11/Ads6/Disney16/Coupang41, reviewed 70건 로컬 DB 게시. StreamPick 52행 정확26·날짜차이2·미게시24, 신규 확정·게시0. DB parity 미달, 전체 파이프라인 미완료.
@@ -474,6 +483,7 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 ## DATA-64 · TVING Ads 공식 보충 소스 연결 (2026-11-16)
 
 - backend 원본 `docs/tasks/DATA-64-tvingads-pipeline-integration.md`: 통합 파이프라인에 TVING/Wavve Ads 6건 수집·후보 staging 연결, 첫 공개 자동 확정은 금지. Netflix 78건·TVING 11건·Ads 6건 실제 수집 후 기존 reviewed70 로컬 DB 재게시. StreamPick 최초공개 기준 정확26/52, 날짜차이2, 미게시24(신규 게시0). 최근 TMDB 1215행 스냅샷 재사용 결과이며 discoveryComplete=false. Node179/179 통과, 독립 검증/클라우드 미실행. 갱신 revision DATA-64-2026-11-16.
+
 ## DATA-68 · 공식 OTT 일간 실행 인계 (2026-11-16)
 
 - backend `docs/tasks/DATA-68-ott-daily-orchestration.md`가 원본. StreamPick 26/52 비교는 완료 기준에서 제외. 일간 공식 수집·TMDB 후보·검증 review·DB 게시·launchd 스케줄 연결, 전체 268/268·회귀 10/10.

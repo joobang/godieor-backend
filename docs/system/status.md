@@ -1,3 +1,12 @@
+## DATA-69 · 신규 첫 공개 근거 연결·일간 실행 결과 확정 (2026-11-16)
+
+- 원본 backend `docs/tasks/DATA-69-new-premiere-evidence.md`, 구현 `1e5fcf4db7141a798541682d4fdbc261508b6b43`, ADR-022/LEARN-0021. 이번 작업에서 StreamPick parity는 완료 기준 제외.
+- 이전 실제 TMDB 전수 실행 완주를 관측: 3,305작품/1,217후보/49검토준비/요청오류0. Coupang 영화 provider 미등재로 discoveryComplete=false는 남는다.
+- 쿠팡 공식 기사에서 작품별 날짜·시즌·출연진을 보존하고, 명시 첫 공개+고유 TMDB/2인 출연진·TV 명시 시즌/첫 회 검증이면 기존 curated binding 없이 검토→고정 키→게시 경로로 연결한다. 현재 실제 날짜 주장3은 전부 보류(첫 공개 명시 없음/정체성·시즌 부족), 신규 실게시0.
+- Node24.22.3 영속 경로로 KST09시 LaunchAgent 재등록(Node20 설정 수정), 일간 수동실행 exit2/기존70게시. 단계별 결과 저장·타임아웃 수집 후손 종료 지원. 다음날 자동기동 미관측.
+- 자체검사276/276. 가상 신규 근거→일회용PostgreSQL 1→2→2/기존행·이력/날짜만 보존 검사 성공(로컬 postgres:16-alpine, 고정digest 아님). 실제 기존70행 hash·변경이력 보존 확인. 독립runner/리뷰·폰/클라우드 미실행, 계약/migration/acceptance·verdict 불변.
+- 다음은 실제 신규 첫 공개 공식 문구·고유 시즌 근거 확대→신규 DB 게시 실측. Netflix/TVING/Disney+ 신규 첫날의 일반 자동확정은 미완료다. 상세 원본/판정 보류 사유는 작업 카드와 evidence/data69. 개인 pbxproj 보존·담당 해제, 공통 revision DATA-69-2026-11-16.
+
 ## DATA-67 · OTT 원천 실패 격리와 실제 DB 게시 감사 (2026-11-16)
 
 - backend 원본 `docs/tasks/DATA-67-source-failure-isolation.md`. Netflix/TMDB 원천 오류가 모든 OTT 수집을 종료시키는 경로를 격리하고 `failedSources`/단계별 상태를 남긴다. 공식 일정·TMDB 검증 없는 신규 첫날 자동 승인은 여전히 금지.
@@ -482,9 +491,10 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 ## DATA-64 · TVING Ads 공식 보충 소스 연결 (2026-11-16)
 
 - backend 원본 `docs/tasks/DATA-64-tvingads-pipeline-integration.md`: 통합 파이프라인에 TVING/Wavve Ads 6건 수집·후보 staging 연결, 첫 공개 자동 확정은 금지. Netflix 78건·TVING 11건·Ads 6건 실제 수집 후 기존 reviewed70 로컬 DB 재게시. StreamPick 최초공개 기준 정확26/52, 날짜차이2, 미게시24(신규 게시0). 최근 TMDB 1215행 스냅샷 재사용 결과이며 discoveryComplete=false. Node179/179 통과, 독립 검증/클라우드 미실행. 갱신 revision DATA-64-2026-11-16.
+
 ## DATA-68 · 공식 OTT 자동 파이프라인 (2026-11-16)
 
-- 사용자 결정: StreamPick 26/52는 이번 완료 게이트에서 제외. 공식 4 OTT 발견 → TMDB 변경분/월별 검색 → 검증된 첫날 review → 고정 매핑 → PostgreSQL 게시 → 매일 09:00 KST launchd 경로 구현. 원본 `docs/tasks/DATA-68-ott-daily-orchestration.md`.
+- 사용자 결정: StreamPick 26/52는 이번 완료 게이트에서 제외. 공식 4 OTT 발견 → TMDB 변경분/월별 검색 → 검증된 첫날 review → 고정 매핑 → PostgreSQL 게시 → 매일 09:00 KST launchd 경로 구현. 원본 backend `docs/tasks/DATA-68-ott-daily-orchestration.md`.
 - 전체 268/268 통과, 회귀 10/10. 최초 실연계 기존 reviewed70 게시, 새 첫날0, TMDB writer_locked로 discovery 미완료(exit2); 새 작품 자동 게시 완료를 주장하지 않는다.
 - StreamPick은 선택적 사후 감사. 미확정 신규 작품은 검토 후보로 남긴다. app 개인 signing 보존, API/migration/verifier 승인 불변, 독립 runner/클라우드/폰 미실행. revision DATA-68-2026-11-16.
 
