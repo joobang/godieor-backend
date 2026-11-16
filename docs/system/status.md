@@ -1,3 +1,8 @@
+## DATA-66 · Disney+/Coupang 공식 작품 발견·TMDB 식별 연결 (2026-11-16)
+
+- backend 원본 `docs/tasks/DATA-66-undated-official-tmdb-link.md`. Disney+ 공식 예정작/쿠팡플레이 뉴스 추천작 수집을 통합 파이프라인에 연결하고 날짜 없는 한국 공식 작품도 TMDB 한글 제목 단일·복수·미발견·검색 미완료로 식별한다. 공식 원문에 한국 OTT 첫날이 없으면 TMDB 전역 날짜로 채우지 않는다.
+- 초기 라이브 수집 Disney+18, Coupang41(59개), TMDB 식별 힌트33/복수14/미발견11/미완료1. Disney+ 스페셜 룩 카드 오분류를 후속 수정. 검증 당시 260/260 자체 테스트 통과, DB 첫날 비교 26/52(날짜차이2·미게시24); 결과 52/52 달성 아님. 독립 승인 미실행. revision DATA-66-2026-11-16.
+
 ## DATA-65 · TMDB Changes API 실연계 (2026-11-16)
 
 - backend 원본 `docs/tasks/DATA-65-tmdb-incremental-change-sync.md`. 실제 일간 TMDB 변경분 2,564 ID 조회·체크포인트 저장 성공, 기존 후보 70 ID 교차, 통합 파이프라인에 실행 단계 추가. Node 전체 253/253 통과. 공식 OTT 신규 수집·한국 첫날 자동확정·신규 DB 게시·일정 스케줄러·StreamPick 미게시24 해소는 미완료. 이전 26/52 수치 갱신 아님. revision DATA-65-2026-11-16.

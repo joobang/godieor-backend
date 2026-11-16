@@ -66,6 +66,8 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, run
     const netflix = join(temporary, 'netflix.json');
     const tving = join(temporary, 'tving.json');
     const tvingAds = join(temporary, 'tving-ads.json');
+    const disney = join(temporary, 'disney.json');
+    const coupang = join(temporary, 'coupang.json');
     await step('tmdb_changes', ['--env-file=.env', 'scripts/sync-tmdb-changes.mjs']);
     await step('netflix_official', ['scripts/collect-netflix-kr-schedule.mjs', netflix]);
     await step('netflix_staging', ['scripts/bridge-netflix-lineup.mjs', netflix]);
@@ -89,6 +91,16 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, run
     // review queue; they cannot independently establish a TVING KR premiere.
     const adsExit = await step('tving_ads_official', ['scripts/collect-tvingads-kr-lineup.mjs', tvingAds], [0, 1]);
     if (adsExit === 0) await step('tving_ads_staging', ['scripts/stage-ott-lineup.mjs', tvingAds, 'work/ott-lineups']);
+    const disneyExit = await step('disney_upcoming_official', ['scripts/collect-disneyplus-kr-lineup.mjs', disney], [0, 1]);
+    if (disneyExit === 0) await step('disney_upcoming_staging', ['scripts/stage-ott-lineup.mjs', disney, 'work/ott-lineups']);
+    const coupangExit = await step('coupang_news_official', ['scripts/collect-coupangplay-kr-lineup.mjs', coupang], [0, 1]);
+    if (coupangExit === 0) await step('coupang_news_staging', ['scripts/stage-ott-lineup.mjs', coupang, 'work/ott-lineups']);
+    // Persist identity leads for title-only official listings. No release dates are invented.
+    let undatedLinkExit = disneyExit === 0 && coupangExit === 0 ? 0 : 2;
+    if (disneyExit === 0 && coupangExit === 0) {
+      undatedLinkExit = await step('undated_official_tmdb_link', ['--env-file=.env', 'scripts/link-undated-official-tmdb.mjs',
+        'work/ott-lineups/tmdb-identity-review.json', disney, coupang], [0, 2]);
+    }
     // Assign opaque keys to newly reviewed source candidates before reading the
     // publication snapshot. Unreviewed TMDB hints remain outside publication.
     await step('complete_reviewed_mappings', ['scripts/complete-reviewed-mappings.mjs']);
@@ -103,7 +115,7 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, run
     if (publish) await step('publish_reviewed', ['--env-file=.env', 'dist/src/cli/publish-reviewed.js', '--file', mappings]);
     const audit = publish ? await auditRun(['--env-file=.env', 'scripts/audit-current-first-premieres.mjs']) : null;
     return {
-      status: tvingExit !== 0 || adsExit !== 0 || !gate.discoveryComplete || gate.tmdbErrors || gate.readyUnmapped.length || (audit && !audit.parity)
+      status: tvingExit !== 0 || adsExit !== 0 || disneyExit !== 0 || coupangExit !== 0 || undatedLinkExit !== 0 || !gate.discoveryComplete || gate.tmdbErrors || gate.readyUnmapped.length || (audit && !audit.parity)
         ? 'published_with_discovery_gaps' : publish ? 'published_and_audited' : 'validated_without_publish',
       gate, steps, published: publish, audit: audit && { referenceRows: audit.referenceRows,
         exactMatches: audit.exactMatches, unresolved: audit.unresolved, statusCounts: audit.statusCounts,

@@ -33,9 +33,12 @@ test('pipeline preserves reviewed publications and reports incomplete TMDB cover
   });
   assert.equal(result.status, 'published_with_discovery_gaps');
   assert.equal(result.published, true);
-  assert.equal(commands.length, 10);
+  assert.equal(commands.length, 15);
   assert.equal(commands.some((args) => args.includes('scripts/sync-tmdb-changes.mjs')), true);
   assert.equal(commands.some((args) => args.includes('scripts/collect-tvingads-kr-lineup.mjs')), true);
+  assert.equal(commands.some((args) => args.includes('scripts/collect-disneyplus-kr-lineup.mjs')), true);
+  assert.equal(commands.some((args) => args.includes('scripts/collect-coupangplay-kr-lineup.mjs')), true);
+  assert.equal(commands.some((args) => args.includes('scripts/link-undated-official-tmdb.mjs')), true);
   assert.equal(commands.some((args) => args.includes('scripts/stage-ott-lineup.mjs')), true);
   assert.equal(commands.some((args) => args.includes('scripts/complete-reviewed-mappings.mjs')), true);
   assert.equal(commands.some((args) => args.some((arg) => arg.endsWith('/publish-reviewed.js'))), true);
@@ -57,8 +60,24 @@ test('Ads fetch failure leaves existing publications intact and does not stage p
     read: async (path) => JSON.stringify(input.get(path)),
   });
   assert.equal(result.status, 'published_with_discovery_gaps');
-  assert.equal(commands.some((args) => args.includes('scripts/stage-ott-lineup.mjs')), false);
+  assert.equal(commands.filter((args) => args.includes('scripts/stage-ott-lineup.mjs')).length, 2);
   assert.equal(commands.some((args) => args.some((arg) => arg.endsWith('/publish-reviewed.js'))), true);
+});
+
+test('Disney+ failure is reported without staging its partial results', async () => {
+  const input = new Map(await Promise.all([
+    'work/ott-candidates/state.json', 'data/curated/ott-reviewed-mappings.json',
+    'work/tmdb-release-candidates/latest.json',
+  ].map(async (path) => [path, JSON.parse(await readFile(path, 'utf8'))])));
+  const commands = [];
+  const result = await runPipeline({
+    run: async (args) => { commands.push(args); return JSON.stringify({ exitCode: args.includes('scripts/collect-disneyplus-kr-lineup.mjs') ? 1 : 0, stdout: '{}' }); },
+    auditRun: async () => ({ parity: true, referenceRows: 52, exactMatches: 52, unresolved: 0, statusCounts: {} }),
+    read: async (path) => JSON.stringify(input.get(path)),
+  });
+  assert.equal(result.status, 'published_with_discovery_gaps');
+  assert.equal(commands.some((args) => args.includes('scripts/collect-disneyplus-kr-lineup.mjs')), true);
+  assert.equal(commands.filter((args) => args.includes('scripts/stage-ott-lineup.mjs')).length, 2);
 });
 
 test('an incomplete TVING collection does not stage partial programmes or suppress reviewed DB publish', async () => {
