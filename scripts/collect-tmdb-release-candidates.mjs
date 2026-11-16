@@ -119,7 +119,7 @@ export async function collectReleaseCandidates(request, { months = ['2026-11', '
           const dates = rawDates(detail, season, type === 'movie');
           const possible = [...new Set((type === 'movie' ? [dates.movieReleaseDate] : [dates.seasonFirstDate, dates.firstEpisodeDate]).filter(dateValid))];
           if (!possible.some((d) => inMonths(d, months)) && !seeded.some((o) => o.seasonNumber === seasonNumber && inMonths(o.date, months))) continue;
-          const scopeHold = detail.genres?.some((g) => g.id === 16) ? 'animation_scope_review' : null;
+          const scopeHold = null; // DATA56: animation is in the user-confirmed OTT scope; evidence gates still apply.
           if (scopeHold) excluded.push({ type, tmdbId, seasonNumber, reason: scopeHold, dates });
           let providers = type === 'movie' ? seriesProviders : null;
           if (type === 'tv') {
@@ -133,7 +133,7 @@ export async function collectReleaseCandidates(request, { months = ['2026-11', '
             const candidate = { id: `tmdb:${type}:${tmdbId}:${seasonNumber ?? 'movie'}:KR:${platform ?? 'unassigned'}`,
               type, tmdbId, seasonNumber, platform, title: detail.name ?? detail.title,
               originalTitle: detail.original_name ?? detail.original_title ?? null, dates,
-              scopeHold, genreIDs: (detail.genres ?? []).map((g) => g.id),
+              scopeHold, suggestedContentKind: detail.genres?.some((g) => g.id === 16) ? 'animation' : null, suggestedAnimationFormat: detail.genres?.some((g) => g.id === 16) ? type === 'movie' ? 'movie' : 'series' : null, genreIDs: (detail.genres ?? []).map((g) => g.id),
               dateHint: possible.length === 1 ? possible[0] : null,
               tmdbDateConflict: possible.length > 1,
               discoveryPaths: work.paths,

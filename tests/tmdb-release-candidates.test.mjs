@@ -151,3 +151,12 @@ test('same release text on another TVING program cannot refresh an identity bind
   assert.equal(result[0].sourceRefreshStatus, 'lookup_failed');
   assert.equal(result[0].sourceRefreshError, 'TVING_IDENTITY_CHANGED');
 });
+
+test('confirmed animation scope keeps explicit medium hints while still requiring fresh OTT evidence',async()=>{
+ const base=requestFixture(),request=async(path,params)=>{const r=await base.request(path,params);return path==='/tv/100'?{...r,genres:[{id:16,name:'Synthetic animation'}]}:r;};
+ const unknown=await collectReleaseCandidates(request,{discovery,months:['2026-11']});
+ assert.equal(unknown.rows[0].scopeHold,null);assert.equal(unknown.rows[0].suggestedContentKind,'animation');assert.equal(unknown.rows[0].suggestedAnimationFormat,'series');
+ assert.equal(unknown.rows[0].readyForBatchReview,false);assert.equal(unknown.rows[0].publishingAllowed,false);
+ const known=await collectReleaseCandidates(request,{discovery,months:['2026-11'],officialBindings:[official]});
+ assert.equal(known.rows.find(x=>x.platform==='netflix').readyForBatchReview,true);
+});

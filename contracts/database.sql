@@ -1,4 +1,4 @@
--- GODIEOR DB 계약 0.1.0-draft.4 / DATA-48 / 2026-11-13
+-- GODIEOR DB 계약 0.1.0-draft.5 / DATA-56 / 2026-11-16
 -- 계약 참조 DDL. 실제 적용 원본은 prisma/migrations 전체 순서다.
 -- UUID는 쓰기 주체가 생성한다. 이 파일을 직접 실행하지 않고 검토한 migration을 사용한다.
 CREATE TYPE content_kind AS ENUM ('movie', 'drama', 'game');
@@ -116,15 +116,18 @@ CREATE TABLE event (
   FOREIGN KEY (season_id, content_id) REFERENCES drama_season(id, content_id),
   UNIQUE (id, kind),
   CONSTRAINT event_ott_category CHECK (
-    (kind = 'ott_season_premiere' AND (ott_category IS NULL OR ott_category IN ('movie','series','original_series','variety','documentary','other')))
+    (kind = 'ott_season_premiere' AND (ott_category IS NULL OR ott_category IN ('movie','series','original_series','variety','documentary','animation','other')))
     OR (kind <> 'ott_season_premiere' AND ott_category IS NULL)
   ),
   CONSTRAINT documentary_movie_without_season CHECK (
     NOT (kind = 'ott_season_premiere' AND ott_category = 'documentary' AND content_type = 'movie') OR season_id IS NULL
   ),
+  CONSTRAINT animation_movie_without_season CHECK (
+    NOT (kind = 'ott_season_premiere' AND ott_category = 'animation' AND content_type = 'movie') OR season_id IS NULL
+  ),
   CONSTRAINT event_payload CHECK (
     (kind = 'theatrical_release' AND content_id IS NOT NULL AND content_type IS NOT NULL AND content_type = 'movie' AND release_market IS NOT NULL AND home_team_id IS NULL AND away_team_id IS NULL)
-    OR (kind = 'ott_season_premiere' AND content_id IS NOT NULL AND content_type IS NOT NULL AND (content_type = 'drama' OR (content_type = 'movie' AND ott_category IN ('movie','documentary'))) AND release_market IS NOT NULL AND release_market ~ '^[A-Z]{2}$' AND home_team_id IS NULL AND away_team_id IS NULL)
+    OR (kind = 'ott_season_premiere' AND content_id IS NOT NULL AND content_type IS NOT NULL AND (content_type = 'drama' OR (content_type = 'movie' AND ott_category IN ('movie','documentary','animation'))) AND release_market IS NOT NULL AND release_market ~ '^[A-Z]{2}$' AND home_team_id IS NULL AND away_team_id IS NULL)
     OR (kind = 'game_release' AND content_id IS NOT NULL AND content_type IS NOT NULL AND content_type = 'game' AND release_market IS NOT NULL AND home_team_id IS NULL AND away_team_id IS NULL)
     OR (kind = 'epl_match' AND content_id IS NULL AND content_type IS NULL AND season_id IS NULL AND release_market IS NULL AND home_team_id IS NOT NULL AND away_team_id IS NOT NULL AND home_team_id <> away_team_id)
   ),

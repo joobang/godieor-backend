@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "asOf": "2026-11-16",
+  "scope": "implementer category correction after user animation scope confirmation; no new date claims/independent approval",
+  "updates": [
+    {
+      "before": {
+        "id": "1fa82366a0b3054d0ee56112b41bdfb5b4152adb7d15a96a8d673b9c49a61860",
+        "revision": "b31dbe65fc181982d9cfef2399bad3cd0be44224d0616a8828f77fcea8bbc63f",
+        "reviewer": "GODIEOR 구현 담당 TMDB/Netflix KR 근거 교차검토 2026-11-12",
+        "title": "스텝스",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "movie",
+        "premiereConfirmed": true,
+        "date": "2026-11-20",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix 한국 공식 신규 공개 2026-11-20 (videoID 81212809); TMDB movie/1595124 release_date 동일 일자. 한국 플랫폼 공개일 확인; 국가별 최초 제작/방송일 단정하지 않음. TMDB KR 제공처 일치=false."
+      },
+      "review": {
+        "id": "1fa82366a0b3054d0ee56112b41bdfb5b4152adb7d15a96a8d673b9c49a61860",
+        "revision": "b31dbe65fc181982d9cfef2399bad3cd0be44224d0616a8828f77fcea8bbc63f",
+        "reviewer": "GODIEOR 구현 담당 애니 범위·형태·기존 공식 일정 대조 2026-11-16",
+        "title": "스텝스",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "animation",
+        "premiereConfirmed": true,
+        "date": "2026-11-20",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "기존공식Netflix KR일자/ID/시즌유지. TMDB movie/1595124 genre16확인,명시매체 movie. 사용자애니포함확정에따라분류만animation으로보정. 날짜/플랫폼/키추정변경없음. DATA56작성자검토/독립승인아님.",
+        "animationFormat": "movie"
+      },
+      "mapping": {
+        "candidateId": "1fa82366a0b3054d0ee56112b41bdfb5b4152adb7d15a96a8d673b9c49a61860",
+        "revision": "b31dbe65fc181982d9cfef2399bad3cd0be44224d0616a8828f77fcea8bbc63f",
+        "contentKey": "work-000040",
+        "eventKey": "event-000040"
+      },
+      "tmdbId": 1595124,
+      "tmdbType": "movie",
+      "genreIDs": [
+        16,
+        14,
+        35,
+        10751,
+        12
+      ]
+    },
+    {
+      "before": {
+        "id": "1f51fd4a5caf9f3480381ccc148818c581fdef7d5044559eab04b591ced4eab5",
+        "revision": "7b89b46d7d5b3278cb3fa0622b20947d5fb2dd03d77f68cf68e4c42db6ff17b7",
+        "reviewer": "GODIEOR 구현 담당 TMDB/Netflix KR 근거 교차검토 2026-11-12",
+        "title": "풀 나이트",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-26",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix 한국 공식 신규 공개 2026-11-26 (videoID 81991077); TMDB tv/326247 season 1 air_date 동일 일자. 한국 플랫폼 공개일 확인; 국가별 최초 제작/방송일 단정하지 않음. TMDB KR 제공처 일치=false."
+      },
+      "review": {
+        "id": "1f51fd4a5caf9f3480381ccc148818c581fdef7d5044559eab04b591ced4eab5",
+        "revision": "7b89b46d7d5b3278cb3fa0622b20947d5fb2dd03d77f68cf68e4c42db6ff17b7",
+        "reviewer": "GODIEOR 구현 담당 애니 범위·형태·기존 공식 일정 대조 2026-11-16",
+        "title": "풀 나이트",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "animation",
+        "premiereConfirmed": true,
+        "date": "2026-11-26",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "기존공식Netflix KR일자/ID/시즌유지. TMDB tv/326247 genre16확인,명시매체 series. 사용자애니포함확정에따라분류만animation으로보정. 날짜/플랫폼/키추정변경없음. DATA56작성자검토/독립승인아님.",
+        "animationFormat": "series"
+      },
+      "mapping": {
+        "candidateId": "1f51fd4a5caf9f3480381ccc148818c581fdef7d5044559eab04b591ced4eab5",
+        "revision": "7b89b46d7d5b3278cb3fa0622b20947d5fb2dd03d77f68cf68e4c42db6ff17b7",
+        "contentKey": "work-000042",
+        "eventKey": "event-000042"
+      },
+      "tmdbId": 326247,
+      "tmdbType": "tv",
+      "genreIDs": [
+        16,
+        18,
+        10765,
+        9648
+      ]
+    },
+    {
+      "before": {
+        "id": "a291f80fc0c42f5cb230810c5066b00dbe3abef7a53e3f184e47219be7254f5c",
+        "revision": "c5292345945e99af19c7d82e90f7e38c92f30671fe5ceb33126e9c9317292087",
+        "reviewer": "GODIEOR 구현 담당 TMDB/Netflix KR 근거 교차검토 2026-11-12",
+        "title": "두지의 멍멍하우스",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "variety",
+        "premiereConfirmed": true,
+        "date": "2026-11-09",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "Netflix 한국 공식 신규 공개 2026-11-09 (videoID 81678021); TMDB tv/336478 season 1 air_date 동일 일자. 한국 플랫폼 공개일 확인; 국가별 최초 제작/방송일 단정하지 않음. TMDB KR 제공처 일치=true."
+      },
+      "review": {
+        "id": "a291f80fc0c42f5cb230810c5066b00dbe3abef7a53e3f184e47219be7254f5c",
+        "revision": "c5292345945e99af19c7d82e90f7e38c92f30671fe5ceb33126e9c9317292087",
+        "reviewer": "GODIEOR 구현 담당 애니 범위·형태·기존 공식 일정 대조 2026-11-16",
+        "title": "두지의 멍멍하우스",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "animation",
+        "premiereConfirmed": true,
+        "date": "2026-11-09",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "기존공식Netflix KR일자/ID/시즌유지. TMDB tv/336478 genre16확인,명시매체 series. 사용자애니포함확정에따라분류만animation으로보정. 날짜/플랫폼/키추정변경없음. DATA56작성자검토/독립승인아님.",
+        "animationFormat": "series"
+      },
+      "mapping": {
+        "candidateId": "a291f80fc0c42f5cb230810c5066b00dbe3abef7a53e3f184e47219be7254f5c",
+        "revision": "c5292345945e99af19c7d82e90f7e38c92f30671fe5ceb33126e9c9317292087",
+        "contentKey": "work-000027",
+        "eventKey": "event-000027"
+      },
+      "tmdbId": 336478,
+      "tmdbType": "tv",
+      "genreIDs": [
+        16,
+        10762
+      ]
+    }
+  ]
+}

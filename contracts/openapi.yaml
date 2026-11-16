@@ -2,7 +2,7 @@
 "openapi": "3.1.1"
 "info":
   "title": "GODIEOR API 계약 초안"
-  "version": "0.1.0-draft.4"
+  "version": "0.1.0-draft.5"
   "description": "DATA-48 계약 지문 정리 초안. 기존 공개·계정 API 및 OTT 분류/모바일 기기 계약을 고정한다. 구현/실행/미검증 범위는 contracts/implementation.md 참조."
 "servers":
   -
@@ -1882,7 +1882,7 @@
         "ottCategory":
           "anyOf":
             - "type": "string"
-              "enum": ["movie", "series", "original_series", "variety", "documentary", "other"]
+              "enum": ["movie", "series", "original_series", "variety", "documentary", "animation", "other"]
             - "type": "null"
         "updatedAt":
           "type": "string"
@@ -2472,7 +2472,7 @@
       "additionalProperties": false
       "properties":
         "contractVersion":
-          "const": "0.1.0-draft.4"
+          "const": "0.1.0-draft.5"
         "categories":
           "type": "array"
           "items":

@@ -659,3 +659,22 @@ test("TVING manual review preserves a date-only premiere, unknown season and off
   f.input.mappings[0].sourceUrl="https://www.tving.com/player/E000000001";
   assert.throws(()=>prepareReviewed(f.input,f.state));
 });
+
+test("animation retains category with explicit movie/series format and preserves civil dates", () => {
+  for (const [format,kind,season] of [["movie","movie",null],["series","drama",7],["series","drama",null]]) {
+    const f=fixture({contentKind:"animation",animationFormat:format,seasonNumber:season});
+    const record=prepareReviewed(f.input,f.state)[0];
+    assert.equal(record.ottCategory,"animation");assert.equal(record.content.kind,kind);assert.equal(record.seasonNumber,season);
+    assert.deepEqual(record.time,{type:"date_only",value:"2027-02-28"});
+  }
+});
+test("animation rejects missing/mixed format, movie season, invalid medium and non-OTT usage", () => {
+  for (const patch of [{contentKind:"animation"},{contentKind:"animation",animationFormat:"movie",seasonNumber:1},
+    {contentKind:"animation",animationFormat:"game"},{contentKind:"variety",animationFormat:"series"},
+    {contentKind:"animation",animationFormat:"series",documentaryFormat:"series"}]) assert.throws(()=>fixture(patch));
+  const {normalize}=require("../dist/src/collection/domain/provider-record");
+  const f=fixture({contentKind:"animation",animationFormat:"movie"}),r=prepareReviewed(f.input,f.state)[0];
+  assert.throws(()=>normalize({...r,seasonNumber:1},{category:"ott",market:"KR"}));
+  assert.throws(()=>normalize({...r,content:{...r.content,kind:"game"}},{category:"ott",market:"KR"}));
+  assert.throws(()=>normalize({...r,kind:"theatrical_release",services:[]},{category:"movie",market:"KR"}));
+});

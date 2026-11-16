@@ -1,18 +1,18 @@
 {
-  "contractVersion": "0.1.0-draft.4",
+  "contractVersion": "0.1.0-draft.5",
   "status": "draft-not-approved",
   "policyRevision": "SYNC-2026-11-09-13",
   "hashAlgorithm": "sha256",
   "files": {
-    "README.md": "83b38741474687f7e84d929e2b4ff0cf5221f52c00c36a102247ec1abd4734d4",
+    "README.md": "afbf347bfd988131e307a832c6693c4b8639cc90ef4d11228b7df9e184c54eee",
     "database.md": "17fe8b5b6578494048b0ec063d38fb8c5ab0384df0819a4b4bd6a4775579cec3",
-    "database.sql": "a863cd97c049bc3e70e891085a0ec3faaf02d5c7bb987df8f7f8e88de180f9c6",
+    "database.sql": "978fe52c80fc70622c59c613985d983e9c50a6a03c2365df975c149303362cf8",
     "examples/README.md": "13fbecc0d2048ef245f27d950b62ec002e0163bb90dfdd90ae1cf82f2a2f82ec",
     "examples/calendar.json": "2cb8e2fd927ced410e70e231a5994ffb22ef335e97536c4217f1250b65018ddd",
     "examples/event-detail.json": "3d3dd3920a7fa693e11cb4e90def78750e9c82f806a53c5aa2c46eef0bb4ecae",
     "examples/events-page.json": "45c3bb87e4325dc3a15f090d10f07110a79259cf283056996a62ded82a92f191",
     "examples/settings.json": "6556f1aa9313eb40b014f3bb2caea8b882eed3a658ad2bd2e5a303735b0831b5",
-    "implementation.md": "d598898651451a1c4e4de5344aa065a4c358ea0cd56c83cd44092381392b8aec",
-    "openapi.yaml": "d9440942e9961a010181d7ea0c1780a7dd984d4b2c114ab58fec634792d0ab87"
+    "implementation.md": "a633a03fffc904b7cab83d2eaf9faaaae7a91fd1ba4185e97305117ef1f06f93",
+    "openapi.yaml": "e27c86369a58a14432d6d33f09660fd430c690910d07d014a890e0b180262672"
   }
 }

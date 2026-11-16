@@ -48,7 +48,7 @@ const recordSchema = z
       "game_release",
       "epl_match",
     ]),
-    ottCategory: z.enum(["movie", "series", "original_series", "variety", "documentary", "other"]).nullable().optional(),
+    ottCategory: z.enum(["movie", "series", "original_series", "variety", "documentary", "animation", "other"]).nullable().optional(),
     title: identifier,
     content: content.nullable(),
     seasonNumber: z.number().int().positive().nullable(),
@@ -100,9 +100,9 @@ export function normalize(value: unknown, scope: Scope): Canonical {
       r.kind === "theatrical_release"
         ? "movie"
         : r.kind === "ott_season_premiere"
-          ? r.ottCategory === "documentary" ? r.content?.kind : r.ottCategory === "movie" ? "movie" : "drama"
+          ? ["documentary", "animation"].includes(r.ottCategory ?? "") ? r.content?.kind : r.ottCategory === "movie" ? "movie" : "drama"
           : "game";
-    if (!r.content || (r.ottCategory === "documentary" && !["movie", "drama"].includes(r.content.kind)) || r.content.kind !== expected || r.home || r.away)
+    if (!r.content || (["documentary", "animation"].includes(r.ottCategory ?? "") && !["movie", "drama"].includes(r.content.kind)) || r.content.kind !== expected || r.home || r.away)
       throw new Error("INVALID_CONTENT");
   }
   if (
