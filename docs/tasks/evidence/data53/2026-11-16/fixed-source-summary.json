@@ -1,0 +1,14 @@
+{
+  "sourceSHA": "c6ce3af89833265d9729b81bbb5be89894ec9f97",
+  "sourceMethod": "git archive; dirty env/package/old untracked tests excluded",
+  "dependencies": "existing node_modules linked; Prisma generated from fixed schema, no DB changes",
+  "initialAttempt": "build/test failure: missing generated Prisma Client; preserved as failed prerequisite attempt",
+  "initialTestLogSHA256": "b479a1e8dff404eda1d265fc6ac9fd714163eda9ecf7a8ce21897abd2a73c97d",
+  "prismaGenerateExit": 0,
+  "buildExit": 0,
+  "serverTests": {
+    "passed": 183,
+    "failed": 0
+  },
+  "scope": "backend implementer fixed-source tests, not independent product approval"
+}

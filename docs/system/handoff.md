@@ -1,3 +1,18 @@
+## DATA-53 재개 · TMDB 수집·공식 교차검증 연결 (2026-11-16)
+
+- 사용자 방향: 참고 일정 표시 변경보다 StreamPick 구성 방식을 역추적해 TMDB 기반 발견→TMDB/OTT 공식 루트 검증→배치 게시 연결을 우선한다. StreamPick은 참조 측정에만 쓰며 수집 입력으로 복제하지 않는다. 신작·시즌 첫 공개/회차 제외 유지.
+- backend 코드/배치/근거 head c6ce3af89833265d9729b81bbb5be89894ec9f97. 독립 월별/한국예정작 발견312작품→공식 ID 보완325작품→현재 후보120행(누적123ID). 최신 참조52행의 후보 발견49행, 공식 재확인 후 기존 고정 키 결속39행. 실제 게시67행/제품 일치26/52로 전체 일치 목표는 미완료다.
+- 시리즈 제공처 힌트/해당 시즌 제공처/시즌 첫날·첫회/공식 날짜·원문 신선성을 분리했다. 후보 미발견2(스폰지밥20·몰몬교주부들6)와 Netflix미확인1(나인투식스)은 보존한다. 애니 후보도 큐에서 숨기지 않고 범위 검토 표시. 공식 자동 파서는 Netflix/TVING 지원, 미지원·실패는 통과에 포함하지 않는다. OTT 정식API/StreamPick 내부 구현 확보라고 표현하지 않음.
+- 현재트리·고정소스 Node24 서버183/183, Python9/9, 동일실제관측 재처리0신규/0수정. 고정소스 최초 Prisma Client 미생성 실패 후 generate→빌드/183통과로 구분 기록. 로컬 SQL/API67행/기존69이벤트·ID/이력 재확인. Coupang영화 provider미등재로 수집complete=false, 제품 일치 게이트도exit2 유지.
+- 원본 backend docs/tasks/DATA-53-streampick-parity.md, 최신52행표 evidence/data53/2026-11-16/comparison.md, ADR-020/LEARN-0021. 다음은 공식 루트 미지원4/조회실패2 및 발견 후보의 근거·고정키 연결을 유형별 묶음으로 확대한다. 앱 달력 작업보다 OTT 우선 유지. 계약/migration/acceptance·이전 독립ERROR/4 SKIPPED 불변, 실폰/클라우드/신규독립검증 미실행. 개인dirty보존·담당해제, revision DATA-53-2026-11-16.
+
+## DATA-53 · OTT 참조 누락 최우선·진행 (2026-11-13)
+
+- 사용자 확정: StreamPick 신작·시즌 첫 공개 대조를 최우선, 회차 제외. 원본 backend `docs/tasks/DATA-53-streampick-parity.md`, 전체 대조표 `docs/tasks/evidence/data53/case-matrix.md`. 앱 달력 후속보다 먼저 처리한다.
+- 기존 파서가 episode+premiere=true인 새 시즌26플랫폼행을 제외했다. 같은 최신 HTML 기존21→수정47행, 월별 페이지46/전체달력47 차이1행도 보존. 최초 DB63≥참조47이지만 정확14/47로 총수만으로는 보장 불가. 검토 별칭2·미상시즌4·공식 새시즌4를 묶어 처리해 정확24/47, DB67/연중69매핑으로 개선했다.
+- SQL/API67행·새4/시즌보완4·기존61전체행/기존ID 보존·재게시 멱등 확인. 서버159/159·Python9/9. 한 명령 최신 대조/미달 exit2 게이트 추가, 실제 미일치23으로 exit2 유지. 애니4/공식날짜충돌1/정확한 목표OTT·시즌 일자 근거 부족18. 미확인 참고일정 표시 도입은 사용자 질문 중이며 아직 구현/확정하지 않음.
+- 공통 revision DATA-53-2026-11-13. 계약/migration/acceptance·이전 독립runnerERROR/4 SKIPPED·review 대기는 불변. 실폰·클라우드·신규 독립runner 미실행, 개인dirty 보존. 전체 일치 목표는 미완료이며 미확인 날짜를 사실로 게시하지 않는다.
+
 ## APP-AUTH-13 · 앱 계정 흐름 묶음 수정 (2026-11-13)
 
 - 원본 app `docs/ai/tasks/APP-AUTH-13.md`, ADR-003/LEARN-0020. 실제 AccountState 합성15개 시나리오에서4실패→수정15/15. 새 계정의 이전 설정·찜 잔류, 로그아웃 busy 잔류, 이전 defer의 새 busy 해제, 지연 설정 응답 덮어쓰기를 수정했다. 초기 오프라인 복원 재시도/active 재조회 UI 추가.
