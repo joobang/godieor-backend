@@ -1,3 +1,21 @@
+## DATA-53 재개 · TMDB 수집→공식 재확인→게시 입력 연결 (2026-11-16)
+
+```sh
+node --env-file=.env scripts/collect-tmdb-release-candidates.mjs work/tmdb-release-candidates data/curated/ott-official-tmdb-bindings-2026-11-13.json
+node scripts/prepare-tmdb-reviewed-batch.mjs work/tmdb-release-candidates/latest.json data/curated/ott-official-tmdb-bindings-2026-11-13.json work/revalidated-batch.json
+sh scripts/check-streampick-parity.sh
+```
+
+Node24 필요. 첫 명령은 StreamPick을 입력으로 쓰지 않고 월별·시즌 후보를 수집·revision staging하고 공식 자료를 재조회한다. `exit2`는 provider 미등재/페이지 잘림/부분 실패가 남은 상태이며 latest.json을 확인한다. 두 번째는 기존 review·URL·revision·고정 키에 결속된 전체 매핑을 `mappingInput`으로 제안하며 DB에 쓰지 않는다. 신규 미검토 후보의 고정 키를 제목으로 생성하지 않는다. 새 공개 근거를 검토·고정키로 연결한 뒤 기존 `publish:reviewed` 전체 배치 경로로 게시한다. 전체 기존 매핑에 대한 원문 신선성을 재확인했다고 주장하지 않는다.
+
+현재 후보120행/누적123ID, 공식 재확인 후 기존 키 결속39행. 같은 실제 관측 재처리0신규/0수정. StreamPick52행의 후보 발견49행/제품 일치26행, SQL/API67행. 최신 전체 표와 실행 근거는 `docs/tasks/evidence/data53/2026-11-16/`. Netflix/TVING 공식 자동 재확인 외의 파서는 미지원/실패를 명시하고, 애니와 제공처 미상도 후보에서 숨기지 않는다. 전체 일치 목표는 아직 진행 중이다.
+
+## DATA-53 · 최신 신작·시즌 누락 대조 (2026-11-13)
+
+사용자 최우선은 StreamPick 신작·시즌 첫 공개 항목 대조다. `sh scripts/check-streampick-parity.sh [새 출력경로]`는 공개 HTML→새 시즌 포함 참조→로컬 설정 DB 읽기 대조를 실행한다(Node24, Python3, curl, pg 필요). 명령은 데이터를 게시하지 않는다. 정확 일치 exit0 / 수집·입력·SQL 오류 exit1 / 미일치 exit2이며 결과는 지정 경로 report.json/observation.json에 저장한다. 실제 원문 불일치가 있으면 저장 관측을 함께 보존한다.
+
+현재 11~12월KR4OTT/신작·새 시즌47행, 제품DB67행, 정확24/47/미일치23. TVING3·Disney+1 신규 및 기존4개 시즌 보완을 배치 반영하고69매핑 재게시의 멱등/기존61개 전체행 불변을 확인했다. 원본 카드/47행 사유표는 DATA-53/evidence/data53다. 애니4·날짜충돌1·정확한 목표OTT/시즌 일자 근거 부족18을 총수로 가리지 않는다. 이후 사용자 답변은 표시 변경 대신 TMDB 기반 수집·공식 검증 결합 지시였다.
+
 # 검토한 OTT 후보를 제품 일정으로 반영
 
 ## 현재 로컬 반영 · DATA-52 / 2026-11-13

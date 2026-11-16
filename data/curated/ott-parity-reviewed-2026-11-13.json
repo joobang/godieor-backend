@@ -1,0 +1,360 @@
+{
+  "version": 1,
+  "asOf": "2026-11-13",
+  "scope": "implementer evidence crosscheck, not independent approval",
+  "updates": [
+    {
+      "before": {
+        "id": "a2e4b1e1bc0fc8e42b976a13bb9f3b003f6eac79d35bdd187d8c4e2254efe8dc",
+        "revision": "b704d9716c7308e5d02ade05e1a1bef68d868dbfc9be45aefaf9ec7ae4526da9",
+        "reviewer": "GODIEOR 구현 담당 TVING 공식 SNS 원문/작품 대조 2026-11-13",
+        "title": "뜨거운 안녕",
+        "platform": "tving",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-11",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "TVING작품P001793179과인증tving.official 공식게시물 https://www.instagram.com/p/Dfmbp5tAbTL/ 직접대조. 캡션은11월11일TVING독점공개를명시,본문작품/강훈·조현철·김정진태그일치. 게시time2026-11-11은연도문맥만확인,게시시각을공개시각으로쓰지않음. 시즌1개는개수여서번호null/날짜만저장. 작성자수동검토/독립승인아님."
+      },
+      "review": {
+        "id": "a2e4b1e1bc0fc8e42b976a13bb9f3b003f6eac79d35bdd187d8c4e2254efe8dc",
+        "revision": "b704d9716c7308e5d02ade05e1a1bef68d868dbfc9be45aefaf9ec7ae4526da9",
+        "reviewer": "GODIEOR 구현 담당 공식 플랫폼 날짜·TMDB 명시 시즌 교차검토 2026-11-13",
+        "title": "뜨거운 안녕",
+        "platform": "tving",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-11",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "기존 공식 한국 tving 공개일/작품 검토 유지: https://www.tving.com/contents/P001793179. TMDB tv/299764/season/1의 명시 시즌1 첫날·1회 첫날 모두 2026-11-11, 원천 한국어 제목과 기존 공개일 일치 재조회. 시즌 개수로 번호 추정하지 않음. DATA-53 작성자 교차검토/독립 승인 아님."
+      },
+      "mapping": {
+        "candidateId": "a2e4b1e1bc0fc8e42b976a13bb9f3b003f6eac79d35bdd187d8c4e2254efe8dc",
+        "revision": "b704d9716c7308e5d02ade05e1a1bef68d868dbfc9be45aefaf9ec7ae4526da9",
+        "contentKey": "work-000065",
+        "eventKey": "event-000065"
+      },
+      "tmdb": {
+        "id": 299764,
+        "season": 1,
+        "firstDate": "2026-11-11"
+      }
+    },
+    {
+      "before": {
+        "id": "7f1f6ddb0c3d97fb25997ca72dfe1ed5014ff4683d293716e17a12d278803aac",
+        "revision": "b1a7cb57e7fb764f51291b96b9960eeb2a4c7b1f2bdda3a5ceccb426b6120118",
+        "reviewer": "implementer-source-check",
+        "title": "푸른길",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "original_series",
+        "premiereConfirmed": true,
+        "date": "2026-11-20",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": null,
+        "announcedPeriod": null,
+        "evidence": "Netflix 한국 뉴스룸 2026-11-05: 넷플릭스 시리즈 푸른길, 11월 20일(금) 오직 넷플릭스 공개. 시각 미기재."
+      },
+      "review": {
+        "id": "7f1f6ddb0c3d97fb25997ca72dfe1ed5014ff4683d293716e17a12d278803aac",
+        "revision": "b1a7cb57e7fb764f51291b96b9960eeb2a4c7b1f2bdda3a5ceccb426b6120118",
+        "reviewer": "GODIEOR 구현 담당 공식 플랫폼 날짜·TMDB 명시 시즌 교차검토 2026-11-13",
+        "title": "푸른길",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "original_series",
+        "premiereConfirmed": true,
+        "date": "2026-11-20",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": null,
+        "announcedPeriod": null,
+        "evidence": "기존 공식 한국 netflix 공개일/작품 검토 유지: https://about.netflix.com/ko/news/main-trailer-of-the-blue-road-sees-son-suk-ku-and-eita-nagayama-team-up-on-a-gruesome-cross-border-murder-investigation. TMDB tv/300523/season/1의 명시 시즌1 첫날·1회 첫날 모두 2026-11-20, 원천 한국어 제목과 기존 공개일 일치 재조회. 시즌 개수로 번호 추정하지 않음. DATA-53 작성자 교차검토/독립 승인 아님."
+      },
+      "mapping": {
+        "candidateId": "7f1f6ddb0c3d97fb25997ca72dfe1ed5014ff4683d293716e17a12d278803aac",
+        "revision": "b1a7cb57e7fb764f51291b96b9960eeb2a4c7b1f2bdda3a5ceccb426b6120118",
+        "contentKey": "work-000008",
+        "eventKey": "event-000008"
+      },
+      "tmdb": {
+        "id": 300523,
+        "season": 1,
+        "firstDate": "2026-11-20"
+      }
+    },
+    {
+      "before": {
+        "id": "53c19a6f62ddea488a29e9d76dcf586cbcbde462fcad2b1c909579185796e07b",
+        "revision": "3b62425967e994d28e0d4ecbe94a1bafd890cf9ae19b5286057eefcccfa15e5b",
+        "reviewer": "implementer-source-check",
+        "title": "대리수능",
+        "platform": "tving",
+        "market": "KR",
+        "contentKind": "original_series",
+        "premiereConfirmed": true,
+        "date": "2026-11-23",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "CJ 뉴스룸 2026-11-03 공식 공지: 티빙 오리지널 시리즈, 2026년 11월 23일 단독 공개"
+      },
+      "review": {
+        "id": "53c19a6f62ddea488a29e9d76dcf586cbcbde462fcad2b1c909579185796e07b",
+        "revision": "3b62425967e994d28e0d4ecbe94a1bafd890cf9ae19b5286057eefcccfa15e5b",
+        "reviewer": "GODIEOR 구현 담당 공식 플랫폼 날짜·TMDB 명시 시즌 교차검토 2026-11-13",
+        "title": "대리수능",
+        "platform": "tving",
+        "market": "KR",
+        "contentKind": "original_series",
+        "premiereConfirmed": true,
+        "date": "2026-11-23",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "기존 공식 한국 tving 공개일/작품 검토 유지: https://cjnews.cj.net/%ed%8b%b0%eb%b9%99-%ec%98%a4%eb%a6%ac%ec%a7%80%eb%84%90-%ec%8b%9c%eb%a6%ac%ec%a6%88-%eb%8c%80%eb%a6%ac%ec%88%98%eb%8a%a5-%eb%a9%94%ec%9d%b8-%ed%8f%ac%ec%8a%a4%ed%84%b0-%ea%b3%b5%ea%b0%9c/. TMDB tv/303552/season/1의 명시 시즌1 첫날·1회 첫날 모두 2026-11-23, 원천 한국어 제목과 기존 공개일 일치 재조회. 시즌 개수로 번호 추정하지 않음. DATA-53 작성자 교차검토/독립 승인 아님."
+      },
+      "mapping": {
+        "candidateId": "53c19a6f62ddea488a29e9d76dcf586cbcbde462fcad2b1c909579185796e07b",
+        "revision": "3b62425967e994d28e0d4ecbe94a1bafd890cf9ae19b5286057eefcccfa15e5b",
+        "contentKey": "work-000007",
+        "eventKey": "event-000007"
+      },
+      "tmdb": {
+        "id": 303552,
+        "season": 1,
+        "firstDate": "2026-11-23"
+      }
+    },
+    {
+      "before": {
+        "id": "9be5d184f11c98f94cc50a3bc23e00fa2640c119fe7767881f3aed3b1f84342c",
+        "revision": "5368794fbc76d1532670d8d9860b07bb3a00d5f8946b980211951b690cca271c",
+        "reviewer": "implementer-source-check",
+        "title": "천천히 강렬하게",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-12-11",
+        "localTime": "17:00",
+        "timeZone": null,
+        "seasonNumber": null,
+        "announcedYear": null,
+        "announcedPeriod": null,
+        "evidence": "넷플릭스 2026-10-22 공식 공지 재확인: 2026-12-11 금요일 오후 5시 전 세계 공개. 지역 시간대는 명시되지 않아 null."
+      },
+      "review": {
+        "id": "9be5d184f11c98f94cc50a3bc23e00fa2640c119fe7767881f3aed3b1f84342c",
+        "revision": "5368794fbc76d1532670d8d9860b07bb3a00d5f8946b980211951b690cca271c",
+        "reviewer": "GODIEOR 구현 담당 공식 플랫폼 날짜·TMDB 명시 시즌 교차검토 2026-11-13",
+        "title": "천천히 강렬하게",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-12-11",
+        "localTime": "17:00",
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": null,
+        "announcedPeriod": null,
+        "evidence": "기존 공식 한국 netflix 공개일/작품 검토 유지: https://about.netflix.com/ko/news/tantara-date-announcement. TMDB tv/256726/season/1의 명시 시즌1 첫날·1회 첫날 모두 2026-12-11, 원천 한국어 제목과 기존 공개일 일치 재조회. 시즌 개수로 번호 추정하지 않음. DATA-53 작성자 교차검토/독립 승인 아님."
+      },
+      "mapping": {
+        "candidateId": "9be5d184f11c98f94cc50a3bc23e00fa2640c119fe7767881f3aed3b1f84342c",
+        "revision": "5368794fbc76d1532670d8d9860b07bb3a00d5f8946b980211951b690cca271c",
+        "contentKey": "work-000001",
+        "eventKey": "event-000001"
+      },
+      "tmdb": {
+        "id": 256726,
+        "season": 1,
+        "firstDate": "2026-12-11"
+      }
+    }
+  ],
+  "additions": [
+    {
+      "discovery": {
+        "source": "tving",
+        "url": "https://www.tving.com/contents/P001794298",
+        "headline": "무쇠소녀단3",
+        "publishedRaw": null,
+        "evidenceRevision": "DATA53-explicit-KR-season-premiere-2026-11-13"
+      },
+      "review": {
+        "id": "2dc7c0a0528fb1be2513095c5e1a29b2008be8c6ad07bb9e9319deff6308249b",
+        "revision": "6e503b2d70218582c06e1fa22ecf7b034c7818230fa8242acbc80497a37da66b",
+        "reviewer": "GODIEOR 구현 담당 공식 공개일·시즌 배치 교차검토 2026-11-13",
+        "title": "무쇠소녀단3",
+        "platform": "tving",
+        "market": "KR",
+        "contentKind": "variety",
+        "premiereConfirmed": true,
+        "date": "2026-11-26",
+        "seasonNumber": 3,
+        "localTime": null,
+        "timeZone": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "공식 한국 작품 https://www.tving.com/contents/P001794298는 시즌3 11월26일 공개 명시. TVING openText/Disney+ 한국 공개 배너 직접확인, 2026 연도 문맥·TMDB tv/270746/season/3 첫날 일치 대조. 방송시각/시즌개수/기존시즌 제공처를 신규 공개일로 쓰지 않음. DATA-53 작성자 검토."
+      },
+      "mapping": {
+        "candidateId": "2dc7c0a0528fb1be2513095c5e1a29b2008be8c6ad07bb9e9319deff6308249b",
+        "revision": "6e503b2d70218582c06e1fa22ecf7b034c7818230fa8242acbc80497a37da66b",
+        "contentKey": "work-000066",
+        "eventKey": "event-000066"
+      },
+      "observation": {
+        "url": "https://www.tving.com/contents/P001794298",
+        "title": "무쇠소녀단3",
+        "openText": "시즌 3, 11월 26일 공개",
+        "broadDateContextOnly": "20261126",
+        "htmlSHA256": "111c32326f5e8f27b9d57fee43c83d83d9d4f7c2d5a0d1dc640dd5d19eadf5c4",
+        "observedAt": "2026-11-13T06:21:31.194999+00:00",
+        "note": "방송일/회차일/이미지날짜는 OTT 공개일로 쓰지 않음. openText 공개일 명시만 사용."
+      }
+    },
+    {
+      "discovery": {
+        "source": "tving",
+        "url": "https://www.tving.com/contents/P001793657",
+        "headline": "보검매직컬 시즌2",
+        "publishedRaw": null,
+        "evidenceRevision": "DATA53-explicit-KR-season-premiere-2026-11-13"
+      },
+      "review": {
+        "id": "ea74c7bdfffc383c5a7661b3ea297e9ba99ecbdc9728a4021c4473976876b001",
+        "revision": "9cce35169127e205871c357a03793f02cdff564ef2fd5cf1902257cf08a2dff3",
+        "reviewer": "GODIEOR 구현 담당 공식 공개일·시즌 배치 교차검토 2026-11-13",
+        "title": "보검매직컬 시즌2",
+        "platform": "tving",
+        "market": "KR",
+        "contentKind": "variety",
+        "premiereConfirmed": true,
+        "date": "2026-11-29",
+        "seasonNumber": 2,
+        "localTime": null,
+        "timeZone": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "공식 한국 작품 https://www.tving.com/contents/P001793657는 시즌2 11월29일 공개 명시. TVING openText/Disney+ 한국 공개 배너 직접확인, 2026 연도 문맥·TMDB tv/312826/season/2 첫날 일치 대조. 방송시각/시즌개수/기존시즌 제공처를 신규 공개일로 쓰지 않음. DATA-53 작성자 검토."
+      },
+      "mapping": {
+        "candidateId": "ea74c7bdfffc383c5a7661b3ea297e9ba99ecbdc9728a4021c4473976876b001",
+        "revision": "9cce35169127e205871c357a03793f02cdff564ef2fd5cf1902257cf08a2dff3",
+        "contentKey": "work-000067",
+        "eventKey": "event-000067"
+      },
+      "observation": {
+        "url": "https://www.tving.com/contents/P001793657",
+        "title": "보검매직컬 시즌2",
+        "openText": "시즌 2, 11월 29일 공개",
+        "broadDateContextOnly": "20261129",
+        "htmlSHA256": "48eb6dd38a0bc788935da2c55047177d0705836a538fc8980b5a1ffd79f17fb4",
+        "observedAt": "2026-11-13T06:21:31.194999+00:00",
+        "note": "방송일/회차일/이미지날짜는 OTT 공개일로 쓰지 않음. openText 공개일 명시만 사용."
+      }
+    },
+    {
+      "discovery": {
+        "source": "tving",
+        "url": "https://www.tving.com/contents/P001793986",
+        "headline": "대탈출 : 도시괴담",
+        "publishedRaw": null,
+        "evidenceRevision": "DATA53-explicit-KR-season-premiere-2026-11-13"
+      },
+      "review": {
+        "id": "78b2e5110403fe1a429cc5e8fc25a185c664e9658cca010179811f38f96efca9",
+        "revision": "2da7c9332c4db79896bb97733a06f35e5068cd40e0b7cddf92658d7a1d97ad2f",
+        "reviewer": "GODIEOR 구현 담당 공식 공개일·시즌 배치 교차검토 2026-11-13",
+        "title": "대탈출 : 도시괴담",
+        "platform": "tving",
+        "market": "KR",
+        "contentKind": "variety",
+        "premiereConfirmed": true,
+        "date": "2026-12-02",
+        "seasonNumber": 6,
+        "localTime": null,
+        "timeZone": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "공식 한국 작품 https://www.tving.com/contents/P001793986는 시즌6 12월02일 공개 명시. TVING openText/Disney+ 한국 공개 배너 직접확인, 2026 연도 문맥·TMDB tv/80585/season/6 첫날 일치 대조. 방송시각/시즌개수/기존시즌 제공처를 신규 공개일로 쓰지 않음. DATA-53 작성자 검토."
+      },
+      "mapping": {
+        "candidateId": "78b2e5110403fe1a429cc5e8fc25a185c664e9658cca010179811f38f96efca9",
+        "revision": "2da7c9332c4db79896bb97733a06f35e5068cd40e0b7cddf92658d7a1d97ad2f",
+        "contentKey": "work-000068",
+        "eventKey": "event-000068"
+      },
+      "observation": {
+        "url": "https://www.tving.com/contents/P001793986",
+        "title": "대탈출 : 도시괴담",
+        "openText": "시즌 6, 12월 2일 공개",
+        "broadDateContextOnly": "20261202",
+        "htmlSHA256": "ca2000109025ae40a27ed1682a4717db3acd562ee529bc4cf5f6a492e0f06745",
+        "observedAt": "2026-11-13T06:21:31.194999+00:00",
+        "note": "방송일/회차일/이미지날짜는 OTT 공개일로 쓰지 않음. openText 공개일 명시만 사용."
+      }
+    },
+    {
+      "discovery": {
+        "source": "disney",
+        "url": "https://www.disneyplus.com/ko-kr/browse/entity-f1c31566-ec05-4d30-b23f-3177442233f4",
+        "headline": "퍼시 잭슨과 올림포스의 신들",
+        "publishedRaw": null,
+        "evidenceRevision": "DATA53-explicit-KR-season-premiere-2026-11-13"
+      },
+      "review": {
+        "id": "6d41c30274f337fe976af8b6d6f093b5487dc2f3d5040c741a3761ab7ed04df8",
+        "revision": "f193dd7c5d51c0e453a688f4c50082e9a24ff0e0a985a2e023512cff329273cf",
+        "reviewer": "GODIEOR 구현 담당 공식 공개일·시즌 배치 교차검토 2026-11-13",
+        "title": "퍼시 잭슨과 올림포스의 신들",
+        "platform": "disney_plus",
+        "market": "KR",
+        "contentKind": "drama",
+        "premiereConfirmed": true,
+        "date": "2026-11-20",
+        "seasonNumber": 3,
+        "localTime": null,
+        "timeZone": null,
+        "announcedYear": 2026,
+        "announcedPeriod": null,
+        "evidence": "공식 한국 작품 https://www.disneyplus.com/ko-kr/browse/entity-f1c31566-ec05-4d30-b23f-3177442233f4는 시즌3 11월20일 공개 명시. TVING openText/Disney+ 한국 공개 배너 직접확인, 2026 연도 문맥·TMDB tv/103540/season/3 첫날 일치 대조. 방송시각/시즌개수/기존시즌 제공처를 신규 공개일로 쓰지 않음. DATA-53 작성자 검토."
+      },
+      "mapping": {
+        "candidateId": "6d41c30274f337fe976af8b6d6f093b5487dc2f3d5040c741a3761ab7ed04df8",
+        "revision": "f193dd7c5d51c0e453a688f4c50082e9a24ff0e0a985a2e023512cff329273cf",
+        "contentKey": "work-000069",
+        "eventKey": "event-000069"
+      },
+      "observation": {
+        "url": "https://www.disneyplus.com/ko-kr/browse/entity-f1c31566-ec05-4d30-b23f-3177442233f4",
+        "title": "퍼시 잭슨과 올림포스의 신들",
+        "releaseDate": "2026-11-20",
+        "seasonNumber": 3,
+        "observedAt": "2026-11-13T06:21:31.194999+00:00",
+        "evidence": "한국 공식 작품 페이지는 2026년11월20일 Disney+ 시즌3 공개를 명시. 기존 시즌2개 표시는 공개된 시즌 수이므로 번호 근거로 사용하지 않음. 신규 예고 날짜/시즌 번호와 cast/줄거리, 공식 Disney+ Press의2026-07-23 발표를 함께 대조."
+      }
+    }
+  ]
+}

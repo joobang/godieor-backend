@@ -36,3 +36,31 @@ test('Korean KBS premiere with wavve does not disappear when Netflix is absent f
   assert.equal(report.rows[0].krProviderMatched,false);
   assert.equal(report.rows[0].publishingAllowed,false);
 });
+
+
+test('provider on older seasons is not inherited by a new season', async () => {
+  const request = async (path) => {
+    if (path.includes('/season/3/watch/providers')) return { results: { KR: { flatrate: [{ provider_name: 'Disney Plus' }] } } };
+    if (path.endsWith('/watch/providers')) return { results: { KR: { flatrate: [{ provider_name: 'Netflix' }, { provider_name: 'Disney Plus' }] } } };
+    if (path.includes('/season/')) return { air_date: '2026-11-20', episodes: [{ episode_number: 1, air_date: '2026-11-20' }] };
+    return { name: 'Synthetic season split' };
+  };
+  const r = await inspectMissingCandidates([{ contentId: 'tmdb-tv-12', title: 'Synthetic season split', platform: 'netflix', seasonNumber: 3, date: '2026-11-20' }], request);
+  assert.equal(r.rows[0].krProviderMatched, false);
+  assert.equal(r.rows[0].providerScope, 'season');
+  assert.deepEqual(r.rows[0].seriesKrProviderNames, ['Netflix', 'Disney Plus']);
+  assert.deepEqual(r.rows[0].krProviderNames, ['Disney Plus']);
+});
+
+test('failed season provider request stays unknown even when series has provider', async () => {
+  const request = async (path) => {
+    if (path.includes('/season/2/watch/providers')) throw new Error('synthetic timeout');
+    if (path.endsWith('/watch/providers')) return { results: { KR: { flatrate: [{ provider_name: 'Netflix' }] } } };
+    if (path.includes('/season/')) return { air_date: '2026-11-20', episodes: [] };
+    return { name: 'Synthetic' };
+  };
+  const r = await inspectMissingCandidates([{ contentId: 'tmdb-tv-12', title: 'Synthetic', platform: 'netflix', seasonNumber: 2, date: '2026-11-20' }], request);
+  assert.equal(r.rows[0].providerLookupStatus, 'lookup_failed');
+  assert.equal(r.rows[0].krProviderMatched, false);
+  assert.ok(r.rows[0].errors.some(x => x.startsWith('season_providers:')));
+});

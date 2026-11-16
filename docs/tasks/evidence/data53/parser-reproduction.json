@@ -1,0 +1,10 @@
+{
+  "base": "a3ef021",
+  "sameHTMLSHA256": "95b0b54c15ae0980579cee254098a4a7ba5ab5f7f45ed662761e5f998ce95f9e",
+  "oldNewReleaseOnlyPlatformRows": 21,
+  "seasonPremierePlatformRowsPreviouslyOmitted": 26,
+  "correctedReferenceRows": 47,
+  "monthlyPageRows": 46,
+  "calendarOnlySeason18RowPreserved": true,
+  "productDataWasNotGeneratedFromReference": true
+}

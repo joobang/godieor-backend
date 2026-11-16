@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "authority": "implementer_primary_identity_crosscheck",
+  "items": [
+    {
+      "title": "응급실의 기적",
+      "aliases": [
+        "Miracles of the ER"
+      ],
+      "platform": "netflix",
+      "date": "2026-11-12",
+      "seasonNumber": 1,
+      "evidenceURLs": [
+        "https://www.netflix.com/title/82027980",
+        "https://about.netflix.com/en/news/miracles-of-the-er-premieres-november-12-on-netflix"
+      ]
+    },
+    {
+      "title": "데블스 플랜: 데드 어게인",
+      "aliases": [
+        "데블스 플랜"
+      ],
+      "platform": "netflix",
+      "date": "2026-11-10",
+      "seasonNumber": 3,
+      "evidenceURLs": [
+        "https://about.netflix.com/ko/news/the-devils-plan-dead-again-teaser"
+      ]
+    },
+    {
+      "title": "무쇠소녀단3",
+      "aliases": [
+        "무쇠소녀단"
+      ],
+      "platform": "tving",
+      "date": "2026-11-26",
+      "seasonNumber": 3,
+      "evidenceURLs": [
+        "https://www.tving.com/contents/P001794298"
+      ]
+    },
+    {
+      "title": "보검매직컬 시즌2",
+      "aliases": [
+        "보검 매직컬"
+      ],
+      "platform": "tving",
+      "date": "2026-11-29",
+      "seasonNumber": 2,
+      "evidenceURLs": [
+        "https://www.tving.com/contents/P001793657"
+      ]
+    },
+    {
+      "title": "대탈출 : 도시괴담",
+      "aliases": [
+        "대탈출"
+      ],
+      "platform": "tving",
+      "date": "2026-12-02",
+      "seasonNumber": 6,
+      "evidenceURLs": [
+        "https://www.tving.com/contents/P001793986"
+      ]
+    }
+  ]
+}

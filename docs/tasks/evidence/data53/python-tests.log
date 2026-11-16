@@ -1,0 +1,13 @@
+test_extract_rsc_and_classify (test_audit_streampick_calendar.CalendarAuditTests) ... ok
+test_missing_payload_fails (test_audit_streampick_calendar.CalendarAuditTests) ... ok
+test_duplicate_cards_and_platforms_do_not_inflate_counts (test_audit_streampick_calendar.FirstReleaseReferenceTests) ... ok
+test_invalid_season_and_missing_content_fail (test_audit_streampick_calendar.FirstReleaseReferenceTests) ... ok
+test_monthly_cards_deduplicate_and_reject_conflicts (test_audit_streampick_calendar.FirstReleaseReferenceTests) ... ok
+test_new_season_is_included_and_normal_episode_excluded (test_audit_streampick_calendar.FirstReleaseReferenceTests) ... ok
+test_unknown_season_is_preserved (test_audit_streampick_calendar.FirstReleaseReferenceTests) ... ok
+test_window_boundaries (test_audit_streampick_calendar.FirstReleaseReferenceTests) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.004s
+
+OK

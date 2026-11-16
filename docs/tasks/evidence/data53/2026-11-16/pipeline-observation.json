@@ -1,0 +1,4169 @@
+{
+  "scope": "implementer live TMDB discovery plus primary-source refresh; not independent approval",
+  "referenceInputUsed": false,
+  "discoveredWorks": 312,
+  "allWorksWithOfficialSeeds": 325,
+  "currentCandidateRows": 120,
+  "storedCandidateIdentitiesIncludingHistory": 123,
+  "freshReadyForBatchReview": 39,
+  "discoveryComplete": false,
+  "discoveryCoverage": [
+    {
+      "kind": "tv",
+      "service": "netflix",
+      "window": {
+        "start": "2026-11-01",
+        "end": "2026-11-30"
+      },
+      "filter": "air_date",
+      "providerIds": [
+        8,
+        1796
+      ],
+      "totalPages": 6,
+      "pagesRead": 6,
+      "truncated": false,
+      "retrieved": 108,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": "netflix",
+      "window": {
+        "start": "2026-11-01",
+        "end": "2026-11-30"
+      },
+      "filter": "first_air_date",
+      "providerIds": [
+        8,
+        1796
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 14,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": "netflix",
+      "window": {
+        "start": "2026-12-01",
+        "end": "2026-12-31"
+      },
+      "filter": "air_date",
+      "providerIds": [
+        8,
+        1796
+      ],
+      "totalPages": 3,
+      "pagesRead": 3,
+      "truncated": false,
+      "retrieved": 45,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": "netflix",
+      "window": {
+        "start": "2026-12-01",
+        "end": "2026-12-31"
+      },
+      "filter": "first_air_date",
+      "providerIds": [
+        8,
+        1796
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 0,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": "tving",
+      "window": {
+        "start": "2026-11-01",
+        "end": "2026-11-30"
+      },
+      "filter": "air_date",
+      "providerIds": [
+        1883
+      ],
+      "totalPages": 5,
+      "pagesRead": 5,
+      "truncated": false,
+      "retrieved": 84,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": "tving",
+      "window": {
+        "start": "2026-11-01",
+        "end": "2026-11-30"
+      },
+      "filter": "first_air_date",
+      "providerIds": [
+        1883
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 4,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": "tving",
+      "window": {
+        "start": "2026-12-01",
+        "end": "2026-12-31"
+      },
+      "filter": "air_date",
+      "providerIds": [
+        1883
+      ],
+      "totalPages": 3,
+      "pagesRead": 3,
+      "truncated": false,
+      "retrieved": 49,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": "tving",
+      "window": {
+        "start": "2026-12-01",
+        "end": "2026-12-31"
+      },
+      "filter": "first_air_date",
+      "providerIds": [
+        1883
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 0,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": "disney_plus",
+      "window": {
+        "start": "2026-11-01",
+        "end": "2026-11-30"
+      },
+      "filter": "air_date",
+      "providerIds": [
+        337
+      ],
+      "totalPages": 3,
+      "pagesRead": 3,
+      "truncated": false,
+      "retrieved": 45,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": "disney_plus",
+      "window": {
+        "start": "2026-11-01",
+        "end": "2026-11-30"
+      },
+      "filter": "first_air_date",
+      "providerIds": [
+        337
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 3,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": "disney_plus",
+      "window": {
+        "start": "2026-12-01",
+        "end": "2026-12-31"
+      },
+      "filter": "air_date",
+      "providerIds": [
+        337
+      ],
+      "totalPages": 2,
+      "pagesRead": 2,
+      "truncated": false,
+      "retrieved": 21,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": "disney_plus",
+      "window": {
+        "start": "2026-12-01",
+        "end": "2026-12-31"
+      },
+      "filter": "first_air_date",
+      "providerIds": [
+        337
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 0,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": "coupang_play",
+      "window": {
+        "start": "2026-11-01",
+        "end": "2026-11-30"
+      },
+      "filter": "air_date",
+      "providerIds": [
+        1881
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 2,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": "coupang_play",
+      "window": {
+        "start": "2026-11-01",
+        "end": "2026-11-30"
+      },
+      "filter": "first_air_date",
+      "providerIds": [
+        1881
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 0,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": "coupang_play",
+      "window": {
+        "start": "2026-12-01",
+        "end": "2026-12-31"
+      },
+      "filter": "air_date",
+      "providerIds": [
+        1881
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 1,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": "coupang_play",
+      "window": {
+        "start": "2026-12-01",
+        "end": "2026-12-31"
+      },
+      "filter": "first_air_date",
+      "providerIds": [
+        1881
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 0,
+      "error": null
+    },
+    {
+      "kind": "movie",
+      "service": "netflix",
+      "window": {
+        "start": "2026-11-01",
+        "end": "2026-11-30"
+      },
+      "filter": "primary_release_date",
+      "providerIds": [
+        8,
+        1796
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 16,
+      "error": null
+    },
+    {
+      "kind": "movie",
+      "service": "netflix",
+      "window": {
+        "start": "2026-12-01",
+        "end": "2026-12-31"
+      },
+      "filter": "primary_release_date",
+      "providerIds": [
+        8,
+        1796
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 0,
+      "error": null
+    },
+    {
+      "kind": "movie",
+      "service": "tving",
+      "window": {
+        "start": "2026-11-01",
+        "end": "2026-11-30"
+      },
+      "filter": "primary_release_date",
+      "providerIds": [
+        1883
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 1,
+      "error": null
+    },
+    {
+      "kind": "movie",
+      "service": "tving",
+      "window": {
+        "start": "2026-12-01",
+        "end": "2026-12-31"
+      },
+      "filter": "primary_release_date",
+      "providerIds": [
+        1883
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 0,
+      "error": null
+    },
+    {
+      "kind": "movie",
+      "service": "disney_plus",
+      "window": {
+        "start": "2026-11-01",
+        "end": "2026-11-30"
+      },
+      "filter": "primary_release_date",
+      "providerIds": [
+        337
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 1,
+      "error": null
+    },
+    {
+      "kind": "movie",
+      "service": "disney_plus",
+      "window": {
+        "start": "2026-12-01",
+        "end": "2026-12-31"
+      },
+      "filter": "primary_release_date",
+      "providerIds": [
+        337
+      ],
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 0,
+      "error": null
+    },
+    {
+      "kind": "movie",
+      "service": "coupang_play",
+      "providerIds": [],
+      "count": 0,
+      "reason": "provider_not_found"
+    },
+    {
+      "kind": "tv",
+      "service": null,
+      "window": {
+        "start": "2026-11-01",
+        "end": "2026-11-30"
+      },
+      "filter": "kr_origin_air_date",
+      "totalPages": 7,
+      "pagesRead": 7,
+      "truncated": false,
+      "retrieved": 140,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": null,
+      "window": {
+        "start": "2026-11-01",
+        "end": "2026-11-30"
+      },
+      "filter": "kr_origin_first_air_date",
+      "totalPages": 2,
+      "pagesRead": 2,
+      "truncated": false,
+      "retrieved": 31,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": null,
+      "window": {
+        "start": "2026-12-01",
+        "end": "2026-12-31"
+      },
+      "filter": "kr_origin_air_date",
+      "totalPages": 2,
+      "pagesRead": 2,
+      "truncated": false,
+      "retrieved": 40,
+      "error": null
+    },
+    {
+      "kind": "tv",
+      "service": null,
+      "window": {
+        "start": "2026-12-01",
+        "end": "2026-12-31"
+      },
+      "filter": "kr_origin_first_air_date",
+      "totalPages": 1,
+      "pagesRead": 1,
+      "truncated": false,
+      "retrieved": 5,
+      "error": null
+    }
+  ],
+  "errors": [],
+  "providerLookupStatuses": {
+    "unlisted": 71,
+    "available": 49
+  },
+  "officialSourceRefreshStatuses": {
+    "matched": 43,
+    "unsupported_primary_parser": 4,
+    "lookup_failed": 2
+  },
+  "rawReportSHA256": "1d8626f082179309f451f2c3f323d6c5bebd59d8408a587b371be8368e4e56ae",
+  "rows": [
+    {
+      "id": "tmdb:movie:1480665:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1480665,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "콰지모도, 파리의 영혼",
+      "dates": {
+        "movieReleaseDate": "2026-11-27"
+      },
+      "dateHint": "2026-11-27",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-27",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:movie:1518204:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1518204,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "앨런",
+      "dates": {
+        "movieReleaseDate": "2026-11-12"
+      },
+      "dateHint": "2026-11-12",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:movie:1543469:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1543469,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "하트랜드",
+      "dates": {
+        "movieReleaseDate": "2026-11-13"
+      },
+      "dateHint": "2026-11-13",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-13",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:movie:1551025:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1551025,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "스타의 보디가드",
+      "dates": {
+        "movieReleaseDate": "2026-11-18"
+      },
+      "dateHint": "2026-11-18",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-18",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:movie:1559980:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1559980,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "크리스마스 가스펠",
+      "dates": {
+        "movieReleaseDate": "2026-11-11"
+      },
+      "dateHint": "2026-11-11",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-11",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:movie:1570488:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1570488,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "반려견의 완벽한 크리스마스",
+      "dates": {
+        "movieReleaseDate": "2026-11-04"
+      },
+      "dateHint": "2026-11-04",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:movie:1595124:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1595124,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "스텝스",
+      "dates": {
+        "movieReleaseDate": "2026-11-20"
+      },
+      "dateHint": "2026-11-20",
+      "tmdbDateConflict": false,
+      "scopeHold": "animation_scope_review",
+      "discoveryPaths": [
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-20",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:movie:1616687:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1616687,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "네버 서렌더",
+      "dates": {
+        "movieReleaseDate": "2026-11-11"
+      },
+      "dateHint": "2026-11-11",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "date_conflict",
+      "officialPlatformDate": "2026-11-12",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:movie:1630420:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1630420,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "오버액션 갱",
+      "dates": {
+        "movieReleaseDate": "2026-11-04"
+      },
+      "dateHint": "2026-11-04",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:movie:1654940:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1654940,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "시한부 1년, 남자를 사다",
+      "dates": {
+        "movieReleaseDate": "2026-11-05"
+      },
+      "dateHint": "2026-11-05",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:movie:1664682:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1664682,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "시간이 지울 수 없는 죄",
+      "dates": {
+        "movieReleaseDate": "2026-11-11"
+      },
+      "dateHint": "2026-11-11",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-11",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:movie:1666787:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1666787,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "리처드 애버던",
+      "dates": {
+        "movieReleaseDate": "2026-11-06"
+      },
+      "dateHint": "2026-11-06",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:movie:1719043:movie:KR:tving",
+      "type": "movie",
+      "tmdbId": 1719043,
+      "seasonNumber": null,
+      "platform": "tving",
+      "title": "크랙",
+      "dates": {
+        "movieReleaseDate": "2026-11-07"
+      },
+      "dateHint": "2026-11-07",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:movie:1757174:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1757174,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "크리스마스까지만",
+      "dates": {
+        "movieReleaseDate": "2026-11-12"
+      },
+      "dateHint": "2026-11-12",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-12",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:movie:1794569:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1794569,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "보호받지 못한 자: 머더 인 갈리시아",
+      "dates": {
+        "movieReleaseDate": "2026-11-06"
+      },
+      "dateHint": "2026-11-06",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-06",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:movie:1798383:movie:KR:disney_plus",
+      "type": "movie",
+      "tmdbId": 1798383,
+      "seasonNumber": null,
+      "platform": "disney_plus",
+      "title": "Wolves Up Close with Bertie Gregory",
+      "dates": {
+        "movieReleaseDate": "2026-11-06"
+      },
+      "dateHint": "2026-11-06",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:movie:1802703:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1802703,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "Rob Lowe: The Outsider",
+      "dates": {
+        "movieReleaseDate": "2026-11-24"
+      },
+      "dateHint": "2026-11-24",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-24",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:movie:1804941:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1804941,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "마이크 타이슨: 마이크가 돌아왔다",
+      "dates": {
+        "movieReleaseDate": "2026-11-03"
+      },
+      "dateHint": "2026-11-03",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-03",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:movie:1810711:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1810711,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "Dilwali Diwali",
+      "dates": {
+        "movieReleaseDate": "2026-11-05"
+      },
+      "dateHint": "2026-11-05",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-05",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:movie:1811599:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1811599,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "Tyson Fury",
+      "dates": {
+        "movieReleaseDate": "2026-11-27"
+      },
+      "dateHint": "2026-11-27",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-27",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:movie:1816668:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1816668,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "니뇨: 명성의 대가",
+      "dates": {
+        "movieReleaseDate": "2026-11-04"
+      },
+      "dateHint": "2026-11-04",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-04",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:movie:1817773:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1817773,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "Alta Gama: El Caso Relojes",
+      "dates": {
+        "movieReleaseDate": "2026-11-05"
+      },
+      "dateHint": "2026-11-05",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-05",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:movie:1820172:movie:KR:netflix",
+      "type": "movie",
+      "tmdbId": 1820172,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "title": "Janelle James: How Romantic",
+      "dates": {
+        "movieReleaseDate": "2026-11-10"
+      },
+      "dateHint": "2026-11-10",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-10",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:103540:3:KR:disney_plus",
+      "type": "tv",
+      "tmdbId": 103540,
+      "seasonNumber": 3,
+      "platform": "disney_plus",
+      "title": "퍼시 잭슨과 올림포스의 신들",
+      "dates": {
+        "seriesFirstDate": "2023-12-19",
+        "seasonFirstDate": "2026-11-20",
+        "firstEpisodeDate": "2026-11-20"
+      },
+      "dateHint": "2026-11-20",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-20",
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:103540:3:KR:netflix",
+      "type": "tv",
+      "tmdbId": 103540,
+      "seasonNumber": 3,
+      "platform": "netflix",
+      "title": "퍼시 잭슨과 올림포스의 신들",
+      "dates": {
+        "seriesFirstDate": "2023-12-19",
+        "seasonFirstDate": "2026-11-20",
+        "firstEpisodeDate": "2026-11-20"
+      },
+      "dateHint": "2026-11-20",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:107113:6:KR:disney_plus",
+      "type": "tv",
+      "tmdbId": 107113,
+      "seasonNumber": 6,
+      "platform": "disney_plus",
+      "title": "아파트 이웃들이 수상해",
+      "dates": {
+        "seriesFirstDate": "2021-08-31",
+        "seasonFirstDate": "2026-12-08",
+        "firstEpisodeDate": "2026-12-08"
+      },
+      "dateHint": "2026-12-08",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:112745:2:KR:netflix",
+      "type": "tv",
+      "tmdbId": 112745,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "title": "에토스",
+      "dates": {
+        "seriesFirstDate": "2020-11-12",
+        "seasonFirstDate": "2026-11-12",
+        "firstEpisodeDate": "2026-11-12"
+      },
+      "dateHint": "2026-11-12",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-12",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:130853:2:KR:tving",
+      "type": "tv",
+      "tmdbId": 130853,
+      "seasonNumber": 2,
+      "platform": "tving",
+      "title": "'나쁜 원숭이' - Bad Monkey",
+      "dates": {
+        "seriesFirstDate": "2024-08-13",
+        "seasonFirstDate": "2026-12-01",
+        "firstEpisodeDate": "2026-12-01"
+      },
+      "dateHint": "2026-12-01",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:131488:3:KR:netflix",
+      "type": "tv",
+      "tmdbId": 131488,
+      "seasonNumber": 3,
+      "platform": "netflix",
+      "title": "황후 엘리자베트",
+      "dates": {
+        "seriesFirstDate": "2022-09-29",
+        "seasonFirstDate": "2026-11-12",
+        "firstEpisodeDate": "2026-11-12"
+      },
+      "dateHint": "2026-11-12",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-12",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:157926:4:KR:netflix",
+      "type": "tv",
+      "tmdbId": 157926,
+      "seasonNumber": 4,
+      "platform": "netflix",
+      "title": "토크 서바이벌: 토크가 재밌어야 살아남는 드라마",
+      "dates": {
+        "seriesFirstDate": "2022-03-08",
+        "seasonFirstDate": "2026-11-10",
+        "firstEpisodeDate": "2026-11-10"
+      },
+      "dateHint": "2026-11-10",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-10",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:212440:4:KR:disney_plus",
+      "type": "tv",
+      "tmdbId": 212440,
+      "seasonNumber": 4,
+      "platform": "disney_plus",
+      "title": "제2차 세계대전: 하늘에서 온 비밀",
+      "dates": {
+        "seriesFirstDate": "2022-10-18",
+        "seasonFirstDate": "2026-11-03",
+        "firstEpisodeDate": "2026-11-03"
+      },
+      "dateHint": "2026-11-03",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:214582:3:KR:netflix",
+      "type": "tv",
+      "tmdbId": 214582,
+      "seasonNumber": 3,
+      "platform": "netflix",
+      "title": "데블스 플랜",
+      "dates": {
+        "seriesFirstDate": "2023-09-26",
+        "seasonFirstDate": "2026-11-10",
+        "firstEpisodeDate": "2026-11-10"
+      },
+      "dateHint": "2026-11-10",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:224330:4:KR:netflix",
+      "type": "tv",
+      "tmdbId": 224330,
+      "seasonNumber": 4,
+      "platform": "netflix",
+      "title": "불편한 파트너: 상금을 잡아라",
+      "dates": {
+        "seriesFirstDate": "2023-10-09",
+        "seasonFirstDate": "2026-11-25",
+        "firstEpisodeDate": "2026-11-25"
+      },
+      "dateHint": "2026-11-25",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-25",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:225385:2:KR:netflix",
+      "type": "tv",
+      "tmdbId": 225385,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "title": "블랙 도브",
+      "dates": {
+        "seriesFirstDate": "2024-12-05",
+        "seasonFirstDate": "2026-11-05",
+        "firstEpisodeDate": "2026-11-05"
+      },
+      "dateHint": "2026-11-05",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-05",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:226102:2:KR:disney_plus",
+      "type": "tv",
+      "tmdbId": 226102,
+      "seasonNumber": 2,
+      "platform": "disney_plus",
+      "title": "크래시",
+      "dates": {
+        "seriesFirstDate": "2024-05-13",
+        "seasonFirstDate": "2026-11-16",
+        "firstEpisodeDate": "2026-11-16"
+      },
+      "dateHint": "2026-11-16",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:243761:2:KR:netflix",
+      "type": "tv",
+      "tmdbId": 243761,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "title": "굿파트너",
+      "dates": {
+        "seriesFirstDate": "2024-07-12",
+        "seasonFirstDate": "2026-11-20",
+        "firstEpisodeDate": "2026-11-20"
+      },
+      "dateHint": "2026-11-20",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:244447:2:KR:netflix",
+      "type": "tv",
+      "tmdbId": 244447,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "title": "사냥하는 아내들",
+      "dates": {
+        "seriesFirstDate": "2025-07-21",
+        "seasonFirstDate": "2026-11-26",
+        "firstEpisodeDate": "2026-11-26"
+      },
+      "dateHint": "2026-11-26",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-26",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:247634:2:KR:netflix",
+      "type": "tv",
+      "tmdbId": 247634,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "title": "연애 실험: 블라인드 러브 아랍편",
+      "dates": {
+        "seriesFirstDate": "2024-10-10",
+        "seasonFirstDate": "2026-11-12",
+        "firstEpisodeDate": "2026-11-12"
+      },
+      "dateHint": "2026-11-12",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-12",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:248830:2:KR:tving",
+      "type": "tv",
+      "tmdbId": 248830,
+      "seasonNumber": 2,
+      "platform": "tving",
+      "title": "'두 번째 스윙' - Stick",
+      "dates": {
+        "seriesFirstDate": "2025-06-03",
+        "seasonFirstDate": "2026-11-03",
+        "firstEpisodeDate": "2026-11-03"
+      },
+      "dateHint": "2026-11-03",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:251842:2:KR:netflix",
+      "type": "tv",
+      "tmdbId": 251842,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "title": "더 브로스",
+      "dates": {
+        "seriesFirstDate": "2024-04-18",
+        "seasonFirstDate": "2026-11-12",
+        "firstEpisodeDate": "2026-11-12"
+      },
+      "dateHint": "2026-11-12",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-12",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:256726:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 256726,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "천천히 강렬하게",
+      "dates": {
+        "seriesFirstDate": "2026-12-11",
+        "seasonFirstDate": "2026-12-11",
+        "firstEpisodeDate": "2026-12-11"
+      },
+      "dateHint": "2026-12-11",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-12-11",
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:258742:2:KR:disney_plus",
+      "type": "tv",
+      "tmdbId": 258742,
+      "seasonNumber": 2,
+      "platform": "disney_plus",
+      "title": "올즈 페어: 여신의 재판",
+      "dates": {
+        "seriesFirstDate": "2025-11-04",
+        "seasonFirstDate": "2026-11-04",
+        "firstEpisodeDate": "2026-11-04"
+      },
+      "dateHint": "2026-11-04",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:258862:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 258862,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "신의 구슬",
+      "dates": {
+        "seriesFirstDate": "2026-12-05",
+        "seasonFirstDate": "2026-12-05",
+        "firstEpisodeDate": "2026-12-05"
+      },
+      "dateHint": "2026-12-05",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:270746:3:KR:tving",
+      "type": "tv",
+      "tmdbId": 270746,
+      "seasonNumber": 3,
+      "platform": "tving",
+      "title": "무쇠소녀단",
+      "dates": {
+        "seriesFirstDate": "2024-09-07",
+        "seasonFirstDate": "2026-11-26",
+        "firstEpisodeDate": "2026-11-26"
+      },
+      "dateHint": "2026-11-26",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-26",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:275204:2:KR:netflix",
+      "type": "tv",
+      "tmdbId": 275204,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "title": "난리굿 패밀리",
+      "dates": {
+        "seriesFirstDate": "2021-10-14",
+        "seasonFirstDate": "2026-11-20",
+        "firstEpisodeDate": "2026-11-20"
+      },
+      "dateHint": "2026-11-20",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-20",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:279142:2:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 279142,
+      "seasonNumber": 2,
+      "platform": null,
+      "title": "Bad Guys",
+      "dates": {
+        "seriesFirstDate": "2025-02-21",
+        "seasonFirstDate": "2026-12-11",
+        "firstEpisodeDate": "2026-12-11"
+      },
+      "dateHint": "2026-12-11",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:279246:1:KR:disney_plus",
+      "type": "tv",
+      "tmdbId": 279246,
+      "seasonNumber": 1,
+      "platform": "disney_plus",
+      "title": "재혼 황후",
+      "dates": {
+        "seriesFirstDate": "2026-11-03",
+        "seasonFirstDate": "2026-11-03",
+        "firstEpisodeDate": "2026-11-03"
+      },
+      "dateHint": "2026-11-03",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:283579:2:KR:netflix",
+      "type": "tv",
+      "tmdbId": 283579,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "title": "블룸 & 빈",
+      "dates": {
+        "seriesFirstDate": "2025-02-28",
+        "seasonFirstDate": "2026-12-17",
+        "firstEpisodeDate": "2026-12-17"
+      },
+      "dateHint": "2026-12-17",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:291507:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 291507,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "더 바디",
+      "dates": {
+        "seriesFirstDate": "2026-11-11",
+        "seasonFirstDate": "2026-11-11",
+        "firstEpisodeDate": "2026-11-11"
+      },
+      "dateHint": "2026-11-11",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:297491:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 297491,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "포위된 시간",
+      "dates": {
+        "seriesFirstDate": "2026-11-06",
+        "seasonFirstDate": "2026-11-06",
+        "firstEpisodeDate": "2026-11-06"
+      },
+      "dateHint": "2026-11-06",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-06",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:299764:1:KR:tving",
+      "type": "tv",
+      "tmdbId": 299764,
+      "seasonNumber": 1,
+      "platform": "tving",
+      "title": "뜨거운 안녕",
+      "dates": {
+        "seriesFirstDate": "2026-11-11",
+        "seasonFirstDate": "2026-11-11",
+        "firstEpisodeDate": "2026-11-11"
+      },
+      "dateHint": "2026-11-11",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-11",
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:300523:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 300523,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "푸른길",
+      "dates": {
+        "seriesFirstDate": "2026-11-20",
+        "seasonFirstDate": "2026-11-20",
+        "firstEpisodeDate": "2026-11-20"
+      },
+      "dateHint": "2026-11-20",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-20",
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:301354:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 301354,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "문무",
+      "dates": {
+        "seriesFirstDate": "2026-11-14",
+        "seasonFirstDate": "2026-11-14",
+        "firstEpisodeDate": "2026-11-14"
+      },
+      "dateHint": "2026-11-14",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:302837:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 302837,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "Toos: De van der valk ontvoering",
+      "dates": {
+        "seriesFirstDate": "2026-11-26",
+        "seasonFirstDate": "2026-11-26",
+        "firstEpisodeDate": "2026-11-26"
+      },
+      "dateHint": "2026-11-26",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-26",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:302986:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 302986,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "너의 그라운드",
+      "dates": {
+        "seriesFirstDate": "2026-12-11",
+        "seasonFirstDate": "2026-12-11",
+        "firstEpisodeDate": "2026-12-11"
+      },
+      "dateHint": "2026-12-11",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:302987:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 302987,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "기프트",
+      "dates": {
+        "seriesFirstDate": "2026-12-05",
+        "seasonFirstDate": "2026-12-05",
+        "firstEpisodeDate": "2026-12-05"
+      },
+      "dateHint": "2026-12-05",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:303182:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 303182,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "머더 인 갈리시아",
+      "dates": {
+        "seriesFirstDate": "2026-11-13",
+        "seasonFirstDate": "2026-11-13",
+        "firstEpisodeDate": "2026-11-13"
+      },
+      "dateHint": "2026-11-13",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-13",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:303552:1:KR:tving",
+      "type": "tv",
+      "tmdbId": 303552,
+      "seasonNumber": 1,
+      "platform": "tving",
+      "title": "대리수능",
+      "dates": {
+        "seriesFirstDate": "2026-11-23",
+        "seasonFirstDate": "2026-11-23",
+        "firstEpisodeDate": "2026-11-23"
+      },
+      "dateHint": "2026-11-23",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-23",
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:306936:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 306936,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "옥시톡신",
+      "dates": {
+        "seriesFirstDate": "2026-11-07",
+        "seasonFirstDate": "2026-11-07",
+        "firstEpisodeDate": "2026-11-07"
+      },
+      "dateHint": "2026-11-07",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:308007:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 308007,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "이타주의자들",
+      "dates": {
+        "seriesFirstDate": "2026-11-19",
+        "seasonFirstDate": "2026-11-19",
+        "firstEpisodeDate": "2026-11-19"
+      },
+      "dateHint": "2026-11-19",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-19",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:310209:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 310209,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "나인 투 식스",
+      "dates": {
+        "seriesFirstDate": "2026-11-25",
+        "seasonFirstDate": "2026-11-25",
+        "firstEpisodeDate": "2026-11-25"
+      },
+      "dateHint": "2026-11-25",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:312006:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 312006,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "마취",
+      "dates": {
+        "seriesFirstDate": "2026-11-04",
+        "seasonFirstDate": "2026-11-04",
+        "firstEpisodeDate": "2026-11-04"
+      },
+      "dateHint": "2026-11-04",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-04",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:312661:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 312661,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "응급실의 기적",
+      "dates": {
+        "seriesFirstDate": "2026-11-12",
+        "seasonFirstDate": "2026-11-12",
+        "firstEpisodeDate": "2026-11-12"
+      },
+      "dateHint": "2026-11-12",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-12",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:312826:2:KR:tving",
+      "type": "tv",
+      "tmdbId": 312826,
+      "seasonNumber": 2,
+      "platform": "tving",
+      "title": "보검 매직컬",
+      "dates": {
+        "seriesFirstDate": "2026-01-30",
+        "seasonFirstDate": "2026-11-29",
+        "firstEpisodeDate": "2026-11-29"
+      },
+      "dateHint": "2026-11-29",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-29",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:313738:1:KR:tving",
+      "type": "tv",
+      "tmdbId": 313738,
+      "seasonNumber": 1,
+      "platform": "tving",
+      "title": "유일무이 로맨스",
+      "dates": {
+        "seriesFirstDate": "2026-11-09",
+        "seasonFirstDate": "2026-11-09",
+        "firstEpisodeDate": "2026-11-09"
+      },
+      "dateHint": "2026-11-09",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:314271:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 314271,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "배스 X 마키나",
+      "dates": {
+        "seriesFirstDate": "2026-11-03",
+        "seasonFirstDate": "2026-11-03",
+        "firstEpisodeDate": "2026-11-03"
+      },
+      "dateHint": "2026-11-03",
+      "tmdbDateConflict": false,
+      "scopeHold": "animation_scope_review",
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:315952:2:KR:netflix",
+      "type": "tv",
+      "tmdbId": 315952,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "title": "KPop Demon Hunters Bonus Content",
+      "dates": {
+        "seriesFirstDate": "2026-03-06",
+        "seasonFirstDate": "2026-11-02",
+        "firstEpisodeDate": "2026-11-02"
+      },
+      "dateHint": "2026-11-02",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:318420:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 318420,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "Os 12 Signos de Valentina",
+      "dates": {
+        "seriesFirstDate": "2026-11-18",
+        "seasonFirstDate": "2026-11-18",
+        "firstEpisodeDate": "2026-11-18"
+      },
+      "dateHint": "2026-11-18",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-18",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:319744:2:KR:netflix",
+      "type": "tv",
+      "tmdbId": 319744,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "title": "연애기숙학교 돌싱N모솔",
+      "dates": {
+        "seriesFirstDate": "2026-04-14",
+        "seasonFirstDate": "2026-11-03",
+        "firstEpisodeDate": "2026-11-03"
+      },
+      "dateHint": "2026-11-03",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:319744:2:KR:tving",
+      "type": "tv",
+      "tmdbId": 319744,
+      "seasonNumber": 2,
+      "platform": "tving",
+      "title": "연애기숙학교 돌싱N모솔",
+      "dates": {
+        "seriesFirstDate": "2026-04-14",
+        "seasonFirstDate": "2026-11-03",
+        "firstEpisodeDate": "2026-11-03"
+      },
+      "dateHint": "2026-11-03",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:320408:3:KR:netflix",
+      "type": "tv",
+      "tmdbId": 320408,
+      "seasonNumber": 3,
+      "platform": "netflix",
+      "title": "상남자의 여행법 in 규슈",
+      "dates": {
+        "seriesFirstDate": "2026-04-21",
+        "seasonFirstDate": "2026-11-03",
+        "firstEpisodeDate": "2026-11-03"
+      },
+      "dateHint": "2026-11-03",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:320408:3:KR:tving",
+      "type": "tv",
+      "tmdbId": 320408,
+      "seasonNumber": 3,
+      "platform": "tving",
+      "title": "상남자의 여행법 in 규슈",
+      "dates": {
+        "seriesFirstDate": "2026-04-21",
+        "seasonFirstDate": "2026-11-03",
+        "firstEpisodeDate": "2026-11-03"
+      },
+      "dateHint": "2026-11-03",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:320507:1:KR:disney_plus",
+      "type": "tv",
+      "tmdbId": 320507,
+      "seasonNumber": 1,
+      "platform": "disney_plus",
+      "title": "몰몬교 주부들의 은밀한 사생활: 오렌지 카운티",
+      "dates": {
+        "seriesFirstDate": "2026-11-12",
+        "seasonFirstDate": "2026-11-12",
+        "firstEpisodeDate": "2026-11-12"
+      },
+      "dateHint": "2026-11-12",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:322052:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 322052,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "동절기",
+      "dates": {
+        "seriesFirstDate": "2026-11-27",
+        "seasonFirstDate": "2026-11-27",
+        "firstEpisodeDate": "2026-11-27"
+      },
+      "dateHint": "2026-11-27",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:323204:2:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 323204,
+      "seasonNumber": 2,
+      "platform": null,
+      "title": "언더커버 셰프",
+      "dates": {
+        "seriesFirstDate": "2026-05-21",
+        "seasonFirstDate": "2026-11-04",
+        "firstEpisodeDate": "2026-11-04"
+      },
+      "dateHint": "2026-11-04",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:326247:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 326247,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "풀 나이트",
+      "dates": {
+        "seriesFirstDate": "2026-11-26",
+        "seasonFirstDate": "2026-11-26",
+        "firstEpisodeDate": "2026-11-26"
+      },
+      "dateHint": "2026-11-26",
+      "tmdbDateConflict": false,
+      "scopeHold": "animation_scope_review",
+      "discoveryPaths": [
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-26",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:326298:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 326298,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "국세청 망나니 : 세금 사냥꾼",
+      "dates": {
+        "seriesFirstDate": "2026-11-26",
+        "seasonFirstDate": "2026-11-26",
+        "firstEpisodeDate": "2026-11-26"
+      },
+      "dateHint": "2026-11-26",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:326975:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 326975,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "보스의 노골적 취향",
+      "dates": {
+        "seriesFirstDate": "2026-11-11",
+        "seasonFirstDate": "2026-11-11",
+        "firstEpisodeDate": "2026-11-11"
+      },
+      "dateHint": "2026-11-11",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:326975:1:KR:tving",
+      "type": "tv",
+      "tmdbId": 326975,
+      "seasonNumber": 1,
+      "platform": "tving",
+      "title": "보스의 노골적 취향",
+      "dates": {
+        "seriesFirstDate": "2026-11-11",
+        "seasonFirstDate": "2026-11-11",
+        "firstEpisodeDate": "2026-11-11"
+      },
+      "dateHint": "2026-11-11",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:332269:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 332269,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "옆자리, 프란체스카",
+      "dates": {
+        "seriesFirstDate": "2026-11-06",
+        "seasonFirstDate": "2026-11-06",
+        "firstEpisodeDate": "2026-11-06"
+      },
+      "dateHint": "2026-11-06",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:332839:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 332839,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "Prawo bestii",
+      "dates": {
+        "seriesFirstDate": "2026-11-18",
+        "seasonFirstDate": "2026-11-18",
+        "firstEpisodeDate": "2026-11-18"
+      },
+      "dateHint": "2026-11-18",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-18",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:336243:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 336243,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "키아로스쿠로: 빛과 어둠",
+      "dates": {
+        "seriesFirstDate": "2026-11-11",
+        "seasonFirstDate": "2026-11-11",
+        "firstEpisodeDate": "2026-11-11"
+      },
+      "dateHint": "2026-11-11",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-11",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:336478:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 336478,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "두지의 멍멍하우스",
+      "dates": {
+        "seriesFirstDate": "2026-11-09",
+        "seasonFirstDate": "2026-11-09",
+        "firstEpisodeDate": "2026-11-09"
+      },
+      "dateHint": "2026-11-09",
+      "tmdbDateConflict": false,
+      "scopeHold": "animation_scope_review",
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-09",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:336592:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 336592,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "Win the Mall",
+      "dates": {
+        "seriesFirstDate": "2026-11-18",
+        "seasonFirstDate": "2026-11-18",
+        "firstEpisodeDate": "2026-11-18"
+      },
+      "dateHint": "2026-11-18",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-18",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:337133:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 337133,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "네가 쏟아지다 : 연애 금지구역",
+      "dates": {
+        "seriesFirstDate": "2026-11-12",
+        "seasonFirstDate": "2026-11-12",
+        "firstEpisodeDate": "2026-11-12"
+      },
+      "dateHint": "2026-11-12",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:338562:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 338562,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "알리시아의 법",
+      "dates": {
+        "seriesFirstDate": "2026-11-11",
+        "seasonFirstDate": "2026-11-11",
+        "firstEpisodeDate": "2026-11-11"
+      },
+      "dateHint": "2026-11-11",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:338684:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 338684,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "테이큰: 나탈리 할로웨이 실종 사건",
+      "dates": {
+        "seriesFirstDate": "2026-11-04",
+        "seasonFirstDate": "2026-11-04",
+        "firstEpisodeDate": "2026-11-04"
+      },
+      "dateHint": "2026-11-04",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-04",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:338930:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 338930,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "Legevakta",
+      "dates": {
+        "seriesFirstDate": "2026-11-26",
+        "seasonFirstDate": "2026-11-26",
+        "firstEpisodeDate": "2026-11-26"
+      },
+      "dateHint": "2026-11-26",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-26",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:339279:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 339279,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "메디컬환생",
+      "dates": {
+        "seriesFirstDate": "2026-11-05",
+        "seasonFirstDate": "2026-11-05",
+        "firstEpisodeDate": "2026-11-05"
+      },
+      "dateHint": "2026-11-05",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:339293:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 339293,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "해고당한 IT천재, 대기업을 삼키다",
+      "dates": {
+        "seriesFirstDate": "2026-11-05",
+        "seasonFirstDate": "2026-11-05",
+        "firstEpisodeDate": "2026-11-05"
+      },
+      "dateHint": "2026-11-05",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:339422:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 339422,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "살인마의 사냥감이 되었다",
+      "dates": {
+        "seriesFirstDate": "2026-11-19",
+        "seasonFirstDate": "2026-11-19",
+        "firstEpisodeDate": "2026-11-19"
+      },
+      "dateHint": "2026-11-19",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:339694:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 339694,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "엇갈린 연인",
+      "dates": {
+        "seriesFirstDate": "2026-11-25",
+        "seasonFirstDate": "2026-11-25",
+        "firstEpisodeDate": "2026-11-25"
+      },
+      "dateHint": "2026-11-25",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:339711:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 339711,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "여왕은 울지 않는다",
+      "dates": {
+        "seriesFirstDate": "2026-11-12",
+        "seasonFirstDate": "2026-11-12",
+        "firstEpisodeDate": "2026-11-12"
+      },
+      "dateHint": "2026-11-12",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:339715:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 339715,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "내게 너무 뜨거운 신입",
+      "dates": {
+        "seriesFirstDate": "2026-11-12",
+        "seasonFirstDate": "2026-11-12",
+        "firstEpisodeDate": "2026-11-12"
+      },
+      "dateHint": "2026-11-12",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:340126:1:KR:tving",
+      "type": "tv",
+      "tmdbId": 340126,
+      "seasonNumber": 1,
+      "platform": "tving",
+      "title": "전지적 집착 시점",
+      "dates": {
+        "seriesFirstDate": "2026-11-08",
+        "seasonFirstDate": "2026-11-08",
+        "firstEpisodeDate": "2026-11-08"
+      },
+      "dateHint": "2026-11-08",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:340321:1:KR:disney_plus",
+      "type": "tv",
+      "tmdbId": 340321,
+      "seasonNumber": 1,
+      "platform": "disney_plus",
+      "title": "스타일 워즈",
+      "dates": {
+        "seriesFirstDate": "2026-11-11",
+        "seasonFirstDate": "2026-11-11",
+        "firstEpisodeDate": "2026-11-11"
+      },
+      "dateHint": "2026-11-11",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:340885:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 340885,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "도겸과 정한 <정답 없는 여행>",
+      "dates": {
+        "seriesFirstDate": "2026-11-19",
+        "seasonFirstDate": "2026-11-19",
+        "firstEpisodeDate": "2026-11-19"
+      },
+      "dateHint": "2026-11-19",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:340978:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 340978,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "그냥사람친구",
+      "dates": {
+        "seriesFirstDate": "2026-11-27",
+        "seasonFirstDate": "2026-11-27",
+        "firstEpisodeDate": "2026-11-27"
+      },
+      "dateHint": "2026-11-27",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:341059:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 341059,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "결혼부터 할까요, 기사님?",
+      "dates": {
+        "seriesFirstDate": "2026-11-03",
+        "seasonFirstDate": "2026-11-03",
+        "firstEpisodeDate": "2026-11-03"
+      },
+      "dateHint": "2026-11-03",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:341199:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 341199,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "지옥의 짬밥",
+      "dates": {
+        "seriesFirstDate": "2026-11-05",
+        "seasonFirstDate": "2026-11-05",
+        "firstEpisodeDate": "2026-11-05"
+      },
+      "dateHint": "2026-11-05",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:341297:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 341297,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "산독기 프로젝트",
+      "dates": {
+        "seriesFirstDate": "2026-11-27",
+        "seasonFirstDate": "2026-11-27",
+        "firstEpisodeDate": "2026-11-27"
+      },
+      "dateHint": "2026-11-27",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:341480:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 341480,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "내 아이돌은 공익근무요원",
+      "dates": {
+        "seriesFirstDate": "2026-11-05",
+        "seasonFirstDate": "2026-11-05",
+        "firstEpisodeDate": "2026-11-05"
+      },
+      "dateHint": "2026-11-05",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:341600:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 341600,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "Salish's 12 Games of Christmas",
+      "dates": {
+        "seriesFirstDate": "2026-11-28",
+        "seasonFirstDate": "2026-11-28",
+        "firstEpisodeDate": "2026-11-28"
+      },
+      "dateHint": "2026-11-28",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-28",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:341603:1:KR:netflix",
+      "type": "tv",
+      "tmdbId": 341603,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "title": "스타 & 웨딩: 아넬레와 버자",
+      "dates": {
+        "seriesFirstDate": "2026-11-13",
+        "seasonFirstDate": "2026-11-13",
+        "firstEpisodeDate": "2026-11-13"
+      },
+      "dateHint": "2026-11-13",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-11-13",
+      "officialSourceRefresh": "matched",
+      "readyForBatchReview": true
+    },
+    {
+      "id": "tmdb:tv:341627:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 341627,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "대탈출: 도시괴담",
+      "dates": {
+        "seriesFirstDate": "2026-12-02",
+        "seasonFirstDate": "2026-12-02",
+        "firstEpisodeDate": "2026-12-02"
+      },
+      "dateHint": "2026-12-02",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:341723:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 341723,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "내 아내의 속사정",
+      "dates": {
+        "seriesFirstDate": "2026-11-02",
+        "seasonFirstDate": "2026-11-02",
+        "firstEpisodeDate": "2026-11-02"
+      },
+      "dateHint": "2026-11-02",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:341833:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 341833,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "자랑할 개 있습니다",
+      "dates": {
+        "seriesFirstDate": "2026-11-11",
+        "seasonFirstDate": "2026-11-11",
+        "firstEpisodeDate": "2026-11-11"
+      },
+      "dateHint": "2026-11-11",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:341856:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 341856,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "예보에 없던 그 녀석",
+      "dates": {
+        "seriesFirstDate": "2026-11-12",
+        "seasonFirstDate": "2026-11-12",
+        "firstEpisodeDate": "2026-11-12"
+      },
+      "dateHint": "2026-11-12",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:342024:1:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 342024,
+      "seasonNumber": 1,
+      "platform": null,
+      "title": "우리동네 플레이리스트",
+      "dates": {
+        "seriesFirstDate": "2026-11-13",
+        "seasonFirstDate": "2026-11-13",
+        "firstEpisodeDate": "2026-11-13"
+      },
+      "dateHint": "2026-11-13",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:387:18:KR:netflix",
+      "type": "tv",
+      "tmdbId": 387,
+      "seasonNumber": 18,
+      "platform": "netflix",
+      "title": "네모바지 스폰지밥",
+      "dates": {
+        "seriesFirstDate": "1999-05-01",
+        "seasonFirstDate": "2026-11-27",
+        "firstEpisodeDate": "2026-11-27"
+      },
+      "dateHint": "2026-11-27",
+      "tmdbDateConflict": false,
+      "scopeHold": "animation_scope_review",
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:46923:11:KR:tving",
+      "type": "tv",
+      "tmdbId": 46923,
+      "seasonNumber": 11,
+      "platform": "tving",
+      "title": "셰틀랜드",
+      "dates": {
+        "seriesFirstDate": "2013-03-10",
+        "seasonFirstDate": "2026-11-12",
+        "firstEpisodeDate": "2026-11-12"
+      },
+      "dateHint": "2026-11-12",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:64840:2:KR:netflix",
+      "type": "tv",
+      "tmdbId": 64840,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "title": "시그널",
+      "dates": {
+        "seriesFirstDate": "2016-01-22",
+        "seasonFirstDate": "2026-12-07",
+        "firstEpisodeDate": "2026-12-07"
+      },
+      "dateHint": "2026-12-07",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:64840:2:KR:tving",
+      "type": "tv",
+      "tmdbId": 64840,
+      "seasonNumber": 2,
+      "platform": "tving",
+      "title": "시그널",
+      "dates": {
+        "seriesFirstDate": "2016-01-22",
+        "seasonFirstDate": "2026-12-07",
+        "firstEpisodeDate": "2026-12-07"
+      },
+      "dateHint": "2026-12-07",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:65334:7:KR:netflix",
+      "type": "tv",
+      "tmdbId": 65334,
+      "seasonNumber": 7,
+      "platform": "netflix",
+      "title": "미라큘러스 레이디버그",
+      "dates": {
+        "seriesFirstDate": "2015-10-19",
+        "seasonFirstDate": "2026-11-01",
+        "firstEpisodeDate": "2026-11-01"
+      },
+      "dateHint": "2026-11-01",
+      "tmdbDateConflict": false,
+      "scopeHold": "animation_scope_review",
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_season_or_movie_provider",
+      "targetSeasonProviderMatched": true,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:65334:7:KR:tving",
+      "type": "tv",
+      "tmdbId": 65334,
+      "seasonNumber": 7,
+      "platform": "tving",
+      "title": "미라큘러스 레이디버그",
+      "dates": {
+        "seriesFirstDate": "2015-10-19",
+        "seasonFirstDate": "2026-11-01",
+        "firstEpisodeDate": "2026-11-01"
+      },
+      "dateHint": "2026-11-01",
+      "tmdbDateConflict": false,
+      "scopeHold": "animation_scope_review",
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "available",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:71026:23:KR:netflix",
+      "type": "tv",
+      "tmdbId": 71026,
+      "seasonNumber": 23,
+      "platform": "netflix",
+      "title": "출동! 슈퍼윙스",
+      "dates": {
+        "seriesFirstDate": "2014-09-01",
+        "seasonFirstDate": "2026-12-04",
+        "firstEpisodeDate": "2026-12-04"
+      },
+      "dateHint": "2026-12-04",
+      "tmdbDateConflict": false,
+      "scopeHold": "animation_scope_review",
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:80585:6:KR:tving",
+      "type": "tv",
+      "tmdbId": 80585,
+      "seasonNumber": 6,
+      "platform": "tving",
+      "title": "대탈출",
+      "dates": {
+        "seriesFirstDate": "2018-07-01",
+        "seasonFirstDate": "2026-12-02",
+        "firstEpisodeDate": "2026-12-02"
+      },
+      "dateHint": "2026-12-02",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover",
+        "official_identity_seed"
+      ],
+      "platformEvidence": "official_identity_binding",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "official_tmdb_date_match",
+      "officialPlatformDate": "2026-12-02",
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:82596:6:KR:netflix",
+      "type": "tv",
+      "tmdbId": 82596,
+      "seasonNumber": 6,
+      "platform": "netflix",
+      "title": "에밀리, 파리에 가다",
+      "dates": {
+        "seriesFirstDate": "2020-10-02",
+        "seasonFirstDate": "2026-12-24",
+        "firstEpisodeDate": "2026-12-24"
+      },
+      "dateHint": "2026-12-24",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:83893:17:KR:unassigned",
+      "type": "tv",
+      "tmdbId": 83893,
+      "seasonNumber": 17,
+      "platform": null,
+      "title": "KBS 드라마 스페셜",
+      "dates": {
+        "seriesFirstDate": "2010-05-15",
+        "seasonFirstDate": "2026-11-18",
+        "firstEpisodeDate": "2026-11-18"
+      },
+      "dateHint": "2026-11-18",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "unassigned",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    },
+    {
+      "id": "tmdb:tv:85077:6:KR:netflix",
+      "type": "tv",
+      "tmdbId": 85077,
+      "seasonNumber": 6,
+      "platform": "netflix",
+      "title": "더 초즌: 부름 받은 자",
+      "dates": {
+        "seriesFirstDate": "2019-04-21",
+        "seasonFirstDate": "2026-11-15",
+        "firstEpisodeDate": "2026-11-15"
+      },
+      "dateHint": "2026-11-15",
+      "tmdbDateConflict": false,
+      "scopeHold": null,
+      "discoveryPaths": [
+        "tmdb_monthly_discover"
+      ],
+      "platformEvidence": "tmdb_series_provider_hint_only",
+      "targetSeasonProviderMatched": false,
+      "providerLookupStatus": "unlisted",
+      "verification": "tmdb_only_needs_official_check",
+      "officialPlatformDate": null,
+      "officialSourceRefresh": "recorded_or_unavailable",
+      "readyForBatchReview": false
+    }
+  ],
+  "officialSources": [
+    {
+      "type": "movie",
+      "tmdbId": 1480665,
+      "title": "콰지모도, 파리의 영혼",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 1543469,
+      "title": "하트랜드",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 1551025,
+      "title": "스타의 보디가드",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 1559980,
+      "title": "크리스마스 가스펠",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 1595124,
+      "title": "스텝스",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 1616687,
+      "title": "네버 서렌더",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-identities-2026-11-12.json"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 1664682,
+      "title": "시간이 지울 수 없는 죄",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 1757174,
+      "title": "크리스마스까지만",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-identities-2026-11-12.json"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 1794569,
+      "title": "보호받지 못한 자: 머더 인 갈리시아",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 1802703,
+      "title": "롭 로: 아웃사이더",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-identities-2026-11-12.json"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 1804941,
+      "title": "마이크 타이슨: 마이크가 돌아왔다",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 1810711,
+      "title": "딜왈리 디왈리",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-identities-2026-11-12.json"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 1811599,
+      "title": "타이슨 퓨리",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-identities-2026-11-12.json"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 1816668,
+      "title": "니뇨: 명성의 대가",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 1817773,
+      "title": "하이 엔드: 명품 시계 절도단",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-identities-2026-11-12.json"
+    },
+    {
+      "type": "movie",
+      "tmdbId": 1820172,
+      "title": "저넬 제임스: 미치게 로맨틱",
+      "platform": "netflix",
+      "seasonNumber": null,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-identities-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 103540,
+      "title": "퍼시 잭슨과 올림포스의 신들",
+      "platform": "disney_plus",
+      "seasonNumber": 3,
+      "sourceUrl": "https://www.disneyplus.com/ko-kr/browse/entity-f1c31566-ec05-4d30-b23f-3177442233f4",
+      "sourceRefreshStatus": "unsupported_primary_parser",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/ott-parity-reviewed-2026-11-13.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 112745,
+      "title": "에토스",
+      "platform": "netflix",
+      "seasonNumber": 2,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 131488,
+      "title": "황후 엘리자베트",
+      "platform": "netflix",
+      "seasonNumber": 3,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 157926,
+      "title": "토크 서바이벌: 토크가 재밌어야 살아남는 드라마",
+      "platform": "netflix",
+      "seasonNumber": 4,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 224330,
+      "title": "불편한 파트너: 상금을 잡아라",
+      "platform": "netflix",
+      "seasonNumber": 4,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 225385,
+      "title": "블랙 도브",
+      "platform": "netflix",
+      "seasonNumber": 2,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 244447,
+      "title": "사냥하는 아내들",
+      "platform": "netflix",
+      "seasonNumber": 2,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 247634,
+      "title": "연애 실험: 블라인드 러브 아랍편",
+      "platform": "netflix",
+      "seasonNumber": 2,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 251842,
+      "title": "더 브로스",
+      "platform": "netflix",
+      "seasonNumber": 2,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 256726,
+      "title": "천천히 강렬하게",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/news/tantara-date-announcement",
+      "sourceRefreshStatus": "unsupported_primary_parser",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/ott-parity-reviewed-2026-11-13.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 270746,
+      "title": "무쇠소녀단3",
+      "platform": "tving",
+      "seasonNumber": 3,
+      "sourceUrl": "https://www.tving.com/contents/P001794298",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/ott-parity-reviewed-2026-11-13.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 275204,
+      "title": "난리굿 패밀리",
+      "platform": "netflix",
+      "seasonNumber": 2,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 297491,
+      "title": "포위된 시간",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 299764,
+      "title": "뜨거운 안녕",
+      "platform": "tving",
+      "seasonNumber": 1,
+      "sourceUrl": "https://www.tving.com/contents/P001793179",
+      "sourceRefreshStatus": "lookup_failed",
+      "sourceRefreshError": "TVING_IDENTITY_CHANGED",
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/ott-parity-reviewed-2026-11-13.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 300523,
+      "title": "푸른길",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/news/main-trailer-of-the-blue-road-sees-son-suk-ku-and-eita-nagayama-team-up-on-a-gruesome-cross-border-murder-investigation",
+      "sourceRefreshStatus": "unsupported_primary_parser",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/ott-parity-reviewed-2026-11-13.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 302837,
+      "title": "토스 판데르팔크 납치 사건",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-identities-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 303182,
+      "title": "머더 인 갈리시아",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-recovered-2026-11-13.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 303552,
+      "title": "대리수능",
+      "platform": "tving",
+      "seasonNumber": 1,
+      "sourceUrl": "https://cjnews.cj.net/%ed%8b%b0%eb%b9%99-%ec%98%a4%eb%a6%ac%ec%a7%80%eb%84%90-%ec%8b%9c%eb%a6%ac%ec%a6%88-%eb%8c%80%eb%a6%ac%ec%88%98%eb%8a%a5-%eb%a9%94%ec%9d%b8-%ed%8f%ac%ec%8a%a4%ed%84%b0-%ea%b3%b5%ea%b0%9c/",
+      "sourceRefreshStatus": "unsupported_primary_parser",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/ott-parity-reviewed-2026-11-13.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 308007,
+      "title": "이타주의자들",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 312006,
+      "title": "마취",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 312661,
+      "title": "응급실의 기적",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-identities-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 312826,
+      "title": "보검매직컬 시즌2",
+      "platform": "tving",
+      "seasonNumber": 2,
+      "sourceUrl": "https://www.tving.com/contents/P001793657",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/ott-parity-reviewed-2026-11-13.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 318420,
+      "title": "발렌치나의 열두 별자리",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-recovered-2026-11-13.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 326247,
+      "title": "풀 나이트",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 332839,
+      "title": "로 오브 비스트",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-recovered-2026-11-13.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 336243,
+      "title": "키아로스쿠로: 빛과 어둠",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 336478,
+      "title": "두지의 멍멍하우스",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 336592,
+      "title": "윈 더 몰: 쇼핑 전쟁",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-identities-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 338684,
+      "title": "테이큰: 나탈리 할로웨이 실종 사건",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 338930,
+      "title": "24시간 온콜",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-recovered-2026-11-13.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 341600,
+      "title": "샐리시의 12가지 크리스마스 게임",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-identities-2026-11-12.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 341603,
+      "title": "스타 & 웨딩: 아넬레와 버자",
+      "platform": "netflix",
+      "seasonNumber": 1,
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/netflix-kr-reviewed-recovered-2026-11-13.json"
+    },
+    {
+      "type": "tv",
+      "tmdbId": 80585,
+      "title": "대탈출 : 도시괴담",
+      "platform": "tving",
+      "seasonNumber": 6,
+      "sourceUrl": "https://www.tving.com/contents/P001793986",
+      "sourceRefreshStatus": "lookup_failed",
+      "sourceRefreshError": "TVING_IDENTITY_CHANGED",
+      "sourceCheckedAt": "2026-11-16T00:24:52.584Z",
+      "bindingSource": "data/curated/ott-parity-reviewed-2026-11-13.json"
+    }
+  ]
+}

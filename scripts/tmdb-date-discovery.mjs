@@ -227,7 +227,7 @@ export async function reverseLookup(referenceRows, request, { searchPages = 2 } 
 
 // Date-based discovery is a second, independent path beyond popularity pages.
 // TMDB discover TV air_date is not guaranteed to mean a new season premiere.
-export async function discoverByDate(request, months, { maxPages = 20 } = {}) {
+export async function discoverByDate(request, months, { maxPages = 20, includeKoreanUpcoming = false } = {}) {
   const windows = months.map(monthRange);
   const rows = new Map();
   const coverage = [];
@@ -252,7 +252,7 @@ export async function discoverByDate(request, months, { maxPages = 20 } = {}) {
           for (let page = 1; page <= Math.min(total, maxPages); page++) {
             try {
               const data = await request(`/discover/${kind}`, { ...params, page });
-              total = Math.min(data.total_pages ?? 1, 500);
+              total = data.total_pages ?? 1;
               totalPages = Math.max(totalPages, total);
               pagesRead++;
               for (const item of data.results ?? []) {
@@ -271,6 +271,31 @@ export async function discoverByDate(request, months, { maxPages = 20 } = {}) {
           coverage.push({ kind, service: service.key, window, filter: Object.keys(strategy)[0].split('.')[0],
             providerIds: ids, totalPages: total, pagesRead, truncated: pagesRead < total, retrieved, error: failure });
         }
+      }
+    }
+  }
+  if (includeKoreanUpcoming) {
+    // Upcoming KR productions often have no provider mapping yet.
+    for (const window of windows) {
+      for (const field of ['air_date', 'first_air_date']) {
+        let total = 1, pagesRead = 0, retrieved = 0, error = null;
+        for (let page = 1; page <= Math.min(total, maxPages, 500); page++) {
+          try {
+            const data = await request('/discover/tv', { language: 'ko-KR', with_origin_country: 'KR',
+              [`${field}.gte`]: window.start, [`${field}.lte`]: window.end, sort_by: 'first_air_date.asc', page });
+            total = data.total_pages ?? 1; pagesRead++;
+            for (const item of data.results ?? []) {
+              if (!item.id) continue;
+              const key = `tv:${item.id}`;
+              const row = rows.get(key) ?? { tmdbId: item.id, type: 'tv', title: item.name,
+                seriesFirstDate: item.first_air_date ?? null, movieReleaseDate: null, services: [], discoveredBy: [] };
+              if (!row.discoveredBy.includes(`kr_origin_${field}`)) row.discoveredBy.push(`kr_origin_${field}`);
+              rows.set(key, row); retrieved++;
+            }
+          } catch (e) { error = e.message; break; }
+        }
+        coverage.push({ kind: 'tv', service: null, window, filter: `kr_origin_${field}`,
+          totalPages: total, pagesRead, truncated: pagesRead < total, retrieved, error });
       }
     }
   }

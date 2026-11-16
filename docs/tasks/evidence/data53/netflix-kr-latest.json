@@ -1,0 +1,691 @@
+{
+  "platform": "netflix",
+  "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+  "observedAt": "2026-11-13T06:09:13.604Z",
+  "items": [
+    {
+      "title": "케이팝 데몬 헌터스: 플레이리스트",
+      "date": "2026-11-02",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-02; Netflix videoID 83135831. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "케이팝 데몬 헌터스: 보너스 콘텐츠",
+      "date": "2026-11-02",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-02; Netflix videoID 82661317. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "나의 베스트 프렌드",
+      "date": "2026-11-02",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-02; Netflix videoID 82046358. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "배스 X 마키나",
+      "date": "2026-11-03",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-03; Netflix videoID 81218437. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "마이크 타이슨: 마이크가 돌아왔다",
+      "date": "2026-11-03",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-03; Netflix videoID 82055986. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "PAW Patrol: The Game",
+      "date": "2026-11-04",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-04; Netflix videoID 83098128. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "마취",
+      "date": "2026-11-04",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-04; Netflix videoID 81707670. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "테이큰: 나탈리 할로웨이 실종 사건",
+      "date": "2026-11-04",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-04; Netflix videoID 81764502. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "니뇨: 명성의 대가",
+      "date": "2026-11-04",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-04; Netflix videoID 81763154. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "반려견의 완벽한 크리스마스",
+      "date": "2026-11-04",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-04; Netflix videoID 82090597. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "블랙 도브",
+      "date": "2026-11-05",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-05; Netflix videoID 81775952. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "이런, 북극!",
+      "date": "2026-11-05",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-05; Netflix videoID 81997254. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "하이 엔드: 명품 시계 절도단",
+      "date": "2026-11-05",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-05; Netflix videoID 81904803. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "오버액션 갱",
+      "date": "2026-11-05",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-05; Netflix videoID 81993326. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "딜왈리 디왈리",
+      "date": "2026-11-05",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-05; Netflix videoID 83167469. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "시한부 1년, 남자를 사다",
+      "date": "2026-11-05",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-05; Netflix videoID 81505776. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "ABC마우스",
+      "date": "2026-11-06",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-06; Netflix videoID 82878686. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "포위된 시간",
+      "date": "2026-11-06",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-06; Netflix videoID 81625054. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "보호받지 못한 자: 머더 인 갈리시아",
+      "date": "2026-11-06",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-06; Netflix videoID 82112156. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "가능한 사랑",
+      "date": "2026-11-06",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-06; Netflix videoID 82106490. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "WWE Crown Jewel",
+      "date": "2026-11-08",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-08; Netflix videoID 82848233. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "두지의 멍멍하우스",
+      "date": "2026-11-09",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-09; Netflix videoID 81678021. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "좋은 변호사",
+      "date": "2026-11-09",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-09; Netflix videoID 81955038. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "Thomas & Friends: Whistle & Go",
+      "date": "2026-11-10",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-10; Netflix videoID 82662589. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "토크 서바이벌: 토크가 재밌어야 살아남는 드라마",
+      "date": "2026-11-10",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-10; Netflix videoID 82052279. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "데블스 플랜",
+      "date": "2026-11-10",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-10; Netflix videoID 82132424. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "저넬 제임스: 미치게 로맨틱",
+      "date": "2026-11-10",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-10; Netflix videoID 81751140. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "우당탕탕 공룡들",
+      "date": "2026-11-11",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-11; Netflix videoID 83312495. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "알리시아의 법",
+      "date": "2026-11-11",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-11; Netflix videoID 82013595. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "더 바디",
+      "date": "2026-11-11",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-11; Netflix videoID 81983579. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "키아로스쿠로: 빛과 어둠",
+      "date": "2026-11-11",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-11; Netflix videoID 81707978. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "리처드 애버던",
+      "date": "2026-11-11",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-11; Netflix videoID 83018004. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "시간이 지울 수 없는 죄",
+      "date": "2026-11-11",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-11; Netflix videoID 81914991. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "크리스마스 가스펠",
+      "date": "2026-11-11",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-11; Netflix videoID 82138246. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "응급실의 기적",
+      "date": "2026-11-12",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 82027981. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "연애 실험: 블라인드 러브 아랍편",
+      "date": "2026-11-12",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 81653508. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "에토스",
+      "date": "2026-11-12",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 81231418. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "더 브로스",
+      "date": "2026-11-12",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 82028115. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "황후 엘리자베트",
+      "date": "2026-11-12",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 81761806. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "네버 서렌더",
+      "date": "2026-11-12",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 81996126. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "앨런",
+      "date": "2026-11-12",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 81382720. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "크리스마스까지만",
+      "date": "2026-11-12",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-12; Netflix videoID 81625025. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "스타 & 웨딩: 아넬레와 버자",
+      "date": "2026-11-13",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-13; Netflix videoID 83073031. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "머더 인 갈리시아",
+      "date": "2026-11-13",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-13; Netflix videoID 82023390. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "러셀 브랜드: 모른 척했던 비밀",
+      "date": "2026-11-13",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-13; Netflix videoID 81746457. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "하트랜드",
+      "date": "2026-11-13",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-13; Netflix videoID 81486332. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "컹크의 색다른 영화 이야기",
+      "date": "2026-11-15",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-15; Netflix videoID 82171490. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "Mike Ward: Modest",
+      "date": "2026-11-17",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-17; Netflix videoID 81697863. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "고르돈",
+      "date": "2026-11-18",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-18; Netflix videoID 81657615. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "발렌치나의 열두 별자리",
+      "date": "2026-11-18",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-18; Netflix videoID 81289599. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "로 오브 비스트",
+      "date": "2026-11-18",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-18; Netflix videoID 81769098. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "윈 더 몰: 쇼핑 전쟁",
+      "date": "2026-11-18",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-18; Netflix videoID 81906730. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "스타의 보디가드",
+      "date": "2026-11-18",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-18; Netflix videoID 81749470. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "이타주의자들",
+      "date": "2026-11-19",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-19; Netflix videoID 81681911. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "난리굿 패밀리",
+      "date": "2026-11-20",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-20; Netflix videoID 82643834. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "푸른길",
+      "date": "2026-11-20",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-20; Netflix videoID 81941627. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "스텝스",
+      "date": "2026-11-20",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-20; Netflix videoID 81212809. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "프라임타임 전도사$",
+      "date": "2026-11-20",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-20; Netflix videoID 81774139. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "제 아들을 대신하여",
+      "date": "2026-11-20",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-20; Netflix videoID 81724626. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "캐런 리드 재판",
+      "date": "2026-11-23",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-23; Netflix videoID 81777232. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "세서미 스트리트",
+      "date": "2026-11-23",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-23; Netflix videoID 82641828. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "네이트 바가치: 이 정도면 잘했지",
+      "date": "2026-11-24",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-24; Netflix videoID 81735281. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "마지막 주문을 받습니다",
+      "date": "2026-11-24",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-24; Netflix videoID 82980714. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "롭 로: 아웃사이더",
+      "date": "2026-11-24",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-24; Netflix videoID 81952500. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "불편한 파트너: 상금을 잡아라",
+      "date": "2026-11-25",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-25; Netflix videoID 82092148. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "모스키토 볼: 전장의 마지막 터치다운",
+      "date": "2026-11-25",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-25; Netflix videoID 81661161. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "NFL 넷플릭스 게임데이: 패커스 vs 램스",
+      "date": "2026-11-26",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-26; Netflix videoID 82917757. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "24시간 온콜",
+      "date": "2026-11-26",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-26; Netflix videoID 81763934. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "토스 판데르팔크 납치 사건",
+      "date": "2026-11-26",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-26; Netflix videoID 81716315. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "풀 나이트",
+      "date": "2026-11-26",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-26; Netflix videoID 81991077. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "필리핀의 크리스마스 선물",
+      "date": "2026-11-26",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-26; Netflix videoID 82044874. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "사냥하는 아내들",
+      "date": "2026-11-26",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-26; Netflix videoID 82141457. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "콰지모도, 파리의 영혼",
+      "date": "2026-11-27",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-27; Netflix videoID 82013434. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "그 아이",
+      "date": "2026-11-27",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-27; Netflix videoID 81780038. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "타이슨 퓨리",
+      "date": "2026-11-27",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-27; Netflix videoID 82046214. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    },
+    {
+      "title": "샐리시의 12가지 크리스마스 게임",
+      "date": "2026-11-28",
+      "market": "KR",
+      "contentKind": "unknown",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "Netflix 한국 공식 신규 공개 목록 날짜 2026-11-28; Netflix videoID 82723082. 한국 플랫폼 등록일로 확인, 작품 종류·시즌·최초 공개 여부는 TMDB 및 작품 정보로 대조 필요."
+    }
+  ]
+}

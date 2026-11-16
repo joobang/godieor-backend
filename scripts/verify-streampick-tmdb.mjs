@@ -11,13 +11,17 @@ export async function inspectMissingCandidates(candidates, request) {
   for (const row of candidates) {
     const match=/^tmdb-(tv|movie)-(\d+)$/.exec(row.contentId??'');
     if (!match) {rows.push({...row,status:'invalid_tmdb_id',errors:['invalid_tmdb_id']});continue;}
-    const [,kind,id]=match; const errors=[]; let detail=null, provider=null, season=null;
+    const [,kind,id]=match; const errors=[]; let detail=null, provider=null, season=null, seasonProvider=null;
     try {detail=await request(`/${kind}/${id}`,{language:'ko-KR'});} catch (e) {errors.push(`detail:${e.message}`);}
     try {provider=await request(`/${kind}/${id}/watch/providers`);} catch (e) {errors.push(`providers:${e.message}`);}
     if(kind==='tv' && Number.isInteger(row.seasonNumber) && row.seasonNumber>0) {
       try {season=await request(`/tv/${id}/season/${row.seasonNumber}`,{language:'ko-KR'});} catch (e) {errors.push(`season:${e.message}`);}
+      try {seasonProvider=await request(`/tv/${id}/season/${row.seasonNumber}/watch/providers`);} catch (e) {errors.push(`season_providers:${e.message}`);}
     }
-    const available=PROVIDER_BUCKETS.flatMap((bucket)=>provider?.results?.KR?.[bucket]??[]);
+    const seriesAvailable=PROVIDER_BUCKETS.flatMap((bucket)=>provider?.results?.KR?.[bucket]??[]);
+    // A series provider may carry only old seasons. Do not project it onto a new season.
+    const effectiveProvider=kind==='tv' ? seasonProvider : provider;
+    const available=PROVIDER_BUCKETS.flatMap((bucket)=>effectiveProvider?.results?.KR?.[bucket]??[]);
     const providerNames=[...new Set(available.map(x=>x.provider_name))];
     const providerPattern=SERVICES.find(x=>x.key===row.platform)?.pattern;
     const dates=kind==='tv' ? candidateDates(detail??{},season) : {movieReleaseDate:detail?.release_date??null};
@@ -36,6 +40,9 @@ export async function inspectMissingCandidates(candidates, request) {
       : episodeOnly ? 'episode_only_hint' : 'date_mismatch';
     rows.push({...row,kind,tmdbId:Number(id),tmdbTitle:detail?.name??detail?.title??null,
       dates,krProviderNames:providerNames,krProviderMatched:providerMatched,dateMatched,
+      providerScope:kind==='tv'?'season':'movie',
+      seriesKrProviderNames:[...new Set(seriesAvailable.map(x=>x.provider_name))],
+      providerLookupStatus:effectiveProvider ? (available.length?'available':'unlisted'):'lookup_failed',
       originCountries,broadcastNetworks,koreanOrigin,otherKoreanProviders,
       episodeOnly,status,errors,officialKoreanPremiereConfirmed:false,publishingAllowed:false});
   }

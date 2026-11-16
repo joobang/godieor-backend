@@ -29,4 +29,52 @@ class CalendarAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'not found'):
             module.extract_calendar('<html></html>')
 
+class FirstReleaseReferenceTests(unittest.TestCase):
+    def calendar(self):
+        return {'events': [
+            {'id': 'new', 'date': '2026-11-01', 'eventType': 'new_release', 'contentId': 'a'},
+            {'id': 'season', 'date': '2026-11-02', 'eventType': 'episode', 'contentId': 'a',
+             'episodes': {'seasonNumber': 2, 'premiere': True}},
+            {'id': 'ordinary', 'date': '2026-11-03', 'eventType': 'episode', 'contentId': 'a',
+             'episodes': {'seasonNumber': 2, 'premiere': False}}],
+            'contents': {'a': {'title': 'Synthetic A', 'platforms': ['netflix', 'tving', 'wavve', 'netflix']}}}
+
+    def test_new_season_is_included_and_normal_episode_excluded(self):
+        result = module.build_reference(self.calendar())
+        self.assertEqual(result['referenceCount'], 4)
+        self.assertEqual({r['releaseType'] for r in result['entries']}, {'new_release', 'season_premiere'})
+        self.assertFalse(result['publishingAllowed'])
+
+    def test_duplicate_cards_and_platforms_do_not_inflate_counts(self):
+        c = self.calendar(); c['events'] += c['events'][:2]
+        self.assertEqual(module.build_reference(c)['referenceCount'], 4)
+
+    def test_unknown_season_is_preserved(self):
+        self.assertIsNone(module.build_reference(self.calendar())['entries'][0]['seasonNumber'])
+
+    def test_invalid_season_and_missing_content_fail(self):
+        c = self.calendar(); c['events'][1]['episodes']['seasonNumber'] = True
+        with self.assertRaisesRegex(ValueError, 'season'): module.build_reference(c)
+        c = self.calendar(); c['contents'] = {}
+        with self.assertRaisesRegex(ValueError, 'content'): module.build_reference(c)
+
+    def test_source_conflicts_and_new_types_cannot_silently_pass(self):
+        c = self.calendar(); duplicate = dict(c['events'][0]); duplicate['date'] = '2026-11-02'; c['events'].append(duplicate)
+        with self.assertRaisesRegex(ValueError, 'Conflicting'): module.build_reference(c)
+        c = self.calendar(); c['events'][0]['eventType'] = 'changed_source_type'
+        with self.assertRaisesRegex(ValueError, 'Unknown'): module.build_reference(c)
+
+    def test_window_boundaries(self):
+        self.assertEqual(module.build_reference(self.calendar(), '2026-11-02', '2026-11-03')['referenceCount'], 2)
+
+    def test_monthly_cards_deduplicate_and_reject_conflicts(self):
+        c = self.calendar(); pair = {'event': c['events'][1], 'content': c['contents']['a'] | {'id': 'a'}}
+        payload = json.dumps([pair, pair], separators=(',', ':'))
+        html = '<script>self.__next_f.push([1,' + json.dumps(payload) + '])</script>'
+        self.assertEqual(len(module.extract_monthly_calendar(html)['events']), 1)
+        conflicting = json.loads(json.dumps(pair)); conflicting['event']['date'] = '2026-11-04'
+        payload = json.dumps([pair, conflicting], separators=(',', ':'))
+        with self.assertRaisesRegex(ValueError, 'Conflicting'):
+            module.extract_monthly_calendar('<script>self.__next_f.push([1,' + json.dumps(payload) + '])</script>')
+
 if __name__=='__main__': unittest.main()

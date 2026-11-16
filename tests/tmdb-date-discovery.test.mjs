@@ -125,3 +125,20 @@ test('failed title lookups are not silently classified as missing titles', async
   const rows = await reverseLookup([['2026-12-07', 'netflix', '시그널', 2]], async () => { throw new Error('ENOTFOUND'); });
   assert.equal(rows[0].status, 'lookup_failed');
 });
+
+
+test('KR upcoming discovery retains works even before provider IDs are listed', async () => {
+  const calls = [];
+  const request = async (path, params) => {
+    calls.push({path,params});
+    if (path.startsWith('/watch/providers/')) return { results: [] };
+    if (path === '/discover/tv' && params.with_origin_country === 'KR') return {
+      total_pages: 1, results: [{ id: 909, name: 'Synthetic upcoming', first_air_date: '2026-11-25' }] };
+    throw new Error('Unexpected synthetic endpoint');
+  };
+  const r = await discoverByDate(request,['2026-11'],{includeKoreanUpcoming:true,maxPages:1});
+  assert.equal(r.rows[0].tmdbId,909);
+  assert.deepEqual(r.rows[0].services,[]);
+  assert.ok(r.rows[0].discoveredBy.includes('kr_origin_air_date'));
+  assert.ok(calls.some(x=>x.params?.with_origin_country === 'KR' && !x.params.with_watch_providers));
+});

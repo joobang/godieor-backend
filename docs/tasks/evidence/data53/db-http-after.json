@@ -1,0 +1,113 @@
+{
+  "mode": "after",
+  "scope": "implementer local SQL/API, not independent approval",
+  "totalReviewedEvents": 69,
+  "publishedWindow": 67,
+  "existingIDsPreserved": true,
+  "other61EventsUnchanged": true,
+  "explicitSeasonUpdates": 4,
+  "additions": 4,
+  "httpStatus": 200,
+  "httpItems": 67,
+  "verifiedRows": [
+    {
+      "id": "1fc0da1f-397e-4539-9507-410a75748954",
+      "key": "event-000065",
+      "title": "뜨거운 안녕",
+      "kind": "ott_season_premiere",
+      "ott_category": "series",
+      "precision": "date_only",
+      "date": "2026-11-11",
+      "instant_at": null,
+      "season": 1,
+      "platform": "tving"
+    },
+    {
+      "id": "5359ce23-ab72-41e3-be10-07cdeea30216",
+      "key": "event-000008",
+      "title": "푸른길",
+      "kind": "ott_season_premiere",
+      "ott_category": "original_series",
+      "precision": "date_only",
+      "date": "2026-11-20",
+      "instant_at": null,
+      "season": 1,
+      "platform": "netflix"
+    },
+    {
+      "id": "e739c4f4-1c99-4655-9b59-ec8593dc45bf",
+      "key": "event-000069",
+      "title": "퍼시 잭슨과 올림포스의 신들",
+      "kind": "ott_season_premiere",
+      "ott_category": "series",
+      "precision": "date_only",
+      "date": "2026-11-20",
+      "instant_at": null,
+      "season": 3,
+      "platform": "disney_plus"
+    },
+    {
+      "id": "bd93a472-6ec4-41a4-a6a3-ccf80328c346",
+      "key": "event-000007",
+      "title": "대리수능",
+      "kind": "ott_season_premiere",
+      "ott_category": "original_series",
+      "precision": "date_only",
+      "date": "2026-11-23",
+      "instant_at": null,
+      "season": 1,
+      "platform": "tving"
+    },
+    {
+      "id": "d9975db7-5f61-4b27-a85e-76f4de01231c",
+      "key": "event-000066",
+      "title": "무쇠소녀단3",
+      "kind": "ott_season_premiere",
+      "ott_category": "variety",
+      "precision": "date_only",
+      "date": "2026-11-26",
+      "instant_at": null,
+      "season": 3,
+      "platform": "tving"
+    },
+    {
+      "id": "9964c608-8ffd-4dc9-a3f0-9b7602c50ca8",
+      "key": "event-000067",
+      "title": "보검매직컬 시즌2",
+      "kind": "ott_season_premiere",
+      "ott_category": "variety",
+      "precision": "date_only",
+      "date": "2026-11-29",
+      "instant_at": null,
+      "season": 2,
+      "platform": "tving"
+    },
+    {
+      "id": "6ed0ccf7-4f80-4e0b-9501-e21c89967962",
+      "key": "event-000068",
+      "title": "대탈출 : 도시괴담",
+      "kind": "ott_season_premiere",
+      "ott_category": "variety",
+      "precision": "date_only",
+      "date": "2026-12-02",
+      "instant_at": null,
+      "season": 6,
+      "platform": "tving"
+    },
+    {
+      "id": "7053b054-8530-46bd-9a48-d9da717f317c",
+      "key": "event-000001",
+      "title": "천천히 강렬하게",
+      "kind": "ott_season_premiere",
+      "ott_category": "series",
+      "precision": "date_only",
+      "date": "2026-12-11",
+      "instant_at": null,
+      "season": 1,
+      "platform": "netflix"
+    }
+  ],
+  "repeatNoChanges": false,
+  "cloudDeployed": false,
+  "iphoneVerified": false
+}

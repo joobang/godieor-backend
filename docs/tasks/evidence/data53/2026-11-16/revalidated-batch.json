@@ -1,0 +1,626 @@
+{
+  "kind": "existing-reviewed-batch-revalidation",
+  "referenceInputUsed": false,
+  "freshDualCheckedExistingRecords": 39,
+  "existingRecords": 69,
+  "newMappingsAssigned": 0,
+  "records": [
+    {
+      "candidateId": "914b785a987dcd3e764a3d614d86267ec7d70da22f00af9b70fc7217883a469a",
+      "eventKey": "event-000044",
+      "tmdbCandidateId": "tmdb:movie:1480665:movie:KR:netflix"
+    },
+    {
+      "candidateId": "465798125e295ba0cd6934a38be76996f7940d2cd443d3ffe69a6c0d7f39ea39",
+      "eventKey": "event-000036",
+      "tmdbCandidateId": "tmdb:movie:1543469:movie:KR:netflix"
+    },
+    {
+      "candidateId": "aea5e5860dbc2d90195301cb158f994494d2e687a5daabf310163b10c93c0006",
+      "eventKey": "event-000037",
+      "tmdbCandidateId": "tmdb:movie:1551025:movie:KR:netflix"
+    },
+    {
+      "candidateId": "5190edc7736cc4c837ef3b61eab16eacfb38ebbe9e82ba305bc1aecb12605cc5",
+      "eventKey": "event-000031",
+      "tmdbCandidateId": "tmdb:movie:1559980:movie:KR:netflix"
+    },
+    {
+      "candidateId": "6a2fa7eac5c8d3cd764f6b4ae6a60c787166d0b2a8159da12969226456d7652d",
+      "eventKey": "event-000030",
+      "tmdbCandidateId": "tmdb:movie:1664682:movie:KR:netflix"
+    },
+    {
+      "candidateId": "93fb520c5ef49595b5397f0b18019a92ce943a08371099ece9ad134d4d87e57e",
+      "eventKey": "event-000050",
+      "tmdbCandidateId": "tmdb:movie:1757174:movie:KR:netflix"
+    },
+    {
+      "candidateId": "7ccf52d3298e8ef7312785b6cac30cc1cc216896cf5f003d9a92e61c806bc11f",
+      "eventKey": "event-000026",
+      "tmdbCandidateId": "tmdb:movie:1794569:movie:KR:netflix"
+    },
+    {
+      "candidateId": "0f4f14c4087f44b7434f6c2f21aaf44653dbf37e37a776c0dc8de31dcbd0e20b",
+      "eventKey": "event-000052",
+      "tmdbCandidateId": "tmdb:movie:1802703:movie:KR:netflix"
+    },
+    {
+      "candidateId": "a95a8e0b7a6218978bff9f79daa215bd658d57b5f25707a979235c885eac49ee",
+      "eventKey": "event-000020",
+      "tmdbCandidateId": "tmdb:movie:1804941:movie:KR:netflix"
+    },
+    {
+      "candidateId": "72715e078a61956dc1d341772001b1b6e921081c8a4aa0bb7d94a22da50ef5be",
+      "eventKey": "event-000046",
+      "tmdbCandidateId": "tmdb:movie:1810711:movie:KR:netflix"
+    },
+    {
+      "candidateId": "8a6af9d1058bc1b616996f97e49125414aa3f64c63a72ddb9755693fafa877ac",
+      "eventKey": "event-000054",
+      "tmdbCandidateId": "tmdb:movie:1811599:movie:KR:netflix"
+    },
+    {
+      "candidateId": "5214bcd7c6f45b907e3ec392b4dd3c1b3c58c4a64d916890d17b70e323ec72ec",
+      "eventKey": "event-000023",
+      "tmdbCandidateId": "tmdb:movie:1816668:movie:KR:netflix"
+    },
+    {
+      "candidateId": "5b2f04a70c48bf750b45a5998b5d681dcd7bfc65b25110e70ef4cb6dd4e49a50",
+      "eventKey": "event-000045",
+      "tmdbCandidateId": "tmdb:movie:1817773:movie:KR:netflix"
+    },
+    {
+      "candidateId": "15e4365746938308d5a61c4e4c85f0697d9ef3b7dd9a6bf31ba0c5e1f4f46a0f",
+      "eventKey": "event-000047",
+      "tmdbCandidateId": "tmdb:movie:1820172:movie:KR:netflix"
+    },
+    {
+      "candidateId": "ac8d270e01dad8e80a98475706d32d89721f136244cdca7e72bc8137a55136be",
+      "eventKey": "event-000033",
+      "tmdbCandidateId": "tmdb:tv:112745:2:KR:netflix"
+    },
+    {
+      "candidateId": "674eb34561999e5ab50a184f21a8694403965474ac2eb1ca6781bb0e9475fe09",
+      "eventKey": "event-000035",
+      "tmdbCandidateId": "tmdb:tv:131488:3:KR:netflix"
+    },
+    {
+      "candidateId": "4f151f0f018c1284b359554eacce93d3a9013483ca9cf8970db1a8c705e624f7",
+      "eventKey": "event-000028",
+      "tmdbCandidateId": "tmdb:tv:157926:4:KR:netflix"
+    },
+    {
+      "candidateId": "28db2b6f40afca96135c14af55829a852054046a5eaf761bcf10d31fc7811c4e",
+      "eventKey": "event-000041",
+      "tmdbCandidateId": "tmdb:tv:224330:4:KR:netflix"
+    },
+    {
+      "candidateId": "0e34dc85d4d9ed6cf081591568404893bd5b3d749bb21691e10328b0ac27ea9b",
+      "eventKey": "event-000024",
+      "tmdbCandidateId": "tmdb:tv:225385:2:KR:netflix"
+    },
+    {
+      "candidateId": "e5d642d0c6c0b708c93bf48f9ed27ed9585224e2dd0b818e0965cdf95789c3fc",
+      "eventKey": "event-000043",
+      "tmdbCandidateId": "tmdb:tv:244447:2:KR:netflix"
+    },
+    {
+      "candidateId": "0ba6fd8b5ef5190a6b7baf8873e32e82d2fa4e3564d77da5b9e98ca2ddb4471e",
+      "eventKey": "event-000032",
+      "tmdbCandidateId": "tmdb:tv:247634:2:KR:netflix"
+    },
+    {
+      "candidateId": "5f74bb2709cd87674b5669f7f525c40d5718e5724b410cd41e9ed7ee6bb997f9",
+      "eventKey": "event-000034",
+      "tmdbCandidateId": "tmdb:tv:251842:2:KR:netflix"
+    },
+    {
+      "candidateId": "2dc7c0a0528fb1be2513095c5e1a29b2008be8c6ad07bb9e9319deff6308249b",
+      "eventKey": "event-000066",
+      "tmdbCandidateId": "tmdb:tv:270746:3:KR:tving"
+    },
+    {
+      "candidateId": "d9ac59fc31fba1cf901252c73ae1159650d86ef4cb390d19a039eacd79626e63",
+      "eventKey": "event-000039",
+      "tmdbCandidateId": "tmdb:tv:275204:2:KR:netflix"
+    },
+    {
+      "candidateId": "7c3cd1f0041cad15dbb1402e158fd0bc40f5d1a7d84686d6948644e74ce2561b",
+      "eventKey": "event-000025",
+      "tmdbCandidateId": "tmdb:tv:297491:1:KR:netflix"
+    },
+    {
+      "candidateId": "ef9de147a80ee0ef4890b1102dd3f8ac45924b77b54485e60ea43bc0106010a9",
+      "eventKey": "event-000053",
+      "tmdbCandidateId": "tmdb:tv:302837:1:KR:netflix"
+    },
+    {
+      "candidateId": "1211cbc6c3fde220045f3c3232a7306a45d73d54fc874aa4e9eebe713b2cdd79",
+      "eventKey": "event-000059",
+      "tmdbCandidateId": "tmdb:tv:303182:1:KR:netflix"
+    },
+    {
+      "candidateId": "09074799753f4db8b6deca7067651d6c04dae96a52950e427134d1faab81453d",
+      "eventKey": "event-000038",
+      "tmdbCandidateId": "tmdb:tv:308007:1:KR:netflix"
+    },
+    {
+      "candidateId": "21d096a53488f67cadcdf15099078d6b69eb9494baa7260987b9913ec633953e",
+      "eventKey": "event-000021",
+      "tmdbCandidateId": "tmdb:tv:312006:1:KR:netflix"
+    },
+    {
+      "candidateId": "add72c639a3e1777501e9561c35dd662321d6c57f0afa710cf31dd4d43913c98",
+      "eventKey": "event-000048",
+      "tmdbCandidateId": "tmdb:tv:312661:1:KR:netflix"
+    },
+    {
+      "candidateId": "ea74c7bdfffc383c5a7661b3ea297e9ba99ecbdc9728a4021c4473976876b001",
+      "eventKey": "event-000067",
+      "tmdbCandidateId": "tmdb:tv:312826:2:KR:tving"
+    },
+    {
+      "candidateId": "5840049373dc2f1a2bcda45e2f96aff89eee602bc7a51deeccb3a929624db295",
+      "eventKey": "event-000060",
+      "tmdbCandidateId": "tmdb:tv:318420:1:KR:netflix"
+    },
+    {
+      "candidateId": "970e1a8bab6646a86947958f95113043a489675dff0aa000f96d9df84c3dde59",
+      "eventKey": "event-000061",
+      "tmdbCandidateId": "tmdb:tv:332839:1:KR:netflix"
+    },
+    {
+      "candidateId": "6f5cb936769b6ddab184ea00677699a53efa35b2f3215ed94f2d0d39bc87e986",
+      "eventKey": "event-000029",
+      "tmdbCandidateId": "tmdb:tv:336243:1:KR:netflix"
+    },
+    {
+      "candidateId": "060b0ee32fc50e3583a5416b8b98c6c0695a152001f88b4de3ad67917b71deda",
+      "eventKey": "event-000051",
+      "tmdbCandidateId": "tmdb:tv:336592:1:KR:netflix"
+    },
+    {
+      "candidateId": "013b7bb1ebe8690cb09d290b1a187fd07757a8b4d120d7628181fe8e2c4d3a0a",
+      "eventKey": "event-000022",
+      "tmdbCandidateId": "tmdb:tv:338684:1:KR:netflix"
+    },
+    {
+      "candidateId": "94b0dbcea62f91b1768f955f8bc681a3095244054ec25e5ad2385c8306cd6d8f",
+      "eventKey": "event-000062",
+      "tmdbCandidateId": "tmdb:tv:338930:1:KR:netflix"
+    },
+    {
+      "candidateId": "bfa8afe066b30c0db294fb26c55ef01012b2384b69ef817547ca86730d1fdb8c",
+      "eventKey": "event-000055",
+      "tmdbCandidateId": "tmdb:tv:341600:1:KR:netflix"
+    },
+    {
+      "candidateId": "4c156841111bbe7d63dc62aff5d40e83ba6eea8018a7d57b028081b3551f84dd",
+      "eventKey": "event-000058",
+      "tmdbCandidateId": "tmdb:tv:341603:1:KR:netflix"
+    }
+  ],
+  "blocked": [],
+  "mappingInput": {
+    "version": 1,
+    "mappings": [
+      {
+        "candidateId": "9be5d184f11c98f94cc50a3bc23e00fa2640c119fe7767881f3aed3b1f84342c",
+        "revision": "5368794fbc76d1532670d8d9860b07bb3a00d5f8946b980211951b690cca271c",
+        "contentKey": "work-000001",
+        "eventKey": "event-000001"
+      },
+      {
+        "candidateId": "fa3d1924488f137539610a1dfd4a44305bdbdba1abd33c464cb6edd199f816e9",
+        "revision": "3786c54a8b23ae4b078df2d8510522cb5ef5b570d80b50476b50244e57f73eb4",
+        "contentKey": "work-000002",
+        "eventKey": "event-000002"
+      },
+      {
+        "candidateId": "e474938e17b92dd2bde5c17da25d31c50fa7f2f2888968aff46e3691a357fc40",
+        "revision": "2d93d9e668ac9fa654a91b76dcc6c23fff05582ef7dce603e2d6fdd28d08051c",
+        "contentKey": "work-000003",
+        "eventKey": "event-000003",
+        "sourceUrl": "https://cjnews.cj.net/%eb%a7%a4%ea%b1%b0%ec%a7%84c-%eb%94%b0%ec%8a%a4%ed%95%9c-%eb%b4%84-%ed%96%87%ec%82%b4%ea%b3%bc-%ed%95%a8%ea%bb%98%ed%95%98%eb%8a%94-4%ec%9b%94-cj-enm-%ec%8b%a0%ea%b7%9c-%ec%bd%98%ed%85%90%ec%b8%a0/"
+      },
+      {
+        "candidateId": "9b725d0a6647c5c0e3b6b2b08c6226c5ce4cbe18d944aa3516c2d16bc1db317f",
+        "revision": "155186a00951980d0b1ad00f7aef4ea5c647ef006ba7c9f6ece4796c70ccda31",
+        "contentKey": "work-000004",
+        "eventKey": "event-000004"
+      },
+      {
+        "candidateId": "54ed71b45c5069b4a08df98d28fd727e34810f3925db0af9e2d517fb2d269f1e",
+        "revision": "c5f1171139be257c4670e6390b85306341186151dcb5c5e20f80e8a495ee7116",
+        "contentKey": "work-000005",
+        "eventKey": "event-000005"
+      },
+      {
+        "candidateId": "5b25ea2c64fa0228951152be1451b764323348bbd08040ae11e221b87be5f74c",
+        "revision": "3b5c1e8927ca4b29bf293cc37b5cd9114fdbd5e71a0fcb54fd8b9984eb8c832f",
+        "contentKey": "work-000006",
+        "eventKey": "event-000006"
+      },
+      {
+        "candidateId": "53c19a6f62ddea488a29e9d76dcf586cbcbde462fcad2b1c909579185796e07b",
+        "revision": "3b62425967e994d28e0d4ecbe94a1bafd890cf9ae19b5286057eefcccfa15e5b",
+        "contentKey": "work-000007",
+        "eventKey": "event-000007"
+      },
+      {
+        "candidateId": "7f1f6ddb0c3d97fb25997ca72dfe1ed5014ff4683d293716e17a12d278803aac",
+        "revision": "b1a7cb57e7fb764f51291b96b9960eeb2a4c7b1f2bdda3a5ceccb426b6120118",
+        "contentKey": "work-000008",
+        "eventKey": "event-000008"
+      },
+      {
+        "candidateId": "4fad5a44d45f2fc209df61ea5283baa921bb76353c742c00e0bbc0a1e50667de",
+        "revision": "c981c9513d81474b0091dc05c0580f2bab1ca1c76fd9ab70fefe2f9d7b4eef1a",
+        "contentKey": "work-000009",
+        "eventKey": "event-000009"
+      },
+      {
+        "candidateId": "5716282a8965a50a75b29f29fe0764c53bc158df21b91cd10388c609f61cd7a6",
+        "revision": "ae0cc7e1223a59320af1961e69f52b7751682e07ff6007c0389afc617f9b0b28",
+        "contentKey": "work-000010",
+        "eventKey": "event-000010"
+      },
+      {
+        "candidateId": "2de5e0b5bcff69769755d290d8e401721d65da07b20575efb92b693ff9bdbd57",
+        "revision": "c5beed61bcb8066c472bf3329949398bb4a26989330cb6b6e311d0b639a4ad92",
+        "contentKey": "work-000011",
+        "eventKey": "event-000011"
+      },
+      {
+        "candidateId": "0b5ab9c901ebbbd534414c479d0b3dff0fa5482e90d5269507bf883bebb59446",
+        "revision": "9b6a54bbf87b374c00f61bb73885960db85fc0f079c1e163ecc84ee1ae0269d2",
+        "contentKey": "work-000012",
+        "eventKey": "event-000012"
+      },
+      {
+        "candidateId": "314dd90fefe988ad264dc1994454519b5a5172dc3c71ae357ad521d683b30c95",
+        "revision": "127086dd872d2aea45d3e80637a4dda4305a7a4e320237b0e93605b39dc7ca6a",
+        "contentKey": "work-000013",
+        "eventKey": "event-000013"
+      },
+      {
+        "candidateId": "a7da3fad3879abf65d814fb4b298d2d47c61e7114068bb35e1cac43e2e0c30c8",
+        "revision": "fa6edf658a720989daeef4ba5dbc16ed034b3a37c7bb132efc5603c2a6db9ab7",
+        "contentKey": "work-000014",
+        "eventKey": "event-000014"
+      },
+      {
+        "candidateId": "94dbae9ad6ecb347617bd7688036b0b40ca3b9ae9b67620cd04665daa7c62551",
+        "revision": "0f02eae849e00d55ab426cee39df2f125a4349036f109b344129b4c60aabc263",
+        "contentKey": "work-000015",
+        "eventKey": "event-000015"
+      },
+      {
+        "candidateId": "76bacd8c371c9c09fae27039956fb83b87a806a14f9203b6f9dee90edc4b5a72",
+        "revision": "76aa8ba6404e43a1c5e8460f868a62a50b2648e82c4def395d04513632c57dec",
+        "contentKey": "work-000016",
+        "eventKey": "event-000016"
+      },
+      {
+        "candidateId": "e0adfac5b280941227a13cad528b2e0043dc97783a32b14742a479af12bd828b",
+        "revision": "beb04f7dfc6f6d2a555109778f03bca31ac32baf520bd33e8795f724a40e8a6b",
+        "contentKey": "work-000017",
+        "eventKey": "event-000017"
+      },
+      {
+        "candidateId": "b9ac0e7986802ac033d9810f403755ac8d8e4f584f2b36b551829ca2c5b1e9fd",
+        "revision": "702e488ceae1d3946baa7884d7cfc80f355ae6924a7e686eaa7ba67fd131ad1f",
+        "contentKey": "work-000018",
+        "eventKey": "event-000018"
+      },
+      {
+        "candidateId": "f70b9315f8dd07b2952a26e3b3c3285cf204b3b72a1acd7a0ebe777e8b2e2a94",
+        "revision": "066dec6a797a231787eb7dce22e953a4cd41f383dfba68027c4240861433b064",
+        "contentKey": "work-000019",
+        "eventKey": "event-000019"
+      },
+      {
+        "candidateId": "a95a8e0b7a6218978bff9f79daa215bd658d57b5f25707a979235c885eac49ee",
+        "revision": "1f18db89dafe5a50279fbfcfc52f8d76f4764e24beaccfe8d7525f5f8d840f58",
+        "contentKey": "work-000020",
+        "eventKey": "event-000020"
+      },
+      {
+        "candidateId": "21d096a53488f67cadcdf15099078d6b69eb9494baa7260987b9913ec633953e",
+        "revision": "7640006229fb3c0d6232f5b3c50ce6573ae2d12faffb23d8b4e29611ecea83e5",
+        "contentKey": "work-000021",
+        "eventKey": "event-000021"
+      },
+      {
+        "candidateId": "013b7bb1ebe8690cb09d290b1a187fd07757a8b4d120d7628181fe8e2c4d3a0a",
+        "revision": "6f55d33b66dbf00d41b8845ab88d4c31e8367cc5878fa88c72f57b0b9c9cf486",
+        "contentKey": "work-000022",
+        "eventKey": "event-000022"
+      },
+      {
+        "candidateId": "5214bcd7c6f45b907e3ec392b4dd3c1b3c58c4a64d916890d17b70e323ec72ec",
+        "revision": "4d45f418e75a08d233a50c66b1bc8d948015a9ce64ff7d0f8c9bede29f31be7c",
+        "contentKey": "work-000023",
+        "eventKey": "event-000023"
+      },
+      {
+        "candidateId": "0e34dc85d4d9ed6cf081591568404893bd5b3d749bb21691e10328b0ac27ea9b",
+        "revision": "0d12e0ef073a0f26eb3e42f4c97195dfeca37ce3c465e1a59750d98e99c2af1a",
+        "contentKey": "work-000024",
+        "eventKey": "event-000024"
+      },
+      {
+        "candidateId": "7c3cd1f0041cad15dbb1402e158fd0bc40f5d1a7d84686d6948644e74ce2561b",
+        "revision": "060b93a4a438623d207702e22ebc2e245741b1f89728999bf4b49a281beb89bb",
+        "contentKey": "work-000025",
+        "eventKey": "event-000025"
+      },
+      {
+        "candidateId": "7ccf52d3298e8ef7312785b6cac30cc1cc216896cf5f003d9a92e61c806bc11f",
+        "revision": "7c7b890b288a5f98364bef31fae130af7c2af17007bfce28dca58567320f36b7",
+        "contentKey": "work-000026",
+        "eventKey": "event-000026"
+      },
+      {
+        "candidateId": "a291f80fc0c42f5cb230810c5066b00dbe3abef7a53e3f184e47219be7254f5c",
+        "revision": "c5292345945e99af19c7d82e90f7e38c92f30671fe5ceb33126e9c9317292087",
+        "contentKey": "work-000027",
+        "eventKey": "event-000027"
+      },
+      {
+        "candidateId": "4f151f0f018c1284b359554eacce93d3a9013483ca9cf8970db1a8c705e624f7",
+        "revision": "8d9d5eaa044156e1a58c4b6577a6e1171f8a8225136544942f9d8b6d5526000b",
+        "contentKey": "work-000028",
+        "eventKey": "event-000028"
+      },
+      {
+        "candidateId": "6f5cb936769b6ddab184ea00677699a53efa35b2f3215ed94f2d0d39bc87e986",
+        "revision": "228b15acf78f21bad6cdc091a576df81af39aff9aa142d6d03e855b8a3a9abc1",
+        "contentKey": "work-000029",
+        "eventKey": "event-000029"
+      },
+      {
+        "candidateId": "6a2fa7eac5c8d3cd764f6b4ae6a60c787166d0b2a8159da12969226456d7652d",
+        "revision": "c899274f9a44212c3e9a74e877ec96be7377b6d432df468e44303c4ce4956026",
+        "contentKey": "work-000030",
+        "eventKey": "event-000030"
+      },
+      {
+        "candidateId": "5190edc7736cc4c837ef3b61eab16eacfb38ebbe9e82ba305bc1aecb12605cc5",
+        "revision": "f7afc3a4bbff64781a825006293dba3cc272be88c52f2915bb0199271ab1808c",
+        "contentKey": "work-000031",
+        "eventKey": "event-000031"
+      },
+      {
+        "candidateId": "0ba6fd8b5ef5190a6b7baf8873e32e82d2fa4e3564d77da5b9e98ca2ddb4471e",
+        "revision": "23d4078cc6801519d214b2056bf9c468283cc743c6a4e0312e27692d99ef233b",
+        "contentKey": "work-000032",
+        "eventKey": "event-000032"
+      },
+      {
+        "candidateId": "ac8d270e01dad8e80a98475706d32d89721f136244cdca7e72bc8137a55136be",
+        "revision": "69e3426d9021bbebbd61f69ac9bcde59fc7ee6cb696e0bdc4aba76c3a52cd889",
+        "contentKey": "work-000033",
+        "eventKey": "event-000033"
+      },
+      {
+        "candidateId": "5f74bb2709cd87674b5669f7f525c40d5718e5724b410cd41e9ed7ee6bb997f9",
+        "revision": "6a8e4e0d7df78840684837a5eec361a6bcbeac4fc5d9a8c39accf2e647234e01",
+        "contentKey": "work-000034",
+        "eventKey": "event-000034"
+      },
+      {
+        "candidateId": "674eb34561999e5ab50a184f21a8694403965474ac2eb1ca6781bb0e9475fe09",
+        "revision": "06b4acd5f931bbca23fd1aabeea5c783ce0901a44683966a840f58cca915386f",
+        "contentKey": "work-000035",
+        "eventKey": "event-000035"
+      },
+      {
+        "candidateId": "465798125e295ba0cd6934a38be76996f7940d2cd443d3ffe69a6c0d7f39ea39",
+        "revision": "a27e68ff46a55e1e0719048d16ae35dd4da40e943c6c36bd4a652880c9429963",
+        "contentKey": "work-000036",
+        "eventKey": "event-000036"
+      },
+      {
+        "candidateId": "aea5e5860dbc2d90195301cb158f994494d2e687a5daabf310163b10c93c0006",
+        "revision": "cf286ce25d2014137bf1a855df82b3d81970837ddb9027f0547be9e05a941218",
+        "contentKey": "work-000037",
+        "eventKey": "event-000037"
+      },
+      {
+        "candidateId": "09074799753f4db8b6deca7067651d6c04dae96a52950e427134d1faab81453d",
+        "revision": "fd2871d5bd9839afac92fc0bb359238ad72232d683cb045b51c8dfe857ef315d",
+        "contentKey": "work-000038",
+        "eventKey": "event-000038"
+      },
+      {
+        "candidateId": "d9ac59fc31fba1cf901252c73ae1159650d86ef4cb390d19a039eacd79626e63",
+        "revision": "9ea234a20de6fad7b081d1e548a22d9ce2428ab49ce40fbcc1d840f5f197f93e",
+        "contentKey": "work-000039",
+        "eventKey": "event-000039"
+      },
+      {
+        "candidateId": "1fa82366a0b3054d0ee56112b41bdfb5b4152adb7d15a96a8d673b9c49a61860",
+        "revision": "b31dbe65fc181982d9cfef2399bad3cd0be44224d0616a8828f77fcea8bbc63f",
+        "contentKey": "work-000040",
+        "eventKey": "event-000040"
+      },
+      {
+        "candidateId": "28db2b6f40afca96135c14af55829a852054046a5eaf761bcf10d31fc7811c4e",
+        "revision": "2fa8dc174e024a40394dc282d61ed96c2b5f47613d416367168df0b1ccb3102f",
+        "contentKey": "work-000041",
+        "eventKey": "event-000041"
+      },
+      {
+        "candidateId": "1f51fd4a5caf9f3480381ccc148818c581fdef7d5044559eab04b591ced4eab5",
+        "revision": "7b89b46d7d5b3278cb3fa0622b20947d5fb2dd03d77f68cf68e4c42db6ff17b7",
+        "contentKey": "work-000042",
+        "eventKey": "event-000042"
+      },
+      {
+        "candidateId": "e5d642d0c6c0b708c93bf48f9ed27ed9585224e2dd0b818e0965cdf95789c3fc",
+        "revision": "12626a2e933be20ca8ddfb359967cf50ffea831edaec8a992f2f629a97ed0be9",
+        "contentKey": "work-000043",
+        "eventKey": "event-000043"
+      },
+      {
+        "candidateId": "914b785a987dcd3e764a3d614d86267ec7d70da22f00af9b70fc7217883a469a",
+        "revision": "a68fc4f590cb170c85b762e52901b4e58c13fd324f403bacbfa073f92cf13b26",
+        "contentKey": "work-000044",
+        "eventKey": "event-000044"
+      },
+      {
+        "candidateId": "5b2f04a70c48bf750b45a5998b5d681dcd7bfc65b25110e70ef4cb6dd4e49a50",
+        "revision": "d79dbf613da7f6eb672979b7e6a129c5fac03785b3dcf5fe751d3a1ad92fff28",
+        "contentKey": "work-000045",
+        "eventKey": "event-000045"
+      },
+      {
+        "candidateId": "72715e078a61956dc1d341772001b1b6e921081c8a4aa0bb7d94a22da50ef5be",
+        "revision": "2afe3457d331aab19b6f0f3c0dde1a2da1dd4ac7d65bd65b1e07960d7187afb5",
+        "contentKey": "work-000046",
+        "eventKey": "event-000046"
+      },
+      {
+        "candidateId": "15e4365746938308d5a61c4e4c85f0697d9ef3b7dd9a6bf31ba0c5e1f4f46a0f",
+        "revision": "f8d866531b7409cbf9625f58b36bbecd3742cfc4b270e490b2fa4246cd617d6c",
+        "contentKey": "work-000047",
+        "eventKey": "event-000047"
+      },
+      {
+        "candidateId": "add72c639a3e1777501e9561c35dd662321d6c57f0afa710cf31dd4d43913c98",
+        "revision": "9aeba8ded3c67c0df1e853d9660d5490cacf63269428368b92d23dd145a630c2",
+        "contentKey": "work-000048",
+        "eventKey": "event-000048"
+      },
+      {
+        "candidateId": "92ce125d5dfb42e29a3e03b0829418a74f69af248c16617d997261896359c328",
+        "revision": "81adf257910950f9f7da366ee3686d33bc052a730cf92897fe3b161127260449",
+        "contentKey": "work-000049",
+        "eventKey": "event-000049"
+      },
+      {
+        "candidateId": "93fb520c5ef49595b5397f0b18019a92ce943a08371099ece9ad134d4d87e57e",
+        "revision": "7ac89cbffd144834f4affa1346c4df96e0f98ce945a0f9e87163fc09b2df4070",
+        "contentKey": "work-000050",
+        "eventKey": "event-000050"
+      },
+      {
+        "candidateId": "060b0ee32fc50e3583a5416b8b98c6c0695a152001f88b4de3ad67917b71deda",
+        "revision": "95e6fb290dbb438561ab8cc98e9569ff1d843a8373d0fe6a9ac39c70152f7022",
+        "contentKey": "work-000051",
+        "eventKey": "event-000051"
+      },
+      {
+        "candidateId": "0f4f14c4087f44b7434f6c2f21aaf44653dbf37e37a776c0dc8de31dcbd0e20b",
+        "revision": "79a7cfb1bd8d545fc6ff4cbcdd7bd317010a4194408e76f6d3be27bc3959081d",
+        "contentKey": "work-000052",
+        "eventKey": "event-000052"
+      },
+      {
+        "candidateId": "ef9de147a80ee0ef4890b1102dd3f8ac45924b77b54485e60ea43bc0106010a9",
+        "revision": "24181abfd86d6d514f9d1aa87e8e7e4974117eb49c785a54fe8b020e030b554a",
+        "contentKey": "work-000053",
+        "eventKey": "event-000053"
+      },
+      {
+        "candidateId": "8a6af9d1058bc1b616996f97e49125414aa3f64c63a72ddb9755693fafa877ac",
+        "revision": "17b621cf29b212baf798ccf3056db60e1efe83fb206030731d13553e290c202d",
+        "contentKey": "work-000054",
+        "eventKey": "event-000054"
+      },
+      {
+        "candidateId": "bfa8afe066b30c0db294fb26c55ef01012b2384b69ef817547ca86730d1fdb8c",
+        "revision": "49c24630b7dd0acbd85f8c4c3df16f85b0978bdf9659afbd5e345091203fde7a",
+        "contentKey": "work-000055",
+        "eventKey": "event-000055"
+      },
+      {
+        "candidateId": "c0a07c9b0d0715fb05fc19cbd6179bfe81363551fdca22d42de156c86db95ab9",
+        "revision": "d35b18a1cadf3328a920a5bb780444bd067391efa2d5db8c6173f9794fbd2e52",
+        "contentKey": "work-000056",
+        "eventKey": "event-000056"
+      },
+      {
+        "candidateId": "b1eb683d1e11bc78a557569703187887e4d94d0aad60559a2477e107af02e660",
+        "revision": "7d46ba901201833d79177e81c24c399392f727ed1bd753c7d9ab10e379fe935b",
+        "contentKey": "work-000057",
+        "eventKey": "event-000057"
+      },
+      {
+        "candidateId": "4c156841111bbe7d63dc62aff5d40e83ba6eea8018a7d57b028081b3551f84dd",
+        "revision": "d4da33042a503886bf739702ab2741139426594ce80515e0eb4f8c85902a5d1b",
+        "contentKey": "work-000058",
+        "eventKey": "event-000058"
+      },
+      {
+        "candidateId": "1211cbc6c3fde220045f3c3232a7306a45d73d54fc874aa4e9eebe713b2cdd79",
+        "revision": "3e7b8770f1058188b583fa9696057c6de01e228c2d83074b7d21f0f06fd1fe2c",
+        "contentKey": "work-000059",
+        "eventKey": "event-000059"
+      },
+      {
+        "candidateId": "5840049373dc2f1a2bcda45e2f96aff89eee602bc7a51deeccb3a929624db295",
+        "revision": "6af7254939e2d2601386f32c2b6e04bf52c1745d116745b7e8778ad4403f1c64",
+        "contentKey": "work-000060",
+        "eventKey": "event-000060"
+      },
+      {
+        "candidateId": "970e1a8bab6646a86947958f95113043a489675dff0aa000f96d9df84c3dde59",
+        "revision": "f668b04a4643db0e3e26999353b9f18b07612e4aead07939163ca6e8262220d1",
+        "contentKey": "work-000061",
+        "eventKey": "event-000061"
+      },
+      {
+        "candidateId": "94b0dbcea62f91b1768f955f8bc681a3095244054ec25e5ad2385c8306cd6d8f",
+        "revision": "ecc0a3b1f846e338491c2b26bfd98c296b38ba39238ce718c3918ed8f01d0d9c",
+        "contentKey": "work-000062",
+        "eventKey": "event-000062"
+      },
+      {
+        "candidateId": "4abc62d9cef6089b106776c45299106c55c55cc5dbd47152ccd9f5494761c27d",
+        "revision": "0245b1ffc49b6c3c68b524a9aa2e6d65668004b223ef964ea3678a64b442bd8d",
+        "contentKey": "work-000063",
+        "eventKey": "event-000063"
+      },
+      {
+        "candidateId": "48ffd8256db776576117f7a777f6762caa0a3e5ce0680fcf3e13bfea2a02ec43",
+        "revision": "50b0ab7804b5c9da3c4924ef9aba55da8d2cd3a6590c12f9625bb427a65b643c",
+        "contentKey": "work-000064",
+        "eventKey": "event-000064"
+      },
+      {
+        "candidateId": "a2e4b1e1bc0fc8e42b976a13bb9f3b003f6eac79d35bdd187d8c4e2254efe8dc",
+        "revision": "b704d9716c7308e5d02ade05e1a1bef68d868dbfc9be45aefaf9ec7ae4526da9",
+        "contentKey": "work-000065",
+        "eventKey": "event-000065"
+      },
+      {
+        "candidateId": "2dc7c0a0528fb1be2513095c5e1a29b2008be8c6ad07bb9e9319deff6308249b",
+        "revision": "6e503b2d70218582c06e1fa22ecf7b034c7818230fa8242acbc80497a37da66b",
+        "contentKey": "work-000066",
+        "eventKey": "event-000066"
+      },
+      {
+        "candidateId": "ea74c7bdfffc383c5a7661b3ea297e9ba99ecbdc9728a4021c4473976876b001",
+        "revision": "9cce35169127e205871c357a03793f02cdff564ef2fd5cf1902257cf08a2dff3",
+        "contentKey": "work-000067",
+        "eventKey": "event-000067"
+      },
+      {
+        "candidateId": "78b2e5110403fe1a429cc5e8fc25a185c664e9658cca010179811f38f96efca9",
+        "revision": "2da7c9332c4db79896bb97733a06f35e5068cd40e0b7cddf92658d7a1d97ad2f",
+        "contentKey": "work-000068",
+        "eventKey": "event-000068"
+      },
+      {
+        "candidateId": "6d41c30274f337fe976af8b6d6f093b5487dc2f3d5040c741a3761ab7ed04df8",
+        "revision": "f193dd7c5d51c0e453a688f4c50082e9a24ff0e0a985a2e023512cff329273cf",
+        "contentKey": "work-000069",
+        "eventKey": "event-000069"
+      }
+    ]
+  },
+  "note": "Full existing mapping snapshot retained; only records listed above were freshly dual-checked. No approval or product PASS."
+}
