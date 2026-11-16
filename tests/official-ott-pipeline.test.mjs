@@ -33,10 +33,31 @@ test('pipeline preserves reviewed publications and reports incomplete TMDB cover
   });
   assert.equal(result.status, 'published_with_discovery_gaps');
   assert.equal(result.published, true);
-  assert.equal(commands.length, 7);
+  assert.equal(commands.length, 9);
+  assert.equal(commands.some((args) => args.includes('scripts/collect-tvingads-kr-lineup.mjs')), true);
+  assert.equal(commands.some((args) => args.includes('scripts/stage-ott-lineup.mjs')), true);
   assert.equal(commands.some((args) => args.includes('scripts/complete-reviewed-mappings.mjs')), true);
   assert.equal(commands.some((args) => args.some((arg) => arg.endsWith('/publish-reviewed.js'))), true);
   assert.equal(result.audit.exactMatches, 26);
+});
+
+test('Ads fetch failure leaves existing publications intact and does not stage partial Ads rows', async () => {
+  const input = new Map(await Promise.all([
+    'work/ott-candidates/state.json', 'data/curated/ott-reviewed-mappings.json',
+    'work/tmdb-release-candidates/latest.json',
+  ].map(async (path) => [path, JSON.parse(await readFile(path, 'utf8'))])));
+  const commands = [];
+  const result = await runPipeline({
+    run: async (args) => {
+      commands.push(args);
+      return JSON.stringify({ exitCode: args.includes('scripts/collect-tvingads-kr-lineup.mjs') ? 1 : 0, stdout: '{}' });
+    },
+    auditRun: async () => ({ parity: true, referenceRows: 52, exactMatches: 52, unresolved: 0, statusCounts: {} }),
+    read: async (path) => JSON.stringify(input.get(path)),
+  });
+  assert.equal(result.status, 'published_with_discovery_gaps');
+  assert.equal(commands.some((args) => args.includes('scripts/stage-ott-lineup.mjs')), false);
+  assert.equal(commands.some((args) => args.some((arg) => arg.endsWith('/publish-reviewed.js'))), true);
 });
 
 test('an incomplete TVING collection does not stage partial programmes or suppress reviewed DB publish', async () => {

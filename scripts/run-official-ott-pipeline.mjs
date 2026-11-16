@@ -65,6 +65,7 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, run
   try {
     const netflix = join(temporary, 'netflix.json');
     const tving = join(temporary, 'tving.json');
+    const tvingAds = join(temporary, 'tving-ads.json');
     await step('netflix_official', ['scripts/collect-netflix-kr-schedule.mjs', netflix]);
     await step('netflix_staging', ['scripts/bridge-netflix-lineup.mjs', netflix]);
     if (reuseRecentTmdb) {
@@ -83,6 +84,10 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, run
     const tvingExit = await step('tving_official_tmdb', ['--env-file=.env', 'scripts/collect-tving-upcoming.mjs', tving], [0, 2]);
     // An incomplete official report cannot be staged; preserve the existing queue.
     if (tvingExit === 0) await step('tving_staging', ['scripts/bridge-tving-upcoming.mjs', tving]);
+    // The Ads schedule covers TVING and Wavve together. Keep its dates in the
+    // review queue; they cannot independently establish a TVING KR premiere.
+    const adsExit = await step('tving_ads_official', ['scripts/collect-tvingads-kr-lineup.mjs', tvingAds], [0, 1]);
+    if (adsExit === 0) await step('tving_ads_staging', ['scripts/stage-ott-lineup.mjs', tvingAds, 'work/ott-lineups']);
     // Assign opaque keys to newly reviewed source candidates before reading the
     // publication snapshot. Unreviewed TMDB hints remain outside publication.
     await step('complete_reviewed_mappings', ['scripts/complete-reviewed-mappings.mjs']);
@@ -97,7 +102,7 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, run
     if (publish) await step('publish_reviewed', ['--env-file=.env', 'dist/src/cli/publish-reviewed.js', '--file', mappings]);
     const audit = publish ? await auditRun(['--env-file=.env', 'scripts/audit-current-first-premieres.mjs']) : null;
     return {
-      status: tvingExit !== 0 || !gate.discoveryComplete || gate.tmdbErrors || gate.readyUnmapped.length || (audit && !audit.parity)
+      status: tvingExit !== 0 || adsExit !== 0 || !gate.discoveryComplete || gate.tmdbErrors || gate.readyUnmapped.length || (audit && !audit.parity)
         ? 'published_with_discovery_gaps' : publish ? 'published_and_audited' : 'validated_without_publish',
       gate, steps, published: publish, audit: audit && { referenceRows: audit.referenceRows,
         exactMatches: audit.exactMatches, unresolved: audit.unresolved, statusCounts: audit.statusCounts,

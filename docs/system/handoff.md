@@ -457,3 +457,7 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 
 - backend 원본 카드 `docs/tasks/DATA-63-official-pipeline-orchestration.md`. Netflix/TMDB/TVING 검증 후보→기존 review 70매핑 DB 게시→현재 StreamPick 첫 공개52행 DB 감사 묶음 추가. TMDB 미완전(exit2)/TVING 부분 오류(exit2)/parity 미달(exit2)은 명시 보고, 기존 게시가 중단되지 않게 변경. 단 TVING 부분 보고서는 staging 제외. 자체 Node24 174/174. 실제 DB 68행, 정확26/52·날짜차이2·미게시24 확인; 신규 게시0. 새 작품 자동 review→opaque mapping 생성이 여전히 없으므로 사용자 목표 미완료. 앱 iOS 개인서명 dirty 및 기존 backend dirty 보존; 독립검증·클라우드 배포 없음. 공통 revision DATA-63-2026-11-16.
 
+## DATA-64 · TVING Ads 공식 보충 소스 연결 (2026-11-16)
+
+- backend 원본 `docs/tasks/DATA-64-tvingads-pipeline-integration.md`: 통합 파이프라인에 TVING/Wavve Ads 6건 수집·후보 staging 연결, 첫 공개 자동 확정은 금지. Netflix 78건·TVING 11건·Ads 6건 실제 수집 후 기존 reviewed70 로컬 DB 재게시. StreamPick 최초공개 기준 정확26/52, 날짜차이2, 미게시24(신규 게시0). 최근 TMDB 1215행 스냅샷 재사용 결과이며 discoveryComplete=false. Node179/179 통과, 독립 검증/클라우드 미실행. 갱신 revision DATA-64-2026-11-16.
+
