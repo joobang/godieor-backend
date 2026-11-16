@@ -154,6 +154,57 @@
         16,
         10762
       ]
+    },
+    {
+      "before": {
+        "id": "a7da3fad3879abf65d814fb4b298d2d47c61e7114068bb35e1cac43e2e0c30c8",
+        "revision": "fa6edf658a720989daeef4ba5dbc16ed034b3a37c7bb132efc5603c2a6db9ab7",
+        "reviewer": "implementer-source-check",
+        "title": "배스 X 마키나",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "original_series",
+        "premiereConfirmed": true,
+        "date": "2026-11-03",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": null,
+        "announcedPeriod": null,
+        "evidence": "Netflix KR 11/03 신규 등록 + Netflix 공식 2026 신작 애니 발표 시즌1 첫 공개, Netflix 한국 작품 페이지 81088875. 근거: https://about.netflix.com/en/news/netflix-unveils-upcoming-anime-slate-out-of-annecy-festival; 시각 미사용."
+      },
+      "review": {
+        "id": "a7da3fad3879abf65d814fb4b298d2d47c61e7114068bb35e1cac43e2e0c30c8",
+        "revision": "fa6edf658a720989daeef4ba5dbc16ed034b3a37c7bb132efc5603c2a6db9ab7",
+        "reviewer": "GODIEOR 구현 담당 기존 공식 애니 근거·TMDB 분류 전수대조 2026-11-16",
+        "title": "배스 X 마키나",
+        "platform": "netflix",
+        "market": "KR",
+        "contentKind": "animation",
+        "premiereConfirmed": true,
+        "date": "2026-11-03",
+        "localTime": null,
+        "timeZone": null,
+        "seasonNumber": 1,
+        "announcedYear": null,
+        "announcedPeriod": null,
+        "evidence": "기존날짜/시즌/플랫폼검토유지(이번날짜새승인아님). 기존공식애니발표근거와동일제목·시즌·날짜의TMDB tv/314271 genre16을대조해animation/series로분류보정. ID/일정변경없음. DATA56작성자검토/독립승인아님.",
+        "animationFormat": "series"
+      },
+      "mapping": {
+        "candidateId": "a7da3fad3879abf65d814fb4b298d2d47c61e7114068bb35e1cac43e2e0c30c8",
+        "revision": "fa6edf658a720989daeef4ba5dbc16ed034b3a37c7bb132efc5603c2a6db9ab7",
+        "contentKey": "work-000014",
+        "eventKey": "event-000014"
+      },
+      "tmdbId": 314271,
+      "tmdbType": "tv",
+      "genreIDs": [
+        16,
+        37,
+        10765
+      ],
+      "sourceRefreshNote": "metadata correction using existing official anime evidence; not a fresh KR date approval"
     }
   ]
 }
