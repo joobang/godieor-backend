@@ -83,7 +83,7 @@ export const reviewSchema = z
   });
 export type Review = z.infer<typeof reviewSchema>;
 const lineupEvidenceSchema = z.object({
-  platform: z.literal("netflix"),
+  platform: z.enum(["netflix", "tving"]),
   title: shortText,
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable(),
   market: z.string().regex(/^[A-Z]{2}$/).nullable(),

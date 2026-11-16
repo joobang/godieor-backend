@@ -1,3 +1,7 @@
+## DATA-62 · TVING 공식 예정작→TMDB→후보·기존 DB 게시 연결 (2026-11-16)
+
+- backend `docs/tasks/DATA-62-tving-official-review-bridge.md`: TVING 공식 프로그램·TMDB 시즌 근거를 공통 후보 저장소에 연결. 실제 공식 보고서9건 재생으로 신규 후보5, 검토 기록 보존4, 신규 게시0. 기존 reviewed 70매핑 로컬 DB 재게시 성공, 자체 테스트169/169. 최초 한국 OTT 공개 검증이 남은 신규 후보는 미게시. 전체 자동 게시·독립검증 미완료. revision DATA-62-2026-11-16.
+
 ## DATA-59 · StreamPick 첫 공개 비교 의미 검증 (2026-11-16)
 
 - backend 원본 `docs/tasks/DATA-59-first-release-parity-semantics.md`. 11~12월 저장된 제3자 참조 52행(신작25·시즌첫날27, 일반 회차 제외)을 로컬 DB 68행과 다시 대조: 정확26/52, 날짜 차이2, 미게시24. 새 게시0. Netflix 공식 KR 목록과 참조 날짜가 다른 오버액션 갱(11/04↔11/05), 네버 서렌더(11/11↔11/12)는 한국 공식 쪽 날짜를 보존한다.

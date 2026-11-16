@@ -1,3 +1,7 @@
+## DATA-62 · TVING 공식 예정작 후보 연결 (2026-11-16)
+
+- backend 카드 `docs/tasks/DATA-62-tving-official-review-bridge.md`가 원본. TVING 공식 예정작 보고서9건을 DB 게시용 후보 저장소로 연결: created5, reviewed보존4, 신규 게시0. 기존검토70 DB 재게시 성공·테스트169/169. 다음은 신규 후보 한국 최초 OTT 공개일 검증·검토키 생성 후 게시. 클라우드·독립 승인 없음. 공통 revision DATA-62-2026-11-16.
+
 ## DATA-59 · StreamPick 첫 공개 재검증 인계 (2026-11-16)
 
 - backend 원본 `docs/tasks/DATA-59-first-release-parity-semantics.md`, 증거 `docs/tasks/evidence/data59/first-release-parity-2026-11-16.md`. 52 첫 공개 행과 로컬 68 게시 중 정확26·날짜차이2·미게시24. 일반 회차 제외. 신규 게시0.
