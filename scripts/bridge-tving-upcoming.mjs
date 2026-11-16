@@ -25,7 +25,7 @@ export function tvingDiscoveries(report) {
     const date = claim?.date ?? null;
     if (date !== null && (!/^\d{4}-\d{2}-\d{2}$/.test(date) ||
       new Date(date + 'T00:00:00Z').toISOString().slice(0, 10) !== date)) throw Error('INVALID_TVING_DATE');
-    const kind = row.sourceWork?.category === '드라마' ? 'drama' :
+    const kind = row.sourceIdentity?.movieCode ? 'movie' : row.sourceWork?.category === '드라마' ? 'drama' :
       row.sourceWork?.category === '예능' ? 'variety' : 'other';
     const seasonNumber = Number.isInteger(claim?.seasonNumber) && claim.seasonNumber > 0 ? claim.seasonNumber : null;
     const matches = row.matches ?? [];

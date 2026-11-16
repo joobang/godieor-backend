@@ -20,6 +20,7 @@
     "audit:ott-coverage": "node scripts/audit-ott-coverage.mjs work/ott-lineups/state.json data/reference/streampick-2026-11-12-counts.json",
     "compare:ott-reference": "node scripts/compare-ott-reference.mjs",
     "audit:ott-published": "node --env-file=.env scripts/audit-ott-published.mjs",
+    "audit:ott-official": "node --env-file=.env scripts/audit-ott-lineup-published.mjs",
     "queue:ott-discovery": "node scripts/build-ott-discovery-queue.mjs",
     "parse:netflix-lineup": "node scripts/parse-netflix-tudum.mjs",
     "parse:tving-lineup": "node scripts/parse-tvingads-lineup.mjs",

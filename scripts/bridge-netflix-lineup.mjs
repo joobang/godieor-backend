@@ -8,7 +8,7 @@ import { prepareLineup } from './prepare-ott-lineup.mjs';
 
 const require = createRequire(import.meta.url);
 const { OttCandidatesRepository } = require('../dist/src/ott-candidates/ott-candidates.repository.js');
-const { canonicalUrl, hash, merge } = require('../dist/src/ott-candidates/domain/candidate.js');
+const { canonicalUrl, hash, merge, candidateId } = require('../dist/src/ott-candidates/domain/candidate.js');
 
 export function netflixDiscoveries(input) {
   const prepared = prepareLineup(input);
@@ -44,7 +44,11 @@ export async function bridgeNetflixLineup(filename, directory, now = new Date().
   const repository = new OttCandidatesRepository(directory);
   return repository.transaction(async (state) => {
     const before = new Map(state.candidates.map((candidate) => [candidate.id, candidate.revisions.length]));
-    merge(state, discoveries, now);
+    // Reviewed records are version-bound to their original first-party evidence.
+    // A new crawl must not silently clear their review or invalidate published keys.
+    const safe = discoveries.filter((row) =>
+      !state.candidates.find((candidate) => candidate.id === candidateId(row.source, row.url, row.itemKey))?.review);
+    merge(state, safe, now);
     const imported = state.candidates.filter((candidate) =>
       candidate.source === 'netflix' && candidate.itemKey &&
       discoveries.some((d) => candidate.itemKey === d.itemKey && candidate.url === d.url));
@@ -55,6 +59,7 @@ export async function bridgeNetflixLineup(filename, directory, now = new Date().
       unchanged: imported.filter((candidate) => before.get(candidate.id) === candidate.revisions.length).length,
       candidates: state.candidates.length,
       needsReview: imported.filter((candidate) => candidate.review === null).length,
+      preservedReviewed: discoveries.length - safe.length,
       published: 0,
     };
   });

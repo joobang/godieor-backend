@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createRequire } from 'node:module';
@@ -68,4 +68,32 @@ test('duplicate Netflix videoID is rejected; same title in another season remain
     { ...versions.items[0], seasonNumber: 2, evidence: versions.items[0].evidence.replace('83135831', '99912345') }];
   assert.equal(new Set(netflixDiscoveries(versions).map((x) => x.itemKey)).size, 2);
   assert.throws(() => netflixDiscoveries({ ...official, sourceUrl: 'https://evil.example/lineup' }), /UNTRUSTED_URL/);
+});
+
+test('official lineup refresh never invalidates an already reviewed and mapped item', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'godieor-lineup-reviewed-'));
+  const file = join(dir, 'lineup.json');
+  try {
+    const lineup = { ...official, items: [official.items[0]] };
+    await writeFile(file, JSON.stringify(lineup));
+    await bridgeNetflixLineup(file, dir, now);
+    const stateFile = join(dir, 'state.json');
+    const state = JSON.parse(await readFile(stateFile, 'utf8'));
+    const candidate = state.candidates[0];
+    const review = { id: candidate.id, revision: candidate.revisions[0].token,
+      reviewer: 'synthetic', title: official.items[0].title, platform: 'netflix', market: 'KR',
+      contentKind: 'movie', premiereConfirmed: true, date: official.items[0].date,
+      localTime: null, timeZone: null, seasonNumber: null, announcedYear: 2026,
+      announcedPeriod: null, evidence: 'Synthetic independent official and TMDB verification' };
+    applyReview(state, review, now);
+    await writeFile(stateFile, JSON.stringify(state));
+    lineup.items[0] = { ...lineup.items[0], evidence: lineup.items[0].evidence + ' source updated' };
+    await writeFile(file, JSON.stringify(lineup));
+    const result = await bridgeNetflixLineup(file, dir, now);
+    const after = decodeState(JSON.parse(await readFile(stateFile, 'utf8'))).state;
+    assert.equal(result.preservedReviewed, 1);
+    assert.equal(result.revised, 0);
+    assert.deepEqual(after.candidates[0].review.value, review);
+    assert.equal(after.candidates[0].revisions.length, 1);
+  } finally { await rm(dir, { recursive: true, force: true }); }
 });

@@ -1,3 +1,7 @@
+## DATA-63 · 공식 OTT 파이프라인 실제 실행 인계 (2026-11-16)
+
+- backend `docs/tasks/DATA-63-official-pipeline-orchestration.md` 원본. 수집→후보→review 매핑→로컬 DB 70건 게시→52행 감사 통합 실행 성공. 신규 TVING 영화 후보2, 검토 매핑 추가0, 참조 26/52 일치·날짜차이2·미게시24. 날짜 검증 없는 자동 승인/게시 금지. TMDB provider 커버리지 미완전. 테스트178/178, 독립 runner 미실행. revision DATA-63-2026-11-16.
+
 ## DATA-62 · TVING 공식 예정작 후보 연결 (2026-11-16)
 
 - backend 카드 `docs/tasks/DATA-62-tving-official-review-bridge.md`가 원본. TVING 공식 예정작 보고서9건을 DB 게시용 후보 저장소로 연결: created5, reviewed보존4, 신규 게시0. 기존검토70 DB 재게시 성공·테스트169/169. 다음은 신규 후보 한국 최초 OTT 공개일 검증·검토키 생성 후 게시. 클라우드·독립 승인 없음. 공통 revision DATA-62-2026-11-16.
@@ -448,4 +452,8 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 - backend 원본 `docs/tasks/DATA-61-tvingads-live-collection.md`. 공식 TVING Ads HTML의 날짜 카드 6개 수집, 기존 후보 규격 검증과 검토 staging 병합 연결. 동일 원문 반복 적재 신규0, 변경0, 동일6. Node24 전체 167/167 통과.
 - TVING·Wavve 합동 제공 정보여서 플랫폼별 한국 첫 공개는 미확정, 자동 게시0. 기존 참조 정확26/52·날짜차2·미게시24는 이번 작업에서 재측정하지 않음. 계약·migration·독립 승인 불변.
 - 다음: 공식 플랫폼/한국 최초일 증거와 TMDB 시즌 정체성 연결 후 게시 확인. 공통 revision DATA-61-2026-11-16.
+
+## DATA-63 · 공식 OTT→TMDB 파이프라인 실행 경계 (2026-11-16)
+
+- backend 원본 카드 `docs/tasks/DATA-63-official-pipeline-orchestration.md`. Netflix/TMDB/TVING 검증 후보→기존 review 70매핑 DB 게시→현재 StreamPick 첫 공개52행 DB 감사 묶음 추가. TMDB 미완전(exit2)/TVING 부분 오류(exit2)/parity 미달(exit2)은 명시 보고, 기존 게시가 중단되지 않게 변경. 단 TVING 부분 보고서는 staging 제외. 자체 Node24 174/174. 실제 DB 68행, 정확26/52·날짜차이2·미게시24 확인; 신규 게시0. 새 작품 자동 review→opaque mapping 생성이 여전히 없으므로 사용자 목표 미완료. 앱 iOS 개인서명 dirty 및 기존 backend dirty 보존; 독립검증·클라우드 배포 없음. 공통 revision DATA-63-2026-11-16.
 

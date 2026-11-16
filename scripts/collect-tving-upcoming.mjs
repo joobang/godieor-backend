@@ -16,7 +16,7 @@ export function upcomingPrograms(html){
       if(typeof x.bandName==='string'&&x.bandName.includes('공개 예정')){
         bands++;
         if(!Array.isArray(x.items))throw Error('TVING_UPCOMING_ITEMS_CHANGED');
-        for(const i of x.items){if(!/^P\d+$/.test(i.code??'')||!i.title)throw Error('TVING_UPCOMING_ITEM_CHANGED');programs.set(i.code,{code:i.code,title:i.title});}
+        for(const i of x.items){if(!/^[PM]\d+$/.test(i.code??'')||!i.title)throw Error('TVING_UPCOMING_ITEM_CHANGED');programs.set(i.code,{code:i.code,title:i.title});}
       }
       for(const v of Object.values(x))if(v&&typeof v==='object')walk(v);
     }
@@ -36,6 +36,19 @@ export async function collectUpcoming(request,fetchImpl,{knownBindings=[],monthl
   for(const program of programs){
     const sourceUrl='https://www.tving.com/contents/'+program.code;
     try{
+      if(program.code.startsWith('M')) {
+        const page=next(await html(sourceUrl)).props?.pageProps;
+        if(page?.contentType!=='movie'||page.programCode!==program.code||
+          normalized(page.programName)!==normalized(program.title)||page.contentInfo?.code!==program.code)
+          throw Error('TVING_MOVIE_IDENTITY_CHANGED');
+        // Movie detail pages provide a month/day "openText" without a year.
+        // Preserve the official discovery, but do not invent the calendar year.
+        rows.push({...program,sourceUrl,sourceClaims:[],
+          sourceWork:{title:page.programName,category:'영화',actors:[],channel:null},
+          sourceIdentity:{movieCode:program.code},officialOpenText:page.openText??null,
+          status:'exact_platform_date_missing',matches:[],publishingAllowed:false});
+        continue;
+      }
       const parsed=parseOfficialSource({platform:'tving',sourceUrl,title:program.title,date:null,seasonNumber:null},await html(sourceUrl));
       if(normalized(parsed.sourceWork?.title)!==normalized(program.title))throw Error('TVING_HOME_PROGRAM_TITLE_CHANGED');
       const claims=parsed.sourceClaims;

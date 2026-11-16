@@ -63,17 +63,25 @@ test('different season first-air and episode-one dates stay conflicting', async 
   const row = r.rows.find(x => x.platform === 'netflix');
   assert.equal(row.dateHint, null);
   assert.equal(row.tmdbDateConflict, true);
-  assert.equal(row.verification, 'date_conflict');
+  assert.equal(row.verification, 'official_date_with_tmdb_episode_conflict');
   assert.equal(row.readyForBatchReview, false);
 });
 
-test('official date conflicts remain visible and never overwrite TMDB raw date', async () => {
+test('Korean OTT first date can differ from global TMDB air date without overwriting either', async () => {
   const r = await collectReleaseCandidates(requestFixture().request, { discovery, officialBindings: [{ ...official, date: '2026-11-06' }] });
   const row = r.rows.find(x => x.platform === 'netflix');
   assert.equal(row.dateHint, '2026-11-05');
   assert.equal(row.officialPlatformDate, '2026-11-06');
-  assert.equal(row.verification, 'date_conflict');
-  assert.equal(row.readyForBatchReview, false);
+  assert.equal(row.verification, 'kr_ott_date_differs_from_tmdb_broadcast');
+  assert.equal(row.readyForBatchReview, true);
+  assert.equal(row.dates.seasonFirstDate, '2026-11-05');
+});
+
+test('two contradictory Korean OTT first-release claims block batch review', () => {
+  const candidate = { type: 'tv', tmdbId: 100, seasonNumber: 2, platform: 'netflix', dateHint: '2026-11-05' };
+  const result = combineEvidence(candidate, [official, { ...official, date: '2026-11-06' }]);
+  assert.equal(result.verification, 'official_date_conflict');
+  assert.equal(result.readyForBatchReview, false);
 });
 
 test('wrong identity, season, country and source cannot validate a candidate', async () => {

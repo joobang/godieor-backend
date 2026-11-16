@@ -29,14 +29,19 @@ export function combineEvidence(candidate, official) {
     o.seasonNumber === candidate.seasonNumber && o.platform === candidate.platform && o.market === 'KR' &&
     o.identityVerified === true && trustedOfficial(o) && o.evidence && dateValid(o.date));
   const dates = [...new Set(bound.map((o) => o.date))];
-  const conflict = candidate.tmdbDateConflict === true || dates.length > 1 || dates.length === 1 && candidate.dateHint && dates[0] !== candidate.dateHint;
+  // TMDB records the original broadcast date, which can predate a Korean OTT
+  // arrival. Only conflicting official KR claims are release-date conflicts.
+  const conflict = dates.length > 1;
   const primary = dates.length === 1 ? dates[0] : null;
+  const originalDateDiffers = Boolean(primary && candidate.dateHint && primary !== candidate.dateHint);
+  const primaryFresh = bound.some((o) => o.date === primary && o.premiereConfirmed === true && o.sourceRefreshStatus === 'matched');
   return { ...candidate, officialEvidence: bound,
-    verification: conflict ? 'date_conflict' : primary && candidate.dateHint ? 'official_tmdb_date_match' :
+    verification: conflict ? 'official_date_conflict' : originalDateDiffers ? 'kr_ott_date_differs_from_tmdb_broadcast' :
+      candidate.tmdbDateConflict && primary ? 'official_date_with_tmdb_episode_conflict' : primary && candidate.dateHint ? 'official_tmdb_date_match' :
       primary ? 'official_date_only' : 'tmdb_only_needs_official_check',
     officialPlatformDate: primary, market: 'KR',
     officialSourceRefresh: bound.length && bound.every((o) => o.sourceRefreshStatus === 'matched') ? 'matched' : 'recorded_or_unavailable',
-    readyForBatchReview: !candidate.scopeHold && !conflict && Boolean(primary && candidate.dateHint && bound.some((o) => o.premiereConfirmed === true && o.sourceRefreshStatus === 'matched')),
+    readyForBatchReview: !candidate.scopeHold && !conflict && Boolean(primary && primaryFresh && !candidate.tmdbDateConflict),
     publishingAllowed: false };
 }
 

@@ -19,6 +19,17 @@ test('upcoming band is required and duplicate program cards do not inflate count
  assert.equal(upcomingPrograms(home([{code:'P100',title:'가상 신작'},{code:'P100',title:'가상 신작'}])).length,1);
  assert.throws(()=>upcomingPrograms(next({bands:[]})),/SCOPE_CHANGED/);
 });
+test('TVING upcoming movie cards survive discovery without inferred premiere year',async()=>{
+ const h=home([{code:'P100',title:'가상 신작'},{code:'M123',title:'가상 영화'}]);
+ const movie=next({contentType:'movie',programCode:'M123',programName:'가상 영화',openText:'11월 19일 공개',contentInfo:{code:'M123',title:'가상 영화'}});
+ const base=fetcher(h,program());
+ const r=await collectUpcoming(request(),async url=>url.endsWith('/M123')?{ok:true,url,text:async()=>movie}:base(url));
+ assert.equal(r.totalPrograms,2);assert.equal(r.errors.length,0);
+ assert.equal(r.rows[1].status,'exact_platform_date_missing');
+ assert.equal(r.rows[1].officialOpenText,'11월 19일 공개');
+ const staged=upcomingLineup(r,'2026-11-16T00:00:00Z');
+ assert.equal(staged.items.length,2);assert.equal(staged.items[1].date,null);
+});
 test('global season date and Korean platform date are both retained without arbitrary month equality',async()=>{
  const r=await collectUpcoming(request(),fetcher());const row=r.rows[0];
  assert.equal(row.status,'new_identity_review_proposal');assert.equal(row.officialPlatformDate,'2026-11-18');

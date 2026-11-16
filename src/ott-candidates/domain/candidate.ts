@@ -174,7 +174,7 @@ export function canonicalUrl(source: Source, text: string): string {
     url.password
   )
     throw new Error("UNTRUSTED_SOURCE_URL");
-  if (source === "tving" && !/^\/contents\/P[0-9]+$/.test(url.pathname))
+  if (source === "tving" && !/^\/contents\/[PM][0-9]+$/.test(url.pathname))
     throw new Error("UNTRUSTED_SOURCE_URL");
   for (const key of [...url.searchParams.keys()]) {
     if (key.startsWith("utm_") || key === "msockid")
