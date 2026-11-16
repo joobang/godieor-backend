@@ -447,3 +447,9 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 - Netflix 한국 신규공개는 자동 수집 지원. TVING Ads는 TVING/Wavve 혼합으로 저장 원문 파서만 지원. Disney+ 공개예정은 일반 회차 혼합으로 목록 자동수집 미완성.
 - 다음: 공식 공개 일정→TMDB 정체성·시즌 연결→공식 최초일 확인→검토·게시 경로 실측. 공통 revision DATA-60-2026-11-16; 계약·migration·verifier 기준·독립 PASS 불변.
 
+## DATA-61 · TVING Ads 실페이지 수집→검토 저장 자동화 (2026-11-16)
+
+- backend 원본 `docs/tasks/DATA-61-tvingads-live-collection.md`. 공식 TVING Ads HTML의 날짜 카드 6개 수집, 기존 후보 규격 검증과 검토 staging 병합 연결. 동일 원문 반복 적재 신규0, 변경0, 동일6. Node24 전체 167/167 통과.
+- TVING·Wavve 합동 제공 정보여서 플랫폼별 한국 첫 공개는 미확정, 자동 게시0. 기존 참조 정확26/52·날짜차2·미게시24는 이번 작업에서 재측정하지 않음. 계약·migration·독립 승인 불변.
+- 다음: 공식 플랫폼/한국 최초일 증거와 TMDB 시즌 정체성 연결 후 게시 확인. 공통 revision DATA-61-2026-11-16.
+
