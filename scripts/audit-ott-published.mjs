@@ -56,9 +56,17 @@ export function auditPublished(reference, published, aliasEvidence = [], identit
     // Unknown published season is not proof that a listed season matches.
     const exact = dated.filter((entry) => season === null || entry.seasonNumber === season);
     const confirmed = exact.length > 0;
+    // A title with another season is not proof of a date discrepancy for
+    // the requested season. Report the actual published dates to help review.
+    const sameSeason = candidates.filter((entry) => season === null || entry.seasonNumber === season);
+    const dateDifferences = [...new Set(sameSeason.filter((entry) => entry.date !== date).map((entry) => entry.date))].sort();
+    const observedSeasons = [...new Set(candidates.map((entry) => entry.seasonNumber ?? null))];
     for (const entry of exact) matchedPublished.add(publishedKey(entry));
-    rows.push({ date, platform, title, season, identityMethod: identityMatches.some((e) => exact.includes(e)) ? 'reviewed_tmdb_id' : confirmed ? 'title_or_reviewed_alias' : null, status: confirmed ? 'published_match' : dated.length ? 'season_unverified' :
-      candidates.length ? 'date_disagreement' : 'not_published' });
+    rows.push({ date, platform, title, season,
+      publishedDatesSameSeason: dateDifferences, observedSeasons,
+      identityMethod: identityMatches.some((e) => exact.includes(e)) ? 'reviewed_tmdb_id' : confirmed ? 'title_or_reviewed_alias' : null,
+      status: confirmed ? 'published_match' : dated.length ? 'season_unverified' :
+        dateDifferences.length ? 'date_disagreement' : candidates.length ? 'season_unverified' : 'not_published' });
   }
   const statusCounts = Object.fromEntries(['published_match', 'season_unverified', 'date_disagreement', 'not_published'].map(
     (status) => [status, rows.filter((row) => row.status === status).length],

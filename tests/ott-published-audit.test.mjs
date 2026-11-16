@@ -31,7 +31,7 @@ test('compares published dates and seasons without claiming third-party dates ar
     { date: '2026-12-03', platform: 'coupang_play', title: '스마일 클리닉', seasonNumber: null },
   ];
   const result = auditPublished(reference, published);
-  assert.deepEqual(result.statusCounts, { published_match: 2, season_unverified: 1, date_disagreement: 1, not_published: 1 });
+  assert.deepEqual(result.statusCounts, { published_match: 2, season_unverified: 2, date_disagreement: 0, not_published: 1 });
   assert.equal(result.publishedInWindow, 3);
 });
 
@@ -87,4 +87,19 @@ test('reviewed TMDB identity matches translated titles without new hand-written 
   for (const change of [{ type:'movie' }, {tmdbId:701}, {seasonNumber:2}, {platform:'tving'}, {market:'US'}, {identityVerified:false}]) {
     assert.equal(auditPublished(ref,published,[],[{...binding,...change}]).parity,false);
   }
+});
+
+test('a different season is not falsely labeled as a date disagreement', () => {
+  const ref = { authority: 'third_party_discovery_only', rows: [['2026-11-03','netflix','A',3]] };
+  const report = auditPublished(ref, [{ date:'2026-11-04',platform:'netflix',title:'A',seasonNumber:2 }]);
+  assert.equal(report.rows[0].status, 'season_unverified');
+  assert.deepEqual(report.rows[0].publishedDatesSameSeason, []);
+  assert.deepEqual(report.rows[0].observedSeasons, [2]);
+});
+
+test('same season on another date exposes both dates without asserting which is Korean premiere', () => {
+  const ref = { authority: 'third_party_discovery_only', rows: [['2026-11-03','netflix','A',3]] };
+  const report = auditPublished(ref, [{ date:'2026-11-04',platform:'netflix',title:'A',seasonNumber:3 }]);
+  assert.equal(report.rows[0].status, 'date_disagreement');
+  assert.deepEqual(report.rows[0].publishedDatesSameSeason, ['2026-11-04']);
 });

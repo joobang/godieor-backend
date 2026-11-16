@@ -1,3 +1,9 @@
+## DATA-59 · StreamPick 첫 공개 비교 의미 검증 (2026-11-16)
+
+- backend 원본 `docs/tasks/DATA-59-first-release-parity-semantics.md`. 11~12월 저장된 제3자 참조 52행(신작25·시즌첫날27, 일반 회차 제외)을 로컬 DB 68행과 다시 대조: 정확26/52, 날짜 차이2, 미게시24. 새 게시0. Netflix 공식 KR 목록과 참조 날짜가 다른 오버액션 갱(11/04↔11/05), 네버 서렌더(11/11↔11/12)는 한국 공식 쪽 날짜를 보존한다.
+- 동일 일자 중복 신작·시즌 카드 제거, 보조 집계 시즌 프리미어 포함, 시즌 다름과 날짜 다름 분리, 전체 26 미일치 비교표 생성. Node24 162/162·Python12/12 통과; 실시간 StreamPick DNS 실패, DB는 승인된 읽기 경로로 조회. 신규 독립 검증/클라우드/iOS 실행 없음, 승인 기준·계약 불변.
+- 다음: 미게시24행에 한국 공식 OTT 시즌 최초 제공일 증거 보강·검토 후 게시. 제3자 참조 날짜로 강제 게시하지 않음. 공통 revision DATA-59-2026-11-16.
+
 ## DATA-56 · OTT 애니 지원·기존 분류 전수 보정 (2026-11-16)
 
 - 사용자 확정: ‘애니도 포함해 OTT 전체 대조’. 영화·시리즈·예능·다큐·애니를지원하며일반회차는제외한다. 원본 backend `docs/tasks/DATA-56-ott-animation-support.md`, ADR-021/LEARN-0011·0021.
@@ -424,3 +430,14 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 
 - 원본 카드 `docs/tasks/DATA-38-kr-premiere-reviewed-publish.md`. TVING `유일무이 로맨스` 11/09, Disney+ `스타일 워즈` 11/11 최초 공개 교차 검증 후 로컬 `ott_reviewed` 매핑 11→13건 게시. 11~12월 DB 내 11건, 신규 두 건 `published_match` 직접 감사.
 - StreamPick-only 11건 분류는 첫 공개 후보 2, 공식 목록만 4, 날짜 불일치 1, TMDB 날짜+KR 제공처 1, TMDB 날짜만 3. 전체 건수 일치·클라우드 배포·독립 검증 주장 없음. 백엔드 `npm test` 129/129 통과. 기존 dirty 변경 보존.
+## DATA-57 · TMDB 독립 발견 범위 확대/비교 원인 분리 (2026-11-16)
+
+- backend 원본 `docs/tasks/DATA-57-tmdb-parity-root-causes.md`. 기존 StreamPick 참조 52행: 정확 게시 26, 게시 날짜 차이 2, TMDB 시즌/영화 제공처 힌트만 7, 시리즈 제공처 힌트만 14, 플랫폼 미확인 1, 시즌 미발견 2. 과거 독립 TMDB 후보 49/52은 **게시 근거 49건을 의미하지 않음**.
+- backend에 KR 제공처 없는 글로벌 TV 방영일 발견 경로 및 coverage 진단, 참조행을 후보 seed로 사용하지 않는 역감사 CLI를 추가. Node24 관련30/30·`.test.mjs` 전체154/154 통과; CJS 포함 220개 중 219통과·HTTP listen EPERM 1, `npm test` 빌드 삭제 EPERM. 읽기 전용 52행 분석 성공. 실네트워크 재수집/DB 게시/독립 검증은 이번 작업 미실행, 실제 누락 수량 감소는 미측정.
+- 제품/계약/migration/앱 화면/검증 기준 변경 없음. 기존 개인 dirty 보존. 다음은 새 수집 경로 실측 → 공식 KR OTT 최초일 증거 연결 → review/publish → DB/API/참조 재집계.
+
+## DATA-58 · TMDB 글로벌 방영일 분할 검색 (2026-11-16)
+
+- backend 원본 `docs/tasks/DATA-58-tmdb-sharded-independent-discovery.md`. 월별 글로벌 방영일 검색 155/55페이지가 최대20페이지에서 잘리던 문제를 날짜 구간 자동 분할로 개선. 독립 검색 평가 코드와 분할 실패·중복 반례를 추가했다.
+- 기준 52개 한국 OTT 참조 행 중 기존 게시 정확26, 시즌 미발견2 유지. 실 TMDB 상세에서 스폰지밥 시즌20과 몰몬교 주부들 시즌6은 시즌 배열에 없음. TMDB 시리즈 ID 확인을 해당 시즌 검증으로 간주하지 않는다.
+- backend 자체 Node24 관련32/32·mjs 전체157/157 통과(이후 감사 도구 수정 재검사 별도). TMDB 실 재수집 결과 20페이지 상한 2,825작품/잘림12, 100페이지 상한 3,303작품/잘림0/API오류0. Coupang 영화 제공처 목록 미등재로 complete=false. 과거 참조 후보 ID 49행 작품 재발견은 첫 공개 검증이 아니며 게시 정확26/52 유지. DB/API 게시·독립 verifier·실기기·클라우드 미실행, 계약·migration·승인 상태 불변. app 개인 iOS signing dirty 보존.
