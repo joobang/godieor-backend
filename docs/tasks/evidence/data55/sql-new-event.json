@@ -1,0 +1,26 @@
+{
+  "key": "event-000070",
+  "event": {
+    "id": "19e827ab-0e73-4762-b7c8-d156d6ff2a20",
+    "kind": "ott_season_premiere",
+    "title": "그냥사람친구",
+    "origin": "provider",
+    "status": "scheduled",
+    "precision": "date_only",
+    "season_id": "9589bf34-0b4f-4277-8944-43d1fb284638",
+    "content_id": "5fbc7378-3c90-4426-a620-cb8f0824fd25",
+    "instant_at": null,
+    "local_date": "2026-11-27",
+    "updated_at": "2026-11-16T02:20:32.629+00:00",
+    "away_team_id": null,
+    "content_type": "drama",
+    "home_team_id": null,
+    "ott_category": "variety",
+    "venue_country": null,
+    "announced_year": null,
+    "release_market": "KR",
+    "announced_period": null,
+    "source_time_zone": null
+  },
+  "changes": 1
+}

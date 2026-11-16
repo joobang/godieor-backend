@@ -1,0 +1,15 @@
+{
+  "scope": "separate curl downloads inspected for public structure; not exact final collector response-body capture",
+  "files": [
+    {
+      "file": "tvn.html",
+      "sha256": "97016fae234f67c372c4bb0d7c30d41bceab2059bb490ff04f445d0602def960",
+      "bytes": 1984435
+    },
+    {
+      "file": "tvn-index.html",
+      "sha256": "792b0597d59fcc4a1fae4cd0fe591b3be12cbda2bbce6f20dec776895273fa6d",
+      "bytes": 2119368
+    }
+  ]
+}

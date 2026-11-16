@@ -1,0 +1,13 @@
+{
+  "backendCodeHead": "3a5a4dd62040cded2b184cf84d073ed4fc6ea8fc",
+  "scope": "git archive pure CLI tests; no app rebuild/independent runner/full fixed server suite",
+  "argv": [
+    "/private/tmp/godieor-data48/node-v24.22.3-darwin-arm64/bin/node",
+    "--test",
+    "tests/ott-identity-evidence.test.mjs",
+    "tests/tving-upcoming.test.mjs",
+    "tests/official-ott-source.test.mjs",
+    "tests/tmdb-release-candidates.test.mjs"
+  ],
+  "exitCode": 0
+}

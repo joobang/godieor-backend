@@ -1,0 +1,695 @@
+{
+  "count": 50,
+  "statuses": {
+    "matched": 49,
+    "explicit_ott_date_not_found": 1
+  },
+  "items": [
+    {
+      "title": "콰지모도, 파리의 영혼",
+      "tmdbId": 1480665,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-27",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "하트랜드",
+      "tmdbId": 1543469,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-13",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "스타의 보디가드",
+      "tmdbId": 1551025,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-18",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "크리스마스 가스펠",
+      "tmdbId": 1559980,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-11",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "스텝스",
+      "tmdbId": 1595124,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-20",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "네버 서렌더",
+      "tmdbId": 1616687,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-12",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "시간이 지울 수 없는 죄",
+      "tmdbId": 1664682,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-11",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "크리스마스까지만",
+      "tmdbId": 1757174,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-12",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "보호받지 못한 자: 머더 인 갈리시아",
+      "tmdbId": 1794569,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-06",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "롭 로: 아웃사이더",
+      "tmdbId": 1802703,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-24",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "마이크 타이슨: 마이크가 돌아왔다",
+      "tmdbId": 1804941,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-03",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "딜왈리 디왈리",
+      "tmdbId": 1810711,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-05",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "타이슨 퓨리",
+      "tmdbId": 1811599,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-27",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "니뇨: 명성의 대가",
+      "tmdbId": 1816668,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-04",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "하이 엔드: 명품 시계 절도단",
+      "tmdbId": 1817773,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-05",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "저넬 제임스: 미치게 로맨틱",
+      "tmdbId": 1820172,
+      "seasonNumber": null,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-10",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "퍼시 잭슨과 올림포스의 신들",
+      "tmdbId": 103540,
+      "seasonNumber": 3,
+      "platform": "disney_plus",
+      "market": "KR",
+      "date": "2026-11-20",
+      "sourceUrl": "https://www.disneyplus.com/ko-kr/browse/entity-f1c31566-ec05-4d30-b23f-3177442233f4",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceClaims": [
+        {
+          "date": "2026-11-20",
+          "seasonNumber": 3,
+          "yearContext": "release_statement"
+        }
+      ],
+      "sourceParser": "disney_kr_promotion",
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "에토스",
+      "tmdbId": 112745,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-12",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "황후 엘리자베트",
+      "tmdbId": 131488,
+      "seasonNumber": 3,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-12",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "토크 서바이벌: 토크가 재밌어야 살아남는 드라마",
+      "tmdbId": 157926,
+      "seasonNumber": 4,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-10",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "불편한 파트너: 상금을 잡아라",
+      "tmdbId": 224330,
+      "seasonNumber": 4,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-25",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "블랙 도브",
+      "tmdbId": 225385,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-05",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "사냥하는 아내들",
+      "tmdbId": 244447,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-26",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "연애 실험: 블라인드 러브 아랍편",
+      "tmdbId": 247634,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-12",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "더 브로스",
+      "tmdbId": 251842,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-12",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "천천히 강렬하게",
+      "tmdbId": 256726,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-12-11",
+      "sourceUrl": "https://about.netflix.com/ko/news/tantara-date-announcement",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceClaims": [
+        {
+          "date": "2026-12-11",
+          "seasonNumber": null,
+          "yearContext": "article_publication_year_only"
+        }
+      ],
+      "sourceParser": "netflix_kr_article",
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "무쇠소녀단3",
+      "tmdbId": 270746,
+      "seasonNumber": 3,
+      "platform": "tving",
+      "market": "KR",
+      "date": "2026-11-26",
+      "sourceUrl": "https://www.tving.com/contents/P001794298",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceClaims": [
+        {
+          "date": "2026-11-26",
+          "seasonNumber": 3,
+          "yearContext": "program_year_only"
+        }
+      ],
+      "sourceParser": "tving_program",
+      "sourceIdentity": {
+        "programCode": "P001794298",
+        "contentCode": "P001794298"
+      },
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "난리굿 패밀리",
+      "tmdbId": 275204,
+      "seasonNumber": 2,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-20",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "포위된 시간",
+      "tmdbId": 297491,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-06",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "뜨거운 안녕",
+      "tmdbId": 299764,
+      "seasonNumber": 1,
+      "platform": "tving",
+      "market": "KR",
+      "date": "2026-11-11",
+      "sourceUrl": "https://www.tving.com/contents/P001793179",
+      "sourceRefreshStatus": "explicit_ott_date_not_found",
+      "sourceRefreshError": null,
+      "sourceClaims": [],
+      "sourceParser": "tving_program",
+      "sourceIdentity": {
+        "programCode": "P001793179",
+        "contentCode": "E004649282"
+      },
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "푸른길",
+      "tmdbId": 300523,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-20",
+      "sourceUrl": "https://about.netflix.com/ko/news/main-trailer-of-the-blue-road-sees-son-suk-ku-and-eita-nagayama-team-up-on-a-gruesome-cross-border-murder-investigation",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceClaims": [
+        {
+          "date": "2026-11-20",
+          "seasonNumber": null,
+          "yearContext": "article_publication_year_only"
+        }
+      ],
+      "sourceParser": "netflix_kr_article",
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "토스 판데르팔크 납치 사건",
+      "tmdbId": 302837,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-26",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "머더 인 갈리시아",
+      "tmdbId": 303182,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-13",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "대리수능",
+      "tmdbId": 303552,
+      "seasonNumber": 1,
+      "platform": "tving",
+      "market": "KR",
+      "date": "2026-11-23",
+      "sourceUrl": "https://cjnews.cj.net/%ed%8b%b0%eb%b9%99-%ec%98%a4%eb%a6%ac%ec%a7%80%eb%84%90-%ec%8b%9c%eb%a6%ac%ec%a6%88-%eb%8c%80%eb%a6%ac%ec%88%98%eb%8a%a5-%eb%a9%94%ec%9d%b8-%ed%8f%ac%ec%8a%a4%ed%84%b0-%ea%b3%b5%ea%b0%9c/",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceClaims": [
+        {
+          "date": "2026-11-23",
+          "seasonNumber": null,
+          "yearContext": "release_statement"
+        }
+      ],
+      "sourceParser": "cj_kr_article",
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "이타주의자들",
+      "tmdbId": 308007,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-19",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "마취",
+      "tmdbId": 312006,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-04",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "응급실의 기적",
+      "tmdbId": 312661,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-12",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "보검매직컬 시즌2",
+      "tmdbId": 312826,
+      "seasonNumber": 2,
+      "platform": "tving",
+      "market": "KR",
+      "date": "2026-11-29",
+      "sourceUrl": "https://www.tving.com/contents/P001793657",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceClaims": [
+        {
+          "date": "2026-11-29",
+          "seasonNumber": 2,
+          "yearContext": "program_year_only"
+        }
+      ],
+      "sourceParser": "tving_program",
+      "sourceIdentity": {
+        "programCode": "P001793657",
+        "contentCode": "P001793657"
+      },
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "발렌치나의 열두 별자리",
+      "tmdbId": 318420,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-18",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "풀 나이트",
+      "tmdbId": 326247,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-26",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "로 오브 비스트",
+      "tmdbId": 332839,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-18",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "키아로스쿠로: 빛과 어둠",
+      "tmdbId": 336243,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-11",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "두지의 멍멍하우스",
+      "tmdbId": 336478,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-09",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "윈 더 몰: 쇼핑 전쟁",
+      "tmdbId": 336592,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-18",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "테이큰: 나탈리 할로웨이 실종 사건",
+      "tmdbId": 338684,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-04",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "24시간 온콜",
+      "tmdbId": 338930,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-26",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "그냥사람친구",
+      "tmdbId": 340978,
+      "seasonNumber": 1,
+      "platform": "tving",
+      "market": "KR",
+      "date": "2026-11-27",
+      "sourceUrl": "https://www.tving.com/contents/P001794074",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceClaims": [
+        {
+          "date": "2026-11-27",
+          "seasonNumber": null,
+          "yearContext": "program_year_only"
+        }
+      ],
+      "sourceParser": "tving_program",
+      "sourceIdentity": {
+        "programCode": "P001794074",
+        "contentCode": "P001794074"
+      },
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "샐리시의 12가지 크리스마스 게임",
+      "tmdbId": 341600,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-28",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "스타 & 웨딩: 아넬레와 버자",
+      "tmdbId": 341603,
+      "seasonNumber": 1,
+      "platform": "netflix",
+      "market": "KR",
+      "date": "2026-11-13",
+      "sourceUrl": "https://about.netflix.com/ko/new-to-watch",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    },
+    {
+      "title": "대탈출 : 도시괴담",
+      "tmdbId": 80585,
+      "seasonNumber": 6,
+      "platform": "tving",
+      "market": "KR",
+      "date": "2026-12-02",
+      "sourceUrl": "https://www.tving.com/contents/P001793986",
+      "sourceRefreshStatus": "matched",
+      "sourceRefreshError": null,
+      "sourceClaims": [
+        {
+          "date": "2026-12-02",
+          "seasonNumber": 6,
+          "yearContext": "program_year_only"
+        }
+      ],
+      "sourceParser": "tving_program",
+      "sourceIdentity": {
+        "programCode": "P001793986",
+        "contentCode": "E004668411"
+      },
+      "sourceCheckedAt": "2026-11-16T02:22:01.201Z"
+    }
+  ]
+}

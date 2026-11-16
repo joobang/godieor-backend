@@ -1,0 +1,17 @@
+{
+  "scope": "implementer local SQL/API, not independent approval",
+  "totalEvents": 70,
+  "windowRows": 68,
+  "newEvents": 1,
+  "old69FullRowsIDsAndHistoryUnchanged": true,
+  "httpStatus": 200,
+  "repeatNoChanges": true,
+  "checked": [
+    {
+      "id": "19e827ab-0e73-4762-b7c8-d156d6ff2a20",
+      "title": "그냥사람친구",
+      "date": "2026-11-27",
+      "season": 1
+    }
+  ]
+}
