@@ -142,3 +142,31 @@ test('KR upcoming discovery retains works even before provider IDs are listed', 
   assert.ok(r.rows[0].discoveredBy.includes('kr_origin_air_date'));
   assert.ok(calls.some(x=>x.params?.with_origin_country === 'KR' && !x.params.with_watch_providers));
 });
+
+test('unmapped global-air-date discovery finds a foreign series without a KR provider, but does not assign an OTT', async () => {
+  const request = async (path, params) => {
+    if (path.startsWith('/watch/providers/')) return { results: [] };
+    if (path === '/discover/tv' && params['air_date.gte'] && !params.with_origin_country && !params.with_watch_providers)
+      return { total_pages: 1, results: [{ id: 777, name: 'Foreign series', first_air_date: '2019-02-01' }] };
+    throw new Error(`unexpected request: ${path}`);
+  };
+  const result = await discoverByDate(request, ['2026-11'], { maxPages: 1, includeUnmappedAiring: true });
+  assert.equal(result.rows.length, 1);
+  assert.deepEqual(result.rows[0].services, []);
+  assert.deepEqual(result.rows[0].discoveredBy, ['unmapped_air_date']);
+  assert.equal(result.coverage.find(c => c.filter === 'unmapped_air_date').truncated, false);
+});
+
+test('unmapped discovery preserves truncation instead of falsely claiming full coverage', async () => {
+  const request = async (path, params) => {
+    if (path.startsWith('/watch/providers/')) return { results: [] };
+    if (path === '/discover/tv' && params['air_date.gte'])
+      return { total_pages: 3, results: [{ id: 778, name: 'Partial' }] };
+    throw new Error(`unexpected request: ${path}`);
+  };
+  const result = await discoverByDate(request, ['2026-11'], { maxPages: 1, includeUnmappedAiring: true });
+  const coverage = result.coverage.find(c => c.filter === 'unmapped_air_date');
+  assert.equal(coverage.truncated, true);
+  assert.equal(coverage.totalPages, 3);
+  assert.equal(coverage.pagesRead, 1);
+});

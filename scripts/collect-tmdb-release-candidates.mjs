@@ -80,8 +80,10 @@ export async function collectReleaseCandidates(request, { months = ['2026-11', '
   if (!Array.isArray(months) || !months.length) throw new Error('INVALID_MONTHS');
   months.forEach(monthRange);
   if (!Number.isInteger(maxPages) || maxPages < 1 || maxPages > 500) throw new Error('INVALID_PAGE_LIMIT');
-  const found = discovery ?? await discoverByDate(request, months, { maxPages, includeKoreanUpcoming: true });
-  const works = new Map(found.rows.map((row) => [`${row.type}:${row.tmdbId}`, { ...row, paths: ['tmdb_monthly_discover'] }]));
+  const found = discovery ?? await discoverByDate(request, months, {
+    maxPages, includeKoreanUpcoming: true, includeUnmappedAiring: true });
+  const works = new Map(found.rows.map((row) => [`${row.type}:${row.tmdbId}`, {
+    ...row, paths: [...new Set(['tmdb_monthly_discover', ...(row.discoveredBy ?? [])])] }]));
   // Upcoming official titles may have no KR provider yet. Preserve them as a second independent source.
   for (const binding of officialBindings) {
     if (!['tv','movie'].includes(binding.type) || !Number.isSafeInteger(binding.tmdbId) || binding.tmdbId < 1 ||

@@ -227,7 +227,8 @@ export async function reverseLookup(referenceRows, request, { searchPages = 2 } 
 
 // Date-based discovery is a second, independent path beyond popularity pages.
 // TMDB discover TV air_date is not guaranteed to mean a new season premiere.
-export async function discoverByDate(request, months, { maxPages = 20, includeKoreanUpcoming = false } = {}) {
+export async function discoverByDate(request, months, { maxPages = 20, includeKoreanUpcoming = false,
+  includeUnmappedAiring = false } = {}) {
   const windows = months.map(monthRange);
   const rows = new Map();
   const coverage = [];
@@ -297,6 +298,31 @@ export async function discoverByDate(request, months, { maxPages = 20, includeKo
         coverage.push({ kind: 'tv', service: null, window, filter: `kr_origin_${field}`,
           totalPages: total, pagesRead, truncated: pagesRead < total, retrieved, error });
       }
+    }
+  }
+  if (includeUnmappedAiring) {
+    // KR watch-provider metadata is often absent for upcoming seasons. Widen
+    // discovery without assigning a platform: availability must be checked later.
+    for (const window of windows) {
+      let total = 1, pagesRead = 0, retrieved = 0, error = null;
+      for (let page = 1; page <= Math.min(total, maxPages, 500); page++) {
+        try {
+          const data = await request('/discover/tv', { language: 'ko-KR',
+            'air_date.gte': window.start, 'air_date.lte': window.end,
+            sort_by: 'popularity.desc', page });
+          total = data.total_pages ?? 1; pagesRead++;
+          for (const item of data.results ?? []) {
+            if (!item.id) continue;
+            const key = `tv:${item.id}`;
+            const row = rows.get(key) ?? { tmdbId: item.id, type: 'tv', title: item.name,
+              seriesFirstDate: item.first_air_date ?? null, movieReleaseDate: null, services: [], discoveredBy: [] };
+            if (!row.discoveredBy.includes('unmapped_air_date')) row.discoveredBy.push('unmapped_air_date');
+            rows.set(key, row); retrieved++;
+          }
+        } catch (e) { error = e.message; break; }
+      }
+      coverage.push({ kind: 'tv', service: null, window, filter: 'unmapped_air_date',
+        totalPages: total, pagesRead, truncated: pagesRead < total, retrieved, error });
     }
   }
   return { rows: [...rows.values()], coverage };
