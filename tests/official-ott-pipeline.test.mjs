@@ -33,7 +33,7 @@ test('pipeline preserves reviewed publications and reports incomplete TMDB cover
   });
   assert.equal(result.status, 'published_with_discovery_gaps');
   assert.equal(result.published, true);
-  assert.equal(commands.length, 15);
+  assert.equal(commands.length, 16);
   assert.equal(commands.some((args) => args.includes('scripts/sync-tmdb-changes.mjs')), true);
   assert.equal(commands.some((args) => args.includes('scripts/collect-tvingads-kr-lineup.mjs')), true);
   assert.equal(commands.some((args) => args.includes('scripts/collect-disneyplus-kr-lineup.mjs')), true);
@@ -41,8 +41,9 @@ test('pipeline preserves reviewed publications and reports incomplete TMDB cover
   assert.equal(commands.some((args) => args.includes('scripts/link-undated-official-tmdb.mjs')), true);
   assert.equal(commands.some((args) => args.includes('scripts/stage-ott-lineup.mjs')), true);
   assert.equal(commands.some((args) => args.includes('scripts/complete-reviewed-mappings.mjs')), true);
+  assert.equal(commands.some((args) => args.includes('scripts/auto-review-verified-premieres.mjs')), true);
   assert.equal(commands.some((args) => args.some((arg) => arg.endsWith('/publish-reviewed.js'))), true);
-  assert.equal(result.audit.exactMatches, 26);
+  assert.equal(result.audit, null);
 });
 
 test('Ads fetch failure leaves existing publications intact and does not stage partial Ads rows', async () => {
@@ -123,7 +124,7 @@ test('Netflix network failure does not prevent the other providers, publication,
     'scripts/collect-coupangplay-kr-lineup.mjs'])
     assert.equal(commands.some((a) => a.includes(script)), true, script);
   assert.equal(result.published, true);
-  assert.equal(result.audit.exactMatches, 26);
+  assert.equal(result.audit, null);
 });
 
 test('unavailable TMDB snapshot remains an explicit gap while official collectors continue', async () => {

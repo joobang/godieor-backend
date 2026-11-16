@@ -474,3 +474,9 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 ## DATA-64 · TVING Ads 공식 보충 소스 연결 (2026-11-16)
 
 - backend 원본 `docs/tasks/DATA-64-tvingads-pipeline-integration.md`: 통합 파이프라인에 TVING/Wavve Ads 6건 수집·후보 staging 연결, 첫 공개 자동 확정은 금지. Netflix 78건·TVING 11건·Ads 6건 실제 수집 후 기존 reviewed70 로컬 DB 재게시. StreamPick 최초공개 기준 정확26/52, 날짜차이2, 미게시24(신규 게시0). 최근 TMDB 1215행 스냅샷 재사용 결과이며 discoveryComplete=false. Node179/179 통과, 독립 검증/클라우드 미실행. 갱신 revision DATA-64-2026-11-16.
+## DATA-68 · 공식 OTT 일간 실행 인계 (2026-11-16)
+
+- backend `docs/tasks/DATA-68-ott-daily-orchestration.md`가 원본. StreamPick 26/52 비교는 완료 기준에서 제외. 일간 공식 수집·TMDB 후보·검증 review·DB 게시·launchd 스케줄 연결, 전체 268/268·회귀 10/10.
+- 첫 실제 게시 reviewed70, 새 공개0, TMDB lock 충돌로 부분 완료(exit2). 정확 첫날 근거 미확정 새 후보는 게시하지 않는다. 잠금 복구 후 실재실행 결과 필요.
+- 기준 backend aecbe99, app ce8443d(사용자 pbxproj dirty), verifier 2ad3d0a. API/DB 계약·migration·verifier 승인 불변, 독립 runner 미실행. revision DATA-68-2026-11-16.
+

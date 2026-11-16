@@ -6,6 +6,7 @@ import { mkdtemp, readFile, rm, stat } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { prepareReviewed } from '../dist/src/reviewed-ott/domain/reviewed-mapping.js';
+import { configuredMonths } from './ott-schedule-window.mjs';
 
 const node = process.execPath;
 const bindings = 'data/curated/ott-official-tmdb-bindings-2026-11-13.json';
@@ -44,6 +45,9 @@ export function publicationGate(state, mappingInput, tmdbReport) {
   const records = prepareReviewed(mappingInput, state);
   if (!tmdbReport || tmdbReport.referenceInputUsed !== false || !Array.isArray(tmdbReport.rows))
     throw new Error('INVALID_TMDB_REPORT');
+  const expectedMonths = configuredMonths();
+  if (JSON.stringify(tmdbReport.months) !== JSON.stringify(expectedMonths))
+    throw new Error('TMDB_REPORT_WRONG_WINDOW');
   const boundCandidates = new Set(mappingInput.mappings.map((m) => m.candidateId));
   const readyUnmapped = tmdbReport.rows.filter((r) => r.readyForBatchReview &&
     r.officialEvidence?.some((o) => o.reviewCandidateId && !boundCandidates.has(o.reviewCandidateId)));
@@ -52,7 +56,7 @@ export function publicationGate(state, mappingInput, tmdbReport) {
     discoveryComplete: tmdbReport.discoveryComplete, tmdbErrors: tmdbReport.errors.length };
 }
 
-export async function runPipeline({ publish = true, reuseRecentTmdb = false, run = runStep, read = readFile,
+export async function runPipeline({ publish = true, reuseRecentTmdb = false, compareReference = false, run = runStep, read = readFile,
   auditRun = runAudit, fileStat = stat } = {}) {
   const temporary = await mkdtemp(join(tmpdir(), 'godieor-official-pipeline-'));
   const steps = [];
@@ -88,6 +92,7 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, run
         const [saved, metadata] = await Promise.all([read(snapshot, 'utf8').then(JSON.parse), fileStat(snapshot)]);
         if (saved.kind !== 'tmdb-first-ott-release-review' || saved.referenceInputUsed !== false ||
             !Array.isArray(saved.rows) || !Array.isArray(saved.discoveryCoverage) ||
+            JSON.stringify(saved.months) !== JSON.stringify(configuredMonths()) ||
             Date.now() - metadata.mtimeMs > 60 * 60 * 1000 || metadata.mtimeMs > Date.now() + 60000)
           throw new Error('TMDB_RECENT_SNAPSHOT_UNAVAILABLE');
         steps.push({ label: 'tmdb_recent_snapshot_reused', snapshot,
@@ -118,8 +123,11 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, run
       undatedLinkExit = await optionalStep('undated_official_tmdb_link', ['--env-file=.env', 'scripts/link-undated-official-tmdb.mjs',
         'work/ott-lineups/tmdb-identity-review.json', disney, coupang], [0, 2]);
     }
-    // Assign opaque keys to newly reviewed source candidates before reading the
-    // publication snapshot. Unreviewed TMDB hints remain outside publication.
+    // Only validated pre-reviewed first-release claims with a fresh official
+    // recheck are eligible for automation. Unknown first releases remain queued.
+    if (tmdbUsable) await optionalStep('auto_review_verified_first_releases',
+      ['scripts/auto-review-verified-premieres.mjs']);
+    // Assign opaque keys to approved candidates before reading the snapshot.
     await step('complete_reviewed_mappings', ['scripts/complete-reviewed-mappings.mjs']);
     const [state, mappingInput] = await Promise.all([
       read('work/ott-candidates/state.json', 'utf8').then(JSON.parse),
@@ -139,10 +147,10 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, run
     // A missing provider-coverage slice cannot invalidate 70 already reviewed
     // publications. It *does* prevent a claim of complete discovery/parity.
     if (publish) await step('publish_reviewed', ['--env-file=.env', 'dist/src/cli/publish-reviewed.js', '--file', mappings]);
-    const audit = publish ? await auditRun(['--env-file=.env', 'scripts/audit-current-first-premieres.mjs']) : null;
+    const audit = publish && compareReference ? await auditRun(['--env-file=.env', 'scripts/audit-current-first-premieres.mjs']) : null;
     return {
-      status: failedSources.length || netflixExit !== 0 || tvingExit !== 0 || adsExit !== 0 || disneyExit !== 0 || coupangExit !== 0 || undatedLinkExit !== 0 || !gate.discoveryComplete || gate.tmdbErrors || gate.readyUnmapped.length || (audit && !audit.parity)
-        ? 'published_with_discovery_gaps' : publish ? 'published_and_audited' : 'validated_without_publish',
+      status: failedSources.length || netflixExit !== 0 || tvingExit !== 0 || adsExit !== 0 || disneyExit !== 0 || coupangExit !== 0 || undatedLinkExit !== 0 || !gate.discoveryComplete || gate.tmdbErrors || gate.readyUnmapped.length
+        ? 'published_with_discovery_gaps' : publish ? 'published' : 'validated_without_publish',
       gate, steps, failedSources, published: publish, audit: audit && { referenceRows: audit.referenceRows,
         exactMatches: audit.exactMatches, unresolved: audit.unresolved, statusCounts: audit.statusCounts,
         parity: audit.parity },
@@ -155,7 +163,8 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, run
 if (process.argv[1]?.endsWith('/run-official-ott-pipeline.mjs')) {
   try {
     const report = await runPipeline({ publish: !process.argv.includes('--no-publish'),
-      reuseRecentTmdb: process.argv.includes('--reuse-recent-tmdb') });
+      reuseRecentTmdb: process.argv.includes('--reuse-recent-tmdb'),
+      compareReference: process.argv.includes('--compare-reference') });
     console.log(JSON.stringify(report, null, 2));
     if (report.status === 'published_with_discovery_gaps') process.exitCode = 2;
   } catch (e) {

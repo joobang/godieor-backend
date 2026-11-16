@@ -7,6 +7,7 @@ import { createHash } from 'node:crypto';
 import { parseOfficialSource, supportsOfficialSource } from './official-ott-source.mjs';
 import { collectNetflixKrSchedule } from './collect-netflix-kr-schedule.mjs';
 import { discoverByDate, createTmdbClient, monthRange, SERVICES } from './tmdb-date-discovery.mjs';
+import { configuredMonths } from './ott-schedule-window.mjs';
 
 const hash = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const dateValid = (value) => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) &&
@@ -80,7 +81,7 @@ export async function refreshOfficialBindings(bindings, fetchImpl = fetch) {
   return results;
 }
 
-export async function collectReleaseCandidates(request, { months = ['2026-11', '2026-12'], maxPages = 500,
+export async function collectReleaseCandidates(request, { months = configuredMonths(), maxPages = 500,
   officialBindings = [], discovery = null, changedIds = [] } = {}) {
   if (!Array.isArray(months) || !months.length) throw new Error('INVALID_MONTHS');
   months.forEach(monthRange);

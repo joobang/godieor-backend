@@ -6,6 +6,7 @@ import { pathToFileURL } from 'node:url';
 import { parseOfficialSource } from './official-ott-source.mjs';
 import {tvnProgramLinks,parseTvnCast,matchCast} from './ott-identity-evidence.mjs';
 import { createTmdbClient,monthRange } from './tmdb-date-discovery.mjs';
+import { configuredMonths } from './ott-schedule-window.mjs';
 const normalized=(s)=>String(s??'').normalize('NFKC').toLowerCase().replace(/[\s\p{P}\p{S}]/gu,'');
 function next(html){const m=/<script\b(?=[^>]*\bid=["']__NEXT_DATA__["'])[^>]*>([\s\S]*?)<\/script>/i.exec(html);if(!m)throw Error('TVING_HOME_STRUCTURE_CHANGED');return JSON.parse(m[1]);}
 export function upcomingPrograms(html){
@@ -25,7 +26,7 @@ export function upcomingPrograms(html){
   if(!bands||!programs.size||programs.size>100)throw Error('TVING_UPCOMING_SCOPE_CHANGED');
   return [...programs.values()];
 }
-export async function collectUpcoming(request,fetchImpl,{knownBindings=[],monthlyCandidates=[],months=['2026-11','2026-12']}={}){
+export async function collectUpcoming(request,fetchImpl,{knownBindings=[],monthlyCandidates=[],months=configuredMonths()}={}){
   months.forEach(monthRange);
   const html=async(url)=>{const r=await fetchImpl(url,{signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error(`PRIMARY_HTTP_${r.status}`);if(r.url&&new URL(r.url).origin!=='https://www.tving.com')throw Error('PRIMARY_REDIRECT_HOST_CHANGED');return r.text();};
   const primary=async(url)=>{const r=await fetchImpl(url,{signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error(`PRIMARY_HTTP_${r.status}`);if(r.url&&new URL(r.url).origin!==new URL(url).origin)throw Error('PRIMARY_REDIRECT_HOST_CHANGED');return r.text();};

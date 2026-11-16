@@ -5,19 +5,20 @@ import { writeFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { prepareLineup } from './prepare-ott-lineup.mjs';
+import { configuredMonths } from './ott-schedule-window.mjs';
 
 export const SOURCE = 'https://about.netflix.com/ko/new-to-watch';
 const API = 'https://about.netflix.com/api/data/releases';
-export function parseNetflixKrSchedule(html, observedAt = new Date().toISOString()) {
+export function parseNetflixKrSchedule(html, observedAt = new Date().toISOString(), months = configuredMonths()) {
   const match = /<script\b(?=[^>]*\bid=["']__NEXT_DATA__["'])[^>]*>([\s\S]*?)<\/script>/i.exec(html);
   if (!match) throw new Error('NETFLIX_NEXT_DATA_NOT_FOUND');
   const data = JSON.parse(match[1]);
   if (data.props?.currentRegion?.countryCode !== 'kr' || data.props?.currentLanguage?.code !== 'ko')
     throw new Error('NETFLIX_KR_REGION_NOT_VERIFIED');
-  return parseNetflixKrPages([data.props?.pageProps?.data], observedAt);
+  return parseNetflixKrPages([data.props?.pageProps?.data], observedAt, months);
 }
 
-export function parseNetflixKrPages(pages, observedAt = new Date().toISOString()) {
+export function parseNetflixKrPages(pages, observedAt = new Date().toISOString(), months = configuredMonths()) {
   const first = pages[0];
   if (!first || !Number.isInteger(first.totalPages) || first.totalPages < 1 || first.totalPages > 100 ||
       !Number.isInteger(first.totalItems) || !Array.isArray(first.data) || first.current !== 1)
@@ -32,7 +33,7 @@ export function parseNetflixKrPages(pages, observedAt = new Date().toISOString()
         !Number.isSafeInteger(raw.videoID)) throw new Error('NETFLIX_SCHEDULE_ITEM_CHANGED');
     const title = raw.title1.trim();
     const date = new Date(raw.startTime + 9 * 3600000).toISOString().slice(0, 10);
-    if (!/^2026-(11|12)-/.test(date)) continue;
+    if (!months.includes(date.slice(0, 7))) continue;
     const key = `${title.normalize('NFC')}|${date}`;
     if (seen.has(key)) continue;
     seen.add(key);

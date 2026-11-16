@@ -15,6 +15,8 @@
     "db:generate": "prisma generate",
     "collect:fixture": "node --env-file=.env dist/src/cli/collect-fixture.js",
     "collect:daily": "node --env-file-if-exists=.env dist/src/cli/collect-daily.js",
+    "collect:ott:daily": "node scripts/run-official-ott-daily.mjs",
+    "collect:ott:install-schedule": "node scripts/install-official-ott-launchd.mjs --install",
     "candidates": "node dist/src/cli/collect-candidates.js",
     "stage:ott-lineup": "node scripts/stage-ott-lineup.mjs",
     "audit:ott-coverage": "node scripts/audit-ott-coverage.mjs work/ott-lineups/state.json data/reference/streampick-2026-11-12-counts.json",
