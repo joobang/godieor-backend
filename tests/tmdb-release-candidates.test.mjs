@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { collectReleaseCandidates, combineEvidence, mergeCandidateState, refreshOfficialBindings } from '../scripts/collect-tmdb-release-candidates.mjs';
 
 const discovery = { rows: [{ type: 'tv', tmdbId: 100 }], coverage: [{ truncated: false, error: null }] };
-const official = { type: 'tv', tmdbId: 100, seasonNumber: 2, platform: 'netflix', market: 'KR', date: '2026-11-05',
+const official = { title: 'Synthetic', type: 'tv', tmdbId: 100, seasonNumber: 2, platform: 'netflix', market: 'KR', date: '2026-11-05',
   sourceUrl: 'https://about.netflix.com/ko/news/synthetic', evidence: 'Synthetic first release statement', identityVerified: true, premiereConfirmed: true, sourceRefreshStatus: 'matched' };
 function requestFixture({ seasonProviders = ['Disney Plus'], seasonDate = '2026-11-05', firstDate = '2026-11-05', missingProviders = false, oldSeasonOnly = false } = {}) {
   const calls = [];

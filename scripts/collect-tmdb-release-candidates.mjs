@@ -4,6 +4,7 @@ import { readFile, writeFile, mkdir, rename, open, unlink } from 'node:fs/promis
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createHash } from 'node:crypto';
+import { parseOfficialSource, supportsOfficialSource } from './official-ott-source.mjs';
 import { collectNetflixKrSchedule } from './collect-netflix-kr-schedule.mjs';
 import { discoverByDate, createTmdbClient, monthRange, SERVICES } from './tmdb-date-discovery.mjs';
 
@@ -56,25 +57,17 @@ export async function refreshOfficialBindings(bindings, fetchImpl = fetch) {
       sourceRefreshStatus = netflixError ? 'lookup_failed' : dates.length === 1 && dates[0] === binding.date ? 'matched' :
         dates.length ? 'date_conflict' : 'not_in_current_listing';
       sourceRefreshError = netflixError;
-    } else if (binding.platform === 'tving' && /^https:\/\/www\.tving\.com\/contents\/P[0-9]+$/.test(binding.sourceUrl)) {
+    } else if (trustedOfficial(binding) && supportsOfficialSource(binding)) {
       try {
         if (!htmlCache.has(binding.sourceUrl)) {
           const response = await fetchImpl(binding.sourceUrl, { signal: AbortSignal.timeout(15000) });
           if (!response.ok) throw new Error(`PRIMARY_HTTP_${response.status}`);
+          if (response.url && new URL(response.url).origin !== new URL(binding.sourceUrl).origin) throw new Error('PRIMARY_REDIRECT_HOST_CHANGED');
           htmlCache.set(binding.sourceUrl, await response.text());
         }
-        const html = htmlCache.get(binding.sourceUrl);
-        const match = /<script\b(?=[^>]*\bid=["']__NEXT_DATA__["'])[^>]*>([\s\S]*?)<\/script>/i.exec(html);
-        if (!match) throw new Error('TVING_PUBLIC_DATA_MISSING');
-        const page = JSON.parse(match[1]).props?.pageProps;
-        if (page?.contentInfo?.code !== new URL(binding.sourceUrl).pathname.split('/').at(-1)) throw new Error('TVING_IDENTITY_CHANGED');
-        const claim = /^시즌\s+(\d+),\s*(\d+)월\s*(\d+)일\s+공개$/.exec(page?.openText ?? '');
-        const year = page?.contentInfo?.broad_dt?.slice(0,4);
-        if (!claim || !/^\d{4}$/.test(year ?? '')) sourceRefreshStatus = 'explicit_ott_date_not_found';
-        else {
-          const date = `${year}-${claim[2].padStart(2,'0')}-${claim[3].padStart(2,'0')}`;
-          sourceRefreshStatus = date === binding.date && Number(claim[1]) === binding.seasonNumber ? 'matched' : 'date_or_season_conflict';
-        }
+        const parsed = parseOfficialSource(binding, htmlCache.get(binding.sourceUrl));
+        results.push({ ...binding, ...parsed, sourceCheckedAt: checkedAt });
+        continue;
       } catch (e) { sourceRefreshStatus = 'lookup_failed'; sourceRefreshError = e.message; }
     }
     results.push({ ...binding, sourceRefreshStatus, sourceRefreshError, sourceCheckedAt: checkedAt });

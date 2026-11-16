@@ -1,0 +1,43 @@
+✔ TVING episode code is accepted only through consistent explicit program IDs (1.657792ms)
+✔ TVING broadcast date and episode date cannot replace absent release statement (0.126833ms)
+✔ Netflix reads release statement, not article publication timestamp (0.675791ms)
+✔ Netflix slug and Korean market are required (0.124166ms)
+✔ other works and unrelated historical dates do not validate an announcement (0.084792ms)
+✔ multiple changed dates fail closed rather than accepting any matching old date (0.081666ms)
+✔ cross-year announcement requires explicit release year (0.082209ms)
+✔ Disney KR entity uses release promotion, not displayed season count (0.299125ms)
+✔ Disney other entity or region is rejected (0.075667ms)
+✔ CJ scopes article URL, title and nested body release statement (0.770917ms)
+✔ unsupported sources are not fetched and redirect host changes are rejected (0.221542ms)
+✔ marketing asset release date is not the work premiere (0.096375ms)
+✔ TVING plain release statement is accepted, month-only and metadata day stay unknown (0.10175ms)
+✔ monthly discovery inspects new season on an old series, not series first-air date or ordinary episodes (5.934375ms)
+✔ series platform hint remains discoverable but cannot certify target season availability (0.170667ms)
+✔ official identity seed retains upcoming work with no TMDB provider; dual date check enables batch review only (0.209417ms)
+✔ different season first-air and episode-one dates stay conflicting (0.138583ms)
+✔ official date conflicts remain visible and never overwrite TMDB raw date (0.138708ms)
+✔ wrong identity, season, country and source cannot validate a candidate (0.058208ms)
+✔ missing provider response is unknown and does not veto explicit official evidence (0.128792ms)
+✔ a regular episode in target month is not a season premiere (0.057208ms)
+✔ partial discovery and source errors are preserved instead of reported as empty success (0.090292ms)
+✔ repeat staging is idempotent; changed date evidence creates one revision on same stable id (0.481958ms)
+✔ recorded official evidence is retained but not fresh batch-ready without source refresh (0.051875ms)
+✔ TVING broadcast date alone is not an explicit OTT release claim (0.687125ms)
+✔ refresh observation timestamp alone does not create a candidate revision (0.073959ms)
+✔ same release text on another TVING program cannot refresh an identity binding (0.072167ms)
+✔ upcoming band is required and duplicate program cards do not inflate count (0.725875ms)
+✔ global season date and Korean platform date are both retained without arbitrary month equality (1.65425ms)
+✔ month-only claim is preserved as unresolved and never uses metadata day (0.20125ms)
+✔ duplicate cast names cannot satisfy distinct actor identity gate (0.13625ms)
+✔ alternative official page for same reviewed TMDB event does not create a duplicate proposal (0.163917ms)
+✔ episode-one disagreement and wrong home/program identity are held (0.203333ms)
+✔ complete official batch exports all rows as unapproved staging, including unresolved dates (0.574042ms)
+✔ two names for the same TMDB person cannot count as two actors (0.162125ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 46.550125

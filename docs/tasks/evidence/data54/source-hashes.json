@@ -1,0 +1,85 @@
+{
+  "scope": "2026-11-16 public downloads, full HTML remains local; selected parsed fields in official-refresh/upcoming reports",
+  "files": [
+    {
+      "file": "P001793246.html",
+      "sha256": "259c9260f5e035e060ce96c61c6cc44e1365cee582aeef7081956683cfe3029f",
+      "bytes": 161818
+    },
+    {
+      "file": "P001793411.html",
+      "sha256": "84f20bd15cdb87986454c7f1b4900fbf094889e9af7e973418a28f69842bad4f",
+      "bytes": 165750
+    },
+    {
+      "file": "P001793412.html",
+      "sha256": "d2865d61a08a335db062489515156eb6ff9f80e6c5ffb0cadf7feb64ffeb23cf",
+      "bytes": 161367
+    },
+    {
+      "file": "P001793657.html",
+      "sha256": "83151ba07556b1608e9a4b80b81b85c96b892e7c3b81ff027c9efafc495f0cd2",
+      "bytes": 163159
+    },
+    {
+      "file": "P001793986.html",
+      "sha256": "98dae852e6ca63e2deea864f052532f54c5490ad280961ebd9eede47114fa449",
+      "bytes": 172316
+    },
+    {
+      "file": "P001794057.html",
+      "sha256": "11cd81b07b7fdbf57e211235d6796f38bfdeca88f9c729d3fc7b77004ee7e829",
+      "bytes": 162905
+    },
+    {
+      "file": "P001794074.html",
+      "sha256": "5469983f3f4d1e4d551a11d453a59bddba5f1851c7900e468603d679a051d76e",
+      "bytes": 162335
+    },
+    {
+      "file": "P001794297.html",
+      "sha256": "0e09a9db7b0edbe47f789d89c98c332b30f128caee172353982738d8e7fb7fe6",
+      "bytes": 166603
+    },
+    {
+      "file": "P001794298.html",
+      "sha256": "ef3987ec4f5d9eda5d803edb433e9e5b810573930979b88a9c29dc40c6e321f4",
+      "bytes": 164910
+    },
+    {
+      "file": "cj.html",
+      "sha256": "b5832c83b877b988828d309d5a26074e41942c86f1a42bcb6ef714075c0d90ab",
+      "bytes": 130158
+    },
+    {
+      "file": "disney.html",
+      "sha256": "b812854422ddcebb388a7103d9c84dde99d9522d6658cdd5c7bbe9523416ce59",
+      "bytes": 962125
+    },
+    {
+      "file": "netflix-blue.html",
+      "sha256": "8bfda5b2a8a8b2701da7f5cd8cb0c7da6057f336d5c07fb2cc55703df357f92a",
+      "bytes": 73635
+    },
+    {
+      "file": "netflix-tantara.html",
+      "sha256": "fbfaf6c6cd9de2527866b24577e04380faa2a29c1dfc48dec9490632f95d0e1b",
+      "bytes": 68631
+    },
+    {
+      "file": "tving-escape.html",
+      "sha256": "2e66ad3ecc3f71b7cbf6fed0e456e10241e4435ac8641dcde00cd1389a2b8395",
+      "bytes": 172279
+    },
+    {
+      "file": "tving-happy.html",
+      "sha256": "94f52b73046c9ffaf9c0a7385b80ffedcc80f008710e20decd0bb8dec778a4dd",
+      "bytes": 166429
+    },
+    {
+      "file": "tving-home.html",
+      "sha256": "6d60852e7987485bd1c2f6d62c7d68c76141fcdb365d232b81b11f9c9de9af01",
+      "bytes": 219014
+    }
+  ]
+}

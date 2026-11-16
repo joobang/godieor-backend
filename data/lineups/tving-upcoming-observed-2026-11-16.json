@@ -1,0 +1,88 @@
+{
+  "platform": "tving",
+  "sourceUrl": "https://www.tving.com/",
+  "observedAt": "2026-11-16T01:29:26.679Z",
+  "items": [
+    {
+      "title": "대리수능",
+      "market": "KR",
+      "contentKind": "drama",
+      "date": "2026-11-23",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "공식 TVING 공개예정 목록/프로그램 https://www.tving.com/contents/P001793411. 명시 공개문구만 날짜로 저장, 방송일/내부메타데이터/시즌 개수는 추정에 쓰지 않음. 식별 검토 상태 existing_review_identity_alternative_source; 독립 승인/제품 게시 아님."
+    },
+    {
+      "title": "대탈출 : 도시괴담",
+      "market": "KR",
+      "contentKind": "variety",
+      "date": "2026-12-02",
+      "seasonNumber": 6,
+      "premiereConfirmed": false,
+      "evidence": "공식 TVING 공개예정 목록/프로그램 https://www.tving.com/contents/P001793986. 명시 공개문구만 날짜로 저장, 방송일/내부메타데이터/시즌 개수는 추정에 쓰지 않음. 식별 검토 상태 existing_review_identity; 독립 승인/제품 게시 아님."
+    },
+    {
+      "title": "가금채",
+      "market": "KR",
+      "contentKind": "drama",
+      "date": "2026-11-18",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "공식 TVING 공개예정 목록/프로그램 https://www.tving.com/contents/P001794057. 명시 공개문구만 날짜로 저장, 방송일/내부메타데이터/시즌 개수는 추정에 쓰지 않음. 식별 검토 상태 tmdb_identity_unconfirmed; 독립 승인/제품 게시 아님."
+    },
+    {
+      "title": "2026 MAMA AWARDS CHAPTER 1",
+      "market": "KR",
+      "contentKind": "other",
+      "date": "2026-11-20",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "공식 TVING 공개예정 목록/프로그램 https://www.tving.com/contents/P001793246. 명시 공개문구만 날짜로 저장, 방송일/내부메타데이터/시즌 개수는 추정에 쓰지 않음. 식별 검토 상태 unsupported_content_category; 독립 승인/제품 게시 아님."
+    },
+    {
+      "title": "아불시대사: 꾼들의 전쟁",
+      "market": "KR",
+      "contentKind": "drama",
+      "date": "2026-11-21",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "공식 TVING 공개예정 목록/프로그램 https://www.tving.com/contents/P001794297. 명시 공개문구만 날짜로 저장, 방송일/내부메타데이터/시즌 개수는 추정에 쓰지 않음. 식별 검토 상태 tmdb_identity_unconfirmed; 독립 승인/제품 게시 아님."
+    },
+    {
+      "title": "무쇠소녀단3",
+      "market": "KR",
+      "contentKind": "variety",
+      "date": "2026-11-26",
+      "seasonNumber": 3,
+      "premiereConfirmed": false,
+      "evidence": "공식 TVING 공개예정 목록/프로그램 https://www.tving.com/contents/P001794298. 명시 공개문구만 날짜로 저장, 방송일/내부메타데이터/시즌 개수는 추정에 쓰지 않음. 식별 검토 상태 existing_review_identity; 독립 승인/제품 게시 아님."
+    },
+    {
+      "title": "그냥사람친구",
+      "market": "KR",
+      "contentKind": "variety",
+      "date": "2026-11-27",
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "공식 TVING 공개예정 목록/프로그램 https://www.tving.com/contents/P001794074. 명시 공개문구만 날짜로 저장, 방송일/내부메타데이터/시즌 개수는 추정에 쓰지 않음. 식별 검토 상태 tmdb_identity_unconfirmed; 독립 승인/제품 게시 아님."
+    },
+    {
+      "title": "보검매직컬 시즌2",
+      "market": "KR",
+      "contentKind": "variety",
+      "date": "2026-11-29",
+      "seasonNumber": 2,
+      "premiereConfirmed": false,
+      "evidence": "공식 TVING 공개예정 목록/프로그램 https://www.tving.com/contents/P001793657. 명시 공개문구만 날짜로 저장, 방송일/내부메타데이터/시즌 개수는 추정에 쓰지 않음. 식별 검토 상태 existing_review_identity; 독립 승인/제품 게시 아님."
+    },
+    {
+      "title": "기프트",
+      "market": "KR",
+      "contentKind": "drama",
+      "date": null,
+      "seasonNumber": null,
+      "premiereConfirmed": false,
+      "evidence": "공식 TVING 공개예정 목록/프로그램 https://www.tving.com/contents/P001793412. 명시 공개문구만 날짜로 저장, 방송일/내부메타데이터/시즌 개수는 추정에 쓰지 않음. 식별 검토 상태 exact_platform_date_missing; 독립 승인/제품 게시 아님."
+    }
+  ]
+}

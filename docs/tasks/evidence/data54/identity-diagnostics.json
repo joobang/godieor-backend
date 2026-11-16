@@ -1,0 +1,138 @@
+[
+  {
+    "title": "가금채",
+    "sourceActors": [
+      "톈시웨이",
+      "펜타곤"
+    ],
+    "hits": [
+      {
+        "id": 300146,
+        "name": "가금채",
+        "originalName": "嫁金钗",
+        "seasons": [
+          {
+            "n": 0,
+            "date": null
+          },
+          {
+            "n": 1,
+            "date": "2026-10-16"
+          }
+        ],
+        "cast": [
+          {
+            "id": 2430198,
+            "name": "전희미",
+            "original_name": "田曦薇"
+          },
+          {
+            "id": 2040132,
+            "name": "Yan An",
+            "original_name": "Yan An"
+          },
+          {
+            "id": 3983697,
+            "name": "潘珺雅",
+            "original_name": "潘珺雅"
+          },
+          {
+            "id": 4729911,
+            "name": "王一舟",
+            "original_name": "王一舟"
+          },
+          {
+            "id": 4515680,
+            "name": "刘小北",
+            "original_name": "刘小北"
+          },
+          {
+            "id": 1183504,
+            "name": "공림",
+            "original_name": "孔琳"
+          },
+          {
+            "id": 2087734,
+            "name": "최혁(崔奕)",
+            "original_name": "崔奕"
+          },
+          {
+            "id": 3693678,
+            "name": "대고정",
+            "original_name": "代高政"
+          },
+          {
+            "id": 2570364,
+            "name": "杨青",
+            "original_name": "杨青"
+          },
+          {
+            "id": 2745033,
+            "name": "Wang Yinan",
+            "original_name": "Wang Yinan"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "아불시대사: 꾼들의 전쟁",
+    "sourceActors": [
+      "리셴",
+      "리이퉁",
+      "류관린",
+      "우강",
+      "궈징린"
+    ],
+    "hits": []
+  },
+  {
+    "title": "그냥사람친구",
+    "sourceActors": [],
+    "hits": [
+      {
+        "id": 340978,
+        "name": "그냥사람친구",
+        "originalName": "그냥사람친구",
+        "seasons": [
+          {
+            "n": 1,
+            "date": "2026-11-27"
+          }
+        ],
+        "cast": [
+          {
+            "id": 77282,
+            "name": "이서진",
+            "original_name": "이서진"
+          },
+          {
+            "id": 1010877,
+            "name": "한지민",
+            "original_name": "한지민"
+          },
+          {
+            "id": 1190844,
+            "name": "김용건",
+            "original_name": "김용건"
+          },
+          {
+            "id": 1632258,
+            "name": "박정수",
+            "original_name": "박정수"
+          },
+          {
+            "id": 2059874,
+            "name": "이주헌",
+            "original_name": "이주헌"
+          },
+          {
+            "id": 1875650,
+            "name": "정연",
+            "original_name": "정연"
+          }
+        ]
+      }
+    ]
+  }
+]

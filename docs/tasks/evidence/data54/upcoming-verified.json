@@ -1,0 +1,439 @@
+{
+  "kind": "tving-official-upcoming-review",
+  "referenceInputUsed": false,
+  "source": "https://www.tving.com/",
+  "rows": [
+    {
+      "code": "P001793411",
+      "title": "대리수능",
+      "sourceUrl": "https://www.tving.com/contents/P001793411",
+      "sourceClaims": [
+        {
+          "date": "2026-11-23",
+          "seasonNumber": null,
+          "yearContext": "program_year_only"
+        }
+      ],
+      "sourceWork": {
+        "title": "대리수능",
+        "category": "드라마",
+        "actors": [
+          "차강윤",
+          "배현성",
+          "박윤호",
+          "엄지원",
+          "박혁권",
+          "백지원"
+        ],
+        "programYear": 2026,
+        "explicitSeason": null
+      },
+      "sourceIdentity": {
+        "programCode": "P001793411",
+        "contentCode": "P001793411"
+      },
+      "status": "existing_review_identity_alternative_source",
+      "matches": [
+        {
+          "tmdbId": 303552,
+          "tmdbTitle": "대리수능",
+          "seasonNumber": 1,
+          "tmdbSeasonDate": "2026-11-23",
+          "officialPlatformDate": "2026-11-23",
+          "firstEpisodeDate": "2026-11-23",
+          "platformDateOffsetDays": 0,
+          "matchedActors": [
+            "배현성",
+            "차강윤",
+            "박윤호",
+            "엄지원",
+            "박혁권",
+            "백지원"
+          ],
+          "matchedPeople": [
+            {
+              "tmdbPersonId": 2377695,
+              "sourceNames": [
+                "배현성"
+              ]
+            },
+            {
+              "tmdbPersonId": 4735709,
+              "sourceNames": [
+                "차강윤"
+              ]
+            },
+            {
+              "tmdbPersonId": 3507817,
+              "sourceNames": [
+                "박윤호"
+              ]
+            },
+            {
+              "tmdbPersonId": 1299243,
+              "sourceNames": [
+                "엄지원"
+              ]
+            },
+            {
+              "tmdbPersonId": 587676,
+              "sourceNames": [
+                "박혁권"
+              ]
+            },
+            {
+              "tmdbPersonId": 2720442,
+              "sourceNames": [
+                "백지원"
+              ]
+            }
+          ],
+          "identityMethod": "exact_title_cast_and_explicit_season_details",
+          "dateSemantics": "same_date",
+          "reviewCandidateId": "53c19a6f62ddea488a29e9d76dcf586cbcbde462fcad2b1c909579185796e07b"
+        }
+      ],
+      "publishingAllowed": false,
+      "officialPlatformDate": "2026-11-23",
+      "searchTruncated": false,
+      "identityDiagnostics": [
+        {
+          "tmdbId": 303552,
+          "title": "대리수능",
+          "matchedActors": [
+            "배현성",
+            "차강윤",
+            "박윤호",
+            "엄지원",
+            "박혁권",
+            "백지원"
+          ],
+          "matchedPeople": [
+            {
+              "tmdbPersonId": 2377695,
+              "sourceNames": [
+                "배현성"
+              ]
+            },
+            {
+              "tmdbPersonId": 4735709,
+              "sourceNames": [
+                "차강윤"
+              ]
+            },
+            {
+              "tmdbPersonId": 3507817,
+              "sourceNames": [
+                "박윤호"
+              ]
+            },
+            {
+              "tmdbPersonId": 1299243,
+              "sourceNames": [
+                "엄지원"
+              ]
+            },
+            {
+              "tmdbPersonId": 587676,
+              "sourceNames": [
+                "박혁권"
+              ]
+            },
+            {
+              "tmdbPersonId": 2720442,
+              "sourceNames": [
+                "백지원"
+              ]
+            }
+          ],
+          "sourceActorCount": 6,
+          "status": "cast_identity_matched"
+        }
+      ]
+    },
+    {
+      "code": "P001793986",
+      "title": "대탈출 : 도시괴담",
+      "sourceUrl": "https://www.tving.com/contents/P001793986",
+      "sourceClaims": [
+        {
+          "date": "2026-12-02",
+          "seasonNumber": 6,
+          "yearContext": "program_year_only"
+        }
+      ],
+      "sourceWork": {
+        "title": "대탈출 : 도시괴담",
+        "category": "예능",
+        "actors": [
+          "김종민",
+          "김동현",
+          "신동",
+          "유병재",
+          "고경표",
+          "승관"
+        ],
+        "programYear": 2026,
+        "explicitSeason": 6
+      },
+      "sourceIdentity": {
+        "programCode": "P001793986",
+        "contentCode": "E004668411"
+      },
+      "status": "existing_review_identity",
+      "matches": [
+        {
+          "tmdbId": 80585,
+          "seasonNumber": 6,
+          "reviewCandidateId": "78b2e5110403fe1a429cc5e8fc25a185c664e9658cca010179811f38f96efca9",
+          "identityMethod": "existing_explicit_binding"
+        }
+      ],
+      "publishingAllowed": false,
+      "officialPlatformDate": "2026-12-02"
+    },
+    {
+      "code": "P001794057",
+      "title": "가금채",
+      "sourceUrl": "https://www.tving.com/contents/P001794057",
+      "sourceClaims": [
+        {
+          "date": "2026-11-18",
+          "seasonNumber": null,
+          "yearContext": "program_year_only"
+        }
+      ],
+      "sourceWork": {
+        "title": "가금채",
+        "category": "드라마",
+        "actors": [
+          "톈시웨이",
+          "펜타곤"
+        ],
+        "programYear": 2026,
+        "explicitSeason": null
+      },
+      "sourceIdentity": {
+        "programCode": "P001794057",
+        "contentCode": "P001794057"
+      },
+      "status": "tmdb_identity_unconfirmed",
+      "matches": [],
+      "publishingAllowed": false,
+      "officialPlatformDate": "2026-11-18",
+      "searchTruncated": false,
+      "identityDiagnostics": [
+        {
+          "tmdbId": 300146,
+          "title": "가금채",
+          "matchedActors": [],
+          "matchedPeople": [],
+          "sourceActorCount": 2,
+          "status": "insufficient_cast_identity"
+        }
+      ]
+    },
+    {
+      "code": "P001793246",
+      "title": "2026 MAMA AWARDS CHAPTER 1",
+      "sourceUrl": "https://www.tving.com/contents/P001793246",
+      "sourceClaims": [
+        {
+          "date": "2026-11-20",
+          "seasonNumber": null,
+          "yearContext": "program_year_only"
+        }
+      ],
+      "sourceWork": {
+        "title": "2026 MAMA AWARDS CHAPTER 1",
+        "category": "공연",
+        "actors": [],
+        "programYear": 2026,
+        "explicitSeason": null
+      },
+      "sourceIdentity": {
+        "programCode": "P001793246",
+        "contentCode": "P001793246"
+      },
+      "status": "unsupported_content_category",
+      "matches": [],
+      "publishingAllowed": false
+    },
+    {
+      "code": "P001794297",
+      "title": "아불시대사: 꾼들의 전쟁",
+      "sourceUrl": "https://www.tving.com/contents/P001794297",
+      "sourceClaims": [
+        {
+          "date": "2026-11-21",
+          "seasonNumber": null,
+          "yearContext": "program_year_only"
+        }
+      ],
+      "sourceWork": {
+        "title": "아불시대사: 꾼들의 전쟁",
+        "category": "드라마",
+        "actors": [
+          "리셴",
+          "리이퉁",
+          "류관린",
+          "우강",
+          "궈징린"
+        ],
+        "programYear": 2026,
+        "explicitSeason": null
+      },
+      "sourceIdentity": {
+        "programCode": "P001794297",
+        "contentCode": "P001794297"
+      },
+      "status": "tmdb_identity_unconfirmed",
+      "matches": [],
+      "publishingAllowed": false,
+      "officialPlatformDate": "2026-11-21",
+      "searchTruncated": false
+    },
+    {
+      "code": "P001794298",
+      "title": "무쇠소녀단3",
+      "sourceUrl": "https://www.tving.com/contents/P001794298",
+      "sourceClaims": [
+        {
+          "date": "2026-11-26",
+          "seasonNumber": 3,
+          "yearContext": "program_year_only"
+        }
+      ],
+      "sourceWork": {
+        "title": "무쇠소녀단3",
+        "category": "예능",
+        "actors": [
+          "설인아",
+          "금새록",
+          "한지현",
+          "연우"
+        ],
+        "programYear": 2026,
+        "explicitSeason": 3
+      },
+      "sourceIdentity": {
+        "programCode": "P001794298",
+        "contentCode": "P001794298"
+      },
+      "status": "existing_review_identity",
+      "matches": [
+        {
+          "tmdbId": 270746,
+          "seasonNumber": 3,
+          "reviewCandidateId": "2dc7c0a0528fb1be2513095c5e1a29b2008be8c6ad07bb9e9319deff6308249b",
+          "identityMethod": "existing_explicit_binding"
+        }
+      ],
+      "publishingAllowed": false,
+      "officialPlatformDate": "2026-11-26"
+    },
+    {
+      "code": "P001794074",
+      "title": "그냥사람친구",
+      "sourceUrl": "https://www.tving.com/contents/P001794074",
+      "sourceClaims": [
+        {
+          "date": "2026-11-27",
+          "seasonNumber": null,
+          "yearContext": "program_year_only"
+        }
+      ],
+      "sourceWork": {
+        "title": "그냥사람친구",
+        "category": "예능",
+        "actors": [],
+        "programYear": 2026,
+        "explicitSeason": null
+      },
+      "sourceIdentity": {
+        "programCode": "P001794074",
+        "contentCode": "P001794074"
+      },
+      "status": "tmdb_identity_unconfirmed",
+      "matches": [],
+      "publishingAllowed": false,
+      "officialPlatformDate": "2026-11-27",
+      "searchTruncated": false,
+      "identityDiagnostics": [
+        {
+          "tmdbId": 340978,
+          "title": "그냥사람친구",
+          "matchedActors": [],
+          "matchedPeople": [],
+          "sourceActorCount": 0,
+          "status": "insufficient_cast_identity"
+        }
+      ]
+    },
+    {
+      "code": "P001793657",
+      "title": "보검매직컬 시즌2",
+      "sourceUrl": "https://www.tving.com/contents/P001793657",
+      "sourceClaims": [
+        {
+          "date": "2026-11-29",
+          "seasonNumber": 2,
+          "yearContext": "program_year_only"
+        }
+      ],
+      "sourceWork": {
+        "title": "보검매직컬 시즌2",
+        "category": "예능",
+        "actors": [
+          "박보검",
+          "이상이",
+          "고경표"
+        ],
+        "programYear": 2026,
+        "explicitSeason": 2
+      },
+      "sourceIdentity": {
+        "programCode": "P001793657",
+        "contentCode": "P001793657"
+      },
+      "status": "existing_review_identity",
+      "matches": [
+        {
+          "tmdbId": 312826,
+          "seasonNumber": 2,
+          "reviewCandidateId": "ea74c7bdfffc383c5a7661b3ea297e9ba99ecbdc9728a4021c4473976876b001",
+          "identityMethod": "existing_explicit_binding"
+        }
+      ],
+      "publishingAllowed": false,
+      "officialPlatformDate": "2026-11-29"
+    },
+    {
+      "code": "P001793412",
+      "title": "기프트",
+      "sourceUrl": "https://www.tving.com/contents/P001793412",
+      "sourceClaims": [],
+      "sourceWork": {
+        "title": "기프트",
+        "category": "드라마",
+        "actors": [
+          "김우빈",
+          "서은수"
+        ],
+        "programYear": 2026,
+        "explicitSeason": null
+      },
+      "sourceIdentity": {
+        "programCode": "P001793412",
+        "contentCode": "P001793412"
+      },
+      "status": "exact_platform_date_missing",
+      "matches": [],
+      "publishingAllowed": false
+    }
+  ],
+  "errors": [],
+  "totalPrograms": 9,
+  "newReviewProposals": 0,
+  "publishingAllowed": false
+}
