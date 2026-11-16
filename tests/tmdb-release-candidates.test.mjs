@@ -98,6 +98,25 @@ test('a regular episode in target month is not a season premiere', async () => {
   assert.equal(r.rows.length, 0);
 });
 
+test('a historical season with KR series provider is investigated without inventing a KR premiere date', async () => {
+  const base = requestFixture({ seasonDate: '2025-08-01', firstDate: '2025-08-01' });
+  const r = await collectReleaseCandidates(base.request, { discovery, months: ['2026-11'] });
+  assert.equal(r.errors.length, 0);
+  assert.equal(r.rows.length, 2);
+  assert.ok(r.rows.every((row) => row.seasonNumber === 2));
+  assert.ok(r.rows.every((row) => row.premiereWindowStatus === 'historical_season_kr_date_unconfirmed'));
+  assert.ok(r.rows.every((row) => row.dateHint === null && row.readyForBatchReview === false));
+  assert.ok(r.rows.every((row) => row.dates.seasonFirstDate === '2025-08-01'));
+  assert.ok(!base.calls.includes('/tv/100/season/1'));
+});
+
+test('historical season investigation requires KR provider evidence', async () => {
+  const base = requestFixture({ seasonDate: '2025-08-01', firstDate: '2025-08-01' });
+  const request = async (path, params) => path === '/tv/100/watch/providers' ? { results: {} } : base.request(path, params);
+  const r = await collectReleaseCandidates(request, { discovery, months: ['2026-11'] });
+  assert.equal(r.rows.length, 0);
+});
+
 test('partial discovery and source errors are preserved instead of reported as empty success', async () => {
   const r = await collectReleaseCandidates(async () => { throw new Error('synthetic timeout'); }, {
     discovery: { rows: discovery.rows, coverage: [{ truncated: true, error: 'page failed' }] } });

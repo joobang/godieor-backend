@@ -110,9 +110,19 @@ export async function collectReleaseCandidates(request, { months = ['2026-11', '
       catch (e) { errors.push({ type, tmdbId, scope: 'series_or_movie_providers', error: e.message }); }
       const seeded = officialBindings.filter((o) => o.type === type && o.tmdbId === tmdbId && o.market === 'KR' &&
         SERVICES.some((s) => s.key === o.platform) && o.identityVerified === true && trustedOfficial(o));
+      // TMDB season air dates are global broadcast dates. A recently aired season
+      // can reach a Korean OTT months later, outside the season's original month.
+      // Investigate up to two recent seasons when KR series-provider hints exist;
+      // these hints must never become a Korean premiere date or publish approval.
+      const earliestMonth = months.map((m) => `${m}-01`).sort()[0];
+      const lookbackStart = `${Number(earliestMonth.slice(0, 4)) - 2}${earliestMonth.slice(4)}`;
+      const recentHistorical = type === 'tv' && servicesFor(seriesProviders).length ? (detail.seasons ?? [])
+        .filter((s) => s.season_number > 0 && dateValid(s.air_date) && s.air_date < earliestMonth && s.air_date >= lookbackStart)
+        .sort((a, b) => b.season_number - a.season_number).slice(0, 2).map((s) => s.season_number) : [];
       const seasons = type === 'movie' ? [null] : [...new Set([
         ...(detail.seasons ?? []).filter((s) => s.season_number > 0 && (inMonths(s.air_date, months) || !s.air_date)).map((s) => s.season_number),
         ...seeded.filter((s) => Number.isInteger(s.seasonNumber) && s.seasonNumber > 0 && inMonths(s.date, months)).map((s) => s.seasonNumber),
+        ...recentHistorical,
       ])];
       for (const seasonNumber of seasons) {
         try {
@@ -120,7 +130,10 @@ export async function collectReleaseCandidates(request, { months = ['2026-11', '
           if (season && season.season_number !== seasonNumber) throw new Error('TMDB_SEASON_MISMATCH');
           const dates = rawDates(detail, season, type === 'movie');
           const possible = [...new Set((type === 'movie' ? [dates.movieReleaseDate] : [dates.seasonFirstDate, dates.firstEpisodeDate]).filter(dateValid))];
-          if (!possible.some((d) => inMonths(d, months)) && !seeded.some((o) => o.seasonNumber === seasonNumber && inMonths(o.date, months))) continue;
+          const originalDateInRange = possible.some((d) => inMonths(d, months));
+          const officialDateInRange = seeded.some((o) => o.seasonNumber === seasonNumber && inMonths(o.date, months));
+          const historicalInvestigation = recentHistorical.includes(seasonNumber) && !originalDateInRange && !officialDateInRange;
+          if (!originalDateInRange && !officialDateInRange && !historicalInvestigation) continue;
           const scopeHold = null; // DATA56: animation is in the user-confirmed OTT scope; evidence gates still apply.
           if (scopeHold) excluded.push({ type, tmdbId, seasonNumber, reason: scopeHold, dates });
           let providers = type === 'movie' ? seriesProviders : null;
@@ -136,7 +149,8 @@ export async function collectReleaseCandidates(request, { months = ['2026-11', '
               type, tmdbId, seasonNumber, platform, title: detail.name ?? detail.title,
               originalTitle: detail.original_name ?? detail.original_title ?? null, dates,
               scopeHold, suggestedContentKind: detail.genres?.some((g) => g.id === 16) ? 'animation' : null, suggestedAnimationFormat: detail.genres?.some((g) => g.id === 16) ? type === 'movie' ? 'movie' : 'series' : null, genreIDs: (detail.genres ?? []).map((g) => g.id),
-              dateHint: possible.length === 1 ? possible[0] : null,
+              dateHint: !historicalInvestigation && possible.length === 1 ? possible[0] : null,
+              premiereWindowStatus: historicalInvestigation ? 'historical_season_kr_date_unconfirmed' : 'tmdb_or_official_month_hint',
               tmdbDateConflict: possible.length > 1,
               discoveryPaths: work.paths,
               platformEvidence: seeded.some((o) => o.platform === platform && o.seasonNumber === seasonNumber) ? 'official_identity_binding' :
