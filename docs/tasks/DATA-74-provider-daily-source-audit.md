@@ -60,8 +60,12 @@ Node /Users/dojoohwan/.local/share/godieor/node-v24.22.3/bin/node. 전체 before
 
 ## 독립 handoff·다음
 
-- app base/head 런타임 위9682899 동일,이번 app 변경은 공통 문서만. backend 구현 head는 이번 커밋/Git 이력,종료 문서 head는 각 저장소 Git 이력 참조. verifier base 위06b1404,독립 기준/verdict 불변.
+- app base/head 런타임 위9682899 동일,이번 app 변경은 공통 문서만. backend 구현 head86cc91577a6dd556cded62b1487df57570dccca1,종료 문서 head는 각 저장소 Git 이력 참조. verifier base 위06b1404,독립 기준/verdict 불변.
 - API0.1.0-draft.5 manifest SHA256 0ffd7cbcdcb3c46b450e626ced90055e985308d728c279832aa00ec76b24e9c9, migration digest ec6966538bd599bf0dcee21ec0e0fb03a63b513ae01654d52b9e2badf5697fd7 불변.
 - acceptance0.1.0-draft SHA256 c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063 불변. 개인 pbxproj SHA256 f8ef38b1a44d31034be8137e7c149616c8d10b5fec23d23c50ad5445342b54ba 보존.
 - 독립runner/리뷰·iOS/실폰·클라우드·push 미실행. source49 교정/미정 게임 및 OTT 새 시즌/나머지 원천 일반 자동 검토/TMDB 전체 실행은 남는다. 데이터100% 후 배포→기본기능→디자인 순서 유지.
 - ADR024/LEARN0006 및 status/handoff/plan·원천 범위/README·공통 사본을 갱신한다. 종료 시 보호 지문/문서 일치/diff/context 전달본 검사. 별도 사용자 결정이나 추가 계정/암호를 요구하지 않는다.
+
+force 복구 수집 뒤 보완한 같은 날 실패 재시도와 초기work 생성은 최종 자체검사·일회용DB 및 최종OS기동으로 확인했다. 종료문서 커밋 뒤 context 생성/--check한다.
+
+종료 검사: git diff --check 성공,5개 공통 문서 세 저장소 byte 일치,계약/기준·개인pbxproj 지문 불변. 수집/DB회귀 프로세스·임시컨테이너 종료와 일일 lock해제 확인. 검사용 읽기전용 SQL은 ORM변환과 분리된 실제 행/이력 비교용이며 제품API/서비스에는 새rawSQL을 추가하지 않았다.

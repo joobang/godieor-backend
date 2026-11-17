@@ -1,3 +1,13 @@
+## DATA-74 · 제공처 일일08:30 운영·실패 복구·IGDB 원천 추적 (2026-11-17)
+
+- backend 원본 `docs/tasks/DATA-74-provider-daily-source-audit.md`, 구현86cc91577a6dd556cded62b1487df57570dccca1, ADR024/LEARN0006. KOBIS/EPL/IGDB를 각각 별도 프로세스로 실행하는 runner와 macOS08:30 KST LaunchAgent를 등록했다. 기존 OTT09시 job은 별도 유지.
+- 명시OS기동3회 exit0/당일9skip 확인. 제어된 KOBIS 자식 연결실패에서 EPL/IGDB 계속 실행·마지막 성공 파일 보존,정상9범위 복구 확인. 다음08:30 자연 calendar 기동은 미관측이다. job 시각/skip과 실제 원천 수집시각을 구분한다.
+- 정상 복구 실제 신규게임10, 총29924. 기존32683 event행·ID·이력 불변,신규10 공식 작품ID/본편·플랫폼·지역·날짜/상세API200,KR/WORLD 게임+EPL 월별24창/API30125 ID·DB 일치. 최종기동 뒤 전체32693행·이력 불변,fixture7은 실데이터 집계 제외.
+- 같은 날 성공 뒤 실패한 scope가 계속skip되던 조건을 수정했다. 최종 자체331/331·고정digest 일회용DB에서 성공→실패→일반daily재시도→그 뒤skip/ID 보존을 확인했다. 잠금·타임아웃후후손 종료·신호 중단·출력/원자보고서 실패도 검사했다.
+- 선택 IGDB49건은 공식 게임29개 모두/기존5releaseID 존재를 확인. 날짜있는 새후보37/부분·미정4/현재 출시 없음 또는복수3/현재비본편5,다른 저장event와 겹치는후보38. 원래 숫자지역 미보존으로 동일 이벤트라고 확정하지 않았고 감사DB변경0. 기존49건의 날짜/분류·가능중복 교정은 미완료다.
+- 다음은 원천지역 provenance와 미검증/중복 이벤트의 게시 상태를 공용ID·찜 참조와 분리하고 필요한alias·계약/DB/API를 검증하는 일이다. 미정 게임/OTT 신규시즌·일반검토/TMDB도 남는다. 운영 절차 `backend/docs/provider-daily-operations.md`,현재 범위 `backend/docs/data-coverage.md`.
+- app base9682899/backendf40e5c7→구현86cc915/verifierbase06b1404. 개인pbxproj 지문·앱코드·계약/migration/기준·verdict 보존,담당해제. 독립runner/리뷰·실폰/클라우드·push 미실행. revision SYNC-2026-11-17-04. 데이터 단계는 진행 중이며 완료 후 배포→기본기능→디자인 순서 유지.
+
 ## DATA-73 · 게임/EPL 실제2026 백필·영화 날짜 철회 갱신 (2026-11-17)
 
 - backend 원본 `docs/tasks/DATA-73-provider-backfill.md`, 구현 fa98eb51d2ea492f352bb18bdd69cc37d0abf3af, ADR023/LEARN0006. 게임2026-01-01/영화2026년/EPL2025시작 시즌으로 backfill 시작점을 고정하고 제공처·mode·force CLI를 연결했다.
