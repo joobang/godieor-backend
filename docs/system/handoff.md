@@ -1,3 +1,9 @@
+## DATA-80 · 데이터 1~5 실환경 전체 재점검 (2026-11-17)
+
+- 원본 `docs/tasks/DATA-80-five-workstream-live-audit.md`. OTT 공식 일일 전체 실행 exit2(`published_with_discovery_gaps`), 신규0/기존93, TMDB 후보1254·준비49·Coupang 제공처 누락, Netflix 조회 실패3·Coupang 보류3·날짜 미정 정체성57 보류.
+- DB event/source32693/32693·찜1·OTT93·IGDB29924 실행 전후 동일. IGDB 과거49 공개 참조 보존(불일치0)·가능중복38·지역 미확정49. 테스트340/340, OTT 독립 참조52 중 일치26/상이2/미게시24. 일일 제공처9범위 당일 기수집 skip; 정시 자연 기동·독립 제품 통합 PASS 미입증. **적재100% 미달**.
+- 후속: 공식 첫날 증거·제공처 누락 해결, 과거 IGDB 지역/alias 근거 검토, 자연 스케줄 및 API·독립 runner 확인. LEARN 기존0006/0021 연계. 원천 ID·찜/계약·verdict 불변, 배포·push 미실행.
+
 ## DATA-79 · 적재 검증 환경 복구·완료조건 재점검 (2026-11-17)
 
 - backend 원본 `docs/tasks/DATA-79-local-snapshot-regression.md`. 보관된 실제 OTT 후보 199건과 TMDB 발견 1,261행 스냅샷을 현재 backend의 Git 무시 `work/`에 SHA256 동일하게 복원. 공식 Node24.22.3에서 빌드 및 **전체 테스트 340/340 통과**. 이전 15개 실패는 후보 작업 파일 누락이었다.
