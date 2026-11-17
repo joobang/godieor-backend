@@ -1,0 +1,110 @@
+{
+  "status": "published_with_discovery_gaps",
+  "gate": {
+    "reviewedMappings": 93,
+    "readyUnmapped": [],
+    "officialAndTmdbReady": 0,
+    "discoveryComplete": false,
+    "tmdbErrors": 1
+  },
+  "steps": [
+    {
+      "label": "tmdb_changes",
+      "exitCode": 0,
+      "output": "{\"start\":\"2026-11-16\",\"end\":\"2026-11-17\",\"changedIds\":27855,\"coverage\":[{\"type\":\"movie\",\"start\":\"2026-11-16\",\"end\":\"2026-11-17\",\"pages\":113},{\"type\":\"movie\",\"changed\":11275},{\"type\":\"tv\",\"start\":\"2026-11-16\",\"end\":\"2026-11-17\",\"pages\":19},{\"type\":\"tv\",\"changed\":1885}]}"
+    },
+    {
+      "label": "netflix_official",
+      "exitCode": 0,
+      "output": "{\"output\":\"/var/folders/gt/4z3x36157d3bq4256swptnsw0000gn/T/godieor-official-pipeline-18B90c/netflix.json\",\"coverage\":{\"pagesFetched\":5,\"totalPages\":5,\"totalSourceItems\":81,\"fetchedPageItems\":81,\"uniqueInWindow\":78,\"complete\":true}}"
+    },
+    {
+      "label": "netflix_staging",
+      "exitCode": 0,
+      "output": "{\"sourceRows\":78,\"created\":0,\"revised\":0,\"unchanged\":78,\"candidates\":199,\"needsReview\":14,\"preservedReviewed\":64,\"published\":0}"
+    },
+    {
+      "label": "netflix_first_premiere_review",
+      "exitCode": 2,
+      "output": "{\"output\":\"work/ott-lineups/netflix-first-premiere-review.json\",\"total\":78,\"newReviews\":0,\"errors\":3,\"statusCounts\":{\"excluded_non_premiere\":6,\"existing_or_ambiguous_identity\":2,\"existing_review_preserved\":64,\"lookup_failed\":3,\"not_series_or_movie_first_date\":3},\"applied\":true}"
+    },
+    {
+      "label": "tmdb_recent_snapshot_reused",
+      "failed": true,
+      "error": "TMDB_RECENT_SNAPSHOT_UNAVAILABLE"
+    },
+    {
+      "label": "tving_official_tmdb",
+      "exitCode": 0,
+      "output": "{\"output\":\"/var/folders/gt/4z3x36157d3bq4256swptnsw0000gn/T/godieor-official-pipeline-18B90c/tving.json\",\"total\":11,\"newReviewProposals\":0,\"errors\":0}"
+    },
+    {
+      "label": "tving_staging",
+      "exitCode": 0,
+      "output": "{\"sourceRows\":11,\"created\":0,\"revised\":0,\"preservedReviewed\":6,\"published\":0,\"requiresFirstReleaseReview\":5}"
+    },
+    {
+      "label": "tving_ads_official",
+      "exitCode": 0,
+      "output": "{\"output\":\"/var/folders/gt/4z3x36157d3bq4256swptnsw0000gn/T/godieor-official-pipeline-18B90c/tving-ads.json\",\"count\":6,\"staged\":null,\"published\":0,\"verifiedFirstRelease\":0}"
+    },
+    {
+      "label": "tving_ads_staging",
+      "exitCode": 0,
+      "output": "{\"stage\":\"lineup-review-staging\",\"created\":0,\"changed\":0,\"unchanged\":6,\"stored\":244,\"published\":0}"
+    },
+    {
+      "label": "disney_upcoming_official",
+      "exitCode": 0,
+      "output": "{\"output\":\"/var/folders/gt/4z3x36157d3bq4256swptnsw0000gn/T/godieor-official-pipeline-18B90c/disney.json\",\"count\":16,\"published\":0,\"verifiedFirstRelease\":0}"
+    },
+    {
+      "label": "disney_upcoming_staging",
+      "exitCode": 0,
+      "output": "{\"stage\":\"lineup-review-staging\",\"created\":0,\"changed\":0,\"unchanged\":16,\"stored\":244,\"published\":0}"
+    },
+    {
+      "label": "coupang_news_official",
+      "exitCode": 0,
+      "output": "{\"output\":\"/var/folders/gt/4z3x36157d3bq4256swptnsw0000gn/T/godieor-official-pipeline-18B90c/coupang.json\",\"count\":41,\"published\":0,\"verifiedFirstRelease\":0}"
+    },
+    {
+      "label": "coupang_news_staging",
+      "exitCode": 0,
+      "output": "{\"stage\":\"lineup-review-staging\",\"created\":0,\"changed\":0,\"unchanged\":41,\"stored\":244,\"published\":0}"
+    },
+    {
+      "label": "coupang_explicit_premiere_review",
+      "exitCode": 2,
+      "output": "{\"output\":\"work/ott-lineups/coupang-premiere-review.json\",\"total\":3,\"sourceErrors\":0,\"identityErrors\":1,\"created\":0,\"approved\":0,\"preserved\":3,\"duplicateReviewed\":0,\"held\":3}"
+    },
+    {
+      "label": "undated_official_tmdb_link",
+      "exitCode": 2,
+      "output": "{\"output\":\"work/ott-lineups/tmdb-identity-review.json\",\"total\":57,\"statuses\":{\"identity_hint_only\":33,\"not_found\":9,\"ambiguous_identity\":14,\"lookup_incomplete\":1},\"publicationDelta\":0}"
+    },
+    {
+      "label": "posted_official_source_recheck",
+      "exitCode": 0,
+      "output": "{\"output\":\"work/ott-lineups/posted-source-recheck.json\",\"total\":23,\"matched\":23,\"gaps\":0,\"statusCounts\":{\"matched\":23},\"reviewsModified\":0}"
+    },
+    {
+      "label": "complete_reviewed_mappings",
+      "exitCode": 0,
+      "output": "{\"added\":0,\"total\":93,\"rejected\":[]}"
+    },
+    {
+      "label": "publish_reviewed",
+      "exitCode": 0,
+      "output": "{\n  \"dataOrigin\": \"provider\",\n  \"results\": [\n    {\n      \"provider\": \"ott_reviewed\",\n      \"category\": \"ott\",\n      \"status\": \"succeeded\",\n      \"published\": 93\n    }\n  ]\n}"
+    }
+  ],
+  "failedSources": [
+    {
+      "label": "tmdb_recent_snapshot_reused",
+      "error": "TMDB_RECENT_SNAPSHOT_UNAVAILABLE"
+    }
+  ],
+  "published": true,
+  "audit": null
+}

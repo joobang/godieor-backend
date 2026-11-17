@@ -1,0 +1,7 @@
+Node24.22.3
+PATH=<Node24bin> npm test: build succeeded,302/302 passed before final canonical comparison adjustment.
+Final fixed source: node --test tests/*.test.cjs tests/*.test.mjs:302/302 passed,0failed.
+Related final checks:22/22 passed.
+Real-source archived-baseline replay:70→84→84,14 details HTTP200,existing rows/IDs/history preserved,pinned PostgreSQL image.
+Product local DB/API:93 events,publicationDelta0,93 rows/IDs/history unchanged,23 details HTTP200.
+Not independent acceptance; no iOS/cloud execution.

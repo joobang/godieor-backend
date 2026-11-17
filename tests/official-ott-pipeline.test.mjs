@@ -33,7 +33,7 @@ test('pipeline preserves reviewed publications and reports incomplete TMDB cover
   });
   assert.equal(result.status, 'published_with_discovery_gaps');
   assert.equal(result.published, true);
-  assert.equal(commands.length, 18);
+  assert.equal(commands.length, 19);
   assert.equal(commands.some((args) => args.includes('scripts/sync-tmdb-changes.mjs')), true);
   assert.equal(commands.some((args) => args.includes('scripts/collect-tvingads-kr-lineup.mjs')), true);
   assert.equal(commands.some((args) => args.includes('scripts/collect-disneyplus-kr-lineup.mjs')), true);
@@ -156,4 +156,12 @@ test('posted source recheck gap is retained even when discovery and publication 
   assert.equal(result.published, true);
   assert.equal(result.status, 'published_with_discovery_gaps');
   assert.equal(result.steps.find(s => s.label === 'posted_official_source_recheck').exitCode, 2);
+});
+test('new Netflix review failures remain partial even when other sources are complete', async()=>{
+ const inputs=new Map(await Promise.all(['work/ott-candidates/state.json','data/curated/ott-reviewed-mappings.json','work/tmdb-release-candidates/latest.json']
+  .map(async p=>[p,JSON.parse(await readFile(p,'utf8'))])));
+ const result=await runPipeline({read:async p=>JSON.stringify(p.endsWith('latest.json')?{...inputs.get(p),discoveryComplete:true,errors:[]}:inputs.get(p)),
+  run:async args=>JSON.stringify({exitCode:args.includes('scripts/review-netflix-first-premieres.mjs')?2:0,stdout:'{}'})});
+ assert.equal(result.status,'published_with_discovery_gaps');assert.equal(result.published,true);
+ assert.equal(result.steps.find(s=>s.label==='netflix_first_premiere_review').exitCode,2);
 });

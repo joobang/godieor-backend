@@ -1,0 +1,288 @@
+{
+  "observedAt": "2026-11-17T02:11:06.561Z",
+  "scope": "read-only current DB observations; fixture is not real data; date columns are SQL date text, not instants",
+  "scopes": [
+    {
+      "provider_key": "fixture",
+      "category": "movie",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_attempt_at": "2026-11-09T01:07:56.821Z",
+      "last_successful_at": "2026-11-09T01:07:56.854Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "fixture",
+      "category": "ott",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_attempt_at": "2026-11-09T01:07:56.858Z",
+      "last_successful_at": "2026-11-09T01:07:56.883Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "fixture",
+      "category": "game",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_attempt_at": "2026-11-09T01:07:56.885Z",
+      "last_successful_at": "2026-11-09T01:07:56.904Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "fixture",
+      "category": "epl",
+      "scope_market": "WORLD",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_attempt_at": "2026-11-09T01:07:56.906Z",
+      "last_successful_at": "2026-11-09T01:07:56.917Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "football_data_pl",
+      "category": "epl",
+      "scope_market": "WORLD",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_attempt_at": "2026-11-10T23:33:10.623Z",
+      "last_successful_at": "2026-11-10T23:33:14.055Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "AU",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_attempt_at": "2026-11-11T01:28:47.343Z",
+      "last_successful_at": "2026-11-11T01:28:59.218Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "BR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_attempt_at": "2026-11-11T01:29:23.566Z",
+      "last_successful_at": "2026-11-11T01:29:35.691Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "CN",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_attempt_at": "2026-11-11T01:29:11.219Z",
+      "last_successful_at": "2026-11-11T01:29:23.561Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "JP",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_attempt_at": "2026-11-11T01:28:34.872Z",
+      "last_successful_at": "2026-11-11T01:28:47.340Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_attempt_at": "2026-11-11T01:28:23.315Z",
+      "last_successful_at": "2026-11-11T01:28:34.859Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "NZ",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_attempt_at": "2026-11-11T01:28:59.228Z",
+      "last_successful_at": "2026-11-11T01:29:11.212Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "WORLD",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_attempt_at": "2026-11-11T01:26:53.397Z",
+      "last_successful_at": "2026-11-11T01:28:23.301Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "kobis",
+      "category": "movie",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_attempt_at": "2026-11-10T23:32:53.804Z",
+      "last_successful_at": "2026-11-10T23:33:10.612Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "ott_reviewed",
+      "category": "ott",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_attempt_at": "2026-11-17T02:02:42.318Z",
+      "last_successful_at": "2026-11-17T02:02:42.780Z",
+      "last_error_code": null
+    }
+  ],
+  "counts": [
+    {
+      "provider_key": "fixture",
+      "kind": "theatrical_release",
+      "release_market": "KR",
+      "events": 2,
+      "earliest_date": "2026-11-11",
+      "latest_date": "2026-11-11",
+      "earliest_instant": null,
+      "latest_instant": null
+    },
+    {
+      "provider_key": "fixture",
+      "kind": "ott_season_premiere",
+      "release_market": "KR",
+      "events": 2,
+      "earliest_date": "2026-01-09",
+      "latest_date": "2026-01-09",
+      "earliest_instant": "2026-11-11T15:00:00.000Z",
+      "latest_instant": "2026-11-11T15:00:00.000Z"
+    },
+    {
+      "provider_key": "fixture",
+      "kind": "game_release",
+      "release_market": "KR",
+      "events": 2,
+      "earliest_date": "2026-11-13",
+      "latest_date": "2026-11-20",
+      "earliest_instant": null,
+      "latest_instant": null
+    },
+    {
+      "provider_key": "fixture",
+      "kind": "epl_match",
+      "release_market": null,
+      "events": 1,
+      "earliest_date": null,
+      "latest_date": null,
+      "earliest_instant": "2026-11-21T12:30:00.000Z",
+      "latest_instant": "2026-11-21T12:30:00.000Z"
+    },
+    {
+      "provider_key": "football_data_pl",
+      "kind": "epl_match",
+      "release_market": null,
+      "events": 380,
+      "earliest_date": null,
+      "latest_date": null,
+      "earliest_instant": "2026-08-21T19:00:00.000Z",
+      "latest_instant": "2027-05-30T15:00:00.000Z"
+    },
+    {
+      "provider_key": "igdb",
+      "kind": "game_release",
+      "release_market": "AU",
+      "events": 3,
+      "earliest_date": "2026-10-16",
+      "latest_date": "2026-11-20",
+      "earliest_instant": null,
+      "latest_instant": null
+    },
+    {
+      "provider_key": "igdb",
+      "kind": "game_release",
+      "release_market": "BR",
+      "events": 4,
+      "earliest_date": "2026-10-19",
+      "latest_date": "2027-10-31",
+      "earliest_instant": null,
+      "latest_instant": null
+    },
+    {
+      "provider_key": "igdb",
+      "kind": "game_release",
+      "release_market": "CN",
+      "events": 1,
+      "earliest_date": "2026-10-14",
+      "latest_date": "2026-10-14",
+      "earliest_instant": null,
+      "latest_instant": null
+    },
+    {
+      "provider_key": "igdb",
+      "kind": "game_release",
+      "release_market": "JP",
+      "events": 75,
+      "earliest_date": "2026-10-15",
+      "latest_date": "2027-03-11",
+      "earliest_instant": null,
+      "latest_instant": null
+    },
+    {
+      "provider_key": "igdb",
+      "kind": "game_release",
+      "release_market": "KR",
+      "events": 3,
+      "earliest_date": "2026-11-26",
+      "latest_date": "2026-11-26",
+      "earliest_instant": null,
+      "latest_instant": null
+    },
+    {
+      "provider_key": "igdb",
+      "kind": "game_release",
+      "release_market": "NZ",
+      "events": 2,
+      "earliest_date": "2026-10-28",
+      "latest_date": "2026-11-20",
+      "earliest_instant": null,
+      "latest_instant": null
+    },
+    {
+      "provider_key": "igdb",
+      "kind": "game_release",
+      "release_market": "WORLD",
+      "events": 4782,
+      "earliest_date": "2026-10-13",
+      "latest_date": "2027-12-16",
+      "earliest_instant": null,
+      "latest_instant": null
+    },
+    {
+      "provider_key": "kobis",
+      "kind": "theatrical_release",
+      "release_market": "KR",
+      "events": 1902,
+      "earliest_date": "2026-01-01",
+      "latest_date": "2026-12-09",
+      "earliest_instant": null,
+      "latest_instant": null
+    },
+    {
+      "provider_key": "ott_reviewed",
+      "kind": "ott_season_premiere",
+      "release_market": "KR",
+      "events": 93,
+      "earliest_date": "2026-04-13",
+      "latest_date": "2027-01-20",
+      "earliest_instant": null,
+      "latest_instant": null
+    }
+  ]
+}
