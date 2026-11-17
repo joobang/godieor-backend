@@ -1,6 +1,22 @@
 name: Daily provider collection
 on:
+  schedule:
+    # 08:30 Asia/Seoul (UTC+09:00); GitHub scheduled runs can be delayed.
+    - cron: "30 23 * * *"
   workflow_dispatch:
+    inputs:
+      mode:
+        description: "daily or initial backfill (manual only)"
+        type: choice
+        required: true
+        default: daily
+        options: [daily, backfill]
+      provider:
+        description: "backfill provider (daily always runs all providers)"
+        type: choice
+        required: true
+        default: kobis
+        options: [kobis, football_data_pl, igdb]
 permissions:
   contents: read
 concurrency:
@@ -9,7 +25,7 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 110
     env:
       DATABASE_URL: ${{ secrets.COLLECTION_DATABASE_URL }}
       CURSOR_SIGNING_KEY: ${{ secrets.COLLECTION_CURSOR_SIGNING_KEY }}
@@ -17,14 +33,32 @@ jobs:
       FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
       IGDB_CLIENT_ID: ${{ secrets.IGDB_CLIENT_ID }}
       IGDB_CLIENT_SECRET: ${{ secrets.IGDB_CLIENT_SECRET }}
+      SUPABASE_CA_PEM_BASE64: ${{ secrets.COLLECTION_SUPABASE_CA_PEM_BASE64 }}
       COLLECTION_INCLUDE_FIXTURE: "false"
       COLLECTION_SCHEDULE_ENABLED: "false"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "24"
+          node-version: "24.22.3"
           cache: npm
+      - name: Configure secure database connection
+        shell: bash
+        run: |
+          test -n "$DATABASE_URL" || { echo 'COLLECTION_DATABASE_URL secret is missing'; exit 1; }
+          test -n "$CURSOR_SIGNING_KEY" || { echo 'COLLECTION_CURSOR_SIGNING_KEY secret is missing'; exit 1; }
+          if [[ -n "$SUPABASE_CA_PEM_BASE64" ]]; then
+            printf '%s' "$SUPABASE_CA_PEM_BASE64" | base64 --decode > "$RUNNER_TEMP/supabase-ca.pem"
+            openssl x509 -in "$RUNNER_TEMP/supabase-ca.pem" -noout >/dev/null
+            echo "NODE_EXTRA_CA_CERTS=$RUNNER_TEMP/supabase-ca.pem" >> "$GITHUB_ENV"
+          fi
       - run: npm ci
       - run: npm run build
-      - run: npm run collect:daily
+      - name: Collect daily providers
+        if: github.event_name == 'schedule' || inputs.mode == 'daily'
+        run: npm run collect:providers:daily
+      - name: Initial backfill for one provider
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'backfill'
+        env:
+          BACKFILL_PROVIDER: ${{ inputs.provider }}
+        run: node --env-file-if-exists=.env dist/src/cli/collect-daily.js --mode backfill --providers "$BACKFILL_PROVIDER"
