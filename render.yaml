@@ -18,9 +18,9 @@ services:
         generateValue: true
       - key: GOOGLE_IOS_CLIENT_ID
         sync: false
-      # Best effort on Free: sleeps after 15 min idle; daily cron is not guaranteed.
+      # Disable in-process scheduling until deployment and external GitHub Actions scheduling are configured.
       - key: COLLECTION_SCHEDULE_ENABLED
-        value: "true"
+        value: "false"
       # OTT requires a persistent review-state store, unavailable on Free.
       - key: COLLECTION_OTT_SCHEDULE_ENABLED
         value: "false"
