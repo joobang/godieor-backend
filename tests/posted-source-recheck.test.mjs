@@ -128,3 +128,11 @@ test('transient fetch and server failures retry within a bound without retrying 
   }));
   assert.equal(attempts, 3); assert.equal(result.matched, 1); assert.equal(result.transportRetries, 2);
 });
+
+test('a cohort missing from the release table must remain explicit in the same work heading', () => {
+  const b = { ...baselines.works[0], sourceTitle: '가상 시리즈', sourceSeasonNumber: null, cohortHeadingCue: '가상 시리즈 2기', cohortNumber: 2 };
+  const page = coupangPage().replace('<p class="cpnr-intro">', '<h3>가상 시리즈 2기 개강</h3><p class="cpnr-intro">').replace('가상 시리즈 시즌 2', '가상 시리즈');
+  assert.equal(checkCoupang(rows[3], page, b).status, 'matched');
+  assert.equal(checkCoupang(rows[3], page.replace('2기 개강', '3기 개강'), b).status, 'cohort_evidence_changed');
+  assert.equal(checkCoupang(rows[3], page.replace('<h3>가상 시리즈 2기 개강</h3>', ''), b).status, 'cohort_evidence_changed');
+});

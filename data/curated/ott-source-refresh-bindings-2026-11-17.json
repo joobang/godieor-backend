@@ -45,7 +45,9 @@
         "넉살"
       ],
       "releaseText": "11월 3일(화)부터 매주 화요일 밤 11시 55분",
-      "sourceSha256": "343a446d0e4316dce062ed03c60faea436630990f95c6b54f9d80291ab7ff7f3"
+      "sourceSha256": "343a446d0e4316dce062ed03c60faea436630990f95c6b54f9d80291ab7ff7f3",
+      "cohortHeadingCue": "연애기숙학교 2기",
+      "cohortNumber": 2
     }
   ]
 }

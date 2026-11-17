@@ -64,7 +64,8 @@ export function validateBindings(batch, state, mappings, baselines, batchSha) {
     trustedUrl(a.platform === 'netflix' ? a.officialIdentity.requestedUrl : a.sourceUrl);
     if (a.platform === 'coupang_play') {
       const b = baselines.works.find(b => b.candidateId === a.candidateId);
-      if (!b || !b.actors?.length || b.sourceTitle !== a.officialIdentity.sourceTitle || b.sourceSha256 !== a.sourceHashes[0])
+      if (!b || !b.actors?.length || b.sourceTitle !== a.officialIdentity.sourceTitle || b.sourceSha256 !== a.sourceHashes[0] ||
+          b.sourceSeasonNumber !== a.seasonNumber && (!b.cohortHeadingCue || b.cohortNumber !== a.seasonNumber))
         throw Error('MISSING_CURATED_IDENTITY_BASELINE');
     }
   }
@@ -118,6 +119,19 @@ export function checkTving(a, html) {
   return { status: claims[0].date !== a.date ? 'date_changed' : claims[0].seasonNumber !== a.seasonNumber ? 'season_changed' : 'matched',
     observedDate: claims[0].date, observedSeason: claims[0].seasonNumber, evidenceScope: 'bound_program_explicit_open_text' };
 }
+export function workHeading(html, title) {
+  const text = value => value.replace(/<[^>]*>/g, ' ').replace(/&#(x[\da-f]+|\d+);/gi, (_, n) =>
+    String.fromCodePoint(n[0].toLowerCase() === 'x' ? parseInt(n.slice(1), 16) : Number(n)))
+    .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+  const intros = [...html.matchAll(/<p\b[^>]*class=["'][^"']*\bcpnr-intro\b[^"']*["'][^>]*>([\s\S]*?)<\/p>/gi)]
+    .filter(m => {
+      const field = /<strong\b[^>]*>\s*제목\s*<\/strong>([\s\S]*?)(?=<br\b|<strong\b|$)/i.exec(m[1]);
+      return field && norm(text(field[1])) === norm(title);
+    });
+  if (intros.length !== 1) return null;
+  const headings = [...html.slice(0, intros[0].index).matchAll(/<h3\b[^>]*>([\s\S]*?)<\/h3>/gi)];
+  return headings.length ? text(headings.at(-1)[1]) : null;
+}
 export function checkCoupang(a, html, baseline) {
   const rows = parsePremiereArticle(html, a.sourceUrl).filter(r => r.title === baseline.sourceTitle);
   if (rows.length !== 1) return { status: 'identity_missing_or_ambiguous' };
@@ -126,7 +140,11 @@ export function checkCoupang(a, html, baseline) {
   if (r.date !== a.date) return { status: 'date_changed', observedDate: r.date };
   if (r.seasonNumber !== baseline.sourceSeasonNumber) return { status: 'season_changed', observedSeason: r.seasonNumber };
   if (r.releaseText !== baseline.releaseText) return { status: 'release_statement_changed', observedDate: r.date };
-  // A cohort described in prose stays bound to the curator's season; never infer it from the table.
+  if (baseline.sourceSeasonNumber !== a.seasonNumber && (!baseline.cohortHeadingCue || baseline.cohortNumber !== a.seasonNumber))
+    return { status: 'cohort_evidence_missing' };
+  if (baseline.cohortHeadingCue && !norm(workHeading(html, baseline.sourceTitle)).includes(norm(baseline.cohortHeadingCue)))
+    return { status: 'cohort_evidence_changed' };
+  // A curated cohort must still be explicit in this work's own heading, never another work or season count.
   return { status: 'matched', observedDate: r.date, observedSeason: a.seasonNumber, evidenceScope: 'bound_article_work_fields_and_curated_identity' };
 }
 export async function recheckSources(batch, { fetchImpl = fetch, baselines, months = configuredMonths(), checkedAt = new Date().toISOString(), netflixSnapshot = null, retryDelayMs = 500 } = {}) {
