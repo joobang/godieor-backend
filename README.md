@@ -3,6 +3,10 @@
 NestJS + Prisma + PostgreSQL로 영화·OTT 드라마 시즌 최초 공개·게임 정식 출시·EPL 경기 일정을 제공한다.
 현재 **로컬 공개 API·가상 수집과 검토한 OTT 공지의 수동 publish**를 구현했다. Google 계정 인증·세션·설정/찜 API는 초기 구현 후 자체 테스트를 완료했다. 실제 Google OAuth·단말과 DB 통합 검증, 자동 전수 수집은 아직 없다.
 
+## DATA-71 일간 실행·원천 재검증 · 2026-11-17
+
+[작업 기록](docs/tasks/DATA-71-source-refresh.md). 오늘09시 launchd 자동기동과09:30 종료/93 게시를 관측했다. 이후 DATA70 게시23건의 공식 날짜·시즌·정체성 재검증 단계를 일간 경로에 연결해 별도 실제 실행23/23 및 전체288개 자체검사를 확인했다. 기존93 event/ID/이력 보존, 신규0. 발견/식별 격차로 전체 job은 exit2를 유지하며 독립 제품PASS가 아니다.
+
 ## DATA-70 실제 적재 · 2026-11-16
 
 [공식 근거 검토 배치](docs/tasks/DATA-70-reviewed-data-batch.md) 신규23건을 로컬 PostgreSQL에 실제 반영했다. Netflix14/Disney+4/TVING2/Coupang3, 총70→93. 기존70 event 전체행·ID·이력 보존, 새23 목록/상세 API200 및 재게시 신규0 확인. 전체 자체검사276/276. 작성자 원문 검토 적재이며 일반 자동 승인·독립 PASS·폰/클라우드 검증과 구분한다.

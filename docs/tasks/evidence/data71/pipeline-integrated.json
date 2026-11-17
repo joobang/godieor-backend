@@ -1,0 +1,131 @@
+{
+  "scope": "actual author pipeline invocation after integration, not scheduled trigger or independent approval",
+  "status": "published_with_discovery_gaps",
+  "gate": {
+    "reviewedMappings": 93,
+    "readyUnmapped": [],
+    "officialAndTmdbReady": 49,
+    "discoveryComplete": false,
+    "tmdbErrors": 0
+  },
+  "failedSources": [
+    {
+      "label": "tving_official_tmdb",
+      "error": "--env-file=.env exit=1; TVING_UPCOMING_FAILED: TVING_UPCOMING_SCOPE_CHANGED"
+    }
+  ],
+  "steps": [
+    {
+      "label": "tmdb_changes",
+      "exitCode": 0,
+      "skipped": null,
+      "failed": false
+    },
+    {
+      "label": "netflix_official",
+      "exitCode": 0,
+      "skipped": null,
+      "failed": false
+    },
+    {
+      "label": "netflix_staging",
+      "exitCode": 0,
+      "skipped": null,
+      "failed": false
+    },
+    {
+      "label": "tmdb_recent_snapshot_reused",
+      "exitCode": null,
+      "skipped": null,
+      "failed": false
+    },
+    {
+      "label": "tving_official_tmdb",
+      "exitCode": null,
+      "skipped": null,
+      "failed": true
+    },
+    {
+      "label": "tving_ads_official",
+      "exitCode": 0,
+      "skipped": null,
+      "failed": false
+    },
+    {
+      "label": "tving_ads_staging",
+      "exitCode": 0,
+      "skipped": null,
+      "failed": false
+    },
+    {
+      "label": "disney_upcoming_official",
+      "exitCode": 0,
+      "skipped": null,
+      "failed": false
+    },
+    {
+      "label": "disney_upcoming_staging",
+      "exitCode": 0,
+      "skipped": null,
+      "failed": false
+    },
+    {
+      "label": "coupang_news_official",
+      "exitCode": 0,
+      "skipped": null,
+      "failed": false
+    },
+    {
+      "label": "coupang_news_staging",
+      "exitCode": 0,
+      "skipped": null,
+      "failed": false
+    },
+    {
+      "label": "coupang_explicit_premiere_review",
+      "exitCode": 2,
+      "skipped": null,
+      "failed": false
+    },
+    {
+      "label": "undated_official_tmdb_link",
+      "exitCode": 2,
+      "skipped": null,
+      "failed": false
+    },
+    {
+      "label": "auto_review_verified_first_releases",
+      "exitCode": 0,
+      "skipped": null,
+      "failed": false
+    },
+    {
+      "label": "posted_official_source_recheck",
+      "exitCode": 0,
+      "skipped": null,
+      "failed": false
+    },
+    {
+      "label": "complete_reviewed_mappings",
+      "exitCode": 0,
+      "skipped": null,
+      "failed": false
+    },
+    {
+      "label": "publish_reviewed",
+      "exitCode": 0,
+      "skipped": null,
+      "failed": false
+    }
+  ],
+  "sourceRecheck": {
+    "output": "work/ott-lineups/posted-source-recheck.json",
+    "total": 23,
+    "matched": 23,
+    "gaps": 0,
+    "statusCounts": {
+      "matched": 23
+    },
+    "reviewsModified": 0
+  }
+}
