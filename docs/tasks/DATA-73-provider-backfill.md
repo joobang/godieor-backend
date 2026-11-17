@@ -53,7 +53,9 @@ Node24.22.3 고정 경로 /Users/dojoohwan/.local/share/godieor/node-v24.22.3/bi
 - IGDB 기존49 release ID가 이번 full backfill에 없고 개별 재조회도200/빈 배열이었다. 삭제/이전·대체ID 원인은 미확정이다. 임의 취소·삭제·재매핑하지 않았고 기존 observedAt/ID/찜 참조를 보존했다. 이를 최신 원천 재확인 성공으로 세지 않는다. 게임 월/분기/연도/TBD 수집 및 새 ID로 이동한 동일 이벤트 추적도 후속이다.
 - 이번 백필/일일 실행은 실제 수동 실행이다. 영화/게임/EPL 별도 로컬 일간 운영 등록·다음 자동기동 관측은 아직 없으며 기존 API Cron은 활성 서비스 프로세스가 필요하다. GitHub Actions를 push하거나 클라우드 배포하지 않았다.
 - OTT 새 시즌/나머지 제공처 일반 자동 검토, Netflix404·최신TMDB전체 실행·자동 신규 리뷰의 일간 재확인 범위는 미완료다. 데이터 단계 완료 후 배포→기본기능→디자인 순서 유지.
-- app base/head 런타임 위e4ad0e7 동일, 이번 app 변경은 공통 문서만. backend 구현 head는 이번 코드 커밋/Git 이력, 종료 문서 head는 각 저장소 Git 이력에서 확인한다. verifier 위428b33f 기준·verdict 불변. 독립runner/리뷰·iOS·실폰·클라우드 미실행.
+- app base/head 런타임 위e4ad0e7 동일, 이번 app 변경은 공통 문서만. backend 구현 head fa98eb51d2ea492f352bb18bdd69cc37d0abf3af, 종료 문서 head는 각 저장소 Git 이력에서 확인한다. verifier 위428b33f 기준·verdict 불변. 독립runner/리뷰·iOS·실폰·클라우드 미실행.
 - API0.1.0-draft.5 manifest SHA256 0ffd7cbcdcb3c46b450e626ced90055e985308d728c279832aa00ec76b24e9c9, migration digest ec6966538bd599bf0dcee21ec0e0fb03a63b513ae01654d52b9e2badf5697fd7 불변.
 - acceptance0.1.0-draft SHA256 c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063 불변. 개인 pbxproj SHA256 f8ef38b1a44d31034be8137e7c149616c8d10b5fec23d23c50ad5445342b54ba 보존.
 - status/handoff/plan·공통 사본/README·원천 범위·ADR023/LEARN0006 갱신, 종료 시 diff/공통 일치/보호 지문과 context 전달본 검사를 수행한다.
+
+종료 검사: git diff --check 성공,5개 공통 문서 세 저장소 byte 일치,계약/기준·개인pbxproj 지문 유지. 실제 수집·DB 회귀 프로세스와 임시 컨테이너가 남지 않았음을 확인했다. 종료 문서 커밋 후 context 생성/--check한다.

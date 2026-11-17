@@ -1,3 +1,13 @@
+## DATA-73 · 게임/EPL 실제2026 백필·영화 날짜 철회 갱신 (2026-11-17)
+
+- backend 원본 `docs/tasks/DATA-73-provider-backfill.md`, 구현 fa98eb51d2ea492f352bb18bdd69cc37d0abf3af, ADR023/LEARN0006. 게임2026-01-01/영화2026년/EPL2025시작 시즌으로 backfill 시작점을 고정하고 제공처·mode·force CLI를 연결했다.
+- 실제 로컬 제품 DB: **게임4870→29914(새25044), EPL380→760(이전 시즌380추가), 영화1902→1909(새7)**. 신규 총25431, 가상 입력 재생이 아니다. EPL2025년186 저장과 제품2026년 이후 조회를 구분한다. OTT93/fixture7 보존.
+- 기존7252 ID·작품/팀/지역 binding 보존, 기존7207행·이력 불변/45행 갱신. 공식 게임35표본·신규EPL380 전부 대조, KR/WORLD 게임+EPL2026~2027 API30115 ID와 DB 일치/관련47상세200. 자체310/310·고정digest 일회용DB 회귀 성공.
+- 실제 뮤티니20268058 공식 상세의 개봉일 빈 값을 확인해 목록 부재의 기존 영화를 동일 ID로 재확인하는 일반 경로를 추가했다. 이전11/18 날짜를 unknown으로 갱신, 같은event ID/이전 날짜 history·API previousTime 보존, 미정 목록 포함/기존 달력 제외. 영화 재실행 신규0/전체32683행·이력 불변.
+- backfill8개/강제daily9개scope 실제 성공. 게임/EPL 재수집 신규ID0이나 메타데이터 변경2는 있었다. 이것은 수동 실행이며 별도 영화/게임/EPL 일간 등록·다음 자동기동을 관측한 것은 아니다.
+- IGDB기존49 release ID는 full배치에 없고 공식 동일ID조회200/빈 배열. 삭제/이전 이유는 미확정이며 임의 취소·삭제·재매핑하지 않았다. 미정 게임·ID 이동·일간 운영/복구와 OTT 일반 자동 검토/TMDB 등은 후속. `backend/docs/data-coverage.md`에 실제 현재 범위 고정.
+- app base e4ad0e7/backend dc88d80→구현fa98eb5/verifier base428b33f. 앱 코드·개인pbxproj 지문 보존·담당 해제. API/migration/acceptance·verdict 불변, 독립runner·실폰/클라우드·push 미실행. revision SYNC-2026-11-17-03. 데이터 단계 미완료, 완료 후 배포→기본기능→디자인 순서 유지.
+
 ## DATA-72 · Netflix 신규 최초 공개 자동 적재 연결 (2026-11-17)
 
 - backend 원본 `docs/tasks/DATA-72-netflix-first-premiere.md`, 구현 a5fc69f0986ad60acfc692f2e7b167dba463d967, ADR022/LEARN0021. Netflix 최신 KR 일정·같은 작품 canonical ID/형태/최초 날짜 일치 시 curated binding 없이 자동 검토→불투명 key→기존 DB 게시 경로를 연결했다.
