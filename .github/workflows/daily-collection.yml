@@ -11,12 +11,6 @@ on:
         required: true
         default: daily
         options: [daily, backfill]
-      provider:
-        description: "backfill provider (daily always runs all providers)"
-        type: choice
-        required: true
-        default: kobis
-        options: [kobis, football_data_pl, igdb]
 permissions:
   contents: read
 concurrency:
@@ -57,8 +51,14 @@ jobs:
       - name: Collect daily providers
         if: github.event_name == 'schedule' || inputs.mode == 'daily'
         run: npm run collect:providers:daily
-      - name: Initial backfill for one provider
+      - name: Initial backfill for all providers
         if: github.event_name == 'workflow_dispatch' && inputs.mode == 'backfill'
-        env:
-          BACKFILL_PROVIDER: ${{ inputs.provider }}
-        run: node --env-file-if-exists=.env dist/src/cli/collect-daily.js --mode backfill --providers "$BACKFILL_PROVIDER"
+        shell: bash
+        run: |
+          failed=0
+          for provider in kobis football_data_pl igdb; do
+            echo "::group::Backfill $provider"
+            node --env-file-if-exists=.env dist/src/cli/collect-daily.js --mode backfill --providers "$provider" || failed=1
+            echo "::endgroup::"
+          done
+          exit "$failed"

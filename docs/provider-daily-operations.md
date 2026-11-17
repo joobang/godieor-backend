@@ -6,7 +6,7 @@
 
 GitHub 저장소 **Settings → Secrets and variables → Actions**에 `COLLECTION_DATABASE_URL`, `COLLECTION_CURSOR_SIGNING_KEY`, `KOBIS_API_KEY`, `FOOTBALL_DATA_API_KEY`, `IGDB_CLIENT_ID`, `IGDB_CLIENT_SECRET`를 등록한다. Render 환경 변수는 Actions에 자동 공유되지 않는다. TLS 인증서가 필요한 환경에서는 **PEM 인증서를 base64 인코딩**하여 선택 비밀 `COLLECTION_SUPABASE_CA_PEM_BASE64`로 등록한다. 인증서 파일 경로(`/etc/secrets/...`)는 Render 안에서만 유효하므로 Actions용 DB URL에 남기지 않는다. 인증서 검증은 끄지 않는다.
 
-첫 적재는 Actions → Daily provider collection → Run workflow에서 `mode=backfill`을 선택하고 `provider=kobis`, `football_data_pl`, `igdb`를 **각각** 실행한다. 백필은 `2026-10-01` 제품 컷오프를 적용한다. Supabase Free의 용량/연결 한도를 확인하며 제공처별로 진행한다. 수동 `daily`는 세 제공처 모두 실행한다. **OTT 공식 검토 93건과 TMDB 후보 수집은 이 워크플로에 포함되지 않는다.** 로컬의 리뷰 상태·DB가 클라우드로 자동 이전되지도 않는다. Actions 실행·Supabase 실제 행 수·Render API 응답을 확인하기 전까지 클라우드 적재 성공으로 표시하지 않는다.
+첫 적재는 Actions → Daily provider collection → Run workflow에서 `mode=backfill`을 한 번 선택한다. KOBIS, `football_data_pl`, IGDB를 각각 독립 실행하고, 한 제공처가 실패해도 다음 제공처까지 시도한다. 백필은 `2026-10-01` 제품 컷오프를 적용한다. Supabase Free의 용량/연결 한도는 확인해야 한다. 수동 `daily`도 세 제공처 모두 실행한다. **OTT 공식 검토 93건과 TMDB 후보 수집은 아직 이 워크플로에 포함되지 않는다.** OTT 게시 파이프라인은 Git에 없는 `work/ott-candidates/state.json`의 검토·revision 결속이 필요해 클라우드에서 복원 경로를 마련하기 전에는 이 명령만 추가해도 동작하지 않는다. 로컬의 리뷰 상태·DB가 클라우드로 자동 이전되지도 않는다. Actions 실행·Supabase 실제 행 수·Render API 응답을 확인하기 전까지 클라우드 적재 성공으로 표시하지 않는다.
 
 실제 로컬 등록: 2026-11-17, LaunchAgent `dev.godieor.provider-daily`, 매일 **08:30 KST**. 기존 OTT09시 job은 별도로 유지한다. 로그인된 Mac과 접근 가능한 DB가 필요하며 클라우드 상시 운영은 아니다. 등록과 `launchctl kickstart` 실제 기동은 확인했지만 다음08:30 자연 calendar 기동은 아직 관측하지 않았다.
 
