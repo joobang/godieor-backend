@@ -18,3 +18,11 @@
 - 실 DB OTT 이벤트 96개 중 3개는 10월 이전 게시. 검토 매핑 94개/게시 스냅샷 92개는 전체 이벤트 행수와 다른 개념이며 총량을 100% 분모로 사용하지 않는다.
 - 전체 원천 커버리지, 신규 OTT 자동 게시, IGDB 과거49건의 지역 provenance/중복 가능성, 공식 스케줄 자연 실행, 실제 원격 DB/API 및 독립 verifier는 아직 완료 증거가 없다. 적재 100% 미달. 배포 준비와 전수 완료를 구분한다.
 - 관련 학습: LEARN-0006(원천 ID/중복), LEARN-0021(OTT 첫 공개 증거); 실제 재검토 한도 오류를 원인 분석으로 보강했다.
+
+## 전체 OTT 수집 최종 결과 (16:05 KST)
+
+- 15:24~16:05 KST 전체 OTT 파이프라인 exit2(`published_with_discovery_gaps`). TMDB 발견 작품 5,339건/공식 시드 포함 5,349건, 일정 후보 3,052건, TMDB 조회 오류 0건, 검토 준비 49건. Coupang Play 영화 제공처 ID 미발견으로 discoveryComplete=false. 준비49건은 신규게시49건이 아님.
+- Netflix 공식79건 조회, 카탈로그 HTTP404 3건, 신규 자동검토0건; Coupang 첫날 근거 3건 보류, 미정 공식 후보57건(식별 힌트33/미발견9/모호14/조회 불완전1). TVING11/Ads6, Disney+16, Coupang41 수집. 기존 공식 게시23/23 첫날 재검토 일치.
+- 기존 리뷰 매핑94, `publish_reviewed` published92는 재게시된 기존 대상 스냅샷이며 신규92건 아님. 로컬 DB event 32,695, source 구성 kobis1909/igdb29925/football_data_pl760/ott_reviewed94/fixture7. event_change37,605 및 event_favorite1/content_favorite1 조회 확인.
+- `audit-ott-published.mjs` 종료0이나 제삼자 참조35 중 미해결23, parity=false. 참조 미해결 건은 공식 첫날 증거 없이 자동 게시하지 않는다. IGDB 기존49건 지역·중복 증거, Supabase 원격 적재·API, 독립 검증 미완료. **데이터100% 미달.**
+- 다음: Netflix 404 작품 공식 동일성, Coupang 영화 제공처 독립 발견 경로, OTT 57개 미정 후보와 참조23개 공식 최초일, IGDB49 지역 출처, 배포용 Supabase DB/API 실제 검증.
