@@ -38,6 +38,15 @@ test('missing KOBIS movie becomes undated only after same-ID official detail wit
  global.fetch=async()=>{calls++;return {ok:true,json:async()=>({movieInfoResult:{movieInfo:{movieCd:'20269999',movieNm:'가상 영화',openDt:''}}})};};
  try{const r=await new KobisAdapter().refreshMissing({category:'movie',market:'KR'},[knownMovie()],[]);assert.equal(calls,1);assert.deepEqual(r[0].time,{type:'unknown',announcedYear:null,announcedPeriod:null});assert.equal(r[0].externalId,'20269999');assert.deepEqual(await new KobisAdapter().refreshMissing({category:'movie',market:'KR'},[knownMovie()],[knownMovie()]),[]);assert.equal(calls,1);}finally{global.fetch=original;if(key===undefined)delete process.env.KOBIS_API_KEY;else process.env.KOBIS_API_KEY=key;}
 });
+test('KOBIS skips historical rechecks outside the October product window while retaining current unknown releases',async()=>{
+ const original=global.fetch,key=process.env.KOBIS_API_KEY;process.env.KOBIS_API_KEY='synthetic-key';let calls=0;
+ global.fetch=async()=>{calls++;return {ok:true,json:async()=>({movieInfoResult:{movieInfo:{movieCd:'20269999',movieNm:'가상 영화',openDt:''}}})};};
+ try{
+  const old=Array.from({length:1661},(_,i)=>({...knownMovie(),externalId:String(i),time:{type:'date_only',value:'2026-09-30'}}));
+  const reviewed=await new KobisAdapter().refreshMissing({category:'movie',market:'KR'},[...old,{...knownMovie(),time:{type:'unknown',announcedYear:null,announcedPeriod:null}}],[]);
+  assert.equal(calls,1);assert.equal(reviewed.length,1);assert.equal(reviewed[0].externalId,'20269999');
+ }finally{global.fetch=original;if(key===undefined)delete process.env.KOBIS_API_KEY;else process.env.KOBIS_API_KEY=key;}
+});
 test('wrong KOBIS identity, malformed date or oversized recheck fail without clearing prior dates',async()=>{
  const original=global.fetch,key=process.env.KOBIS_API_KEY;process.env.KOBIS_API_KEY='synthetic-key';
  try{for(const movie of [{movieCd:'other',movieNm:'가상 영화',openDt:''},{movieCd:'20269999',movieNm:'가상 영화',openDt:'20261399'}]){global.fetch=async()=>({ok:true,json:async()=>({movieInfoResult:{movieInfo:movie}})});await assert.rejects(new KobisAdapter().refreshMissing({category:'movie',market:'KR'},[knownMovie()],[]));}

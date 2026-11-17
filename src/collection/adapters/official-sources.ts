@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { DateTime } from "luxon";
 import { Canonical, ProviderAdapter, Scope } from "../domain/provider-record";
 
-import { gameCollectionWindow, movieCollectionYears, premierLeagueSeasons } from "../domain/collection-window";
+import { gameCollectionWindow, movieCollectionYears, premierLeagueSeasons, withinProductWindow } from "../domain/collection-window";
 
 type JsonObject = Record<string, unknown>;
 function object(value: unknown): JsonObject {
@@ -72,7 +72,11 @@ export class KobisAdapter implements ProviderAdapter {
   }
   async refreshMissing(_scope: Scope, previous: readonly Canonical[], current: readonly Canonical[]): Promise<unknown[]> {
     const seen = new Set(current.map(r => r.externalId));
-    const missing = previous.filter(r => !seen.has(r.externalId));
+    // Historical records are retained for identity/history, but the current
+    // product window must not trigger a detail recheck for every old release.
+    const missing = previous.filter(r =>
+      !seen.has(r.externalId) &&
+      (r.time.type !== "date_only" || withinProductWindow(r.time.value)));
     if (missing.length > 100) throw Error("PROVIDER_RECHECK_LIMIT");
     const key = process.env.KOBIS_API_KEY;
     if (!key) throw Error("MISSING_PROVIDER_KEY");
