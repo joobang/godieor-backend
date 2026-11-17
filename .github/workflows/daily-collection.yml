@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "daily or initial backfill (manual only)"
+        description: "Daily refresh or initial backfill for KOBIS, EPL, IGDB and OTT"
         type: choice
         required: true
         default: daily
@@ -27,6 +27,7 @@ jobs:
       FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
       IGDB_CLIENT_ID: ${{ secrets.IGDB_CLIENT_ID }}
       IGDB_CLIENT_SECRET: ${{ secrets.IGDB_CLIENT_SECRET }}
+      TMDB_API_READ_ACCESS_TOKEN: ${{ secrets.TMDB_API_READ_ACCESS_TOKEN }}
       SUPABASE_CA_PEM_BASE64: ${{ secrets.COLLECTION_SUPABASE_CA_PEM_BASE64 }}
       COLLECTION_INCLUDE_FIXTURE: "false"
       COLLECTION_SCHEDULE_ENABLED: "false"
@@ -48,10 +49,16 @@ jobs:
           fi
       - run: npm ci
       - run: npm run build
+      - name: Restore reviewed OTT candidates
+        run: node scripts/restore-reviewed-ott-state.mjs
       - name: Collect daily providers
+        id: providers_daily
+        continue-on-error: true
         if: github.event_name == 'schedule' || inputs.mode == 'daily'
         run: npm run collect:providers:daily
       - name: Initial backfill for all providers
+        id: providers_backfill
+        continue-on-error: true
         if: github.event_name == 'workflow_dispatch' && inputs.mode == 'backfill'
         shell: bash
         run: |
@@ -62,3 +69,39 @@ jobs:
             echo "::endgroup::"
           done
           exit "$failed"
+      - name: Collect and publish reviewed OTT premieres
+        if: always() && (steps.providers_daily.outcome != 'skipped' || steps.providers_backfill.outcome != 'skipped')
+        id: ott
+        continue-on-error: true
+        shell: bash
+        run: |
+          set +e
+          node scripts/run-official-ott-pipeline.mjs > "$RUNNER_TEMP/ott-pipeline-report.json"
+          result=$?
+          cat "$RUNNER_TEMP/ott-pipeline-report.json"
+          if [[ "$result" -eq 2 ]]; then
+            echo "::warning::OTT published with incomplete source discovery; inspect the report artifact"
+            exit 0
+          fi
+          exit "$result"
+      - name: Save OTT run evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ott-collection-report
+          if-no-files-found: ignore
+          retention-days: 7
+          path: |
+            ${{ runner.temp }}/ott-pipeline-report.json
+            work/ott-official-daily-last-run.json
+            work/tmdb-release-candidates/latest.json
+            work/ott-candidates/state.json
+            data/curated/ott-reviewed-mappings.json
+      - name: Report overall collection failures
+        if: always()
+        shell: bash
+        run: |
+          echo "Daily provider result: ${{ steps.providers_daily.outcome }}"
+          echo "Backfill provider result: ${{ steps.providers_backfill.outcome }}"
+          echo "OTT result: ${{ steps.ott.outcome }}"
+          [[ "${{ steps.providers_daily.outcome }}" != failure && "${{ steps.providers_backfill.outcome }}" != failure && "${{ steps.ott.outcome }}" != failure ]]

@@ -1,12 +1,14 @@
 # 영화·EPL·게임 일일 수집 운영
 
-## GitHub Actions 클라우드 배치 (2026-11-17 준비)
+## GitHub Actions 클라우드 배치 (2026-11-17)
 
-`.github/workflows/daily-collection.yml`은 `main`에 배포되면 **매일 08:30 KST** (`23:30 UTC` 전날) KOBIS·EPL·IGDB를 순차 실행한다. GitHub Actions 예약 실행은 정시보다 지연될 수 있다. 각 제공처의 실패를 격리하는 `npm run collect:providers:daily`를 사용하며 전체 제한은 110분이다. Render Free 서버의 기동 상태와는 무관하다.
+`.github/workflows/daily-collection.yml`은 매일 **08:30 KST** (`23:30 UTC` 전날) KOBIS·EPL·IGDB와 검토된 OTT 공개 일정 게시 파이프라인을 실행한다. GitHub Actions 예약 실행은 지연될 수 있다. Render Free 서버가 잠들어 있어도 Actions runner에서 Supabase에 직접 연결한다. 각 제공처의 실패를 격리하고 마지막 단계에서 실패 여부를 요약한다. 전체 작업 제한은 110분이다.
 
-GitHub 저장소 **Settings → Secrets and variables → Actions**에 `COLLECTION_DATABASE_URL`, `COLLECTION_CURSOR_SIGNING_KEY`, `KOBIS_API_KEY`, `FOOTBALL_DATA_API_KEY`, `IGDB_CLIENT_ID`, `IGDB_CLIENT_SECRET`를 등록한다. Render 환경 변수는 Actions에 자동 공유되지 않는다. TLS 인증서가 필요한 환경에서는 **PEM 인증서를 base64 인코딩**하여 선택 비밀 `COLLECTION_SUPABASE_CA_PEM_BASE64`로 등록한다. 인증서 파일 경로(`/etc/secrets/...`)는 Render 안에서만 유효하므로 Actions용 DB URL에 남기지 않는다. 인증서 검증은 끄지 않는다.
+GitHub 저장소 **Settings → Secrets and variables → Actions**에 `COLLECTION_DATABASE_URL`, `COLLECTION_CURSOR_SIGNING_KEY`, `KOBIS_API_KEY`, `FOOTBALL_DATA_API_KEY`, `IGDB_CLIENT_ID`, `IGDB_CLIENT_SECRET`, `TMDB_API_READ_ACCESS_TOKEN`을 등록한다. Render 환경 변수는 Actions로 자동 공유되지 않는다. TLS 인증서가 필요한 환경이면 PEM을 base64 인코딩해 `COLLECTION_SUPABASE_CA_PEM_BASE64`에 등록한다. 인증서 검증은 끄지 않는다.
 
-첫 적재는 Actions → Daily provider collection → Run workflow에서 `mode=backfill`을 한 번 선택한다. KOBIS, `football_data_pl`, IGDB를 각각 독립 실행하고, 한 제공처가 실패해도 다음 제공처까지 시도한다. 백필은 `2026-10-01` 제품 컷오프를 적용한다. Supabase Free의 용량/연결 한도는 확인해야 한다. 수동 `daily`도 세 제공처 모두 실행한다. **OTT 공식 검토 93건과 TMDB 후보 수집은 아직 이 워크플로에 포함되지 않는다.** OTT 게시 파이프라인은 Git에 없는 `work/ott-candidates/state.json`의 검토·revision 결속이 필요해 클라우드에서 복원 경로를 마련하기 전에는 이 명령만 추가해도 동작하지 않는다. 로컬의 리뷰 상태·DB가 클라우드로 자동 이전되지도 않는다. Actions 실행·Supabase 실제 행 수·Render API 응답을 확인하기 전까지 클라우드 적재 성공으로 표시하지 않는다.
+**Actions → Daily provider collection → Run workflow → Branch: main → mode: backfill → Run workflow** 를 실행하면 2026-10-01 컷오프부터 KOBIS·EPL·IGDB 백필 후 OTT 공식 수집 및 기존 검토 게시를 시도한다. `daily`는 당일 변경분을 수집하며, OTT 공식 후보 재확인/게시는 동일하게 수행한다. OTT는 Git 추적된 `data/curated/ott-reviewed-candidates-snapshot.json`에서 **리뷰 94건**의 ID/revision 결속을 복구한다. 리뷰하지 않은 106건은 이 스냅샷에 없으며 자동 승인하지 않는다. 신규로 발견된 미검토 후보는 자동 게시되지 않는다. Actions 실행 후 Artifact `ott-collection-report`에서 실행 산출물을 확인한다.
+
+**제한:** Actions의 로컬 파일 변경은 다음 실행에 자동 보존되지 않는다. 새 검토/신규 후보를 영구 보존하려면 검토 후 버전 관리 스냅샷에 반영해야 한다. OTT의 공식 수집 일부가 실패하거나 미확정이면 파이프라인은 `published_with_discovery_gaps` (exit 2)를 반환하며 경고와 보고서로 남긴다. 이는 검토된 일정 게시 성공 가능성과 **전체 원천 100% 검증**을 구분하기 위한 결과다. 실제 Supabase 행 수와 Render `/v1/health`의 dataMode는 실행 후 확인해야 한다. GitHub runner에서 실제 클라우드 적재 성공은 아직 검증되지 않았다.
 
 실제 로컬 등록: 2026-11-17, LaunchAgent `dev.godieor.provider-daily`, 매일 **08:30 KST**. 기존 OTT09시 job은 별도로 유지한다. 로그인된 Mac과 접근 가능한 DB가 필요하며 클라우드 상시 운영은 아니다. 등록과 `launchctl kickstart` 실제 기동은 확인했지만 다음08:30 자연 calendar 기동은 아직 관측하지 않았다.
 
