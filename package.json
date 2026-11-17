@@ -4,7 +4,7 @@
   "private": true,
   "description": "GODIEOR \ub85c\uceec API\uc640 \uc218\uc9d1 \ud30c\uc774\ud504\ub77c\uc778",
   "engines": {
-    "node": ">=24.11 <25"
+    "node": ">=24.22.3 <25"
   },
   "scripts": {
     "build": "node scripts/clean-dist.mjs && prisma generate && tsc -p tsconfig.json",

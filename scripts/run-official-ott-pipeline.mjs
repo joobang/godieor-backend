@@ -81,7 +81,7 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
     const tvingAds = join(temporary, 'tving-ads.json');
     const disney = join(temporary, 'disney.json');
     const coupang = join(temporary, 'coupang.json');
-    await optionalStep('tmdb_changes', ['--env-file=.env', 'scripts/sync-tmdb-changes.mjs']);
+    await optionalStep('tmdb_changes', ['--env-file-if-exists=.env', 'scripts/sync-tmdb-changes.mjs']);
     const netflixExit = await optionalStep('netflix_official', ['scripts/collect-netflix-kr-schedule.mjs', netflix]);
     if (netflixExit === 0) await optionalStep('netflix_staging', ['scripts/bridge-netflix-lineup.mjs', netflix]);
     else steps.push({ label: 'netflix_staging', skipped: 'netflix_official_unavailable' });
@@ -106,9 +106,9 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
         steps.push({ label: 'tmdb_recent_snapshot_reused', failed: true, error: error.message });
       }
     } else {
-      tmdbUsable = await optionalStep('tmdb_official_crosscheck', ['--env-file=.env', 'scripts/collect-tmdb-release-candidates.mjs', 'work/tmdb-release-candidates', bindings], [0, 2]) !== null;
+      tmdbUsable = await optionalStep('tmdb_official_crosscheck', ['--env-file-if-exists=.env', 'scripts/collect-tmdb-release-candidates.mjs', 'work/tmdb-release-candidates', bindings], [0, 2]) !== null;
     }
-    const tvingExit = await optionalStep('tving_official_tmdb', ['--env-file=.env', 'scripts/collect-tving-upcoming.mjs', tving], [0, 2]);
+    const tvingExit = await optionalStep('tving_official_tmdb', ['--env-file-if-exists=.env', 'scripts/collect-tving-upcoming.mjs', tving], [0, 2]);
     // An incomplete official report cannot be staged; preserve the existing queue.
     if (tvingExit === 0) await optionalStep('tving_staging', ['scripts/bridge-tving-upcoming.mjs', tving]);
     // The Ads schedule covers TVING and Wavve together. Keep its dates in the
@@ -119,11 +119,11 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
     if (disneyExit === 0) await optionalStep('disney_upcoming_staging', ['scripts/stage-ott-lineup.mjs', disney, 'work/ott-lineups']);
     const coupangExit = await optionalStep('coupang_news_official', ['scripts/collect-coupangplay-kr-lineup.mjs', coupang], [0, 1]);
     if (coupangExit === 0) await optionalStep('coupang_news_staging', ['scripts/stage-ott-lineup.mjs', coupang, 'work/ott-lineups']);
-    const coupangPremiereExit = await optionalStep('coupang_explicit_premiere_review', ['--env-file=.env', 'scripts/collect-coupang-premieres.mjs'], [0, 2]);
+    const coupangPremiereExit = await optionalStep('coupang_explicit_premiere_review', ['--env-file-if-exists=.env', 'scripts/collect-coupang-premieres.mjs'], [0, 2]);
     // Persist identity leads for title-only official listings. No release dates are invented.
     let undatedLinkExit = disneyExit === 0 && coupangExit === 0 ? 0 : 2;
     if (disneyExit === 0 && coupangExit === 0) {
-      undatedLinkExit = await optionalStep('undated_official_tmdb_link', ['--env-file=.env', 'scripts/link-undated-official-tmdb.mjs',
+      undatedLinkExit = await optionalStep('undated_official_tmdb_link', ['--env-file-if-exists=.env', 'scripts/link-undated-official-tmdb.mjs',
         'work/ott-lineups/tmdb-identity-review.json', disney, coupang], [0, 2]);
     }
     // Only validated pre-reviewed first-release claims with a fresh official
@@ -152,8 +152,8 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
       readyUnmapped: [], officialAndTmdbReady: 0, discoveryComplete: false, tmdbErrors: 1 };
     // A missing provider-coverage slice cannot invalidate 70 already reviewed
     // publications. It *does* prevent a claim of complete discovery/parity.
-    if (publish) await step('publish_reviewed', ['--env-file=.env', 'dist/src/cli/publish-reviewed.js', '--file', mappings]);
-    const audit = publish && compareReference ? await auditRun(['--env-file=.env', 'scripts/audit-current-first-premieres.mjs']) : null;
+    if (publish) await step('publish_reviewed', ['--env-file-if-exists=.env', 'dist/src/cli/publish-reviewed.js', '--file', mappings]);
+    const audit = publish && compareReference ? await auditRun(['--env-file-if-exists=.env', 'scripts/audit-current-first-premieres.mjs']) : null;
     return {
       status: failedSources.length || netflixExit !== 0 || netflixReviewExit !== 0 || tvingExit !== 0 || adsExit !== 0 || disneyExit !== 0 || coupangExit !== 0 || undatedLinkExit !== 0 || coupangPremiereExit !== 0 || sourceRecheckExit !== 0 || !gate.discoveryComplete || gate.tmdbErrors || gate.readyUnmapped.length
         ? 'published_with_discovery_gaps' : publish ? 'published' : 'validated_without_publish',

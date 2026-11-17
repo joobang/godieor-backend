@@ -600,3 +600,8 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 - 사용자 정정: IGDB만이 아니라 KOBIS 극장영화·OTT 4사(드라마/영화/예능/애니/다큐)·게임 모든 기기·EPL에 2026-10-01 기준을 적용한다. 사용자 확정 원본 `docs/product.md`, backend 구현 원본 `docs/tasks/DATA-81-october-game-cutoff.md`.
 - backend 자체 전체 340/340 통과. 기존 OTT 2026년 4·6월 매핑의 참조·ID 보존, 실제 새 수집/DB 정리/배포/독립 검증 승인 없음. 날짜가 미정인 콘텐츠를 임의 배치하지 않는다. 공통 revision `SYNC-2026-11-17-DATA-81`.
 
+
+## DEPLOY-02 · Render 프로세스 내부 일간 배치 준비 (2026-11-17)
+
+- Node.js 24.22.3 엔진·CI·Render 고정, npm lockfile 갱신. NestJS 12.4.0의 `@nestjs/schedule`로 제공처 배치 08:30 KST, 영속 검토 상태가 준비된 경우에만 OTT 09:00 KST opt-in. GitHub Actions 정시 트리거 제거(수동 실행 유지).
+- Render Free가 유휴시 슬립하므로 정시 실행을 보장할 수 없으며 OTT 검토 상태는 영속 저장소가 마련되기 전까지 비활성. 클라우드 실제 배포·일간 실행 검증 및 독립 검증은 미실시. 상세 `docs/tasks/DEPLOY-02-render-internal-daily.md`.

@@ -45,7 +45,7 @@ export async function runProvider(provider, { execute = spawn, timeoutMs = 30 * 
   return new Promise(done => {
     let child;
     try {
-      child = execute(process.execPath, ['--env-file=.env', 'dist/src/cli/collect-daily.js', '--mode', 'daily', '--providers', provider,
+      child = execute(process.execPath, ['--env-file-if-exists=.env', 'dist/src/cli/collect-daily.js', '--mode', 'daily', '--providers', provider,
         ...(force ? ['--force'] : [])], { stdio: ['ignore', 'pipe', 'pipe'], detached: process.platform !== 'win32',
         env: { ...process.env, COLLECTION_INCLUDE_FIXTURE: 'false', COLLECTION_SCHEDULE_ENABLED: 'false' } });
     } catch { done(failed('PROVIDER_START_FAILED')); return; }

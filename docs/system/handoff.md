@@ -591,3 +591,8 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 
 - 원본 제품 정책: app `docs/product.md`; 구현: backend `docs/tasks/DATA-81-october-game-cutoff.md`. backend 테스트340/340, DB 조작·독립 승인·push 없음. 원본 ID/찜/기존 역사적 리뷰 보존. 다음: 전 카테고리 10월 이후 실 DB 신규 수집·API 확인, 이전 데이터 참조 감사 후 용량 정리. revision `SYNC-2026-11-17-DATA-81`.
 
+
+## DEPLOY-02 · Render 내부 일간 배치 준비 인계 (2026-11-17)
+
+- Node.js 24.22.3(앱 실행 환경용 Node; NestJS 프레임워크는 12.4.0)로 엔진·Render·CI 정렬. NestJS 제공처 08:30 KST/영속 OTT 상태 충족 시 09:00 KST, Actions 정시 트리거 제거.
+- Render Free 유휴 슬립과 임시 디스크 때문에 정시 실행 및 OTT 검토 상태 연속성은 보장하지 않는다. OTT opt-in 기본값 false. 서버 배포·환경변수 설정·실제 DB 검증 이후 운영 전환 필요. 원본 카드 `docs/tasks/DEPLOY-02-render-internal-daily.md`.

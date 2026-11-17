@@ -17,3 +17,11 @@ Render GitHub 연동의 Auto-Deploy는 **After CI Checks Pass** 사용. GitHub A
 ## 2026-11-11 로컬 실데이터 현황
 
 현재 로컬 DB에 수동 검토된 공식 OTT 일정은 7건이다([DATA-09](tasks/DATA-09-ott-reviewed-expansion.md)). 위 5번의 4건 수치는 과거 시점 기록이다. Supabase 신규 DB에는 해당 데이터가 아직 없으며 검토 후보를 재생성한 다음 게시해야 한다. Render 서비스 생성·운영 HTTPS 연결·앱 재설치는 미실행이다.
+
+## 2026-11-17 서버 내부 배치 전환 준비
+
+- Node.js 보안 패치 버전 **24.22.3** (2026-11-11 공개)으로 `.node-version`, 엔진 하한, Render, CI 설정을 맞췄다. NestJS 프레임워크는 기존 12.x다.
+- GitHub Actions `daily-collection.yml`의 정시 `schedule`을 제거했다(수동 `workflow_dispatch`만 유지). NestJS `@nestjs/schedule`에서 제공처 수집을 매일 08:30 KST에 수행한다. Render 웹 서비스의 `COLLECTION_SCHEDULE_ENABLED=true`는 서버 프로세스가 살아 있을 때만 의미가 있다.
+- 공식 OTT 09:00 KST 배치는 `COLLECTION_OTT_SCHEDULE_ENABLED=true`로 별도 허용하되, `COLLECTION_OTT_PERSISTENT_STATE=true` 및 영속 `work/ott-candidates/state.json` 없이는 실행하지 않는다. OTT 파이프라인은 `work/`의 상태·스냅샷과 변경 가능한 curated mapping을 사용하므로 해당 자산의 영속화가 선행되어야 한다.
+- **Render Free는 유휴 15분 후 잠들며 스케줄 실행을 보장하지 않고, 재기동/재배포 시 로컬 파일이 사라진다.** 따라서 Free 상태에서 1일 1회 실행을 보장하거나 OTT 전체 배치가 운영 중이라고 표시해서는 안 된다. 현재 OTT 자동 배치는 비활성화되어 있다. Render 내부에서 신뢰성 있는 배치를 원하면 상시 가동 인스턴스와 영속적인 OTT 상태 저장 방식을 추가 설계·적용해야 한다.
+- 배포 및 실제 정시 기동, Supabase DB 연결, 원천 API 비밀 설정, 독립 검증은 아직 수행하지 않았다. 원래 맥 배치는 실제 원격 배치가 검증되기 전까지 제거하지 않는다.

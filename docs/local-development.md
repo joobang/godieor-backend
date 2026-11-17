@@ -45,7 +45,7 @@ npm run db:stop
 
 backfill은 전체 가상 자료를 반영한다. daily는 KST 같은 날 성공한 scope를 건너뛰고 --force일 때만 다시 수집한다.
 API는 Ctrl+C로 종료한다. db:stop은 데이터를 지우지 않는다. 볼륨 삭제/DB reset은 실행하지 않았다.
-COLLECTION_SCHEDULE_ENABLED=true이면 API 프로세스가 06:00 KST에 수집한다. 기본 OFF이며 API가 꺼지면 스케줄도 실행되지 않는다.
+COLLECTION_SCHEDULE_ENABLED=true이면 API 프로세스가 08:30 KST에 제공처 수집을 시도한다. 기본 OFF이며 API가 꺼지면 스케줄도 실행되지 않는다.
 프로세스 중단 시 advisory lock은 연결 종료로 풀리고, 남은 running 표시는 다음 실행에서 새 run으로 갱신한다.
 
 ## 변경 규칙

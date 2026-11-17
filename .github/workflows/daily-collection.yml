@@ -1,8 +1,5 @@
 name: Daily provider collection
 on:
-  schedule:
-    # GitHub Actions schedules run in UTC; 21:00 UTC = 06:00 KST.
-    - cron: "0 21 * * *"
   workflow_dispatch:
 permissions:
   contents: read
