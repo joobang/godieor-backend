@@ -36,14 +36,12 @@ const sourceIds = queue => [...new Set(queue.rows.flatMap(r =>
 export async function readReferenceSnapshot(client, queue) {
   validateQueue(queue);
   const ids = eventIds(queue), releases = sourceIds(queue);
-  const [events, sources, favorites] = await Promise.all([
-    client.query(`SELECT id, kind, title, status, precision, local_date::text AS local_date,
-      release_market, content_id FROM event WHERE id = ANY($1::uuid[])`, [ids]),
-    client.query(`SELECT event_id, external_id, variant_key, source_release_region FROM event_source
-      WHERE provider_key = 'igdb' AND (event_id = ANY($1::uuid[]) OR external_id = ANY($2::text[]))`, [ids, releases]),
-    client.query(`SELECT event_id, count(*)::integer AS count FROM event_favorite
-      WHERE event_id = ANY($1::uuid[]) GROUP BY event_id`, [ids]),
-  ]);
+  const events = await client.query(`SELECT id, kind, title, status, precision, local_date::text AS local_date,
+    release_market, content_id FROM event WHERE id = ANY($1::uuid[])`, [ids]);
+  const sources = await client.query(`SELECT event_id, external_id, variant_key, source_release_region FROM event_source
+    WHERE provider_key = 'igdb' AND (event_id = ANY($1::uuid[]) OR external_id = ANY($2::text[]))`, [ids, releases]);
+  const favorites = await client.query(`SELECT event_id, count(*)::integer AS count FROM event_favorite
+    WHERE event_id = ANY($1::uuid[]) GROUP BY event_id`, [ids]);
   return { events: events.rows, sources: sources.rows, favorites: favorites.rows };
 }
 

@@ -1,3 +1,9 @@
+## DATA-77 실 DB 감사 완료 · DATA-78 인계 (2026-11-17)
+
+- backend `docs/tasks/DATA-77-igdb-public-references.md`, 증거 `docs/tasks/evidence/data77/live-public-reference-audit-20261117.json`. 로컬 DB 연결·의존성 복원 후 DATA-75 migration 적용. 49/49 원본 공개 ID·source binding 유지, 불일치 0, 대상 찜 0, 가능 중복 38, 숫자지역 미보존 49(NULL). 전체 DB event/source 32693/32693, 전체 찜 1 보존, 감사 데이터 수정 0.
+- 감사 client 순차 SELECT로 수정, 관련 테스트 16/16 통과. 전체 테스트 빌드 성공·325/340 통과; 15개는 checkout의 `work/ott-candidates/state.json` 부재 ENOENT. 공식 Node24 대신 임시 Node22 사용. 별도 독립 검증 미실행.
+- 49건 모두 수동 보류 및 공개 ID/상세/찜 보존. 다음 DATA-78은 원천 증거 확보·게시/alias 계약과 독립 검증 설계. 앱 코드/검증 승인 기준/판정 불변, push 미실행. 공통 revision `SYNC-2026-11-17-DATA-77-LIVE`.
+
 ## DATA-74 · 제공처 일일08:30 운영·실패 복구·IGDB 원천 추적 (2026-11-17)
 
 - backend 원본 `docs/tasks/DATA-74-provider-daily-source-audit.md`, 구현86cc91577a6dd556cded62b1487df57570dccca1, ADR024/LEARN0006. KOBIS/EPL/IGDB를 각각 별도 프로세스로 실행하는 runner와 macOS08:30 KST LaunchAgent를 등록했다. 기존 OTT09시 job은 별도 유지.

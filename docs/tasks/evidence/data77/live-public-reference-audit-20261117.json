@@ -1,0 +1,1316 @@
+{
+  "kind": "igdb-public-reference-audit",
+  "createdAt": "2026-11-17T05:04:58.754Z",
+  "scope": "selected historical IGDB source IDs; not a full catalog audit",
+  "checked": 49,
+  "possibleDuplicateRows": 38,
+  "originalFavoriteReferences": 0,
+  "competingFavoriteReferences": 0,
+  "discrepancies": 0,
+  "publishingAllowed": false,
+  "databaseMutations": 0,
+  "approvalState": "not_reviewed",
+  "rows": [
+    {
+      "originalReleaseId": "964454",
+      "variantKey": "world-6",
+      "originalPublicEventId": "f018ad4f-9f31-45d7-9f40-5d0421a7caf9",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-10",
+      "currentDate": "2026-11-10",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "967533",
+      "variantKey": "world-6",
+      "originalPublicEventId": "1654e8bf-0358-4618-b6a5-d447901c5b42",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-03",
+      "currentDate": "2026-11-03",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "977156",
+      "variantKey": "world-6",
+      "originalPublicEventId": "5985432f-5337-4adb-a277-08c46833fb5d",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-13",
+      "currentDate": "2026-11-13",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "978356",
+      "variantKey": "world-6",
+      "originalPublicEventId": "34c17ac7-c1cf-4986-ac31-1cbea69d20ad",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-13",
+      "currentDate": "2026-11-13",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "978459",
+      "variantKey": "world-14",
+      "originalPublicEventId": "1ec3df5e-48f2-4c60-b2cc-a484bedad657",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-10",
+      "currentDate": "2026-11-10",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "987455",
+      "variantKey": "world-6",
+      "originalPublicEventId": "63802fd7-4309-4d63-9e7a-640e57fe62c8",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-05",
+      "currentDate": "2026-11-05",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "987456",
+      "variantKey": "world-169",
+      "originalPublicEventId": "89e2247c-9a09-43d4-95c4-63722f8c578c",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-05",
+      "currentDate": "2026-11-05",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "987457",
+      "variantKey": "world-167",
+      "originalPublicEventId": "5631bb02-f9c5-414f-9878-c2960ebb39a8",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-05",
+      "currentDate": "2026-11-05",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "987458",
+      "variantKey": "world-48",
+      "originalPublicEventId": "6de5c233-28ae-4ef2-80f0-cf963e9d05cb",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-05",
+      "currentDate": "2026-11-05",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "987459",
+      "variantKey": "world-49",
+      "originalPublicEventId": "a5fa29ac-78fd-431f-9d76-2f493c4b7d2f",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-05",
+      "currentDate": "2026-11-05",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "988489",
+      "variantKey": "world-6",
+      "originalPublicEventId": "f48e6c92-c619-4c19-969f-e61d614f8898",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-10",
+      "currentDate": "2026-11-10",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "943060",
+      "variantKey": "world-6",
+      "originalPublicEventId": "230f90f4-73d6-4d16-a53d-0db042f0c5ae",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-03",
+      "currentDate": "2026-11-03",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "0ba229a0-7fa9-4ba3-8266-d443bf20835b",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-10",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990977"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "966165",
+      "variantKey": "world-6",
+      "originalPublicEventId": "528b85cb-9d75-4e7b-b65a-0cee40ce8a2b",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-10",
+      "currentDate": "2026-11-10",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "7820e422-548e-4a90-9f3a-184ee859f762",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-11",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990503"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "966168",
+      "variantKey": "world-169",
+      "originalPublicEventId": "399c90ef-3395-4d57-8551-92cb72c1361d",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-10",
+      "currentDate": "2026-11-10",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "ebb3470d-6daa-4a19-aa9f-17aed76270e0",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-11",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990504"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "967794",
+      "variantKey": "world-6",
+      "originalPublicEventId": "923aa40d-8187-498b-a8e2-4ff13f27aa65",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-19",
+      "currentDate": "2026-11-19",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "821aa010-82fc-4d51-8d26-4e5c83f3cad0",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-18",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "991411"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "968462",
+      "variantKey": "world-6",
+      "originalPublicEventId": "5ab70f80-b5fe-4ef5-8efd-70c3005be5f0",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-11",
+      "currentDate": "2026-11-11",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "b0f6a9d6-cc3b-436e-9eb8-3df76ef44244",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-10",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990695"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "971747",
+      "variantKey": "world-6",
+      "originalPublicEventId": "1303633d-782a-4366-923e-4db207a194fd",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-04",
+      "currentDate": "2026-11-04",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "a11f617c-2bf8-4396-842b-81e5c48e1ef3",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-16",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "992966"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "971934",
+      "variantKey": "world-6",
+      "originalPublicEventId": "0dfec88f-9dbd-4f2a-8485-96909ba7825e",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-10-23",
+      "currentDate": "2026-10-23",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "e1d946a9-ab33-45d5-a094-775c0964123f",
+          "exists": true,
+          "favorites": 0,
+          "date": "2027-01-26",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "991428"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "972176",
+      "variantKey": "world-6",
+      "originalPublicEventId": "4d36326b-eea3-4c11-b6c1-0a093cbce19d",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-10-27",
+      "currentDate": "2026-10-27",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "aadde78f-eb03-4459-8435-0e8cfcb97b62",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-10",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990982"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "974385",
+      "variantKey": "world-3",
+      "originalPublicEventId": "26b6175e-cdde-47a3-b0ff-cebfc359df75",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-09",
+      "currentDate": "2026-11-09",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "ca2ca7ae-464c-49b5-90ce-5352e66e9929",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-10",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990011"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "974386",
+      "variantKey": "world-14",
+      "originalPublicEventId": "f37a4bf7-2fb3-488c-8c44-afa37c7e7a07",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-09",
+      "currentDate": "2026-11-09",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "4b911581-0d43-41ae-978c-6a862878fa42",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-10",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990012"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "974387",
+      "variantKey": "world-6",
+      "originalPublicEventId": "b7a765e8-53e1-4e3c-8a24-9147e32f526e",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-09",
+      "currentDate": "2026-11-09",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "0babaf11-2785-428f-93f8-050e5b5e214b",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-10",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990013"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "975125",
+      "variantKey": "world-6",
+      "originalPublicEventId": "595a2bd6-ebe5-4587-b2f1-e74568c70d0c",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-12-09",
+      "currentDate": "2026-12-09",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "86444ba1-8d0c-4ebc-881c-e31d99919b40",
+          "exists": true,
+          "favorites": 0,
+          "date": "2027-01-25",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "991255"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "975126",
+      "variantKey": "world-3",
+      "originalPublicEventId": "8427d279-2b5d-40c9-9fe1-8c912d197e76",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-12-09",
+      "currentDate": "2026-12-09",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "aa8f5f9c-782c-4758-ab83-5e148da4a108",
+          "exists": true,
+          "favorites": 0,
+          "date": "2027-01-25",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "991426"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "975127",
+      "variantKey": "world-14",
+      "originalPublicEventId": "4f4f18bb-1349-4280-9100-9045a8daf5ea",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-12-09",
+      "currentDate": "2026-12-09",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "5a0804f2-88e2-4638-afc4-256142f40cc7",
+          "exists": true,
+          "favorites": 0,
+          "date": "2027-01-25",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "991427"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "975429",
+      "variantKey": "world-6",
+      "originalPublicEventId": "8a123a32-18d8-4d33-a273-2787a5f8697e",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-12-03",
+      "currentDate": "2026-12-03",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "fda95f91-d1a1-4172-8367-a35319f85e5a",
+          "exists": true,
+          "favorites": 0,
+          "date": "2027-02-19",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990559"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "975510",
+      "variantKey": "world-3",
+      "originalPublicEventId": "c991c426-a4c9-400c-bd4b-8943dffc344f",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-10",
+      "currentDate": "2026-11-10",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "2c5eb24c-3d06-463c-a35e-46c7221fe330",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-17",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "993171"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "975511",
+      "variantKey": "world-6",
+      "originalPublicEventId": "bbe3654a-2cd0-483b-83ad-b33a6fdfbb0a",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-10",
+      "currentDate": "2026-11-10",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "f41822e5-d5fe-40aa-a9d8-35b24a596eea",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-17",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "993173"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "975512",
+      "variantKey": "world-14",
+      "originalPublicEventId": "e9abb2db-da2b-41ef-b7b3-770fec430ea5",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-10",
+      "currentDate": "2026-11-10",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "d8028e49-40ed-48b2-b9e8-ff1003cfe268",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-17",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "993172"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "975548",
+      "variantKey": "world-167",
+      "originalPublicEventId": "346f0bc3-3656-4dce-9a17-9bbfa305ffae",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-12-03",
+      "currentDate": "2026-12-03",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "fb7466ab-8587-44a0-8a80-86e937b1d5fb",
+          "exists": true,
+          "favorites": 0,
+          "date": "2027-02-19",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990560"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "977138",
+      "variantKey": "world-130",
+      "originalPublicEventId": "0dbcc206-8e15-43a4-9985-cf1856590a2c",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-12-03",
+      "currentDate": "2026-12-03",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "88c4f812-5296-4616-9517-5a310d4947c6",
+          "exists": true,
+          "favorites": 0,
+          "date": "2027-02-19",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990557"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "977139",
+      "variantKey": "world-508",
+      "originalPublicEventId": "b5e2fb7c-8471-41d1-8de6-d7191d295a68",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-12-03",
+      "currentDate": "2026-12-03",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "667fa3c6-8897-4d30-b016-fc408377149d",
+          "exists": true,
+          "favorites": 0,
+          "date": "2027-02-19",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990558"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "977140",
+      "variantKey": "world-169",
+      "originalPublicEventId": "27099848-76a3-436f-ade3-174c21686012",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-12-03",
+      "currentDate": "2026-12-03",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "a181118f-fe7b-4e41-8ee3-bb41694a9ef4",
+          "exists": true,
+          "favorites": 0,
+          "date": "2027-02-19",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990561"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "978460",
+      "variantKey": "world-6",
+      "originalPublicEventId": "cb80d0bf-23dd-4ee5-b412-9be8804d226c",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-10",
+      "currentDate": "2026-11-10",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "2f92fc01-f441-4baa-b48a-5c4a443e3e4f",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-17",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "991491"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "980963",
+      "variantKey": "world-6",
+      "originalPublicEventId": "0277e7e0-4fbb-4b84-a14e-f7f750650040",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-10-27",
+      "currentDate": "2026-10-27",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "c8cf22da-68ef-4b0a-afb5-7021e95ca150",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-03",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "992851"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "981742",
+      "variantKey": "world-6",
+      "originalPublicEventId": "8d18a1ce-04a1-4322-8ba0-b242198340df",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-16",
+      "currentDate": "2026-11-16",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "05592193-484b-4e48-be98-14bfaa26edc4",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-30",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "991698"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "981743",
+      "variantKey": "world-14",
+      "originalPublicEventId": "ac45cf7a-fd4e-4cb5-9326-af3613380da7",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-16",
+      "currentDate": "2026-11-16",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "4abbd04c-b79c-49d3-b4f3-032af46380fd",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-30",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "991697"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "981744",
+      "variantKey": "world-3",
+      "originalPublicEventId": "c94f386e-4dad-4ff0-ac0f-1cca70bb0470",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-16",
+      "currentDate": "2026-11-16",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "de3aee63-d205-44fc-b416-e1a68aad96b6",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-30",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "991696"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "984969",
+      "variantKey": "world-3",
+      "originalPublicEventId": "a0aa7058-fef8-474f-9f08-b171b2c13cf0",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-12-04",
+      "currentDate": "2026-12-04",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "b05f8933-2761-40b6-899b-2166ed39a419",
+          "exists": true,
+          "favorites": 0,
+          "date": "2027-01-26",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "991568"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "984970",
+      "variantKey": "world-14",
+      "originalPublicEventId": "9939d3cd-f726-4e08-a150-cff1493a08f5",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-12-04",
+      "currentDate": "2026-12-04",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "bd862d94-a432-4c75-aed3-f0288f5895f3",
+          "exists": true,
+          "favorites": 0,
+          "date": "2027-01-26",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "991569"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "984971",
+      "variantKey": "world-6",
+      "originalPublicEventId": "c9545fa7-96d7-4754-a01f-0a270d8650ec",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-12-04",
+      "currentDate": "2026-12-04",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "2b0317d0-5e0d-4572-b0a0-3a56ac4af769",
+          "exists": true,
+          "favorites": 0,
+          "date": "2027-01-26",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "991570"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "985166",
+      "variantKey": "world-6",
+      "originalPublicEventId": "d6adb83e-00c9-45a2-9060-4800d8dadd82",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2027-07-16",
+      "currentDate": "2027-07-16",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "ab96415f-1360-4f04-b7c2-1d64ae483796",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-01",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "985167"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "985362",
+      "variantKey": "world-6",
+      "originalPublicEventId": "7e7cc243-07e3-48f6-9775-ac4d7821ce58",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-01",
+      "currentDate": "2026-11-01",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "91ecb925-47bd-42aa-a54a-9f657e1feeb4",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-01",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990468"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "986599",
+      "variantKey": "world-6",
+      "originalPublicEventId": "e6a81780-285c-4ab3-bfdc-dbe03217e1a8",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-12-01",
+      "currentDate": "2026-12-01",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "0180edcd-b05d-4886-b6d2-a129227eefd3",
+          "exists": true,
+          "favorites": 0,
+          "date": "2027-01-01",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "991414"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "986848",
+      "variantKey": "world-6",
+      "originalPublicEventId": "41f5ed78-90ae-4803-972c-e64db72d8bd5",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-16",
+      "currentDate": "2026-11-16",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "66a25224-ba21-4ff3-884a-8cddda1be6cb",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-16",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990366"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "987547",
+      "variantKey": "world-6",
+      "originalPublicEventId": "969215bf-84e1-424b-8950-7877fd17e354",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-30",
+      "currentDate": "2026-11-30",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "6d7f16a5-e6d5-4f10-9b9c-711c461641ab",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-06",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990643"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "987608",
+      "variantKey": "world-6",
+      "originalPublicEventId": "a975eec6-a861-4d41-a9f9-1e9d4e8326ba",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-07",
+      "currentDate": "2026-11-07",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "dfe19b4e-2254-44ea-a9dd-8831b4204332",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-07",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990649"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "988093",
+      "variantKey": "world-6",
+      "originalPublicEventId": "4dc3a308-7392-4a47-a34e-e952336bcc2e",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-13",
+      "currentDate": "2026-11-13",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "528f97fb-109c-448f-97b1-317fd7c47848",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-27",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "992314"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    },
+    {
+      "originalReleaseId": "988326",
+      "variantKey": "world-6",
+      "originalPublicEventId": "ff9999f1-f9fd-4e7a-9c67-ddff2accc515",
+      "originalExists": true,
+      "originalBindingMatches": true,
+      "originalFavorites": 0,
+      "storedDate": "2026-11-12",
+      "currentDate": "2026-11-12",
+      "sourceRegionAtAudit": null,
+      "currentSourceRegion": null,
+      "possibleOtherEvents": [
+        {
+          "eventId": "fde4c6d4-7ac2-4dff-bb6b-fe37da0d76fd",
+          "exists": true,
+          "favorites": 0,
+          "date": "2026-11-11",
+          "status": "scheduled",
+          "sourceReleaseIds": [
+            "990789"
+          ]
+        }
+      ],
+      "discrepancies": [],
+      "disposition": "manual_review_required",
+      "aliasApproved": false,
+      "mergeApproved": false,
+      "unpublishApproved": false
+    }
+  ],
+  "inputSha256": "2fd1c5a7d29035f89fdf10d88fbacaa713d50533a962189e83db1977d3671ed1"
+}

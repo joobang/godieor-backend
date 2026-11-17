@@ -19,3 +19,11 @@
 - `node --check scripts/audit-igdb-public-references.mjs`, `git diff --check` 검사. 실제 DB·신규 IGDB API·통합 runner·폰/클라우드 미실행. `node_modules`/`dist` 부재로 전체 서버 회귀 및 라이브 DB 감사를 검증 완료로 보지 않는다.
 - API 계약·Prisma schema·migration·게시 이벤트·event ID·찜·verifier acceptance/verdict 불변. ADR024/LEARN0006 연결; 신규 설계가 승인되면 관련 ADR/학습 기록 수정 필요.
 - 공통 사본 revision `SYNC-2026-11-17-DATA-77`. 다음 작업은 DB 접속 가능한 환경에서 위 감사의 실측 결과와 실제 사용자 찜 영향 범위를 확인하고, 게시 정책/alias 계약의 구체적인 검증 설계를 만드는 것이다.
+
+## 2026-11-17 실제 로컬 DB 감사 실행 (DATA-78 준비)
+
+- 이전 backend 작업 폴더의 로컬 DB 접속 환경을 확인하고 현 backend의 Git 무시 `.env`에 `DATABASE_URL`만 복원(권한 0600). `npm ci`로 의존성을 설치했다. `.env`와 비밀값은 커밋하지 않는다.
+- 누락되어 있던 `202611170001_igdb_source_region`을 `prisma migrate deploy`로 적용했다. 기존 source 지역은 임의로 채우지 않고 NULL 유지. 적용 뒤 `event=32693`, `event_source=32693`, `event_favorite=1`, 숫자지역 값 있는 source=0, migration 완료 이력=1 확인.
+- 단일 PostgreSQL client 조회를 순차 실행하도록 수정했다. 실제 `REPEATABLE READ READ ONLY` 감사 완료: **49/49 원본 event 및 source binding 존재, 불일치 0, 원본 찜 0, 경쟁 공개 ID 찜 0, 중복 가능 38, 기존 숫자지역 NULL 49**. 결과 `docs/tasks/evidence/data77/live-public-reference-audit-20261117.json`, 입력 SHA256 포함, DB 감사 변경 0.
+- 관련 자체 테스트 16/16. 전체 `npm test`: 빌드 성공, 340개 중 325 통과/15 실패. 실패는 현재 checkout에 `work/ott-candidates/state.json`이 없는 ENOENT이며 DATA-77 변경의 성공으로 간주하지 않는다. Node22.23.4 임시 사용(저장소 공식 요구 >=24.11). 독립 runner/실폰/클라우드 미실행.
+- 다음(DATA-78): 실제 찜 0이라는 현재 스냅샷만으로 alias/merge/게시 해제를 허용하지 않는다. 38개 충돌은 원천 지역·플랫폼·날짜·공식 동일성 근거가 확보될 때까지 수동 보류, 나머지 11개도 보류. 공개 ID/상세/찜 호환 정책 및 독립 검증 사례를 먼저 명세한다.
