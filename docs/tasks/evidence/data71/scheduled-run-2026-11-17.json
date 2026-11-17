@@ -1,0 +1,103 @@
+{
+  "startedAt": "2026-11-17T00:00:05.447Z",
+  "finishedAt": "2026-11-17T00:30:55.132Z",
+  "exitCode": 2,
+  "status": "published_with_discovery_gaps",
+  "gate": {
+    "reviewedMappings": 93,
+    "readyUnmapped": [],
+    "officialAndTmdbReady": 49,
+    "discoveryComplete": false,
+    "tmdbErrors": 0
+  },
+  "failedSources": [],
+  "scope": "observed actual launchd calendar run before DATA-71 integration, not independent approval",
+  "trigger": "launchd calendar 09:00 KST, runs=1, immediate reason xpc event",
+  "steps": [
+    {
+      "label": "tmdb_changes",
+      "exitCode": 0,
+      "failed": false
+    },
+    {
+      "label": "netflix_official",
+      "exitCode": 0,
+      "failed": false
+    },
+    {
+      "label": "netflix_staging",
+      "exitCode": 0,
+      "failed": false
+    },
+    {
+      "label": "tmdb_official_crosscheck",
+      "exitCode": 2,
+      "failed": false
+    },
+    {
+      "label": "tving_official_tmdb",
+      "exitCode": 0,
+      "failed": false
+    },
+    {
+      "label": "tving_staging",
+      "exitCode": 0,
+      "failed": false
+    },
+    {
+      "label": "tving_ads_official",
+      "exitCode": 0,
+      "failed": false
+    },
+    {
+      "label": "tving_ads_staging",
+      "exitCode": 0,
+      "failed": false
+    },
+    {
+      "label": "disney_upcoming_official",
+      "exitCode": 0,
+      "failed": false
+    },
+    {
+      "label": "disney_upcoming_staging",
+      "exitCode": 0,
+      "failed": false
+    },
+    {
+      "label": "coupang_news_official",
+      "exitCode": 0,
+      "failed": false
+    },
+    {
+      "label": "coupang_news_staging",
+      "exitCode": 0,
+      "failed": false
+    },
+    {
+      "label": "coupang_explicit_premiere_review",
+      "exitCode": 2,
+      "failed": false
+    },
+    {
+      "label": "undated_official_tmdb_link",
+      "exitCode": 2,
+      "failed": false
+    },
+    {
+      "label": "auto_review_verified_first_releases",
+      "exitCode": 0,
+      "failed": false
+    },
+    {
+      "label": "complete_reviewed_mappings",
+      "exitCode": 0,
+      "failed": false
+    },
+    {
+      "label": "publish_reviewed",
+      "exitCode": 0,
+      "failed": false
+    }
+  ]
+}

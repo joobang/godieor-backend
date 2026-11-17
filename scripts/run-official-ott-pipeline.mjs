@@ -128,6 +128,9 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
     // recheck are eligible for automation. Unknown first releases remain queued.
     if (tmdbUsable) await optionalStep('auto_review_verified_first_releases',
       ['scripts/auto-review-verified-premieres.mjs']);
+    const sourceRecheckExit = await optionalStep('posted_official_source_recheck',
+      ['scripts/recheck-posted-official-sources.mjs', 'data/curated/ott-source-reviewed-batch-2026-11-16.json',
+        'work/ott-lineups/posted-source-recheck.json', ...(netflixExit === 0 ? [netflix] : [])], [0, 2]);
     // Assign opaque keys to approved candidates before reading the snapshot.
     await step('complete_reviewed_mappings', ['scripts/complete-reviewed-mappings.mjs']);
     const [state, mappingInput] = await Promise.all([
@@ -150,7 +153,7 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
     if (publish) await step('publish_reviewed', ['--env-file=.env', 'dist/src/cli/publish-reviewed.js', '--file', mappings]);
     const audit = publish && compareReference ? await auditRun(['--env-file=.env', 'scripts/audit-current-first-premieres.mjs']) : null;
     return {
-      status: failedSources.length || netflixExit !== 0 || tvingExit !== 0 || adsExit !== 0 || disneyExit !== 0 || coupangExit !== 0 || undatedLinkExit !== 0 || coupangPremiereExit !== 0 || !gate.discoveryComplete || gate.tmdbErrors || gate.readyUnmapped.length
+      status: failedSources.length || netflixExit !== 0 || tvingExit !== 0 || adsExit !== 0 || disneyExit !== 0 || coupangExit !== 0 || undatedLinkExit !== 0 || coupangPremiereExit !== 0 || sourceRecheckExit !== 0 || !gate.discoveryComplete || gate.tmdbErrors || gate.readyUnmapped.length
         ? 'published_with_discovery_gaps' : publish ? 'published' : 'validated_without_publish',
       gate, steps, failedSources, published: publish, audit: audit && { referenceRows: audit.referenceRows,
         exactMatches: audit.exactMatches, unresolved: audit.unresolved, statusCounts: audit.statusCounts,

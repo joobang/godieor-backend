@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "batchSha256": "4d250f177b71d283ee6a32f5767ac0ffbc53a11ccbf7b3f43cb8c4fdf9f2f84b",
+  "scope": "Normalized identity fields from hash-matched original author-reviewed source, not a test fixture or new approval",
+  "works": [
+    {
+      "candidateId": "56d9fead641305896d6d3b9ee3b40623b3e0e753bebb96798660921dd9e492e4",
+      "sourceTitle": "마이클",
+      "sourceSeasonNumber": null,
+      "actors": [
+        "자파 잭슨",
+        "줄리아노 크루 발디",
+        "콜맨 도밍고",
+        "니아 롱",
+        "로아 해리어",
+        "마일즈 텔러"
+      ],
+      "releaseText": "11월 13일(금) 공개",
+      "sourceSha256": "343a446d0e4316dce062ed03c60faea436630990f95c6b54f9d80291ab7ff7f3"
+    },
+    {
+      "candidateId": "ca70e03d41cd4dcf2f70073ba4ff00a0feaa0a841b4d52c768c5103574c86302",
+      "sourceTitle": "길디드 에이지 시즌 4",
+      "sourceSeasonNumber": 4,
+      "actors": [
+        "캐리 쿤",
+        "모건 스펙터",
+        "루이자 제이콥슨",
+        "더네이 벤튼",
+        "타이사 파미가",
+        "블레이크 릿슨",
+        "크리스틴 바란스키",
+        "신시아 닉슨"
+      ],
+      "releaseText": "11월 3일(화)부터 매주 화요일 저녁 8시",
+      "sourceSha256": "343a446d0e4316dce062ed03c60faea436630990f95c6b54f9d80291ab7ff7f3"
+    },
+    {
+      "candidateId": "9e2ec46c375ce3b9ba4925efd73d7ba0ef07d1385242ee15af68002122dc97b0",
+      "sourceTitle": "연애기숙학교 돌싱N모솔",
+      "sourceSeasonNumber": null,
+      "actors": [
+        "채정안",
+        "김풍",
+        "넉살"
+      ],
+      "releaseText": "11월 3일(화)부터 매주 화요일 밤 11시 55분",
+      "sourceSha256": "343a446d0e4316dce062ed03c60faea436630990f95c6b54f9d80291ab7ff7f3"
+    }
+  ]
+}

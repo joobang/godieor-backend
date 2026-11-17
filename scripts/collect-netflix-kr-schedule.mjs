@@ -48,7 +48,7 @@ export function parseNetflixKrPages(pages, observedAt = new Date().toISOString()
     complete: pages.length === first.totalPages } };
 }
 
-export async function collectNetflixKrSchedule(fetchImpl = fetch) {
+export async function collectNetflixKrSchedule(fetchImpl = fetch, { months = configuredMonths() } = {}) {
   const response = await fetchImpl(SOURCE, { headers: { 'user-agent': 'Mozilla/5.0 (compatible; GODIEOR/1.0)' }, signal: AbortSignal.timeout(15000) });
   if (!response.ok) throw new Error(`NETFLIX_HTTP_${response.status}`);
   const observedAt = new Date().toISOString();
@@ -71,7 +71,7 @@ export async function collectNetflixKrSchedule(fetchImpl = fetch) {
     if (!result.ok) throw new Error(`NETFLIX_RELEASES_HTTP_${result.status}`);
     pages.push(await result.json());
   }
-  const parsed = parseNetflixKrPages(pages, observedAt);
+  const parsed = parseNetflixKrPages(pages, observedAt, months);
   if (!parsed.coverage.complete || parsed.coverage.fetchedPageItems !== first.totalItems)
     throw new Error('NETFLIX_SCHEDULE_INCOMPLETE');
   return parsed;

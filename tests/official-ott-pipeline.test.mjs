@@ -33,7 +33,7 @@ test('pipeline preserves reviewed publications and reports incomplete TMDB cover
   });
   assert.equal(result.status, 'published_with_discovery_gaps');
   assert.equal(result.published, true);
-  assert.equal(commands.length, 17);
+  assert.equal(commands.length, 18);
   assert.equal(commands.some((args) => args.includes('scripts/sync-tmdb-changes.mjs')), true);
   assert.equal(commands.some((args) => args.includes('scripts/collect-tvingads-kr-lineup.mjs')), true);
   assert.equal(commands.some((args) => args.includes('scripts/collect-disneyplus-kr-lineup.mjs')), true);
@@ -143,4 +143,17 @@ test('unavailable TMDB snapshot remains an explicit gap while official collector
   assert.equal(result.gate.discoveryComplete, false);
   assert.equal(result.failedSources[0].label, 'tmdb_recent_snapshot_reused');
   assert.equal(commands.some((a) => a.includes('scripts/collect-coupangplay-kr-lineup.mjs')), true);
+});
+
+test('posted source recheck gap is retained even when discovery and publication otherwise succeed', async () => {
+  const input = new Map(await Promise.all([
+    'work/ott-candidates/state.json', 'data/curated/ott-reviewed-mappings.json', 'work/tmdb-release-candidates/latest.json',
+  ].map(async path => [path, JSON.parse(await readFile(path, 'utf8'))])));
+  const result = await runPipeline({
+    run: async args => JSON.stringify({ exitCode: args.includes('scripts/recheck-posted-official-sources.mjs') ? 2 : 0, stdout: '{}' }),
+    read: async path => JSON.stringify(path.endsWith('latest.json') ? { ...input.get(path), discoveryComplete: true, errors: [] } : input.get(path)),
+  });
+  assert.equal(result.published, true);
+  assert.equal(result.status, 'published_with_discovery_gaps');
+  assert.equal(result.steps.find(s => s.label === 'posted_official_source_recheck').exitCode, 2);
 });
