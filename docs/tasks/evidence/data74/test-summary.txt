@@ -1,0 +1,11 @@
+Node24.22.3
+PATH=<Node24bin> npm test: build/Prisma generation succeeded,330/330 passed after same-day failed-scope retry fix.
+Final node --test tests/*.test.cjs tests/*.test.mjs:331/331 passed after fresh work-directory bootstrap test.
+Final isolated digest-pinned PostgreSQL check-refactor-db: exit0; includes actual same-day success->failure->normal daily retry->skip,identity/API/account/history/failure checks;container removed.
+LaunchAgent08:30 KST installed;three explicit OS kickstarts exit0,nine same-day skips;next natural08:30 not observed.
+Controlled unavailable loopback DB injected only into KOBIS child:partial,other providers continued,last-success preserved.
+Normal force recovery:9 scopes collected,exit0,new real games10.
+Actual old32683 event rows/IDs/history unchanged;new10 official source/date/platform/region and detail HTTP200.
+API KR/WORLD game+EPL2026~2027:30125 IDs equal DB over24 windows.
+Read-only selected49 source audit:29games,5old IDs found,37dated successor candidates/4partial or undated/3missing or multiple/5currently outside main game;38possible existing event conflicts;database mutations0.
+No independent approval,iOS/cloud/push.

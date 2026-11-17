@@ -36,4 +36,7 @@ ADR에는 상태(proposed/accepted/superseded), 날짜, 실제 사용자 선택 
 - [018 공식 TVING 수동 출처](018-tving-manual-source.md)
 - [019 계정 설정·찜 읽기 일관성](019-account-read-consistency.md)
 - [022 신규 공식 첫 공개 근거 자동 검토](022-explicit-premiere-automation.md)
-\n- [023 2026 시작점 고정 백필과 영화 날짜 철회 재확인](023-2026-backfill-and-missing-date.md)\n
+
+- [023 2026 시작점 고정 백필과 영화 날짜 철회 재확인](023-2026-backfill-and-missing-date.md)
+
+- [024 제공처 일일 실행·실패 복구와 원천 ID 감사](024-provider-daily-source-audit.md)

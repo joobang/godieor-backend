@@ -53,6 +53,7 @@ export class CollectionService implements OnModuleInit {
     if (
       mode === "daily" &&
       !force &&
+      state.last_attempt_status === "succeeded" &&
       state.last_successful_at &&
       DateTime.fromJSDate(state.last_successful_at, {
         zone: "Asia/Seoul",

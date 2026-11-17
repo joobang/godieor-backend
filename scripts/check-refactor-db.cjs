@@ -317,6 +317,15 @@ async function main() {
     console.log(
       "일정 연기 시 ID/이전 날짜 보존, 수집 실패 시 마지막 성공·기존 일정 보존 확인",
     );
+    // A failure after an earlier success today must be retried without --force.
+    phase = "same-day failed scope retry";
+    adapter.fetch = async () => changed;
+    const retried = await checkService.collect("daily");
+    assert.equal(retried[0].status, "succeeded");
+    assert.equal((await checkService.collect("daily"))[0].status, "already_collected_today");
+    assert.equal(await prisma.event.count(), 7);
+    assert.equal((await read(url, "/events/" + source.event_id)).body.event.id, source.event_id);
+    console.log("같은 날 성공 후 실패한 scope의 일반 일일 재시도·ID 보존과 성공 후 skip 확인");
     phase = "reviewed candidate publication";
     await require("./check-reviewed-db.cjs")(root, prisma);
   } catch (error) {

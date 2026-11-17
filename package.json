@@ -34,7 +34,10 @@
     "test:db": "npm run build && node scripts/check-refactor-db.cjs",
     "publish:reviewed": "node --env-file=.env dist/src/cli/publish-reviewed.js",
     "publish:catalog": "node --env-file=.env dist/src/cli/publish-catalog.js",
-    "test:reviewed": "npm run build && node --test tests/reviewed-publish.test.cjs"
+    "test:reviewed": "npm run build && node --test tests/reviewed-publish.test.cjs",
+    "collect:providers:daily": "node scripts/run-provider-daily.mjs",
+    "collect:providers:install-schedule": "node scripts/install-provider-launchd.mjs --install",
+    "audit:igdb-source-gaps": "node --env-file=.env scripts/audit-igdb-source-gaps.mjs"
   },
   "dependencies": {
     "@nestjs/common": "12.4.0",

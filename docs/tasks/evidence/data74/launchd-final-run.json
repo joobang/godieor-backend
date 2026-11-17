@@ -1,0 +1,95 @@
+{
+  "kind": "provider-daily-run",
+  "startedAt": "2026-11-17T03:38:18.729Z",
+  "finishedAt": "2026-11-17T03:38:19.676Z",
+  "status": "completed",
+  "exitCode": 0,
+  "force": false,
+  "previousSuccessfulRunAt": "2026-11-17T03:34:06.034Z",
+  "previousSuccessUnreadable": false,
+  "collectedScopes": 0,
+  "skippedScopes": 9,
+  "providers": [
+    {
+      "provider": "kobis",
+      "startedAt": "2026-11-17T03:38:18.730Z",
+      "finishedAt": "2026-11-17T03:38:19.193Z",
+      "exitCode": 0,
+      "status": "completed",
+      "error": null,
+      "scopes": [
+        {
+          "provider": "kobis",
+          "category": "movie",
+          "status": "already_collected_today"
+        }
+      ],
+      "collectedScopes": 0,
+      "skippedScopes": 1
+    },
+    {
+      "provider": "football_data_pl",
+      "startedAt": "2026-11-17T03:38:19.193Z",
+      "finishedAt": "2026-11-17T03:38:19.436Z",
+      "exitCode": 0,
+      "status": "completed",
+      "error": null,
+      "scopes": [
+        {
+          "provider": "football_data_pl",
+          "category": "epl",
+          "status": "already_collected_today"
+        }
+      ],
+      "collectedScopes": 0,
+      "skippedScopes": 1
+    },
+    {
+      "provider": "igdb",
+      "startedAt": "2026-11-17T03:38:19.436Z",
+      "finishedAt": "2026-11-17T03:38:19.676Z",
+      "exitCode": 0,
+      "status": "completed",
+      "error": null,
+      "scopes": [
+        {
+          "provider": "igdb",
+          "category": "game",
+          "status": "already_collected_today"
+        },
+        {
+          "provider": "igdb",
+          "category": "game",
+          "status": "already_collected_today"
+        },
+        {
+          "provider": "igdb",
+          "category": "game",
+          "status": "already_collected_today"
+        },
+        {
+          "provider": "igdb",
+          "category": "game",
+          "status": "already_collected_today"
+        },
+        {
+          "provider": "igdb",
+          "category": "game",
+          "status": "already_collected_today"
+        },
+        {
+          "provider": "igdb",
+          "category": "game",
+          "status": "already_collected_today"
+        },
+        {
+          "provider": "igdb",
+          "category": "game",
+          "status": "already_collected_today"
+        }
+      ],
+      "collectedScopes": 0,
+      "skippedScopes": 7
+    }
+  ]
+}

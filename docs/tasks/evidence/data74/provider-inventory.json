@@ -1,0 +1,138 @@
+{
+  "observedAt": "2026-11-17T03:39:24.959Z",
+  "counts": {
+    "fixture": 7,
+    "football_data_pl": 760,
+    "igdb": 29924,
+    "kobis": 1909,
+    "ott_reviewed": 93
+  },
+  "scopes": [
+    {
+      "provider_key": "fixture",
+      "category": "movie",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-09T01:07:56.854Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "fixture",
+      "category": "ott",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-09T01:07:56.883Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "fixture",
+      "category": "game",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-09T01:07:56.904Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "fixture",
+      "category": "epl",
+      "scope_market": "WORLD",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-09T01:07:56.917Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "football_data_pl",
+      "category": "epl",
+      "scope_market": "WORLD",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T03:24:37.359Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "AU",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T03:26:23.819Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "BR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T03:26:58.197Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "CN",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T03:26:46.635Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "JP",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T03:26:12.075Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T03:26:00.103Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "NZ",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T03:26:34.597Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "WORLD",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T03:25:48.822Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "kobis",
+      "category": "movie",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T03:24:33.855Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "ott_reviewed",
+      "category": "ott",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T02:13:40.256Z",
+      "last_error_code": null
+    }
+  ]
+}

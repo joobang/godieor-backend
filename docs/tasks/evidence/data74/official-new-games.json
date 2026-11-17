@@ -1,0 +1,176 @@
+{
+  "observedAt": "2026-11-17T03:29:20.456Z",
+  "gameRows": [
+    {
+      "id": 992526,
+      "date": 1793836800,
+      "game": {
+        "id": 429875,
+        "name": "We're Gonna Need More Fireballs",
+        "game_type": 0
+      },
+      "m": 11,
+      "platform": {
+        "id": 6,
+        "name": "PC (Microsoft Windows)"
+      },
+      "y": 2026,
+      "date_format": 0,
+      "release_region": 8
+    },
+    {
+      "id": 992550,
+      "date": 1794182400,
+      "game": {
+        "id": 429883,
+        "name": "Zolge Station: Huga Waiwai Academy",
+        "game_type": 0
+      },
+      "m": 11,
+      "platform": {
+        "id": 6,
+        "name": "PC (Microsoft Windows)"
+      },
+      "y": 2026,
+      "date_format": 0,
+      "release_region": 8
+    },
+    {
+      "id": 992595,
+      "date": 1794528000,
+      "game": {
+        "id": 429894,
+        "name": "Mate, This Place Is a Mess!",
+        "game_type": 0
+      },
+      "m": 11,
+      "platform": {
+        "id": 6,
+        "name": "PC (Microsoft Windows)"
+      },
+      "y": 2026,
+      "date_format": 0,
+      "release_region": 8
+    },
+    {
+      "id": 992981,
+      "date": 1794700800,
+      "game": {
+        "id": 430062,
+        "name": "Shai & Shatta",
+        "game_type": 0
+      },
+      "m": 11,
+      "platform": {
+        "id": 6,
+        "name": "PC (Microsoft Windows)"
+      },
+      "y": 2026,
+      "date_format": 0,
+      "release_region": 8
+    },
+    {
+      "id": 992982,
+      "date": 1794700800,
+      "game": {
+        "id": 430062,
+        "name": "Shai & Shatta",
+        "game_type": 0
+      },
+      "m": 11,
+      "platform": {
+        "id": 3,
+        "name": "Linux"
+      },
+      "y": 2026,
+      "date_format": 0,
+      "release_region": 8
+    },
+    {
+      "id": 993034,
+      "date": 1793145600,
+      "game": {
+        "id": 430094,
+        "name": "Twistbloom",
+        "game_type": 0
+      },
+      "m": 10,
+      "platform": {
+        "id": 39,
+        "name": "iOS"
+      },
+      "y": 2026,
+      "date_format": 0,
+      "release_region": 8
+    },
+    {
+      "id": 993067,
+      "date": 1797120000,
+      "game": {
+        "id": 430112,
+        "name": "The Hardest Game Ever",
+        "game_type": 0
+      },
+      "m": 12,
+      "platform": {
+        "id": 6,
+        "name": "PC (Microsoft Windows)"
+      },
+      "y": 2026,
+      "date_format": 0,
+      "release_region": 8
+    },
+    {
+      "id": 993122,
+      "date": 1793232000,
+      "game": {
+        "id": 428301,
+        "name": "An Eggcelent Sorting Game",
+        "game_type": 0
+      },
+      "m": 10,
+      "platform": {
+        "id": 167,
+        "name": "PlayStation 5"
+      },
+      "y": 2026,
+      "date_format": 0,
+      "release_region": 8
+    },
+    {
+      "id": 993123,
+      "date": 1796860800,
+      "game": {
+        "id": 428301,
+        "name": "An Eggcelent Sorting Game",
+        "game_type": 0
+      },
+      "m": 12,
+      "platform": {
+        "id": 6,
+        "name": "PC (Microsoft Windows)"
+      },
+      "y": 2026,
+      "date_format": 0,
+      "release_region": 8
+    },
+    {
+      "id": 993124,
+      "date": 1795046400,
+      "game": {
+        "id": 428301,
+        "name": "An Eggcelent Sorting Game",
+        "game_type": 0
+      },
+      "m": 11,
+      "platform": {
+        "id": 169,
+        "name": "Xbox Series X|S"
+      },
+      "y": 2026,
+      "date_format": 0,
+      "release_region": 8
+    }
+  ],
+  "football": []
+}

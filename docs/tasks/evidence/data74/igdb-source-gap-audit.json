@@ -1,0 +1,2998 @@
+{
+  "kind": "igdb-source-gap-audit",
+  "scope": "selected prior release IDs, not all IGDB records",
+  "checkedAt": "2026-11-17T03:27:17.138Z",
+  "referenceInputUsed": false,
+  "manifestSha256": "afef15785ae3730672d90696d6a6f475474adf8b4301dbe6a4fd84a3fc6244d0",
+  "checked": 49,
+  "distinctGames": 29,
+  "gamesFound": 29,
+  "directReleaseIdsFound": 5,
+  "currentReleaseRows": 56,
+  "currentReleaseQueryComplete": true,
+  "statusCounts": {
+    "current_game_outside_main_game": 5,
+    "current_release_missing_or_multiple": 3,
+    "possible_successor_dated": 37,
+    "possible_successor_partial_or_undated": 4
+  },
+  "possibleDuplicateStoredEvents": 38,
+  "publishingAllowed": false,
+  "databaseMutations": 0,
+  "officialSchema": "https://api-docs.igdb.com/#release-date",
+  "rows": [
+    {
+      "release_id": "943060",
+      "variant_key": "world-6",
+      "event_id": "230f90f4-73d6-4d16-a53d-0db042f0c5ae",
+      "content_id": "d5107b76-9501-4ea8-85ee-f749189a1db0",
+      "title": "Wilderdark",
+      "date": "2026-11-03",
+      "release_market": "WORLD",
+      "game_id": "400112",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 400112,
+        "title": "Wilderdark",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990977,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-10",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "0ba229a0-7fa9-4ba3-8266-d443bf20835b"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "964454",
+      "variant_key": "world-6",
+      "event_id": "f018ad4f-9f31-45d7-9f40-5d0421a7caf9",
+      "content_id": "070a473b-41f3-4863-8454-38271fb04927",
+      "title": "Elixir of Moonglow",
+      "date": "2026-11-10",
+      "release_market": "WORLD",
+      "game_id": "372849",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_partial_or_undated",
+      "currentGame": {
+        "gameId": 372849,
+        "title": "Elixir of Moonglow",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": false,
+      "claims": [
+        {
+          "releaseId": 990621,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 7,
+          "date": null,
+          "announcedYear": null,
+          "announcedMonth": null,
+          "listedInGame": true,
+          "storedEventIds": []
+        }
+      ]
+    },
+    {
+      "release_id": "966165",
+      "variant_key": "world-6",
+      "event_id": "528b85cb-9d75-4e7b-b65a-0cee40ce8a2b",
+      "content_id": "afb0b2c3-b0c9-4e0c-96db-6411c7af05d7",
+      "title": "Hope in the City",
+      "date": "2026-11-10",
+      "release_market": "WORLD",
+      "game_id": "347898",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 347898,
+        "title": "Hope in the City",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990503,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-11",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "7820e422-548e-4a90-9f3a-184ee859f762"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "966168",
+      "variant_key": "world-169",
+      "event_id": "399c90ef-3395-4d57-8551-92cb72c1361d",
+      "content_id": "afb0b2c3-b0c9-4e0c-96db-6411c7af05d7",
+      "title": "Hope in the City",
+      "date": "2026-11-10",
+      "release_market": "WORLD",
+      "game_id": "347898",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 347898,
+        "title": "Hope in the City",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990504,
+          "platform": 169,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-11",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "ebb3470d-6daa-4a19-aa9f-17aed76270e0"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "967533",
+      "variant_key": "world-6",
+      "event_id": "1654e8bf-0358-4618-b6a5-d447901c5b42",
+      "content_id": "c746daa6-2f1c-46a4-8395-4460b69a0290",
+      "title": "Young Suns",
+      "date": "2026-11-03",
+      "release_market": "WORLD",
+      "game_id": "378678",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "current_release_missing_or_multiple",
+      "currentGame": {
+        "gameId": 378678,
+        "title": "Young Suns",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": false,
+      "claims": [
+        {
+          "releaseId": 837682,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2025-11-25",
+          "announcedYear": 2025,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": []
+        },
+        {
+          "releaseId": 991556,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 3,
+          "date": null,
+          "announcedYear": 2027,
+          "announcedMonth": 3,
+          "listedInGame": true,
+          "storedEventIds": []
+        }
+      ]
+    },
+    {
+      "release_id": "967794",
+      "variant_key": "world-6",
+      "event_id": "923aa40d-8187-498b-a8e2-4ff13f27aa65",
+      "content_id": "ba71c5fe-3777-4514-adba-2c397fadbfe9",
+      "title": "Let Me Die",
+      "date": "2026-11-19",
+      "release_market": "WORLD",
+      "game_id": "419163",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 419163,
+        "title": "Let Me Die",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 991411,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-18",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "821aa010-82fc-4d51-8d26-4e5c83f3cad0"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "968462",
+      "variant_key": "world-6",
+      "event_id": "5ab70f80-b5fe-4ef5-8efd-70c3005be5f0",
+      "content_id": "09a1b684-7078-406c-98d9-b6b4b6667887",
+      "title": "Profiler Files: New Orleans",
+      "date": "2026-11-11",
+      "release_market": "WORLD",
+      "game_id": "280384",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 280384,
+        "title": "Profiler Files: New Orleans",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990695,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-10",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "b0f6a9d6-cc3b-436e-9eb8-3df76ef44244"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "971747",
+      "variant_key": "world-6",
+      "event_id": "1303633d-782a-4366-923e-4db207a194fd",
+      "content_id": "59c420c1-071e-4014-9c38-a86002beed03",
+      "title": "Sound System",
+      "date": "2026-11-04",
+      "release_market": "WORLD",
+      "game_id": "384862",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 384862,
+        "title": "Sound System",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 992966,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-16",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "a11f617c-2bf8-4396-842b-81e5c48e1ef3"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "971934",
+      "variant_key": "world-6",
+      "event_id": "0dfec88f-9dbd-4f2a-8485-96909ba7825e",
+      "content_id": "1acf6ddb-43d4-4c4e-80db-7beebcfef3b1",
+      "title": "Protect the Pit",
+      "date": "2026-10-23",
+      "release_market": "WORLD",
+      "game_id": "387282",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 387282,
+        "title": "Protect the Pit",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 991428,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2027-01-26",
+          "announcedYear": 2027,
+          "announcedMonth": 1,
+          "listedInGame": true,
+          "storedEventIds": [
+            "e1d946a9-ab33-45d5-a094-775c0964123f"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "972176",
+      "variant_key": "world-6",
+      "event_id": "4d36326b-eea3-4c11-b6c1-0a093cbce19d",
+      "content_id": "1036e6c9-c76a-4c15-8b6d-bcad21ddd320",
+      "title": "Anomalous Veil",
+      "date": "2026-10-27",
+      "release_market": "WORLD",
+      "game_id": "407323",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 407323,
+        "title": "Anomalous Veil",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990982,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-10",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "aadde78f-eb03-4459-8435-0e8cfcb97b62"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "974385",
+      "variant_key": "world-3",
+      "event_id": "26b6175e-cdde-47a3-b0ff-cebfc359df75",
+      "content_id": "b006c5aa-23e7-4168-9032-2c50e030f26b",
+      "title": "Towers of Babble",
+      "date": "2026-11-09",
+      "release_market": "WORLD",
+      "game_id": "421108",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 421108,
+        "title": "Towers of Babble",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990011,
+          "platform": 3,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-10",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "ca2ca7ae-464c-49b5-90ce-5352e66e9929"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "974386",
+      "variant_key": "world-14",
+      "event_id": "f37a4bf7-2fb3-488c-8c44-afa37c7e7a07",
+      "content_id": "b006c5aa-23e7-4168-9032-2c50e030f26b",
+      "title": "Towers of Babble",
+      "date": "2026-11-09",
+      "release_market": "WORLD",
+      "game_id": "421108",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 421108,
+        "title": "Towers of Babble",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990012,
+          "platform": 14,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-10",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "4b911581-0d43-41ae-978c-6a862878fa42"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "974387",
+      "variant_key": "world-6",
+      "event_id": "b7a765e8-53e1-4e3c-8a24-9147e32f526e",
+      "content_id": "b006c5aa-23e7-4168-9032-2c50e030f26b",
+      "title": "Towers of Babble",
+      "date": "2026-11-09",
+      "release_market": "WORLD",
+      "game_id": "421108",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 421108,
+        "title": "Towers of Babble",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990013,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-10",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "0babaf11-2785-428f-93f8-050e5b5e214b"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "975125",
+      "variant_key": "world-6",
+      "event_id": "595a2bd6-ebe5-4587-b2f1-e74568c70d0c",
+      "content_id": "5e574327-4180-4ec3-aa94-507366e64e7e",
+      "title": "Pup & Mole: Gold Rush",
+      "date": "2026-12-09",
+      "release_market": "WORLD",
+      "game_id": "422228",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 422228,
+        "title": "Pup & Mole: Gold Rush",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 991255,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2027-01-25",
+          "announcedYear": 2027,
+          "announcedMonth": 1,
+          "listedInGame": true,
+          "storedEventIds": [
+            "86444ba1-8d0c-4ebc-881c-e31d99919b40"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "975126",
+      "variant_key": "world-3",
+      "event_id": "8427d279-2b5d-40c9-9fe1-8c912d197e76",
+      "content_id": "5e574327-4180-4ec3-aa94-507366e64e7e",
+      "title": "Pup & Mole: Gold Rush",
+      "date": "2026-12-09",
+      "release_market": "WORLD",
+      "game_id": "422228",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 422228,
+        "title": "Pup & Mole: Gold Rush",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 991426,
+          "platform": 3,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2027-01-25",
+          "announcedYear": 2027,
+          "announcedMonth": 1,
+          "listedInGame": true,
+          "storedEventIds": [
+            "aa8f5f9c-782c-4758-ab83-5e148da4a108"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "975127",
+      "variant_key": "world-14",
+      "event_id": "4f4f18bb-1349-4280-9100-9045a8daf5ea",
+      "content_id": "5e574327-4180-4ec3-aa94-507366e64e7e",
+      "title": "Pup & Mole: Gold Rush",
+      "date": "2026-12-09",
+      "release_market": "WORLD",
+      "game_id": "422228",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 422228,
+        "title": "Pup & Mole: Gold Rush",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 991427,
+          "platform": 14,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2027-01-25",
+          "announcedYear": 2027,
+          "announcedMonth": 1,
+          "listedInGame": true,
+          "storedEventIds": [
+            "5a0804f2-88e2-4638-afc4-256142f40cc7"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "975429",
+      "variant_key": "world-6",
+      "event_id": "8a123a32-18d8-4d33-a273-2787a5f8697e",
+      "content_id": "1b00b8ea-41b8-4480-9aa4-7b915942e33a",
+      "title": "The Road of Dust and Sorrow",
+      "date": "2026-12-03",
+      "release_market": "WORLD",
+      "game_id": "361053",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 361053,
+        "title": "The Road of Dust and Sorrow",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990559,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2027-02-19",
+          "announcedYear": 2027,
+          "announcedMonth": 2,
+          "listedInGame": true,
+          "storedEventIds": [
+            "fda95f91-d1a1-4172-8367-a35319f85e5a"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "975510",
+      "variant_key": "world-3",
+      "event_id": "c991c426-a4c9-400c-bd4b-8943dffc344f",
+      "content_id": "f9d15b9d-553f-4b5d-81e4-be98aa7eaf81",
+      "title": "Deiity (Under Ice)",
+      "date": "2026-11-10",
+      "release_market": "WORLD",
+      "game_id": "371367",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 371367,
+        "title": "Deiity (Under Ice)",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 993171,
+          "platform": 3,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-17",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "2c5eb24c-3d06-463c-a35e-46c7221fe330"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "975511",
+      "variant_key": "world-6",
+      "event_id": "bbe3654a-2cd0-483b-83ad-b33a6fdfbb0a",
+      "content_id": "f9d15b9d-553f-4b5d-81e4-be98aa7eaf81",
+      "title": "Deiity (Under Ice)",
+      "date": "2026-11-10",
+      "release_market": "WORLD",
+      "game_id": "371367",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 371367,
+        "title": "Deiity (Under Ice)",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 993173,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-17",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "f41822e5-d5fe-40aa-a9d8-35b24a596eea"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "975512",
+      "variant_key": "world-14",
+      "event_id": "e9abb2db-da2b-41ef-b7b3-770fec430ea5",
+      "content_id": "f9d15b9d-553f-4b5d-81e4-be98aa7eaf81",
+      "title": "Deiity (Under Ice)",
+      "date": "2026-11-10",
+      "release_market": "WORLD",
+      "game_id": "371367",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 371367,
+        "title": "Deiity (Under Ice)",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 993172,
+          "platform": 14,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-17",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "d8028e49-40ed-48b2-b9e8-ff1003cfe268"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "975548",
+      "variant_key": "world-167",
+      "event_id": "346f0bc3-3656-4dce-9a17-9bbfa305ffae",
+      "content_id": "1b00b8ea-41b8-4480-9aa4-7b915942e33a",
+      "title": "The Road of Dust and Sorrow",
+      "date": "2026-12-03",
+      "release_market": "WORLD",
+      "game_id": "361053",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 361053,
+        "title": "The Road of Dust and Sorrow",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990560,
+          "platform": 167,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2027-02-19",
+          "announcedYear": 2027,
+          "announcedMonth": 2,
+          "listedInGame": true,
+          "storedEventIds": [
+            "fb7466ab-8587-44a0-8a80-86e937b1d5fb"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "977138",
+      "variant_key": "world-130",
+      "event_id": "0dbcc206-8e15-43a4-9985-cf1856590a2c",
+      "content_id": "1b00b8ea-41b8-4480-9aa4-7b915942e33a",
+      "title": "The Road of Dust and Sorrow",
+      "date": "2026-12-03",
+      "release_market": "WORLD",
+      "game_id": "361053",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 361053,
+        "title": "The Road of Dust and Sorrow",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990557,
+          "platform": 130,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2027-02-19",
+          "announcedYear": 2027,
+          "announcedMonth": 2,
+          "listedInGame": true,
+          "storedEventIds": [
+            "88c4f812-5296-4616-9517-5a310d4947c6"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "977139",
+      "variant_key": "world-508",
+      "event_id": "b5e2fb7c-8471-41d1-8de6-d7191d295a68",
+      "content_id": "1b00b8ea-41b8-4480-9aa4-7b915942e33a",
+      "title": "The Road of Dust and Sorrow",
+      "date": "2026-12-03",
+      "release_market": "WORLD",
+      "game_id": "361053",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 361053,
+        "title": "The Road of Dust and Sorrow",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990558,
+          "platform": 508,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2027-02-19",
+          "announcedYear": 2027,
+          "announcedMonth": 2,
+          "listedInGame": true,
+          "storedEventIds": [
+            "667fa3c6-8897-4d30-b016-fc408377149d"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "977140",
+      "variant_key": "world-169",
+      "event_id": "27099848-76a3-436f-ade3-174c21686012",
+      "content_id": "1b00b8ea-41b8-4480-9aa4-7b915942e33a",
+      "title": "The Road of Dust and Sorrow",
+      "date": "2026-12-03",
+      "release_market": "WORLD",
+      "game_id": "361053",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 361053,
+        "title": "The Road of Dust and Sorrow",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990561,
+          "platform": 169,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2027-02-19",
+          "announcedYear": 2027,
+          "announcedMonth": 2,
+          "listedInGame": true,
+          "storedEventIds": [
+            "a181118f-fe7b-4e41-8ee3-bb41694a9ef4"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "977156",
+      "variant_key": "world-6",
+      "event_id": "5985432f-5337-4adb-a277-08c46833fb5d",
+      "content_id": "5105adab-762a-4535-9562-03318b2b1d94",
+      "title": "UnderMire",
+      "date": "2026-11-13",
+      "release_market": "WORLD",
+      "game_id": "345177",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_partial_or_undated",
+      "currentGame": {
+        "gameId": 345177,
+        "title": "UnderMire",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": false,
+      "claims": [
+        {
+          "releaseId": 991657,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 1,
+          "date": null,
+          "announcedYear": 2026,
+          "announcedMonth": 12,
+          "listedInGame": true,
+          "storedEventIds": []
+        }
+      ]
+    },
+    {
+      "release_id": "978356",
+      "variant_key": "world-6",
+      "event_id": "34c17ac7-c1cf-4986-ac31-1cbea69d20ad",
+      "content_id": "30cb9d43-6307-49fb-bcc3-126c555991f7",
+      "title": "Malignus",
+      "date": "2026-11-13",
+      "release_market": "WORLD",
+      "game_id": "423854",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_partial_or_undated",
+      "currentGame": {
+        "gameId": 423854,
+        "title": "Malignus",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": false,
+      "claims": [
+        {
+          "releaseId": 991591,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 7,
+          "date": null,
+          "announcedYear": null,
+          "announcedMonth": null,
+          "listedInGame": true,
+          "storedEventIds": []
+        }
+      ]
+    },
+    {
+      "release_id": "978459",
+      "variant_key": "world-14",
+      "event_id": "1ec3df5e-48f2-4c60-b2cc-a484bedad657",
+      "content_id": "925a7ca5-afc5-4b6b-8756-f382c67e0119",
+      "title": "Australia Did It: End-of-the-World Railway Defense Business",
+      "date": "2026-11-10",
+      "release_market": "WORLD",
+      "game_id": "365278",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "current_release_missing_or_multiple",
+      "currentGame": {
+        "gameId": 365278,
+        "title": "Australia Did It: End-of-the-World Railway Defense Business",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": false,
+      "claims": []
+    },
+    {
+      "release_id": "978460",
+      "variant_key": "world-6",
+      "event_id": "cb80d0bf-23dd-4ee5-b412-9be8804d226c",
+      "content_id": "925a7ca5-afc5-4b6b-8756-f382c67e0119",
+      "title": "Australia Did It: End-of-the-World Railway Defense Business",
+      "date": "2026-11-10",
+      "release_market": "WORLD",
+      "game_id": "365278",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 365278,
+        "title": "Australia Did It: End-of-the-World Railway Defense Business",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 991491,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-17",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "2f92fc01-f441-4baa-b48a-5c4a443e3e4f"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "980963",
+      "variant_key": "world-6",
+      "event_id": "0277e7e0-4fbb-4b84-a14e-f7f750650040",
+      "content_id": "deb4cba3-c23d-4253-be57-3beb40b3a89d",
+      "title": "Dice Sort Together: Arcane Hall",
+      "date": "2026-10-27",
+      "release_market": "WORLD",
+      "game_id": "425002",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 425002,
+        "title": "Dice Sort Together: Arcane Hall",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 992851,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-03",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "c8cf22da-68ef-4b0a-afb5-7021e95ca150"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "981742",
+      "variant_key": "world-6",
+      "event_id": "8d18a1ce-04a1-4322-8ba0-b242198340df",
+      "content_id": "f4278ae5-0bbf-4ec5-89f4-a0d9ec426e96",
+      "title": "Barn Rush",
+      "date": "2026-11-16",
+      "release_market": "WORLD",
+      "game_id": "425449",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 425449,
+        "title": "Barn Rush",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 991698,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-30",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "05592193-484b-4e48-be98-14bfaa26edc4"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "981743",
+      "variant_key": "world-14",
+      "event_id": "ac45cf7a-fd4e-4cb5-9326-af3613380da7",
+      "content_id": "f4278ae5-0bbf-4ec5-89f4-a0d9ec426e96",
+      "title": "Barn Rush",
+      "date": "2026-11-16",
+      "release_market": "WORLD",
+      "game_id": "425449",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 425449,
+        "title": "Barn Rush",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 991697,
+          "platform": 14,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-30",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "4abbd04c-b79c-49d3-b4f3-032af46380fd"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "981744",
+      "variant_key": "world-3",
+      "event_id": "c94f386e-4dad-4ff0-ac0f-1cca70bb0470",
+      "content_id": "f4278ae5-0bbf-4ec5-89f4-a0d9ec426e96",
+      "title": "Barn Rush",
+      "date": "2026-11-16",
+      "release_market": "WORLD",
+      "game_id": "425449",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 425449,
+        "title": "Barn Rush",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 991696,
+          "platform": 3,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-30",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "de3aee63-d205-44fc-b416-e1a68aad96b6"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "984969",
+      "variant_key": "world-3",
+      "event_id": "a0aa7058-fef8-474f-9f08-b171b2c13cf0",
+      "content_id": "9cbc5ac1-7eed-4a38-b80e-dbeade64b745",
+      "title": "Trifolium: The Adventures of Gary Pretzelneck",
+      "date": "2026-12-04",
+      "release_market": "WORLD",
+      "game_id": "345793",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 345793,
+        "title": "Trifolium: The Adventures of Gary Pretzelneck",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 991568,
+          "platform": 3,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2027-01-26",
+          "announcedYear": 2027,
+          "announcedMonth": 1,
+          "listedInGame": true,
+          "storedEventIds": [
+            "b05f8933-2761-40b6-899b-2166ed39a419"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "984970",
+      "variant_key": "world-14",
+      "event_id": "9939d3cd-f726-4e08-a150-cff1493a08f5",
+      "content_id": "9cbc5ac1-7eed-4a38-b80e-dbeade64b745",
+      "title": "Trifolium: The Adventures of Gary Pretzelneck",
+      "date": "2026-12-04",
+      "release_market": "WORLD",
+      "game_id": "345793",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 345793,
+        "title": "Trifolium: The Adventures of Gary Pretzelneck",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 991569,
+          "platform": 14,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2027-01-26",
+          "announcedYear": 2027,
+          "announcedMonth": 1,
+          "listedInGame": true,
+          "storedEventIds": [
+            "bd862d94-a432-4c75-aed3-f0288f5895f3"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "984971",
+      "variant_key": "world-6",
+      "event_id": "c9545fa7-96d7-4754-a01f-0a270d8650ec",
+      "content_id": "9cbc5ac1-7eed-4a38-b80e-dbeade64b745",
+      "title": "Trifolium: The Adventures of Gary Pretzelneck",
+      "date": "2026-12-04",
+      "release_market": "WORLD",
+      "game_id": "345793",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 345793,
+        "title": "Trifolium: The Adventures of Gary Pretzelneck",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 991570,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2027-01-26",
+          "announcedYear": 2027,
+          "announcedMonth": 1,
+          "listedInGame": true,
+          "storedEventIds": [
+            "2b0317d0-5e0d-4572-b0a0-3a56ac4af769"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "985166",
+      "variant_key": "world-6",
+      "event_id": "d6adb83e-00c9-45a2-9060-4800d8dadd82",
+      "content_id": "51d60a08-a6cb-431c-9688-183186141020",
+      "title": "Hereditas",
+      "date": "2027-07-16",
+      "release_market": "WORLD",
+      "game_id": "427179",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "current_release_missing_or_multiple",
+      "currentGame": {
+        "gameId": 427179,
+        "title": "Hereditas",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 985167,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-01",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "ab96415f-1360-4f04-b7c2-1d64ae483796"
+          ]
+        },
+        {
+          "releaseId": 991175,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 5,
+          "date": null,
+          "announcedYear": 2027,
+          "announcedMonth": 9,
+          "listedInGame": true,
+          "storedEventIds": []
+        }
+      ]
+    },
+    {
+      "release_id": "985362",
+      "variant_key": "world-6",
+      "event_id": "7e7cc243-07e3-48f6-9775-ac4d7821ce58",
+      "content_id": "24545029-b133-425c-a777-66070938a47c",
+      "title": "Tower of Gold",
+      "date": "2026-11-01",
+      "release_market": "WORLD",
+      "game_id": "427249",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 427249,
+        "title": "Tower of Gold",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990468,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-01",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "91ecb925-47bd-42aa-a54a-9f657e1feeb4"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "986599",
+      "variant_key": "world-6",
+      "event_id": "e6a81780-285c-4ab3-bfdc-dbe03217e1a8",
+      "content_id": "54318df8-2c37-403d-9ef5-737eae73a152",
+      "title": "VR Sandbox",
+      "date": "2026-12-01",
+      "release_market": "WORLD",
+      "game_id": "427254",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 427254,
+        "title": "VR Sandbox",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 991414,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2027-01-01",
+          "announcedYear": 2027,
+          "announcedMonth": 1,
+          "listedInGame": true,
+          "storedEventIds": [
+            "0180edcd-b05d-4886-b6d2-a129227eefd3"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "986848",
+      "variant_key": "world-6",
+      "event_id": "41f5ed78-90ae-4803-972c-e64db72d8bd5",
+      "content_id": "ca6fdc04-f9ac-4ae3-b767-7847ec9b92f4",
+      "title": "Nullnest",
+      "date": "2026-11-16",
+      "release_market": "WORLD",
+      "game_id": "428384",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 428384,
+        "title": "Nullnest",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990366,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-16",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "66a25224-ba21-4ff3-884a-8cddda1be6cb"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "987455",
+      "variant_key": "world-6",
+      "event_id": "63802fd7-4309-4d63-9e7a-640e57fe62c8",
+      "content_id": "1d841dc7-9deb-4064-80d9-32d88ad16c32",
+      "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+      "date": "2026-11-05",
+      "release_market": "WORLD",
+      "game_id": "428613",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "current_game_outside_main_game",
+      "currentGame": {
+        "gameId": 428613,
+        "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+        "gameType": 14
+      },
+      "originalReleaseStillFound": true
+    },
+    {
+      "release_id": "987456",
+      "variant_key": "world-169",
+      "event_id": "89e2247c-9a09-43d4-95c4-63722f8c578c",
+      "content_id": "1d841dc7-9deb-4064-80d9-32d88ad16c32",
+      "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+      "date": "2026-11-05",
+      "release_market": "WORLD",
+      "game_id": "428613",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "current_game_outside_main_game",
+      "currentGame": {
+        "gameId": 428613,
+        "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+        "gameType": 14
+      },
+      "originalReleaseStillFound": true
+    },
+    {
+      "release_id": "987457",
+      "variant_key": "world-167",
+      "event_id": "5631bb02-f9c5-414f-9878-c2960ebb39a8",
+      "content_id": "1d841dc7-9deb-4064-80d9-32d88ad16c32",
+      "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+      "date": "2026-11-05",
+      "release_market": "WORLD",
+      "game_id": "428613",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "current_game_outside_main_game",
+      "currentGame": {
+        "gameId": 428613,
+        "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+        "gameType": 14
+      },
+      "originalReleaseStillFound": true
+    },
+    {
+      "release_id": "987458",
+      "variant_key": "world-48",
+      "event_id": "6de5c233-28ae-4ef2-80f0-cf963e9d05cb",
+      "content_id": "1d841dc7-9deb-4064-80d9-32d88ad16c32",
+      "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+      "date": "2026-11-05",
+      "release_market": "WORLD",
+      "game_id": "428613",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "current_game_outside_main_game",
+      "currentGame": {
+        "gameId": 428613,
+        "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+        "gameType": 14
+      },
+      "originalReleaseStillFound": true
+    },
+    {
+      "release_id": "987459",
+      "variant_key": "world-49",
+      "event_id": "a5fa29ac-78fd-431f-9d76-2f493c4b7d2f",
+      "content_id": "1d841dc7-9deb-4064-80d9-32d88ad16c32",
+      "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+      "date": "2026-11-05",
+      "release_market": "WORLD",
+      "game_id": "428613",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "current_game_outside_main_game",
+      "currentGame": {
+        "gameId": 428613,
+        "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+        "gameType": 14
+      },
+      "originalReleaseStillFound": true
+    },
+    {
+      "release_id": "987547",
+      "variant_key": "world-6",
+      "event_id": "969215bf-84e1-424b-8950-7877fd17e354",
+      "content_id": "16df2c89-fa8c-438f-b1e1-7b412a12634c",
+      "title": "Rogue Braver",
+      "date": "2026-11-30",
+      "release_market": "WORLD",
+      "game_id": "428639",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 428639,
+        "title": "Rogue Braver",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990643,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-06",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "6d7f16a5-e6d5-4f10-9b9c-711c461641ab"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "987608",
+      "variant_key": "world-6",
+      "event_id": "a975eec6-a861-4d41-a9f9-1e9d4e8326ba",
+      "content_id": "5062ba5b-60e9-4458-8826-1531a1e9d9cd",
+      "title": "Dinosaur Shakespeare 3: They Are On The Moon Now And It Escalated Quickly - Bloodcore Edition",
+      "date": "2026-11-07",
+      "release_market": "WORLD",
+      "game_id": "428643",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 428643,
+        "title": "Dinosaur Shakespeare 3: They Are On The Moon Now And It Escalated Quickly - Bloodcore Edition",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990649,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-07",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "dfe19b4e-2254-44ea-a9dd-8831b4204332"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "988093",
+      "variant_key": "world-6",
+      "event_id": "4dc3a308-7392-4a47-a34e-e952336bcc2e",
+      "content_id": "5cf3dd0e-b262-4dee-8504-913937e8f740",
+      "title": "Exodus Core",
+      "date": "2026-11-13",
+      "release_market": "WORLD",
+      "game_id": "347750",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 347750,
+        "title": "Exodus Core",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 992314,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-27",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "528f97fb-109c-448f-97b1-317fd7c47848"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "988326",
+      "variant_key": "world-6",
+      "event_id": "ff9999f1-f9fd-4e7a-9c67-ddff2accc515",
+      "content_id": "4047e8d9-5b7c-40fe-934f-0e2a1e301a36",
+      "title": "Irreverence",
+      "date": "2026-11-12",
+      "release_market": "WORLD",
+      "game_id": "412428",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_dated",
+      "currentGame": {
+        "gameId": 412428,
+        "title": "Irreverence",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": true,
+      "claims": [
+        {
+          "releaseId": 990789,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 0,
+          "date": "2026-11-11",
+          "announcedYear": 2026,
+          "announcedMonth": 11,
+          "listedInGame": true,
+          "storedEventIds": [
+            "fde4c6d4-7ac2-4dff-bb6b-fe37da0d76fd"
+          ]
+        }
+      ]
+    },
+    {
+      "release_id": "988489",
+      "variant_key": "world-6",
+      "event_id": "f48e6c92-c619-4c19-969f-e61d614f8898",
+      "content_id": "d0fc4c22-bdd0-4bbf-a636-f8248c885c3a",
+      "title": "Hidden Bananas",
+      "date": "2026-11-10",
+      "release_market": "WORLD",
+      "game_id": "348683",
+      "automaticRebindingAllowed": false,
+      "databaseMutations": 0,
+      "status": "possible_successor_partial_or_undated",
+      "currentGame": {
+        "gameId": 348683,
+        "title": "Hidden Bananas",
+        "gameType": 0
+      },
+      "originalReleaseRegion": null,
+      "reason": "Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.",
+      "possibleDuplicateStoredEvent": false,
+      "claims": [
+        {
+          "releaseId": 990698,
+          "platform": 6,
+          "region": 8,
+          "dateFormat": 7,
+          "date": null,
+          "announcedYear": null,
+          "announcedMonth": null,
+          "listedInGame": true,
+          "storedEventIds": []
+        }
+      ]
+    }
+  ],
+  "observations": {
+    "games": [
+      {
+        "id": 280384,
+        "name": "Profiler Files: New Orleans",
+        "release_dates": [
+          990695
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 345177,
+        "name": "UnderMire",
+        "release_dates": [
+          991657
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 345793,
+        "name": "Trifolium: The Adventures of Gary Pretzelneck",
+        "release_dates": [
+          991568,
+          991569,
+          991570
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 347750,
+        "name": "Exodus Core",
+        "release_dates": [
+          992314
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 347898,
+        "name": "Hope in the City",
+        "release_dates": [
+          990503,
+          990504
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 348683,
+        "name": "Hidden Bananas",
+        "release_dates": [
+          990698
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 361053,
+        "name": "The Road of Dust and Sorrow",
+        "release_dates": [
+          990558,
+          990559,
+          990557,
+          990560,
+          990561
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 365278,
+        "name": "Australia Did It: End-of-the-World Railway Defense Business",
+        "release_dates": [
+          991491
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 371367,
+        "name": "Deiity (Under Ice)",
+        "release_dates": [
+          993171,
+          993172,
+          993173
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 372849,
+        "name": "Elixir of Moonglow",
+        "release_dates": [
+          990621
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 378678,
+        "name": "Young Suns",
+        "release_dates": [
+          837680,
+          837681,
+          837682,
+          991556,
+          967536,
+          967537
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 384862,
+        "name": "Sound System",
+        "release_dates": [
+          992966
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 387282,
+        "name": "Protect the Pit",
+        "release_dates": [
+          991428
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 400112,
+        "name": "Wilderdark",
+        "release_dates": [
+          990977
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 407323,
+        "name": "Anomalous Veil",
+        "release_dates": [
+          990982
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 412428,
+        "name": "Irreverence",
+        "release_dates": [
+          990789
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 419163,
+        "name": "Let Me Die",
+        "release_dates": [
+          991411
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 421108,
+        "name": "Towers of Babble",
+        "release_dates": [
+          990011,
+          990012,
+          990013
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 422228,
+        "name": "Pup & Mole: Gold Rush",
+        "release_dates": [
+          991255,
+          991426,
+          991427
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 423854,
+        "name": "Malignus",
+        "release_dates": [
+          991591
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 425002,
+        "name": "Dice Sort Together: Arcane Hall",
+        "release_dates": [
+          992851
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 425449,
+        "name": "Barn Rush",
+        "release_dates": [
+          991696,
+          991697,
+          991698
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 427179,
+        "name": "Hereditas",
+        "release_dates": [
+          985167,
+          991175
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 427249,
+        "name": "Tower of Gold",
+        "release_dates": [
+          990468
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 427254,
+        "name": "VR Sandbox",
+        "release_dates": [
+          986600,
+          991414
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 428384,
+        "name": "Nullnest",
+        "release_dates": [
+          990366
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 428613,
+        "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+        "release_dates": [
+          987455,
+          987456,
+          987457,
+          987458,
+          987459
+        ],
+        "game_type": 14
+      },
+      {
+        "id": 428639,
+        "name": "Rogue Braver",
+        "release_dates": [
+          990643
+        ],
+        "game_type": 0
+      },
+      {
+        "id": 428643,
+        "name": "Dinosaur Shakespeare 3: They Are On The Moon Now And It Escalated Quickly - Bloodcore Edition",
+        "release_dates": [
+          990649,
+          990650
+        ],
+        "game_type": 0
+      }
+    ],
+    "direct": [
+      {
+        "id": 987455,
+        "date": 1793836800,
+        "game": {
+          "id": 428613,
+          "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+          "game_type": 14
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 987456,
+        "date": 1793836800,
+        "game": {
+          "id": 428613,
+          "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+          "game_type": 14
+        },
+        "m": 11,
+        "platform": {
+          "id": 169,
+          "name": "Xbox Series X|S"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 987457,
+        "date": 1793836800,
+        "game": {
+          "id": 428613,
+          "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+          "game_type": 14
+        },
+        "m": 11,
+        "platform": {
+          "id": 167,
+          "name": "PlayStation 5"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 987458,
+        "date": 1793836800,
+        "game": {
+          "id": 428613,
+          "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+          "game_type": 14
+        },
+        "m": 11,
+        "platform": {
+          "id": 48,
+          "name": "PlayStation 4"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 987459,
+        "date": 1793836800,
+        "game": {
+          "id": 428613,
+          "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+          "game_type": 14
+        },
+        "m": 11,
+        "platform": {
+          "id": 49,
+          "name": "Xbox One"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      }
+    ],
+    "releases": [
+      {
+        "id": 837680,
+        "date": 1764028800,
+        "game": {
+          "id": 378678,
+          "name": "Young Suns",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 49,
+          "name": "Xbox One"
+        },
+        "y": 2025,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 837681,
+        "date": 1764028800,
+        "game": {
+          "id": 378678,
+          "name": "Young Suns",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 169,
+          "name": "Xbox Series X|S"
+        },
+        "y": 2025,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 837682,
+        "date": 1764028800,
+        "game": {
+          "id": 378678,
+          "name": "Young Suns",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2025,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 967536,
+        "date": 1788134400,
+        "game": {
+          "id": 378678,
+          "name": "Young Suns",
+          "game_type": 0
+        },
+        "m": 8,
+        "platform": {
+          "id": 49,
+          "name": "Xbox One"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 967537,
+        "date": 1788134400,
+        "game": {
+          "id": 378678,
+          "name": "Young Suns",
+          "game_type": 0
+        },
+        "m": 8,
+        "platform": {
+          "id": 169,
+          "name": "Xbox Series X|S"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 985167,
+        "date": 1793491200,
+        "game": {
+          "id": 427179,
+          "name": "Hereditas",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 986600,
+        "date": 1798761600,
+        "game": {
+          "id": 427254,
+          "name": "VR Sandbox",
+          "game_type": 0
+        },
+        "m": 1,
+        "platform": {
+          "id": 163,
+          "name": "SteamVR"
+        },
+        "y": 2027,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 987455,
+        "date": 1793836800,
+        "game": {
+          "id": 428613,
+          "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+          "game_type": 14
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 987456,
+        "date": 1793836800,
+        "game": {
+          "id": 428613,
+          "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+          "game_type": 14
+        },
+        "m": 11,
+        "platform": {
+          "id": 169,
+          "name": "Xbox Series X|S"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 987457,
+        "date": 1793836800,
+        "game": {
+          "id": 428613,
+          "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+          "game_type": 14
+        },
+        "m": 11,
+        "platform": {
+          "id": 167,
+          "name": "PlayStation 5"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 987458,
+        "date": 1793836800,
+        "game": {
+          "id": 428613,
+          "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+          "game_type": 14
+        },
+        "m": 11,
+        "platform": {
+          "id": 48,
+          "name": "PlayStation 4"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 987459,
+        "date": 1793836800,
+        "game": {
+          "id": 428613,
+          "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+          "game_type": 14
+        },
+        "m": 11,
+        "platform": {
+          "id": 49,
+          "name": "Xbox One"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990011,
+        "date": 1794268800,
+        "game": {
+          "id": 421108,
+          "name": "Towers of Babble",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 3,
+          "name": "Linux"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990012,
+        "date": 1794268800,
+        "game": {
+          "id": 421108,
+          "name": "Towers of Babble",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 14,
+          "name": "Mac"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990013,
+        "date": 1794268800,
+        "game": {
+          "id": 421108,
+          "name": "Towers of Babble",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990366,
+        "date": 1794787200,
+        "game": {
+          "id": 428384,
+          "name": "Nullnest",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990468,
+        "date": 1793491200,
+        "game": {
+          "id": 427249,
+          "name": "Tower of Gold",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990503,
+        "date": 1794355200,
+        "game": {
+          "id": 347898,
+          "name": "Hope in the City",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990504,
+        "date": 1794355200,
+        "game": {
+          "id": 347898,
+          "name": "Hope in the City",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 169,
+          "name": "Xbox Series X|S"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990557,
+        "date": 1802995200,
+        "game": {
+          "id": 361053,
+          "name": "The Road of Dust and Sorrow",
+          "game_type": 0
+        },
+        "m": 2,
+        "platform": {
+          "id": 130,
+          "name": "Nintendo Switch"
+        },
+        "y": 2027,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990558,
+        "date": 1802995200,
+        "game": {
+          "id": 361053,
+          "name": "The Road of Dust and Sorrow",
+          "game_type": 0
+        },
+        "m": 2,
+        "platform": {
+          "id": 508,
+          "name": "Nintendo Switch 2"
+        },
+        "y": 2027,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990559,
+        "date": 1802995200,
+        "game": {
+          "id": 361053,
+          "name": "The Road of Dust and Sorrow",
+          "game_type": 0
+        },
+        "m": 2,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2027,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990560,
+        "date": 1802995200,
+        "game": {
+          "id": 361053,
+          "name": "The Road of Dust and Sorrow",
+          "game_type": 0
+        },
+        "m": 2,
+        "platform": {
+          "id": 167,
+          "name": "PlayStation 5"
+        },
+        "y": 2027,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990561,
+        "date": 1802995200,
+        "game": {
+          "id": 361053,
+          "name": "The Road of Dust and Sorrow",
+          "game_type": 0
+        },
+        "m": 2,
+        "platform": {
+          "id": 169,
+          "name": "Xbox Series X|S"
+        },
+        "y": 2027,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990621,
+        "game": {
+          "id": 372849,
+          "name": "Elixir of Moonglow",
+          "game_type": 0
+        },
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "date_format": 7,
+        "release_region": 8
+      },
+      {
+        "id": 990643,
+        "date": 1793923200,
+        "game": {
+          "id": 428639,
+          "name": "Rogue Braver",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990649,
+        "date": 1794009600,
+        "game": {
+          "id": 428643,
+          "name": "Dinosaur Shakespeare 3: They Are On The Moon Now And It Escalated Quickly - Bloodcore Edition",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990650,
+        "date": 1794009600,
+        "game": {
+          "id": 428643,
+          "name": "Dinosaur Shakespeare 3: They Are On The Moon Now And It Escalated Quickly - Bloodcore Edition",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 3,
+          "name": "Linux"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990695,
+        "date": 1794268800,
+        "game": {
+          "id": 280384,
+          "name": "Profiler Files: New Orleans",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990698,
+        "game": {
+          "id": 348683,
+          "name": "Hidden Bananas",
+          "game_type": 0
+        },
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "date_format": 7,
+        "release_region": 8
+      },
+      {
+        "id": 990789,
+        "date": 1794355200,
+        "game": {
+          "id": 412428,
+          "name": "Irreverence",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990977,
+        "date": 1794268800,
+        "game": {
+          "id": 400112,
+          "name": "Wilderdark",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 990982,
+        "date": 1794268800,
+        "game": {
+          "id": 407323,
+          "name": "Anomalous Veil",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 991175,
+        "date": 1822262400,
+        "game": {
+          "id": 427179,
+          "name": "Hereditas",
+          "game_type": 0
+        },
+        "m": 9,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2027,
+        "date_format": 5,
+        "release_region": 8
+      },
+      {
+        "id": 991255,
+        "date": 1800835200,
+        "game": {
+          "id": 422228,
+          "name": "Pup & Mole: Gold Rush",
+          "game_type": 0
+        },
+        "m": 1,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2027,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 991411,
+        "date": 1794960000,
+        "game": {
+          "id": 419163,
+          "name": "Let Me Die",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 991414,
+        "date": 1798761600,
+        "game": {
+          "id": 427254,
+          "name": "VR Sandbox",
+          "game_type": 0
+        },
+        "m": 1,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2027,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 991426,
+        "date": 1800835200,
+        "game": {
+          "id": 422228,
+          "name": "Pup & Mole: Gold Rush",
+          "game_type": 0
+        },
+        "m": 1,
+        "platform": {
+          "id": 3,
+          "name": "Linux"
+        },
+        "y": 2027,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 991427,
+        "date": 1800835200,
+        "game": {
+          "id": 422228,
+          "name": "Pup & Mole: Gold Rush",
+          "game_type": 0
+        },
+        "m": 1,
+        "platform": {
+          "id": 14,
+          "name": "Mac"
+        },
+        "y": 2027,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 991428,
+        "date": 1800921600,
+        "game": {
+          "id": 387282,
+          "name": "Protect the Pit",
+          "game_type": 0
+        },
+        "m": 1,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2027,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 991491,
+        "date": 1794873600,
+        "game": {
+          "id": 365278,
+          "name": "Australia Did It: End-of-the-World Railway Defense Business",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 991556,
+        "date": 1806451200,
+        "game": {
+          "id": 378678,
+          "name": "Young Suns",
+          "game_type": 0
+        },
+        "m": 3,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2027,
+        "date_format": 3,
+        "release_region": 8
+      },
+      {
+        "id": 991568,
+        "date": 1800921600,
+        "game": {
+          "id": 345793,
+          "name": "Trifolium: The Adventures of Gary Pretzelneck",
+          "game_type": 0
+        },
+        "m": 1,
+        "platform": {
+          "id": 3,
+          "name": "Linux"
+        },
+        "y": 2027,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 991569,
+        "date": 1800921600,
+        "game": {
+          "id": 345793,
+          "name": "Trifolium: The Adventures of Gary Pretzelneck",
+          "game_type": 0
+        },
+        "m": 1,
+        "platform": {
+          "id": 14,
+          "name": "Mac"
+        },
+        "y": 2027,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 991570,
+        "date": 1800921600,
+        "game": {
+          "id": 345793,
+          "name": "Trifolium: The Adventures of Gary Pretzelneck",
+          "game_type": 0
+        },
+        "m": 1,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2027,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 991591,
+        "game": {
+          "id": 423854,
+          "name": "Malignus",
+          "game_type": 0
+        },
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "date_format": 7,
+        "release_region": 8
+      },
+      {
+        "id": 991657,
+        "date": 1796083200,
+        "game": {
+          "id": 345177,
+          "name": "UnderMire",
+          "game_type": 0
+        },
+        "m": 12,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 1,
+        "release_region": 8
+      },
+      {
+        "id": 991696,
+        "date": 1795996800,
+        "game": {
+          "id": 425449,
+          "name": "Barn Rush",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 3,
+          "name": "Linux"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 991697,
+        "date": 1795996800,
+        "game": {
+          "id": 425449,
+          "name": "Barn Rush",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 14,
+          "name": "Mac"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 991698,
+        "date": 1795996800,
+        "game": {
+          "id": 425449,
+          "name": "Barn Rush",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 992314,
+        "date": 1795737600,
+        "game": {
+          "id": 347750,
+          "name": "Exodus Core",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 992851,
+        "date": 1793664000,
+        "game": {
+          "id": 425002,
+          "name": "Dice Sort Together: Arcane Hall",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 992966,
+        "date": 1794787200,
+        "game": {
+          "id": 384862,
+          "name": "Sound System",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 993171,
+        "date": 1794873600,
+        "game": {
+          "id": 371367,
+          "name": "Deiity (Under Ice)",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 3,
+          "name": "Linux"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 993172,
+        "date": 1794873600,
+        "game": {
+          "id": 371367,
+          "name": "Deiity (Under Ice)",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 14,
+          "name": "Mac"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      },
+      {
+        "id": 993173,
+        "date": 1794873600,
+        "game": {
+          "id": 371367,
+          "name": "Deiity (Under Ice)",
+          "game_type": 0
+        },
+        "m": 11,
+        "platform": {
+          "id": 6,
+          "name": "PC (Microsoft Windows)"
+        },
+        "y": 2026,
+        "date_format": 0,
+        "release_region": 8
+      }
+    ],
+    "complete": true
+  }
+}

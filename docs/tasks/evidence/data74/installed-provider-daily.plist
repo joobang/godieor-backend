@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>Label</key><string>dev.godieor.provider-daily</string>
+<key>ProgramArguments</key><array><string>/Users/dojoohwan/.local/share/godieor/node-v24.22.3/bin/node</string><string>/Users/dojoohwan/workspace/godieor-backend/scripts/run-provider-daily.mjs</string></array>
+<key>WorkingDirectory</key><string>/Users/dojoohwan/workspace/godieor-backend</string>
+<key>StartCalendarInterval</key><dict><key>Hour</key><integer>8</integer><key>Minute</key><integer>30</integer></dict>
+<key>StandardOutPath</key><string>/Users/dojoohwan/workspace/godieor-backend/work/provider-launchd.stdout.log</string>
+<key>StandardErrorPath</key><string>/Users/dojoohwan/workspace/godieor-backend/work/provider-launchd.stderr.log</string>
+<key>RunAtLoad</key><false/>
+</dict></plist>

@@ -1,0 +1,25 @@
+{
+  "observedAt": "2026-11-17T03:39:25.234Z",
+  "trigger": "explicit launchctl kickstart; next natural08:30 execution not observed",
+  "state": "not running",
+  "runs": 3,
+  "lastExitCode": 0,
+  "config": {
+    "StandardErrorPath": "/Users/dojoohwan/workspace/godieor-backend/work/provider-launchd.stderr.log",
+    "StandardOutPath": "/Users/dojoohwan/workspace/godieor-backend/work/provider-launchd.stdout.log",
+    "StartCalendarInterval": {
+      "Hour": 8,
+      "Minute": 30
+    },
+    "ProgramArguments": [
+      "/Users/dojoohwan/.local/share/godieor/node-v24.22.3/bin/node",
+      "/Users/dojoohwan/workspace/godieor-backend/scripts/run-provider-daily.mjs"
+    ],
+    "RunAtLoad": false,
+    "WorkingDirectory": "/Users/dojoohwan/workspace/godieor-backend",
+    "Label": "dev.godieor.provider-daily"
+  },
+  "plistSha256": "6512b3691d2d534b847797751d9ddfc460ee85b3fba8bc24cbeca81b96ed776b",
+  "finalEventRowsAndHistoryPreserved": 32693,
+  "lockReleased": true
+}

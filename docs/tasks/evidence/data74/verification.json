@@ -1,0 +1,269 @@
+{
+  "scope": "author local real-source/DB/API checks, not independent approval",
+  "observedAt": "2026-11-17T03:29:24.297Z",
+  "beforeCounts": {
+    "fixture": 7,
+    "football_data_pl": 760,
+    "igdb": 29914,
+    "kobis": 1909,
+    "ott_reviewed": 93
+  },
+  "afterCounts": {
+    "fixture": 7,
+    "football_data_pl": 760,
+    "igdb": 29924,
+    "kobis": 1909,
+    "ott_reviewed": 93
+  },
+  "newCounts": {
+    "igdb": 10
+  },
+  "oldIDsPreserved": 32683,
+  "oldRowsAndHistoryUnchanged": 32683,
+  "changedExisting": 0,
+  "protectedOttFixtureUnchanged": true,
+  "sourceGameSamples": 10,
+  "sourceEplNewChecked": 0,
+  "apiListed": 30125,
+  "monthly": [
+    {
+      "from": "2026-01-01",
+      "to": "2026-02-01",
+      "events": 2347,
+      "pages": 24
+    },
+    {
+      "from": "2026-02-01",
+      "to": "2026-03-01",
+      "events": 2396,
+      "pages": 24
+    },
+    {
+      "from": "2026-03-01",
+      "to": "2026-04-01",
+      "events": 3107,
+      "pages": 32
+    },
+    {
+      "from": "2026-04-01",
+      "to": "2026-05-01",
+      "events": 2891,
+      "pages": 29
+    },
+    {
+      "from": "2026-05-01",
+      "to": "2026-06-01",
+      "events": 2278,
+      "pages": 23
+    },
+    {
+      "from": "2026-06-01",
+      "to": "2026-07-01",
+      "events": 2308,
+      "pages": 24
+    },
+    {
+      "from": "2026-07-01",
+      "to": "2026-08-01",
+      "events": 2882,
+      "pages": 29
+    },
+    {
+      "from": "2026-08-01",
+      "to": "2026-09-01",
+      "events": 2728,
+      "pages": 28
+    },
+    {
+      "from": "2026-09-01",
+      "to": "2026-10-01",
+      "events": 2755,
+      "pages": 28
+    },
+    {
+      "from": "2026-10-01",
+      "to": "2026-11-01",
+      "events": 2951,
+      "pages": 30
+    },
+    {
+      "from": "2026-11-01",
+      "to": "2026-12-01",
+      "events": 2219,
+      "pages": 23
+    },
+    {
+      "from": "2026-12-01",
+      "to": "2027-01-01",
+      "events": 573,
+      "pages": 6
+    },
+    {
+      "from": "2027-01-01",
+      "to": "2027-02-01",
+      "events": 253,
+      "pages": 3
+    },
+    {
+      "from": "2027-02-01",
+      "to": "2027-03-01",
+      "events": 159,
+      "pages": 2
+    },
+    {
+      "from": "2027-03-01",
+      "to": "2027-04-01",
+      "events": 135,
+      "pages": 2
+    },
+    {
+      "from": "2027-04-01",
+      "to": "2027-05-01",
+      "events": 56,
+      "pages": 1
+    },
+    {
+      "from": "2027-05-01",
+      "to": "2027-06-01",
+      "events": 61,
+      "pages": 1
+    },
+    {
+      "from": "2027-06-01",
+      "to": "2027-07-01",
+      "events": 7,
+      "pages": 1
+    },
+    {
+      "from": "2027-07-01",
+      "to": "2027-08-01",
+      "events": 8,
+      "pages": 1
+    },
+    {
+      "from": "2027-08-01",
+      "to": "2027-09-01",
+      "events": 1,
+      "pages": 1
+    },
+    {
+      "from": "2027-09-01",
+      "to": "2027-10-01",
+      "events": 0,
+      "pages": 1
+    },
+    {
+      "from": "2027-10-01",
+      "to": "2027-11-01",
+      "events": 1,
+      "pages": 1
+    },
+    {
+      "from": "2027-11-01",
+      "to": "2027-12-01",
+      "events": 6,
+      "pages": 1
+    },
+    {
+      "from": "2027-12-01",
+      "to": "2028-01-01",
+      "events": 3,
+      "pages": 1
+    }
+  ],
+  "checked": [
+    {
+      "provider": "igdb",
+      "externalId": "992526",
+      "date": "2026-11-05",
+      "market": "WORLD",
+      "devices": [
+        "pc"
+      ]
+    },
+    {
+      "provider": "igdb",
+      "externalId": "992550",
+      "date": "2026-11-09",
+      "market": "WORLD",
+      "devices": [
+        "pc"
+      ]
+    },
+    {
+      "provider": "igdb",
+      "externalId": "992595",
+      "date": "2026-11-13",
+      "market": "WORLD",
+      "devices": [
+        "pc"
+      ]
+    },
+    {
+      "provider": "igdb",
+      "externalId": "992981",
+      "date": "2026-11-15",
+      "market": "WORLD",
+      "devices": [
+        "pc"
+      ]
+    },
+    {
+      "provider": "igdb",
+      "externalId": "992982",
+      "date": "2026-11-15",
+      "market": "WORLD",
+      "devices": [
+        "pc"
+      ]
+    },
+    {
+      "provider": "igdb",
+      "externalId": "993034",
+      "date": "2026-10-28",
+      "market": "WORLD",
+      "devices": [
+        "ios"
+      ]
+    },
+    {
+      "provider": "igdb",
+      "externalId": "993067",
+      "date": "2026-12-13",
+      "market": "WORLD",
+      "devices": [
+        "pc"
+      ]
+    },
+    {
+      "provider": "igdb",
+      "externalId": "993122",
+      "date": "2026-10-29",
+      "market": "WORLD",
+      "devices": [
+        "playstation"
+      ]
+    },
+    {
+      "provider": "igdb",
+      "externalId": "993123",
+      "date": "2026-12-10",
+      "market": "WORLD",
+      "devices": [
+        "pc"
+      ]
+    },
+    {
+      "provider": "igdb",
+      "externalId": "993124",
+      "date": "2026-11-19",
+      "market": "WORLD",
+      "devices": [
+        "xbox"
+      ]
+    }
+  ],
+  "changedRows": [],
+  "beforeHash": "711b382d77e1977bec81423f71d1d7a15b1e7b4f736442a2c8cf0e37edddd73d",
+  "afterHash": "6a1f184ad74835dcd565c8fc74b4697184bb7a35c7d9f16516a8c954963f60d7"
+}
