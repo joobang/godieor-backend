@@ -37,15 +37,17 @@
 | node scripts/run-official-ott-pipeline.mjs --reuse-recent-tmdb |2|최종 실제 신규0/게시93,23원천일치. 만료 snapshot 거절/404·식별 보류 유지 |
 | node --env-file=.env docs/tasks/evidence/data72/verify-db-api.cjs (schedule/fixture=false,provider-only=true) |0|SQL93 전체행·ID·이력 동일, API목록93/23상세200 |
 | 읽기 전용 collection_scope/event_source SQL |0|원천별 날짜를 SQL date::text로 저장, provider-inventory.json. fixture는 실데이터에서 제외 |
-| git diff --check / 보호 지문 / 공통 문서 사본·context 검사 |종료 시 확인|아래 handoff 및 Git 이력 참조 |
+| git diff --check / 보호 지문 / 공통 문서 사본 |0|API/acceptance·개인pbxproj 불변,5개 공통문서 세 저장소 byte 일치. SYNC-2026-11-17-02 |
 
 검사 도구가 API 상세 래퍼를 잘못 접근한 두 번의 실패는 실제 event 래퍼를 확인해 고친 뒤 전체 재실행해 해소했다. 임시 SQL의 없는 category 열 조회도 kind/release_market 및 SQL date 문자열로 고쳤다. 기존 pg 동시 query deprecation warning은 관측했으며 이번 신규 적재 성공과 분리한다.
 
 ## 독립 검증 handoff·남은 작업
 
-- app base/head: 위 eef7619 런타임 동일, 이번 app 변경은 공통 문서만. backend base는 위67d29b2, 구현 head는 이번 작업 커밋/Git 이력 참조. 종료 문서 head는 각 저장소 git log로 확인.
+- app base/head: 위 eef7619 런타임 동일, 이번 app 변경은 공통 문서만. backend base는 위67d29b2, 구현 head a5fc69f0986ad60acfc692f2e7b167dba463d967. 종료 문서 head는 각 저장소 git log로 확인.
 - API0.1.0-draft.5 manifestSHA256 0ffd7cbcdcb3c46b450e626ced90055e985308d728c279832aa00ec76b24e9c9. migration digest ec6966538bd599bf0dcee21ec0e0fb03a63b513ae01654d52b9e2badf5697fd7, 변경 없음.
 - verifier 위0feaa3a 기준/승인·verdict 불변. 자체 backend-only + 로컬 실제 SQL/API/일회용DB 검사이며 독립runner·통합승인·iOS/실폰·클라우드 미실행.
 - 개인 pbxproj SHA256 f8ef38b1a44d31034be8137e7c149616c8d10b5fec23d23c50ad5445342b54ba 보존. push·배포·유료 가입 미실행.
 - 다음: 새 시즌·나머지 OTT의 일반 자동 첫날 검토,404의 정체성/유형 확보, TMDB 새 전체 실행, 영화·게임·EPL2026 백필/최신 갱신·일일 복구 확인. 자동 검토 작품의 다음날 원천 재확인 범위도 현재 고정 DATA70 배치23을 넘어 확대해야 한다.
 - 새로운 정상 입력14건의 자동 적재를 재현했지만 신규 시즌/나머지 제공처/과거·먼 미래 전수 수집 완료는 아니다. 데이터 단계 종료 전 배포·디자인으로 이동하지 않는다.
+
+종료 시 최종 파이프라인/검사 프로세스와 data72 일회용 컨테이너가 남지 않았음을 확인했다. 공통 status/handoff/plan·architecture/policies 및 학습 기록을 동기화했다. context 전달본은 종료 문서 커밋 후 생성·--check한다.

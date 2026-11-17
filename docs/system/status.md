@@ -1,3 +1,12 @@
+## DATA-72 · Netflix 신규 최초 공개 자동 적재 연결 (2026-11-17)
+
+- backend 원본 `docs/tasks/DATA-72-netflix-first-premiere.md`, 구현 a5fc69f0986ad60acfc692f2e7b167dba463d967, ADR022/LEARN0021. Netflix 최신 KR 일정·같은 작품 canonical ID/형태/최초 날짜 일치 시 curated binding 없이 자동 검토→불투명 key→기존 DB 게시 경로를 연결했다.
+- 실제 공식78항목을 보존된 미검토 상태에 재생한 일회용 PostgreSQL **70→84→84**, 자동14검토/14상세API200/기존70행·ID·이력 보존. 고정digest PostgreSQL 사용. 현재 제품에는 이미 DATA70에 게시한14건이므로 오늘 신규14라고 세지 않는다.
+- 현재 실제 제품 **93/신규0**, 전체행·ID·이력 hash 보존/API목록93·관련23상세200. 최종 자체302/302, DATA70 공식23원천 재확인23일치. 날짜 비정규 표기는 정규화하되 시즌 개수·과거 첫날로 새 시즌을 추정하지 않는다.
+- 최종 실제 통합 실행 exit2: Netflix 상세404 3/식별·첫날 보류·만료 TMDB snapshot 거절을 그대로 남겼다. 이번에 TMDB 전체 재수집 성공을 주장하지 않는다. 새09시 자동 실행 성공도 미리 세지 않는다.
+- backend `docs/data-coverage.md`에 원천별 기간·페이지·지원 범위·DB 실제 관측·누락/미정·스케줄 격차 고정. 게임2026년 초반과 EPL2026년 이전 시즌 백필/최신 갱신이 남는다. 다음 데이터 작업은 이 백필·일일 갱신과 새 시즌/나머지 OTT 자동 첫날 검토 확대다.
+- app base eef7619/backend base67d29b2→구현a5fc69f/verifier base0feaa3a. 앱 코드는 불변·개인pbxproj 지문 보존·담당 해제. API/migration/acceptance·verdict 불변, 독립runner·iOS/클라우드·push 미실행. 공통 revision SYNC-2026-11-17-02. 데이터 완료 후 배포→기본기능→디자인 순서를 유지한다.
+
 ## PLAN-01 · 데이터→배포→기본기능→디자인 순서 확정 (2026-11-17)
 
 - 사용자 확정: 기본기능 완성을 목표로 데이터 수집·적재 완료 → 배포 환경 설정·실제 배포 → 나머지 기본기능 완료 → 디테일·디자인 순서. 원본 app `docs/ai/tasks/PLAN-01-data-first-rollout.md`.
