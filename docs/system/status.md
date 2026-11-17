@@ -1,3 +1,12 @@
+## DATA-71 · 게시 원천 일간 재검증·첫 자동 실행 관측 (2026-11-17)
+
+- 원본 backend `docs/tasks/DATA-71-source-refresh.md`, 구현2743587/기수 보완4f395bc/증거be433ce, ADR-022/LEARN-0021.
+- 오늘 launchd가09:00:05 기동해09:30:55 종료한 실제 자동 실행을 관측했다. 기존93 게시/신규0, TMDB1261후보·요청오류0. 발견·식별 격차로 exit2 부분 완료를 보존했다.
+- 이후 DATA70 게시23건의 공식 날짜·시즌·정체성/형태·배우·자체 작품 기수 재검증을 일간 경로에 연결했다. batch 지문·현재 review 전체 값/revision·고정 키 결속, 한국 Netflix canonical 이동/한 실행 수집본 검증 재사용·제한 재시도·공유 기사1회 조회 지원. 변경/누락은 보고서·exit2에 남기며 기존 리뷰/DB 자동 변경 없음.
+- 새 단계 포함 별도 실제 실행23/23 matched·gaps0, 기존93 event 전체행·ID·이력·hash 보존/API목록93·관련23상세200. 최종 자체288/288. 신규 적재0. 오늘09시 자동 실행은 연결 전 코드이며 새 단계의 다음 자동 기동 성공을 미리 선언하지 않는다.
+- 실행 중 checkout을 수정하지 않도록 별도 backend worktree에서 개발/검사 후 종료·잠금 해제를 확인해 실제 checkout에 연결했다. 앱 개인pbxproj 보존·담당 해제. 공통 revision DATA-71-2026-11-17.
+- API/migration/acceptance·verdict 불변. 나머지 기존70 전체의 공식 원천을 새로 검증하거나 일반 자동 신규 승인/전수 수집/독립 제품PASS·폰/클라우드를 완료한 것은 아니다. 날짜 미정은 새 공식 근거 확보 후 처리한다.
+
 ## DATA-70 · 공식 검토 신규 23건 실제 적재 완료 (2026-11-16)
 
 - 원본 backend `docs/tasks/DATA-70-reviewed-data-batch.md`, 데이터 head `242576321c1b557d301b319aa50c1fc35ede7204`, ADR-022/LEARN-0021.
