@@ -261,3 +261,7 @@ P10 사용자 선택: 전용 macOS 표준 사용자에서 자동 검증 빌드, 
 ## 2026-11-10 클라우드 데모 결정
 
 사용자 확정: Render Free의 NestJS API, Supabase Free의 PostgreSQL 및 필요 시 Storage를 사용한다. 비용 발생을 원치 않으므로 Render 결제수단 미등록·Supabase Free 유지가 배포 조건이다. 무료 한도 초과 때 즉시 중단은 보장되지 않으며 제한 정책/사용량을 별도 확인한다. 배포 및 실제 데이터 검증은 아직 수행하지 않았다. 실행 원본은 backend `docs/decisions/014-render-supabase-demo.md`와 `docs/demo-deployment.md`.
+
+## 학습 해설 품질 보완 · 2026-11-17
+
+revision: SYNC-2026-11-17-LEARN-REPAIR-01. 사용자 요청에 따라 [학습 해설 작성 기준](learning-policy.md)을 적용한다. 작업·검증 요약을 누적하는 대신 문제·원리·예제·대안·선택 이유를 독자에게 설명한다. 기존 21편 중 5편 재작성, 남은 16편은 카탈로그에서 보완 필요로 표시한다. 제품 실행 순서·승인 기준 변경은 없다.

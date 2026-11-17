@@ -1,6 +1,13 @@
+## LEARN-REPAIR-01 · 학습 해설 품질 시정 (2026-11-17)
+
+- 사용자 지적: 작업·검증 요약 누적으로 기술 선택과 해결 원리를 읽기 어려움. 원본 app `docs/ai/tasks/LEARN-REPAIR-01.md`.
+- verifier 학습 21편 점검, 0006/0010/0015/0020/0021의 문제·예제·대안·선택 이유·비용을 재작성하고 편집 전 원문 보존. 나머지 16편은 카탈로그에 보완점 명시, 전체 개선 미완료.
+- 공통 `learning-policy.md`와 작업/학습 템플릿에 해설 기준 연결. 제품 코드·DB·계약·승인 상태 변경 없음. 문서·링크·원문 보존 검사만 수행하며 제품·독립 검증 결과를 새로 만들지 않음.
+- 다음 학습 작업은 남은 16편 원본 대조·재작성. 데이터→배포→기능→디자인의 제품 순서는 유지. revision `SYNC-2026-11-17-LEARN-REPAIR-01`.
+
 ## DATA-80 · 데이터 1~5 실환경 전체 재점검 (2026-11-17)
 
-- 원본 `docs/tasks/DATA-80-five-workstream-live-audit.md`. 실제 OTT 전체 실행 14:17~14:42 KST exit2, `published_with_discovery_gaps`, 신규 게시0/기존93 유지. TMDB 후보1254·검토준비49·Coupang 영화 제공처 미발견, Netflix 공식 조회 실패3, Coupang 첫날 보류3, 미정 식별57.
+- 원본 backend `docs/tasks/DATA-80-five-workstream-live-audit.md`. 실제 OTT 전체 실행 14:17~14:42 KST exit2, `published_with_discovery_gaps`, 신규 게시0/기존93 유지. TMDB 후보1254·검토준비49·Coupang 영화 제공처 미발견, Netflix 공식 조회 실패3, Coupang 첫날 보류3, 미정 식별57.
 - 실 DB event/source 32693/32693·찜1·OTT93·IGDB29924 실행 전후 동일. IGDB 공개 참조49/49 불일치0·가능중복38·원천지역 미확정49. 자체 테스트340/340, 제삼자 OTT 기준52 중 정확26·날짜상이2·미게시24. 일일 제공처9범위 당일 skip 확인, 08:30 자연 기동 미관측. **데이터100% 미달**.
 - 다음: Coupang/TMDB·Netflix 공식 근거 누락 해소→IGDB 수동 증거 검토→자연 스케줄 관측→DB/API·독립 검증. 계약/DB 수정·push·배포 없음.
 
@@ -15,6 +22,13 @@
 - backend `docs/tasks/DATA-77-igdb-public-references.md`, 증거 `docs/tasks/evidence/data77/live-public-reference-audit-20261117.json`. 로컬 DB 연결·의존성 복원 후 DATA-75 migration 적용. 49/49 원본 공개 ID·source binding 유지, 불일치 0, 대상 찜 0, 가능 중복 38, 숫자지역 미보존 49(NULL). 전체 DB event/source 32693/32693, 전체 찜 1 보존, 감사 데이터 수정 0.
 - 감사 client 순차 SELECT로 수정, 관련 테스트 16/16 통과. 전체 테스트 빌드 성공·325/340 통과; 15개는 checkout의 `work/ott-candidates/state.json` 부재 ENOENT. 공식 Node24 대신 임시 Node22 사용. 별도 독립 검증 미실행.
 - 49건 모두 수동 보류 및 공개 ID/상세/찜 보존. 다음 DATA-78은 원천 증거 확보·게시/alias 계약과 독립 검증 설계. 앱 코드/검증 승인 기준/판정 불변, push 미실행. 공통 revision `SYNC-2026-11-17-DATA-77-LIVE`.
+
+## DATA-77 · IGDB 공개 참조 읽기 전용 감사 도구 (2026-11-17)
+
+- backend 원본 `docs/tasks/DATA-77-igdb-public-references.md`, 요구 PROD-005/006/007/009·GD-005/006/007/009, ADR024/LEARN0006. DATA-76의 49건 큐를 입력으로 기존 event ID/source binding, 다른 공개 ID, 사용자 찜·날짜·지역을 읽기 전용 DB 스냅샷에서 확인하는 감사 CLI를 추가했다.
+- 합성 검사 16/16 통과, 실제 큐 49행 입력 검증 성공. 중복된 공개 ID의 찜을 요약에서 중복 합산하지 않는다. 실제 DB 접속·조회 및 새 IGDB 실시간 검사는 실행하지 않아 결과 49건의 현재 상태는 미확인이다. 기존 38 중복 가능/11 근거 부족은 계속 수동 보류한다.
+- 게시 검토는 실제 출시 상태 `event.status`와 분리하고 원본 공개 ID 및 찜 유지, 공식 원천·숫자지역 확인 뒤 수동 alias 검토가 필요하다는 정책 초안을 작성했다. DB·API·계약·migration·앱 코드·verifier acceptance/verdict·공개 게시 데이터 변경 없음. 독립 runner/리뷰, 실폰/클라우드·push 미실행.
+- app 기준 `34239dc`, backend 기준 `6485b0e`, verifier 기준 `6a93a14`. 다음은 DB 접근 가능한 환경에서 실참조/찜 영향 확인, 게시 표시·별칭 명세와 독립 검증 설계. 데이터 단계는 계속 진행 중이다. revision `SYNC-2026-11-17-DATA-77`.
 
 ## DATA-74 · 제공처 일일08:30 운영·실패 복구·IGDB 원천 추적 (2026-11-17)
 
@@ -578,13 +592,6 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 
 ## DATA-76 · IGDB 중복 의심 검토 큐 (2026-11-17)
 
-- 원본 `docs/tasks/DATA-76-igdb-review-queue.md`. DATA74 감사49건을 기존 공개ID/후보ID/다른 저장 공개ID로 분리하여 읽기 전용 큐 생성. 중복 의심38/근거 부족11, 전건 사람 검토 대기. 별도 alias·비게시·병합 권한 없음.
-- 신규 원천 조회/실제 DB 변경 없이 공식 과거 감사 결과 사용. 공개 event ID·찜·날짜·API/계약·verifier 기준 불변. 다음은 정체성·지역·날짜와 찜 참조 확인 후 검토 상태 정책 설계.
-
-## DATA-77 · IGDB 공개 참조 읽기 전용 감사 도구 (2026-11-17)
-
-- backend 원본 `docs/tasks/DATA-77-igdb-public-references.md`, 요구 PROD-005/006/007/009·GD-005/006/007/009, ADR024/LEARN0006. DATA-76의 49건 큐를 입력으로 기존 event ID/source binding, 다른 공개 ID, 사용자 찜·날짜·지역을 읽기 전용 DB 스냅샷에서 확인하는 감사 CLI를 추가했다.
-- 합성 검사 16/16 통과, 실제 큐 49행 입력 검증 성공. 중복된 공개 ID의 찜을 요약에서 중복 합산하지 않는다. 실제 DB 접속·조회 및 새 IGDB 실시간 검사는 실행하지 않아 결과 49건의 현재 상태는 미확인이다. 기존 38 중복 가능/11 근거 부족은 계속 수동 보류한다.
-- 게시 검토는 실제 출시 상태 `event.status`와 분리하고 원본 공개 ID 및 찜 유지, 공식 원천·숫자지역 확인 뒤 수동 alias 검토가 필요하다는 정책 초안을 작성했다. DB·API·계약·migration·앱 코드·verifier acceptance/verdict·공개 게시 데이터 변경 없음. 독립 runner/리뷰, 실폰/클라우드·push 미실행.
-- app 기준 `34239dc`, backend 기준 `6485b0e`, verifier 기준 `6a93a14`. 다음은 DB 접근 가능한 환경에서 실참조/찜 영향 확인, 게시 표시·별칭 명세와 독립 검증 설계. 데이터 단계는 계속 진행 중이다. revision `SYNC-2026-11-17-DATA-77`.
+- backend 원본 `docs/tasks/DATA-76-igdb-review-queue.md`. DATA74 공식 원천 감사 49건을 공개 event ID/후보 release ID/다른 저장 event ID로 구분해 검토 큐로 추출. 중복 의심38·원천 근거 부족11이며 중복 확정이나 자동 교정 건수가 아니다.
+- 모든 항목은 수동 검토 대기. 공용 ID·찜·날짜·DB·앱 표시/계약·verifier 승인 불변. 기존 과거 원천 region NULL을 추정하지 않는다. 다음은 공식 증거와 참조를 검토한 뒤 내부 게시 검토와 event 상태·alias 정책을 분리 설계한다. 데이터 단계 진행 중.
 

@@ -1,6 +1,13 @@
+## LEARN-REPAIR-01 · 학습 해설 품질 시정 (2026-11-17)
+
+- 사용자 지적: 작업·검증 요약 누적으로 기술 선택과 해결 원리를 읽기 어려움. 원본 app `docs/ai/tasks/LEARN-REPAIR-01.md`.
+- verifier 학습 21편 점검, 0006/0010/0015/0020/0021의 문제·예제·대안·선택 이유·비용을 재작성하고 편집 전 원문 보존. 나머지 16편은 카탈로그에 보완점 명시, 전체 개선 미완료.
+- 공통 `learning-policy.md`와 작업/학습 템플릿에 해설 기준 연결. 제품 코드·DB·계약·승인 상태 변경 없음. 문서·링크·원문 보존 검사만 수행하며 제품·독립 검증 결과를 새로 만들지 않음.
+- 다음 학습 작업은 남은 16편 원본 대조·재작성. 데이터→배포→기능→디자인의 제품 순서는 유지. revision `SYNC-2026-11-17-LEARN-REPAIR-01`.
+
 ## DATA-80 · 데이터 1~5 실환경 전체 재점검 (2026-11-17)
 
-- 원본 `docs/tasks/DATA-80-five-workstream-live-audit.md`. OTT 공식 일일 전체 실행 exit2(`published_with_discovery_gaps`), 신규0/기존93, TMDB 후보1254·준비49·Coupang 제공처 누락, Netflix 조회 실패3·Coupang 보류3·날짜 미정 정체성57 보류.
+- 원본 backend `docs/tasks/DATA-80-five-workstream-live-audit.md`. OTT 공식 일일 전체 실행 exit2(`published_with_discovery_gaps`), 신규0/기존93, TMDB 후보1254·준비49·Coupang 제공처 누락, Netflix 조회 실패3·Coupang 보류3·날짜 미정 정체성57 보류.
 - DB event/source32693/32693·찜1·OTT93·IGDB29924 실행 전후 동일. IGDB 과거49 공개 참조 보존(불일치0)·가능중복38·지역 미확정49. 테스트340/340, OTT 독립 참조52 중 일치26/상이2/미게시24. 일일 제공처9범위 당일 기수집 skip; 정시 자연 기동·독립 제품 통합 PASS 미입증. **적재100% 미달**.
 - 후속: 공식 첫날 증거·제공처 누락 해결, 과거 IGDB 지역/alias 근거 검토, 자연 스케줄 및 API·독립 runner 확인. LEARN 기존0006/0021 연계. 원천 ID·찜/계약·verdict 불변, 배포·push 미실행.
 
@@ -15,6 +22,13 @@
 - backend `docs/tasks/DATA-77-igdb-public-references.md`, 증거 `docs/tasks/evidence/data77/live-public-reference-audit-20261117.json`. 로컬 DB 연결·의존성 복원 후 DATA-75 migration 적용. 49/49 원본 공개 ID·source binding 유지, 불일치 0, 대상 찜 0, 가능 중복 38, 숫자지역 미보존 49(NULL). 전체 DB event/source 32693/32693, 전체 찜 1 보존, 감사 데이터 수정 0.
 - 감사 client 순차 SELECT로 수정, 관련 테스트 16/16 통과. 전체 테스트 빌드 성공·325/340 통과; 15개는 checkout의 `work/ott-candidates/state.json` 부재 ENOENT. 공식 Node24 대신 임시 Node22 사용. 별도 독립 검증 미실행.
 - 49건 모두 수동 보류 및 공개 ID/상세/찜 보존. 다음 DATA-78은 원천 증거 확보·게시/alias 계약과 독립 검증 설계. 앱 코드/검증 승인 기준/판정 불변, push 미실행. 공통 revision `SYNC-2026-11-17-DATA-77-LIVE`.
+
+## DATA-77 · IGDB 공개 참조 읽기 전용 감사 도구 (2026-11-17)
+
+- backend 원본 `docs/tasks/DATA-77-igdb-public-references.md`, 요구 PROD-005/006/007/009·GD-005/006/007/009, ADR024/LEARN0006. DATA-76의 49건 큐를 입력으로 기존 event ID/source binding, 다른 공개 ID, 사용자 찜·날짜·지역을 읽기 전용 DB 스냅샷에서 확인하는 감사 CLI를 추가했다.
+- 합성 검사 16/16 통과, 실제 큐 49행 입력 검증 성공. 중복된 공개 ID의 찜을 요약에서 중복 합산하지 않는다. 실제 DB 접속·조회 및 새 IGDB 실시간 검사는 실행하지 않아 결과 49건의 현재 상태는 미확인이다. 기존 38 중복 가능/11 근거 부족은 계속 수동 보류한다.
+- 게시 검토는 실제 출시 상태 `event.status`와 분리하고 원본 공개 ID 및 찜 유지, 공식 원천·숫자지역 확인 뒤 수동 alias 검토가 필요하다는 정책 초안을 작성했다. DB·API·계약·migration·앱 코드·verifier acceptance/verdict·공개 게시 데이터 변경 없음. 독립 runner/리뷰, 실폰/클라우드·push 미실행.
+- app 기준 `34239dc`, backend 기준 `6485b0e`, verifier 기준 `6a93a14`. 다음은 DB 접근 가능한 환경에서 실참조/찜 영향 확인, 게시 표시·별칭 명세와 독립 검증 설계. 데이터 단계는 계속 진행 중이다. revision `SYNC-2026-11-17-DATA-77`.
 
 ## DATA-74 · 제공처 일일08:30 운영·실패 복구·IGDB 원천 추적 (2026-11-17)
 
@@ -570,13 +584,6 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 
 ## DATA-76 · IGDB 검토 큐 인계 (2026-11-17)
 
-- backend `docs/tasks/DATA-76-igdb-review-queue.md`: DATA74 감사49건의 재분류만 수행, 중복 의심38·원천 근거 부족11, DB변경0. 원래 지역값이 없는 49건의 release ID 교정/alias 확정은 미실행.
-- 다음은 ID/지역/플랫폼/날짜와 기존 찜 영향의 개별 검토 및 게시 검토 상태/alias 계약 설계. 자동 병합·게시 취소 금지, verifier 승인 절차 별도.
-
-## DATA-77 · IGDB 공개 참조 읽기 전용 감사 도구 (2026-11-17)
-
-- backend 원본 `docs/tasks/DATA-77-igdb-public-references.md`, 요구 PROD-005/006/007/009·GD-005/006/007/009, ADR024/LEARN0006. DATA-76의 49건 큐를 입력으로 기존 event ID/source binding, 다른 공개 ID, 사용자 찜·날짜·지역을 읽기 전용 DB 스냅샷에서 확인하는 감사 CLI를 추가했다.
-- 합성 검사 16/16 통과, 실제 큐 49행 입력 검증 성공. 중복된 공개 ID의 찜을 요약에서 중복 합산하지 않는다. 실제 DB 접속·조회 및 새 IGDB 실시간 검사는 실행하지 않아 결과 49건의 현재 상태는 미확인이다. 기존 38 중복 가능/11 근거 부족은 계속 수동 보류한다.
-- 게시 검토는 실제 출시 상태 `event.status`와 분리하고 원본 공개 ID 및 찜 유지, 공식 원천·숫자지역 확인 뒤 수동 alias 검토가 필요하다는 정책 초안을 작성했다. DB·API·계약·migration·앱 코드·verifier acceptance/verdict·공개 게시 데이터 변경 없음. 독립 runner/리뷰, 실폰/클라우드·push 미실행.
-- app 기준 `34239dc`, backend 기준 `6485b0e`, verifier 기준 `6a93a14`. 다음은 DB 접근 가능한 환경에서 실참조/찜 영향 확인, 게시 표시·별칭 명세와 독립 검증 설계. 데이터 단계는 계속 진행 중이다. revision `SYNC-2026-11-17-DATA-77`.
+- backend `docs/tasks/DATA-76-igdb-review-queue.md` 원본. 감사49행을 읽기 전용 검토 큐로 분류: 다른 공개 ID와 중복 가능38·원천 근거 부족11. 자동 alias/병합/비게시 및 DB 쓰기0.
+- 기존 공개 event ID와 계정 찜 유지. 원천 region NULL 과거49건은 미확정, 사람별 검토·독립 runner·제품 통합 PASS 미실행. 다음은 공식 ID/숫자 지역/플랫폼/날짜·찜 참조 검토 및 게시 검토 상태 설계.
 
