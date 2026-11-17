@@ -1,3 +1,9 @@
+## DATA-79 · 적재 검증 환경 복구·완료조건 재점검 (2026-11-17)
+
+- backend 원본 `docs/tasks/DATA-79-local-snapshot-regression.md`. 보관된 실제 OTT 후보 199건과 TMDB 발견 1,261행 스냅샷을 현재 backend의 Git 무시 `work/`에 SHA256 동일하게 복원. 공식 Node24.22.3에서 빌드 및 **전체 테스트 340/340 통과**. 이전 15개 실패는 후보 작업 파일 누락이었다.
+- TMDB `discoveryComplete=false`, 신규 OTT 시즌/작품 일반 자동 게시·제공처 누락과 IGDB 과거49건(중복가능38/숫자지역 NULL49) 보류, 08:30 자연 정시 갱신 미관측 등으로 **데이터 적재100%는 아직 미달**. 실제 제품 DB 적재·API·계약·검증 승인 변경 없음. 새 데이터 게시0.
+- 다음은 공식 첫날 근거를 동반한 신규 OTT 자동 적재의 실제 DB/API 검증과 원천 커버리지 누락 처리. 독립 검증·클라우드·push 미실행. 공통 revision `SYNC-2026-11-17-DATA-79`.
+
 ## DATA-77 실 DB 감사 완료 · DATA-78 인계 (2026-11-17)
 
 - backend `docs/tasks/DATA-77-igdb-public-references.md`, 증거 `docs/tasks/evidence/data77/live-public-reference-audit-20261117.json`. 로컬 DB 연결·의존성 복원 후 DATA-75 migration 적용. 49/49 원본 공개 ID·source binding 유지, 불일치 0, 대상 찜 0, 가능 중복 38, 숫자지역 미보존 49(NULL). 전체 DB event/source 32693/32693, 전체 찜 1 보존, 감사 데이터 수정 0.
