@@ -93,7 +93,7 @@ test("Nest HTTP 경계가 서비스·레포지토리 분리 후에도 계약 동
     status: "scheduled",
     precision: "date_only",
     instant_at: null,
-    local_date: new Date("2026-02-07T00:00:00Z"),
+    local_date: new Date("2026-11-07T00:00:00Z"),
     source_time_zone: null,
     announced_year: null,
     announced_period: null,
@@ -105,7 +105,7 @@ test("Nest HTTP 경계가 서비스·레포지토리 분리 후에도 계약 동
     updated_at: new Date("2026-01-01T00:00:00Z"),
     event_source: [],
   };
-  const key = { id, sort_day: "2026-02-07", sort_rank: 0, sort_time: "" };
+  const key = { id, sort_day: "2026-11-07", sort_rank: 0, sort_time: "" };
   const calls = [];
   const repository = {
     async findEvents(query, after) {
@@ -132,7 +132,7 @@ test("Nest HTTP 경계가 서비스·레포지토리 분리 후에도 계약 동
     },
     async findEventDetail(eventId) {
       return eventId === id
-        ? { row, previous: { type: "date_only", value: "2026-02-06" } }
+        ? { row, previous: { type: "date_only", value: "2026-11-06" } }
         : null;
     },
     async findContent(contentId) {
@@ -187,17 +187,17 @@ test("Nest HTTP 경계가 서비스·레포지토리 분리 후에도 계약 동
 
   await t.test("월간 날짜·지역 날짜 표시·필터 해석을 유지한다", async () => {
     const { response, body } = await get(
-      "/calendar?month=2026-02&categories=movie,ott&services=netflix",
+      "/calendar?month=2026-11&categories=movie,ott&services=netflix",
     );
     assert.equal(response.status, 200);
-    assert.equal(body.days.length, 28);
+    assert.equal(body.days.length, 30);
     assert.equal(body.days[6].total, 1);
     assert.deepEqual(body.days[6].previews[0].time, {
       type: "date_only",
-      date: "2026-02-07",
+      date: "2026-11-07",
     });
     assert.deepEqual(calls.at(-1).query.categories, ["movie", "ott"]);
-    assert.equal(calls.at(-1).query.to, "2026-03-01");
+    assert.equal(calls.at(-1).query.to, "2026-12-01");
   });
   await t.test(
     "잘못된 입력은 레포지토리에 도달하기 전에 거부한다",
@@ -205,6 +205,7 @@ test("Nest HTTP 경계가 서비스·레포지토리 분리 후에도 계약 동
       const before = calls.length;
       for (const path of [
         "/calendar?month=2026-02&unknown=x",
+        "/calendar?month=2026-09",
         "/calendar?month=2026-00",
         "/events",
         `/events/${id}?timeZone=Mars`,
@@ -218,7 +219,7 @@ test("Nest HTTP 경계가 서비스·레포지토리 분리 후에도 계약 동
     "서명 커서는 같은 필터만 허용하고 버전 충돌은 409다",
     async () => {
       const path =
-        "/events?schedule=dated&from=2026-02-01&to=2026-03-01&limit=1";
+        "/events?schedule=dated&from=2026-11-01&to=2026-12-01&limit=1";
       const first = (await get(path)).body;
       assert.ok(first.nextCursor);
       const next = await get(
@@ -243,7 +244,7 @@ test("Nest HTTP 경계가 서비스·레포지토리 분리 후에도 계약 동
   await t.test("상세 이전 날짜·작품·404를 유지한다", async () => {
     assert.deepEqual((await get(`/events/${id}`)).body.previousTime, {
       type: "date_only",
-      date: "2026-02-06",
+      date: "2026-11-06",
     });
     assert.equal((await get(`/contents/${id}`)).body.kind, "movie");
     assert.equal(
@@ -268,7 +269,7 @@ test("Nest HTTP 경계가 서비스·레포지토리 분리 후에도 계약 동
     "DB 오류의 내부 내용은 HTTP 응답에 노출하지 않는다",
     async () => {
       const { response, body } = await get(
-        "/events?schedule=dated&from=2026-02-01&to=2026-03-01&contentId=00000000-0000-4000-8000-000000000099",
+        "/events?schedule=dated&from=2026-11-01&to=2026-12-01&contentId=00000000-0000-4000-8000-000000000099",
       );
       assert.equal(response.status, 503);
       assert.equal(body.code, "SERVICE_UNAVAILABLE");

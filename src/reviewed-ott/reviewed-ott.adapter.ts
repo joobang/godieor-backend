@@ -1,4 +1,5 @@
 import { Injectable } from "@nestjs/common";
+import { DateTime } from "luxon";
 import {
   Canonical,
   ProviderAdapter,
@@ -56,7 +57,10 @@ export class ReviewedOttAdapter implements ProviderAdapter {
     // Do not acquire the same advisory lock again here.
     await this.repository.assertIdentities(this.records!);
     return structuredClone(
-      this.records!.filter((x) => x.market === scope.market),
+      this.records!.filter((x) => x.market === scope.market && (
+        x.time.type === "unknown" ||
+        (x.time.type === "date_only" ? x.time.value : DateTime.fromISO(x.time.value).setZone(x.time.sourceTimeZone ?? "UTC").toISODate()!) >= "2026-10-01"
+      )),
     );
   }
 }

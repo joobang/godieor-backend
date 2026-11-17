@@ -245,6 +245,7 @@ export function eligibility(candidate: Candidate): string[] {
   const reasons: string[] = [];
   if (!review.date) reasons.push("missing_exact_date");
   else if (review.date < "2026-01-01") reasons.push("before_2026");
+  else if (review.date < "2026-10-01") reasons.push("before_product_start");
   if (!review.platform) reasons.push("unconfirmed_platform");
   if (candidate.source === "tving" && review.platform !== "tving")
     reasons.push("source_platform_mismatch");

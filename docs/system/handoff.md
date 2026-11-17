@@ -587,3 +587,7 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 - backend `docs/tasks/DATA-76-igdb-review-queue.md` 원본. 감사49행을 읽기 전용 검토 큐로 분류: 다른 공개 ID와 중복 가능38·원천 근거 부족11. 자동 alias/병합/비게시 및 DB 쓰기0.
 - 기존 공개 event ID와 계정 찜 유지. 원천 region NULL 과거49건은 미확정, 사람별 검토·독립 runner·제품 통합 PASS 미실행. 다음은 공식 ID/숫자 지역/플랫폼/날짜·찜 참조 검토 및 게시 검토 상태 설계.
 
+# DATA-81 · 전체 일정 2026-10-01 하한 (2026-11-17)
+
+- 원본 정책: app `docs/product.md`; 구현 상세 `docs/tasks/DATA-81-october-game-cutoff.md`. backend 자체340/340, 실 DB 조작·독립 승인·push 없음. 다음: 실 수집·API와 기존 참조 감사 후 용량 정리. revision `SYNC-2026-11-17-DATA-81`.
+

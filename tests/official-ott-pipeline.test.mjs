@@ -8,13 +8,12 @@ test('entire reviewed snapshot is validated and incomplete coverage is reported'
     'work/ott-candidates/state.json', 'data/curated/ott-reviewed-mappings.json',
     'work/tmdb-release-candidates/latest.json',
   ].map((name) => readFile(name, 'utf8').then(JSON.parse)));
-  const incomplete = publicationGate(state, mappings, { ...report, discoveryComplete: false });
-  assert.equal(incomplete.reviewedMappings, mappings.mappings.length);
-  assert.equal(incomplete.discoveryComplete, false);
+  // Existing Nov-Dec snapshot must be rejected until October is rediscovered.
+  assert.throws(() => publicationGate(state, mappings, { ...report, discoveryComplete: false }), /TMDB_REPORT_WRONG_WINDOW/);
   const [binding] = report.rows.filter((r) => r.readyForBatchReview && r.officialEvidence?.length);
   assert.ok(binding);
   const extra = { ...binding, id: 'test-new-identity', officialEvidence: [{ ...binding.officialEvidence[0], reviewCandidateId: 'unmapped-candidate' }] };
-  const gated = publicationGate(state, mappings, { ...report, rows: [...report.rows, extra] });
+  const gated = publicationGate(state, mappings, { ...report, months: ['2026-10', '2026-11', '2026-12'], rows: [...report.rows, extra] });
   assert.deepEqual(gated.readyUnmapped, ['test-new-identity']);
 });
 

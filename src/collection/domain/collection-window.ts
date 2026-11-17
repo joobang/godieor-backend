@@ -1,6 +1,8 @@
 import { DateTime } from "luxon";
 export type CollectionMode = "backfill" | "daily";
-export const PRODUCT_START_DAY = "2026-01-01";
+// Shared lower bound for all published schedule categories and collection scopes.
+export const PRODUCT_START_DAY = "2026-10-01";
+export function withinProductWindow(day: string) { return day >= PRODUCT_START_DAY; }
 export function gameCollectionWindow(mode: CollectionMode, now = DateTime.utc()) {
   const floor = DateTime.fromISO(PRODUCT_START_DAY, { zone: "utc" });
   const start = mode === "backfill" ? floor : DateTime.max(floor, now.toUTC().startOf("day").minus({ days: 30 }));
@@ -14,6 +16,6 @@ export function movieCollectionYears(mode: CollectionMode, now = DateTime.now())
 export function premierLeagueSeasons(mode: CollectionMode, now = DateTime.now()) {
   const local = now.setZone("Europe/London");
   const current = local.month >= 7 ? local.year : local.year - 1;
-  const first = mode === "backfill" ? 2025 : Math.max(2025, current);
+  const first = mode === "backfill" ? 2026 : Math.max(2026, current);
   return { current, years: Array.from({ length: Math.max(0, current + 2 - first) }, (_, n) => first + n) };
 }

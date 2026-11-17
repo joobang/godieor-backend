@@ -56,7 +56,10 @@ export function prepareReviewed(input: unknown, state: State): Canonical[] {
     const review = reviewSchema.parse(candidate.review.value);
     if (review.id !== candidate.id || review.revision !== mapping.revision)
       throw new Error("STALE_REVIEW");
-    if (eligibility(candidate).length) throw new Error("INELIGIBLE_REVIEW");
+    // Preserve already mapped Jan-Sep 2026 identities for referential checks.
+    // ReviewedOttAdapter excludes their dates from future ingestion.
+    if (eligibility(candidate).some((reason) => reason !== "before_product_start"))
+      throw new Error("INELIGIBLE_REVIEW");
     const market = z.enum(COUNTRIES).parse(review.market);
     let time: Canonical["time"] = { type: "date_only", value: review.date! };
     if (review.localTime && review.timeZone) {

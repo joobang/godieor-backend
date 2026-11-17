@@ -102,7 +102,7 @@ export function parseCatalogQuery(
     if (!values.month || !/^\d{4}-(0[1-9]|1[0-2])$/.test(values.month))
       invalidQuery("month");
     const first = date(values.month + "-01", "month");
-    if (values.month < "2026-01") invalidQuery("month");
+    if (values.month < "2026-10") invalidQuery("month");
     q.month = values.month;
     q.schedule = "dated";
     q.from = first.toISODate()!;
@@ -115,7 +115,7 @@ export function parseCatalogQuery(
       const from = date(values.from, "from");
       const to = date(values.to, "to");
       const days = to.diff(from, "days").days;
-      if (values.from! < "2026-01-01" || days <= 0 || days > 62)
+      if (values.from! < "2026-10-01" || days <= 0 || days > 62)
         invalidQuery("from/to");
       q.from = values.from;
       q.to = values.to;

@@ -52,7 +52,7 @@ export class KobisAdapter implements ProviderAdapter {
           const id = text(movie.movieCd);
           const title = text(movie.movieNm);
           const day = dateOnly(text(movie.openDt));
-          if (!id || !title || !day) continue;
+          if (!id || !title || !day || day < "2026-10-01") continue;
           records.set(id, {
             externalId: id, variantKey: "kr-theatrical", kind: "theatrical_release",
             title, content: { externalId: id, kind: "movie", title },
@@ -130,7 +130,11 @@ export class PremierLeagueAdapter implements ProviderAdapter {
             !text(home.name) || !text(away.name)) continue;
         const status = state === "POSTPONED" || state === "SUSPENDED"
           ? "postponed" : state === "CANCELLED" ? "cancelled" : "scheduled";
-        const kickoffValid = DateTime.fromISO(kickoff, { zone: "utc" }).isValid;
+        const kickoffDate = DateTime.fromISO(kickoff, { zone: "utc" });
+        const kickoffValid = kickoffDate.isValid;
+        // An unconfirmed kickoff is not displayed as dated, but an official
+        // fixture strictly before the product window must not be ingested.
+        if (kickoffValid && kickoffDate.toISODate()! < "2026-10-01") continue;
         const confirmed = ["TIMED", "IN_PLAY", "PAUSED", "FINISHED", "AWARDED"].includes(state);
         const time = confirmed && kickoffValid
           ? { type: "instant", value: kickoff, sourceTimeZone: "UTC" }

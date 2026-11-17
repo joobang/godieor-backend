@@ -12,9 +12,15 @@ export function scheduleMonths(now = new Date(), count = 2) {
 
 export function configuredMonths() {
   const value = process.env.GODIEOR_OTT_MONTHS;
-  if (!value) return scheduleMonths();
+  if (!value) {
+    const months = scheduleMonths();
+    // Include October during the initial 2026 rollout; keep the usual rolling
+    // two-month daily window thereafter. Historical backfills use OTT_MONTHS.
+    if (months[0] === '2026-11') return ['2026-10', ...months];
+    return months;
+  }
   const months = value.split(',');
   if (!months.length || months.length > 12 || months.some((m) => !/^\d{4}-(0[1-9]|1[0-2])$/.test(m)) ||
-      new Set(months).size !== months.length) throw Error('INVALID_OTT_MONTHS');
+      new Set(months).size !== months.length || months.some((m) => m < '2026-10')) throw Error('INVALID_OTT_MONTHS');
   return months;
 }

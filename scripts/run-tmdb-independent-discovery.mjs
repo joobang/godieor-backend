@@ -4,7 +4,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { createTmdbClient, discoverByDate, monthRange } from './tmdb-date-discovery.mjs';
 
-const months = (process.env.GODIEOR_DISCOVERY_MONTHS ?? '2026-11,2026-12').split(',').map(s => s.trim());
+const months = (process.env.GODIEOR_DISCOVERY_MONTHS ?? '2026-10,2026-11,2026-12').split(',').map(s => s.trim());
 const output = resolve(process.argv[2] ?? '/private/tmp/godieor-tmdb-independent-discovery.json');
 const maxPages = Number(process.env.GODIEOR_DISCOVERY_MAX_PAGES ?? '100');
 if (!months.length || months.some(m => !m) || !Number.isInteger(maxPages) || maxPages < 1 || maxPages > 500)

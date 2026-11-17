@@ -4,19 +4,19 @@ const {gameCollectionWindow,movieCollectionYears,premierLeagueSeasons}=require('
 const {providerOptions,selectProviders}=require('../dist/src/cli/provider-options');
 const date=s=>DateTime.fromISO(s,{zone:'utc'});
 test('backfill retains product start in future years instead of a rolling lookback',()=>{
- for(const day of ['2026-11-17T12:34:56Z','2027-11-17T00:00:00Z'])assert.equal(new Date(gameCollectionWindow('backfill',date(day)).from*1000).toISOString(),'2026-01-01T00:00:00.000Z');
+ for(const day of ['2026-11-17T12:34:56Z','2027-11-17T00:00:00Z'])assert.equal(new Date(gameCollectionWindow('backfill',date(day)).from*1000).toISOString(),'2026-10-01T00:00:00.000Z');
  assert.deepEqual(movieCollectionYears('backfill',date('2028-01-01')),[2026,2027,2028,2029]);
 });
 test('daily game range includes complete UTC days and cannot precede product start',()=>{
- const w=gameCollectionWindow('daily',date('2026-02-10T23:59:59Z'));
- assert.equal(new Date(w.from*1000).toISOString(),'2026-01-11T00:00:00.000Z');
- assert.equal(new Date(gameCollectionWindow('daily',date('2026-01-03')).from*1000).toISOString(),'2026-01-01T00:00:00.000Z');
+ const w=gameCollectionWindow('daily',date('2026-11-10T23:59:59Z'));
+ assert.equal(new Date(w.from*1000).toISOString(),'2026-10-11T00:00:00.000Z');
+ assert.equal(new Date(gameCollectionWindow('daily',date('2026-10-03')).from*1000).toISOString(),'2026-10-01T00:00:00.000Z');
  assert.equal(new Date(w.to*1000).getUTCHours(),0);
 });
-test('EPL backfill includes 2025 season containing Jan-May2026 after year rollover',()=>{
- assert.deepEqual(premierLeagueSeasons('backfill',date('2026-11-17')).years,[2025,2026,2027]);
- assert.deepEqual(premierLeagueSeasons('backfill',date('2028-01-01')).years,[2025,2026,2027,2028]);
- assert.deepEqual(premierLeagueSeasons('daily',date('2026-06-30')).years,[2025,2026]);
+test('EPL backfill starts at 2026 season containing October2026',()=>{
+ assert.deepEqual(premierLeagueSeasons('backfill',date('2026-11-17')).years,[2026,2027]);
+ assert.deepEqual(premierLeagueSeasons('backfill',date('2028-01-01')).years,[2026,2027,2028]);
+ assert.deepEqual(premierLeagueSeasons('daily',date('2026-06-30')).years,[2026]);
  assert.deepEqual(premierLeagueSeasons('daily',date('2026-07-01')).years,[2026,2027]);
 });
 test('CLI supports explicit backfill and independent providers while retaining daily defaults',()=>{
