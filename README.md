@@ -3,6 +3,10 @@
 NestJS + Prisma + PostgreSQL로 영화·OTT 드라마 시즌 최초 공개·게임 정식 출시·EPL 경기 일정을 제공한다.
 현재 **로컬 공개 API·가상 수집과 검토한 OTT 공지의 수동 publish**를 구현했다. Google 계정 인증·세션·설정/찜 API는 초기 구현 후 자체 테스트를 완료했다. 실제 Google OAuth·단말과 DB 통합 검증, 자동 전수 수집은 아직 없다.
 
+## DATA-73 실제2026 백필·최신 갱신 · 2026-11-17
+
+[작업 기록](docs/tasks/DATA-73-provider-backfill.md). 게임4870→29914(새25044), EPL380→760(이전 시즌380추가), 영화1902→1909(새7) 실제 로컬DB 적재. 기존7252ID·OTT93 보존, 자체310/310·일회용DB 회귀·공식 게임35표본/EPL신규380 대조·KR/WORLD 게임+EPL API30115행 DB일치. 영화 뮤티니의 공식 날짜 철회를 같은ID/이력으로 미정에 반영했다. IGDB이전49ID 원천 재조회 부재·미정 게임·자동 일간 운영/OTT 격차는 남으며 전체 데이터100%/독립 승인이 아니다.
+
 ## DATA-72 신규 최초 공개 자동 검토 · 2026-11-17
 
 [작업 기록](docs/tasks/DATA-72-netflix-first-premiere.md). Netflix KR 일정과 공식 작품의 canonical ID·최초 날짜·형태를 대조해 curated binding 없이 신규 검토를 생성한다. 실제 입력을 미검토 상태에 재생한 일회용 DB70→84→84/14상세200, 자체302/302. 현재 제품93/오늘신규0은 보존했다. 전체 job은404·식별 보류/만료 TMDB snapshot으로 exit2이며 전체 데이터 완료가 아니다. [원천별 기간·알려진 격차](docs/data-coverage.md)를 확인한다.

@@ -1,0 +1,15 @@
+{
+  "observedAt": "2026-11-17T02:51:21.557Z",
+  "source": "KOBIS same-ID movieInfo openDt empty (official-sample in unseen-movie-source.json)",
+  "externalId": "20268058",
+  "title": "뮤티니",
+  "eventIdPreserved": "a03209e7-0e31-42db-99fa-9a0976bf58f5",
+  "previousDate": "2026-11-18",
+  "currentPrecision": "unknown",
+  "currentDate": null,
+  "instant": null,
+  "historyIncrement": 1,
+  "appearsInUndated": true,
+  "absentFromOldCalendarDay": true,
+  "previousTimePreserved": true
+}

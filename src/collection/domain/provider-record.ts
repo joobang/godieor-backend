@@ -79,6 +79,7 @@ export interface ProviderAdapter {
   origin: "fixture" | "provider";
   scopes: Scope[];
   fetch(scope: Scope, mode: "backfill" | "daily"): Promise<unknown[]>;
+  refreshMissing?(scope: Scope, previous: readonly Canonical[], current: readonly Canonical[]): Promise<unknown[]>;
 }
 export function normalize(value: unknown, scope: Scope): Canonical {
   const r = recordSchema.parse(value);

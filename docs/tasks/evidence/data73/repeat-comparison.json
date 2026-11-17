@@ -1,0 +1,33 @@
+{
+  "firstForcedDailyRunBeforeMovieWithdrawalFix": {
+    "new": {
+      "football_data_pl": 380,
+      "igdb": 25044,
+      "kobis": 7
+    },
+    "changed": {
+      "igdb": 43,
+      "kobis": 1
+    },
+    "backfillToDaily": {
+      "new": {
+        "kobis": 7
+      },
+      "changed": {
+        "igdb": 2,
+        "kobis": 1
+      }
+    }
+  },
+  "finalProductNew": {
+    "football_data_pl": 380,
+    "igdb": 25044,
+    "kobis": 7
+  },
+  "finalChangedExisting": 45,
+  "finalMovieRepeat": {
+    "newEvents": 0,
+    "allEventRowsAndHistoryUnchanged": true,
+    "checkedRows": 32683
+  }
+}

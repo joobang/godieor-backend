@@ -1,0 +1,532 @@
+{
+  "unseen": [
+    {
+      "external_id": "943060",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:07.467Z",
+      "id": "230f90f4-73d6-4d16-a53d-0db042f0c5ae",
+      "title": "Wilderdark",
+      "date": "2026-11-03",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "964454",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:12.651Z",
+      "id": "f018ad4f-9f31-45d7-9f40-5d0421a7caf9",
+      "title": "Elixir of Moonglow",
+      "date": "2026-11-10",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "966165",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:12.662Z",
+      "id": "528b85cb-9d75-4e7b-b65a-0cee40ce8a2b",
+      "title": "Hope in the City",
+      "date": "2026-11-10",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "966168",
+      "variant_key": "world-169",
+      "observed_at": "2026-11-11T01:28:12.667Z",
+      "id": "399c90ef-3395-4d57-8551-92cb72c1361d",
+      "title": "Hope in the City",
+      "date": "2026-11-10",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "967533",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:07.621Z",
+      "id": "1654e8bf-0358-4618-b6a5-d447901c5b42",
+      "title": "Young Suns",
+      "date": "2026-11-03",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "967794",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:16.859Z",
+      "id": "923aa40d-8187-498b-a8e2-4ff13f27aa65",
+      "title": "Let Me Die",
+      "date": "2026-11-19",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "968462",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:13.958Z",
+      "id": "5ab70f80-b5fe-4ef5-8efd-70c3005be5f0",
+      "title": "Profiler Files: New Orleans",
+      "date": "2026-11-11",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "971747",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:08.322Z",
+      "id": "1303633d-782a-4366-923e-4db207a194fd",
+      "title": "Sound System",
+      "date": "2026-11-04",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "971934",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:27:58.136Z",
+      "id": "0dfec88f-9dbd-4f2a-8485-96909ba7825e",
+      "title": "Protect the Pit",
+      "date": "2026-10-23",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "972176",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:00.277Z",
+      "id": "4d36326b-eea3-4c11-b6c1-0a093cbce19d",
+      "title": "Anomalous Veil",
+      "date": "2026-10-27",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "974385",
+      "variant_key": "world-3",
+      "observed_at": "2026-11-11T01:28:11.811Z",
+      "id": "26b6175e-cdde-47a3-b0ff-cebfc359df75",
+      "title": "Towers of Babble",
+      "date": "2026-11-09",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "974386",
+      "variant_key": "world-14",
+      "observed_at": "2026-11-11T01:28:11.818Z",
+      "id": "f37a4bf7-2fb3-488c-8c44-afa37c7e7a07",
+      "title": "Towers of Babble",
+      "date": "2026-11-09",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "974387",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:11.823Z",
+      "id": "b7a765e8-53e1-4e3c-8a24-9147e32f526e",
+      "title": "Towers of Babble",
+      "date": "2026-11-09",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "975125",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:19.659Z",
+      "id": "595a2bd6-ebe5-4587-b2f1-e74568c70d0c",
+      "title": "Pup & Mole: Gold Rush",
+      "date": "2026-12-09",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "975126",
+      "variant_key": "world-3",
+      "observed_at": "2026-11-11T01:28:19.666Z",
+      "id": "8427d279-2b5d-40c9-9fe1-8c912d197e76",
+      "title": "Pup & Mole: Gold Rush",
+      "date": "2026-12-09",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "975127",
+      "variant_key": "world-14",
+      "observed_at": "2026-11-11T01:28:19.671Z",
+      "id": "4f4f18bb-1349-4280-9100-9045a8daf5ea",
+      "title": "Pup & Mole: Gold Rush",
+      "date": "2026-12-09",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "975429",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:18.625Z",
+      "id": "8a123a32-18d8-4d33-a273-2787a5f8697e",
+      "title": "The Road of Dust and Sorrow",
+      "date": "2026-12-03",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "975510",
+      "variant_key": "world-3",
+      "observed_at": "2026-11-11T01:28:12.777Z",
+      "id": "c991c426-a4c9-400c-bd4b-8943dffc344f",
+      "title": "Deiity (Under Ice)",
+      "date": "2026-11-10",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "975511",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:12.781Z",
+      "id": "bbe3654a-2cd0-483b-83ad-b33a6fdfbb0a",
+      "title": "Deiity (Under Ice)",
+      "date": "2026-11-10",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "975512",
+      "variant_key": "world-14",
+      "observed_at": "2026-11-11T01:28:12.786Z",
+      "id": "e9abb2db-da2b-41ef-b7b3-770fec430ea5",
+      "title": "Deiity (Under Ice)",
+      "date": "2026-11-10",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "975548",
+      "variant_key": "world-167",
+      "observed_at": "2026-11-11T01:28:18.632Z",
+      "id": "346f0bc3-3656-4dce-9a17-9bbfa305ffae",
+      "title": "The Road of Dust and Sorrow",
+      "date": "2026-12-03",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "977138",
+      "variant_key": "world-130",
+      "observed_at": "2026-11-11T01:28:18.646Z",
+      "id": "0dbcc206-8e15-43a4-9985-cf1856590a2c",
+      "title": "The Road of Dust and Sorrow",
+      "date": "2026-12-03",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "977139",
+      "variant_key": "world-508",
+      "observed_at": "2026-11-11T01:28:18.652Z",
+      "id": "b5e2fb7c-8471-41d1-8de6-d7191d295a68",
+      "title": "The Road of Dust and Sorrow",
+      "date": "2026-12-03",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "977140",
+      "variant_key": "world-169",
+      "observed_at": "2026-11-11T01:28:18.658Z",
+      "id": "27099848-76a3-436f-ade3-174c21686012",
+      "title": "The Road of Dust and Sorrow",
+      "date": "2026-12-03",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "977156",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:15.397Z",
+      "id": "5985432f-5337-4adb-a277-08c46833fb5d",
+      "title": "UnderMire",
+      "date": "2026-11-13",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "978356",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:15.403Z",
+      "id": "34c17ac7-c1cf-4986-ac31-1cbea69d20ad",
+      "title": "Malignus",
+      "date": "2026-11-13",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "978459",
+      "variant_key": "world-14",
+      "observed_at": "2026-11-11T01:28:12.860Z",
+      "id": "1ec3df5e-48f2-4c60-b2cc-a484bedad657",
+      "title": "Australia Did It: End-of-the-World Railway Defense Business",
+      "date": "2026-11-10",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "978460",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:12.868Z",
+      "id": "cb80d0bf-23dd-4ee5-b412-9be8804d226c",
+      "title": "Australia Did It: End-of-the-World Railway Defense Business",
+      "date": "2026-11-10",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "980963",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:01.242Z",
+      "id": "0277e7e0-4fbb-4b84-a14e-f7f750650040",
+      "title": "Dice Sort Together: Arcane Hall",
+      "date": "2026-10-27",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "981742",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:16.225Z",
+      "id": "8d18a1ce-04a1-4322-8ba0-b242198340df",
+      "title": "Barn Rush",
+      "date": "2026-11-16",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "981743",
+      "variant_key": "world-14",
+      "observed_at": "2026-11-11T01:28:16.233Z",
+      "id": "ac45cf7a-fd4e-4cb5-9326-af3613380da7",
+      "title": "Barn Rush",
+      "date": "2026-11-16",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "981744",
+      "variant_key": "world-3",
+      "observed_at": "2026-11-11T01:28:16.237Z",
+      "id": "c94f386e-4dad-4ff0-ac0f-1cca70bb0470",
+      "title": "Barn Rush",
+      "date": "2026-11-16",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "984969",
+      "variant_key": "world-3",
+      "observed_at": "2026-11-11T01:28:19.139Z",
+      "id": "a0aa7058-fef8-474f-9f08-b171b2c13cf0",
+      "title": "Trifolium: The Adventures of Gary Pretzelneck",
+      "date": "2026-12-04",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "984970",
+      "variant_key": "world-14",
+      "observed_at": "2026-11-11T01:28:19.145Z",
+      "id": "9939d3cd-f726-4e08-a150-cff1493a08f5",
+      "title": "Trifolium: The Adventures of Gary Pretzelneck",
+      "date": "2026-12-04",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "984971",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:19.150Z",
+      "id": "c9545fa7-96d7-4754-a01f-0a270d8650ec",
+      "title": "Trifolium: The Adventures of Gary Pretzelneck",
+      "date": "2026-12-04",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "985166",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:23.224Z",
+      "id": "d6adb83e-00c9-45a2-9060-4800d8dadd82",
+      "title": "Hereditas",
+      "date": "2027-07-16",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "985362",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:06.682Z",
+      "id": "7e7cc243-07e3-48f6-9775-ac4d7821ce58",
+      "title": "Tower of Gold",
+      "date": "2026-11-01",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "986599",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:18.221Z",
+      "id": "e6a81780-285c-4ab3-bfdc-dbe03217e1a8",
+      "title": "VR Sandbox",
+      "date": "2026-12-01",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "986848",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:16.319Z",
+      "id": "41f5ed78-90ae-4803-972c-e64db72d8bd5",
+      "title": "Nullnest",
+      "date": "2026-11-16",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "987455",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:09.977Z",
+      "id": "63802fd7-4309-4d63-9e7a-640e57fe62c8",
+      "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+      "date": "2026-11-05",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "987456",
+      "variant_key": "world-169",
+      "observed_at": "2026-11-11T01:28:09.982Z",
+      "id": "89e2247c-9a09-43d4-95c4-63722f8c578c",
+      "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+      "date": "2026-11-05",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "987457",
+      "variant_key": "world-167",
+      "observed_at": "2026-11-11T01:28:09.987Z",
+      "id": "5631bb02-f9c5-414f-9878-c2960ebb39a8",
+      "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+      "date": "2026-11-05",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "987458",
+      "variant_key": "world-48",
+      "observed_at": "2026-11-11T01:28:09.992Z",
+      "id": "6de5c233-28ae-4ef2-80f0-cf963e9d05cb",
+      "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+      "date": "2026-11-05",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "987459",
+      "variant_key": "world-49",
+      "observed_at": "2026-11-11T01:28:09.997Z",
+      "id": "a5fa29ac-78fd-431f-9d76-2f493c4b7d2f",
+      "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+      "date": "2026-11-05",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "987547",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:17.899Z",
+      "id": "969215bf-84e1-424b-8950-7877fd17e354",
+      "title": "Rogue Braver",
+      "date": "2026-11-30",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "987608",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:11.348Z",
+      "id": "a975eec6-a861-4d41-a9f9-1e9d4e8326ba",
+      "title": "Dinosaur Shakespeare 3: They Are On The Moon Now And It Escalated Quickly - Bloodcore Edition",
+      "date": "2026-11-07",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "988093",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:15.808Z",
+      "id": "4dc3a308-7392-4a47-a34e-e952336bcc2e",
+      "title": "Exodus Core",
+      "date": "2026-11-13",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "988326",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:15.077Z",
+      "id": "ff9999f1-f9fd-4e7a-9c67-ddff2accc515",
+      "title": "Irreverence",
+      "date": "2026-11-12",
+      "release_market": "WORLD"
+    },
+    {
+      "external_id": "988489",
+      "variant_key": "world-6",
+      "observed_at": "2026-11-11T01:28:13.399Z",
+      "id": "f48e6c92-c619-4c19-969f-e61d614f8898",
+      "title": "Hidden Bananas",
+      "date": "2026-11-10",
+      "release_market": "WORLD"
+    }
+  ],
+  "raw": [
+    {
+      "id": 987455,
+      "date": 1793836800,
+      "game": {
+        "id": 428613,
+        "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+        "game_type": 14
+      },
+      "m": 11,
+      "platform": {
+        "id": 6,
+        "name": "PC (Microsoft Windows)"
+      },
+      "y": 2026,
+      "date_format": 0,
+      "release_region": 8
+    },
+    {
+      "id": 987456,
+      "date": 1793836800,
+      "game": {
+        "id": 428613,
+        "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+        "game_type": 14
+      },
+      "m": 11,
+      "platform": {
+        "id": 169,
+        "name": "Xbox Series X|S"
+      },
+      "y": 2026,
+      "date_format": 0,
+      "release_region": 8
+    },
+    {
+      "id": 987459,
+      "date": 1793836800,
+      "game": {
+        "id": 428613,
+        "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+        "game_type": 14
+      },
+      "m": 11,
+      "platform": {
+        "id": 49,
+        "name": "Xbox One"
+      },
+      "y": 2026,
+      "date_format": 0,
+      "release_region": 8
+    },
+    {
+      "id": 987458,
+      "date": 1793836800,
+      "game": {
+        "id": 428613,
+        "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+        "game_type": 14
+      },
+      "m": 11,
+      "platform": {
+        "id": 48,
+        "name": "PlayStation 4"
+      },
+      "y": 2026,
+      "date_format": 0,
+      "release_region": 8
+    },
+    {
+      "id": 987457,
+      "date": 1793836800,
+      "game": {
+        "id": 428613,
+        "name": "Assassin's Creed Valhalla: Title Update 1.8.0",
+        "game_type": 14
+      },
+      "m": 11,
+      "platform": {
+        "id": 167,
+        "name": "PlayStation 5"
+      },
+      "y": 2026,
+      "date_format": 0,
+      "release_region": 8
+    }
+  ]
+}

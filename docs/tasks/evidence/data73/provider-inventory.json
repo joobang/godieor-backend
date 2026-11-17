@@ -1,0 +1,184 @@
+{
+  "observedAt": "2026-11-17T02:51:05.100Z",
+  "counts": {
+    "fixture": 7,
+    "football_data_pl": 760,
+    "igdb": 29914,
+    "kobis": 1909,
+    "ott_reviewed": 93
+  },
+  "scopes": [
+    {
+      "provider_key": "fixture",
+      "category": "movie",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-09T01:07:56.854Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "fixture",
+      "category": "ott",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-09T01:07:56.883Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "fixture",
+      "category": "game",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-09T01:07:56.904Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "fixture",
+      "category": "epl",
+      "scope_market": "WORLD",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-09T01:07:56.917Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "football_data_pl",
+      "category": "epl",
+      "scope_market": "WORLD",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T02:38:27.455Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "AU",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T02:40:16.185Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "BR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T02:40:51.385Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "CN",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T02:40:38.911Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "JP",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T02:40:04.695Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T02:39:52.543Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "NZ",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T02:40:27.102Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "igdb",
+      "category": "game",
+      "scope_market": "WORLD",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T02:39:41.141Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "kobis",
+      "category": "movie",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T02:50:43.727Z",
+      "last_error_code": null
+    },
+    {
+      "provider_key": "ott_reviewed",
+      "category": "ott",
+      "scope_market": "KR",
+      "coverage": "partial",
+      "last_attempt_status": "succeeded",
+      "last_successful_at": "2026-11-17T02:13:40.256Z",
+      "last_error_code": null
+    }
+  ],
+  "gameMarkets": {
+    "WORLD": {
+      "count": 29519,
+      "first": "2026-01-01",
+      "last": "2027-12-20"
+    },
+    "JP": {
+      "count": 327,
+      "first": "2026-01-04",
+      "last": "2027-03-25"
+    },
+    "AU": {
+      "count": 10,
+      "first": "2026-02-13",
+      "last": "2026-11-20"
+    },
+    "BR": {
+      "count": 20,
+      "first": "2026-01-16",
+      "last": "2027-10-31"
+    },
+    "NZ": {
+      "count": 6,
+      "first": "2026-02-19",
+      "last": "2026-11-20"
+    },
+    "KR": {
+      "count": 22,
+      "first": "2026-03-05",
+      "last": "2026-11-26"
+    },
+    "CN": {
+      "count": 10,
+      "first": "2026-02-06",
+      "last": "2026-10-14"
+    }
+  },
+  "epl": {
+    "2025": 186,
+    "2026": 374,
+    "2027": 200
+  },
+  "movie": {
+    "date_only": 1908,
+    "unknown": 1
+  }
+}

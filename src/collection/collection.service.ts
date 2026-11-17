@@ -68,6 +68,10 @@ export class CollectionService implements OnModuleInit {
       const records = (await adapter.fetch(scope, mode)).map((raw) =>
         normalize(raw, scope),
       );
+      if (adapter.refreshMissing) {
+        const previous = (await this.repository.publishedRecords(adapter.key, scope)).map(raw => normalize(raw, scope));
+        records.push(...(await adapter.refreshMissing(scope, previous, records)).map(raw => normalize(raw, scope)));
+      }
       const keys = new Set<string>();
       for (const record of records) {
         const key = JSON.stringify([record.externalId, record.variantKey]);

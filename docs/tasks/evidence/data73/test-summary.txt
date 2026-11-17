@@ -1,0 +1,8 @@
+Node24.22.3
+Final PATH=<Node24bin> npm test: build/Prisma generation succeeded,310/310 passed.
+Final env -u <real provider keys> COLLECTION_INCLUDE_FIXTURE=true node scripts/check-refactor-db.cjs: exit0,isolated digest-pinned PostgreSQL migrations/DI/API/identity/repeat/failure/account/reviewed publication checks.
+Actual backfill: exit0,8 scopes succeeded. Forced daily: exit0,9 scopes succeeded.
+Final KOBIS date withdrawal refresh and repeat: both exit0.
+Real SQL/API/source comparison: exit0.35 game release samples,380 new EPL matches,30115 API rows over24 monthly windows.
+7252 old IDs preserved;7207 old event rows/history unchanged;45 existing events updated.
+Not independent acceptance; iOS/cloud not run.

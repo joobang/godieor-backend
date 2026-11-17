@@ -1,6 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { DateTime } from "luxon";
-import { ProviderAdapter, Scope } from "../domain/provider-record";
+import { Canonical, ProviderAdapter, Scope } from "../domain/provider-record";
+
+import { gameCollectionWindow, movieCollectionYears, premierLeagueSeasons } from "../domain/collection-window";
 
 type JsonObject = Record<string, unknown>;
 function object(value: unknown): JsonObject {
@@ -32,8 +34,7 @@ export class KobisAdapter implements ProviderAdapter {
   async fetch(_scope: Scope, mode: "backfill" | "daily"): Promise<unknown[]> {
     const key = process.env.KOBIS_API_KEY;
     if (!key) throw new Error("MISSING_PROVIDER_KEY");
-    const year = DateTime.now().setZone("Asia/Seoul").year;
-    const years = mode === "backfill" ? [year - 1, year, year + 1] : [year, year + 1];
+    const years = movieCollectionYears(mode);
     const records = new Map<string, unknown>();
     for (const y of years) {
       for (let page = 1; page <= 20; page++) {
@@ -69,6 +70,28 @@ export class KobisAdapter implements ProviderAdapter {
     }
     return [...records.values()];
   }
+  async refreshMissing(_scope: Scope, previous: readonly Canonical[], current: readonly Canonical[]): Promise<unknown[]> {
+    const seen = new Set(current.map(r => r.externalId));
+    const missing = previous.filter(r => !seen.has(r.externalId));
+    if (missing.length > 100) throw Error("PROVIDER_RECHECK_LIMIT");
+    const key = process.env.KOBIS_API_KEY;
+    if (!key) throw Error("MISSING_PROVIDER_KEY");
+    const records: Canonical[] = [];
+    for (const prior of missing) {
+      const url = new URL("https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json");
+      url.searchParams.set("key", key);url.searchParams.set("movieCd", prior.externalId);
+      const movie = object(object((await getJson(url)).movieInfoResult).movieInfo);
+      if (text(movie.movieCd) !== prior.externalId || !text(movie.movieNm) || typeof movie.openDt !== "string") throw Error("INVALID_PROVIDER_RESPONSE");
+      const day = dateOnly(movie.openDt);
+      if (movie.openDt !== "" && !day) throw Error("INVALID_PROVIDER_RESPONSE");
+      if (!prior.content || prior.content.externalId !== prior.externalId) throw Error("IDENTITY_CHANGED");
+      const title = text(movie.movieNm);
+      records.push({ ...prior, title, content: { ...prior.content, title },
+        time: day ? { type: "date_only", value: day } : { type: "unknown", announcedYear: null, announcedPeriod: null } });
+    }
+    return records;
+  }
+
 }
 
 /** football-data.org Premier League fixtures. Preserve undecided kickoff as unknown. */
@@ -81,9 +104,7 @@ export class PremierLeagueAdapter implements ProviderAdapter {
   async fetch(_scope: Scope, mode: "backfill" | "daily"): Promise<unknown[]> {
     const key = process.env.FOOTBALL_DATA_API_KEY;
     if (!key) throw new Error("MISSING_PROVIDER_KEY");
-    const year = DateTime.now().setZone("Europe/London").year;
-    const season = DateTime.now().setZone("Europe/London").month >= 7 ? year : year - 1;
-    const seasons = mode === "backfill" ? [season - 1, season, season + 1] : [season, season + 1];
+    const { current: season, years: seasons } = premierLeagueSeasons(mode);
     const records = new Map<string, unknown>();
     for (const startYear of seasons) {
       const url = new URL("https://api.football-data.org/v4/competitions/PL/matches");
@@ -159,9 +180,7 @@ export class IgdbAdapter implements ProviderAdapter {
     };
     const regions = scope.market === "WORLD" ? [1, 2, 7, 8] : [regionByMarket[scope.market]];
     if (regions.some((region) => !region)) throw new Error("INVALID_IGDB_REGION");
-    const now = Math.floor(Date.now() / 1000);
-    const from = now - (mode === "backfill" ? 365 : 30) * 86400;
-    const to = now + 400 * 86400;
+    const { from, to } = gameCollectionWindow(mode);
     const out: unknown[] = [];
     // Page in 30-day windows to avoid truncating prolific regions at an arbitrary 2000-row cap.
     for (const region of regions) {

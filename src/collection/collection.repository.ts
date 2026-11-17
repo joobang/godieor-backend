@@ -116,6 +116,21 @@ export class CollectionRepository {
       },
     });
   }
+  async publishedRecords(provider: string, scope: Scope): Promise<unknown[]> {
+    const kinds = { movie: "theatrical_release", ott: "ott_season_premiere", game: "game_release", epl: "epl_match" } as const;
+    const rows = await this.db.event_source.findMany({
+      where: { provider_key: provider, event: { kind: kinds[scope.category], release_market: scope.category === "epl" ? null : scope.market } },
+      select: { external_id: true, variant_key: true, event: { select: { event_change: {
+        orderBy: { catalog_revision: "desc" }, take: 1, select: { after_value: true },
+      } } } },
+    });
+    return rows.map(row => {
+      const record = row.event.event_change[0]?.after_value;
+      if (!record || typeof record !== "object" || Array.isArray(record) ||
+          record.externalId !== row.external_id || record.variantKey !== row.variant_key) throw Error("INVALID_PUBLISHED_RECORD");
+      return record;
+    });
+  }
   async beginRun(scopeId: string, mode: "backfill" | "daily") {
     const runId = randomUUID(),
       started = new Date();
