@@ -563,3 +563,10 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 - 원본 `docs/tasks/DATA-76-igdb-review-queue.md`. DATA74 감사49건을 기존 공개ID/후보ID/다른 저장 공개ID로 분리하여 읽기 전용 큐 생성. 중복 의심38/근거 부족11, 전건 사람 검토 대기. 별도 alias·비게시·병합 권한 없음.
 - 신규 원천 조회/실제 DB 변경 없이 공식 과거 감사 결과 사용. 공개 event ID·찜·날짜·API/계약·verifier 기준 불변. 다음은 정체성·지역·날짜와 찜 참조 확인 후 검토 상태 정책 설계.
 
+## DATA-77 · IGDB 공개 참조 읽기 전용 감사 도구 (2026-11-17)
+
+- backend 원본 `docs/tasks/DATA-77-igdb-public-references.md`, 요구 PROD-005/006/007/009·GD-005/006/007/009, ADR024/LEARN0006. DATA-76의 49건 큐를 입력으로 기존 event ID/source binding, 다른 공개 ID, 사용자 찜·날짜·지역을 읽기 전용 DB 스냅샷에서 확인하는 감사 CLI를 추가했다.
+- 합성 검사 16/16 통과, 실제 큐 49행 입력 검증 성공. 중복된 공개 ID의 찜을 요약에서 중복 합산하지 않는다. 실제 DB 접속·조회 및 새 IGDB 실시간 검사는 실행하지 않아 결과 49건의 현재 상태는 미확인이다. 기존 38 중복 가능/11 근거 부족은 계속 수동 보류한다.
+- 게시 검토는 실제 출시 상태 `event.status`와 분리하고 원본 공개 ID 및 찜 유지, 공식 원천·숫자지역 확인 뒤 수동 alias 검토가 필요하다는 정책 초안을 작성했다. DB·API·계약·migration·앱 코드·verifier acceptance/verdict·공개 게시 데이터 변경 없음. 독립 runner/리뷰, 실폰/클라우드·push 미실행.
+- app 기준 `34239dc`, backend 기준 `6485b0e`, verifier 기준 `6a93a14`. 다음은 DB 접근 가능한 환경에서 실참조/찜 영향 확인, 게시 표시·별칭 명세와 독립 검증 설계. 데이터 단계는 계속 진행 중이다. revision `SYNC-2026-11-17-DATA-77`.
+
