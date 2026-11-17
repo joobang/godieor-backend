@@ -558,3 +558,8 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 - nullable migration과 DB 참조 계약 manifest 갱신. Node24 전체 자체검사 **332/332**·IGDB 관련 13/13 및 일회용 PostgreSQL migration/가상7건·반복수집·계정·찜 회귀 통과. 실제 DB migration/원천 재수집·독립 검증·클라우드 미실행.
 - 원본지역 확보는 provenance 개선이며 기존 49건 중복 정정·게시 상태 설계·일반 자동 첫날 확인은 남는다. ADR024/LEARN0006; revision DATA-75-2026-11-17. 데이터→배포→기능→디자인 순서 유지.
 
+## DATA-76 · IGDB 중복 의심 검토 큐 (2026-11-17)
+
+- 원본 `docs/tasks/DATA-76-igdb-review-queue.md`. DATA74 감사49건을 기존 공개ID/후보ID/다른 저장 공개ID로 분리하여 읽기 전용 큐 생성. 중복 의심38/근거 부족11, 전건 사람 검토 대기. 별도 alias·비게시·병합 권한 없음.
+- 신규 원천 조회/실제 DB 변경 없이 공식 과거 감사 결과 사용. 공개 event ID·찜·날짜·API/계약·verifier 기준 불변. 다음은 정체성·지역·날짜와 찜 참조 확인 후 검토 상태 정책 설계.
+

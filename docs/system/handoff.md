@@ -550,3 +550,8 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 - Node24 전체332/332·IGDB 관련13/13, 고정 digest 임시 DB migration·가상7건·반복·계정·찜 검증 통과. 코드 SHA는 backend 원본 커밋 참조. 실제품 DB migration/실수집·독립 runner/클라우드/푸시 미실행. app 개인 pbxproj dirty 유지.
 - 다음: 기존49 원천 ID·중복 후보 증거 검토 후 안전한 alias/검토 게시 정책 설계. 승인 전 자동 병합/삭제 금지. 공통 revision DATA-75-2026-11-17, ADR024/LEARN0006.
 
+## DATA-76 · IGDB 검토 큐 인계 (2026-11-17)
+
+- backend `docs/tasks/DATA-76-igdb-review-queue.md`: DATA74 감사49건의 재분류만 수행, 중복 의심38·원천 근거 부족11, DB변경0. 원래 지역값이 없는 49건의 release ID 교정/alias 확정은 미실행.
+- 다음은 ID/지역/플랫폼/날짜와 기존 찜 영향의 개별 검토 및 게시 검토 상태/alias 계약 설계. 자동 병합·게시 취소 금지, verifier 승인 절차 별도.
+

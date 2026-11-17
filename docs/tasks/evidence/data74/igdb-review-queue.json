@@ -1,0 +1,1247 @@
+{
+  "kind": "igdb-source-review-queue",
+  "inputAuditSha256": "afef15785ae3730672d90696d6a6f475474adf8b4301dbe6a4fd84a3fc6244d0",
+  "auditedAt": "2026-11-17T03:27:17.138Z",
+  "total": 49,
+  "categoryCounts": {
+    "insufficient_source_evidence": 11,
+    "potential_duplicate_review": 38
+  },
+  "requiresHumanReview": true,
+  "publishingAllowed": false,
+  "databaseMutations": 0,
+  "rows": [
+    {
+      "originalReleaseId": "964454",
+      "variantKey": "world-6",
+      "publicEventId": "f018ad4f-9f31-45d7-9f40-5d0421a7caf9",
+      "title": "Elixir of Moonglow",
+      "market": "WORLD",
+      "storedDate": "2026-11-10",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_partial_or_undated",
+      "category": "insufficient_source_evidence",
+      "possibleOtherPublicEventIds": [],
+      "candidateReleaseIds": [
+        "990621"
+      ],
+      "sourceDates": [
+        null
+      ],
+      "evidenceRequired": "Verify exact source identity, numeric region, date precision and historical event before any change.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "967533",
+      "variantKey": "world-6",
+      "publicEventId": "1654e8bf-0358-4618-b6a5-d447901c5b42",
+      "title": "Young Suns",
+      "market": "WORLD",
+      "storedDate": "2026-11-03",
+      "originalSourceRegion": null,
+      "sourceStatus": "current_release_missing_or_multiple",
+      "category": "insufficient_source_evidence",
+      "possibleOtherPublicEventIds": [],
+      "candidateReleaseIds": [
+        "837682",
+        "991556"
+      ],
+      "sourceDates": [
+        "2025-11-25",
+        null
+      ],
+      "evidenceRequired": "Verify exact source identity, numeric region, date precision and historical event before any change.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "977156",
+      "variantKey": "world-6",
+      "publicEventId": "5985432f-5337-4adb-a277-08c46833fb5d",
+      "title": "UnderMire",
+      "market": "WORLD",
+      "storedDate": "2026-11-13",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_partial_or_undated",
+      "category": "insufficient_source_evidence",
+      "possibleOtherPublicEventIds": [],
+      "candidateReleaseIds": [
+        "991657"
+      ],
+      "sourceDates": [
+        null
+      ],
+      "evidenceRequired": "Verify exact source identity, numeric region, date precision and historical event before any change.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "978356",
+      "variantKey": "world-6",
+      "publicEventId": "34c17ac7-c1cf-4986-ac31-1cbea69d20ad",
+      "title": "Malignus",
+      "market": "WORLD",
+      "storedDate": "2026-11-13",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_partial_or_undated",
+      "category": "insufficient_source_evidence",
+      "possibleOtherPublicEventIds": [],
+      "candidateReleaseIds": [
+        "991591"
+      ],
+      "sourceDates": [
+        null
+      ],
+      "evidenceRequired": "Verify exact source identity, numeric region, date precision and historical event before any change.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "978459",
+      "variantKey": "world-14",
+      "publicEventId": "1ec3df5e-48f2-4c60-b2cc-a484bedad657",
+      "title": "Australia Did It: End-of-the-World Railway Defense Business",
+      "market": "WORLD",
+      "storedDate": "2026-11-10",
+      "originalSourceRegion": null,
+      "sourceStatus": "current_release_missing_or_multiple",
+      "category": "insufficient_source_evidence",
+      "possibleOtherPublicEventIds": [],
+      "candidateReleaseIds": [],
+      "sourceDates": [],
+      "evidenceRequired": "Verify exact source identity, numeric region, date precision and historical event before any change.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "987455",
+      "variantKey": "world-6",
+      "publicEventId": "63802fd7-4309-4d63-9e7a-640e57fe62c8",
+      "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+      "market": "WORLD",
+      "storedDate": "2026-11-05",
+      "originalSourceRegion": null,
+      "sourceStatus": "current_game_outside_main_game",
+      "category": "insufficient_source_evidence",
+      "possibleOtherPublicEventIds": [],
+      "candidateReleaseIds": [],
+      "sourceDates": [],
+      "evidenceRequired": "Verify exact source identity, numeric region, date precision and historical event before any change.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "987456",
+      "variantKey": "world-169",
+      "publicEventId": "89e2247c-9a09-43d4-95c4-63722f8c578c",
+      "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+      "market": "WORLD",
+      "storedDate": "2026-11-05",
+      "originalSourceRegion": null,
+      "sourceStatus": "current_game_outside_main_game",
+      "category": "insufficient_source_evidence",
+      "possibleOtherPublicEventIds": [],
+      "candidateReleaseIds": [],
+      "sourceDates": [],
+      "evidenceRequired": "Verify exact source identity, numeric region, date precision and historical event before any change.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "987457",
+      "variantKey": "world-167",
+      "publicEventId": "5631bb02-f9c5-414f-9878-c2960ebb39a8",
+      "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+      "market": "WORLD",
+      "storedDate": "2026-11-05",
+      "originalSourceRegion": null,
+      "sourceStatus": "current_game_outside_main_game",
+      "category": "insufficient_source_evidence",
+      "possibleOtherPublicEventIds": [],
+      "candidateReleaseIds": [],
+      "sourceDates": [],
+      "evidenceRequired": "Verify exact source identity, numeric region, date precision and historical event before any change.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "987458",
+      "variantKey": "world-48",
+      "publicEventId": "6de5c233-28ae-4ef2-80f0-cf963e9d05cb",
+      "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+      "market": "WORLD",
+      "storedDate": "2026-11-05",
+      "originalSourceRegion": null,
+      "sourceStatus": "current_game_outside_main_game",
+      "category": "insufficient_source_evidence",
+      "possibleOtherPublicEventIds": [],
+      "candidateReleaseIds": [],
+      "sourceDates": [],
+      "evidenceRequired": "Verify exact source identity, numeric region, date precision and historical event before any change.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "987459",
+      "variantKey": "world-49",
+      "publicEventId": "a5fa29ac-78fd-431f-9d76-2f493c4b7d2f",
+      "title": "Assassin's Creed Valhalla: Title Update 1.8.0",
+      "market": "WORLD",
+      "storedDate": "2026-11-05",
+      "originalSourceRegion": null,
+      "sourceStatus": "current_game_outside_main_game",
+      "category": "insufficient_source_evidence",
+      "possibleOtherPublicEventIds": [],
+      "candidateReleaseIds": [],
+      "sourceDates": [],
+      "evidenceRequired": "Verify exact source identity, numeric region, date precision and historical event before any change.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "988489",
+      "variantKey": "world-6",
+      "publicEventId": "f48e6c92-c619-4c19-969f-e61d614f8898",
+      "title": "Hidden Bananas",
+      "market": "WORLD",
+      "storedDate": "2026-11-10",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_partial_or_undated",
+      "category": "insufficient_source_evidence",
+      "possibleOtherPublicEventIds": [],
+      "candidateReleaseIds": [
+        "990698"
+      ],
+      "sourceDates": [
+        null
+      ],
+      "evidenceRequired": "Verify exact source identity, numeric region, date precision and historical event before any change.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "943060",
+      "variantKey": "world-6",
+      "publicEventId": "230f90f4-73d6-4d16-a53d-0db042f0c5ae",
+      "title": "Wilderdark",
+      "market": "WORLD",
+      "storedDate": "2026-11-03",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "0ba229a0-7fa9-4ba3-8266-d443bf20835b"
+      ],
+      "candidateReleaseIds": [
+        "990977"
+      ],
+      "sourceDates": [
+        "2026-11-10"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "966165",
+      "variantKey": "world-6",
+      "publicEventId": "528b85cb-9d75-4e7b-b65a-0cee40ce8a2b",
+      "title": "Hope in the City",
+      "market": "WORLD",
+      "storedDate": "2026-11-10",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "7820e422-548e-4a90-9f3a-184ee859f762"
+      ],
+      "candidateReleaseIds": [
+        "990503"
+      ],
+      "sourceDates": [
+        "2026-11-11"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "966168",
+      "variantKey": "world-169",
+      "publicEventId": "399c90ef-3395-4d57-8551-92cb72c1361d",
+      "title": "Hope in the City",
+      "market": "WORLD",
+      "storedDate": "2026-11-10",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "ebb3470d-6daa-4a19-aa9f-17aed76270e0"
+      ],
+      "candidateReleaseIds": [
+        "990504"
+      ],
+      "sourceDates": [
+        "2026-11-11"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "967794",
+      "variantKey": "world-6",
+      "publicEventId": "923aa40d-8187-498b-a8e2-4ff13f27aa65",
+      "title": "Let Me Die",
+      "market": "WORLD",
+      "storedDate": "2026-11-19",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "821aa010-82fc-4d51-8d26-4e5c83f3cad0"
+      ],
+      "candidateReleaseIds": [
+        "991411"
+      ],
+      "sourceDates": [
+        "2026-11-18"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "968462",
+      "variantKey": "world-6",
+      "publicEventId": "5ab70f80-b5fe-4ef5-8efd-70c3005be5f0",
+      "title": "Profiler Files: New Orleans",
+      "market": "WORLD",
+      "storedDate": "2026-11-11",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "b0f6a9d6-cc3b-436e-9eb8-3df76ef44244"
+      ],
+      "candidateReleaseIds": [
+        "990695"
+      ],
+      "sourceDates": [
+        "2026-11-10"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "971747",
+      "variantKey": "world-6",
+      "publicEventId": "1303633d-782a-4366-923e-4db207a194fd",
+      "title": "Sound System",
+      "market": "WORLD",
+      "storedDate": "2026-11-04",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "a11f617c-2bf8-4396-842b-81e5c48e1ef3"
+      ],
+      "candidateReleaseIds": [
+        "992966"
+      ],
+      "sourceDates": [
+        "2026-11-16"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "971934",
+      "variantKey": "world-6",
+      "publicEventId": "0dfec88f-9dbd-4f2a-8485-96909ba7825e",
+      "title": "Protect the Pit",
+      "market": "WORLD",
+      "storedDate": "2026-10-23",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "e1d946a9-ab33-45d5-a094-775c0964123f"
+      ],
+      "candidateReleaseIds": [
+        "991428"
+      ],
+      "sourceDates": [
+        "2027-01-26"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "972176",
+      "variantKey": "world-6",
+      "publicEventId": "4d36326b-eea3-4c11-b6c1-0a093cbce19d",
+      "title": "Anomalous Veil",
+      "market": "WORLD",
+      "storedDate": "2026-10-27",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "aadde78f-eb03-4459-8435-0e8cfcb97b62"
+      ],
+      "candidateReleaseIds": [
+        "990982"
+      ],
+      "sourceDates": [
+        "2026-11-10"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "974385",
+      "variantKey": "world-3",
+      "publicEventId": "26b6175e-cdde-47a3-b0ff-cebfc359df75",
+      "title": "Towers of Babble",
+      "market": "WORLD",
+      "storedDate": "2026-11-09",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "ca2ca7ae-464c-49b5-90ce-5352e66e9929"
+      ],
+      "candidateReleaseIds": [
+        "990011"
+      ],
+      "sourceDates": [
+        "2026-11-10"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "974386",
+      "variantKey": "world-14",
+      "publicEventId": "f37a4bf7-2fb3-488c-8c44-afa37c7e7a07",
+      "title": "Towers of Babble",
+      "market": "WORLD",
+      "storedDate": "2026-11-09",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "4b911581-0d43-41ae-978c-6a862878fa42"
+      ],
+      "candidateReleaseIds": [
+        "990012"
+      ],
+      "sourceDates": [
+        "2026-11-10"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "974387",
+      "variantKey": "world-6",
+      "publicEventId": "b7a765e8-53e1-4e3c-8a24-9147e32f526e",
+      "title": "Towers of Babble",
+      "market": "WORLD",
+      "storedDate": "2026-11-09",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "0babaf11-2785-428f-93f8-050e5b5e214b"
+      ],
+      "candidateReleaseIds": [
+        "990013"
+      ],
+      "sourceDates": [
+        "2026-11-10"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "975125",
+      "variantKey": "world-6",
+      "publicEventId": "595a2bd6-ebe5-4587-b2f1-e74568c70d0c",
+      "title": "Pup & Mole: Gold Rush",
+      "market": "WORLD",
+      "storedDate": "2026-12-09",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "86444ba1-8d0c-4ebc-881c-e31d99919b40"
+      ],
+      "candidateReleaseIds": [
+        "991255"
+      ],
+      "sourceDates": [
+        "2027-01-25"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "975126",
+      "variantKey": "world-3",
+      "publicEventId": "8427d279-2b5d-40c9-9fe1-8c912d197e76",
+      "title": "Pup & Mole: Gold Rush",
+      "market": "WORLD",
+      "storedDate": "2026-12-09",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "aa8f5f9c-782c-4758-ab83-5e148da4a108"
+      ],
+      "candidateReleaseIds": [
+        "991426"
+      ],
+      "sourceDates": [
+        "2027-01-25"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "975127",
+      "variantKey": "world-14",
+      "publicEventId": "4f4f18bb-1349-4280-9100-9045a8daf5ea",
+      "title": "Pup & Mole: Gold Rush",
+      "market": "WORLD",
+      "storedDate": "2026-12-09",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "5a0804f2-88e2-4638-afc4-256142f40cc7"
+      ],
+      "candidateReleaseIds": [
+        "991427"
+      ],
+      "sourceDates": [
+        "2027-01-25"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "975429",
+      "variantKey": "world-6",
+      "publicEventId": "8a123a32-18d8-4d33-a273-2787a5f8697e",
+      "title": "The Road of Dust and Sorrow",
+      "market": "WORLD",
+      "storedDate": "2026-12-03",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "fda95f91-d1a1-4172-8367-a35319f85e5a"
+      ],
+      "candidateReleaseIds": [
+        "990559"
+      ],
+      "sourceDates": [
+        "2027-02-19"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "975510",
+      "variantKey": "world-3",
+      "publicEventId": "c991c426-a4c9-400c-bd4b-8943dffc344f",
+      "title": "Deiity (Under Ice)",
+      "market": "WORLD",
+      "storedDate": "2026-11-10",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "2c5eb24c-3d06-463c-a35e-46c7221fe330"
+      ],
+      "candidateReleaseIds": [
+        "993171"
+      ],
+      "sourceDates": [
+        "2026-11-17"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "975511",
+      "variantKey": "world-6",
+      "publicEventId": "bbe3654a-2cd0-483b-83ad-b33a6fdfbb0a",
+      "title": "Deiity (Under Ice)",
+      "market": "WORLD",
+      "storedDate": "2026-11-10",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "f41822e5-d5fe-40aa-a9d8-35b24a596eea"
+      ],
+      "candidateReleaseIds": [
+        "993173"
+      ],
+      "sourceDates": [
+        "2026-11-17"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "975512",
+      "variantKey": "world-14",
+      "publicEventId": "e9abb2db-da2b-41ef-b7b3-770fec430ea5",
+      "title": "Deiity (Under Ice)",
+      "market": "WORLD",
+      "storedDate": "2026-11-10",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "d8028e49-40ed-48b2-b9e8-ff1003cfe268"
+      ],
+      "candidateReleaseIds": [
+        "993172"
+      ],
+      "sourceDates": [
+        "2026-11-17"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "975548",
+      "variantKey": "world-167",
+      "publicEventId": "346f0bc3-3656-4dce-9a17-9bbfa305ffae",
+      "title": "The Road of Dust and Sorrow",
+      "market": "WORLD",
+      "storedDate": "2026-12-03",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "fb7466ab-8587-44a0-8a80-86e937b1d5fb"
+      ],
+      "candidateReleaseIds": [
+        "990560"
+      ],
+      "sourceDates": [
+        "2027-02-19"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "977138",
+      "variantKey": "world-130",
+      "publicEventId": "0dbcc206-8e15-43a4-9985-cf1856590a2c",
+      "title": "The Road of Dust and Sorrow",
+      "market": "WORLD",
+      "storedDate": "2026-12-03",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "88c4f812-5296-4616-9517-5a310d4947c6"
+      ],
+      "candidateReleaseIds": [
+        "990557"
+      ],
+      "sourceDates": [
+        "2027-02-19"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "977139",
+      "variantKey": "world-508",
+      "publicEventId": "b5e2fb7c-8471-41d1-8de6-d7191d295a68",
+      "title": "The Road of Dust and Sorrow",
+      "market": "WORLD",
+      "storedDate": "2026-12-03",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "667fa3c6-8897-4d30-b016-fc408377149d"
+      ],
+      "candidateReleaseIds": [
+        "990558"
+      ],
+      "sourceDates": [
+        "2027-02-19"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "977140",
+      "variantKey": "world-169",
+      "publicEventId": "27099848-76a3-436f-ade3-174c21686012",
+      "title": "The Road of Dust and Sorrow",
+      "market": "WORLD",
+      "storedDate": "2026-12-03",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "a181118f-fe7b-4e41-8ee3-bb41694a9ef4"
+      ],
+      "candidateReleaseIds": [
+        "990561"
+      ],
+      "sourceDates": [
+        "2027-02-19"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "978460",
+      "variantKey": "world-6",
+      "publicEventId": "cb80d0bf-23dd-4ee5-b412-9be8804d226c",
+      "title": "Australia Did It: End-of-the-World Railway Defense Business",
+      "market": "WORLD",
+      "storedDate": "2026-11-10",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "2f92fc01-f441-4baa-b48a-5c4a443e3e4f"
+      ],
+      "candidateReleaseIds": [
+        "991491"
+      ],
+      "sourceDates": [
+        "2026-11-17"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "980963",
+      "variantKey": "world-6",
+      "publicEventId": "0277e7e0-4fbb-4b84-a14e-f7f750650040",
+      "title": "Dice Sort Together: Arcane Hall",
+      "market": "WORLD",
+      "storedDate": "2026-10-27",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "c8cf22da-68ef-4b0a-afb5-7021e95ca150"
+      ],
+      "candidateReleaseIds": [
+        "992851"
+      ],
+      "sourceDates": [
+        "2026-11-03"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "981742",
+      "variantKey": "world-6",
+      "publicEventId": "8d18a1ce-04a1-4322-8ba0-b242198340df",
+      "title": "Barn Rush",
+      "market": "WORLD",
+      "storedDate": "2026-11-16",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "05592193-484b-4e48-be98-14bfaa26edc4"
+      ],
+      "candidateReleaseIds": [
+        "991698"
+      ],
+      "sourceDates": [
+        "2026-11-30"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "981743",
+      "variantKey": "world-14",
+      "publicEventId": "ac45cf7a-fd4e-4cb5-9326-af3613380da7",
+      "title": "Barn Rush",
+      "market": "WORLD",
+      "storedDate": "2026-11-16",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "4abbd04c-b79c-49d3-b4f3-032af46380fd"
+      ],
+      "candidateReleaseIds": [
+        "991697"
+      ],
+      "sourceDates": [
+        "2026-11-30"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "981744",
+      "variantKey": "world-3",
+      "publicEventId": "c94f386e-4dad-4ff0-ac0f-1cca70bb0470",
+      "title": "Barn Rush",
+      "market": "WORLD",
+      "storedDate": "2026-11-16",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "de3aee63-d205-44fc-b416-e1a68aad96b6"
+      ],
+      "candidateReleaseIds": [
+        "991696"
+      ],
+      "sourceDates": [
+        "2026-11-30"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "984969",
+      "variantKey": "world-3",
+      "publicEventId": "a0aa7058-fef8-474f-9f08-b171b2c13cf0",
+      "title": "Trifolium: The Adventures of Gary Pretzelneck",
+      "market": "WORLD",
+      "storedDate": "2026-12-04",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "b05f8933-2761-40b6-899b-2166ed39a419"
+      ],
+      "candidateReleaseIds": [
+        "991568"
+      ],
+      "sourceDates": [
+        "2027-01-26"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "984970",
+      "variantKey": "world-14",
+      "publicEventId": "9939d3cd-f726-4e08-a150-cff1493a08f5",
+      "title": "Trifolium: The Adventures of Gary Pretzelneck",
+      "market": "WORLD",
+      "storedDate": "2026-12-04",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "bd862d94-a432-4c75-aed3-f0288f5895f3"
+      ],
+      "candidateReleaseIds": [
+        "991569"
+      ],
+      "sourceDates": [
+        "2027-01-26"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "984971",
+      "variantKey": "world-6",
+      "publicEventId": "c9545fa7-96d7-4754-a01f-0a270d8650ec",
+      "title": "Trifolium: The Adventures of Gary Pretzelneck",
+      "market": "WORLD",
+      "storedDate": "2026-12-04",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "2b0317d0-5e0d-4572-b0a0-3a56ac4af769"
+      ],
+      "candidateReleaseIds": [
+        "991570"
+      ],
+      "sourceDates": [
+        "2027-01-26"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "985166",
+      "variantKey": "world-6",
+      "publicEventId": "d6adb83e-00c9-45a2-9060-4800d8dadd82",
+      "title": "Hereditas",
+      "market": "WORLD",
+      "storedDate": "2027-07-16",
+      "originalSourceRegion": null,
+      "sourceStatus": "current_release_missing_or_multiple",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "ab96415f-1360-4f04-b7c2-1d64ae483796"
+      ],
+      "candidateReleaseIds": [
+        "985167",
+        "991175"
+      ],
+      "sourceDates": [
+        "2026-11-01",
+        null
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "985362",
+      "variantKey": "world-6",
+      "publicEventId": "7e7cc243-07e3-48f6-9775-ac4d7821ce58",
+      "title": "Tower of Gold",
+      "market": "WORLD",
+      "storedDate": "2026-11-01",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "91ecb925-47bd-42aa-a54a-9f657e1feeb4"
+      ],
+      "candidateReleaseIds": [
+        "990468"
+      ],
+      "sourceDates": [
+        "2026-11-01"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "986599",
+      "variantKey": "world-6",
+      "publicEventId": "e6a81780-285c-4ab3-bfdc-dbe03217e1a8",
+      "title": "VR Sandbox",
+      "market": "WORLD",
+      "storedDate": "2026-12-01",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "0180edcd-b05d-4886-b6d2-a129227eefd3"
+      ],
+      "candidateReleaseIds": [
+        "991414"
+      ],
+      "sourceDates": [
+        "2027-01-01"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "986848",
+      "variantKey": "world-6",
+      "publicEventId": "41f5ed78-90ae-4803-972c-e64db72d8bd5",
+      "title": "Nullnest",
+      "market": "WORLD",
+      "storedDate": "2026-11-16",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "66a25224-ba21-4ff3-884a-8cddda1be6cb"
+      ],
+      "candidateReleaseIds": [
+        "990366"
+      ],
+      "sourceDates": [
+        "2026-11-16"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "987547",
+      "variantKey": "world-6",
+      "publicEventId": "969215bf-84e1-424b-8950-7877fd17e354",
+      "title": "Rogue Braver",
+      "market": "WORLD",
+      "storedDate": "2026-11-30",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "6d7f16a5-e6d5-4f10-9b9c-711c461641ab"
+      ],
+      "candidateReleaseIds": [
+        "990643"
+      ],
+      "sourceDates": [
+        "2026-11-06"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "987608",
+      "variantKey": "world-6",
+      "publicEventId": "a975eec6-a861-4d41-a9f9-1e9d4e8326ba",
+      "title": "Dinosaur Shakespeare 3: They Are On The Moon Now And It Escalated Quickly - Bloodcore Edition",
+      "market": "WORLD",
+      "storedDate": "2026-11-07",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "dfe19b4e-2254-44ea-a9dd-8831b4204332"
+      ],
+      "candidateReleaseIds": [
+        "990649"
+      ],
+      "sourceDates": [
+        "2026-11-07"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "988093",
+      "variantKey": "world-6",
+      "publicEventId": "4dc3a308-7392-4a47-a34e-e952336bcc2e",
+      "title": "Exodus Core",
+      "market": "WORLD",
+      "storedDate": "2026-11-13",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "528f97fb-109c-448f-97b1-317fd7c47848"
+      ],
+      "candidateReleaseIds": [
+        "992314"
+      ],
+      "sourceDates": [
+        "2026-11-27"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    },
+    {
+      "originalReleaseId": "988326",
+      "variantKey": "world-6",
+      "publicEventId": "ff9999f1-f9fd-4e7a-9c67-ddff2accc515",
+      "title": "Irreverence",
+      "market": "WORLD",
+      "storedDate": "2026-11-12",
+      "originalSourceRegion": null,
+      "sourceStatus": "possible_successor_dated",
+      "category": "potential_duplicate_review",
+      "possibleOtherPublicEventIds": [
+        "fde4c6d4-7ac2-4dff-bb6b-fe37da0d76fd"
+      ],
+      "candidateReleaseIds": [
+        "990789"
+      ],
+      "sourceDates": [
+        "2026-11-11"
+      ],
+      "evidenceRequired": "Verify original/candidate release ID, numeric region, platform, date and existing favorites before any alias or presentation decision.",
+      "proposedDisposition": "hold_for_manual_review",
+      "automaticAliasAllowed": false,
+      "automaticUnpublishAllowed": false,
+      "automaticMergeAllowed": false,
+      "databaseMutations": 0
+    }
+  ]
+}
