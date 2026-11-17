@@ -7,6 +7,16 @@ const classify=(g=[game],r=[release],direct=[],bindings=[])=>classifyIgdbGaps([o
 test('same game/platform successor remains review-only when original release region is missing',()=>{
  const r=classify(undefined,undefined,[],[{release_id:'22',variant_key:'world-6',event_id:'new-id'}]);assert.equal(r.status,'possible_successor_dated');assert.equal(r.automaticRebindingAllowed,false);assert.equal(r.databaseMutations,0);assert.equal(r.possibleDuplicateStoredEvent,true);assert.equal(r.claims[0].date,'2026-11-20');
 });
+test('known numeric region narrows candidates without allowing rebinding',()=>{
+ const original={...old,original_release_region:8};
+ const candidates=[release,{...release,id:23,release_region:2}];
+ const result=classifyIgdbGaps([original],[game],candidates,[])[0];
+ assert.equal(result.status,'possible_successor_dated');
+ assert.equal(result.originalReleaseRegion,8);
+ assert.deepEqual(result.claims.map(c=>c.releaseId),[22]);
+ assert.equal(result.automaticRebindingAllowed,false);
+ assert.equal(classifyIgdbGaps([{...original,original_release_region:9}],[game],candidates,[])[0].status,'current_release_missing_or_multiple');
+});
 test('partial dates and TBD never become fake calendar days',()=>{
  const r=classify(undefined,[{...release,date_format:3,date:Date.parse('2027-03-31')/1000,y:2027,m:3}]);assert.equal(r.status,'possible_successor_partial_or_undated');assert.equal(r.claims[0].date,null);assert.equal(releaseDate({...release,y:2027}),null);
 });

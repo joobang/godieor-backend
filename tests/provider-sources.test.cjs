@@ -78,6 +78,8 @@ test("IGDB collects worldwide and country releases separately without inventing 
       assert.equal(worldwide.length, 4);
       assert.deepEqual(new Set(worldwide.map(x => x.externalId)), new Set(["5", "7", "8", "9"]));
       assert.equal(normalize(worldwide[0], {category:"game",market:"WORLD"}).market, "WORLD");
+      assert.deepEqual(worldwide.map(x => normalize(x, {category:"game",market:"WORLD"}).sourceReleaseRegion), [1,2,7,8]);
+      assert.equal(normalize(korean[0], {category:"game",market:"KR"}).sourceReleaseRegion, 9);
       assert.equal(worldwide.find(x => x.externalId === "5").content.posterUrl, "https://images.igdb.com/igdb/image/upload/t_cover_big/co1234.jpg");
       const japanese = await adapter.fetch({category:"game",market:"JP"}, "daily");
       assert.equal(japanese.length, 1);

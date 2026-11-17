@@ -68,6 +68,8 @@ const recordSchema = z
     away: team.nullable(),
     sourceUrl: z.url().max(2000),
     sourceUpdatedAt: z.iso.datetime({ offset: true }).nullable(),
+    // Raw IGDB release_region; unlike WORLD/KR market this identifies the source territory.
+    sourceReleaseRegion: z.number().int().min(1).max(10).nullable().optional(),
   })
   .strict();
 export type Category = "movie" | "ott" | "game" | "epl";

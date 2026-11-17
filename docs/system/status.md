@@ -552,3 +552,9 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 - 전체 268/268 통과, 회귀 10/10. 최초 실연계 기존 reviewed70 게시, 새 첫날0, TMDB writer_locked로 discovery 미완료(exit2); 새 작품 자동 게시 완료를 주장하지 않는다.
 - StreamPick은 선택적 사후 감사. 미확정 신규 작품은 검토 후보로 남긴다. app 개인 signing 보존, API/migration/verifier 승인 불변, 독립 runner/클라우드/폰 미실행. revision DATA-68-2026-11-16.
 
+## DATA-75 · IGDB 원본 지역 보존 (2026-11-17)
+
+- backend `docs/tasks/DATA-75-igdb-source-region-provenance.md` 원본. 신규 수집의 숫자 IGDB `release_region`을 event_source에 저장하고 감사 후보를 해당 지역으로 제한. 이전 49건의 누락 지역은 NULL 유지하며 기존 공개 ID/찜을 변경하거나 자동 재매핑하지 않는다.
+- nullable migration과 DB 참조 계약 manifest 갱신. Node24 전체 자체검사 **332/332**·IGDB 관련 13/13 및 일회용 PostgreSQL migration/가상7건·반복수집·계정·찜 회귀 통과. 실제 DB migration/원천 재수집·독립 검증·클라우드 미실행.
+- 원본지역 확보는 provenance 개선이며 기존 49건 중복 정정·게시 상태 설계·일반 자동 첫날 확인은 남는다. ADR024/LEARN0006; revision DATA-75-2026-11-17. 데이터→배포→기능→디자인 순서 유지.
+

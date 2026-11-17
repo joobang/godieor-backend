@@ -264,6 +264,11 @@ export class CollectionRepository {
     const source = await tx.event_source.findUnique({
       where: { provider_key_external_id_variant_key: key },
     });
+    if (r.sourceReleaseRegion != null && adapter.key !== "igdb")
+      throw new Error("SOURCE_REGION_PROVIDER_MISMATCH");
+    if (source?.source_release_region != null && r.sourceReleaseRegion != null &&
+        source.source_release_region !== r.sourceReleaseRegion)
+      throw new Error("SOURCE_REGION_CHANGED");
     const prior = source
       ? await tx.event.findUniqueOrThrow({ where: { id: source.event_id } })
       : null;
@@ -320,7 +325,9 @@ export class CollectionRepository {
           orderBy: { catalog_revision: "desc" },
         })
       : null;
-    const after = json(r);
+    // Provenance belongs to the source binding, not to the public event history.
+    const { sourceReleaseRegion: _sourceReleaseRegion, ...eventRecord } = r;
+    const after = json(eventRecord);
     if (!last || stable(last.after_value) !== stable(after)) {
       await tx.event.upsert({
         where: { id: eventId },
@@ -357,6 +364,7 @@ export class CollectionRepository {
         source_updated_at: r.sourceUpdatedAt
           ? new Date(r.sourceUpdatedAt)
           : null,
+        source_release_region: r.sourceReleaseRegion ?? null,
       },
       update: {
         source_url: r.sourceUrl,
@@ -364,6 +372,7 @@ export class CollectionRepository {
         source_updated_at: r.sourceUpdatedAt
           ? new Date(r.sourceUpdatedAt)
           : null,
+        ...(r.sourceReleaseRegion != null ? { source_release_region: r.sourceReleaseRegion } : {}),
       },
     });
   }

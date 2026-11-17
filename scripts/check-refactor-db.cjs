@@ -68,6 +68,8 @@ async function main() {
     process.env.DATABASE_URL = `postgresql://godieor:${password}@127.0.0.1:${port}/godieor_be03`;
     process.env.CURSOR_SIGNING_KEY = randomBytes(32).toString("hex");
     process.env.COLLECTION_SCHEDULE_ENABLED = "false";
+    // The disposable DB exercise intentionally opts into synthetic fixtures.
+    process.env.COLLECTION_INCLUDE_FIXTURE = "true";
     process.env.API_HOST = "127.0.0.1";
     process.env.PORT = "3001";
     phase = "migrations";
@@ -99,6 +101,7 @@ async function main() {
     assert.equal(
       firstRun.reduce((sum, outcome) => sum + (outcome.published || 0), 0),
       7,
+      JSON.stringify(firstRun),
     );
     assert.ok(firstRun.every((outcome) => outcome.status === "succeeded"));
     const beforeIds = (

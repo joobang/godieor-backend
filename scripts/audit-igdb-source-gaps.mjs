@@ -25,14 +25,14 @@ export function classifyIgdbGaps(old,games,releases,direct,currentBindings=[],co
     if(game.game_type!==0)return {...base,status:'current_game_outside_main_game',currentGame:identity,originalReleaseStillFound:direct.some(r=>String(r.id)===o.release_id)};
     if(!complete||!Array.isArray(game.release_dates))return {...base,status:'current_release_query_incomplete',currentGame:identity};
     const known=direct.filter(r=>String(r.id)===o.release_id);
-    if(known.length){const r=known[0];return {...base,status:known.length===1&&r.game?.id===game.id&&r.platform?.id===platform&&regions[o.release_market]?.includes(r.release_region)?'original_release_found':'original_release_identity_changed',currentGame:identity,observedDate:releaseDate(r)};}
-    const candidates=releases.filter(r=>r.game?.id===game.id&&r.platform?.id===platform&&regions[o.release_market]?.includes(r.release_region));
+    if(known.length){const r=known[0];return {...base,status:known.length===1&&r.game?.id===game.id&&r.platform?.id===platform&&regions[o.release_market]?.includes(r.release_region)&&(o.original_release_region==null||r.release_region===o.original_release_region)?'original_release_found':'original_release_identity_changed',currentGame:identity,originalReleaseRegion:o.original_release_region??null,observedReleaseRegion:r.release_region,observedDate:releaseDate(r)};}
+    const candidates=releases.filter(r=>r.game?.id===game.id&&r.platform?.id===platform&&regions[o.release_market]?.includes(r.release_region)&&(o.original_release_region==null||r.release_region===o.original_release_region));
     const claims=candidates.map(r=>({releaseId:r.id,platform:r.platform.id,region:r.release_region,dateFormat:r.date_format,
       date:releaseDate(r),announcedYear:Number.isSafeInteger(r.y)?r.y:null,announcedMonth:Number.isSafeInteger(r.m)?r.m:null,
       listedInGame:game.release_dates.includes(r.id),storedEventIds:currentBindings.filter(b=>b.release_id===String(r.id)&&b.variant_key===o.variant_key).map(b=>b.event_id)}));
     const status=claims.length!==1?'current_release_missing_or_multiple':!claims[0].listedInGame?'current_game_relation_mismatch':claims[0].date?'possible_successor_dated':'possible_successor_partial_or_undated';
-    return {...base,status,currentGame:identity,originalReleaseRegion:null,
-      reason:'Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.',
+    return {...base,status,currentGame:identity,originalReleaseRegion:o.original_release_region??null,
+      reason:o.original_release_region==null?'Original numeric release_region was not persisted; a current game/platform match cannot prove an old release ID replacement.':'Original numeric release_region narrows candidates but cannot prove an old release ID replacement.',
       possibleDuplicateStoredEvent:claims.some(c=>c.storedEventIds.some(id=>id!==o.event_id)),claims};
   });
 }
@@ -53,10 +53,10 @@ export async function auditIgdbSources(manifest, { prisma,request,checkedAt=new 
   if(!Array.isArray(manifest?.unseen)||!manifest.unseen.length||manifest.unseen.length>500)throw Error('INVALID_GAP_MANIFEST');
   const ids=manifest.unseen.map(r=>r.external_id);
   if(ids.some(id=>typeof id!=='string'||!/^\d+$/.test(id))||new Set(ids).size!==ids.length)throw Error('INVALID_GAP_MANIFEST');
-  const sources=await prisma.event_source.findMany({where:{provider_key:'igdb',external_id:{in:ids}},select:{external_id:true,variant_key:true,event_id:true,
+  const sources=await prisma.event_source.findMany({where:{provider_key:'igdb',external_id:{in:ids}},select:{external_id:true,variant_key:true,event_id:true,source_release_region:true,
     event:{select:{title:true,local_date:true,release_market:true,content_id:true,content:{select:{content_source:{where:{provider_key:'igdb',content_type:'game'},select:{external_id:true}}}}}}}});
   if(sources.length!==ids.length||sources.some(s=>s.event.content?.content_source.length!==1))throw Error('PUBLISHED_BINDINGS_CHANGED');
-  const old=sources.map(s=>({release_id:s.external_id,variant_key:s.variant_key,event_id:s.event_id,content_id:s.event.content_id,title:s.event.title,
+  const old=sources.map(s=>({release_id:s.external_id,variant_key:s.variant_key,event_id:s.event_id,content_id:s.event.content_id,title:s.event.title,original_release_region:s.source_release_region,
     date:s.event.local_date?.toISOString().slice(0,10)??null,release_market:s.event.release_market,game_id:s.event.content.content_source[0].external_id}));
   old.sort((a,b)=>a.release_id.localeCompare(b.release_id));
   const observed=await fetchIgdbRelations(old,request);

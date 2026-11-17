@@ -210,6 +210,7 @@ model event_source {
   source_url        String
   observed_at       DateTime  @db.Timestamptz(6)
   source_updated_at DateTime? @db.Timestamptz(6)
+  source_release_region Int?
   event             event     @relation(fields: [event_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   provider          provider  @relation(fields: [provider_key], references: [key], onDelete: NoAction, onUpdate: NoAction)
 

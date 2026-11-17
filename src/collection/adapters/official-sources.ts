@@ -233,6 +233,7 @@ export class IgdbAdapter implements ProviderAdapter {
               market: scope.market, venueCountry: null, services: [], devices: [device],
               home: null, away: null,
               sourceUrl: "https://www.igdb.com/", sourceUpdatedAt: null,
+              sourceReleaseRegion: region,
             });
           }
           if (items.length < 500) break;

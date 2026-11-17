@@ -194,6 +194,7 @@ CREATE TABLE event_source (
   source_url text NOT NULL,
   observed_at timestamptz NOT NULL,
   source_updated_at timestamptz,
+  source_release_region integer CHECK (source_release_region IS NULL OR source_release_region BETWEEN 1 AND 10),
   PRIMARY KEY (provider_key, external_id, variant_key)
 );
 CREATE INDEX event_source_event_idx ON event_source(event_id);
