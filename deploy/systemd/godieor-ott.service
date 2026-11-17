@@ -1,0 +1,12 @@
+[Unit]
+Description=GODIEOR official OTT daily collection
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=godieor
+WorkingDirectory=/opt/godieor/backend
+EnvironmentFile=/etc/godieor/collection.env
+ExecStart=/usr/bin/node scripts/run-official-ott-daily.mjs
+TimeoutStartSec=190min

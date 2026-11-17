@@ -1,0 +1,12 @@
+[Unit]
+Description=GODIEOR provider daily collection
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=godieor
+WorkingDirectory=/opt/godieor/backend
+EnvironmentFile=/etc/godieor/collection.env
+ExecStart=/usr/bin/node scripts/run-provider-daily.mjs
+TimeoutStartSec=100min
