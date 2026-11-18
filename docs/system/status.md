@@ -1,3 +1,8 @@
+## CI-02 · backend main PR 필수 검사 적용 (2026-11-18)
+
+- 원본 backend `docs/tasks/CI-02-backend-pr-gate.md`. 기존 Actions run44239623270 성공과 Checks API의 `test` / GitHub Actions(15368) 확인. main 범위 PR 필수·최신 base·별도 승인 0·관리자 우회 금지 규칙을 GitHub에 적용하고 저장된 설정을 읽어 확인했다.
+- 사용자 재인증 후 main 보호 규칙 86508537 저장 확인. PR 검증 양식은 대상 브랜치 main의 리뷰 PR에서 실제 검사 결과를 확인한 뒤 병합한다. 제품 코드·계약·운영 데이터·독립 기준 불변. 공통 revision SYNC-2026-11-18-CI-02-ACTIVE.
+
 ## DATA-87 · GitHub Actions 백필 대상 선택 (2026-11-18)
 
 - 원본 backend `docs/tasks/DATA-87-selective-backfill.md`. 전체/KOBIS/EPL/IGDB 전체 또는 시장별/OTT를 선택하며 기존 일일과 전체 백필 유지. 다른 대상의 초기 등록·수집·게시는 실행하지 않음. Node24 360/360, 모의 셸 라우팅과 실패 전파, 일회용 DB 실제 CLI에서 IGDB WORLD 단독 등록·실행 확인.

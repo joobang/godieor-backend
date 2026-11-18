@@ -3,9 +3,14 @@ on:
   pull_request:
   push:
     branches: [main, dev]
+permissions:
+  contents: read
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DATABASE_URL: postgresql://synthetic:synthetic@127.0.0.1:1/synthetic
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -13,7 +18,30 @@ jobs:
           node-version: '24.22.3'
           cache: npm
       - run: npm ci
-      - run: npm test
+      - name: Build and test
+        id: unit
+        run: npm test
+      - name: Verify migrations, data writes and HTTP API on disposable PostgreSQL
+        id: db_api
+        shell: bash
+        run: |
+          image="$(awk '$1 == "image:" {print $2; exit}' compose.yaml)"
+          [[ "$image" =~ ^postgres:16-alpine@sha256:[a-f0-9]{64}$ ]]
+          docker pull "$image"
+          node scripts/check-refactor-db.cjs
+      - name: Publish verification summary
+        if: always()
         env:
-          # Prisma generate validates the URL. This suite does not connect to it.
-          DATABASE_URL: postgresql://synthetic:synthetic@127.0.0.1:1/synthetic
+          UNIT_OUTCOME: ${{ steps.unit.outcome }}
+          DB_API_OUTCOME: ${{ steps.db_api.outcome }}
+        shell: bash
+        run: |
+          {
+            echo '### Backend verification'
+            echo
+            echo "- Checked commit: \`$GITHUB_SHA\`"
+            echo "- Build and tests: \`${UNIT_OUTCOME:-not_run}\`"
+            echo "- Disposable PostgreSQL migration and HTTP API: \`${DB_API_OUTCOME:-not_run}\`"
+            echo "- Database and API evidence: see the disposable PostgreSQL step log on this check."
+            echo "- Independent verifier evidence: attach the verifier receipt for the exact PR head when available."
+          } >> "$GITHUB_STEP_SUMMARY"
