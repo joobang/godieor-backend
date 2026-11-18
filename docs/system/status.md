@@ -1,3 +1,14 @@
+## CI-03 · B안 backend main 적용 확인 (2026-11-18)
+
+- PR #1의 고정 head 06464d1을 merge commit 9f218b9로 병합. backend main의 PR 필수 GitHub Actions test 규칙 유지. 병합 SHA Backend CI 44245768636에서 build/test·일회용 PostgreSQL migration/HTTP API·Job summary 성공 확인.
+- 검증 양식은 main에 있으며 GitHub 기본 브랜치 dev의 자동 입력까지 적용한 것은 아니다. 기본 브랜치와 수집 일정은 별도 운영 범위다. 앱 계약 참조 및 verifier의 PR 증거 첨부 명령은 로컬 main에 반영.
+- 독립 증거는 PR head에 연결된 ERROR를 그대로 보존한다. 이 단계는 B안 검증 경로의 적용이며 독립 제품 승인이나 실제 데이터 적재를 뜻하지 않는다. 원본 `docs/tasks/CI-03-pr-evidence.md`, 담당 해제. revision SYNC-2026-11-18-CI-03-MERGED.
+
+## CI-03 · PR DB·API 및 독립 증거 연결 (2026-11-18)
+
+- backend PR #1 head 06464d1, 원격 Backend CI 44244618154에서 360/360, 일회용 PostgreSQL migration·데이터·HTTP API와 Job summary 성공. 양식과 검사 변경은 PR에서 검증한 뒤 main에 병합했다.
+- 앱 계약 지문 원본과 동기화 후 PR head의 독립 verifier를 실행하고 요약을 PR에 첨부. iOS 빌드·이벤트 ID 성공, 시간 API HTTP400·비밀 검사 실패, 4개 기준 SKIPPED, 최종 ERROR. 원본 backend `docs/tasks/CI-03-pr-evidence.md`, LEARN-0015. 정책 승인 및 운영 적재 없음. revision SYNC-2026-11-18-CI-03, 담당 해제.
+
 ## CI-02 · backend main PR 필수 검사 적용 (2026-11-18)
 
 - 원본 backend `docs/tasks/CI-02-backend-pr-gate.md`. 기존 Actions run44239623270 성공과 Checks API의 `test` / GitHub Actions(15368) 확인. main 범위 PR 필수·최신 base·별도 승인 0·관리자 우회 금지 규칙을 GitHub에 적용하고 저장된 설정을 읽어 확인했다.
