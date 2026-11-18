@@ -1,7 +1,7 @@
-## CI-02 · backend main PR 필수 검사 설정 준비 (2026-11-18)
+## CI-02 · backend main PR 필수 검사 적용 (2026-11-18)
 
-- 원본 backend `docs/tasks/CI-02-backend-pr-gate.md`. 기존 Actions run44239623270 성공과 Checks API의 `test` / GitHub Actions(15368) 확인. main 범위 PR 필수·최신 base·별도 승인 0·관리자 우회 금지 설정을 입력했다.
-- GitHub Confirm access에서 계정 재인증 대기. 원격 main은 조회 시점에 비보호 상태. 인증값을 공유하지 않고 사용자가 직접 인증한 뒤 저장 여부와 PR 검사를 확인한다. PR 검증 양식을 로컬 작업 브랜치에 준비. 제품 코드·계약·운영 데이터·독립 기준 불변. 공통 revision SYNC-2026-11-18-CI-02.
+- 원본 backend `docs/tasks/CI-02-backend-pr-gate.md`. 기존 Actions run44239623270 성공과 Checks API의 `test` / GitHub Actions(15368) 확인. main 범위 PR 필수·최신 base·별도 승인 0·관리자 우회 금지 규칙을 GitHub에 적용하고 저장된 설정을 읽어 확인했다.
+- 사용자 재인증 후 main 보호 규칙 86508537 저장 확인. PR 검증 양식은 대상 브랜치 main의 리뷰 PR에서 실제 검사 결과를 확인한 뒤 병합한다. 제품 코드·계약·운영 데이터·독립 기준 불변. 공통 revision SYNC-2026-11-18-CI-02-ACTIVE.
 
 ## DATA-87 · GitHub Actions 백필 대상 선택 (2026-11-18)
 
