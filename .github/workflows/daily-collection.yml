@@ -24,6 +24,8 @@ concurrency:
   cancel-in-progress: false
 jobs:
   collect:
+    # Keep scheduled writes opt-in when this workflow reaches the default branch.
+    if: github.event_name != 'schedule' || vars.COLLECTION_SCHEDULE_ACTIVE == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 110
     env:
