@@ -119,6 +119,24 @@ jobs:
             exit 0
           fi
           exit "$result"
+      - name: Enrich verified OTT posters
+        if: "!cancelled() && steps.ott.outcome == 'success'"
+        id: ott_posters
+        continue-on-error: true
+        shell: bash
+        run: |
+          if [[ -z "$TMDB_API_READ_ACCESS_TOKEN" ]]; then
+            echo "::warning::TMDB token missing; OTT poster enrichment skipped"
+            exit 0
+          fi
+          node scripts/enrich-ott-posters.mjs --apply > "$RUNNER_TEMP/ott-poster-report.json"
+          result=$?
+          cat "$RUNNER_TEMP/ott-poster-report.json"
+          if [[ "$result" -eq 2 ]]; then
+            echo "::warning::Some OTT poster lookups failed; retry on next schedule"
+            exit 0
+          fi
+          exit "$result"
       - name: Save OTT run evidence
         if: "!cancelled() && (steps.ott.outcome == 'success' || steps.ott.outcome == 'failure')"
         uses: actions/upload-artifact@v4
@@ -128,6 +146,7 @@ jobs:
           retention-days: 7
           path: |
             ${{ runner.temp }}/ott-pipeline-report.json
+            ${{ runner.temp }}/ott-poster-report.json
             work/ott-official-daily-last-run.json
             work/tmdb-release-candidates/latest.json
             work/ott-candidates/state.json
