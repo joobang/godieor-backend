@@ -2,22 +2,21 @@ import { collectionDiagnostic } from "../common/collection-diagnostic";
 import "reflect-metadata";
 import { NestFactory } from "@nestjs/core";
 import { CollectionModule } from "../collection/collection.module";
-import { CollectionRepository } from "../collection/collection.repository";
-import { providerOptions, selectProviders } from "./provider-options";
+import { providerOptions } from "./provider-options";
 import { ProviderAdapter } from "../collection/domain/provider-record";
 import { CollectionService, PROVIDER_ADAPTERS } from "../collection/collection.service";
 
 async function main() {
   const options = providerOptions(process.argv.slice(2));
-  const app = await NestFactory.createApplicationContext(CollectionModule, {
+  const app = await NestFactory.createApplicationContext(CollectionModule.forCli(options), {
     logger: false,
     abortOnError: false,
   });
   try {
-    const selected = selectProviders(app.get<ProviderAdapter[]>(PROVIDER_ADAPTERS), options.providers);
-    const service = new CollectionService(app.get(CollectionRepository), selected);
+    const selected = app.get<ProviderAdapter[]>(PROVIDER_ADAPTERS);
+    const service = app.get(CollectionService);
     const results = await service.collect(options.mode, options.force);
-    console.log(JSON.stringify({ job: "provider_collection", mode: options.mode, providers: selected.map(a => a.key), results }));
+    console.log(JSON.stringify({ job: "provider_collection", mode: options.mode, providers: selected.map(a => a.key), ...(options.market ? { market: options.market } : {}), results }));
     if (results.some((r) => !["succeeded", "already_collected_today"].includes(r.status))) process.exitCode = 1;
   } finally {
     await app.close();

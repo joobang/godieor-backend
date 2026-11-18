@@ -1,3 +1,8 @@
+## DATA-87 · GitHub Actions 백필 대상 선택 (2026-11-18)
+
+- 원본 backend `docs/tasks/DATA-87-selective-backfill.md`. 전체/KOBIS/EPL/IGDB 전체 또는 시장별/OTT를 선택하며 기존 일일과 전체 백필 유지. 다른 대상의 초기 등록·수집·게시는 실행하지 않음. Node24 360/360, 모의 셸 라우팅과 실패 전파, 일회용 DB 실제 CLI에서 IGDB WORLD 단독 등록·실행 확인.
+- 사용자 요청 범위에서 GitHub 적용. 실제 WORLD 백필 또는 P2028 복구 완료와 구분. B안 후속은 원격 Backend CI 확인 후 필수 PR 검사. 관련 LEARN-0022, 담당 해제, revision SYNC-2026-11-18-DATA-87.
+
 ## CI-01 · 백엔드 clean checkout 검사 복구 (2026-11-18)
 
 - 원본 backend `docs/tasks/CI-01-reproducible-backend-ci.md`. CI에는 Prisma 생성용 합성 URL을 주입하고 OTT 기본 검사는 추적된 검토 입력과 가상 발견 입력으로 실행. .env/work 없는 별도 작업 트리 Node24 npm ci --offline 및 npm test 357/357 성공. 원격 필수 체크·통합 runner는 후속. 관련 LEARN-0022 재검토.

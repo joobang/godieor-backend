@@ -1,7 +1,7 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const {DateTime}=require('luxon');
 const {gameCollectionWindow,movieCollectionYears,premierLeagueSeasons}=require('../dist/src/collection/domain/collection-window');
-const {providerOptions,selectProviders}=require('../dist/src/cli/provider-options');
+const {providerOptions,selectProviders,selectCollectionAdapters}=require('../dist/src/cli/provider-options');
 const date=s=>DateTime.fromISO(s,{zone:'utc'});
 test('backfill retains product start in future years instead of a rolling lookback',()=>{
  for(const day of ['2026-11-17T12:34:56Z','2027-11-17T00:00:00Z'])assert.equal(new Date(gameCollectionWindow('backfill',date(day)).from*1000).toISOString(),'2026-10-01T00:00:00.000Z');
@@ -51,4 +51,28 @@ test('wrong KOBIS identity, malformed date or oversized recheck fail without cle
  const original=global.fetch,key=process.env.KOBIS_API_KEY;process.env.KOBIS_API_KEY='synthetic-key';
  try{for(const movie of [{movieCd:'other',movieNm:'가상 영화',openDt:''},{movieCd:'20269999',movieNm:'가상 영화',openDt:'20261399'}]){global.fetch=async()=>({ok:true,json:async()=>({movieInfoResult:{movieInfo:movie}})});await assert.rejects(new KobisAdapter().refreshMissing({category:'movie',market:'KR'},[knownMovie()],[]));}
  await assert.rejects(new KobisAdapter().refreshMissing({category:'movie',market:'KR'},Array.from({length:101},knownMovie),[]),/LIMIT/);}finally{global.fetch=original;if(key===undefined)delete process.env.KOBIS_API_KEY;else process.env.KOBIS_API_KEY=key;}
+});
+
+test('single-market IGDB backfill stays under the provider lock and skips all other scopes', async () => {
+  const { CollectionService } = require('../dist/src/collection/collection.service');
+  const options = providerOptions(['--mode','backfill','--providers','igdb','--market','WORLD']);
+  assert.equal(options.market, 'WORLD');
+  assert.throws(() => providerOptions(['--providers','igdb','--market','WORLD']), /INVALID_COLLECTION_MARKET/);
+  assert.throws(() => providerOptions(['--mode','backfill','--providers','kobis','--market','WORLD']), /INVALID_COLLECTION_MARKET/);
+  const calls = [];
+  const repo = {
+    withCollectorLock: async (key, fn) => { calls.push(key); return fn(); },
+    register: async adapters => { calls.push(adapters.map(adapter => [adapter.key, ...adapter.scopes.map(scope => scope.market)])); },
+    findScope: async () => ({ id: 'synthetic' }),
+    beginRun: async () => 'synthetic-run',
+    publishScope: async () => {},
+  };
+  const adapter = { key: 'igdb', scopes: ['WORLD','KR'].map(market => ({ category: 'game', market })),
+    fetch: async scope => { calls.push(scope.market); return []; } };
+  const configured = [{ key: 'kobis', scopes: [{ category: 'movie', market: 'KR' }] }, adapter];
+  const service = new CollectionService(repo, selectCollectionAdapters(configured, options));
+  await service.onModuleInit();
+  assert.equal((await service.collect(options.mode, options.force)).length, 1);
+  assert.deepEqual(calls, [[['igdb', 'WORLD']], 'igdb', 'WORLD']);
+  assert.throws(() => selectCollectionAdapters(configured, { ...options, market: 'ZZ' }), /INVALID_COLLECTION_MARKET/);
 });

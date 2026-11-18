@@ -11,6 +11,12 @@ on:
         required: true
         default: daily
         options: [daily, backfill]
+      backfill_target:
+        description: "Backfill target (leave all in daily mode)"
+        type: choice
+        required: true
+        default: all
+        options: [all, kobis, epl, igdb, igdb-world, igdb-kr, igdb-jp, igdb-au, igdb-nz, igdb-cn, igdb-br, ott]
 permissions:
   contents: read
 concurrency:
@@ -41,6 +47,12 @@ jobs:
         with:
           node-version: "24.22.3"
           cache: npm
+      - name: Resolve collection selection
+        id: selection
+        env:
+          COLLECTION_MODE: ${{ inputs.mode }}
+          BACKFILL_TARGET: ${{ inputs.backfill_target }}
+        run: node scripts/plan-collection.mjs
       - name: Validate collection configuration
         run: node scripts/check-collection-env.mjs --scope common
       - name: Configure secure database connection
@@ -55,32 +67,43 @@ jobs:
           fi
       - run: npm ci
       - run: npm run build
-      - name: Restore reviewed OTT candidates
-        run: node scripts/restore-reviewed-ott-state.mjs
+        id: build
       - name: Collect daily providers
         id: providers_daily
         continue-on-error: true
-        if: github.event_name == 'schedule' || inputs.mode == 'daily'
+        if: steps.selection.outputs.daily == 'true'
         run: npm run collect:providers:daily
-      - name: Initial backfill for all providers
+      - name: Backfill selected providers
         id: providers_backfill
         continue-on-error: true
-        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'backfill'
+        if: steps.selection.outputs.providers != ''
+        env:
+          BACKFILL_PROVIDERS: ${{ steps.selection.outputs.providers }}
+          IGDB_BACKFILL_MARKET: ${{ steps.selection.outputs.market }}
         shell: bash
         run: |
           failed=0
-          for provider in kobis football_data_pl igdb; do
+          read -r -a providers <<< "$BACKFILL_PROVIDERS"
+          for provider in "${providers[@]}"; do
             echo "::group::Backfill $provider"
             if node scripts/check-collection-env.mjs --scope "$provider"; then
-              node --env-file-if-exists=.env dist/src/cli/collect-daily.js --mode backfill --providers "$provider" || failed=1
+              args=(--mode backfill --providers "$provider")
+              if [[ "$provider" == igdb && -n "$IGDB_BACKFILL_MARKET" ]]; then
+                args+=(--market "$IGDB_BACKFILL_MARKET")
+              fi
+              node --env-file-if-exists=.env dist/src/cli/collect-daily.js "${args[@]}" || failed=1
             else
               failed=1
             fi
             echo "::endgroup::"
           done
           exit "$failed"
+      - name: Restore reviewed OTT candidates
+        id: restore_ott
+        if: "!cancelled() && steps.build.outcome == 'success' && steps.selection.outputs.ott == 'true'"
+        run: node scripts/restore-reviewed-ott-state.mjs
       - name: Collect and publish reviewed OTT premieres
-        if: always() && (steps.providers_daily.outcome != 'skipped' || steps.providers_backfill.outcome != 'skipped')
+        if: "!cancelled() && steps.restore_ott.outcome == 'success'"
         id: ott
         continue-on-error: true
         shell: bash
@@ -95,7 +118,7 @@ jobs:
           fi
           exit "$result"
       - name: Save OTT run evidence
-        if: always()
+        if: "!cancelled() && (steps.ott.outcome == 'success' || steps.ott.outcome == 'failure')"
         uses: actions/upload-artifact@v4
         with:
           name: ott-collection-report

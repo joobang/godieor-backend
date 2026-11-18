@@ -8,6 +8,19 @@ GitHub 저장소 **Settings → Secrets and variables → Actions**에 `COLLECTI
 
 **Actions → Daily provider collection → Run workflow → Branch: main → mode: backfill → Run workflow** 를 실행하면 2026-10-01 컷오프부터 KOBIS·EPL·IGDB 백필 후 OTT 공식 수집 및 기존 검토 게시를 시도한다. `daily`는 당일 변경분을 수집하며, OTT 공식 후보 재확인/게시는 동일하게 수행한다. OTT는 Git 추적된 `data/curated/ott-reviewed-candidates-snapshot.json`에서 **리뷰 94건**의 ID/revision 결속을 복구한다. 리뷰하지 않은 106건은 이 스냅샷에 없으며 자동 승인하지 않는다. 신규로 발견된 미검토 후보는 자동 게시되지 않는다. Actions 실행 후 Artifact `ott-collection-report`에서 실행 산출물을 확인한다.
 
+
+수동 실행에서 `mode: backfill`과 `backfill_target`을 함께 고른다.
+
+| 대상 | 실행 범위 |
+|---|---|
+| `all` | KOBIS → EPL → IGDB 전 시장 → 검토된 OTT 게시 (기본값) |
+| `kobis`, `epl` | 영화 또는 EPL만 |
+| `igdb` | 게임 전 시장 |
+| `igdb-world`, `igdb-kr`, `igdb-jp`, `igdb-au`, `igdb-nz`, `igdb-cn`, `igdb-br` | 선택한 IGDB 시장만 |
+| `ott` | OTT의 공식 출처 수집 · 기존 검토 일정 게시만 |
+
+예를 들어 실패한 WORLD만 재실행하려면 **main → backfill → igdb-world**로 새 실행을 시작한다. `daily`는 `all`로 실행하고 예약 실행은 기존 전체 일일 갱신을 사용한다. OTT 선택 시에만 검토 데이터 복원과 OTT 보고서 업로드를 수행한다. 시장별 실행도 IGDB 제공처 잠금을 사용하며 기존 게시 시간 제한을 적용한다.
+
 ### 실행 전 검사와 실패 진단 (DATA-85)
 
 `Validate collection configuration`에서 공통 DB·서명 설정의 공백 여부를 먼저 검사한다. 제공처 키 누락은 경고하고 해당 제공처 실행에서만 처리하므로 TMDB 설정 누락이 영화·게임·EPL을 막지 않는다. TMDB 누락도 OTT 전체를 조기 종료하지 않고 기존 원천별 실패 격리를 통해 공식 수집·이미 검토된 매핑 게시를 계속한다. 누락 이름만 출력하며 값은 출력하지 않는다. 특히 `TMDB_API_READ_ACCESS_TOKEN`은 Render나 로컬 `.env`와 별개로 GitHub Actions Secret에 등록해야 한다. `.env not found. Continuing without it.` 자체는 오류가 아니다. CI는 환경 변수로 값을 전달한다.
