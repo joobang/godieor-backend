@@ -107,7 +107,7 @@ export class CollectionService implements OnModuleInit {
         errorCode: code,
         ...(diagnostic.causeCode ? { causeCode: diagnostic.causeCode } : {}),
         market: scope.market,
-        phase,
+        phase: diagnostic.phase ?? phase,
       };
     }
   }

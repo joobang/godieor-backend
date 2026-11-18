@@ -1,3 +1,10 @@
+## DATA-86 · 초기등록·수집기록 트랜잭션 보완 (2026-11-18)
+
+- 원본 backend `docs/tasks/DATA-86-control-transactions.md`. DATA85의 게시한도 변경에서 빠진 register/beginRun/failRun을 명시적 제어작업60초(설정10초~5분)·연결획득10초로 보완. 게시한도·원자적scope/ID/이력·계약/migration 불변.
+- 실패 phase(register/begin_run/publish/fail_run)를 CLI·OTT자식·일일runner에 안전하게 보존. 원문SQL/URL/드라이버예외를 출력하지 않음. 실제run44216042056의 P2028 정확한발생지점은 과거로그만으로 확정하지 않음.
+- 공식Node24.22.3 전체357/357, 별도컨텍스트리뷰 관련27/27·추가지적없음. 고정digest 일회용PostgreSQL에서 기존5초실패·수정네경로5.3초초과실행성공·10초제한초과의provider/scope/revision원자rollback확인. 합성지연재현이며 실제Supabase/원격Actions성공·독립제품PASS가 아님.
+- 사용자 수정·push명시요청. 새main커밋에서 Run workflow→main→backfill로 시작해야 함(기존Re-run jobs는옛SHA사용). Secret추가불필요. 최종커밋·원격SHA는Git이력확인. 학습LEARN0022 본문보완, revision `SYNC-2026-11-18-DATA-86`, 담당해제.
+
 ## DATA-85 · Actions 수집 실패 진단·설정·원격 적재 한도 수정 (2026-11-18)
 
 - 원본 backend `docs/tasks/DATA-85-collection-workflow-repair.md`. 실제 실패 run44056014741/job133945486454의 TMDB 토큰 공백·제공처 일부 실패·OTT 자식 exit1 확인. 당시 상세 예외는 유실돼 timeout이 실제 원인이라고 확정하지 않는다.

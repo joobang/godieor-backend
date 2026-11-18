@@ -14,6 +14,8 @@ GitHub 저장소 **Settings → Secrets and variables → Actions**에 `COLLECTI
 
 제공처 실패 결과는 `market`, `phase`(fetch/normalize/refresh_missing/validate/publish), `errorCode`, 필요 시 `causeCode`를 포함한다. 예: `phase=publish`, `DB_TRANSACTION_FAILED`, `P2028`은 DB 트랜잭션 오류다. `PROVIDER_HTTP_429`는 원천의 요청 제한이며 DB 제한을 늘려 해결하지 않는다. `CONNECTION_FAILED`는 안전한 원인 코드만 남기며 쿼리·응답 본문·접속 문자열·예외 원문은 출력하지 않는다. 알 수 없는 오류는 계속 `COLLECTION_FAILED`로 남긴다.
 
+제공처 초기등록과 수집 시작/실패 기록에도 `COLLECTION_CONTROL_TIMEOUT_MS=60000`(기본60초, 허용10초~5분)을 명시한다. 네 repository 트랜잭션 모두 연결획득 `maxWait=10000`을 적용하며 게시실행 한도와 별개다. bootstrap 실패도 안전한 `phase=register|begin_run|fail_run`을 보존한다. 일일runner는 stderr 원문을 저장하지 않고 이 JSON 분류만 읽는다. P2028만으로 과거 장애가 timeout이었다고 확정하지 않으며 새 실행의 phase·실제 소요시간을 확인한다.
+
 CI의 `COLLECTION_PUBLISH_TIMEOUT_MS=900000`은 순차 쿼리를 사용하는 원격 DB 적재에 최대 15분을 허용한다. 범위별 전체 commit/rollback과 기존 ID 보존은 그대로다. 로컬 기본값은 기존 30초/IGDB180초이며 설정 허용 범위는 30초~30분이다. 한도를 늘리는 것은 데이터 양에 비례하는 순차 왕복 비용을 제거하지 않는다. `P2028` 관측 여부와 실제 수행 시간을 보고 배치/쿼리 최적화를 별도로 판단한다. GitHub 전체110분 제한은 유지된다.
 
 OTT 필수 단계가 실패해도 JSON 보고서에 이전 단계와 실패한 스크립트, 안전한 stdout 오류 코드를 보존한다. Artifact를 확인한 뒤 실패 원인을 해소하고 재실행한다. 부분 발견 exit2는 계속 경고이며 실제 게시 실패 exit1을 성공으로 바꾸지 않는다. Secret 설정·원격 재실행 없이 로컬 테스트만 통과한 상태를 운영 복구 완료로 표시하지 않는다.

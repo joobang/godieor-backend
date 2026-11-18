@@ -6,7 +6,7 @@ import { mkdtemp, readFile, rm, stat } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { prepareReviewed } from '../dist/src/reviewed-ott/domain/reviewed-mapping.js';
-import { collectionDiagnostic } from '../dist/src/common/collection-diagnostic.js';
+import { collectionDiagnostic, COLLECTION_PHASES } from '../dist/src/common/collection-diagnostic.js';
 import { configuredMonths } from './ott-schedule-window.mjs';
 
 const node = process.execPath;
@@ -26,7 +26,7 @@ export function childFailure(args, code, stdout, stderr) {
         if (result.status === 'failed' || result.code) {
           const scope = {};
           if (['KR','WORLD','JP','AU','NZ','CN','BR'].includes(result.market)) scope.market = result.market;
-          if (['fetch','normalize','refresh_missing','validate','publish'].includes(result.phase)) scope.phase = result.phase;
+          if (COLLECTION_PHASES.includes(result.phase)) scope.phase = result.phase;
           diagnostics.push({ ...diagnostic, ...scope });
         }
       }

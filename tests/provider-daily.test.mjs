@@ -89,3 +89,20 @@ test('HTTP and database diagnostics survive daily runner without losing successf
   const invalid = structuredClone(value); invalid.results[0].causeCode = 'SYNTHETIC_SECRET';
   assert.throws(() => decodeProviderReport(invalid, 'igdb'), /INVALID_PROVIDER_REPORT/);
 });
+
+
+test('bootstrap stderr keeps register phase and safe code without arbitrary error text', async () => {
+  const execute = () => {
+    const child = new EventEmitter(); child.stdout = new PassThrough(); child.stderr = new PassThrough();
+    process.nextTick(() => {
+      child.stdout.end('');
+      child.stderr.end('synthetic-secret\n' + JSON.stringify({job:'collect-daily',code:'DB_TRANSACTION_FAILED',causeCode:'P2028',phase:'register',message:'synthetic-secret'}) + '\n');
+      child.emit('close',1,null);
+    });
+    return child;
+  };
+  const result = await runProvider('kobis', { execute });
+  assert.equal(result.status,'failed');
+  assert.deepEqual(result.diagnostic,{code:'DB_TRANSACTION_FAILED',causeCode:'P2028',phase:'register'});
+  assert.doesNotMatch(JSON.stringify(result),/synthetic-secret/);
+});

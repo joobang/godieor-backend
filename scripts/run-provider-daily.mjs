@@ -5,7 +5,7 @@ import { mkdir, readFile, writeFile, rename, unlink } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
-import { collectionDiagnostic } from '../dist/src/common/collection-diagnostic.js';
+import { collectionDiagnostic, COLLECTION_PHASES } from '../dist/src/common/collection-diagnostic.js';
 import { acquireLock } from './run-official-ott-daily.mjs';
 export const PROVIDERS = ['kobis', 'football_data_pl', 'igdb'];
 const scopes = { kobis: 1, football_data_pl: 1, igdb: 7 };
@@ -36,7 +36,7 @@ export function decodeProviderReport(value, provider) {
     const diagnostic = collectionDiagnostic({ message: r.errorCode, code: r.causeCode });
     if (r.errorCode !== undefined && diagnostic.code !== r.errorCode ||
         r.causeCode !== undefined && diagnostic.causeCode !== r.causeCode ||
-        r.phase !== undefined && !['fetch','normalize','refresh_missing','validate','publish'].includes(r.phase) ||
+        r.phase !== undefined && !COLLECTION_PHASES.includes(r.phase) ||
         r.market !== undefined && !['KR','WORLD','JP','AU','NZ','CN','BR'].includes(r.market))
       throw Error('INVALID_PROVIDER_REPORT');
     // Retain only the allowlisted CLI fields. Never copy stderr or arbitrary child output.
@@ -59,7 +59,7 @@ export async function runProvider(provider, { execute = spawn, timeoutMs = 30 * 
         ...(force ? ['--force'] : [])], { stdio: ['ignore', 'pipe', 'pipe'], detached: process.platform !== 'win32',
         env: { ...process.env, COLLECTION_INCLUDE_FIXTURE: 'false', COLLECTION_SCHEDULE_ENABLED: 'false' } });
     } catch { done(failed('PROVIDER_START_FAILED')); return; }
-    let stdout = '', timedOut = false, interrupted = false, oversized = false, settled = false;
+    let stdout = '', stderrTail = '', timedOut = false, interrupted = false, oversized = false, settled = false;
     const stop = () => {
       if (process.platform !== 'win32' && Number.isInteger(child.pid)) {
         try { process.kill(-child.pid, 'SIGKILL'); } catch (e) { if (e.code !== 'ESRCH') child.kill('SIGKILL'); }
@@ -73,8 +73,8 @@ export async function runProvider(provider, { execute = spawn, timeoutMs = 30 * 
     child.stdout.on('data', chunk => {
       if (stdout.length + chunk.length > 65536) { oversized = true; stop(); } else stdout += chunk;
     });
-    // Drain error output without persisting credentials or uncontrolled diagnostics.
-    child.stderr.on('data', () => {});
+    // Keep a bounded in-memory tail; only allowlisted structured diagnostics can leave the process.
+    child.stderr.on('data', chunk => { stderrTail = (stderrTail + chunk).slice(-16384); });
     child.on('error', () => { if (!settled) { settled = true; cleanup(); done(failed('PROVIDER_START_FAILED')); } });
     child.on('close', (code, childSignal) => {
       if (settled) return;
@@ -89,7 +89,18 @@ export async function runProvider(provider, { execute = spawn, timeoutMs = 30 * 
           status: healthy ? 'completed' : 'failed', error: healthy ? null : rows.some(r => r.status === 'already_running') ? 'PROVIDER_ALREADY_RUNNING' : 'PROVIDER_COLLECTION_FAILED', scopes: rows,
           collectedScopes: rows.filter(r => r.status === 'succeeded').length,
           skippedScopes: rows.filter(r => r.status === 'already_collected_today').length });
-      } catch { done(failed(code === 0 ? 'INVALID_PROVIDER_REPORT' : 'PROVIDER_PROCESS_FAILED')); }
+      } catch {
+        let diagnostic;
+        for (const line of stderrTail.split('\n')) {
+          try {
+            const row = JSON.parse(line);
+            if (row.job === 'collect-daily' && typeof row.code === 'string')
+              diagnostic = collectionDiagnostic({ message: row.code, code: row.causeCode, collectionPhase: row.phase });
+          } catch { /* Never expose unstructured stderr. */ }
+        }
+        done({ ...failed(code === 0 ? 'INVALID_PROVIDER_REPORT' : 'PROVIDER_PROCESS_FAILED'),
+          ...(diagnostic ? { diagnostic } : {}) });
+      }
     });
   });
 }

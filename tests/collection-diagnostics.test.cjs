@@ -37,7 +37,7 @@ test('atomic publication uses bounded cloud override and preserves local default
     await repository.publishScope({ key: 'igdb' }, 's', [], 'r');
     process.env.COLLECTION_PUBLISH_TIMEOUT_MS = '900000';
     await repository.publishScope({ key: 'ott_reviewed' }, 's', [], 'r');
-    assert.deepEqual(options, [{ timeout: 30000 }, { timeout: 180000 }, { timeout: 900000 }]);
+    assert.deepEqual(options, [{ timeout: 30000, maxWait: 10000 }, { timeout: 180000, maxWait: 10000 }, { timeout: 900000, maxWait: 10000 }]);
     for (const value of ['NaN', '', '0', '1800001', '3.5']) {
       process.env.COLLECTION_PUBLISH_TIMEOUT_MS = value;
       await assert.rejects(repository.publishScope({ key: 'kobis' }, 's', [], 'r'), /INVALID_COLLECTION_PUBLISH_TIMEOUT/);

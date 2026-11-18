@@ -3,6 +3,7 @@ import { randomUUID } from "node:crypto";
 import { Prisma } from "../generated/prisma/client";
 import { PrismaService } from "../database/prisma.service";
 import { Canonical, ProviderAdapter, Scope } from "./domain/provider-record";
+import { collectionDiagnostic } from "../common/collection-diagnostic";
 type Tx = Prisma.TransactionClient;
 function stable(value: unknown): string {
   return JSON.stringify(value, (_key, x) =>
@@ -19,6 +20,26 @@ function json(value: unknown): Prisma.InputJsonValue {
 @Injectable()
 export class CollectionRepository {
   constructor(private readonly db: PrismaService) {}
+  private controlTimeout(): number {
+    const value = process.env.COLLECTION_CONTROL_TIMEOUT_MS;
+    if (value === undefined) return 60000;
+    const timeout = Number(value);
+    if (!Number.isSafeInteger(timeout) || timeout < 10000 || timeout > 300000)
+      throw new Error("INVALID_COLLECTION_CONTROL_TIMEOUT");
+    return timeout;
+  }
+  private async transaction<T>(phase: "register" | "begin_run" | "publish" | "fail_run",
+    operation: (tx: Tx) => Promise<T>, timeout: number): Promise<T> {
+    try {
+      return await this.db.$transaction(operation, { timeout, maxWait: 10000 });
+    } catch (error) {
+      const diagnostic = collectionDiagnostic(error);
+      // Never attach the original message, SQL, URL or driver metadata to public errors.
+      throw Object.assign(new Error(diagnostic.code), {
+        code: diagnostic.causeCode, collectionPhase: phase,
+      });
+    }
+  }
   // Review-only ingestion: protect stable IDs already referenced by account favorites.
   // Called under the provider collector lock before any records are written.
   async assertReviewedCatalogIdentities(provider: string, records: readonly Canonical[]) {
@@ -52,7 +73,7 @@ export class CollectionRepository {
     }
   }
   async register(adapters: ProviderAdapter[]) {
-    await this.db.$transaction(async (tx) => {
+    await this.transaction("register", async (tx) => {
       let changed = false;
       for (const adapter of adapters) {
         const registered = await tx.provider.findUnique({
@@ -93,7 +114,7 @@ export class CollectionRepository {
         }
       }
       if (changed) await this.bump(tx);
-    });
+    }, this.controlTimeout());
   }
   private async bump(tx: Tx) {
     return tx.catalog_state.update({
@@ -134,7 +155,7 @@ export class CollectionRepository {
   async beginRun(scopeId: string, mode: "backfill" | "daily") {
     const runId = randomUUID(),
       started = new Date();
-    await this.db.$transaction(async (tx) => {
+    await this.transaction("begin_run", async (tx) => {
       await tx.collection_scope.update({
         where: { id: scopeId },
         data: {
@@ -153,7 +174,7 @@ export class CollectionRepository {
         },
       });
       await this.bump(tx);
-    });
+    }, this.controlTimeout());
     return runId;
   }
   private publishTimeout(provider: string): number {
@@ -170,7 +191,7 @@ export class CollectionRepository {
     records: Canonical[],
     runId: string,
   ) {
-    await this.db.$transaction(
+    await this.transaction("publish",
       async (tx) => {
         const catalog = await this.bump(tx);
         for (const record of records)
@@ -190,11 +211,11 @@ export class CollectionRepository {
           data: { status: "succeeded", finished_at: finished },
         });
       },
-      { timeout: this.publishTimeout(adapter.key) },
+      this.publishTimeout(adapter.key),
     );
   }
   async failRun(scopeId: string, runId: string, code: string) {
-    await this.db.$transaction(async (tx) => {
+    await this.transaction("fail_run", async (tx) => {
       await tx.collection_scope.update({
         where: { id: scopeId },
         data: { last_attempt_status: "failed", last_error_code: code },
@@ -204,7 +225,7 @@ export class CollectionRepository {
         data: { status: "failed", finished_at: new Date(), error_code: code },
       });
       await this.bump(tx);
-    });
+    }, this.controlTimeout());
   }
   private async content(
     tx: Tx,

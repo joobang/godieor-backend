@@ -8,12 +8,20 @@ const known = new Set([
   "DUPLICATE_SOURCE_KEY", "IDENTITY_CHANGED", "INVALID_FIXTURE_BATCH", "INVALID_FIXTURE_KIND",
   "SOURCE_REGION_CHANGED", "SOURCE_REGION_PROVIDER_MISMATCH", "INVALID_PUBLISHED_RECORD",
   "ADAPTER_ORIGIN_MISMATCH", "MAPPING_FILE_REQUIRED", "MISSING_REQUESTED_PROVIDER_KEY", "INVALID_COLLECTION_PUBLISH_TIMEOUT",
-  "PROVIDER_TIMEOUT", "NORMALIZATION_FAILED",
+  "PROVIDER_TIMEOUT", "NORMALIZATION_FAILED", "INVALID_COLLECTION_CONTROL_TIMEOUT",
 ]);
 const systemCodes = new Set(["ETIMEDOUT", "ECONNRESET", "ECONNREFUSED", "ENOTFOUND", "EAI_AGAIN",
   "UND_ERR_CONNECT_TIMEOUT", "CERT_HAS_EXPIRED", "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
   "SELF_SIGNED_CERT_IN_CHAIN", "DEPTH_ZERO_SELF_SIGNED_CERT"]);
-export function collectionDiagnostic(error: unknown): { code: string; causeCode?: string } {
+export const COLLECTION_PHASES = ["register", "find_scope", "begin_run", "fetch", "normalize",
+  "refresh_missing", "validate", "publish", "fail_run"] as const;
+export function collectionDiagnostic(error: unknown): { code: string; causeCode?: string; phase?: string } {
+  const diagnostic = classify(error);
+  const phase = error && typeof error === "object" ? (error as { collectionPhase?: unknown }).collectionPhase : undefined;
+  return typeof phase === "string" && (COLLECTION_PHASES as readonly string[]).includes(phase)
+    ? { ...diagnostic, phase } : diagnostic;
+}
+function classify(error: unknown): { code: string; causeCode?: string } {
   if (!error || typeof error !== "object") return { code: "COLLECTION_FAILED" };
   const e = error as { message?: unknown; name?: unknown; code?: unknown; cause?: unknown };
   if (typeof e.message === "string" && /^PROVIDER_HTTP_[1-5][0-9]{2}$/.test(e.message)) return { code: e.message };

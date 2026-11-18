@@ -78,3 +78,10 @@ test('missing TMDB evidence still runs official sources and reviewed publication
   assert.ok(commands.some(args => args.includes('scripts/collect-netflix-kr-schedule.mjs')));
   assert.ok(commands.some(args => args.includes('dist/src/cli/publish-reviewed.js')));
 });
+
+test('bootstrap register and bookkeeping phases survive child process diagnostic parsing', () => {
+  const error = childFailure(['dist/src/cli/collect-daily.js'], 1,
+    '', JSON.stringify({job:'collect-daily',code:'DB_TRANSACTION_FAILED',causeCode:'P2028',phase:'register'}));
+  assert.match(error.message, /"phase":"register"/);
+  assert.match(error.message, /P2028/);
+});
