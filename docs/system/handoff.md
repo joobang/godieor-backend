@@ -645,3 +645,8 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 
 - Node.js 24.22.3(앱 실행 환경용 Node; NestJS 프레임워크는 12.4.0)로 엔진·Render·CI 정렬. NestJS 제공처 08:30 KST/영속 OTT 상태 충족 시 09:00 KST, Actions 정시 트리거 제거.
 - Render Free 유휴 슬립과 임시 디스크 때문에 정시 실행 및 OTT 검토 상태 연속성은 보장하지 않는다. OTT opt-in 기본값 false. 서버 배포·환경변수 설정·실제 DB 검증 이후 운영 전환 필요. 원본 카드 `docs/tasks/DEPLOY-02-render-internal-daily.md`.
+## DATA-88 · IGDB WORLD 진단 인계 (2026-11-18)
+
+- 원본 backend `docs/tasks/DATA-88-igdb-world-timing-diagnostics.md`. dev 기준 `f479eb94`, 분리 worktree에서 단계별 소요시간 `fetchMs`·`publishMs`, 입력건수 `recordCount`를 추가해 P2028 진단 증거 보강.
+- Node22 빌드 성공, 관련19/19, 전체 자체361/361(로컬포트 허용). 저장소 지정 Node24 검증은 원격 CI에서 확인. 원격 IGDB WORLD 실수집/실DB 게시/독립 runner 미실행. 장애 원인 미확정.
+- API 계약·migration·검증 기준 불변. 다음은 dev PR 통과 확인 후 운영 WORLD 선택 실행 결과에서 시간·건수·실패 코드를 실측해 원인을 좁히는 것. 관련 LEARN-0022.

@@ -654,3 +654,7 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 
 - Node.js 24.22.3 엔진·CI·Render 고정, npm lockfile 갱신. NestJS 12.4.0의 `@nestjs/schedule`로 제공처 배치 08:30 KST, 영속 검토 상태가 준비된 경우에만 OTT 09:00 KST opt-in. GitHub Actions 정시 트리거 제거(수동 실행 유지).
 - Render Free가 유휴시 슬립하므로 정시 실행을 보장할 수 없으며 OTT 검토 상태는 영속 저장소가 마련되기 전까지 비활성. 클라우드 실제 배포·일간 실행 검증 및 독립 검증은 미실시. 상세 `docs/tasks/DEPLOY-02-render-internal-daily.md`.
+## DATA-88 · IGDB WORLD 수집·게시 계측 (2026-11-18)
+
+- `codex/igdb-world-backfill-20261118`에서 fetch/publish 시간과 게시 입력 건수를 안전한 일일 runner 보고서에 연결. 원본 `docs/tasks/DATA-88-igdb-world-timing-diagnostics.md`.
+- Node22 로컬 자체 테스트 361/361(포트 허용), 관련 19/19. Node24 CI, 원격 WORLD 적재와 독립 runner 판정은 별도 확인 대상. 계약·마이그레이션 변경 없음.

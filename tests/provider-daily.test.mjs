@@ -76,7 +76,7 @@ test('a fresh working directory is created before acquiring the daily lock',()=>
 test('HTTP and database diagnostics survive daily runner without losing successful IGDB scopes', async () => {
   const value = report('igdb');
   value.results[0] = { provider: 'igdb', category: 'game', status: 'failed', errorCode: 'PROVIDER_HTTP_429', market: 'KR', phase: 'fetch' };
-  value.results[1] = { provider: 'igdb', category: 'game', status: 'failed', errorCode: 'DB_TRANSACTION_FAILED', causeCode: 'P2028', market: 'WORLD', phase: 'publish' };
+  value.results[1] = { provider: 'igdb', category: 'game', status: 'failed', errorCode: 'DB_TRANSACTION_FAILED', causeCode: 'P2028', market: 'WORLD', phase: 'publish', fetchMs: 140, publishMs: 900000, recordCount: 18000 };
   value.results[0].message = 'synthetic-secret';
   const result = await runProvider('igdb', { execute: mock(() => ({ raw: JSON.stringify(value), code: 1 })) });
   assert.equal(result.error, 'PROVIDER_COLLECTION_FAILED');
@@ -85,8 +85,13 @@ test('HTTP and database diagnostics survive daily runner without losing successf
   assert.equal(result.scopes[0].errorCode, 'PROVIDER_HTTP_429');
   assert.equal(result.scopes[1].causeCode, 'P2028');
   assert.equal(result.scopes[1].phase, 'publish');
+  assert.equal(result.scopes[1].publishMs, 900000);
+  assert.equal(result.scopes[1].recordCount, 18000);
   assert.doesNotMatch(JSON.stringify(result), /synthetic-secret/);
   const invalid = structuredClone(value); invalid.results[0].causeCode = 'SYNTHETIC_SECRET';
+  assert.throws(() => decodeProviderReport(invalid, 'igdb'), /INVALID_PROVIDER_REPORT/);
+  invalid.results[0].causeCode = undefined;
+  invalid.results[1].publishMs = -1;
   assert.throws(() => decodeProviderReport(invalid, 'igdb'), /INVALID_PROVIDER_REPORT/);
 });
 
