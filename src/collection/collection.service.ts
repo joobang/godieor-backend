@@ -3,6 +3,7 @@ import { DateTime } from "luxon";
 import { CollectionRepository } from "./collection.repository";
 import { normalize, ProviderAdapter, Scope } from "./domain/provider-record";
 import { collectionDiagnostic } from "../common/collection-diagnostic";
+import { performance } from "node:perf_hooks";
 export const PROVIDER_ADAPTERS = Symbol("PROVIDER_ADAPTERS");
 export type CollectionOutcome = {
   provider: string;
@@ -13,6 +14,9 @@ export type CollectionOutcome = {
   causeCode?: string;
   market?: string;
   phase?: string;
+  fetchMs?: number;
+  publishMs?: number;
+  recordCount?: number;
 };
 @Injectable()
 export class CollectionService implements OnModuleInit {
@@ -70,8 +74,17 @@ export class CollectionService implements OnModuleInit {
       };
     const runId = await this.repository.beginRun(state.id, mode);
     let phase = "fetch";
+    let fetchMs: number | undefined;
+    let publishMs: number | undefined;
+    let recordCount: number | undefined;
     try {
-      const rawRecords = await adapter.fetch(scope, mode);
+      const fetchStarted = performance.now();
+      let rawRecords: Awaited<ReturnType<ProviderAdapter['fetch']>>;
+      try {
+        rawRecords = await adapter.fetch(scope, mode);
+      } finally {
+        fetchMs = Math.round(performance.now() - fetchStarted);
+      }
       phase = "normalize";
       const records = rawRecords.map((raw) =>
         normalize(raw, scope),
@@ -89,12 +102,21 @@ export class CollectionService implements OnModuleInit {
         keys.add(key);
       }
       phase = "publish";
-      await this.repository.publishScope(adapter, state.id, records, runId);
+      recordCount = records.length;
+      const publishStarted = performance.now();
+      try {
+        await this.repository.publishScope(adapter, state.id, records, runId);
+      } finally {
+        publishMs = Math.round(performance.now() - publishStarted);
+      }
       return {
         provider: adapter.key,
         category: scope.category,
         status: "succeeded",
         published: records.length,
+        fetchMs,
+        publishMs,
+        recordCount,
       };
     } catch (error) {
       const diagnostic = collectionDiagnostic(error);
@@ -108,6 +130,9 @@ export class CollectionService implements OnModuleInit {
         ...(diagnostic.causeCode ? { causeCode: diagnostic.causeCode } : {}),
         market: scope.market,
         phase: diagnostic.phase ?? phase,
+        ...(fetchMs !== undefined ? { fetchMs } : {}),
+        ...(publishMs !== undefined ? { publishMs } : {}),
+        ...(recordCount !== undefined ? { recordCount } : {}),
       };
     }
   }
