@@ -35,3 +35,27 @@ test('불완전한 공식 배치와 잘못된 프로그램 출처는 저장 전�
   const invalid = report(); invalid.rows[0].sourceUrl = 'https://www.tvingads.com/content';
   assert.throws(() => tvingDiscoveries(invalid), /UNTRUSTED_SOURCE_URL/);
 });
+
+test('공식 공개예정 목록 순서 변경은 새 검토 revision을 생성하지 않는다', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'tving-order-'));
+  try {
+    const file = join(dir, 'report.json');
+    const first = report();
+    const secondRow = { ...first.rows[0], sourceUrl: 'https://www.tving.com/contents/P001794299', title: '가상 두 번째 작품' };
+    first.rows.push(secondRow);
+    first.totalPrograms = 2;
+    await writeFile(file, JSON.stringify(first));
+    await bridgeTvingUpcoming(file, dir);
+    const reordered = { ...first, rows: [...first.rows].reverse() };
+    await writeFile(file, JSON.stringify(reordered));
+    const result = await bridgeTvingUpcoming(file, dir);
+    assert.equal(result.revised, 0);
+    const state = JSON.parse(await readFile(join(dir, 'state.json'), 'utf8'));
+    assert.deepEqual(state.candidates.map(candidate => candidate.revisions.length), [1, 1]);
+    const changed = { ...reordered, rows: reordered.rows.map(row => row.sourceUrl === sourceUrl
+      ? { ...row, sourceClaims: [{ date: '2026-11-27', seasonNumber: 3 }] } : row) };
+    await writeFile(file, JSON.stringify(changed));
+    const changedResult = await bridgeTvingUpcoming(file, dir);
+    assert.equal(changedResult.revised, 1);
+  } finally { await rm(dir, { recursive: true, force: true }); }
+});

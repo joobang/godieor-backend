@@ -37,8 +37,11 @@ export function tvingDiscoveries(report) {
       platform: 'tving', title: row.title, date, market: 'KR', contentKind: kind,
       seasonNumber, premiereConfirmed: false, evidence, imageUrl: null, sourceItem: index + 1,
     };
+    // The position in the upcoming carousel is presentation metadata. Moving a
+    // programme must not create a new evidence revision for the same claim.
+    const { sourceItem: _sourceItem, ...stableEvidence } = lineupEvidence;
     return { source: 'tving', url, headline: row.title, publishedRaw: null,
-      publishedAt: null, lineupEvidence, contentHash: hash(JSON.stringify({ lineupEvidence, tmdb })) };
+      publishedAt: null, lineupEvidence, contentHash: hash(JSON.stringify({ lineupEvidence: stableEvidence, tmdb })) };
   });
 }
 

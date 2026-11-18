@@ -645,3 +645,9 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 
 - Node.js 24.22.3(앱 실행 환경용 Node; NestJS 프레임워크는 12.4.0)로 엔진·Render·CI 정렬. NestJS 제공처 08:30 KST/영속 OTT 상태 충족 시 09:00 KST, Actions 정시 트리거 제거.
 - Render Free 유휴 슬립과 임시 디스크 때문에 정시 실행 및 OTT 검토 상태 연속성은 보장하지 않는다. OTT opt-in 기본값 false. 서버 배포·환경변수 설정·실제 DB 검증 이후 운영 전환 필요. 원본 카드 `docs/tasks/DEPLOY-02-render-internal-daily.md`.
+# DATA-89 인계 · TVING 공개예정 후보 변경 이력 (2026-11-18)
+
+- 기준 backend `origin/dev` f479eb9, 작업 `codex/tving-staging-stability-20261118` (별도 worktree). 요구 PROD-005/006/007/009. 원본 작업 기록 `docs/tasks/DATA-89-tving-staging-revisions.md`.
+- 표시 순서 변경 시 후보 revision 불필요 증가를 방지. 공식 날짜·시즌·식별 변경은 기록하고 `premiereConfirmed=false` 및 게시 보류 정책을 유지한다.
+- Prisma 생성/TS 빌드·관련3/3·전체361/361 성공. 처음 기본 sandbox의 로컬 HTTP 바인딩 EPERM은 권한 허용 재실행으로 해소했다.
+- 계약·migration·verifier 승인 기준 변경 없음. 제품 DB 실제 신규 적재, 외부 독립 통합 검사 및 GitHub CI 확인 미실행. 다음 작업은 공식 첫날이 확인된 TVING 신규 작품/시즌의 자동 게시 연결이다.
