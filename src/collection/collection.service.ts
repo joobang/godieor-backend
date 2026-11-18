@@ -2,6 +2,7 @@ import { Inject, Injectable, OnModuleInit } from "@nestjs/common";
 import { DateTime } from "luxon";
 import { CollectionRepository } from "./collection.repository";
 import { normalize, ProviderAdapter, Scope } from "./domain/provider-record";
+import { collectionDiagnostic } from "../common/collection-diagnostic";
 export const PROVIDER_ADAPTERS = Symbol("PROVIDER_ADAPTERS");
 export type CollectionOutcome = {
   provider: string;
@@ -9,6 +10,9 @@ export type CollectionOutcome = {
   status: string;
   published?: number;
   errorCode?: string;
+  causeCode?: string;
+  market?: string;
+  phase?: string;
 };
 @Injectable()
 export class CollectionService implements OnModuleInit {
@@ -65,20 +69,26 @@ export class CollectionService implements OnModuleInit {
         status: "already_collected_today",
       };
     const runId = await this.repository.beginRun(state.id, mode);
+    let phase = "fetch";
     try {
-      const records = (await adapter.fetch(scope, mode)).map((raw) =>
+      const rawRecords = await adapter.fetch(scope, mode);
+      phase = "normalize";
+      const records = rawRecords.map((raw) =>
         normalize(raw, scope),
       );
       if (adapter.refreshMissing) {
+        phase = "refresh_missing";
         const previous = (await this.repository.publishedRecords(adapter.key, scope)).map(raw => normalize(raw, scope));
         records.push(...(await adapter.refreshMissing(scope, previous, records)).map(raw => normalize(raw, scope)));
       }
+      phase = "validate";
       const keys = new Set<string>();
       for (const record of records) {
         const key = JSON.stringify([record.externalId, record.variantKey]);
         if (keys.has(key)) throw new Error("DUPLICATE_SOURCE_KEY");
         keys.add(key);
       }
+      phase = "publish";
       await this.repository.publishScope(adapter, state.id, records, runId);
       return {
         provider: adapter.key,
@@ -87,35 +97,17 @@ export class CollectionService implements OnModuleInit {
         published: records.length,
       };
     } catch (error) {
-      const known = new Set([
-        "SCOPE_MISMATCH",
-        "MARKET_MISMATCH",
-        "INVALID_MATCH",
-        "INVALID_CONTENT",
-        "INVALID_SEASON_OR_SERVICE",
-        "MISSING_OTT_EVIDENCE",
-        "INVALID_DEVICE",
-        "MISSING_GAME_DEVICE",
-        "INVALID_DATE",
-        "INVALID_INSTANT",
-        "INVALID_SOURCE_URL",
-        "DUPLICATE_SOURCE_KEY",
-        "IDENTITY_CHANGED",
-        "INVALID_FIXTURE_BATCH",
-        "INVALID_FIXTURE_KIND",
-      ]);
-      const code =
-        error instanceof Error && known.has(error.message)
-          ? error.message
-          : error instanceof Error && error.name === "ZodError"
-            ? "NORMALIZATION_FAILED"
-            : "COLLECTION_FAILED";
+      const diagnostic = collectionDiagnostic(error);
+      const code = diagnostic.code;
       await this.repository.failRun(state.id, runId, code);
       return {
         provider: adapter.key,
         category: scope.category,
         status: "failed",
         errorCode: code,
+        ...(diagnostic.causeCode ? { causeCode: diagnostic.causeCode } : {}),
+        market: scope.market,
+        phase,
       };
     }
   }

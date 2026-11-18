@@ -8,6 +8,16 @@ GitHub 저장소 **Settings → Secrets and variables → Actions**에 `COLLECTI
 
 **Actions → Daily provider collection → Run workflow → Branch: main → mode: backfill → Run workflow** 를 실행하면 2026-10-01 컷오프부터 KOBIS·EPL·IGDB 백필 후 OTT 공식 수집 및 기존 검토 게시를 시도한다. `daily`는 당일 변경분을 수집하며, OTT 공식 후보 재확인/게시는 동일하게 수행한다. OTT는 Git 추적된 `data/curated/ott-reviewed-candidates-snapshot.json`에서 **리뷰 94건**의 ID/revision 결속을 복구한다. 리뷰하지 않은 106건은 이 스냅샷에 없으며 자동 승인하지 않는다. 신규로 발견된 미검토 후보는 자동 게시되지 않는다. Actions 실행 후 Artifact `ott-collection-report`에서 실행 산출물을 확인한다.
 
+### 실행 전 검사와 실패 진단 (DATA-85)
+
+`Validate collection configuration`에서 공통 DB·서명 설정의 공백 여부를 먼저 검사한다. 제공처 키 누락은 경고하고 해당 제공처 실행에서만 처리하므로 TMDB 설정 누락이 영화·게임·EPL을 막지 않는다. TMDB 누락도 OTT 전체를 조기 종료하지 않고 기존 원천별 실패 격리를 통해 공식 수집·이미 검토된 매핑 게시를 계속한다. 누락 이름만 출력하며 값은 출력하지 않는다. 특히 `TMDB_API_READ_ACCESS_TOKEN`은 Render나 로컬 `.env`와 별개로 GitHub Actions Secret에 등록해야 한다. `.env not found. Continuing without it.` 자체는 오류가 아니다. CI는 환경 변수로 값을 전달한다.
+
+제공처 실패 결과는 `market`, `phase`(fetch/normalize/refresh_missing/validate/publish), `errorCode`, 필요 시 `causeCode`를 포함한다. 예: `phase=publish`, `DB_TRANSACTION_FAILED`, `P2028`은 DB 트랜잭션 오류다. `PROVIDER_HTTP_429`는 원천의 요청 제한이며 DB 제한을 늘려 해결하지 않는다. `CONNECTION_FAILED`는 안전한 원인 코드만 남기며 쿼리·응답 본문·접속 문자열·예외 원문은 출력하지 않는다. 알 수 없는 오류는 계속 `COLLECTION_FAILED`로 남긴다.
+
+CI의 `COLLECTION_PUBLISH_TIMEOUT_MS=900000`은 순차 쿼리를 사용하는 원격 DB 적재에 최대 15분을 허용한다. 범위별 전체 commit/rollback과 기존 ID 보존은 그대로다. 로컬 기본값은 기존 30초/IGDB180초이며 설정 허용 범위는 30초~30분이다. 한도를 늘리는 것은 데이터 양에 비례하는 순차 왕복 비용을 제거하지 않는다. `P2028` 관측 여부와 실제 수행 시간을 보고 배치/쿼리 최적화를 별도로 판단한다. GitHub 전체110분 제한은 유지된다.
+
+OTT 필수 단계가 실패해도 JSON 보고서에 이전 단계와 실패한 스크립트, 안전한 stdout 오류 코드를 보존한다. Artifact를 확인한 뒤 실패 원인을 해소하고 재실행한다. 부분 발견 exit2는 계속 경고이며 실제 게시 실패 exit1을 성공으로 바꾸지 않는다. Secret 설정·원격 재실행 없이 로컬 테스트만 통과한 상태를 운영 복구 완료로 표시하지 않는다.
+
 **제한:** Actions의 로컬 파일 변경은 다음 실행에 자동 보존되지 않는다. 새 검토/신규 후보를 영구 보존하려면 검토 후 버전 관리 스냅샷에 반영해야 한다. OTT의 공식 수집 일부가 실패하거나 미확정이면 파이프라인은 `published_with_discovery_gaps` (exit 2)를 반환하며 경고와 보고서로 남긴다. 이는 검토된 일정 게시 성공 가능성과 **전체 원천 100% 검증**을 구분하기 위한 결과다. 실제 Supabase 행 수와 Render `/v1/health`의 dataMode는 실행 후 확인해야 한다. GitHub runner에서 실제 클라우드 적재 성공은 아직 검증되지 않았다.
 
 실제 로컬 등록: 2026-11-17, LaunchAgent `dev.godieor.provider-daily`, 매일 **08:30 KST**. 기존 OTT09시 job은 별도로 유지한다. 로그인된 Mac과 접근 가능한 DB가 필요하며 클라우드 상시 운영은 아니다. 등록과 `launchctl kickstart` 실제 기동은 확인했지만 다음08:30 자연 calendar 기동은 아직 관측하지 않았다.

@@ -6,11 +6,34 @@ import { mkdtemp, readFile, rm, stat } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { prepareReviewed } from '../dist/src/reviewed-ott/domain/reviewed-mapping.js';
+import { collectionDiagnostic } from '../dist/src/common/collection-diagnostic.js';
 import { configuredMonths } from './ott-schedule-window.mjs';
 
 const node = process.execPath;
 const bindings = 'data/curated/ott-official-tmdb-bindings-2026-11-13.json';
 const mappings = 'data/curated/ott-reviewed-mappings.json';
+
+// Child output may contain provider credentials or DB queries. Retain only typed diagnostics.
+export function childFailure(args, code, stdout, stderr) {
+  const command = args.find(arg => /^(scripts|dist)\/[a-zA-Z0-9_./-]+\.(mjs|js)$/.test(arg)) ?? 'child';
+  const diagnostics = [];
+  for (const line of [stdout, stderr, ...`${stdout}\n${stderr}`.split('\n')]) {
+    try {
+      const value = JSON.parse(line);
+      for (const result of Array.isArray(value.results) ? value.results : [value]) {
+        const diagnostic = collectionDiagnostic({ message: result.errorCode ?? result.code,
+          code: result.causeCode });
+        if (result.status === 'failed' || result.code) {
+          const scope = {};
+          if (['KR','WORLD','JP','AU','NZ','CN','BR'].includes(result.market)) scope.market = result.market;
+          if (['fetch','normalize','refresh_missing','validate','publish'].includes(result.phase)) scope.phase = result.phase;
+          diagnostics.push({ ...diagnostic, ...scope });
+        }
+      }
+    } catch { /* Unstructured output is deliberately not logged. */ }
+  }
+  return new Error(`${command} exit=${code}; ${JSON.stringify(diagnostics)}`);
+}
 
 export async function runStep(args, { env = process.env, acceptedExitCodes = [0] } = {}) {
   return new Promise((resolve, reject) => {
@@ -18,9 +41,9 @@ export async function runStep(args, { env = process.env, acceptedExitCodes = [0]
     let stdout = '', stderr = '';
     child.stdout.on('data', (chunk) => { stdout += chunk; });
     child.stderr.on('data', (chunk) => { stderr += chunk; });
-    child.on('error', reject);
+    child.on('error', error => reject(new Error(`CHILD_START_FAILED ${JSON.stringify(collectionDiagnostic(error))}`)));
     child.on('close', (code) => acceptedExitCodes.includes(code) ? resolve(JSON.stringify({ exitCode: code, stdout: stdout.trim() })) :
-      reject(new Error(`${args[0]} exit=${code}; ${stderr.trim().slice(-1200)}`)));
+      reject(childFailure(args, code, stdout, stderr)));
   });
 }
 
@@ -32,11 +55,11 @@ export async function runAudit(args, { env = process.env } = {}) {
     let stdout = '', stderr = '';
     child.stdout.on('data', (chunk) => { stdout += chunk; });
     child.stderr.on('data', (chunk) => { stderr += chunk; });
-    child.on('error', reject);
+    child.on('error', error => reject(new Error(`CHILD_START_FAILED ${JSON.stringify(collectionDiagnostic(error))}`)));
     child.on('close', (code) => {
-      if (code !== 0 && code !== 2) return reject(new Error(`AUDIT_FAILED exit=${code}; ${stderr.slice(-1200)}`));
+      if (code !== 0 && code !== 2) return reject(childFailure(args, code, stdout, stderr));
       try { resolve({ exitCode: code, ...JSON.parse(stdout) }); }
-      catch { reject(new Error(`AUDIT_INVALID_REPORT exit=${code}; ${stderr.slice(-1200)}`)); }
+      catch { reject(new Error(`AUDIT_INVALID_REPORT exit=${code}`)); }
     });
   });
 }
@@ -61,8 +84,14 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
   const temporary = await mkdtemp(join(tmpdir(), 'godieor-official-pipeline-'));
   const steps = [];
   const failedSources = [];
+  let publicationSucceeded = false;
   async function step(label, args, acceptedExitCodes = [0]) {
-    const output = await run(args, { acceptedExitCodes });
+    let output;
+    try { output = await run(args, { acceptedExitCodes }); }
+    catch (error) {
+      steps.push({ label, failed: true, error: error.message });
+      throw error;
+    }
     const parsed = JSON.parse(output);
     steps.push({ label, exitCode: parsed.exitCode, output: parsed.stdout.slice(-1000) });
     return parsed.exitCode;
@@ -71,7 +100,6 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
     try { return await step(label, args, acceptedExitCodes); }
     catch (error) {
       failedSources.push({ label, error: error.message });
-      steps.push({ label, failed: true, error: error.message });
       return null;
     }
   }
@@ -152,7 +180,10 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
       readyUnmapped: [], officialAndTmdbReady: 0, discoveryComplete: false, tmdbErrors: 1 };
     // A missing provider-coverage slice cannot invalidate 70 already reviewed
     // publications. It *does* prevent a claim of complete discovery/parity.
-    if (publish) await step('publish_reviewed', ['--env-file-if-exists=.env', 'dist/src/cli/publish-reviewed.js', '--file', mappings]);
+    if (publish) {
+      await step('publish_reviewed', ['--env-file-if-exists=.env', 'dist/src/cli/publish-reviewed.js', '--file', mappings]);
+      publicationSucceeded = true;
+    }
     const audit = publish && compareReference ? await auditRun(['--env-file-if-exists=.env', 'scripts/audit-current-first-premieres.mjs']) : null;
     return {
       status: failedSources.length || netflixExit !== 0 || netflixReviewExit !== 0 || tvingExit !== 0 || adsExit !== 0 || disneyExit !== 0 || coupangExit !== 0 || undatedLinkExit !== 0 || coupangPremiereExit !== 0 || sourceRecheckExit !== 0 || !gate.discoveryComplete || gate.tmdbErrors || gate.readyUnmapped.length
@@ -161,6 +192,10 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
         exactMatches: audit.exactMatches, unresolved: audit.unresolved, statusCounts: audit.statusCounts,
         parity: audit.parity },
     };
+  } catch (error) {
+    error.report = { status: 'failed', published: publicationSucceeded, steps, failedSources,
+      error: error.message };
+    throw error;
   } finally {
     await rm(temporary, { recursive: true, force: true });
   }
@@ -174,6 +209,7 @@ if (process.argv[1]?.endsWith('/run-official-ott-pipeline.mjs')) {
     console.log(JSON.stringify(report, null, 2));
     if (report.status === 'published_with_discovery_gaps') process.exitCode = 2;
   } catch (e) {
+    console.log(JSON.stringify(e.report ?? { status: 'failed', published: false, error: 'PIPELINE_BOOTSTRAP_FAILED' }, null, 2));
     console.error('OFFICIAL_OTT_PIPELINE_FAILED:', e.message);
     process.exitCode = 1;
   }

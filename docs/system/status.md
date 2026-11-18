@@ -1,3 +1,17 @@
+## DATA-85 · Actions 수집 실패 진단·설정·원격 적재 한도 수정 (2026-11-18)
+
+- 원본 backend `docs/tasks/DATA-85-collection-workflow-repair.md`. 실제 실패 run44056014741/job133945486454의 TMDB 토큰 공백·제공처 일부 실패·OTT 자식 exit1 확인. 당시 상세 예외는 유실돼 timeout이 실제 원인이라고 확정하지 않는다.
+- 공통 DB 설정과 제공처 키 검사를 분리해 키 누락은 해당 제공처에서 처리하며 TMDB 누락도 나머지 OTT 원천·기검토 게시를 중단하지 않음. HTTP상태/Prisma·네트워크 코드와 시장·단계를 허용 목록으로 남기고 예외 원문·쿼리·접속 문자열은 출력하지 않는다. 새 오류 코드를 일일 runner에서도 보존. OTT 필수단계 실패도 JSON 보고서 보존, 실제 게시 실패exit1/부분발견exit2 구분 유지.
+- CI 원격 DB 게시 한도15분(설정 범위30초~30분), 로컬 기존30초/IGDB180초 유지. 범위 원자적 commit/rollback·기존ID/이력·계약/migration 불변. 긴 트랜잭션 비용은 남으며 실환경 소요시간 재확인 필요.
+- 공식 Node24.22.3 빌드·최종 전체353/353, YAML+9개 run스크립트 bash문법 통과. 최초 sandbox검사343/344는 localhost EPERM, 허용 재실행350/350 뒤 리뷰보완 최종353/353. 합성/로컬 회귀이며 실DB/원천 재수집·원격Actions·독립 통합runner/제품PASS 미실행.
+- 별도 컨텍스트 코드 리뷰의 실패격리·일일runner 호환성 지적3건 수정. 운영 복구 완료와 구분. GitHub Secret 등록/push/원격 재실행은 남음. 학습 LEARN-0022, revision `SYNC-2026-11-18-DATA-85`. 담당 해제.
+
+## DATA-84 · StreamPick/TMDB fallback 22건 로컬 DB 적재 (2026-11-17)
+
+- 원본 backend `docs/tasks/DATA-84-streampick-tmdb-provisional-fallback.md`, 커밋 `30e34a6`. 사용자 요청에 따라 시즌 KR 제공처 근거 7건 + 시리즈 KR 제공처 근거 14건 + 한국 제공처 미확인 나인투식스 1건을 `ott_fallback`으로 적재. 스폰지밥 S20·몰몬교 주부들 S6은 TMDB 시즌 부재로 제외.
+- 로컬 DB 이벤트 32695→32717(+22), 날짜·시즌·플랫폼 22/22, 반복 적재 신규0. 공식 한국 최초 공개 검증은 0/22이며 UI 임시 표기·정식 승인/ID 승격, Supabase 배포 미완료.
+- 전체 테스트 342/343; TMDB 10~12월 최신 스냅샷과 기존 기간 가정 테스트 1건 불일치. 앱 코드·API 계약·verifier verdict 변경 없음. 데이터 100% 완료 미달. backend만 커밋했으며 push는 하지 않음.
+
 ## LEARN-REPAIR-01 · 학습 해설 품질 시정 (2026-11-17)
 
 - 사용자 지적: 작업·검증 요약 누적으로 기술 선택과 해결 원리를 읽기 어려움. 원본 app `docs/ai/tasks/LEARN-REPAIR-01.md`.
@@ -600,6 +614,8 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 - 사용자 정정: IGDB만이 아니라 KOBIS 극장영화·OTT 4사(드라마/영화/예능/애니/다큐)·게임 모든 기기·EPL에 2026-10-01 기준을 적용한다. 사용자 확정 원본 `docs/product.md`, backend 구현 원본 `docs/tasks/DATA-81-october-game-cutoff.md`.
 - backend 자체 전체 340/340 통과. 기존 OTT 2026년 4·6월 매핑의 참조·ID 보존, 실제 새 수집/DB 정리/배포/독립 검증 승인 없음. 날짜가 미정인 콘텐츠를 임의 배치하지 않는다. 공통 revision `SYNC-2026-11-17-DATA-81`.
 
+
+## 과거 배포 제안 기록 (현재 실행 정책은 DATA-85 및 backend 운영 문서 우선)
 
 ## DEPLOY-02 · Render 프로세스 내부 일간 배치 준비 (2026-11-17)
 

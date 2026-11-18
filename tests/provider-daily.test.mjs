@@ -71,3 +71,21 @@ test('failed atomic report write preserves prior success and releases the live-r
 test('a fresh working directory is created before acquiring the daily lock',()=>setup(async(opts,dir)=>{
  const lockDirectory=join(dir,'fresh-work/provider.lock');const result=await runProviderDaily({...opts,lock:undefined,lockDirectory,execute:mock()});assert.equal(result.status,'completed');await assert.rejects(readFile(join(lockDirectory,'owner.json')),{code:'ENOENT'});
 }));
+
+
+test('HTTP and database diagnostics survive daily runner without losing successful IGDB scopes', async () => {
+  const value = report('igdb');
+  value.results[0] = { provider: 'igdb', category: 'game', status: 'failed', errorCode: 'PROVIDER_HTTP_429', market: 'KR', phase: 'fetch' };
+  value.results[1] = { provider: 'igdb', category: 'game', status: 'failed', errorCode: 'DB_TRANSACTION_FAILED', causeCode: 'P2028', market: 'WORLD', phase: 'publish' };
+  value.results[0].message = 'synthetic-secret';
+  const result = await runProvider('igdb', { execute: mock(() => ({ raw: JSON.stringify(value), code: 1 })) });
+  assert.equal(result.error, 'PROVIDER_COLLECTION_FAILED');
+  assert.equal(result.scopes.length, 7);
+  assert.equal(result.collectedScopes, 5);
+  assert.equal(result.scopes[0].errorCode, 'PROVIDER_HTTP_429');
+  assert.equal(result.scopes[1].causeCode, 'P2028');
+  assert.equal(result.scopes[1].phase, 'publish');
+  assert.doesNotMatch(JSON.stringify(result), /synthetic-secret/);
+  const invalid = structuredClone(value); invalid.results[0].causeCode = 'SYNTHETIC_SECRET';
+  assert.throws(() => decodeProviderReport(invalid, 'igdb'), /INVALID_PROVIDER_REPORT/);
+});

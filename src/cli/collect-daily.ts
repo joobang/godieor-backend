@@ -1,3 +1,4 @@
+import { collectionDiagnostic } from "../common/collection-diagnostic";
 import "reflect-metadata";
 import { NestFactory } from "@nestjs/core";
 import { CollectionModule } from "../collection/collection.module";
@@ -9,7 +10,8 @@ import { CollectionService, PROVIDER_ADAPTERS } from "../collection/collection.s
 async function main() {
   const options = providerOptions(process.argv.slice(2));
   const app = await NestFactory.createApplicationContext(CollectionModule, {
-    logger: ["error", "warn"],
+    logger: false,
+    abortOnError: false,
   });
   try {
     const selected = selectProviders(app.get<ProviderAdapter[]>(PROVIDER_ADAPTERS), options.providers);
@@ -21,7 +23,8 @@ async function main() {
     await app.close();
   }
 }
-main().catch(() => {
+main().catch((error: unknown) => {
+  console.error(JSON.stringify({ job: "collect-daily", ...collectionDiagnostic(error) }));
   console.error("제공처 수집 실패. 제공처 키/DB/접근권한을 확인하세요.");
   process.exitCode = 1;
 });

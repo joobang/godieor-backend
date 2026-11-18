@@ -5,6 +5,7 @@ import { mkdir, readFile, writeFile, rename, unlink } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
+import { collectionDiagnostic } from '../dist/src/common/collection-diagnostic.js';
 import { acquireLock } from './run-official-ott-daily.mjs';
 export const PROVIDERS = ['kobis', 'football_data_pl', 'igdb'];
 const scopes = { kobis: 1, football_data_pl: 1, igdb: 7 };
@@ -30,12 +31,21 @@ export function decodeProviderReport(value, provider) {
     if (r.provider !== provider || r.category !== categories[provider] ||
         !['succeeded', 'already_collected_today', 'failed'].includes(r.status) ||
         r.status === 'succeeded' && (!Number.isSafeInteger(r.published) || r.published < 0) ||
-        r.errorCode !== undefined && (typeof r.errorCode !== 'string' || !/^[A-Z_]{1,100}$/.test(r.errorCode)))
+        r.errorCode !== undefined && (typeof r.errorCode !== 'string' || !/^[A-Z0-9_]{1,100}$/.test(r.errorCode)))
+      throw Error('INVALID_PROVIDER_REPORT');
+    const diagnostic = collectionDiagnostic({ message: r.errorCode, code: r.causeCode });
+    if (r.errorCode !== undefined && diagnostic.code !== r.errorCode ||
+        r.causeCode !== undefined && diagnostic.causeCode !== r.causeCode ||
+        r.phase !== undefined && !['fetch','normalize','refresh_missing','validate','publish'].includes(r.phase) ||
+        r.market !== undefined && !['KR','WORLD','JP','AU','NZ','CN','BR'].includes(r.market))
       throw Error('INVALID_PROVIDER_REPORT');
     // Retain only the allowlisted CLI fields. Never copy stderr or arbitrary child output.
     return { provider, category: r.category, status: r.status,
       ...(r.status === 'succeeded' ? { publishedSnapshotRows: r.published } : {}),
-      ...(r.errorCode ? { errorCode: r.errorCode } : {}) };
+      ...(r.errorCode ? { errorCode: r.errorCode } : {}),
+      ...(diagnostic.causeCode ? { causeCode: diagnostic.causeCode } : {}),
+      ...(r.market !== undefined ? { market: r.market } : {}),
+      ...(r.phase ? { phase: r.phase } : {}) };
   });
 }
 export async function runProvider(provider, { execute = spawn, timeoutMs = 30 * 60_000, force = false, signal } = {}) {

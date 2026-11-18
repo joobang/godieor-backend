@@ -156,6 +156,14 @@ export class CollectionRepository {
     });
     return runId;
   }
+  private publishTimeout(provider: string): number {
+    const configured = process.env.COLLECTION_PUBLISH_TIMEOUT_MS;
+    if (configured === undefined) return provider === "igdb" ? 180000 : 30000;
+    const timeout = Number(configured);
+    if (!Number.isSafeInteger(timeout) || timeout < 30000 || timeout > 1800000)
+      throw new Error("INVALID_COLLECTION_PUBLISH_TIMEOUT");
+    return timeout;
+  }
   async publishScope(
     adapter: ProviderAdapter,
     scopeId: string,
@@ -182,7 +190,7 @@ export class CollectionRepository {
           data: { status: "succeeded", finished_at: finished },
         });
       },
-      { timeout: adapter.key === "igdb" ? 180000 : 30000 },
+      { timeout: this.publishTimeout(adapter.key) },
     );
   }
   async failRun(scopeId: string, runId: string, code: string) {

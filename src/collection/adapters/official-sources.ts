@@ -20,7 +20,7 @@ function dateOnly(value: string): string | null {
 }
 async function getJson(url: URL, headers: Record<string, string> = {}): Promise<JsonObject> {
   const response = await fetch(url, { headers, signal: AbortSignal.timeout(15000) });
-  if (!response.ok) throw new Error("PROVIDER_HTTP_ERROR");
+  if (!response.ok) throw new Error(`PROVIDER_HTTP_${response.status}`);
   return object(await response.json());
 }
 
@@ -118,7 +118,7 @@ export class PremierLeagueAdapter implements ProviderAdapter {
       });
       // The upcoming season may not have been published yet.
       if (http.status === 404 && startYear > season) continue;
-      if (!http.ok) throw new Error("PROVIDER_HTTP_ERROR");
+      if (!http.ok) throw new Error(`PROVIDER_HTTP_${http.status}`);
       const response = object(await http.json());
       if (!Array.isArray(response.matches)) throw new Error("INVALID_PROVIDER_RESPONSE");
       for (const value of response.matches) {
@@ -180,7 +180,7 @@ export class IgdbAdapter implements ProviderAdapter {
     const tokenResponse = await fetch("https://id.twitch.tv/oauth2/token", {
       method: "POST", body: params, signal: AbortSignal.timeout(15000),
     });
-    if (!tokenResponse.ok) throw new Error("PROVIDER_AUTH_ERROR");
+    if (!tokenResponse.ok) throw new Error(`PROVIDER_HTTP_${tokenResponse.status}`);
     const token = text(object(await tokenResponse.json()).access_token);
     if (!token) throw new Error("PROVIDER_AUTH_ERROR");
     const regionByMarket: Record<string, number> = {
@@ -203,7 +203,7 @@ export class IgdbAdapter implements ProviderAdapter {
             headers: { "Client-ID": clientId, Authorization: `Bearer ${token}`, "Content-Type": "text/plain" },
             body: query, signal: AbortSignal.timeout(15000),
           });
-          if (!response.ok) throw new Error("PROVIDER_HTTP_ERROR");
+          if (!response.ok) throw new Error(`PROVIDER_HTTP_${response.status}`);
           const items: unknown = await response.json();
           if (!Array.isArray(items)) throw new Error("INVALID_PROVIDER_RESPONSE");
           for (const row of items) {

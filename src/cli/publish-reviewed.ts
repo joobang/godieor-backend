@@ -1,3 +1,4 @@
+import { collectionDiagnostic } from "../common/collection-diagnostic";
 import "reflect-metadata";
 import { NestFactory } from "@nestjs/core";
 import { parseArgs } from "node:util";
@@ -22,7 +23,8 @@ async function main(): Promise<void> {
     await app.close();
   }
 }
-main().catch(() => {
+main().catch((error: unknown) => {
+  console.error(JSON.stringify({ job: "publish-reviewed", ...collectionDiagnostic(error) }));
   console.error(
     "검토 후보 publish 실패. 명시적 --file 매핑·현재 검토·DB 설정을 확인하세요.",
   );

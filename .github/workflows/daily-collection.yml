@@ -29,6 +29,8 @@ jobs:
       IGDB_CLIENT_SECRET: ${{ secrets.IGDB_CLIENT_SECRET }}
       TMDB_API_READ_ACCESS_TOKEN: ${{ secrets.TMDB_API_READ_ACCESS_TOKEN }}
       SUPABASE_CA_PEM_BASE64: ${{ secrets.COLLECTION_SUPABASE_CA_PEM_BASE64 }}
+      # Preserve one atomic scope publication across slower remote DB round trips.
+      COLLECTION_PUBLISH_TIMEOUT_MS: "900000"
       COLLECTION_INCLUDE_FIXTURE: "false"
       COLLECTION_SCHEDULE_ENABLED: "false"
     steps:
@@ -37,6 +39,8 @@ jobs:
         with:
           node-version: "24.22.3"
           cache: npm
+      - name: Validate collection configuration
+        run: node scripts/check-collection-env.mjs --scope common
       - name: Configure secure database connection
         shell: bash
         run: |
@@ -65,7 +69,11 @@ jobs:
           failed=0
           for provider in kobis football_data_pl igdb; do
             echo "::group::Backfill $provider"
-            node --env-file-if-exists=.env dist/src/cli/collect-daily.js --mode backfill --providers "$provider" || failed=1
+            if node scripts/check-collection-env.mjs --scope "$provider"; then
+              node --env-file-if-exists=.env dist/src/cli/collect-daily.js --mode backfill --providers "$provider" || failed=1
+            else
+              failed=1
+            fi
             echo "::endgroup::"
           done
           exit "$failed"
