@@ -39,13 +39,20 @@ export function decodeProviderReport(value, provider) {
         r.phase !== undefined && !COLLECTION_PHASES.includes(r.phase) ||
         r.market !== undefined && !['KR','WORLD','JP','AU','NZ','CN','BR'].includes(r.market))
       throw Error('INVALID_PROVIDER_REPORT');
+    for (const metric of ['fetchMs', 'publishMs', 'recordCount']) {
+      if (r[metric] !== undefined && (!Number.isSafeInteger(r[metric]) || r[metric] < 0))
+        throw Error('INVALID_PROVIDER_REPORT');
+    }
     // Retain only the allowlisted CLI fields. Never copy stderr or arbitrary child output.
     return { provider, category: r.category, status: r.status,
       ...(r.status === 'succeeded' ? { publishedSnapshotRows: r.published } : {}),
       ...(r.errorCode ? { errorCode: r.errorCode } : {}),
       ...(diagnostic.causeCode ? { causeCode: diagnostic.causeCode } : {}),
       ...(r.market !== undefined ? { market: r.market } : {}),
-      ...(r.phase ? { phase: r.phase } : {}) };
+      ...(r.phase ? { phase: r.phase } : {}),
+      ...(r.fetchMs !== undefined ? { fetchMs: r.fetchMs } : {}),
+      ...(r.publishMs !== undefined ? { publishMs: r.publishMs } : {}),
+      ...(r.recordCount !== undefined ? { recordCount: r.recordCount } : {}) };
   });
 }
 export async function runProvider(provider, { execute = spawn, timeoutMs = 30 * 60_000, force = false, signal } = {}) {

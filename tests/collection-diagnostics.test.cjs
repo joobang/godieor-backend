@@ -22,9 +22,33 @@ test('failed scope identifies phase and market while subsequent scopes still run
   const adapter = { key: 'synthetic', scopes: [{ category: 'game', market: 'KR' }, { category: 'game', market: 'JP' }],
     fetch: async scope => { if (scope.market === 'KR') throw Error('PROVIDER_HTTP_429'); return []; } };
   const results = await new CollectionService(repository, [adapter]).collect('backfill');
-  assert.deepEqual(results[0], { provider: 'synthetic', category: 'game', status: 'failed',
-    errorCode: 'PROVIDER_HTTP_429', market: 'KR', phase: 'fetch' });
-  assert.equal(results[1].status, 'succeeded'); assert.equal(failures, 1); assert.equal(published, 1);
+  assert.equal(results[0].provider, 'synthetic');
+  assert.equal(results[0].status, 'failed');
+  assert.equal(results[0].errorCode, 'PROVIDER_HTTP_429');
+  assert.equal(results[0].market, 'KR');
+  assert.equal(results[0].phase, 'fetch');
+  assert.ok(Number.isSafeInteger(results[0].fetchMs) && results[0].fetchMs >= 0);
+  assert.equal(results[1].status, 'succeeded');
+  assert.equal(results[1].recordCount, 0);
+  assert.ok(Number.isSafeInteger(results[1].fetchMs) && results[1].fetchMs >= 0);
+  assert.ok(Number.isSafeInteger(results[1].publishMs) && results[1].publishMs >= 0);
+  assert.equal(failures, 1); assert.equal(published, 1);
+});
+
+test('failed publication exposes bounded timings and input count without driver text', async () => {
+  const repository = {
+    withCollectorLock: async (_, fn) => fn(), findScope: async () => ({ id: 'scope' }),
+    beginRun: async () => 'run', failRun: async () => {},
+    publishScope: async () => { throw Object.assign(new Error('secret-db-url'), { code: 'P2028' }); },
+  };
+  const adapter = { key: 'igdb', scopes: [{ category: 'game', market: 'WORLD' }], fetch: async () => [] };
+  const [result] = await new CollectionService(repository, [adapter]).collect('backfill');
+  assert.equal(result.phase, 'publish');
+  assert.equal(result.causeCode, 'P2028');
+  assert.equal(result.recordCount, 0);
+  assert.ok(Number.isSafeInteger(result.fetchMs) && result.fetchMs >= 0);
+  assert.ok(Number.isSafeInteger(result.publishMs) && result.publishMs >= 0);
+  assert.doesNotMatch(JSON.stringify(result), /secret-db-url/);
 });
 
 test('atomic publication uses bounded cloud override and preserves local defaults', async () => {
