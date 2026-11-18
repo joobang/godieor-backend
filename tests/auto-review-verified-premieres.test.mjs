@@ -1,21 +1,29 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
 import { verifiedReviewProposals } from '../scripts/auto-review-verified-premieres.mjs';
 
-const input = async () => Promise.all([
-  readFile('work/ott-candidates/state.json', 'utf8').then(JSON.parse),
-  readFile('work/tmdb-release-candidates/latest.json', 'utf8').then(JSON.parse),
-]);
+function input() {
+  const title = '가상 영화';
+  const date = '2026-11-20';
+  const url = 'https://example.test/synthetic-premiere';
+  const release = { title, date, market: 'KR', platform: 'netflix', seasonNumber: null };
+  const binding = { ...release, type: 'movie', tmdbId: 42, reviewCandidateId: 'synthetic',
+    sourceUrl: url, identityVerified: true, premiereConfirmed: true,
+    sourceRefreshStatus: 'matched', evidence: '가상 공식 최초 공개 확인' };
+  const candidate = { id: 'synthetic', url, review: { value: release },
+    revisions: [{ token: 'synthetic-revision', lineupEvidence: release }] };
+  const row = { ...release, type: 'movie', tmdbId: 42, officialPlatformDate: date,
+    readyForBatchReview: true, officialEvidence: [binding] };
+  return [{ candidates: [candidate] }, {
+    kind: 'tmdb-first-ott-release-review', referenceInputUsed: false, rows: [row],
+  }];
+}
 
 test('freshly validated reviewed official premiere can be promoted exactly once', async () => {
   const [state, report] = await input();
-  const row = report.rows.find((r) => r.readyForBatchReview && r.officialEvidence?.some((e) =>
-    state.candidates.some((c) => c.id === e.reviewCandidateId && c.revisions.at(-1).lineupEvidence)));
-  assert.ok(row);
-  const binding = row.officialEvidence.find((e) =>
-    state.candidates.some((c) => c.id === e.reviewCandidateId && c.revisions.at(-1).lineupEvidence));
-  const target = state.candidates.find((c) => c.id === binding.reviewCandidateId);
+  const [row] = report.rows;
+  const [binding] = row.officialEvidence;
+  const [target] = state.candidates;
   target.review = null;
   const result = verifiedReviewProposals({ ...report, rows: [row] }, state);
   assert.equal(result.proposals.length, 1);
@@ -33,6 +41,7 @@ test('freshly validated reviewed official premiere can be promoted exactly once'
 test('previously reviewed records remain unchanged and unverified TMDB dates do not promote', async () => {
   const [state, report] = await input();
   assert.equal(verifiedReviewProposals(report, state).proposals.length, 0);
+  state.candidates[0].review = null;
   assert.equal(verifiedReviewProposals({ ...report, rows: report.rows.map((r) => ({
     ...r, readyForBatchReview: false })) }, state).proposals.length, 0);
 });

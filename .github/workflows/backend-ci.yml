@@ -14,3 +14,6 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+        env:
+          # Prisma generate validates the URL. This suite does not connect to it.
+          DATABASE_URL: postgresql://synthetic:synthetic@127.0.0.1:1/synthetic

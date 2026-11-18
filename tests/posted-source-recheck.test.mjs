@@ -90,7 +90,7 @@ test('official same-host canonical redirect is bound and cross-host redirects ar
 });
 
 test('posted binding and baseline hashes must match the current review revision and mapping', async () => {
-  const paths = ['data/curated/ott-source-reviewed-batch-2026-11-16.json', 'work/ott-candidates/state.json', 'data/curated/ott-reviewed-mappings.json', 'data/curated/ott-source-refresh-bindings-2026-11-17.json'];
+  const paths = ['data/curated/ott-source-reviewed-batch-2026-11-16.json', process.env.GODIEOR_TEST_OTT_STATE_PATH ?? 'data/curated/ott-reviewed-candidates-snapshot.json', 'data/curated/ott-reviewed-mappings.json', 'data/curated/ott-source-refresh-bindings-2026-11-17.json'];
   const [raw, sr, mr, br] = await Promise.all(paths.map(p => readFile(p, 'utf8')));
   const batch = JSON.parse(raw), state = JSON.parse(sr), mappings = JSON.parse(mr), baseline = JSON.parse(br);
   validateBindings(batch, state, mappings, baseline, sha(raw));

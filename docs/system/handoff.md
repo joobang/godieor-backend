@@ -1,3 +1,8 @@
+## CI-01 · 백엔드 clean checkout 검사 복구 (2026-11-18)
+
+- 원본 backend `docs/tasks/CI-01-reproducible-backend-ci.md`. CI에는 Prisma 생성용 합성 URL을 주입하고 OTT 기본 검사는 추적된 검토 입력과 가상 발견 입력으로 실행. .env/work 없는 별도 작업 트리 Node24 npm ci --offline 및 npm test 357/357 성공. 원격 필수 체크·통합 runner는 후속. 관련 LEARN-0022 재검토.
+- 실제 Actions 44221212098에서 KOBIS/EPL/IGDB 6개 시장 성공. OTT 기존 검토 게시 완료 및 발견 누락 경고. IGDB WORLD publish P2028만 백필 실패를 유발. 순차 DB 왕복과 15분 게시 한도가 유력하나 WORLD 단독 소요 시간은 미관측. 제품 수집 로직·계약·승인 상태 변경 없음. 다음 작업은 WORLD 지연 계측·임시 DB 재현. 담당 해제, revision SYNC-2026-11-18-CI-01.
+
 ## DATA-86 · 초기등록·수집기록 트랜잭션 보완 (2026-11-18)
 
 - 원본 backend `docs/tasks/DATA-86-control-transactions.md`. DATA85의 게시한도 변경에서 빠진 register/beginRun/failRun을 명시적 제어작업60초(설정10초~5분)·연결획득10초로 보완. 게시한도·원자적scope/ID/이력·계약/migration 불변.

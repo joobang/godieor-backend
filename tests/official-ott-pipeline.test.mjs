@@ -3,25 +3,51 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { publicationGate, runPipeline } from '../scripts/run-official-ott-pipeline.mjs';
 
+// Exercise the default November rollout window on any runner date.
+const months = ['2026-10', '2026-11', '2026-12'];
+test.beforeEach(t => {
+  const override = process.env.GODIEOR_OTT_MONTHS;
+  delete process.env.GODIEOR_OTT_MONTHS;
+  t.after(() => {
+    if (override !== undefined) process.env.GODIEOR_OTT_MONTHS = override;
+  });
+  t.mock.timers.enable({ apis: ['Date'], now: new Date('2026-11-15T00:00:00Z') });
+});
+const reportPath = 'work/tmdb-release-candidates/latest.json';
+const statePath = 'work/ott-candidates/state.json';
+const mappingPath = 'data/curated/ott-reviewed-mappings.json';
+const readJson = async path => JSON.parse(await readFile(new URL('../' + path, import.meta.url), 'utf8'));
+
+async function pipelineInputs() {
+  const [state, mappings] = await Promise.all([
+    readJson('data/curated/ott-reviewed-candidates-snapshot.json'),
+    readJson(mappingPath),
+  ]);
+  // Synthetic discovery evidence. The mapped ID exercises the already-reviewed branch.
+  const report = {
+    kind: 'tmdb-first-ott-release-review', referenceInputUsed: false, months,
+    discoveryComplete: true, discoveryCoverage: [], errors: [],
+    rows: [{ id: 'synthetic-reviewed', readyForBatchReview: true,
+      officialEvidence: [{ reviewCandidateId: mappings.mappings[0].candidateId }] }],
+  };
+  return new Map([[statePath, state], [mappingPath, mappings], [reportPath, report]]);
+}
+
 test('entire reviewed snapshot is validated and incomplete coverage is reported', async () => {
-  const [state, mappings, report] = await Promise.all([
-    'work/ott-candidates/state.json', 'data/curated/ott-reviewed-mappings.json',
-    'work/tmdb-release-candidates/latest.json',
-  ].map((name) => readFile(name, 'utf8').then(JSON.parse)));
+  const input = await pipelineInputs();
+  const [state, mappings, report] = [statePath, mappingPath, reportPath].map(path => input.get(path));
   // A November-December-only report must be rejected after the October cutoff policy.
   assert.throws(() => publicationGate(state, mappings, { ...report, months: ['2026-11', '2026-12'], discoveryComplete: false }), /TMDB_REPORT_WRONG_WINDOW/);
   const [binding] = report.rows.filter((r) => r.readyForBatchReview && r.officialEvidence?.length);
   assert.ok(binding);
   const extra = { ...binding, id: 'test-new-identity', officialEvidence: [{ ...binding.officialEvidence[0], reviewCandidateId: 'unmapped-candidate' }] };
   const gated = publicationGate(state, mappings, { ...report, months: ['2026-10', '2026-11', '2026-12'], rows: [...report.rows, extra] });
+  assert.equal(gated.reviewedMappings, mappings.mappings.length);
   assert.deepEqual(gated.readyUnmapped, ['test-new-identity']);
 });
 
 test('pipeline preserves reviewed publications and reports incomplete TMDB coverage', async () => {
-  const input = new Map(await Promise.all([
-    'work/ott-candidates/state.json', 'data/curated/ott-reviewed-mappings.json',
-    'work/tmdb-release-candidates/latest.json',
-  ].map(async (path) => [path, JSON.parse(await readFile(path, 'utf8'))])));
+  const input = await pipelineInputs();
   const commands = [];
   const result = await runPipeline({
     run: async (args) => { commands.push(args); return JSON.stringify({ exitCode: 0, stdout: 'fixture' }); },
@@ -46,10 +72,7 @@ test('pipeline preserves reviewed publications and reports incomplete TMDB cover
 });
 
 test('Ads fetch failure leaves existing publications intact and does not stage partial Ads rows', async () => {
-  const input = new Map(await Promise.all([
-    'work/ott-candidates/state.json', 'data/curated/ott-reviewed-mappings.json',
-    'work/tmdb-release-candidates/latest.json',
-  ].map(async (path) => [path, JSON.parse(await readFile(path, 'utf8'))])));
+  const input = await pipelineInputs();
   const commands = [];
   const result = await runPipeline({
     run: async (args) => {
@@ -65,10 +88,7 @@ test('Ads fetch failure leaves existing publications intact and does not stage p
 });
 
 test('Disney+ failure is reported without staging its partial results', async () => {
-  const input = new Map(await Promise.all([
-    'work/ott-candidates/state.json', 'data/curated/ott-reviewed-mappings.json',
-    'work/tmdb-release-candidates/latest.json',
-  ].map(async (path) => [path, JSON.parse(await readFile(path, 'utf8'))])));
+  const input = await pipelineInputs();
   const commands = [];
   const result = await runPipeline({
     run: async (args) => { commands.push(args); return JSON.stringify({ exitCode: args.includes('scripts/collect-disneyplus-kr-lineup.mjs') ? 1 : 0, stdout: '{}' }); },
@@ -81,10 +101,7 @@ test('Disney+ failure is reported without staging its partial results', async ()
 });
 
 test('an incomplete TVING collection does not stage partial programmes or suppress reviewed DB publish', async () => {
-  const input = new Map(await Promise.all([
-    'work/ott-candidates/state.json', 'data/curated/ott-reviewed-mappings.json',
-    'work/tmdb-release-candidates/latest.json',
-  ].map(async (path) => [path, JSON.parse(await readFile(path, 'utf8'))])));
+  const input = await pipelineInputs();
   const commands = [];
   const result = await runPipeline({
     run: async (args, options) => {
@@ -101,10 +118,7 @@ test('an incomplete TVING collection does not stage partial programmes or suppre
 });
 
 test('Netflix network failure does not prevent the other providers, publication, or parity audit', async () => {
-  const input = new Map(await Promise.all([
-    'work/ott-candidates/state.json', 'data/curated/ott-reviewed-mappings.json',
-    'work/tmdb-release-candidates/latest.json',
-  ].map(async (path) => [path, JSON.parse(await readFile(path, 'utf8'))])));
+  const input = await pipelineInputs();
   const commands = [];
   const result = await runPipeline({
     run: async (args) => {
@@ -127,16 +141,13 @@ test('Netflix network failure does not prevent the other providers, publication,
 });
 
 test('unavailable TMDB snapshot remains an explicit gap while official collectors continue', async () => {
-  const input = new Map(await Promise.all([
-    'work/ott-candidates/state.json', 'data/curated/ott-reviewed-mappings.json',
-  ].map(async (path) => [path, JSON.parse(await readFile(path, 'utf8'))])));
+  const input = await pipelineInputs();
   const commands = [];
   const result = await runPipeline({
     reuseRecentTmdb: true, publish: false,
     fileStat: async () => ({ mtimeMs: Date.now() - 2 * 3600000 }),
     run: async (args) => { commands.push(args); return JSON.stringify({ exitCode: 0, stdout: '{}' }); },
-    read: async (path) => JSON.stringify(path.includes('tmdb-release-candidates') ?
-      { kind: 'tmdb-first-ott-release-review', rows: [], discoveryCoverage: [], referenceInputUsed: false } : input.get(path)),
+    read: async path => JSON.stringify(input.get(path)),
   });
   assert.equal(result.status, 'published_with_discovery_gaps');
   assert.equal(result.gate.discoveryComplete, false);
@@ -145,9 +156,7 @@ test('unavailable TMDB snapshot remains an explicit gap while official collector
 });
 
 test('posted source recheck gap is retained even when discovery and publication otherwise succeed', async () => {
-  const input = new Map(await Promise.all([
-    'work/ott-candidates/state.json', 'data/curated/ott-reviewed-mappings.json', 'work/tmdb-release-candidates/latest.json',
-  ].map(async path => [path, JSON.parse(await readFile(path, 'utf8'))])));
+  const input = await pipelineInputs();
   const result = await runPipeline({
     run: async args => JSON.stringify({ exitCode: args.includes('scripts/recheck-posted-official-sources.mjs') ? 2 : 0, stdout: '{}' }),
     read: async path => JSON.stringify(path.endsWith('latest.json') ? { ...input.get(path), discoveryComplete: true, errors: [] } : input.get(path)),
@@ -157,8 +166,7 @@ test('posted source recheck gap is retained even when discovery and publication 
   assert.equal(result.steps.find(s => s.label === 'posted_official_source_recheck').exitCode, 2);
 });
 test('new Netflix review failures remain partial even when other sources are complete', async()=>{
- const inputs=new Map(await Promise.all(['work/ott-candidates/state.json','data/curated/ott-reviewed-mappings.json','work/tmdb-release-candidates/latest.json']
-  .map(async p=>[p,JSON.parse(await readFile(p,'utf8'))])));
+ const inputs = await pipelineInputs();
  const result=await runPipeline({read:async p=>JSON.stringify(p.endsWith('latest.json')?{...inputs.get(p),discoveryComplete:true,errors:[]}:inputs.get(p)),
   run:async args=>JSON.stringify({exitCode:args.includes('scripts/review-netflix-first-premieres.mjs')?2:0,stdout:'{}'})});
  assert.equal(result.status,'published_with_discovery_gaps');assert.equal(result.published,true);
