@@ -191,28 +191,43 @@ export class CollectionRepository {
     records: Canonical[],
     runId: string,
   ) {
-    await this.transaction("publish",
-      async (tx) => {
+    // WORLD releases exceed the remote DB interactive-transaction lifetime.
+    // Commit bounded idempotent batches, retaining the failed run status until
+    // every record finishes. A retry resumes via stable source identities.
+    const chunkSize = records.length > 200 ? 100 : records.length || 1;
+    for (let start = 0; start < records.length; start += chunkSize) {
+      await this.transaction("publish", async tx => {
         const catalog = await this.bump(tx);
-        for (const record of records)
+        for (const record of records.slice(start, start + chunkSize))
           await this.publish(tx, adapter, record, catalog.revision);
-        const finished = new Date();
-        await tx.collection_scope.update({
-          where: { id: scopeId },
-          data: {
-            coverage: "partial",
-            last_attempt_status: "succeeded",
-            last_successful_at: finished,
-            last_error_code: null,
+      }, this.publishTimeout(adapter.key));
+    }
+    return this.transaction("publish", async tx => {
+      let unlisted = 0;
+      // Reconcile only after a fully fetched and validated KOBIS batch.
+      // Hide historical imports that no longer satisfy the commercial policy.
+      if (adapter.key === "kobis" && records.length >= 5) {
+        const result = await tx.event.updateMany({
+          where: {
+            kind: "theatrical_release",
+            event_source: { some: { provider_key: "kobis", external_id: { notIn: records.map(r => r.externalId) } } },
+            is_listed: true,
           },
+          data: { is_listed: false },
         });
-        await tx.collection_run.update({
-          where: { id: runId },
-          data: { status: "succeeded", finished_at: finished },
-        });
-      },
-      this.publishTimeout(adapter.key),
-    );
+        unlisted = result.count;
+      }
+      await this.bump(tx);
+      const finished = new Date();
+      await tx.collection_scope.update({ where: { id: scopeId }, data: {
+        coverage: "partial", last_attempt_status: "succeeded",
+        last_successful_at: finished, last_error_code: null,
+      } });
+      await tx.collection_run.update({ where: { id: runId }, data: {
+        status: "succeeded", finished_at: finished,
+      } });
+      return unlisted;
+    }, this.publishTimeout(adapter.key));
   }
   async failRun(scopeId: string, runId: string, code: string) {
     await this.transaction("fail_run", async (tx) => {
@@ -334,6 +349,7 @@ export class CollectionRepository {
       content_type: r.content?.kind ?? null,
       season_id: seasonId,
       status: r.status,
+      is_listed: true,
       precision: t.type,
       instant_at: t.type === "instant" ? new Date(t.value) : null,
       local_date:
@@ -383,6 +399,8 @@ export class CollectionRepository {
         },
       });
     }
+    if (prior && !prior.is_listed)
+      await tx.event.update({ where: { id: eventId }, data: { is_listed: true } });
     await tx.event_source.upsert({
       where: { provider_key_external_id_variant_key: key },
       create: {

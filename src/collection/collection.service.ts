@@ -9,6 +9,7 @@ export type CollectionOutcome = {
   category: string;
   status: string;
   published?: number;
+  unlisted?: number;
   errorCode?: string;
   causeCode?: string;
   market?: string;
@@ -89,12 +90,13 @@ export class CollectionService implements OnModuleInit {
         keys.add(key);
       }
       phase = "publish";
-      await this.repository.publishScope(adapter, state.id, records, runId);
+      const unlisted = await this.repository.publishScope(adapter, state.id, records, runId);
       return {
         provider: adapter.key,
         category: scope.category,
         status: "succeeded",
         published: records.length,
+        ...(adapter.key === "kobis" && typeof unlisted === "number" ? { unlisted } : {}),
       };
     } catch (error) {
       const diagnostic = collectionDiagnostic(error);

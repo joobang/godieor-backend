@@ -1,3 +1,8 @@
+## DATA-88 · 상업영화 정리 및 WORLD 게시 복구 (2026-11-19)
+
+- 원본 `docs/tasks/DATA-88-commercial-theatrical-world-batches.md`. 주요 배급사·장편 KOBIS 공식 상세 확인, 영화 달력 비노출 마이그레이션, IGDB WORLD 100건 배치 게시를 구현했다.
+- 구현 및 자체 검사 진행. 운영 DB 숨김 건수·원격 빌드·KOBIS/IGDB WORLD 실제 백필 성공은 아직 검증되지 않았다. 기존 이벤트/즐겨찾기/이력은 ID를 유지하도록 설계했다. LEARN-0022 연계.
+
 ## CI-03 · B안 backend main 적용 확인 (2026-11-18)
 
 - PR #1의 고정 head 06464d1을 merge commit 9f218b9로 병합. backend main의 PR 필수 GitHub Actions test 규칙 유지. 병합 SHA Backend CI 44245768636에서 build/test·일회용 PostgreSQL migration/HTTP API·Job summary 성공 확인.
