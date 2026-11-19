@@ -47,6 +47,7 @@ export class CatalogRepository {
           ? [{ origin: "provider" as const }]
           : []),
         { kind: { in: kinds } },
+        { is_listed: true },
         {
           OR: [
             { kind: "epl_match" },

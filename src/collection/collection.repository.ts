@@ -193,6 +193,7 @@ export class CollectionRepository {
   ) {
     // Remote DB round trips can exhaust a single interactive transaction.
     // Retry-safe upserts retain event IDs and append history only for changes.
+    let unlisted = 0;
     const batchSize = 100;
     const batches = Math.max(1, Math.ceil(records.length / batchSize));
     for (let index = 0; index < batches; index++) {
@@ -203,6 +204,17 @@ export class CollectionRepository {
         for (const record of batch)
           await this.publish(tx, adapter, record, catalog.revision);
         if (lastBatch) {
+          if (adapter.key === "kobis" && records.length >= 5) {
+            const result = await tx.event.updateMany({
+              where: {
+                kind: "theatrical_release",
+                event_source: { some: { provider_key: "kobis", external_id: { notIn: records.map(r => r.externalId) } } },
+                is_listed: true,
+              },
+              data: { is_listed: false },
+            });
+            unlisted = result.count;
+          }
           const finished = new Date();
           await tx.collection_scope.update({
             where: { id: scopeId },
@@ -220,6 +232,7 @@ export class CollectionRepository {
         }
       }, this.publishTimeout(adapter.key));
     }
+    return unlisted;
   }
   async failRun(scopeId: string, runId: string, code: string) {
     await this.transaction("fail_run", async (tx) => {
@@ -341,6 +354,7 @@ export class CollectionRepository {
       content_type: r.content?.kind ?? null,
       season_id: seasonId,
       status: r.status,
+      is_listed: true,
       precision: t.type,
       instant_at: t.type === "instant" ? new Date(t.value) : null,
       local_date:
@@ -390,6 +404,8 @@ export class CollectionRepository {
         },
       });
     }
+    if (prior && !prior.is_listed)
+      await tx.event.update({ where: { id: eventId }, data: { is_listed: true } });
     await tx.event_source.upsert({
       where: { provider_key_external_id_variant_key: key },
       create: {

@@ -1,3 +1,7 @@
+## DATA-91 · 상업영화 정리 및 WORLD 게시 복구 (2026-11-19)
+
+- 원본 `docs/tasks/DATA-88-commercial-theatrical-world-batches.md`. 주요 배급사·장편 KOBIS 공식 상세 확인, 영화 달력 비노출 마이그레이션, 기존 IGDB WORLD 100건 배치 게시를 통합했다.
+- 구현 및 자체 검사 진행. 운영 DB 숨김 건수·원격 빌드·KOBIS/IGDB WORLD 실제 백필 성공은 아직 검증되지 않았다. 기존 이벤트/즐겨찾기/이력은 ID를 유지하도록 설계했다. LEARN-0022 연계.
 ## DATA-90 · OTT 포스터 2차 개선 인계 (2026-11-19)
 
 - 요구 PROD-009/GD-009, backend `docs/tasks/DATA-90-ott-poster-second-pass.md`. 검토 별칭16건, 로컬 DB 포스터106/116(91.4%), 누락10건, TMDB ID107 이벤트. 실측 재실행 업데이트0. 빌드/CI/운영 배포는 실행 결과로 확정한다. revision SYNC-2026-11-19-DATA-90.
