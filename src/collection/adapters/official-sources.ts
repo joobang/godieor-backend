@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { DateTime } from "luxon";
 import { Canonical, ProviderAdapter, Scope } from "../domain/provider-record";
 
-import { gameCollectionWindow, movieCollectionYears, premierLeagueSeasons, withinProductWindow } from "../domain/collection-window";
+import { gameCollectionWindow, movieCollectionYears, premierLeagueSeasons } from "../domain/collection-window";
 
 type JsonObject = Record<string, unknown>;
 function object(value: unknown): JsonObject {
@@ -24,7 +24,41 @@ async function getJson(url: URL, headers: Record<string, string> = {}): Promise<
   return object(await response.json());
 }
 
-/** KOBIS movie list: Korean theatrical openDt only, not box-office dates. */
+/** Conservative commercial-distribution evidence from KOBIS company names. */
+const commercialDistributors = [
+  "씨제이이엔엠", "씨제이엔터테인먼트", "cj enm", "롯데엔터테인먼트",
+  "쇼박스", "플러스엠", "메가박스중앙", "넥스트엔터테인먼트월드",
+  "에이스메이커", "바이포엠", "월트디즈니", "디즈니컴퍼니",
+  "워너브러더스", "워너브라더스", "유니버설픽쳐스", "소니픽쳐스",
+  "파라마운트", "이십세기폭스", "20세기폭스", "스튜디오앤뉴",
+];
+const excludedGenres = ["다큐멘터리", "실험", "단편", "공연", "성인물"];
+function commercialTheatricalMovie(movie: JsonObject): boolean {
+  const type = text(movie.typeNm);
+  const genres = [text(movie.genreAlt), ...(Array.isArray(movie.genres) ? movie.genres.map(g => g && typeof g === "object" ? text((g as JsonObject).genreNm) : "") : [])].join(",");
+  if (type && type !== "장편") return false;
+  if (excludedGenres.some(genre => genres.includes(genre))) return false;
+  const companies = Array.isArray(movie.companys) ? movie.companys : [];
+  return companies.some(company => {
+    if (!company || typeof company !== "object") return false;
+    const details = company as JsonObject;
+    if (!text(details.companyPartNm).includes("배급")) return false;
+    const name = text(details.companyNm).toLowerCase().replace(/\s+/g, "");
+    return commercialDistributors.some(distributor => name.includes(distributor.replace(/\s+/g, "")));
+  });
+}
+
+async function kobisMovieDetail(key: string, id: string): Promise<JsonObject> {
+  const url = new URL("https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json");
+  url.searchParams.set("key", key);
+  url.searchParams.set("movieCd", id);
+  const data = object((await getJson(url)).movieInfoResult);
+  const info = object(data.movieInfo);
+  if (text(info.movieCd) !== id) throw new Error("PROVIDER_MOVIE_ID_MISMATCH");
+  return info;
+}
+
+/** KOBIS listings require confirmed major theatrical distributors in movie detail. */
 @Injectable()
 export class KobisAdapter implements ProviderAdapter {
   readonly key = "kobis";
@@ -36,6 +70,7 @@ export class KobisAdapter implements ProviderAdapter {
     if (!key) throw new Error("MISSING_PROVIDER_KEY");
     const years = movieCollectionYears(mode);
     const records = new Map<string, unknown>();
+    const candidates = new Map<string, { title: string; day: string }>();
     for (const y of years) {
       for (let page = 1; page <= 20; page++) {
         const url = new URL("https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json");
@@ -53,7 +88,30 @@ export class KobisAdapter implements ProviderAdapter {
           const title = text(movie.movieNm);
           const day = dateOnly(text(movie.openDt));
           if (!id || !title || !day || day < "2026-10-01") continue;
-          records.set(id, {
+          if (text(movie.typeNm) && text(movie.typeNm) !== "장편") continue;
+          if (excludedGenres.some(genre => text(movie.genreAlt).includes(genre))) continue;
+          const companies = Array.isArray(movie.companys) ? movie.companys : [];
+          if (!companies.some(company => {
+            if (!company || typeof company !== "object") return false;
+            const name = text((company as JsonObject).companyNm).toLowerCase().replace(/\s+/g, "");
+            return commercialDistributors.some(distributor => name.includes(distributor.replace(/\s+/g, "")));
+          })) continue;
+          // The list reports companies without roles. Detail identifies actual distributors.
+          candidates.set(id, { title, day });
+        }
+        if (items.length < 100) break;
+        if (page === 20) throw new Error("PROVIDER_PAGE_LIMIT");
+      }
+    }
+    const pending = [...candidates.entries()];
+    for (let start = 0; start < pending.length; start += 6) {
+      await Promise.all(pending.slice(start, start + 6).map(async ([id, listing]) => {
+        const movie = await kobisMovieDetail(key, id);
+        if (!commercialTheatricalMovie(movie)) return;
+        const title = text(movie.movieNm) || listing.title;
+        const day = dateOnly(text(movie.openDt));
+        if (!day) return;
+        records.set(id, {
             externalId: id, variantKey: "kr-theatrical", kind: "theatrical_release",
             title, content: { externalId: id, kind: "movie", title },
             seasonNumber: null, status: "scheduled",
@@ -63,37 +121,29 @@ export class KobisAdapter implements ProviderAdapter {
             sourceUrl: "https://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do",
             sourceUpdatedAt: null,
           });
-        }
-        if (items.length < 100) break;
-        if (page === 20) throw new Error("PROVIDER_PAGE_LIMIT");
-      }
+      }));
     }
     return [...records.values()];
   }
   async refreshMissing(_scope: Scope, previous: readonly Canonical[], current: readonly Canonical[]): Promise<unknown[]> {
-    const seen = new Set(current.map(r => r.externalId));
-    // Historical records are retained for identity/history, but the current
-    // product window must not trigger a detail recheck for every old release.
-    const missing = previous.filter(r =>
-      !seen.has(r.externalId) &&
-      (r.time.type !== "date_only" || withinProductWindow(r.time.value)));
-    if (missing.length > 100) throw Error("PROVIDER_RECHECK_LIMIT");
     const key = process.env.KOBIS_API_KEY;
-    if (!key) throw Error("MISSING_PROVIDER_KEY");
-    const records: Canonical[] = [];
-    for (const prior of missing) {
-      const url = new URL("https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json");
-      url.searchParams.set("key", key);url.searchParams.set("movieCd", prior.externalId);
-      const movie = object(object((await getJson(url)).movieInfoResult).movieInfo);
-      if (text(movie.movieCd) !== prior.externalId || !text(movie.movieNm) || typeof movie.openDt !== "string") throw Error("INVALID_PROVIDER_RESPONSE");
-      const day = dateOnly(movie.openDt);
-      if (movie.openDt !== "" && !day) throw Error("INVALID_PROVIDER_RESPONSE");
-      if (!prior.content || prior.content.externalId !== prior.externalId) throw Error("IDENTITY_CHANGED");
-      const title = text(movie.movieNm);
-      records.push({ ...prior, title, content: { ...prior.content, title },
-        time: day ? { type: "date_only", value: day } : { type: "unknown", announcedYear: null, announcedPeriod: null } });
+    if (!key) throw new Error("MISSING_PROVIDER_KEY");
+    const present = new Set(current.map(movie => movie.externalId));
+    const missing = previous.filter(movie => !present.has(movie.externalId) &&
+      (movie.time.type === "unknown" || (movie.time.type === "date_only" && movie.time.value >= "2026-10-01")));
+    // Recheck only a bounded set of absent titles for officially withdrawn dates.
+    if (missing.length > 100) return [];
+    const retained: unknown[] = [];
+    for (const movie of missing) {
+      const info = await kobisMovieDetail(key, movie.externalId);
+      if (!commercialTheatricalMovie(info)) continue;
+      const day = text(info.openDt);
+      if (day && !dateOnly(day)) throw new Error("INVALID_PROVIDER_DATE");
+      if (!day) retained.push({
+        ...movie, time: { type: "unknown", announcedYear: null, announcedPeriod: null },
+      });
     }
-    return records;
+    return retained;
   }
 
 }

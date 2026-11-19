@@ -18,6 +18,7 @@
 | SQL-CATALOG-01 | `src/catalog/queries/catalog.sql.ts` datedEventsSql | 날짜만은 지역 날짜 보존, instant는 요청 시간대 날짜로 계산하여 혼합 정렬·keyset 페이지. 현재 Client orderBy로 계산식 표현 불가. 바인딩 입력 + decodeEventKeys | 일회용 PostgreSQL, 기존 빌드 API/양방향 커서 비교 |
 | SQL-CATALOG-02 | 같은 파일 calendarSql | 같은 계산 날짜별 전체 건수와 상위 2행을 window function으로 함께 조회. decodeCalendarKeys로 반환 검사 | 월간 API/일별 총계·미리보기 회귀 |
 | SQL-LOCK-01 | `src/database/prisma.service.ts` withCollectorLock | PostgreSQL 세션 advisory lock은 Client CRUD 대상이 아니다. 전용 pg 연결·`$1` 바인딩, finally unlock/release, locked boolean 직접 확인 | 반복 수집·실패 보존·publisher 충돌 검사 |
+| SQL-POSTER-01 | `scripts/enrich-theatrical-posters.mjs` | 오프라인 CLI에서 KOBIS 작품·이벤트 동일 코드를 대조하고 조회 뒤에도 기존 포스터 및 목록 상태를 다시 확인한다. JSON 배열을 `$1`에 바인딩해 단일 UPDATE로 적용한다. | 일회용 DB에서 작성 전·적용·재실행과 콘텐츠 API, 비노출·기존 포스터·이벤트 불변 검사 |
 
 미정 목록은 Client 관계 필터와 ID keyset을 사용한다. 이전 날짜 조회는 JSON-path 필터 후 100행씩 keyset으로 읽고 제목만 바뀐 이력을 건너뛴다. JSON object 키 순서 차이는 시간 변경으로 취급하지 않는다. 연결 확인도 catalog_state Client 조회를 사용한다.
 `tests/query-policy.test.cjs`는 raw 실행 위치/unsafe 금지/출력 검사를 보조한다. 이 검사는 OS 격리나 모든 SQL 안전성의 증명이 아니다. 대량 이력 스캔의 비용을 측정하지 않았으며 필요 시 별도 측정 후 최적화한다.

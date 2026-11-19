@@ -18,13 +18,37 @@ test("KOBIS preserves day-only KR theatrical date, ignores undated rows", async 
       const records = await new KobisAdapter().fetch({category:"movie",market:"KR"}, "daily");
       assert.equal(records.length, 1);
       assert.equal(normalize(records[0], {category:"movie",market:"KR"}).time.value, "2026-11-12");
-    }, async () => ok({ movieListResult: { movieList: [
-      { movieCd:"20260001", movieNm:"Sample", openDt:"20261112" },
+    }, async url => url.pathname.includes("searchMovieInfo")
+      ? ok({movieInfoResult:{movieInfo:{movieCd:"20260001",movieNm:"Sample",openDt:"20261112",typeNm:"장편",genres:[{genreNm:"액션"}],companys:[{companyNm:"월트디즈니컴퍼니코리아",companyPartNm:"배급사"}]}}})
+      : ok({ movieListResult: { movieList: [
+      { movieCd:"20260001", movieNm:"Sample", openDt:"20261112", typeNm:"장편", genreAlt:"액션", companys:[{companyNm:"월트디즈니컴퍼니코리아"}] },
       { movieCd:"20260002", movieNm:"Unknown", openDt:"" },
     ] } }));
   } finally {
     if (previous === undefined) delete process.env.KOBIS_API_KEY;
     else process.env.KOBIS_API_KEY = previous;
+  }
+});
+
+
+test("KOBIS excludes independent, art, short and documentary titles without commercial distribution", async () => {
+  const saved = process.env.KOBIS_API_KEY;
+  process.env.KOBIS_API_KEY = "mock";
+  try {
+    await mockProvider(async () => {
+      const rows = await new KobisAdapter().fetch({category:"movie",market:"KR"}, "daily");
+      assert.deepEqual(rows.map(row => row.externalId), ["major"]);
+    }, async url => url.pathname.includes("searchMovieInfo")
+      ? ok({movieInfoResult:{movieInfo:{movieCd:url.searchParams.get("movieCd"),movieNm:"Mainstream",openDt:"20261120",typeNm:"장편",genreAlt:url.searchParams.get("movieCd")==="art"?"다큐멘터리":"액션",companys:[{companyNm:"(주)쇼박스",companyPartNm:url.searchParams.get("movieCd")==="art"?"제작사":"배급사"}]}}})
+      : ok({movieListResult:{movieList:[
+      {movieCd:"major",movieNm:"Mainstream",openDt:"20261120",typeNm:"장편",genreAlt:"액션",companys:[{companyNm:"(주)쇼박스"}]},
+      {movieCd:"indie",movieNm:"Independent",openDt:"20261120",typeNm:"장편",genreAlt:"드라마",companys:[{companyNm:"독립영화배급"}]},
+      {movieCd:"art",movieNm:"Art",openDt:"20261120",typeNm:"장편",genreAlt:"다큐멘터리",companys:[{companyNm:"쇼박스"}]},
+      {movieCd:"short",movieNm:"Short",openDt:"20261120",typeNm:"단편",genreAlt:"드라마",companys:[{companyNm:"쇼박스"}]},
+    ]}}));
+  } finally {
+    if (saved === undefined) delete process.env.KOBIS_API_KEY;
+    else process.env.KOBIS_API_KEY = saved;
   }
 });
 
