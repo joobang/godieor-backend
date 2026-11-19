@@ -77,6 +77,24 @@ test('verified aliases require exact date, title, platform, kind and canonical T
   }
 });
 
+test('Netflix verified English translation and official Netflix title URL resolve localized TMDB movie', async () => {
+  const alias = { identityVerified: true, title: '제 아들을 대신하여', date: '2026-11-20',
+    platform: 'netflix', eventKind: 'movie', tmdbKind: 'movie', tmdbId: 1307474,
+    tmdbTitle: 'On Behalf of My Son' };
+  const titleEvent = { title: alias.title, date: alias.date, platform: alias.platform, kind: alias.eventKind };
+  const detail = { title: 'Vicentina Pede Desculpas', original_title: 'Vicentina Pede Desculpas',
+    poster_path: '/verified.jpg' };
+  const translations = { translations: [{ iso_639_1: 'en', data: {
+    title: 'On Behalf of My Son', homepage: 'https://www.netflix.com/title/81724626' } }] };
+  const lookupTranslation = async (path) => path.endsWith('/translations') ? translations : detail;
+  assert.equal((await findVerifiedPoster(titleEvent, lookupTranslation, [], [alias]))?.tmdbId, 1307474);
+  for (const data of [{ title: 'Different title', homepage: 'https://www.netflix.com/title/81724626' },
+    { title: 'On Behalf of My Son', homepage: 'https://unrelated.example/title/81724626' }]) {
+    assert.equal(await findVerifiedPoster(titleEvent, async (path) =>
+      path.endsWith('/translations') ? { translations: [{ iso_639_1: 'en', data }] } : detail, [], [alias]), null);
+  }
+});
+
 test('two conflicting manually reviewed identities are not selected', async () => {
   const row = { identityVerified: true, title: event.title, date: event.date,
     platform: event.platform, eventKind: event.kind, tmdbKind: 'tv', tmdbTitle: 'Original' };
