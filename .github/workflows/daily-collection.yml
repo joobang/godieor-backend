@@ -16,7 +16,7 @@ on:
         type: choice
         required: true
         default: all
-        options: [all, kobis, epl, igdb, igdb-world, igdb-kr, igdb-jp, igdb-au, igdb-nz, igdb-cn, igdb-br, ott]
+        options: [all, kobis, epl, igdb, igdb-world, igdb-kr, igdb-jp, igdb-au, igdb-nz, igdb-cn, igdb-br, ott, movie-posters]
 permissions:
   contents: read
 concurrency:
@@ -71,6 +71,7 @@ jobs:
       - run: npm run build
         id: build
       - name: Apply database migrations before collection
+        id: migrations
         run: npx prisma migrate deploy
       - name: Collect daily providers
         id: providers_daily
@@ -102,6 +103,11 @@ jobs:
             echo "::endgroup::"
           done
           exit "$failed"
+      - name: Enrich Korean theatrical movie posters
+        id: movie_posters
+        continue-on-error: true
+        if: "!cancelled() && steps.migrations.outcome == 'success' && steps.selection.outputs.movie_posters == 'true'"
+        run: node scripts/enrich-theatrical-posters.mjs --apply
       - name: Restore reviewed OTT candidates
         id: restore_ott
         if: "!cancelled() && steps.build.outcome == 'success' && steps.selection.outputs.ott == 'true'"
@@ -161,4 +167,5 @@ jobs:
           echo "Backfill provider result: ${{ steps.providers_backfill.outcome }}"
           echo "OTT result: ${{ steps.ott.outcome }}"
           echo "OTT poster result: ${{ steps.ott_posters.outcome }}"
-          [[ "${{ steps.providers_daily.outcome }}" != failure && "${{ steps.providers_backfill.outcome }}" != failure && "${{ steps.ott.outcome }}" != failure && "${{ steps.ott_posters.outcome }}" != failure ]]
+          echo "Theatrical poster result: ${{ steps.movie_posters.outcome }}"
+          [[ "${{ steps.movie_posters.outcome }}" != failure && "${{ steps.providers_daily.outcome }}" != failure && "${{ steps.providers_backfill.outcome }}" != failure && "${{ steps.ott.outcome }}" != failure && "${{ steps.ott_posters.outcome }}" != failure ]]
