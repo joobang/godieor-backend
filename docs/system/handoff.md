@@ -1,3 +1,9 @@
+## DATA-89 · OTT 포스터 보완 및 영속 매핑 (2026-11-19)
+
+- backend `docs/tasks/DATA-89-ott-poster-coverage.md`. 실제 로컬 OTT 116개(가상2 제외) 포스터44→90, 누락72→26. 검증된 TMDB 식별자91 이벤트에 해당하는 콘텐츠 매핑 저장, 기존 이벤트·공개일·찜 보존.
+- 검증된 공식 binding/OTT 백필 ID/유일 제목·원제+한국 제공처만 매칭. 일일 게시 뒤 선택 보완 및 `work/ott-posters/latest.json` 통계 생성, 오류는 명시적으로 기록. 로컬 migration 적용 완료. 미확인26 항목 보류, 운영 DB 적용과 독립 승인 별도.
+- backend `codex/ott-poster-coverage` 별도 checkout. 자체 전체 빌드/테스트364/364 성공(Node20), 공식 Node24 검증·PR/운영 적용은 후속. revision SYNC-2026-11-19-DATA-89.
+
 ## DATA-88 · IGDB WORLD 대량 게시 복구 (2026-11-19)
 
 - Actions run44275128560의 WORLD 4,845건 게시가 902초 걸려 900초 제한 P2028로 실패. 100건 단위 트랜잭션으로 개선하고 마지막 성공 시에만 수집 완료 기록. 실패 전 배치의 부분 게시·재시도 필요성을 명시함.
