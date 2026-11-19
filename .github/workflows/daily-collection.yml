@@ -20,7 +20,9 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: godieor-provider-collection
+  # A standalone poster pass does not need to queue behind unrelated providers.
+  # Its short DB write shares the KOBIS advisory lock with collection.
+  group: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'backfill' && inputs.backfill_target == 'movie-posters' && 'godieor-theatrical-posters' || 'godieor-provider-collection' }}
   cancel-in-progress: false
 jobs:
   collect:
