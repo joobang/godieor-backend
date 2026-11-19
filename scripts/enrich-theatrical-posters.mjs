@@ -6,7 +6,7 @@ const normalize = (value) => typeof value === 'string'
 const titles = (movie) => [movie.title, movie.original_title].map(normalize);
 const posterPath = /^\/[a-zA-Z0-9_-]+\.(?:jpe?g|png|webp)$/i;
 
-export async function findTheatricalPoster(movie, lookup) {
+export async function findTheatricalPoster(movie, lookup, lookupKobis) {
   const expected = normalize(movie.title);
   if (!expected) return null;
   const candidates = new Set();
@@ -23,17 +23,26 @@ export async function findTheatricalPoster(movie, lookup) {
     }
     page++;
   } while (page <= pages);
-  if (candidates.size > 8) return null;
+  if (candidates.size === 0 || candidates.size > 8) return null;
+
+  const kobis = await lookupKobis(movie.movieCode);
+  if (kobis?.movieCd !== movie.movieCode) throw Error('KOBIS_MOVIE_ID_MISMATCH');
+  if (normalize(kobis.movieNm) !== expected || kobis.openDt !== movie.date.replaceAll('-', '')) return null;
+  const directors = new Set((kobis.directors ?? []).flatMap((row) =>
+    [row.peopleNm, row.peopleNmEn]).map(normalize).filter(Boolean));
+  if (!directors.size) return null;
 
   const matches = [];
   for (const id of candidates) {
-    const result = await lookup(`/movie/${id}`, { language: 'ko-KR', append_to_response: 'release_dates' });
-    if (result.id !== id || !Array.isArray(result.release_dates?.results))
+    const result = await lookup(`/movie/${id}`, { language: 'ko-KR', append_to_response: 'release_dates,credits' });
+    if (result.id !== id || !Array.isArray(result.release_dates?.results) || !Array.isArray(result.credits?.crew))
       throw Error('INVALID_TMDB_MOVIE_RESPONSE');
     const dates = result.release_dates.results
       .filter((region) => region.iso_3166_1 === 'KR')
       .flatMap((region) => region.release_dates ?? []);
-    if (titles(result).includes(expected) && dates.some((release) =>
+    const sameDirector = result.credits.crew.some((row) => row.job === 'Director' &&
+      [row.name, row.original_name].some((name) => directors.has(normalize(name))));
+    if (sameDirector && titles(result).includes(expected) && dates.some((release) =>
       (release.type === 2 || release.type === 3) && release.release_date?.slice(0, 10) === movie.date)) {
       matches.push(result);
     }
@@ -50,7 +59,7 @@ const listedTheatrical = `
     WHERE e.kind='theatrical_release' AND e.release_market='KR' AND e.origin='provider'
       AND e.is_listed AND e.local_date >= DATE '2026-10-01'`;
 
-export async function enrichTheatricalPosters({ pool, lookup, apply = false }) {
+export async function enrichTheatricalPosters({ pool, lookup, lookupKobis, apply = false }) {
   const { rows } = await pool.query(`SELECT DISTINCT e.content_id AS "contentId", es.external_id AS "movieCode",
     e.title, e.local_date::text AS date ${listedTheatrical} ORDER BY date, "movieCode", "contentId"`);
   const { rows: covered } = await pool.query(`SELECT DISTINCT c.id AS "contentId" FROM content c
@@ -63,7 +72,7 @@ export async function enrichTheatricalPosters({ pool, lookup, apply = false }) {
   let lookupFailures = 0;
   for (let start = 0; start < pending.length; start += 4) {
     const outcomes = await Promise.allSettled(pending.slice(start, start + 4).map(async (movie) => {
-      const poster = await findTheatricalPoster(movie, lookup);
+      const poster = await findTheatricalPoster(movie, lookup, lookupKobis);
       return poster ? { ...movie, ...poster } : null;
     }));
     for (const outcome of outcomes) {
@@ -72,19 +81,7 @@ export async function enrichTheatricalPosters({ pool, lookup, apply = false }) {
     }
   }
 
-  let updated = 0;
-  if (apply && selected.length) {
-    const result = await pool.query(`
-      UPDATE content c SET poster_url=p."posterUrl", updated_at=now()
-      FROM jsonb_to_recordset($1::jsonb) AS p("contentId" uuid, "movieCode" text, title text, date date, "posterUrl" text)
-      WHERE c.id=p."contentId" AND c.kind='movie' AND (c.poster_url IS NULL OR c.poster_url='')
-        AND EXISTS (SELECT 1 ${listedTheatrical}
-          AND e.content_id=c.id AND es.external_id=p."movieCode" AND e.title=p.title AND e.local_date=p.date)
-        AND NOT EXISTS (SELECT 1 ${listedTheatrical}
-          AND e.content_id=c.id AND (es.external_id<>p."movieCode" OR e.title<>p.title OR e.local_date<>p.date))`,
-      [JSON.stringify(selected)]);
-    updated = result.rowCount;
-  }
+  const updated = apply && selected.length ? await savePosters(pool, selected) : 0;
   return {
     mode: apply ? 'apply' : 'dry_run',
     total: new Set(rows.map((row) => row.contentId)).size,
@@ -97,9 +94,37 @@ export async function enrichTheatricalPosters({ pool, lookup, apply = false }) {
   };
 }
 
+async function savePosters(pool, selected) {
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    // Same advisory key as CollectionService's KOBIS job. Keep network calls out of the transaction.
+    const lock = await client.query(
+      'SELECT pg_try_advisory_xact_lock(hashtextextended($1, 0)) AS locked', ['godieor:kobis']);
+    if (lock.rows[0]?.locked !== true) throw Error('KOBIS_COLLECTION_BUSY');
+    const result = await client.query(`
+      UPDATE content c SET poster_url=p."posterUrl", updated_at=now()
+      FROM jsonb_to_recordset($1::jsonb) AS p("contentId" uuid, "movieCode" text, title text, date date, "posterUrl" text)
+      WHERE c.id=p."contentId" AND c.kind='movie' AND (c.poster_url IS NULL OR c.poster_url='')
+        AND EXISTS (SELECT 1 ${listedTheatrical}
+          AND e.content_id=c.id AND es.external_id=p."movieCode" AND e.title=p.title AND e.local_date=p.date)
+        AND NOT EXISTS (SELECT 1 ${listedTheatrical}
+          AND e.content_id=c.id AND (es.external_id<>p."movieCode" OR e.title<>p.title OR e.local_date<>p.date))`,
+      [JSON.stringify(selected)]);
+    await client.query('COMMIT');
+    return result.rowCount;
+  } catch (error) {
+    await client.query('ROLLBACK');
+    throw error;
+  } finally {
+    client.release();
+  }
+}
+
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const token = process.env.TMDB_API_READ_ACCESS_TOKEN?.trim();
-  if (!token || !process.env.DATABASE_URL) {
+  const kobisKey = process.env.KOBIS_API_KEY?.trim();
+  if (!token || !kobisKey || !process.env.DATABASE_URL) {
     console.error('THEATRICAL_POSTER_CONFIG_MISSING');
     process.exitCode = 1;
   } else {
@@ -112,8 +137,15 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
       if (!response.ok) throw Error('TMDB_POSTER_LOOKUP_FAILED');
       return response.json();
     };
+    const lookupKobis = async (code) => {
+      const url = new URL('https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json');
+      url.search = new URLSearchParams({ key: kobisKey, movieCd: code });
+      const response = await fetch(url, { signal: AbortSignal.timeout(12000) });
+      if (!response.ok) throw Error('KOBIS_POSTER_LOOKUP_FAILED');
+      return (await response.json()).movieInfoResult?.movieInfo;
+    };
     try {
-      const report = await enrichTheatricalPosters({ pool, lookup, apply: process.argv.includes('--apply') });
+      const report = await enrichTheatricalPosters({ pool, lookup, lookupKobis, apply: process.argv.includes('--apply') });
       console.log(JSON.stringify(report));
       if (report.lookupFailures) process.exitCode = 1;
     } catch {

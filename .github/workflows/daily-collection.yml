@@ -71,6 +71,7 @@ jobs:
       - run: npm run build
         id: build
       - name: Apply database migrations before collection
+        id: migrations
         run: npx prisma migrate deploy
       - name: Collect daily providers
         id: providers_daily
@@ -105,7 +106,7 @@ jobs:
       - name: Enrich Korean theatrical movie posters
         id: movie_posters
         continue-on-error: true
-        if: "!cancelled() && steps.build.outcome == 'success' && steps.selection.outputs.movie_posters == 'true'"
+        if: "!cancelled() && steps.migrations.outcome == 'success' && steps.selection.outputs.movie_posters == 'true'"
         run: node scripts/enrich-theatrical-posters.mjs --apply
       - name: Restore reviewed OTT candidates
         id: restore_ott

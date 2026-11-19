@@ -4,7 +4,7 @@ const { Pool } = require('pg');
 
 module.exports = async function checkTheatricalPosters(prisma, readContent) {
   const { enrichTheatricalPosters } = await import('./enrich-theatrical-posters.mjs');
-  const pool = new Pool({ connectionString: process.env.DATABASE_URL, max: 1 });
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL, max: 2 });
   const day = '2026-11-18';
   const existingPoster = 'https://example.com/existing.jpg';
   const cases = [
@@ -45,13 +45,26 @@ module.exports = async function checkTheatricalPosters(prisma, readContent) {
       }
       return {
         id: 1, title: cases[0].title, poster_path: '/synthetic.jpg',
+        credits: { crew: [{ job: 'Director', name: 'Synthetic director' }] },
         release_dates: { results: [{ iso_3166_1: 'KR', release_dates: [{ type: 3, release_date: day + 'T00:00:00Z' }] }] },
       };
     };
-    const payload = { pool, lookup };
+    const lookupKobis = async (movieCd) => ({ movieCd, movieNm: cases[0].title, openDt: '20261118',
+      directors: [{ peopleNmEn: 'Synthetic director' }] });
+    const payload = { pool, lookup, lookupKobis };
     const dry = await enrichTheatricalPosters(payload);
     assert.deepEqual([dry.total, dry.beforeWithPoster, dry.matched, dry.updated, dry.lookupFailures], [2, 1, 1, 0, 0]);
     assert.equal((await readContent(cases[0].contentId)).posterUrl, null);
+    const collector = await pool.connect();
+    try {
+      await collector.query('BEGIN');
+      await collector.query('SELECT pg_advisory_xact_lock(hashtextextended($1, 0))', ['godieor:kobis']);
+      await assert.rejects(enrichTheatricalPosters({ ...payload, apply: true }), /KOBIS_COLLECTION_BUSY/);
+      assert.equal((await readContent(cases[0].contentId)).posterUrl, null);
+    } finally {
+      await collector.query('ROLLBACK');
+      collector.release();
+    }
     assert.equal((await enrichTheatricalPosters({ ...payload, apply: true })).updated, 1);
     assert.equal((await enrichTheatricalPosters({ ...payload, apply: true })).updated, 0);
     assert.equal((await readContent(cases[0].contentId)).posterUrl, 'https://image.tmdb.org/t/p/w500/synthetic.jpg');
