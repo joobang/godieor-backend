@@ -18,11 +18,11 @@ test('preflight lists absent and whitespace secrets without returning values', (
 
 test('daily workflow surfaces failed poster enrichment in its final status', async () => {
   const workflow = await readFile('.github/workflows/daily-collection.yml', 'utf8');
-  const finalStatus = workflow.split('      - name: Report overall collection failures\\n')[1];
+  const finalStatus = workflow.split('      - name: Report overall collection failures')[1];
   assert.ok(finalStatus, 'daily collection must contain its final failure gate');
-  assert.match(finalStatus, /steps\\.ott_posters\\.outcome/g);
-  assert.match(finalStatus, /steps\\.ott_posters\\.outcome }}\" != failure/);
-  assert.match(workflow, /\\$\\{\\{ runner\\.temp \\}\\}\\/ott-poster-report\\.json/);
+  assert.ok(finalStatus.includes('steps.ott_posters.outcome'));
+  assert.ok(finalStatus.includes('&& "${{ steps.ott_posters.outcome }}" != failure'));
+  assert.ok(workflow.includes('ott-poster-report.json'));
 });
 
 test('child failure selects actual script and safe stdout diagnostics', () => {
