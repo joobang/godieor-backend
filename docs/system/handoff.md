@@ -1,3 +1,8 @@
+## DATA-88 · IGDB WORLD 대량 게시 복구 (2026-11-19)
+
+- Actions run44275128560의 WORLD 4,845건 게시가 902초 걸려 900초 제한 P2028로 실패. 100건 단위 트랜잭션으로 개선하고 마지막 성공 시에만 수집 완료 기록. 실패 전 배치의 부분 게시·재시도 필요성을 명시함.
+- Node24.22.3 build 성공, 전체 자체 테스트 361/361 통과. 원본 `docs/tasks/DATA-88-igdb-world-batched-publication.md`. 원격 Actions 및 실데이터 재실행 검증 상태는 GitHub 배포 후 기록.
+
 ## CI-03 · B안 backend main 적용 확인 (2026-11-18)
 
 - PR #1의 고정 head 06464d1을 merge commit 9f218b9로 병합. backend main의 PR 필수 GitHub Actions test 규칙 유지. 병합 SHA Backend CI 44245768636에서 build/test·일회용 PostgreSQL migration/HTTP API·Job summary 성공 확인.
