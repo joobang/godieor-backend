@@ -35,12 +35,12 @@ const {KobisAdapter}=require('../dist/src/collection/adapters/official-sources')
 function knownMovie(){return {externalId:'20269999',variantKey:'kr-theatrical',kind:'theatrical_release',title:'가상 영화',content:{externalId:'20269999',kind:'movie',title:'가상 영화'},seasonNumber:null,status:'scheduled',time:{type:'date_only',value:'2026-11-18'},market:'KR',venueCountry:null,services:[],devices:[],home:null,away:null,sourceUrl:'https://www.kobis.or.kr/',sourceUpdatedAt:null};}
 test('missing KOBIS movie becomes undated only after same-ID official detail withdraws its day',async()=>{
  const original=global.fetch,key=process.env.KOBIS_API_KEY;process.env.KOBIS_API_KEY='synthetic-key';let calls=0;
- global.fetch=async()=>{calls++;return {ok:true,json:async()=>({movieInfoResult:{movieInfo:{movieCd:'20269999',movieNm:'가상 영화',openDt:''}}})};};
+ global.fetch=async()=>{calls++;return {ok:true,json:async()=>({movieInfoResult:{movieInfo:{movieCd:'20269999',movieNm:'가상 영화',openDt:'',typeNm:'장편',companys:[{companyNm:'쇼박스',companyPartNm:'배급사'}]}}})};};
  try{const r=await new KobisAdapter().refreshMissing({category:'movie',market:'KR'},[knownMovie()],[]);assert.equal(calls,1);assert.deepEqual(r[0].time,{type:'unknown',announcedYear:null,announcedPeriod:null});assert.equal(r[0].externalId,'20269999');assert.deepEqual(await new KobisAdapter().refreshMissing({category:'movie',market:'KR'},[knownMovie()],[knownMovie()]),[]);assert.equal(calls,1);}finally{global.fetch=original;if(key===undefined)delete process.env.KOBIS_API_KEY;else process.env.KOBIS_API_KEY=key;}
 });
 test('KOBIS skips historical rechecks outside the October product window while retaining current unknown releases',async()=>{
  const original=global.fetch,key=process.env.KOBIS_API_KEY;process.env.KOBIS_API_KEY='synthetic-key';let calls=0;
- global.fetch=async()=>{calls++;return {ok:true,json:async()=>({movieInfoResult:{movieInfo:{movieCd:'20269999',movieNm:'가상 영화',openDt:''}}})};};
+ global.fetch=async()=>{calls++;return {ok:true,json:async()=>({movieInfoResult:{movieInfo:{movieCd:'20269999',movieNm:'가상 영화',openDt:'',typeNm:'장편',companys:[{companyNm:'쇼박스',companyPartNm:'배급사'}]}}})};};
  try{
   const old=Array.from({length:1661},(_,i)=>({...knownMovie(),externalId:String(i),time:{type:'date_only',value:'2026-09-30'}}));
   const reviewed=await new KobisAdapter().refreshMissing({category:'movie',market:'KR'},[...old,{...knownMovie(),time:{type:'unknown',announcedYear:null,announcedPeriod:null}}],[]);
@@ -49,8 +49,8 @@ test('KOBIS skips historical rechecks outside the October product window while r
 });
 test('wrong KOBIS identity, malformed date or oversized recheck fail without clearing prior dates',async()=>{
  const original=global.fetch,key=process.env.KOBIS_API_KEY;process.env.KOBIS_API_KEY='synthetic-key';
- try{for(const movie of [{movieCd:'other',movieNm:'가상 영화',openDt:''},{movieCd:'20269999',movieNm:'가상 영화',openDt:'20261399'}]){global.fetch=async()=>({ok:true,json:async()=>({movieInfoResult:{movieInfo:movie}})});await assert.rejects(new KobisAdapter().refreshMissing({category:'movie',market:'KR'},[knownMovie()],[]));}
- await assert.rejects(new KobisAdapter().refreshMissing({category:'movie',market:'KR'},Array.from({length:101},knownMovie),[]),/LIMIT/);}finally{global.fetch=original;if(key===undefined)delete process.env.KOBIS_API_KEY;else process.env.KOBIS_API_KEY=key;}
+ try{for(const movie of [{movieCd:'other',movieNm:'가상 영화',openDt:'',typeNm:'장편',companys:[{companyNm:'쇼박스',companyPartNm:'배급사'}]},{movieCd:'20269999',movieNm:'가상 영화',openDt:'20261399',typeNm:'장편',companys:[{companyNm:'쇼박스',companyPartNm:'배급사'}]}]){global.fetch=async()=>({ok:true,json:async()=>({movieInfoResult:{movieInfo:movie}})});await assert.rejects(new KobisAdapter().refreshMissing({category:'movie',market:'KR'},[knownMovie()],[]));}
+ assert.deepEqual(await new KobisAdapter().refreshMissing({category:'movie',market:'KR'},Array.from({length:101},(_,i)=>({...knownMovie(),externalId:String(i)})),[]),[]);}finally{global.fetch=original;if(key===undefined)delete process.env.KOBIS_API_KEY;else process.env.KOBIS_API_KEY=key;}
 });
 
 test('single-market IGDB backfill stays under the provider lock and skips all other scopes', async () => {

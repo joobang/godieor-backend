@@ -10,6 +10,7 @@ export type CollectionOutcome = {
   category: string;
   status: string;
   published?: number;
+  unlisted?: number;
   errorCode?: string;
   causeCode?: string;
   market?: string;
@@ -102,10 +103,11 @@ export class CollectionService implements OnModuleInit {
         keys.add(key);
       }
       phase = "publish";
+      let unlisted = 0;
       recordCount = records.length;
       const publishStarted = performance.now();
       try {
-        await this.repository.publishScope(adapter, state.id, records, runId);
+        unlisted = await this.repository.publishScope(adapter, state.id, records, runId);
       } finally {
         publishMs = Math.round(performance.now() - publishStarted);
       }
@@ -117,6 +119,7 @@ export class CollectionService implements OnModuleInit {
         fetchMs,
         publishMs,
         recordCount,
+        ...(adapter.key === "kobis" ? { unlisted } : {}),
       };
     } catch (error) {
       const diagnostic = collectionDiagnostic(error);

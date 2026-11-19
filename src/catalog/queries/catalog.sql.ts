@@ -29,6 +29,7 @@ function conditions(query: CatalogQuery) {
     .map(([kind]) => Prisma.sql`${kind}::event_kind`);
   const clauses = [
     Prisma.sql`e.kind IN (${Prisma.join(kinds)})`,
+    Prisma.sql`e.is_listed = true`,
     Prisma.sql`(e.kind = 'epl_match' OR e.release_market IN (${query.country}, 'WORLD'))`,
   ];
   if (process.env.CATALOG_PROVIDER_ONLY === "true")

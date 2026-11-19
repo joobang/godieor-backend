@@ -70,6 +70,8 @@ jobs:
       - run: npm ci
       - run: npm run build
         id: build
+      - name: Apply database migrations before collection
+        run: npx prisma migrate deploy
       - name: Collect daily providers
         id: providers_daily
         continue-on-error: true
