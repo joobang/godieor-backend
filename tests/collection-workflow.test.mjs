@@ -16,6 +16,15 @@ test('preflight lists absent and whitespace secrets without returning values', (
   assert.deepEqual(missingCollectionSecrets(env, 'ott'), ['TMDB_API_READ_ACCESS_TOKEN']);
 });
 
+test('daily workflow surfaces failed poster enrichment in its final status', async () => {
+  const workflow = await readFile('.github/workflows/daily-collection.yml', 'utf8');
+  const finalStatus = workflow.split('      - name: Report overall collection failures')[1];
+  assert.ok(finalStatus, 'daily collection must contain its final failure gate');
+  assert.ok(finalStatus.includes('steps.ott_posters.outcome'));
+  assert.ok(finalStatus.includes('&& "${{ steps.ott_posters.outcome }}" != failure'));
+  assert.ok(workflow.includes('ott-poster-report.json'));
+});
+
 test('child failure selects actual script and safe stdout diagnostics', () => {
   const failure = childFailure(['--env-file-if-exists=.env', 'dist/src/cli/publish-reviewed.js'], 1,
     JSON.stringify({ results: [{ status: 'failed', errorCode: 'DB_TRANSACTION_FAILED', causeCode: 'P2028', message: 'secret' }] }, null, 2),
