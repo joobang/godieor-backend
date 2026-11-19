@@ -1,0 +1,166 @@
+{
+  "verifiedAt": "2026-11-19",
+  "evidence": "TMDB /movie/{id} or /tv/{id} detail title and poster verified; listed platform/date/kind come from already reviewed KR event, not inferred from TMDB; manual identity matching only",
+  "items": [
+    {
+      "title": "Mike Ward: Modest",
+      "date": "2026-11-17",
+      "platform": "netflix",
+      "eventKind": "movie",
+      "tmdbKind": "movie",
+      "tmdbId": 1827471,
+      "tmdbTitle": "Mike Ward: Modeste",
+      "identityVerified": true
+    },
+    {
+      "title": "The Tupac Tapes with Angie Martinez",
+      "date": "2026-11-27",
+      "platform": "netflix",
+      "eventKind": "drama",
+      "tmdbKind": "movie",
+      "tmdbId": 1823449,
+      "tmdbTitle": "The Tupac Tapes With Angie Martinez",
+      "identityVerified": true
+    },
+    {
+      "title": "고르돈",
+      "date": "2026-11-18",
+      "platform": "netflix",
+      "eventKind": "drama",
+      "tmdbKind": "tv",
+      "tmdbId": 340280,
+      "tmdbTitle": "Gordon",
+      "identityVerified": true
+    },
+    {
+      "title": "데블스 플랜: 데드 어게인",
+      "date": "2026-11-10",
+      "platform": "netflix",
+      "eventKind": "drama",
+      "tmdbKind": "tv",
+      "tmdbId": 214582,
+      "tmdbTitle": "데블스 플랜",
+      "identityVerified": true
+    },
+    {
+      "title": "디즈니 트위스티드 원더랜드: 애니메이션 - 에피소드 오브 사바나클로",
+      "date": "2026-12-23",
+      "platform": "disney_plus",
+      "eventKind": "drama",
+      "tmdbKind": "tv",
+      "tmdbId": 342075,
+      "tmdbTitle": "ディズニー ツイステッドワンダーランド ザ アニメーション ～エピソード オブ サバナクロー～",
+      "identityVerified": true
+    },
+    {
+      "title": "러셀 브랜드: 모른 척했던 비밀",
+      "date": "2026-11-13",
+      "platform": "netflix",
+      "eventKind": "movie",
+      "tmdbKind": "movie",
+      "tmdbId": 1823907,
+      "tmdbTitle": "Russell Brand: Open Secret",
+      "identityVerified": true
+    },
+    {
+      "title": "모스키토 볼: 전장의 마지막 터치다운",
+      "date": "2026-11-25",
+      "platform": "netflix",
+      "eventKind": "movie",
+      "tmdbKind": "movie",
+      "tmdbId": 1458300,
+      "tmdbTitle": "The Mosquito Bowl",
+      "identityVerified": true
+    },
+    {
+      "title": "비엔나 게임",
+      "date": "2026-11-18",
+      "platform": "disney_plus",
+      "eventKind": "drama",
+      "tmdbKind": "tv",
+      "tmdbId": 288120,
+      "tmdbTitle": "Vienna Game",
+      "identityVerified": true
+    },
+    {
+      "title": "아불시대사: 꾼들의 전쟁",
+      "date": "2026-11-21",
+      "platform": "tving",
+      "eventKind": "drama",
+      "tmdbKind": "tv",
+      "tmdbId": 341164,
+      "tmdbTitle": "Oobah: Scams for a Better Tomorrow",
+      "identityVerified": true
+    },
+    {
+      "title": "윔피 키드: 아찔한 휴가 일기",
+      "date": "2026-12-04",
+      "platform": "disney_plus",
+      "eventKind": "movie",
+      "tmdbKind": "movie",
+      "tmdbId": 1519780,
+      "tmdbTitle": "Diary of a Wimpy Kid Christmas: The Getaway",
+      "identityVerified": true
+    },
+    {
+      "title": "유미의 세포들 시즌3",
+      "date": "2026-04-13",
+      "platform": "tving",
+      "eventKind": "drama",
+      "tmdbKind": "tv",
+      "tmdbId": 128995,
+      "tmdbTitle": "유미의 세포들",
+      "identityVerified": true
+    },
+    {
+      "title": "저넬 제임스: 미치게 로맨틱",
+      "date": "2026-11-10",
+      "platform": "netflix",
+      "eventKind": "drama",
+      "tmdbKind": "movie",
+      "tmdbId": 1820172,
+      "tmdbTitle": "Janelle James: How Romantic",
+      "identityVerified": true
+    },
+    {
+      "title": "캐런 리드 재판",
+      "date": "2026-11-23",
+      "platform": "netflix",
+      "eventKind": "drama",
+      "tmdbKind": "tv",
+      "tmdbId": 340615,
+      "tmdbTitle": "The Trials of Karen Read",
+      "identityVerified": true
+    },
+    {
+      "title": "프라임타임 전도사$",
+      "date": "2026-11-20",
+      "platform": "netflix",
+      "eventKind": "movie",
+      "tmdbKind": "movie",
+      "tmdbId": 1791730,
+      "tmdbTitle": "Primetime Preacher$",
+      "identityVerified": true
+    },
+    {
+      "title": "필리핀의 크리스마스 선물",
+      "date": "2026-11-26",
+      "platform": "netflix",
+      "eventKind": "drama",
+      "tmdbKind": "tv",
+      "tmdbId": 313701,
+      "tmdbTitle": "Paskong Pinoy",
+      "identityVerified": true
+    },
+    {
+      "title": "하우스 오브 드래곤 시즌3",
+      "date": "2026-06-23",
+      "platform": "coupang_play",
+      "eventKind": "drama",
+      "tmdbKind": "tv",
+      "tmdbId": 94997,
+      "tmdbTitle": "하우스 오브 드래곤",
+      "identityVerified": true
+    }
+  ]
+}

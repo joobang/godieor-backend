@@ -27,17 +27,30 @@ function matchingCurated(event, reviewed) {
   return new Set(matches.map((row) => row.tmdbId)).size === 1 ? matches[0] : null;
 }
 
-export async function findVerifiedPoster(event, lookup, curated = []) {
+function matchingVerifiedAlias(event, aliases) {
+  const matches = aliases.filter((row) => row.identityVerified === true &&
+    row.title && normalize(row.title) === normalize(event.title) &&
+    row.date === dateOnly(event.date) && row.platform === event.platform &&
+    row.eventKind === event.kind && ['movie', 'tv'].includes(row.tmdbKind) &&
+    Number.isSafeInteger(row.tmdbId) && row.tmdbId > 0 && row.tmdbTitle);
+  const identifiers = new Set(matches.map((row) => `${row.tmdbKind}:${row.tmdbId}`));
+  return identifiers.size === 1 ? matches[0] : null;
+}
+
+export async function findVerifiedPoster(event, lookup, curated = [], aliases = []) {
   const kind = tmdbKind(event);
   const platform = providers[event.platform];
   if (!kind || !platform || !event.title) return null;
-  const verified = matchingCurated(event, curated);
+  const alias = matchingVerifiedAlias(event, aliases);
+  const verified = alias ? null : matchingCurated(event, curated);
   const fallbackMatch = event.fallbackExternalId?.match(/^tmdb-tv-(\d+)-s\d+-(netflix|tving|disney_plus|coupang_play)-KR$/);
   const fallbackId = fallbackMatch?.[2] === event.platform && kind === 'tv' ? Number(fallbackMatch[1]) : null;
   let candidates;
-  if (verified || fallbackId) {
-    const tmdbId = verified?.tmdbId ?? fallbackId;
-    const detail = await lookup(`/${kind}/${tmdbId}`, { language: 'ko-KR' });
+  if (alias || verified || fallbackId) {
+    const tmdbId = alias?.tmdbId ?? verified?.tmdbId ?? fallbackId;
+    const matchedKind = alias?.tmdbKind ?? kind;
+    const detail = await lookup(`/${matchedKind}/${tmdbId}`, { language: 'ko-KR' });
+    if (alias && !titles(detail).includes(normalize(alias.tmdbTitle))) return null;
     candidates = [{ ...detail, id: tmdbId }];
   } else {
     const results = await Promise.all([...new Set([event.title, event.originalTitle].filter(Boolean))]
@@ -53,14 +66,14 @@ export async function findVerifiedPoster(event, lookup, curated = []) {
   if (candidates.length !== 1) return null;
   const entry = candidates[0];
   // Historical curated identities remain valid if watch-provider availability changes.
-  if (!verified && !fallbackId) {
+  if (!alias && !verified && !fallbackId) {
     const availability = await lookup(`/${kind}/${entry.id}/watch/providers`);
     const region = availability.results?.KR ?? {};
     const services = [...(region.flatrate ?? []), ...(region.free ?? []), ...(region.ads ?? [])];
     if (!services.some((service) => platform.test(service.provider_name ?? ''))) return null;
   }
   const posterUrl = validPoster(entry.poster_path) ? `https://image.tmdb.org/t/p/w500${entry.poster_path}` : null;
-  return { tmdbId: entry.id, kind, posterUrl, verification: verified ? 'curated_identity' : fallbackId ? 'fallback_source_id' : 'unique_title_kr_provider' };
+  return { tmdbId: entry.id, kind: alias?.tmdbKind ?? kind, posterUrl, verification: alias ? 'verified_alias' : verified ? 'curated_identity' : fallbackId ? 'fallback_source_id' : 'unique_title_kr_provider' };
 }
 
 export async function coverage(pool) {
@@ -79,7 +92,7 @@ export async function coverage(pool) {
     withIdentity: rows.reduce((sum, row) => sum + row.with_identity, 0) };
 }
 
-export async function enrichPosters({ pool, lookup, curated = [], apply = false }) {
+export async function enrichPosters({ pool, lookup, curated = [], aliases = [], apply = false }) {
   const before = await coverage(pool);
   const { rows } = await pool.query(`SELECT DISTINCT e.content_id AS "contentId", e.title,
     c.original_title AS "originalTitle", c.kind::text AS kind,
@@ -91,8 +104,9 @@ export async function enrichPosters({ pool, lookup, curated = [], apply = false 
     LEFT JOIN ott_tmdb_identity ident ON ident.content_id=c.id
     WHERE e.kind='ott_season_premiere' AND src.provider_key IN ('ott_reviewed','ott_fallback') AND e.release_market='KR'`);
   const proposals = new Map();
-  let lookupFailures = 0, ambiguous = 0;
+  let lookupFailures = 0, ambiguous = 0, alreadyComplete = 0;
   for (const event of rows) {
+    if (event.boundTmdbId && event.posterUrl) { alreadyComplete++; continue; }
     try {
       let result;
       if (event.boundTmdbId) {
@@ -100,7 +114,7 @@ export async function enrichPosters({ pool, lookup, curated = [], apply = false 
         result = { tmdbId: event.boundTmdbId, kind: event.boundKind,
           posterUrl: validPoster(detail.poster_path) ? `https://image.tmdb.org/t/p/w500${detail.poster_path}` : null,
           verification: 'existing_identity' };
-      } else result = await findVerifiedPoster(event, lookup, curated);
+      } else result = await findVerifiedPoster(event, lookup, curated, aliases);
       if (!result) { ambiguous++; continue; }
       const prior = proposals.get(event.contentId);
       if (prior && (prior.tmdbId !== result.tmdbId || prior.kind !== result.kind)) proposals.set(event.contentId, { conflict: true });
@@ -133,10 +147,20 @@ export async function enrichPosters({ pool, lookup, curated = [], apply = false 
     } finally { client.release(); }
   }
   const after = apply ? await coverage(pool) : before;
+  const unresolved = await pool.query(`SELECT DISTINCT e.title, es.service::text AS platform,
+    src.provider_key AS source, ident.tmdb_id AS "tmdbId"
+    FROM event e JOIN content c ON c.id=e.content_id
+    JOIN event_service es ON es.event_id=e.id JOIN event_source src ON src.event_id=e.id
+    LEFT JOIN ott_tmdb_identity ident ON ident.content_id=c.id
+    WHERE e.kind='ott_season_premiere' AND e.release_market='KR'
+      AND src.provider_key IN ('ott_reviewed','ott_fallback')
+      AND (c.poster_url IS NULL OR c.poster_url='') ORDER BY 1, 2`);
   return { mode: apply ? 'apply' : 'dry_run', before, after,
     selected: proposals.size, actionable: [...proposals.values()].filter((row) => !row.conflict).length,
     conflicts: [...proposals.values()].filter((row) => row.conflict).length,
-    ambiguous, lookupFailures, postersUpdated, identitiesSaved };
+    ambiguous, lookupFailures, alreadyComplete, postersUpdated, identitiesSaved,
+    unresolved: unresolved.rows.map((row) => ({ ...row,
+      reason: row.tmdbId ? 'tmdb_poster_unavailable' : 'identity_unverified_or_lookup_failed' })) };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
@@ -156,7 +180,9 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     };
     try {
       const curated = JSON.parse(await readFile('data/curated/ott-official-tmdb-bindings-2026-11-13.json', 'utf8'));
-      const result = await enrichPosters({ pool, lookup, curated: curated.items, apply: process.argv.includes('--apply') });
+      const aliases = JSON.parse(await readFile('data/curated/ott-poster-tmdb-identities-2026-11-19.json', 'utf8'));
+      const result = await enrichPosters({ pool, lookup, curated: curated.items, aliases: aliases.items,
+        apply: process.argv.includes('--apply') });
       await mkdir('work/ott-posters', { recursive: true });
       await writeFile('work/ott-posters/latest.json', `${JSON.stringify({ ...result, observedAt: new Date().toISOString() }, null, 2)}\n`);
       console.log(JSON.stringify({ mode: result.mode, total: result.after.total,

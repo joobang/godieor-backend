@@ -51,3 +51,37 @@ test('fallback source identity resolves translated titles without availability i
   assert.equal(result?.tmdbId, 130853);
   assert.equal(result?.verification, 'fallback_source_id');
 });
+
+test('verified OTT alias can bind a movie behind a legacy drama classification', async () => {
+  const aliases = [{ identityVerified: true, title: '해외 특집', date: '2026-11-04',
+    platform: 'netflix', eventKind: 'drama', tmdbKind: 'movie', tmdbId: 1820172,
+    tmdbTitle: 'Janelle James: How Romantic' }];
+  const result = await findVerifiedPoster({ ...event, title: '해외 특집' }, async (path) => {
+    assert.equal(path, '/movie/1820172');
+    return { title: 'Janelle James: How Romantic', poster_path: '/movie.jpg' };
+  }, [], aliases);
+  assert.deepEqual(result, { tmdbId: 1820172, kind: 'movie',
+    posterUrl: 'https://image.tmdb.org/t/p/w500/movie.jpg', verification: 'verified_alias' });
+});
+
+test('verified aliases require exact date, title, platform, kind and canonical TMDB title', async () => {
+  const alias = { identityVerified: true, title: '검증된 작품', date: event.date,
+    platform: event.platform, eventKind: event.kind, tmdbKind: 'tv', tmdbId: 99,
+    tmdbTitle: 'Correct Original' };
+  const rejected = async (path) => path.startsWith('/search/')
+    ? { results: [] } : { name: 'Wrong Original', poster_path: '/wrong.jpg' };
+  assert.equal(await findVerifiedPoster(event, rejected, [], [alias]), null);
+  for (const change of [{ date: '2026-11-05' }, { platform: 'tving' }, { kind: 'movie' }, { title: '다른 작품' }]) {
+    assert.equal(await findVerifiedPoster({ ...event, ...change }, async (path) =>
+      path.startsWith('/search/') ? { results: [] } : { results: {} }, [], [alias]), null);
+  }
+});
+
+test('two conflicting manually reviewed identities are not selected', async () => {
+  const row = { identityVerified: true, title: event.title, date: event.date,
+    platform: event.platform, eventKind: event.kind, tmdbKind: 'tv', tmdbTitle: 'Original' };
+  const result = await findVerifiedPoster(event, async (path) =>
+    path.startsWith('/search/') ? { results: [] } : { results: {} }, [],
+    [{ ...row, tmdbId: 1 }, { ...row, tmdbId: 2 }]);
+  assert.equal(result, null);
+});
