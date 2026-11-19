@@ -80,10 +80,22 @@ model content {
   updated_at       DateTime           @default(now()) @db.Timestamptz(6)
   content_favorite content_favorite[]
   content_source   content_source[]
+  ott_tmdb_identity ott_tmdb_identity?
   drama_season     drama_season[]
   event            event[]
 
   @@unique([id, kind])
+}
+
+model ott_tmdb_identity {
+  content_id   String   @id @db.Uuid
+  tmdb_kind    String
+  tmdb_id      Int
+  verification String
+  verified_at  DateTime @default(now()) @db.Timestamptz(6)
+  content      content  @relation(fields: [content_id], references: [id], onDelete: Restrict)
+
+  @@index([tmdb_kind, tmdb_id], map: "ott_tmdb_identity_tmdb_idx")
 }
 
 model content_favorite {

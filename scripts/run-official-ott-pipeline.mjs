@@ -183,6 +183,7 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
     if (publish) {
       await step('publish_reviewed', ['--env-file-if-exists=.env', 'dist/src/cli/publish-reviewed.js', '--file', mappings]);
       publicationSucceeded = true;
+      await optionalStep('ott_poster_enrichment', ['--env-file-if-exists=.env', 'scripts/enrich-ott-posters.mjs', '--apply'], [0, 2]);
     }
     const audit = publish && compareReference ? await auditRun(['--env-file-if-exists=.env', 'scripts/audit-current-first-premieres.mjs']) : null;
     return {
