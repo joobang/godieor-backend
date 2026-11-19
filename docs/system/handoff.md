@@ -1,3 +1,7 @@
+## DATA-90 · OTT 포스터 2차 개선 인계 (2026-11-19)
+
+- 요구 PROD-009/GD-009, backend `docs/tasks/DATA-90-ott-poster-second-pass.md`. 검토 별칭16건, 로컬 DB 포스터106/116(91.4%), 누락10건, TMDB ID107 이벤트. 실측 재실행 업데이트0. 빌드/CI/운영 배포는 실행 결과로 확정한다. revision SYNC-2026-11-19-DATA-90.
+
 ## DATA-89 · OTT 포스터 보완 및 영속 매핑 (2026-11-19)
 
 - backend `docs/tasks/DATA-89-ott-poster-coverage.md`. 실제 로컬 OTT 116개(가상2 제외) 포스터44→90, 누락72→26. 검증된 TMDB 식별자91 이벤트에 해당하는 콘텐츠 매핑 저장, 기존 이벤트·공개일·찜 보존.
