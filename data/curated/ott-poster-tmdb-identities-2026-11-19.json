@@ -1,27 +1,7 @@
 {
   "verifiedAt": "2026-11-19",
-  "evidence": "TMDB /movie/{id} or /tv/{id} detail title and poster verified; listed platform/date/kind come from already reviewed KR event, not inferred from TMDB; manual identity matching only",
+  "evidence": "TMDB /movie/{id} or /tv/{id} detail title and poster verified; Netflix official canonical English titles for 2026-11-20 and 2026-11-24 matched the same TMDB English titles; platform/date/kind come from already reviewed KR event; no premiere date inferred from TMDB",
   "items": [
-    {
-      "title": "Mike Ward: Modest",
-      "date": "2026-11-17",
-      "platform": "netflix",
-      "eventKind": "movie",
-      "tmdbKind": "movie",
-      "tmdbId": 1827471,
-      "tmdbTitle": "Mike Ward: Modeste",
-      "identityVerified": true
-    },
-    {
-      "title": "The Tupac Tapes with Angie Martinez",
-      "date": "2026-11-27",
-      "platform": "netflix",
-      "eventKind": "drama",
-      "tmdbKind": "movie",
-      "tmdbId": 1823449,
-      "tmdbTitle": "The Tupac Tapes With Angie Martinez",
-      "identityVerified": true
-    },
     {
       "title": "고르돈",
       "date": "2026-11-18",
@@ -30,6 +10,16 @@
       "tmdbKind": "tv",
       "tmdbId": 340280,
       "tmdbTitle": "Gordon",
+      "identityVerified": true
+    },
+    {
+      "title": "네이트 바가치: 이 정도면 잘했지",
+      "date": "2026-11-24",
+      "platform": "netflix",
+      "eventKind": "movie",
+      "tmdbKind": "movie",
+      "tmdbId": 1824177,
+      "tmdbTitle": "Nate Bargatze: Good for Nathan",
       "identityVerified": true
     },
     {
@@ -123,6 +113,16 @@
       "identityVerified": true
     },
     {
+      "title": "제 아들을 대신하여",
+      "date": "2026-11-20",
+      "platform": "netflix",
+      "eventKind": "movie",
+      "tmdbKind": "movie",
+      "tmdbId": 1307474,
+      "tmdbTitle": "On Behalf of My Son",
+      "identityVerified": true
+    },
+    {
       "title": "캐런 리드 재판",
       "date": "2026-11-23",
       "platform": "netflix",
@@ -160,6 +160,26 @@
       "tmdbKind": "tv",
       "tmdbId": 94997,
       "tmdbTitle": "하우스 오브 드래곤",
+      "identityVerified": true
+    },
+    {
+      "title": "Mike Ward: Modest",
+      "date": "2026-11-17",
+      "platform": "netflix",
+      "eventKind": "movie",
+      "tmdbKind": "movie",
+      "tmdbId": 1827471,
+      "tmdbTitle": "Mike Ward: Modeste",
+      "identityVerified": true
+    },
+    {
+      "title": "The Tupac Tapes with Angie Martinez",
+      "date": "2026-11-27",
+      "platform": "netflix",
+      "eventKind": "drama",
+      "tmdbKind": "movie",
+      "tmdbId": 1823449,
+      "tmdbTitle": "The Tupac Tapes With Angie Martinez",
       "identityVerified": true
     }
   ]

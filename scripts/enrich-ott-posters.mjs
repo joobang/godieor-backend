@@ -50,7 +50,14 @@ export async function findVerifiedPoster(event, lookup, curated = [], aliases = 
     const tmdbId = alias?.tmdbId ?? verified?.tmdbId ?? fallbackId;
     const matchedKind = alias?.tmdbKind ?? kind;
     const detail = await lookup(`/${matchedKind}/${tmdbId}`, { language: 'ko-KR' });
-    if (alias && !titles(detail).includes(normalize(alias.tmdbTitle))) return null;
+    if (alias && !titles(detail).includes(normalize(alias.tmdbTitle))) {
+      if (alias.platform !== 'netflix') return null;
+      const translations = await lookup(`/${matchedKind}/${tmdbId}/translations`);
+      const officialTitle = translations.translations?.some((row) =>
+        row.iso_639_1 === 'en' && normalize(row.data?.title) === normalize(alias.tmdbTitle) &&
+        /^https:\/\/(?:www\.)?netflix\.com\/title\/\d+\/?$/.test(row.data?.homepage ?? ''));
+      if (!officialTitle) return null;
+    }
     candidates = [{ ...detail, id: tmdbId }];
   } else {
     const results = await Promise.all([...new Set([event.title, event.originalTitle].filter(Boolean))]
