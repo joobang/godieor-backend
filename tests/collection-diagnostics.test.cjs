@@ -51,7 +51,7 @@ test('failed publication exposes bounded timings and input count without driver 
   assert.doesNotMatch(JSON.stringify(result), /secret-db-url/);
 });
 
-test('atomic publication uses bounded cloud override and preserves local defaults', async () => {
+test('publication uses bounded cloud override and preserves local defaults', async () => {
   const prior = process.env.COLLECTION_PUBLISH_TIMEOUT_MS;
   const options = [];
   const repository = new CollectionRepository({ $transaction: async (_, opts) => { options.push(opts); } });
@@ -70,4 +70,41 @@ test('atomic publication uses bounded cloud override and preserves local default
     if (prior === undefined) delete process.env.COLLECTION_PUBLISH_TIMEOUT_MS;
     else process.env.COLLECTION_PUBLISH_TIMEOUT_MS = prior;
   }
+});
+
+
+test('large publication commits bounded batches and marks success only after the final batch', async () => {
+  const batches = [];
+  const marked = [];
+  let revision = 0;
+  const db = {
+    $transaction: async (fn, options) => {
+      const batch = [];
+      batches.push({ batch, options });
+      return fn({
+        catalog_state: { update: async () => ({ revision: BigInt(++revision) }) },
+        collection_scope: { update: async () => { marked.push('scope'); } },
+        collection_run: { update: async () => { marked.push('run'); } },
+      });
+    },
+  };
+  const repository = new CollectionRepository(db);
+  repository.publish = async (_tx, _adapter, record, catalogRevision) => {
+    batches.at(-1).batch.push({ id: record.externalId, catalogRevision });
+  };
+  const records = Array.from({ length: 205 }, (_, index) => ({ externalId: String(index) }));
+  await repository.publishScope({ key: 'igdb' }, 'scope', records, 'run');
+  assert.deepEqual(batches.map(({ batch }) => batch.length), [100, 100, 5]);
+  assert.deepEqual(marked, ['scope', 'run']);
+  assert.equal(new Set(batches.flatMap(({ batch }) => batch.map(({ id }) => id))).size, 205);
+  assert.deepEqual(batches.map(({ batch }) => [...new Set(batch.map(({ catalogRevision }) => catalogRevision.toString()))]),
+    [['1'], ['2'], ['3']]);
+
+  marked.length = 0;
+  const failed = new CollectionRepository(db);
+  failed.publish = async (_tx, _adapter, record) => {
+    if (record.externalId === '125') throw new Error('SIMULATED_PUBLISH_FAILURE');
+  };
+  await assert.rejects(failed.publishScope({ key: 'igdb' }, 'scope', records, 'run'), /COLLECTION_FAILED/);
+  assert.deepEqual(marked, []);
 });

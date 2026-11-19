@@ -191,28 +191,35 @@ export class CollectionRepository {
     records: Canonical[],
     runId: string,
   ) {
-    await this.transaction("publish",
-      async (tx) => {
+    // Remote DB round trips can exhaust a single interactive transaction.
+    // Retry-safe upserts retain event IDs and append history only for changes.
+    const batchSize = 100;
+    const batches = Math.max(1, Math.ceil(records.length / batchSize));
+    for (let index = 0; index < batches; index++) {
+      const batch = records.slice(index * batchSize, (index + 1) * batchSize);
+      const lastBatch = index === batches - 1;
+      await this.transaction("publish", async (tx) => {
         const catalog = await this.bump(tx);
-        for (const record of records)
+        for (const record of batch)
           await this.publish(tx, adapter, record, catalog.revision);
-        const finished = new Date();
-        await tx.collection_scope.update({
-          where: { id: scopeId },
-          data: {
-            coverage: "partial",
-            last_attempt_status: "succeeded",
-            last_successful_at: finished,
-            last_error_code: null,
-          },
-        });
-        await tx.collection_run.update({
-          where: { id: runId },
-          data: { status: "succeeded", finished_at: finished },
-        });
-      },
-      this.publishTimeout(adapter.key),
-    );
+        if (lastBatch) {
+          const finished = new Date();
+          await tx.collection_scope.update({
+            where: { id: scopeId },
+            data: {
+              coverage: "partial",
+              last_attempt_status: "succeeded",
+              last_successful_at: finished,
+              last_error_code: null,
+            },
+          });
+          await tx.collection_run.update({
+            where: { id: runId },
+            data: { status: "succeeded", finished_at: finished },
+          });
+        }
+      }, this.publishTimeout(adapter.key));
+    }
   }
   async failRun(scopeId: string, runId: string, code: string) {
     await this.transaction("fail_run", async (tx) => {
