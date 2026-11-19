@@ -331,6 +331,10 @@ async function main() {
     console.log("같은 날 성공 후 실패한 scope의 일반 일일 재시도·ID 보존과 성공 후 skip 확인");
     phase = "reviewed candidate publication";
     await require("./check-reviewed-db.cjs")(root, prisma);
+    phase = "Korean theatrical poster enrichment";
+    await require("./check-theatrical-posters-db.cjs")(prisma, async (id) =>
+      (await read(url, "/contents/" + id)).body,
+    );
   } catch (error) {
     const message =
       error instanceof Error
