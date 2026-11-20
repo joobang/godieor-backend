@@ -8,7 +8,7 @@ on:
         default: preview
         options: [preview, apply]
       confirmation:
-        description: "For apply, enter DELETE BEFORE followed by the exact beforeDate shown in preview"
+        description: "For apply, use the exact confirmation and limit shown by preview"
         type: string
         required: false
       limit:

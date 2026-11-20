@@ -153,25 +153,20 @@ export class CollectionRepository {
       return record;
     });
   }
-  async retainPublishableRecords(provider: string, records: Canonical[]) {
+  private async retainPublishableRecords(tx: Tx, provider: string, records: Canonical[]) {
     const { date, instant } = safeRetentionBounds();
-    const old = new Set(records.filter((row) => row.time.type === "date_only" ? row.time.value < date
-      : row.time.type === "instant" && Date.parse(row.time.value) < instant.getTime()));
-    if (!old.size) return records;
-    const keys = [...old];
-    const existing = new Set<string>();
-    for (let index = 0; index < keys.length; index += 300) {
-      const batch = keys.slice(index, index + 300);
-      const sources = await this.db.event_source.findMany({
-        where: { provider_key: provider, OR: batch.map((record) => ({
-          external_id: record.externalId, variant_key: record.variantKey,
-        })) },
-        select: { external_id: true, variant_key: true },
-      });
-      for (const source of sources) existing.add(JSON.stringify([source.external_id, source.variant_key]));
-    }
-    // A correction to an existing public record may itself move it outside the window.
-    return records.filter((row) => !old.has(row) || existing.has(JSON.stringify([row.externalId, row.variantKey])));
+    const old = records.filter((row) => row.time.type === "date_only" ? row.time.value < date
+      : row.time.type === "instant" && Date.parse(row.time.value) < instant.getTime());
+    if (!old.length) return records;
+    const sources = await tx.event_source.findMany({
+      where: { provider_key: provider, OR: old.map((record) => ({
+        external_id: record.externalId, variant_key: record.variantKey,
+      })) },
+      select: { external_id: true, variant_key: true },
+    });
+    const oldRows = new Set(old);
+    const existing = new Set(sources.map((source) => JSON.stringify([source.external_id, source.variant_key])));
+    return records.filter((row) => !oldRows.has(row) || existing.has(JSON.stringify([row.externalId, row.variantKey])));
   }
 
   async beginRun(scopeId: string, mode: "backfill" | "daily") {
@@ -216,13 +211,17 @@ export class CollectionRepository {
     // Remote DB round trips can exhaust a single interactive transaction.
     // Retry-safe upserts retain event IDs and append history only for changes.
     let unlisted = 0;
+    let published = 0;
+    const retainRecent = adapter.origin === "provider" && process.env.COLLECTION_RETAIN_RECENT_ONLY !== "false";
     const batchSize = 100;
     const batches = Math.max(1, Math.ceil(records.length / batchSize));
     for (let index = 0; index < batches; index++) {
-      const batch = records.slice(index * batchSize, (index + 1) * batchSize);
+      const input = records.slice(index * batchSize, (index + 1) * batchSize);
       const lastBatch = index === batches - 1;
-      await this.transaction("publish", async (tx) => {
+      published += await this.transaction("publish", async (tx) => {
+        // Cleanup also locks catalog_state before reading source bindings.
         const catalog = await this.bump(tx);
+        const batch = retainRecent ? await this.retainPublishableRecords(tx, adapter.key, input) : input;
         if (adapter.key === "igdb" && adapter.origin === "provider" && batch.length &&
             batch.every((record) => record.kind === "game_release" && record.time.type === "date_only" &&
               record.content?.kind === "game" && record.seasonNumber === null &&
@@ -258,9 +257,10 @@ export class CollectionRepository {
             data: { status: "succeeded", finished_at: finished },
           });
         }
+        return batch.length;
       }, this.publishTimeout(adapter.key));
     }
-    return unlisted;
+    return { unlisted, published };
   }
   async failRun(scopeId: string, runId: string, code: string) {
     await this.transaction("fail_run", async (tx) => {

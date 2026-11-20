@@ -8,6 +8,6 @@
 ## 구현·자체 검사
 
 - `node scripts/check-refactor-db.cjs` 고정 PostgreSQL 임시 컨테이너 통과. WORLD 및 PC 탐색 제외, 미리보기와 승인 문구, 찜 보호, 실제 삭제, 과거 재적재 방지를 확인했다.
-- Actions는 `main`에서 수동 실행한다. `preview`가 기본이며, `apply`는 미리보기의 기준일을 넣은 승인 문구와 배치 크기를 받는다. 미정 및 찜 관련 참조는 보호한다.
+- Actions는 `main`에서 수동 실행한다. `preview`가 기본이며, `apply`는 미리보기의 기준일과 후보 집합 지문이 포함된 승인 문구, 같은 배치 크기를 받는다. 미정·찜·DATA-77 수동 검토 대상은 보호한다. 수집과 삭제는 catalog_state 행 잠금을 공유한다.
 - 계약 스키마 및 마이그레이션 변경 없음. 신규 학습 해설 해당 없음. 기존 IGDB 수집과 안정 ID는 LEARN-0006을 참조한다.
 - Node 24 `node --test tests/*.test.cjs tests/*.test.mjs` 381/381 통과.

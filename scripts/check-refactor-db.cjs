@@ -70,6 +70,7 @@ async function main() {
     process.env.COLLECTION_SCHEDULE_ENABLED = "false";
     // The disposable DB exercise intentionally opts into synthetic fixtures.
     process.env.COLLECTION_INCLUDE_FIXTURE = "true";
+    process.env.COLLECTION_RETAIN_RECENT_ONLY = "false";
     process.env.API_HOST = "127.0.0.1";
     process.env.PORT = "3001";
     phase = "migrations";

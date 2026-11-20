@@ -24,7 +24,7 @@ test('WORLD publishes in bounded chunks, then finalizes once', async () => {
   const {repo,state} = repository();
   const records = Array.from({length: 205}, (_, i) => ({externalId: String(i)}));
   const result = await repo.publishScope({key:'igdb'}, 'scope', records, 'run');
-  assert.equal(result, 0);
+  assert.deepEqual(result, {unlisted: 0, published: 205});
   assert.equal(state.commits, 3);
   assert.equal(state.finished, 1);
   assert.equal(state.published.length, 205);
@@ -49,8 +49,8 @@ test('a failed later chunk never marks scope successful; stable IDs permit retry
 
 test('KOBIS reconciles historical calendar visibility only for populated complete fetch', async () => {
   const {repo,state} = repository();
-  assert.equal(await repo.publishScope({key:'kobis'}, 'scope', [], 'run'), 0);
+  assert.deepEqual(await repo.publishScope({key:'kobis'}, 'scope', [], 'run'), {unlisted: 0, published: 0});
   assert.equal(state.unlisted, 0);
-  assert.equal(await repo.publishScope({key:'kobis'}, 'scope', Array.from({length: 5}, (_, i) => ({externalId: String(i)})), 'run'), 19);
+  assert.deepEqual(await repo.publishScope({key:'kobis'}, 'scope', Array.from({length: 5}, (_, i) => ({externalId: String(i)})), 'run'), {unlisted: 19, published: 5});
   assert.equal(state.unlisted, 1);
 });

@@ -84,7 +84,9 @@ module.exports = async function checkWorldCalendar(prisma, repository, readAPI, 
     const bounds = safeRetentionBounds();
     const oldDay = DateTime.fromISO(bounds.date, { zone }).minus({ days: 1 }).toISODate();
     const oldRows = [row("820019", oldDay, "switch"), row("820020", oldDay, "xbox")];
-    records = oldRows;
+    const held = require("../docs/tasks/evidence/data77/live-public-reference-audit-20261117.json").rows[0];
+    const heldRecord = row(held.originalReleaseId, oldDay, "xbox");
+    records = [...oldRows, heldRecord];
     try {
       assert.equal((await service.collect("backfill"))[0].status, "succeeded");
       const oldEvents = await prisma.event_source.findMany({
@@ -99,13 +101,19 @@ module.exports = async function checkWorldCalendar(prisma, repository, readAPI, 
       assert.equal(preview.deleted, 0);
       assert.ok(preview.eligible >= 1);
       assert.ok(await prisma.event.findUnique({ where: { id: oldEvents[0].event_id } }));
-      const applied = await pruneOldSchedules(pool, { apply: true, confirmation: "DELETE BEFORE " + bounds.date }, bounds);
+      const applied = await pruneOldSchedules(pool, { apply: true, confirmation: preview.confirmation }, bounds);
       assert.equal(applied.deleted, preview.eligible);
       assert.equal(await prisma.event.findUnique({ where: { id: oldEvents[0].event_id } }), null);
       assert.ok(await prisma.event.findUnique({ where: { id: oldEvents[1].event_id } }));
-      assert.deepEqual(await repository.retainPublishableRecords("igdb", oldRows), [oldRows[1]]);
+      await assert.rejects(pruneOldSchedules(pool, { apply: true, confirmation: preview.confirmation }, bounds), /DELETE_BATCH_CHANGED/);
+      process.env.COLLECTION_RETAIN_RECENT_ONLY = "true";
+      const retried = (await service.collect("backfill"))[0];
+      assert.equal(retried.published, 2);
+      assert.equal(await prisma.event_source.count({ where: { provider_key: "igdb", external_id: heldRecord.externalId } }), 1);
+      assert.equal(await prisma.event_source.count({ where: { provider_key: "igdb", external_id: oldRows[0].externalId } }), 0);
       console.log("일정 정리 테스트: 미리보기와 확인 문구, 찜 보호, 실제 삭제, 재수집 방지");
     } finally {
+      process.env.COLLECTION_RETAIN_RECENT_ONLY = "false";
       await pool.end();
     }
     console.log("WORLD 테스트: 일괄 저장·동일 작품 ID·재실행·변경 이력·기간 및 플랫폼 필터·오래된 상세 확인");
