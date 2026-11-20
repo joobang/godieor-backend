@@ -72,7 +72,7 @@ test('single-market IGDB backfill stays under the provider lock and skips all ot
     register: async adapters => { calls.push(adapters.map(adapter => [adapter.key, ...adapter.scopes.map(scope => scope.market)])); },
     findScope: async () => ({ id: 'synthetic' }),
     beginRun: async () => 'synthetic-run',
-    publishScope: async () => {},
+    publishScope: async (_adapter, _scope, records) => ({ published: records.length, unlisted: 0 }),
   };
   const adapter = { key: 'igdb', scopes: ['WORLD','KR'].map(market => ({ category: 'game', market })),
     fetch: async scope => { calls.push(scope.market); return []; } };

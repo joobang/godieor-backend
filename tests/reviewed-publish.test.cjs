@@ -347,6 +347,7 @@ function collectorRepository() {
     async publishScope(adapter, scope, records) {
       assert.equal(this.locked, true);
       this.published.push(...records);
+      return { published: records.length, unlisted: 0 };
     },
     async failRun(scope, run, code) {
       this.failures.push(code);

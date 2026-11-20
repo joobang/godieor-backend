@@ -18,7 +18,7 @@ test('failed scope identifies phase and market while subsequent scopes still run
   let failures = 0, published = 0;
   const repository = { withCollectorLock: async (_, fn) => fn(), findScope: async () => ({ id: 'synthetic' }),
     beginRun: async () => 'synthetic', failRun: async (_, __, code) => { failures++; assert.equal(code, 'PROVIDER_HTTP_429'); },
-    publishScope: async () => { published++; } };
+    publishScope: async (_adapter, _scope, records) => { published++; return { published: records.length, unlisted: 0 }; } };
   const adapter = { key: 'synthetic', scopes: [{ category: 'game', market: 'KR' }, { category: 'game', market: 'JP' }],
     fetch: async scope => { if (scope.market === 'KR') throw Error('PROVIDER_HTTP_429'); return []; } };
   const results = await new CollectionService(repository, [adapter]).collect('backfill');

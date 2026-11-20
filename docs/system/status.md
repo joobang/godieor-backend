@@ -1,26 +1,69 @@
+## UI-09 / DATA-93 · 밝은 화면, 콘솔·모바일 게임 및 과거 일정 정리 (2026-11-20)
+
+- 앱 홈·달력·카드·상세는 밝은 중립색, 선명한 활자, 레드 포인트를 사용한다. 동일 작품의 동일 공개 슬롯을 카드 하나로 표시하고 기기 아이콘을 합친다. 원본 app `docs/ai/tasks/UI-09-console-editorial.md`.
+- IGDB 수집·운영 탐색의 기기는 PlayStation·Xbox·Switch·iOS·Android다. 기존 각 출시의 원본 ID 및 찜은 보존한다.
+- 오래된 날짜 일정은 GitHub Actions에서 미리보기 후 배치 정리할 수 있다. 찜·미정은 보호하고 정리된 과거 일정 재적재를 막는다. backend 원본 `docs/tasks/DATA-93-console-retention.md`. 공통 revision SYNC-2026-11-20-DATA-93.
+
+## UI-08 · 크림·피치 테마와 홈/상세 재구성 (2026-11-20)
+
+- 크림 배경·피치 달력·민트/레몬 분야 필터, 첫 일정 강조 및 포스터 중심 상세. 원본 app `docs/ai/tasks/UI-08-editorial-light.md`. 큰 글자 카드 세로 배치. iPhone 개발 서명 0.1.0 (6) 설치 확인. revision SYNC-2026-11-20-UI-08.
+
 ## UI-07 / DATA-92 · 밝은 달력, 최근 한 달, WORLD 게임 복구 (2026-11-20)
 
 - 표시 시간대 기준 한 달 전부터 미래 일정을 조회한다. 과거 상세·찜·ID 및 기록을 보존한다. 같은 작품·지역·날짜/시각·상태인 게임을 앱의 카드에서 묶고 각 원본 출시를 열 수 있다.
 - 백엔드는 WORLD 일괄 신규/동일 게시를 적용하고 변경 건에 기존 이력 경로를 사용한다. 기존 수집 취소 및 실제 운영 결과는 backend `docs/tasks/DATA-92-world-calendar.md`, 앱 화면·검사는 app `docs/ai/tasks/UI-07-bright-game-calendar.md`. revision SYNC-2026-11-20-DATA-92.
 
+## DATA-89 · 한국 극장 영화 포스터 보강 (2026-11-19)
+
+- KOBIS 영화 코드로 고정된 기존 작품을 TMDB 감독과 한국 극장 개봉일로 대조하고 빈 포스터만 보완한다. 원본 backend `docs/tasks/DATA-89-theatrical-posters.md`. 기존 이벤트·ID·찜 보존.
+- 자체 Node24 380/380 및 일회용 DB 잠금·멱등·상세 API 성공. iOS TMDB 로고·고지는 `docs/ai/tasks/APP-UI-03-tmdb-credits.md`. 운영 적용 결과는 백엔드 릴리스 및 포스터 전용 Actions에서 확인한다. revision SYNC-2026-11-19-DATA-89.
+
 ## DATA-91 · 상업영화 정리 및 WORLD 게시 복구 (2026-11-19)
 
 - 원본 `docs/tasks/DATA-88-commercial-theatrical-world-batches.md`. 주요 배급사·장편 KOBIS 공식 상세 확인, 영화 달력 비노출 마이그레이션, 기존 IGDB WORLD 100건 배치 게시를 통합했다.
 - 구현 및 자체 검사 진행. 운영 DB 숨김 건수·원격 빌드·KOBIS/IGDB WORLD 실제 백필 성공은 아직 검증되지 않았다. 기존 이벤트/즐겨찾기/이력은 ID를 유지하도록 설계했다. LEARN-0022 연계.
-## DATA-90 · OTT 포스터 2차 별칭 복구 (2026-11-19)
 
-- backend `docs/tasks/DATA-90-ott-poster-second-pass.md`. 로컬 실 OTT 116건의 포스터 90→106 (77.6%→91.4%), 누락 26→10, TMDB 저장91→107. DB 변경 뒤 보고 SQL 오류 42P10 수정, 멱등 재실행 확인. 클라우드 적용·CI와 독립 승인 여부는 PR/운영 검증 결과를 기준으로 갱신한다.
+## UI-06 · 홈과 일정 상세 리디자인 (2026-11-19)
 
-## DATA-89 · OTT 포스터 보완 및 영속 매핑 (2026-11-19)
+- 오늘 일정이 기본으로 보이는 달력, 분야 색상과 상단 필터, 포스터 중심 상세 및 출처 표시를 적용했다. 원본 app `docs/ai/tasks/UI-06-discovery-redesign.md`.
+- iPhone 17 Simulator에서 날짜 이동·필터·상세·큰 글자 확인, 계정 회귀 15/15, 개발 서명 빌드 3 성공. 독립 iOS 빌드 PASS, 전체 runner ERROR. 공통 revision SYNC-2026-11-19-UI-06.
 
-- backend `docs/tasks/DATA-89-ott-poster-coverage.md`. 실제 로컬 OTT 116개(가상2 제외) 포스터44→90, 누락72→26. 검증된 TMDB 식별자91 이벤트에 해당하는 콘텐츠 매핑 저장, 기존 이벤트·공개일·찜 보존.
-- 검증된 공식 binding/OTT 백필 ID/유일 제목·원제+한국 제공처만 매칭. 일일 게시 뒤 선택 보완 및 `work/ott-posters/latest.json` 통계 생성, 오류는 명시적으로 기록. 로컬 migration 적용 완료. 미확인26 항목 보류, 운영 DB 적용과 독립 승인 별도.
-- backend `codex/ott-poster-coverage` 별도 checkout. 자체 전체 빌드/테스트364/364 성공(Node20), 공식 Node24 검증·PR/운영 적용은 후속. revision SYNC-2026-11-19-DATA-89.
+## UI-05 · 일정 상세 포스터 겹침 수정 (2026-11-19)
 
-## DATA-88 · IGDB WORLD 대량 게시 복구 (2026-11-19)
+- iPhone 17 Simulator에서 세로 포스터가 제목·일정에 겹침을 재현했다. 상세 요약과 공개 정보/소개/출처를 나누고 포스터/이미지 실패 영역을 고정했다. 원본 app `docs/ai/tasks/UI-05-event-detail.md`.
+- 포스터 유무 두 사례와 닫기 확인, 계정 회귀 15/15, 개발 서명 빌드 2 성공. 독립 iOS 빌드 PASS, runner 전체 ERROR. 공통 revision SYNC-2026-11-19-UI-05.
 
-- Actions run44275128560의 WORLD 4,845건 게시가 902초 걸려 900초 제한 P2028로 실패. 100건 단위 트랜잭션으로 개선하고 마지막 성공 시에만 수집 완료 기록. 실패 전 배치의 부분 게시·재시도 필요성을 명시함.
-- Node24.22.3 build 성공, 전체 자체 테스트 361/361 통과. 원본 `docs/tasks/DATA-88-igdb-world-batched-publication.md`. 원격 Actions 및 실데이터 재실행 검증 상태는 GitHub 배포 후 기록.
+## UI-04 · iOS 디스커버리 화면 마무리 (2026-11-19)
+
+- 기존 A2 디자인과 UI-03 날짜 조회 캐시를 통합하고 필터·달력·카드·상세 화면의 상태/접근성/가독성을 개선했다. 원본 `docs/ai/tasks/UI-04-polish-complete.md`.
+- iOS Simulator unsigned 빌드 성공, 계정 합성 회귀 15/15 성공. 시뮬레이터 서비스 장애로 실제 UI 실행은 미관측, 독립 승인 대기.
+
+## UI-03 · 날짜별 조회 캐시·게임 기본 노출 (2026-11-19)
+
+- 원본 `docs/ai/tasks/UI-03-day-fetch-performance.md`. 달력 미리보기 즉시 표시·동일 카탈로그 버전 날짜 조회 캐시·신규/로그아웃 기본 게임 카테고리 활성화. 기존 저장 필터 유지.
+- 2026-11-19 운영 API 게임 11월 370건, GTA6 출시일 11/19 게임 0건 확인. 원격 게임 게시 복구는 별도 backend 후속. 자체 unsigned iOS Simulator 빌드 성공, 실제 화면 및 독립 검증 미확인.
+
+## UI-02 · A2 소셜 디스커버리 화면 (2026-11-19)
+
+- A2 검정·라임 테마, 플랫폼 아이콘, 달력/일정 카드 적용. 원본 `docs/ai/tasks/UI-02-social-discovery.md`. 자체 빌드 검증과 main 반영 여부는 작업 카드에서 확인.
+
+## APP-UI-01 · 월간 달력 가독성·상단 공간 개선 (2026-11-18)
+
+- `dev` 기반 `codex/calendar-readability-20261118`에서 계정·동기화 컨트롤을 우상단 버튼의 시트로 옮겨 달력 화면 공간을 확보했다. 월 이동, 카테고리, 필터, 날짜별 조회는 유지했다. 날짜 셀의 숫자·대표 일정 제목과 전체 건수를 명확히 표시한다.
+- 실행 `git diff --check` 통과, `xcodebuild ... -sdk iphonesimulator ... CODE_SIGNING_ALLOWED=NO build` 성공. 실제 iPhone 가독성과 계정 시트 동작, 독립 검증은 미확인.
+- 원본 `docs/ai/tasks/APP-UI-01.md`. `PublicAPI.options`의 계약 검사를 현재 앱 참조 `0.1.0-draft.5`로 수정했다. 계약 원본·migration·verifier 기준·판정은 변경하지 않았다. 다음 작업은 포스터 API 데이터 존재 여부 확인 후 상세 이미지 표시와 실제 기기 UI 확인. 담당 해제.
+
+## APP-DEPLOY-01 · Render 운영 API iOS 연결 (2026-11-18)
+
+- 앱 `dev` 기반 `codex/ios-render-api-20261118`에서 Debug/Release API 주소를 `https://godieor-backend.onrender.com/v1`로 교체. 실제 Render health(DB 연결)/options/calendar/events HTTP 200, 11월 일정 첫 페이지100개·후속 커서 확인. iOS Debug/Release unsigned 빌드 성공 및 생성 plist 주소 확인.
+- 원본 `docs/ai/tasks/APP-DEPLOY-01.md`. API 계약·migration·verifier acceptance/verdict 변경 없음. 앱 재설치와 실제 iPhone·Google 로그인 확인, GitHub Actions 자연 예약 실행 확인은 후속. 원격 배포 SHA 미검증. 담당 해제.
+
+## CI-04 · backend dev 브랜치 동기화와 필수 PR 검사 (2026-11-18)
+
+- GitHub backend `main`과 기본 브랜치 `dev`를 `d0d3648`로 동기화했다. PR #2 검사 44246996316, 동기화 뒤 main 44247177428 및 dev 44247209137의 Backend CI가 통과했다.
+- 새 변경은 최신 `dev`에서 `codex/` 작업 브랜치로 분기하고 `dev`로 PR을 연다. 양쪽 대상 브랜치 모두 PR·GitHub Actions `test`·최신 base 필수 및 관리자 우회 금지. `dev` 규칙 86509995, `main` 규칙 86508537. 릴리스는 별도 `dev → main` PR로 진행한다.
+- dev 대상 문서 PR #3 head `42276fc`에서 검사 44247574020이 필수로 표시되고, 실행 중 병합 비활성, 성공 후 병합 활성 상태를 확인했다. 브랜치 동기화 상태를 유지하도록 이 문서 PR은 열어 두었다.
+- 예약 수집은 `COLLECTION_SCHEDULE_ACTIVE=true`일 때 활성화된다. 운영 백필과 독립 검증 재실행·승인은 이번 작업에서 수행하지 않았다. backend `docs/tasks/CI-04-dev-sync.md`, LEARN-0015, 담당 해제. revision SYNC-2026-11-18-CI-04.
 
 ## CI-03 · B안 backend main 적용 확인 (2026-11-18)
 
@@ -678,7 +721,7 @@ backend `b637ecb`: 한국 공식 OTT 목록을 시작점으로 플랫폼/날짜/
 
 - Node.js 24.22.3 엔진·CI·Render 고정, npm lockfile 갱신. NestJS 12.4.0의 `@nestjs/schedule`로 제공처 배치 08:30 KST, 영속 검토 상태가 준비된 경우에만 OTT 09:00 KST opt-in. GitHub Actions 정시 트리거 제거(수동 실행 유지).
 - Render Free가 유휴시 슬립하므로 정시 실행을 보장할 수 없으며 OTT 검토 상태는 영속 저장소가 마련되기 전까지 비활성. 클라우드 실제 배포·일간 실행 검증 및 독립 검증은 미실시. 상세 `docs/tasks/DEPLOY-02-render-internal-daily.md`.
-## DATA-88 · IGDB WORLD 수집·게시 계측 (2026-11-18)
+## APP-UI-02 · 상세 포스터 표시 (2026-11-18)
 
-- `codex/igdb-world-backfill-20261118`에서 fetch/publish 시간과 게시 입력 건수를 안전한 일일 runner 보고서에 연결. 원본 `docs/tasks/DATA-88-igdb-world-timing-diagnostics.md`.
-- Node22 로컬 자체 테스트 361/361(포트 허용), 관련 19/19. Node24 CI, 원격 WORLD 적재와 독립 runner 판정은 별도 확인 대상. 계약·마이그레이션 변경 없음.
+- `dev` 기반 별도 브랜치에서 기존 콘텐츠 상세 API의 `posterUrl`/`synopsis`를 SwiftUI 일정 상세와 연결했다. HTTPS 이미지는 비동기 표시하고 없는 포스터·조회 실패는 자리표시자로 처리한다.
+- 이벤트 상세/출처는 기존대로 표시하며 backend 계약·DB·verifier acceptance/verdict는 변경하지 않았다. 작업 원본 `docs/ai/tasks/APP-UI-02.md`. 실제 iPhone·독립 검증은 후속.
