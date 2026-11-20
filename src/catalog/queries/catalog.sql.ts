@@ -1,7 +1,7 @@
 import { DateTime } from "luxon";
 import { z } from "zod";
 import { Prisma } from "../../generated/prisma/client";
-import { KIND_CATEGORY } from "../../common/config/catalog.constants";
+import { KIND_CATEGORY, listedGameDevices } from "../../common/config/catalog.constants";
 import { CatalogQuery } from "../dto/catalog-query.dto";
 // SQL-CATALOG-01/02: docs/query-policy.md. Parameters stay bound; runtime shape is checked.
 const keySchema = z
@@ -40,10 +40,12 @@ function conditions(query: CatalogQuery) {
     clauses.push(
       Prisma.sql`(e.kind <> 'ott_season_premiere' OR EXISTS (SELECT 1 FROM event_service s WHERE s.event_id=e.id AND s.service IN (${Prisma.join(query.services.map((service) => Prisma.sql`${service}::ott_service`))})))`,
     );
-  if (query.devices.length)
-    clauses.push(
-      Prisma.sql`(e.kind <> 'game_release' OR EXISTS (SELECT 1 FROM event_device d WHERE d.event_id=e.id AND d.device IN (${Prisma.join(query.devices.map((device) => Prisma.sql`${device}::game_device`))})))`,
-    );
+  const devices = listedGameDevices(query.devices);
+  if (devices) {
+    clauses.push(devices.length
+      ? Prisma.sql`(e.kind <> 'game_release' OR EXISTS (SELECT 1 FROM event_device d WHERE d.event_id=e.id AND d.device IN (${Prisma.join(devices.map((device) => Prisma.sql`${device}::game_device`))})))`
+      : Prisma.sql`e.kind <> 'game_release'`);
+  }
   const from = query.historyStart && query.from! < query.historyStart ? query.historyStart : query.from!;
   const start = DateTime.fromISO(from, { zone: query.zone })
     .toUTC()

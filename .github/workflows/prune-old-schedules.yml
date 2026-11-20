@@ -1,0 +1,61 @@
+name: Prune old schedules
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Preview candidates or delete one batch
+        type: choice
+        default: preview
+        options: [preview, apply]
+      confirmation:
+        description: "For apply, enter DELETE BEFORE followed by the exact beforeDate shown in preview"
+        type: string
+        required: false
+      limit:
+        description: Maximum rows to delete in one apply (1 to 5000)
+        type: string
+        default: "1000"
+permissions:
+  contents: read
+concurrency:
+  group: godieor-provider-collection
+  cancel-in-progress: false
+jobs:
+  retention:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      DATABASE_URL: ${{ secrets.COLLECTION_DATABASE_URL }}
+      SUPABASE_CA_PEM_BASE64: ${{ secrets.COLLECTION_SUPABASE_CA_PEM_BASE64 }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.22.3"
+          cache: npm
+      - name: Configure database connection
+        shell: bash
+        run: |
+          test -n "$DATABASE_URL"
+          if [[ -n "$SUPABASE_CA_PEM_BASE64" ]]; then
+            printf '%s' "$SUPABASE_CA_PEM_BASE64" | base64 --decode > "$RUNNER_TEMP/supabase-ca.pem"
+            openssl x509 -in "$RUNNER_TEMP/supabase-ca.pem" -noout >/dev/null
+            echo "NODE_EXTRA_CA_CERTS=$RUNNER_TEMP/supabase-ca.pem" >> "$GITHUB_ENV"
+          fi
+      - run: npm ci
+      - run: npm run build
+      - name: Preview or apply old schedule cleanup
+        shell: bash
+        env:
+          RETENTION_MODE: ${{ inputs.mode }}
+          RETENTION_CONFIRMATION: ${{ inputs.confirmation }}
+          RETENTION_LIMIT: ${{ inputs.limit }}
+        run: |
+          args=(--limit="$RETENTION_LIMIT")
+          case "$RETENTION_MODE" in
+            preview) ;;
+            apply) args+=(--apply --confirmation="$RETENTION_CONFIRMATION") ;;
+            *) exit 1 ;;
+          esac
+          node scripts/prune-old-schedules.mjs "${args[@]}" | tee -a "$GITHUB_STEP_SUMMARY"

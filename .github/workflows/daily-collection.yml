@@ -43,6 +43,7 @@ jobs:
       # Registration and run bookkeeping also cross the remote DB boundary.
       COLLECTION_CONTROL_TIMEOUT_MS: "60000"
       COLLECTION_PUBLISH_TIMEOUT_MS: "900000"
+      COLLECTION_RETAIN_RECENT_ONLY: "true"
       COLLECTION_INCLUDE_FIXTURE: "false"
       COLLECTION_SCHEDULE_ENABLED: "false"
     steps:

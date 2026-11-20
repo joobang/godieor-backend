@@ -102,12 +102,14 @@ export class CollectionService implements OnModuleInit {
         if (keys.has(key)) throw new Error("DUPLICATE_SOURCE_KEY");
         keys.add(key);
       }
+      const publishable = adapter.origin === "provider" && process.env.COLLECTION_RETAIN_RECENT_ONLY === "true"
+        ? await this.repository.retainPublishableRecords(adapter.key, records) : records;
       phase = "publish";
       let unlisted = 0;
-      recordCount = records.length;
+      recordCount = publishable.length;
       const publishStarted = performance.now();
       try {
-        unlisted = await this.repository.publishScope(adapter, state.id, records, runId);
+        unlisted = await this.repository.publishScope(adapter, state.id, publishable, runId);
       } finally {
         publishMs = Math.round(performance.now() - publishStarted);
       }
@@ -115,7 +117,7 @@ export class CollectionService implements OnModuleInit {
         provider: adapter.key,
         category: scope.category,
         status: "succeeded",
-        published: records.length,
+        published: publishable.length,
         fetchMs,
         publishMs,
         recordCount,

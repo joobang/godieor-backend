@@ -3,6 +3,7 @@ import { randomUUID } from "node:crypto";
 import { Prisma } from "../generated/prisma/client";
 import { PrismaService } from "../database/prisma.service";
 import { Canonical, ProviderAdapter, Scope } from "./domain/provider-record";
+import { safeRetentionBounds } from "../common/config/schedule-window";
 import { collectionDiagnostic } from "../common/collection-diagnostic";
 type Tx = Prisma.TransactionClient;
 function stable(value: unknown): string {
@@ -152,6 +153,27 @@ export class CollectionRepository {
       return record;
     });
   }
+  async retainPublishableRecords(provider: string, records: Canonical[]) {
+    const { date, instant } = safeRetentionBounds();
+    const old = new Set(records.filter((row) => row.time.type === "date_only" ? row.time.value < date
+      : row.time.type === "instant" && Date.parse(row.time.value) < instant.getTime()));
+    if (!old.size) return records;
+    const keys = [...old];
+    const existing = new Set<string>();
+    for (let index = 0; index < keys.length; index += 300) {
+      const batch = keys.slice(index, index + 300);
+      const sources = await this.db.event_source.findMany({
+        where: { provider_key: provider, OR: batch.map((record) => ({
+          external_id: record.externalId, variant_key: record.variantKey,
+        })) },
+        select: { external_id: true, variant_key: true },
+      });
+      for (const source of sources) existing.add(JSON.stringify([source.external_id, source.variant_key]));
+    }
+    // A correction to an existing public record may itself move it outside the window.
+    return records.filter((row) => !old.has(row) || existing.has(JSON.stringify([row.externalId, row.variantKey])));
+  }
+
   async beginRun(scopeId: string, mode: "backfill" | "daily") {
     const runId = randomUUID(),
       started = new Date();

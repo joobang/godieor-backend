@@ -1,7 +1,7 @@
 const assert = require("node:assert/strict");
 const { DateTime, Settings } = require("luxon");
 const { CollectionService } = require("../dist/src/collection/collection.service");
-const { recentScheduleStart } = require("../dist/src/common/config/schedule-window");
+const { recentScheduleStart, safeRetentionBounds } = require("../dist/src/common/config/schedule-window");
 
 module.exports = async function checkWorldCalendar(prisma, repository, readAPI, readStatus) {
   const zone = "Asia/Seoul";
@@ -14,7 +14,7 @@ module.exports = async function checkWorldCalendar(prisma, repository, readAPI, 
     market: "WORLD", venueCountry: null, services: [], devices: [device], home: null, away: null,
     sourceUrl: "https://example.com/synthetic", sourceUpdatedAt: null, sourceReleaseRegion: 8,
   });
-  let records = [row("820011", cutoff, "pc"), row("820012", cutoff, "xbox"), row("820013", previous, "playstation")];
+  let records = [row("820011", cutoff, "switch"), row("820012", cutoff, "xbox"), row("820013", previous, "playstation"), row("820014", cutoff, "pc")];
   const adapter = {
     key: "igdb", name: "Synthetic IGDB", origin: "provider",
     scopes: [{ category: "game", market: "WORLD" }], fetch: async () => records,
@@ -29,9 +29,9 @@ module.exports = async function checkWorldCalendar(prisma, repository, readAPI, 
       where: { provider_key: "igdb", external_id: { in: records.map((record) => record.externalId) } },
       orderBy: { external_id: "asc" }, include: { event: true },
     });
-    assert.equal(events.length, 3);
+    assert.equal(events.length, 4);
     assert.equal(new Set(events.map(({ event }) => event.content_id)).size, 1);
-    assert.equal(await prisma.event_change.count({ where: { event_id: { in: events.map((event) => event.event_id) } } }), 3);
+    assert.equal(await prisma.event_change.count({ where: { event_id: { in: events.map((event) => event.event_id) } } }), 4);
 
     const month = cutoff.slice(0, 7);
     const calendar = await readAPI(`/calendar?month=${month}&categories=game&country=KR`);
@@ -44,6 +44,8 @@ module.exports = async function checkWorldCalendar(prisma, repository, readAPI, 
       assert.equal(oldList.items.length, 0);
     }
     const next = DateTime.fromISO(cutoff, { zone }).plus({ days: 1 }).toISODate();
+    const unsupported = await readAPI(`/events?schedule=dated&from=${cutoff}&to=${next}&categories=game&country=KR&devices=pc`);
+    assert.equal(unsupported.items.length, 0);
     const byDevice = await readAPI(`/events?schedule=dated&from=${cutoff}&to=${next}&categories=game&country=KR&devices=xbox`);
     assert.deepEqual(byDevice.items.map(({ id, releaseMarket, devices }) => [id, releaseMarket, devices]),
       [[events[1].event_id, "WORLD", ["xbox"]]]);
@@ -54,9 +56,9 @@ module.exports = async function checkWorldCalendar(prisma, repository, readAPI, 
       orderBy: { external_id: "asc" },
     });
     assert.deepEqual(afterRetry.map((event) => event.event_id), events.map((event) => event.event_id));
-    assert.equal(await prisma.event_change.count({ where: { event_id: { in: events.map((event) => event.event_id) } } }), 3);
+    assert.equal(await prisma.event_change.count({ where: { event_id: { in: events.map((event) => event.event_id) } } }), 4);
 
-    records = [records[0], row("820012", next, "xbox"), records[2]];
+    records = [records[0], row("820012", next, "xbox"), ...records.slice(2)];
     assert.equal((await service.collect("backfill"))[0].status, "succeeded");
     const changed = await readAPI(`/events/${events[1].event_id}`);
     assert.equal(changed.event.time.date, next);
@@ -75,6 +77,36 @@ module.exports = async function checkWorldCalendar(prisma, repository, readAPI, 
       assert.equal(await readStatus(path), 409);
     } finally {
       Settings.now = clock;
+    }
+    const { pruneOldSchedules } = await import("./prune-old-schedules.mjs");
+    const { Pool } = require("pg");
+    const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+    const bounds = safeRetentionBounds();
+    const oldDay = DateTime.fromISO(bounds.date, { zone }).minus({ days: 1 }).toISODate();
+    const oldRows = [row("820019", oldDay, "switch"), row("820020", oldDay, "xbox")];
+    records = oldRows;
+    try {
+      assert.equal((await service.collect("backfill"))[0].status, "succeeded");
+      const oldEvents = await prisma.event_source.findMany({
+        where: { provider_key: "igdb", external_id: { in: oldRows.map((entry) => entry.externalId) } },
+        orderBy: { external_id: "asc" },
+      });
+      assert.equal(oldEvents.length, 2);
+      const user = await prisma.app_user.findFirstOrThrow();
+      await prisma.event_favorite.create({ data: { user_id: user.id, event_id: oldEvents[1].event_id } });
+      await assert.rejects(pruneOldSchedules(pool, { apply: true }, bounds), /DELETE_CONFIRMATION_REQUIRED/);
+      const preview = await pruneOldSchedules(pool, {}, bounds);
+      assert.equal(preview.deleted, 0);
+      assert.ok(preview.eligible >= 1);
+      assert.ok(await prisma.event.findUnique({ where: { id: oldEvents[0].event_id } }));
+      const applied = await pruneOldSchedules(pool, { apply: true, confirmation: "DELETE BEFORE " + bounds.date }, bounds);
+      assert.equal(applied.deleted, preview.eligible);
+      assert.equal(await prisma.event.findUnique({ where: { id: oldEvents[0].event_id } }), null);
+      assert.ok(await prisma.event.findUnique({ where: { id: oldEvents[1].event_id } }));
+      assert.deepEqual(await repository.retainPublishableRecords("igdb", oldRows), [oldRows[1]]);
+      console.log("일정 정리 테스트: 미리보기와 확인 문구, 찜 보호, 실제 삭제, 재수집 방지");
+    } finally {
+      await pool.end();
     }
     console.log("WORLD 테스트: 일괄 저장·동일 작품 ID·재실행·변경 이력·기간 및 플랫폼 필터·오래된 상세 확인");
   } finally {
