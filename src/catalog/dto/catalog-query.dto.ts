@@ -1,5 +1,6 @@
 import { BadRequestException } from "@nestjs/common";
 import { DateTime } from "luxon";
+import { recentScheduleStart } from "../../common/config/schedule-window";
 import {
   CATEGORIES,
   COUNTRIES,
@@ -22,6 +23,7 @@ export type CatalogQuery = {
   contentId?: string;
   limit: number;
   cursor?: string;
+  historyStart?: string;
 };
 export function invalidQuery(field: string): never {
   throw new BadRequestException({
@@ -122,5 +124,7 @@ export function parseCatalogQuery(
     } else if ("from" in values || "to" in values) invalidQuery("from/to");
     if (values.contentId) q.contentId = parseIdentifier(values.contentId);
   }
+  if (q.schedule === "dated" && process.env.CATALOG_PROVIDER_ONLY === "true")
+    q.historyStart = recentScheduleStart(q.zone);
   return q;
 }
