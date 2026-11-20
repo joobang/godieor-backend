@@ -335,6 +335,12 @@ async function main() {
     await require("./check-theatrical-posters-db.cjs")(prisma, async (id) =>
       (await read(url, "/contents/" + id)).body,
     );
+    phase = "WORLD game batch and rolling calendar";
+    await require("./check-world-calendar-db.cjs")(
+      prisma, current.get(CollectionRepository),
+      async (path) => (await read(url, path)).body,
+      async (path) => (await fetch(url + "/v1" + path)).status,
+    );
   } catch (error) {
     const message =
       error instanceof Error

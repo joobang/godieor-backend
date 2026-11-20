@@ -3,13 +3,20 @@ const {DateTime}=require('luxon');
 const {gameCollectionWindow,movieCollectionYears,premierLeagueSeasons}=require('../dist/src/collection/domain/collection-window');
 const {providerOptions,selectProviders,selectCollectionAdapters}=require('../dist/src/cli/provider-options');
 const date=s=>DateTime.fromISO(s,{zone:'utc'});
-test('backfill retains product start in future years instead of a rolling lookback',()=>{
- for(const day of ['2026-11-17T12:34:56Z','2027-11-17T00:00:00Z'])assert.equal(new Date(gameCollectionWindow('backfill',date(day)).from*1000).toISOString(),'2026-10-01T00:00:00.000Z');
+const {recentScheduleStart}=require('../dist/src/common/config/schedule-window');
+test('calendar month cutoff uses the display day and clamps short months',()=>{
+ assert.equal(recentScheduleStart('Asia/Seoul',date('2027-03-30T16:00:00Z')),'2027-02-28');
+ assert.equal(recentScheduleStart('UTC',date('2026-11-19T16:00:00Z')),'2026-10-19');
+ assert.equal(recentScheduleStart('Asia/Seoul',date('2026-11-19T16:00:00Z')),'2026-10-20');
+});
+test('backfill retains the fixed floor for finding historical corrections',()=>{
+ assert.equal(new Date(gameCollectionWindow('backfill',date('2026-11-17T12:34:56Z')).from*1000).toISOString(),'2026-10-01T00:00:00.000Z');
+ assert.equal(new Date(gameCollectionWindow('backfill',date('2027-11-17T00:00:00Z')).from*1000).toISOString(),'2026-10-01T00:00:00.000Z');
  assert.deepEqual(movieCollectionYears('backfill',date('2028-01-01')),[2026,2027,2028,2029]);
 });
 test('daily game range includes complete UTC days and cannot precede product start',()=>{
  const w=gameCollectionWindow('daily',date('2026-11-10T23:59:59Z'));
- assert.equal(new Date(w.from*1000).toISOString(),'2026-10-11T00:00:00.000Z');
+ assert.equal(new Date(w.from*1000).toISOString(),'2026-10-10T00:00:00.000Z');
  assert.equal(new Date(gameCollectionWindow('daily',date('2026-10-03')).from*1000).toISOString(),'2026-10-01T00:00:00.000Z');
  assert.equal(new Date(w.to*1000).getUTCHours(),0);
 });

@@ -111,7 +111,9 @@ export class CatalogRepository {
         const current = await transaction.catalog_state.findUniqueOrThrow({
           where: { singleton: true },
         });
-        const version = current.revision.toString();
+        // The civil-date cutoff is part of what clients can see even when the DB
+        // has not been written. Keep the public decimal token stable for this window.
+        const version = current.revision.toString() + (query.historyStart?.replaceAll("-", "") ?? "");
         if (query.revision && query.revision !== version)
           throw new CatalogVersionChangedError();
         return operation(transaction, version);

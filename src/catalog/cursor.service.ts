@@ -10,7 +10,8 @@ import { EventKey } from "./catalog.repository";
 export class CursorService {
   constructor(@Inject(RUNTIME_CONFIG) private readonly config: RuntimeConfig) {}
   private fingerprint(q: CatalogQuery) {
-    const { cursor, revision, ...rest } = q;
+    // The rolling cutoff is versioned by the repository, not a client filter.
+    const { cursor, revision, historyStart, ...rest } = q;
     return JSON.stringify(rest);
   }
   encode(q: CatalogQuery, version: string, row: EventKey) {

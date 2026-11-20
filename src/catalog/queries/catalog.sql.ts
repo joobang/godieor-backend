@@ -44,14 +44,15 @@ function conditions(query: CatalogQuery) {
     clauses.push(
       Prisma.sql`(e.kind <> 'game_release' OR EXISTS (SELECT 1 FROM event_device d WHERE d.event_id=e.id AND d.device IN (${Prisma.join(query.devices.map((device) => Prisma.sql`${device}::game_device`))})))`,
     );
-  const start = DateTime.fromISO(query.from!, { zone: query.zone })
+  const from = query.historyStart && query.from! < query.historyStart ? query.historyStart : query.from!;
+  const start = DateTime.fromISO(from, { zone: query.zone })
     .toUTC()
     .toJSDate();
   const end = DateTime.fromISO(query.to!, { zone: query.zone })
     .toUTC()
     .toJSDate();
   clauses.push(
-    Prisma.sql`((e.precision='date_only' AND e.local_date>=${query.from}::date AND e.local_date<${query.to}::date) OR (e.precision='instant' AND e.instant_at>=${start} AND e.instant_at<${end}))`,
+    Prisma.sql`((e.precision='date_only' AND e.local_date>=${from}::date AND e.local_date<${query.to}::date) OR (e.precision='instant' AND e.instant_at>=${start} AND e.instant_at<${end}))`,
   );
   return Prisma.join(clauses, " AND ");
 }
