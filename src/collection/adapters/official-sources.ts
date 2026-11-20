@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { DateTime } from "luxon";
 import { Canonical, ProviderAdapter, Scope } from "../domain/provider-record";
+import { igdbGameDevice, igdbPlatformIds } from "../domain/igdb-platforms";
 
 import { gameCollectionWindow, movieCollectionYears, premierLeagueSeasons } from "../domain/collection-window";
 
@@ -245,7 +246,7 @@ export class IgdbAdapter implements ProviderAdapter {
       for (let start = from; start < to; start += 30 * 86400) {
         const end = Math.min(start + 30 * 86400, to);
         for (let offset = 0; offset <= 10000; offset += 500) {
-          const query = `fields id,date,game.id,game.name,game.game_type,game.cover.image_id,platform.id,platform.name,release_region,date_format,m,y,updated_at; where date >= ${start} & date < ${end} & release_region = ${region}; sort date asc; limit 500; offset ${offset};`;
+          const query = `fields id,date,game.id,game.name,game.game_type,game.cover.image_id,platform.id,release_region,date_format,m,y,updated_at; where date >= ${start} & date < ${end} & release_region = ${region} & platform = (${igdbPlatformIds.join(",")}); sort date asc; limit 500; offset ${offset};`;
           // IGDB limits requests to four per second. Keep sequential fetches below the limit.
           await new Promise((resolve) => setTimeout(resolve, 275));
           const response = await fetch("https://api.igdb.com/v4/release_dates", {
@@ -267,13 +268,7 @@ export class IgdbAdapter implements ProviderAdapter {
                 typeof release.m !== "number" || typeof release.date !== "number") continue;
             // Explicit game-type classification: 0 main game (exclude DLC, editions, beta).
             if (game.game_type !== 0 || typeof game.id !== "number") continue;
-            const platformName = text(platform.name).toLowerCase();
-            const device = platformName === "ios" || platformName.includes("iphone") || platformName.includes("ipad") ? "ios"
-              : platformName === "android" ? "android"
-              : platformName.includes("playstation") ? "playstation"
-              : platformName.includes("xbox") ? "xbox"
-                : platformName.includes("switch") ? "switch"
-                  : platformName.includes("pc") || platformName.includes("windows") || platformName.includes("linux") || platformName.includes("mac") ? "pc" : null;
+            const device = igdbGameDevice(platform.id);
             if (!device || !text(game.name)) continue;
             const releaseDate = DateTime.fromSeconds(release.date, { zone: "utc" });
             const day = releaseDate.isValid ? releaseDate.toISODate() : null;

@@ -96,8 +96,8 @@ test("IGDB collects worldwide and country releases separately without inventing 
       const adapter = new IgdbAdapter();
       assert.deepEqual(adapter.scopes.map(x => x.market), ["WORLD", "KR", "JP", "AU", "NZ", "CN", "BR"]);
       const korean = await adapter.fetch({category:"game",market:"KR"}, "daily");
-      assert.equal(korean.length, 3);
-      assert.deepEqual(korean.map(x => normalize(x, {category:"game",market:"KR"}).devices[0]), ["pc", "ios", "android"]);
+      assert.equal(korean.length, 2);
+      assert.deepEqual(korean.map(x => normalize(x, {category:"game",market:"KR"}).devices[0]), ["ios", "android"]);
       const worldwide = await adapter.fetch({category:"game",market:"WORLD"}, "daily");
       assert.equal(worldwide.length, 4);
       assert.deepEqual(new Set(worldwide.map(x => x.externalId)), new Set(["5", "7", "8", "9"]));
@@ -112,6 +112,7 @@ test("IGDB collects worldwide and country releases separately without inventing 
     }, async (url, options) => {
       if (url.toString().includes("twitch")) return ok({access_token:"fake-token"});
       const body = options.body;
+      assert.match(body, /& platform = \(7,8,9,38,46,48,167,11,12,49,169,130,508,34,39\)/);
       const region = Number(body.match(/release_region = (\d+)/)?.[1]);
       const from = Number(body.match(/date >= (\d+)/)?.[1]);
       const to = Number(body.match(/date < (\d+)/)?.[1]);
@@ -119,11 +120,11 @@ test("IGDB collects worldwide and country releases separately without inventing 
           {id:1,date:1795132800,game:{id:99,name:"Sample Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:9,date_format:0,y:2026,m:11},
           {id:3,date:1795132800,game:{id:99,name:"Sample Game",game_type:0},platform:{id:39,name:"iOS"},release_region:9,date_format:0,y:2026,m:11},
           {id:4,date:1795132800,game:{id:99,name:"Sample Game",game_type:0},platform:{id:34,name:"Android"},release_region:9,date_format:0,y:2026,m:11},
-          {id:5,date:1795132800,game:{id:99,name:"Sample Game",game_type:0,cover:{image_id:"co1234"}},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:8,date_format:0,y:2026,m:11},
-          {id:6,date:1795132800,game:{id:99,name:"Sample Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:5,date_format:0,y:2026,m:11},
-          {id:7,date:1795132800,game:{id:101,name:"US Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:2,date_format:0,y:2026,m:11},
-          {id:8,date:1795132800,game:{id:102,name:"EU Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:1,date_format:0,y:2026,m:11},
-          {id:9,date:1795132800,game:{id:103,name:"Asia Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:7,date_format:0,y:2026,m:11},
+          {id:5,date:1795132800,game:{id:99,name:"Sample Game",game_type:0,cover:{image_id:"co1234"}},platform:{id:48,name:"PlayStation 4"},release_region:8,date_format:0,y:2026,m:11},
+          {id:6,date:1795132800,game:{id:99,name:"Sample Game",game_type:0},platform:{id:130,name:"Nintendo Switch"},release_region:5,date_format:0,y:2026,m:11},
+          {id:7,date:1795132800,game:{id:101,name:"US Game",game_type:0},platform:{id:169,name:"Xbox Series X|S"},release_region:2,date_format:0,y:2026,m:11},
+          {id:8,date:1795132800,game:{id:102,name:"EU Game",game_type:0},platform:{id:167,name:"PlayStation 5"},release_region:1,date_format:0,y:2026,m:11},
+          {id:9,date:1795132800,game:{id:103,name:"Asia Game",game_type:0},platform:{id:508,name:"Nintendo Switch 2"},release_region:7,date_format:0,y:2026,m:11},
           {id:2,game:{id:99,name:"Sample Game",game_type:0},platform:{id:6,name:"PC (Microsoft Windows)"},release_region:9,date_format:2,y:2026},
         ];
       return ok(rows.filter(row => row.release_region === region && row.date >= from && row.date < to));

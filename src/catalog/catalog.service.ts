@@ -7,7 +7,7 @@ import { DateTime } from "luxon";
 import {
   CATEGORIES,
   COUNTRIES,
-  DEVICES,
+  GAME_RELEASE_DEVICES,
   iso,
   SERVICES,
   TIME_ZONES,
@@ -36,7 +36,7 @@ export class CatalogService {
       contractVersion: "0.1.0-draft.5",
       categories: CATEGORIES,
       services: SERVICES,
-      devices: DEVICES,
+      devices: GAME_RELEASE_DEVICES,
       countries: COUNTRIES,
       timeZones: TIME_ZONES,
       queryDefaults: { country: "KR", timeZone: "Asia/Seoul" },

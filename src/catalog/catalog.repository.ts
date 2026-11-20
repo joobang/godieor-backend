@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { Prisma } from "../generated/prisma/client";
 import { PrismaService } from "../database/prisma.service";
-import { KIND_CATEGORY } from "../common/config/catalog.constants";
+import { KIND_CATEGORY, listedGameDevices } from "../common/config/catalog.constants";
 import { CatalogQuery } from "./dto/catalog-query.dto";
 
 type Tx = Prisma.TransactionClient;
@@ -41,6 +41,7 @@ export class CatalogRepository {
     const kinds = Object.entries(KIND_CATEGORY)
       .filter(([, category]) => query.categories.includes(category))
       .map(([kind]) => kind as EventRow["kind"]);
+    const devices = listedGameDevices(query.devices);
     return {
       AND: [
         ...(process.env.CATALOG_PROVIDER_ONLY === "true"
@@ -75,26 +76,12 @@ export class CatalogRepository {
               },
             ]
           : []),
-        ...(query.devices.length
-          ? [
-              {
-                OR: [
-                  { kind: { not: "game_release" as const } },
-                  {
-                    event_device: {
-                      some: {
-                        device: {
-                          in: query.devices as (
-                            "pc" | "playstation" | "xbox" | "switch" | "ios" | "android"
-                          )[],
-                        },
-                      },
-                    },
-                  },
-                ],
-              },
-            ]
-          : []),
+        ...(devices ? [{
+          OR: [
+            { kind: { not: "game_release" as const } },
+            { event_device: { some: { device: { in: [...devices] } } } },
+          ],
+        }] : []),
         { precision: "unknown" },
         { OR: [{ announced_year: null }, { announced_year: { gte: 2026 } }] },
         ...(after ? [{ id: { gt: after.key.id } }] : []),

@@ -24,6 +24,8 @@ services:
       # OTT requires a persistent review-state store, unavailable on Free.
       - key: COLLECTION_OTT_SCHEDULE_ENABLED
         value: "false"
+      - key: COLLECTION_RETAIN_RECENT_ONLY
+        value: "true"
       - key: COLLECTION_INCLUDE_FIXTURE
         value: "false"
       - key: KOBIS_API_KEY

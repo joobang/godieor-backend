@@ -103,11 +103,11 @@ export class CollectionService implements OnModuleInit {
         keys.add(key);
       }
       phase = "publish";
-      let unlisted = 0;
       recordCount = records.length;
       const publishStarted = performance.now();
+      let result: Awaited<ReturnType<CollectionRepository["publishScope"]>>;
       try {
-        unlisted = await this.repository.publishScope(adapter, state.id, records, runId);
+        result = await this.repository.publishScope(adapter, state.id, records, runId);
       } finally {
         publishMs = Math.round(performance.now() - publishStarted);
       }
@@ -115,11 +115,11 @@ export class CollectionService implements OnModuleInit {
         provider: adapter.key,
         category: scope.category,
         status: "succeeded",
-        published: records.length,
+        published: result.published,
         fetchMs,
         publishMs,
         recordCount,
-        ...(adapter.key === "kobis" ? { unlisted } : {}),
+        ...(adapter.key === "kobis" ? { unlisted: result.unlisted } : {}),
       };
     } catch (error) {
       const diagnostic = collectionDiagnostic(error);
