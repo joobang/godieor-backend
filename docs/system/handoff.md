@@ -1,3 +1,8 @@
+## UI-07 / DATA-92 · 밝은 달력, 최근 한 달, WORLD 게임 복구 (2026-11-20)
+
+- 표시 시간대 기준 한 달 전부터 미래 일정을 조회한다. 과거 상세·찜·ID 및 기록을 보존한다. 같은 작품·지역·날짜/시각·상태인 게임을 앱의 카드에서 묶고 각 원본 출시를 열 수 있다.
+- 백엔드는 WORLD 일괄 신규/동일 게시를 적용하고 변경 건에 기존 이력 경로를 사용한다. 기존 수집 취소 및 실제 운영 결과는 backend `docs/tasks/DATA-92-world-calendar.md`, 앱 화면·검사는 app `docs/ai/tasks/UI-07-bright-game-calendar.md`. revision SYNC-2026-11-20-DATA-92.
+
 ## DATA-91 · 상업영화 정리 및 WORLD 게시 복구 (2026-11-19)
 
 - 원본 `docs/tasks/DATA-88-commercial-theatrical-world-batches.md`. 주요 배급사·장편 KOBIS 공식 상세 확인, 영화 달력 비노출 마이그레이션, 기존 IGDB WORLD 100건 배치 게시를 통합했다.

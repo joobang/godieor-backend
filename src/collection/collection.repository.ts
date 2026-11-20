@@ -201,8 +201,14 @@ export class CollectionRepository {
       const lastBatch = index === batches - 1;
       await this.transaction("publish", async (tx) => {
         const catalog = await this.bump(tx);
-        for (const record of batch)
-          await this.publish(tx, adapter, record, catalog.revision);
+        if (adapter.key === "igdb" && adapter.origin === "provider" && batch.length &&
+            batch.every((record) => record.kind === "game_release" && record.time.type === "date_only" &&
+              record.content?.kind === "game" && record.seasonNumber === null &&
+              !record.home && !record.away && !record.services.length)) {
+          await this.publishGameBatch(tx, adapter, batch, catalog.revision);
+        } else {
+          for (const record of batch) await this.publish(tx, adapter, record, catalog.revision);
+        }
         if (lastBatch) {
           if (adapter.key === "kobis" && records.length >= 5) {
             const result = await tx.event.updateMany({
@@ -299,6 +305,126 @@ export class CollectionRepository {
     await tx.team_source.create({ data: { ...key, team_id: id } });
     return id;
   }
+  private async publishGameBatch(tx: Tx, adapter: ProviderAdapter, records: Canonical[], revision: bigint) {
+    const unique = <T>(items: T[]) => [...new Set(items)];
+    const key = (id: string, variant: string) => JSON.stringify([id, variant]);
+    const observedAt = new Date();
+    const sources = await tx.event_source.findMany({
+      where: {
+        provider_key: adapter.key,
+        external_id: { in: unique(records.map((row) => row.externalId)) },
+        variant_key: { in: unique(records.map((row) => row.variantKey)) },
+      },
+      include: { event: { include: {
+        event_change: { orderBy: { catalog_revision: "desc" }, take: 1, select: { after_value: true } },
+      } } },
+    });
+    const bySource = new Map(sources.map((row) => [key(row.external_id, row.variant_key), row]));
+    const mappings = await tx.content_source.findMany({
+      where: {
+        provider_key: adapter.key,
+        content_type: "game",
+        external_id: { in: unique(records.map((row) => row.content!.externalId)) },
+      },
+      include: { content: true },
+    });
+    const byContent = new Map(mappings.map((row) => [row.external_id, row]));
+    const newContents = new Map<string, Prisma.contentCreateManyInput>();
+    const newEvents: Prisma.eventCreateManyInput[] = [];
+    const newSources: Prisma.event_sourceCreateManyInput[] = [];
+    const newDevices: Prisma.event_deviceCreateManyInput[] = [];
+    const newChanges: Prisma.event_changeCreateManyInput[] = [];
+    const unchanged: { external_id: string; variant_key: string }[] = [];
+    const updates: Canonical[] = [];
+    const firstMetadata = new Map<string, string>();
+    const conflictingMetadata = new Set<string>();
+    for (const record of records) {
+      const content = record.content!;
+      const signature = JSON.stringify([content.title, content.posterUrl ?? null]);
+      const first = firstMetadata.get(content.externalId);
+      if (first === undefined) firstMetadata.set(content.externalId, signature);
+      else if (first !== signature) conflictingMetadata.add(content.externalId);
+    }
+
+    for (const record of records) {
+      const content = record.content!;
+      if (conflictingMetadata.has(content.externalId)) {
+        updates.push(record);
+        continue;
+      }
+      const mapped = byContent.get(content.externalId);
+      const source = bySource.get(key(record.externalId, record.variantKey));
+      const { sourceReleaseRegion, ...eventRecord } = record;
+      const after = json(eventRecord);
+      const sourceUpdatedAt = record.sourceUpdatedAt ? new Date(record.sourceUpdatedAt) : null;
+      const contentMatches = !mapped || (mapped.content.title === content.title &&
+        (!content.posterUrl || mapped.content.poster_url === content.posterUrl));
+
+      if (source) {
+        if (source.event.kind === record.kind && source.event.origin === adapter.origin &&
+            source.event.is_listed && contentMatches && mapped?.content_id === source.event.content_id &&
+            source.source_release_region === (sourceReleaseRegion ?? null) && source.source_url === record.sourceUrl &&
+            (source.source_updated_at?.getTime() ?? null) === (sourceUpdatedAt?.getTime() ?? null) &&
+            stable(source.event.event_change[0]?.after_value) === stable(after)) {
+          unchanged.push({ external_id: record.externalId, variant_key: record.variantKey });
+        } else {
+          updates.push(record);
+        }
+        continue;
+      }
+
+      let contentId = mapped?.content_id;
+      if (!contentId) {
+        const previous = newContents.get(content.externalId);
+        contentId = previous?.id ?? randomUUID();
+        if (!previous) newContents.set(content.externalId,
+          { id: contentId, kind: "game", title: content.title, poster_url: content.posterUrl ?? null });
+      } else if (!contentMatches) {
+        updates.push(record);
+        continue;
+      }
+
+      // Eligibility is checked by the caller; retain the original source key and separate platform rows.
+      if (record.time.type !== "date_only") throw Error("INVALID_GAME_BATCH_TIME");
+      const eventId = randomUUID();
+      newEvents.push({
+        id: eventId, kind: record.kind, content_type: "game", content_id: contentId,
+        title: record.title, status: record.status, precision: "date_only",
+        local_date: new Date(record.time.value + "T00:00:00Z"), release_market: record.market,
+        venue_country: record.venueCountry, origin: adapter.origin,
+      });
+      newSources.push({
+        provider_key: adapter.key, external_id: record.externalId, variant_key: record.variantKey,
+        event_id: eventId, source_url: record.sourceUrl, observed_at: observedAt,
+        source_updated_at: sourceUpdatedAt, source_release_region: sourceReleaseRegion ?? null,
+      });
+      newDevices.push(...record.devices.map((device) => ({ event_id: eventId, device })));
+      newChanges.push({
+        id: randomUUID(), event_id: eventId, catalog_revision: revision,
+        before_value: Prisma.DbNull, after_value: after,
+      });
+    }
+
+    if (newContents.size) {
+      await tx.content.createMany({ data: [...newContents.values()] });
+      await tx.content_source.createMany({ data: [...newContents].map(([externalId, row]) => ({
+        provider_key: adapter.key, content_type: "game", external_id: externalId, content_id: row.id,
+      })) });
+    }
+    if (newEvents.length) {
+      await tx.event.createMany({ data: newEvents });
+      await tx.event_source.createMany({ data: newSources });
+      if (newDevices.length) await tx.event_device.createMany({ data: newDevices });
+      await tx.event_change.createMany({ data: newChanges });
+    }
+    if (unchanged.length) {
+      await tx.event_source.updateMany({
+        where: { provider_key: adapter.key, OR: unchanged }, data: { observed_at: observedAt },
+      });
+    }
+    for (const record of updates) await this.publish(tx, adapter, record, revision);
+  }
+
   private async publish(
     tx: Tx,
     adapter: ProviderAdapter,
