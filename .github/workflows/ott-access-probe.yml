@@ -1,0 +1,13 @@
+name: OTT public source access probe
+on:
+  push:
+    branches: [codex/ott-access-probe-20261124]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - run: node scripts/probe-ott-access.mjs
