@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Read all pages of Netflix's public Korean new-to-watch schedule.
 // This is a dated KR platform listing, not proof of first-ever or first-platform premiere.
+import { ottSourceFailure } from './ott-source-diagnostics.mjs';
 import { writeFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
@@ -84,7 +85,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     await writeFile(output, JSON.stringify(lineup, null, 2) + '\n', { mode: 0o600 });
     console.log(JSON.stringify({ output, coverage }));
   } catch (error) {
-    console.error('NETFLIX_KR_COLLECT_FAILED:', error.message);
+    console.error(JSON.stringify(ottSourceFailure(error)));
     process.exitCode = 1;
   }
 }

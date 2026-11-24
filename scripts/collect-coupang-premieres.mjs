@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // First-party work-scoped dates + cast identity. A recommendation is never a premiere proof.
-import { readFile, writeFile, rename } from 'node:fs/promises';
+import { ottSourceFailure } from './ott-source-diagnostics.mjs';
+import { mkdir, readFile, writeFile, rename } from 'node:fs/promises';
 import { createRequire } from 'node:module';
-import { resolve } from 'node:path';
+import { dirname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { SOURCE, parseCoupangNewsIndex } from './collect-coupangplay-kr-lineup.mjs';
 import { createTmdbClient } from './tmdb-date-discovery.mjs';
@@ -86,7 +87,7 @@ export async function identifyPremiere(item, request) {
         matches.push({ type, tmdbId: hit.id, seasonNumber: item.seasonNumber, contentKind: kind,
           matchedPeople: identity.matchedPeople, format: type === 'movie' ? 'movie' : 'series' });
       }
-    } catch (e) { errors.push({ type, error: e.message }); }
+    } catch (e) { errors.push({ type, error: ottSourceFailure(e).errorCode }); }
   }
   const unique = [...new Map(matches.map(m => [`${m.type}:${m.tmdbId}:${m.seasonNumber}`, m])).values()];
   return { ...item, matches: unique, errors, eligible: item.firstReleaseExplicit && errors.length === 0 && unique.length === 1,
@@ -97,7 +98,8 @@ export async function identifyPremiere(item, request) {
 export async function collectPremieres(fetchImpl, request, months = configuredMonths()) {
   async function get(url) {
     const r = await fetchImpl(url, { signal: AbortSignal.timeout(15000) });
-    if (!r.ok || r.url && r.url !== url) throw Error('COUPANG_FETCH_OR_REDIRECT_FAILED');
+    if (!r.ok) throw Error(`COUPANG_HTTP_${r.status}`);
+    if (r.url && r.url !== url) throw Error('COUPANG_REDIRECT_HOST_CHANGED');
     return r.text();
   }
   const urls = parseCoupangNewsIndex(await get(SOURCE));
@@ -107,7 +109,7 @@ export async function collectPremieres(fetchImpl, request, months = configuredMo
       for (const item of parsePremiereArticle(await get(url), url)) {
         if (item.date && months.includes(item.date.slice(0, 7))) rows.push(await identifyPremiere(item, request));
       }
-    } catch (e) { errors.push({ sourceUrl: url, error: e.message }); }
+    } catch (e) { errors.push({ sourceUrl: url, error: ottSourceFailure(e).errorCode }); }
   }
   // Conflicting observations of the same work remain held; never pick a date by recency.
   const groups = Map.groupBy(rows, r => JSON.stringify([normalizeName(r.title), r.seasonNumber]));
@@ -164,11 +166,15 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
   try {
     const output = process.argv[2] ?? 'work/ott-lineups/coupang-premiere-review.json';
     const report = await collectPremieres(fetch, createTmdbClient(fetch, process.env.TMDB_API_READ_ACCESS_TOKEN));
+    await mkdir(dirname(output), { recursive: true });
     await writeFile(`${output}.tmp`, JSON.stringify(report, null, 2) + '\n', { mode: 0o600 });
     await rename(`${output}.tmp`, output);
     const known = JSON.parse(await readFile('data/curated/ott-official-tmdb-bindings-2026-11-13.json', 'utf8')).items;
     const staged = report.complete ? await stageAndReview(report, undefined, undefined, known) : null;
-    console.log(JSON.stringify({ output, total: report.rows.length, sourceErrors: report.errors.length, identityErrors: report.rows.reduce((n, r) => n + r.errors.length, 0), ...staged }));
+    const identityErrors = report.rows.flatMap(row => row.errors);
+    const errorCodes = [...new Set([...report.errors, ...identityErrors].map(item => item.error))];
+    console.log(JSON.stringify({ output, total: report.rows.length, sourceErrors: report.errors.length,
+      identityErrors: identityErrors.length, ...staged, errorCodes }));
     if (!report.complete || report.rows.some(r => r.errors.length)) process.exitCode = 2;
-  } catch (e) { console.error('COUPANG_PREMIERE_REVIEW_FAILED:', e.message); process.exitCode = 1; }
+  } catch (e) { console.error(JSON.stringify(ottSourceFailure(e))); process.exitCode = 1; }
 }

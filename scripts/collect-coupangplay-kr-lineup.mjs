@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Discover explicit content announcements from Coupang's official newsroom.
 // News date and recommendation date cannot be used as OTT premieres.
+import { ottSourceFailure } from './ott-source-diagnostics.mjs';
 import { writeFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
@@ -58,7 +59,8 @@ export async function collectCoupangNews(fetchImpl = fetch) {
   let fetched = 0;
   for (const url of urls) {
     const detail = await fetchImpl(url, { signal: AbortSignal.timeout(15000) });
-    if (!detail.ok || (detail.url && new URL(detail.url).hostname !== 'news.coupang.com')) throw new Error('COUPANG_ARTICLE_FETCH_FAILED');
+    if (!detail.ok) throw new Error(`COUPANG_HTTP_${detail.status}`);
+    if (detail.url && new URL(detail.url).hostname !== 'news.coupang.com') throw new Error('COUPANG_REDIRECT_HOST_CHANGED');
     fetched++;
     for (const item of parseCoupangArticle(await detail.text(), url)) {
       const key = item.title.normalize('NFC').toLocaleLowerCase('ko');
@@ -75,5 +77,5 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     const lineup = await collectCoupangNews();
     await writeFile(output, JSON.stringify(lineup, null, 2) + '\n', { flag: 'wx', mode: 0o600 });
     console.log(JSON.stringify({ output, count: lineup.count, published: 0, verifiedFirstRelease: 0 }));
-  } catch (error) { console.error('COUPANG_COLLECT_FAILED:', error.message); process.exitCode = 1; }
+  } catch (error) { console.error(JSON.stringify(ottSourceFailure(error))); process.exitCode = 1; }
 }

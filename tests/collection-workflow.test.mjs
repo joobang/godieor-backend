@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { ottSourceFailure } from '../scripts/ott-source-diagnostics.mjs';
 import { missingCollectionSecrets } from '../scripts/check-collection-env.mjs';
 import { childFailure, runStep, runPipeline } from '../scripts/run-official-ott-pipeline.mjs';
 
@@ -93,4 +94,23 @@ test('bootstrap register and bookkeeping phases survive child process diagnostic
     '', JSON.stringify({job:'collect-daily',code:'DB_TRANSACTION_FAILED',causeCode:'P2028',phase:'register'}));
   assert.match(error.message, /"phase":"register"/);
   assert.match(error.message, /P2028/);
+});
+
+test('official OTT provider codes survive child failure without leaking exception details', () => {
+  assert.equal(ottSourceFailure(new Error('TMDB_REQUEST_FAILED:TMDB_HTTP_429')).errorCode, 'TMDB_HTTP_429');
+  const timeout = new DOMException('private-response-placeholder', 'TimeoutError');
+  assert.equal(ottSourceFailure(new Error('TMDB_REQUEST_FAILED:private-response-placeholder', { cause: timeout }))
+    .errorCode, 'PROVIDER_TIMEOUT');
+  assert.equal(ottSourceFailure(Object.assign(new Error('internal path'), { code: 'ENOENT' })).errorCode,
+    'OTT_INPUT_FILE_MISSING');
+  assert.equal(ottSourceFailure(new Error('NETFLIX_HTTP_403 private-response-placeholder')).errorCode,
+    'COLLECTION_FAILED');
+
+  const failure = childFailure(['scripts/collect-coupangplay-kr-lineup.mjs'], 1, '',
+    JSON.stringify(ottSourceFailure(new Error('COUPANG_HTTP_403'))) + '\n');
+  assert.match(failure.message, /\[{"code":"COUPANG_HTTP_403"}\]$/);
+  const redacted = childFailure(['scripts/collect-tving-upcoming.mjs'], 1, '',
+    JSON.stringify({ status: 'failed', errorCode: 'PRIMARY_HTTP_403 private-response-placeholder' }));
+  assert.match(redacted.message, /\[{"code":"COLLECTION_FAILED"}\]$/);
+  assert.doesNotMatch(redacted.message, /private-response-placeholder/);
 });

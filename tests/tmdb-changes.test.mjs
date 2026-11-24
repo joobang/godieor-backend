@@ -32,3 +32,25 @@ test('incremental sync persists a replay-safe checkpoint without losing earlier 
     assert.equal(second.referenceInputUsed, false);
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
+
+test('zero-page changes advance the checkpoint only for a consistent empty response', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'godieor-tmdb-empty-test-'));
+  const file = join(dir, 'latest.json');
+  const empty = { total_pages: 0, total_results: 0, results: [] };
+  try {
+    await syncChanges(async () => ({ total_pages: 1, results: [{ id: 17 }] }),
+      file, new Date('2026-11-23T01:00:00Z'));
+
+    const report = await syncChanges(async () => empty, file, new Date('2026-11-24T01:00:00Z'));
+    assert.equal(report.end, '2026-11-24');
+    assert.deepEqual(report.rows, [{ type: 'movie', tmdbId: 17 }, { type: 'tv', tmdbId: 17 }]);
+    assert.deepEqual(report.coverage.filter(row => 'pages' in row).map(row => row.pages), [0, 0]);
+
+    const window = { start: '2026-11-24', end: '2026-11-24' };
+    for (const response of [{ ...empty, total_results: 1 }, { ...empty, results: [{ id: 1 }] }]) {
+      await assert.rejects(() => collectChanges(async () => response, window), /INVALID_TMDB_CHANGES_PAGES/);
+    }
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
+});
