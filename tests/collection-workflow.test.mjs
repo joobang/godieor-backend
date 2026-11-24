@@ -4,6 +4,8 @@ import { readFile } from 'node:fs/promises';
 import { ottSourceFailure } from '../scripts/ott-source-diagnostics.mjs';
 import { missingCollectionSecrets } from '../scripts/check-collection-env.mjs';
 import { childFailure, runStep, runPipeline } from '../scripts/run-official-ott-pipeline.mjs';
+import { SOURCE as coupangIndex, collectCoupangNews } from '../scripts/collect-coupangplay-kr-lineup.mjs';
+import { collectPremieres } from '../scripts/collect-coupang-premieres.mjs';
 
 test('preflight lists absent and whitespace secrets without returning values', () => {
   const required = missingCollectionSecrets({});
@@ -113,4 +115,44 @@ test('official OTT provider codes survive child failure without leaking exceptio
     JSON.stringify({ status: 'failed', errorCode: 'PRIMARY_HTTP_403 private-response-placeholder' }));
   assert.match(redacted.message, /\[{"code":"COLLECTION_FAILED"}\]$/);
   assert.doesNotMatch(redacted.message, /private-response-placeholder/);
+});
+
+test('Coupang HTTP diagnostics distinguish index denial from a blocked article', async () => {
+  const denied = async () => new Response('Access Denied', { status: 403 });
+  const articleDenied = async url => url === coupangIndex ? new Response(
+    '<html><article><a href="https://news.coupang.com/archives/999999/">금주의 추천작</a></article></html>') : denied();
+  await assert.rejects(collectCoupangNews(denied), /COUPANG_INDEX_HTTP_403/);
+  await assert.rejects(collectPremieres(denied), /COUPANG_INDEX_HTTP_403/);
+  const redirected = async () => ({ ok: false, status: 403, url: 'https://example.invalid/' });
+  await assert.rejects(collectCoupangNews(redirected), /COUPANG_REDIRECT_HOST_CHANGED/);
+  await assert.rejects(collectPremieres(redirected), /COUPANG_REDIRECT_HOST_CHANGED/);
+  const sameOriginRedirect = async () => ({ ok: false, status: 403, url: 'https://news.coupang.com/' });
+  await assert.rejects(collectCoupangNews(sameOriginRedirect), /COUPANG_INDEX_REDIRECT_CHANGED/);
+  await assert.rejects(collectCoupangNews(articleDenied), /COUPANG_ARTICLE_HTTP_403/);
+  const report = await collectPremieres(articleDenied);
+  assert.equal(report.complete, false);
+  assert.equal(report.errors[0].error, 'COUPANG_ARTICLE_HTTP_403');
+});
+
+test('only a Coupang index denial skips the second index request and reviewed OTT still publishes', async () => {
+  const snapshot = await readFile('data/curated/ott-reviewed-candidates-snapshot.json', 'utf8');
+  const mappings = await readFile('data/curated/ott-reviewed-mappings.json', 'utf8');
+  for (const code of ['COUPANG_INDEX_HTTP_403', 'COUPANG_ARTICLE_HTTP_403', 'COUPANG_INDEX_HTTP_429']) {
+    const result = await runPipeline({
+      read: async path => path.endsWith('state.json') ? snapshot : path.endsWith('latest.json') ? '{}' : mappings,
+      run: async args => {
+        if (args.includes('scripts/collect-coupangplay-kr-lineup.mjs')) {
+          const stderr = JSON.stringify(ottSourceFailure(new Error(code)));
+          throw childFailure(args, 1, '', stderr);
+        }
+        return JSON.stringify({ exitCode: 0, stdout: '{}' });
+      },
+    });
+    assert.equal(result.status, 'published_with_discovery_gaps');
+    assert.equal(result.published, true);
+    assert.deepEqual(result.failedSources.find(s => s.label === 'coupang_news_official').diagnostics, [{ code }]);
+    const premiere = result.steps.find(s => s.label === 'coupang_explicit_premiere_review');
+    if (code === 'COUPANG_INDEX_HTTP_403') assert.equal(premiere.skipped, 'coupang_index_access_denied');
+    else assert.equal(premiere.exitCode, 0);
+  }
 });
