@@ -1,8 +1,15 @@
+## DATA-96 · 쿠팡뉴스룸 403 재현과 TVING 일정 확인 (2026-11-24)
+
+- 동일 Node24.22.3 요청을 확인했다. 쿠팡 카테고리·개별 기사·공식 RSS는 Mac 200, GitHub Akamai 403. GitHub 진단 45339797463·45340036752. 제공처의 내부 차단 규칙은 미확인.
+- 직접 목록 403이면 두 번째 쿠팡 목록 요청을 건너뛴다. 개별 기사 403·목록 429·리다이렉트를 구분하며 기존 검토 OTT 게시를 이어간다.
+- Mac TVING 6건 중 공식 날짜가 있는 4건은 운영 일정과 일치, 2건 날짜 보류. TVING 전용 페이지의 GitHub 500 확인. 쿠팡 Mac 공개일 후보 3건은 최초 공개 근거가 부족해 보류. 원본 backend `docs/tasks/DATA-96-ott-source-access.md`. 공통 revision SYNC-2026-11-24-DATA-96.
+
 ## DATA-95 · Netflix 한국 목록과 OTT 운영 결과 (2026-11-24)
 
 - 운영 Actions 45303217819에서 TMDB 변경 369 ID 스캔과 검토 OTT 일정 92건 게시 처리 확인. Netflix 한국 지역 확인 실패, TVING 예정 범위 확인 실패, 쿠팡플레이 뉴스·공개일 수집 HTTP 403을 기록했다.
 - Netflix 한국 명시 페이지네이션 경로를 추가. 실제 원천 5페이지·81개 항목(창 내 고유 78개)이 한국 웹 화면에서 시작한 기존 경로와 일치했다. Node24 전체 385/385.
-- 원본 backend `docs/tasks/DATA-95-netflix-kr-source.md`. 코드 리뷰 반영. 수정 버전의 GitHub 수집 증거와 실기기 찜 검증은 후속. 공통 revision SYNC-2026-11-24-DATA-95.
+- dev #30·main #31 병합, `33371c0` Render Live. 운영 Actions 45333833074에서 Netflix 대체 경로로 5페이지·81건 수집, 창 내 79건 중 신규 검토 후보 14건. 검토 OTT 일정 92건 게시 처리, 운영 freshness 14:45 KST 확인.
+- TVING 예정 범위 및 쿠팡플레이 HTTP 403은 미해결. TVING 공식 예정작 전용 페이지는 Mac에서 6개 프로그램 확인. 실기기 찜 검증 대기. 원본 backend `docs/tasks/DATA-95-netflix-kr-source.md`, 담당 해제. 공통 revision SYNC-2026-11-24-DATA-95-LIVE.
 
 ## DATA-94 · OTT 수집 진단과 iPhone 계정 복원 (2026-11-24)
 
