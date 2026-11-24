@@ -160,7 +160,7 @@ export function createTmdbClient(fetchImpl, token) {
       } catch (error) { lastError = error; }
       if (retry < 2) await new Promise((resolve) => setTimeout(resolve, 500 * (retry + 1)));
     }
-    throw new Error(`TMDB_REQUEST_FAILED:${lastError?.message ?? 'unknown'}`);
+    throw new Error(`TMDB_REQUEST_FAILED:${lastError?.message ?? 'unknown'}`, { cause: lastError });
   };
 }
 

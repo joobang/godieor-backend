@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // Incremental identity discovery. Changes do not establish KR platform premieres.
+import { ottSourceFailure } from './ott-source-diagnostics.mjs';
 import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -18,6 +19,11 @@ export async function collectChanges(request, { start, end, maxPages = 500 } = {
     async function visit(from, to) {
       const first = await request(`/${type}/changes`, { start_date: from, end_date: to, page: 1 });
       const pages = first.total_pages;
+      if (pages === 0 && first.total_results === 0 &&
+          Array.isArray(first.results) && first.results.length === 0) {
+        coverage.push({ type, start: from, end: to, pages });
+        return;
+      }
       if (!Number.isInteger(pages) || pages < 1) throw Error('INVALID_TMDB_CHANGES_PAGES');
       if (pages > Math.min(maxPages, 500)) {
         if (from === to) throw Error('TMDB_CHANGES_SINGLE_DAY_PAGE_LIMIT');
@@ -77,5 +83,5 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     const result = await syncChanges(createTmdbClient(fetch, process.env.TMDB_API_READ_ACCESS_TOKEN),
       process.argv[2] ?? 'work/tmdb-changes/latest.json');
     console.log(JSON.stringify({ start: result.start, end: result.end, changedIds: result.total, coverage: result.coverage }));
-  } catch (error) { console.error('TMDB_CHANGES_FAILED:', error.message); process.exitCode = 1; }
+  } catch (error) { console.error(JSON.stringify(ottSourceFailure(error))); process.exitCode = 1; }
 }
