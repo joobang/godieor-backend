@@ -35,7 +35,9 @@ export function childFailure(args, code, stdout, stderr) {
       }
     } catch { /* Unstructured output is deliberately not logged. */ }
   }
-  return new Error(`${command} exit=${code}; ${JSON.stringify(diagnostics)}`);
+  const error = new Error(`${command} exit=${code}; ${JSON.stringify(diagnostics)}`);
+  error.diagnostics = diagnostics;
+  return error;
 }
 
 export async function runStep(args, { env = process.env, acceptedExitCodes = [0] } = {}) {
@@ -102,7 +104,7 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
   async function optionalStep(label, args, acceptedExitCodes = [0]) {
     try { return await step(label, args, acceptedExitCodes); }
     catch (error) {
-      failedSources.push({ label, error: error.message });
+      failedSources.push({ label, error: error.message, diagnostics: error.diagnostics });
       return null;
     }
   }
@@ -150,7 +152,17 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
     if (disneyExit === 0) await optionalStep('disney_upcoming_staging', ['scripts/stage-ott-lineup.mjs', disney, 'work/ott-lineups']);
     const coupangExit = await optionalStep('coupang_news_official', ['scripts/collect-coupangplay-kr-lineup.mjs', coupang]);
     if (coupangExit === 0) await optionalStep('coupang_news_staging', ['scripts/stage-ott-lineup.mjs', coupang, 'work/ott-lineups']);
-    const coupangPremiereExit = await optionalStep('coupang_explicit_premiere_review', ['--env-file-if-exists=.env', 'scripts/collect-coupang-premieres.mjs'], [0, 2]);
+    const coupangNewsFailure = failedSources.find(({ label }) => label === 'coupang_news_official');
+    const coupangIndexDenied = coupangNewsFailure?.diagnostics?.some(({ code }) => code === 'COUPANG_INDEX_HTTP_403');
+    let coupangPremiereExit = null;
+    // Both collectors start at the same index. Only a denial of that index
+    // rules out this run's premiere discovery. An article can fail on its own.
+    if (coupangIndexDenied) {
+      steps.push({ label: 'coupang_explicit_premiere_review', skipped: 'coupang_index_access_denied' });
+    } else {
+      coupangPremiereExit = await optionalStep('coupang_explicit_premiere_review',
+        ['--env-file-if-exists=.env', 'scripts/collect-coupang-premieres.mjs'], [0, 2]);
+    }
     // Persist identity leads for title-only official listings. No release dates are invented.
     let undatedLinkExit = disneyExit === 0 && coupangExit === 0 ? 0 : 2;
     if (disneyExit === 0 && coupangExit === 0) {

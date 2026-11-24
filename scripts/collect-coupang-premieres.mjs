@@ -98,8 +98,11 @@ export async function identifyPremiere(item, request) {
 export async function collectPremieres(fetchImpl, request, months = configuredMonths()) {
   async function get(url) {
     const r = await fetchImpl(url, { signal: AbortSignal.timeout(15000) });
-    if (!r.ok) throw Error(`COUPANG_HTTP_${r.status}`);
     if (r.url && r.url !== url) throw Error('COUPANG_REDIRECT_HOST_CHANGED');
+    if (!r.ok) {
+      const scope = url === SOURCE ? 'INDEX' : 'ARTICLE';
+      throw Error(`COUPANG_${scope}_HTTP_${r.status}`);
+    }
     return r.text();
   }
   const urls = parseCoupangNewsIndex(await get(SOURCE));
