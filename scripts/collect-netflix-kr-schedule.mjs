@@ -9,12 +9,14 @@ import { prepareLineup } from './prepare-ott-lineup.mjs';
 import { configuredMonths } from './ott-schedule-window.mjs';
 
 export const SOURCE = 'https://about.netflix.com/ko/new-to-watch';
-const API = 'https://about.netflix.com/api/data/releases';
+const API = new URL('https://about.netflix.com/api/data/releases');
+const isKoreanSchedule = ({ props }) => props?.currentRegion?.countryCode === 'kr' &&
+  props?.currentLanguage?.code === 'ko';
 export function parseNetflixKrSchedule(html, observedAt = new Date().toISOString(), months = configuredMonths()) {
   const match = /<script\b(?=[^>]*\bid=["']__NEXT_DATA__["'])[^>]*>([\s\S]*?)<\/script>/i.exec(html);
   if (!match) throw new Error('NETFLIX_NEXT_DATA_NOT_FOUND');
   const data = JSON.parse(match[1]);
-  if (data.props?.currentRegion?.countryCode !== 'kr' || data.props?.currentLanguage?.code !== 'ko')
+  if (!isKoreanSchedule(data))
     throw new Error('NETFLIX_KR_REGION_NOT_VERIFIED');
   return parseNetflixKrPages([data.props?.pageProps?.data], observedAt, months);
 }
@@ -50,6 +52,23 @@ export function parseNetflixKrPages(pages, observedAt = new Date().toISOString()
 }
 
 export async function collectNetflixKrSchedule(fetchImpl = fetch, { months = configuredMonths() } = {}) {
+  async function fetchPage(page) {
+    const url = new URL(API);
+    url.searchParams.set('language', 'ko');
+    url.searchParams.set('country', 'kr');
+    url.searchParams.set('page', String(page));
+    const response = await fetchImpl(url, { headers: { accept: 'application/json' }, signal: AbortSignal.timeout(15000) });
+    if (!response.ok) throw new Error(`NETFLIX_RELEASES_HTTP_${response.status}`);
+    if (response.url) {
+      const final = new URL(response.url);
+      if (final.origin !== API.origin || final.pathname !== API.pathname ||
+          final.searchParams.size !== url.searchParams.size ||
+          [...url.searchParams].some(([key, value]) => final.searchParams.get(key) !== value))
+        throw new Error('NETFLIX_RELEASES_REDIRECT_CHANGED');
+    }
+    return response.json();
+  }
+
   const response = await fetchImpl(SOURCE, { headers: { 'user-agent': 'Mozilla/5.0 (compatible; GODIEOR/1.0)' }, signal: AbortSignal.timeout(15000) });
   if (!response.ok) throw new Error(`NETFLIX_HTTP_${response.status}`);
   const observedAt = new Date().toISOString();
@@ -57,25 +76,24 @@ export async function collectNetflixKrSchedule(fetchImpl = fetch, { months = con
   const match = /<script\b(?=[^>]*\bid=["']__NEXT_DATA__["'])[^>]*>([\s\S]*?)<\/script>/i.exec(html);
   if (!match) throw new Error('NETFLIX_NEXT_DATA_NOT_FOUND');
   const next = JSON.parse(match[1]);
-  if (next.props?.currentRegion?.countryCode !== 'kr' || next.props?.currentLanguage?.code !== 'ko')
+  // The public page can select a region from the runner's location. Its own
+  // pagination endpoint accepts an explicit region, checked against every row.
+  const fromKoreanPage = isKoreanSchedule(next);
+  const first = fromKoreanPage ? next.props.pageProps?.data : await fetchPage(1);
+  if (!fromKoreanPage && (!Array.isArray(first?.data) || first.data.length === 0 ||
+      first.data.some(item => item?.country !== 'KR')))
     throw new Error('NETFLIX_KR_REGION_NOT_VERIFIED');
-  const first = next.props?.pageProps?.data;
   if (!Number.isInteger(first?.totalPages) || first.totalPages < 1 || first.totalPages > 100)
     throw new Error('NETFLIX_SCHEDULE_STRUCTURE_CHANGED');
   const pages = [first];
   for (let page = 2; page <= first.totalPages; page++) {
-    const url = new URL(API);
-    url.searchParams.set('language', 'ko');
-    url.searchParams.set('country', 'kr');
-    url.searchParams.set('page', String(page));
-    const result = await fetchImpl(url, { headers: { accept: 'application/json' }, signal: AbortSignal.timeout(15000) });
-    if (!result.ok) throw new Error(`NETFLIX_RELEASES_HTTP_${result.status}`);
-    pages.push(await result.json());
+    pages.push(await fetchPage(page));
   }
   const parsed = parseNetflixKrPages(pages, observedAt, months);
   if (!parsed.coverage.complete || parsed.coverage.fetchedPageItems !== first.totalItems)
     throw new Error('NETFLIX_SCHEDULE_INCOMPLETE');
-  return parsed;
+  return { lineup: parsed.lineup, coverage: { ...parsed.coverage,
+    firstPageSource: fromKoreanPage ? 'korean_schedule' : 'explicit_kr_pagination' } };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
