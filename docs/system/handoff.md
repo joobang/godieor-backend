@@ -1,8 +1,14 @@
+## DATA-95 · Netflix 한국 목록과 OTT 운영 결과 (2026-11-24)
+
+- 운영 Actions 45303217819에서 TMDB 변경 369 ID 스캔과 검토 OTT 일정 92건 게시 처리 확인. Netflix 한국 지역 확인 실패, TVING 예정 범위 확인 실패, 쿠팡플레이 뉴스·공개일 수집 HTTP 403을 기록했다.
+- Netflix 한국 명시 페이지네이션 경로를 추가. 실제 원천 5페이지·81개 항목(창 내 고유 78개)이 한국 웹 화면에서 시작한 기존 경로와 일치했다. Node24 전체 385/385.
+- 원본 backend `docs/tasks/DATA-95-netflix-kr-source.md`. 코드 리뷰 반영. 수정 버전의 GitHub 수집 증거와 실기기 찜 검증은 후속. 공통 revision SYNC-2026-11-24-DATA-95.
+
 ## DATA-94 · OTT 수집 진단과 iPhone 계정 복원 (2026-11-24)
 
-- backend `11c0ca7`에서 TMDB 0페이지·0건 정상 응답을 처리하고, OTT 제공처 실패를 예외 원문 없이 코드로 보고한다. 실제 TMDB 재실행 exit 0, 백엔드 383/383. 운영 반영 및 수정 버전의 GitHub 실행은 대기.
+- backend `11c0ca7`에서 TMDB 0페이지·0건 정상 응답을 처리하고, OTT 제공처 실패를 예외 원문 없이 코드로 보고한다. 실제 TMDB 재실행 exit 0, 백엔드 383/383. dev PR #28과 main PR #29 병합, main `ccd9a34` Render Live 및 운영 health HTTP 200·DB 연결 확인. OTT 전용 Actions 45303217819 최종 결과는 DATA-95 참조.
 - iPhone 15 Pro 빌드 9에서 Google 세션과 저장한 필터 복원을 확인하고 테스트 전 EPL 값을 복구했다. 찜 복원은 합성 계정 검사 16/16에 포함됐다. 실기기 찜 검증은 대기.
-- 원본 backend `docs/tasks/DATA-94-ott-source-diagnostics.md`. 별도 컨텍스트 소스 리뷰 반영, 독립 통합 runner 미실행, 담당 해제. 공통 revision SYNC-2026-11-24-DATA-94.
+- 원본 backend `docs/tasks/DATA-94-ott-source-diagnostics.md`. 별도 컨텍스트 소스 리뷰 반영, 독립 통합 runner 미실행, 담당 해제. 공통 revision SYNC-2026-11-24-DATA-94-LIVE.
 
 ## OPS-02 · 운영 일일 수집 재활성화 (2026-11-24)
 
