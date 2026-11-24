@@ -30,3 +30,9 @@
 - verifier 기준 `0.1.0-draft`, SHA256 `c4906283810c8b378800b67930028685a41b6a051923ea9f9415346b2d657063`. 실제 독립 통합 runner 미실행. verifier 기준과 verdict 미변경.
 - 다음 확인은 실기기에서 찜 저장·복원과 새 코드가 실행되는 GitHub Actions에서 제공처별 진단을 읽는 것이다.
 - ADR 해당 없음. 기존 수집 흐름의 오류 분류 보완이다. 관련 LEARN-0022의 운영 수집 문제 진단 범위를 재검토했다. 새 통합 해설은 작성하지 않았다.
+
+## 운영 배포
+
+- GitHub [dev PR #28](https://github.com/joobang/godieor-backend/pull/28), [운영 PR #29](https://github.com/joobang/godieor-backend/pull/29) 필수 검사, 일회용 PostgreSQL·HTTP API 검증 성공. dev `2c7fb15`, main `ccd9a345cbb025e4a3a94deeeafd15afaf1ef2fb` 병합. main Backend CI 실행 45303195171도 성공.
+- [Render](https://dashboard.render.com/web/srv-dbu0u7on74is73f3tpug/deploys/dep-dc2ea1ei0phs73ajopmg)에서 main 최신 커밋을 수동 배포했다. 10:15:58 KST Live 확인. 운영 `/v1/health` HTTP 200, `database: connected`.
+- [OTT 운영 실행 45303217819](https://github.com/joobang/godieor-backend/actions/runs/45303217819)은 main의 OTT 전용 선택으로 시작했다. 후보 복원·게시 완료. 상세 제공처 결과와 후속 대응은 DATA-95 카드에 기록했다.
