@@ -20,3 +20,15 @@
 - LEARN-0022 관련 기존 오류 분류·보고 원칙 재검토. 기존 원천과 근거 기준에 따른 분기이며 새 ADR은 해당 없음.
 - 별도 컨텍스트 리뷰 지적 반영. 같은 경로라도 국가·언어·페이지 쿼리가 바뀌는 리다이렉트는 수용하지 않는다.
 - backend 구현 head `12d6bba7a51a190ba2c903e9ff103c33929d3097`. verifier 문서 기준 checkout `62fc3b2`. 사용자 앱 checkout의 기존 변경은 분리했다.
+
+## 운영 반영
+
+- [dev PR #30](https://github.com/joobang/godieor-backend/pull/30), [운영 PR #31](https://github.com/joobang/godieor-backend/pull/31) 병합. main `33371c032c8ebe0c1f546ad97ba478ee48a59df2`. PR와 main 자체 CI에서 임시 PostgreSQL 및 HTTP API 검사 성공.
+- [Render 자동 배포](https://dashboard.render.com/web/srv-dbu0u7on74is73f3tpug/deploys/dep-dc2i1hmq1p3s73denrrg) `33371c0` Live. 운영 health HTTP 200, DB connected. iOS 운영과 동일한 11월 KR OTT 달력 HTTP 200, 11/23~25 건수 2·3·2.
+- 파이프라인 점검과 별도로, 기존 Mac 공식 응답 79건을 격리된 로컬 검토 큐에 넣었다. 첫 실행 79건 검토 대기, 재시도 신규 0건, 두 실행 모두 게시 0건.
+- TVING 공식 예정작 전용 페이지 `/more/band/AP0060`은 Mac HTTP 200 및 6개 채널 프로그램 코드 확인. 다른 검색 노출 페이지 `/more/band/HM292945`는 HTTP 500. 전용 페이지의 GitHub 러너 응답은 미검증.
+
+- [운영 Actions 45333833074](https://github.com/joobang/godieor-backend/actions/runs/45333833074) 성공, 내부 `published_with_discovery_gaps`. Netflix `firstPageSource=explicit_kr_pagination`, 5페이지·81개 원천 항목, 조회 창 79개. 런 검토 큐 신규 14개, 기존 검토 65개 보존, 신규 승인 0건.
+- Netflix 최초 공개 재검토는 부분 성공(exit 2): 새 후보 중 비최초 공개 6, 조회 실패 8. 기존 검토 65건은 보존됐다. TVING 예정 범위 오류와 쿠팡플레이 뉴스·공개 검토 HTTP 403이 남았다.
+- 검토 OTT 92건 게시 처리, 운영 calendar HTTP 200 및 `ott_reviewed.lastSuccessfulAt=2026-11-24T05:45:06.317Z` 확인. 포스터 86/92, 신규 보강 0, TMDB 변경 ID 1008개.
+- 이번 배치의 검토 큐는 [실행 아티팩트](https://github.com/joobang/godieor-backend/actions/runs/45333833074/artifacts/14893507989)에 있으며 만료는 12월 1일이다. TVING 전용 페이지의 GitHub 응답, 쿠팡 원천 접근, 실기기 찜은 후속.

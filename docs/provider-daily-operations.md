@@ -33,7 +33,9 @@ CI의 `COLLECTION_PUBLISH_TIMEOUT_MS=900000`은 순차 쿼리를 사용하는 �
 
 OTT 필수 단계가 실패해도 JSON 보고서에 이전 단계와 실패한 스크립트, 안전한 stdout 오류 코드를 보존한다. Artifact를 확인한 뒤 실패 원인을 해소하고 재실행한다. 부분 발견 exit2는 계속 경고이며 실제 게시 실패 exit1을 성공으로 바꾸지 않는다. Secret 설정·원격 재실행 없이 로컬 테스트만 통과한 상태를 운영 복구 완료로 표시하지 않는다.
 
-**제한:** Actions의 로컬 파일 변경은 다음 실행에 자동 보존되지 않는다. 새 검토/신규 후보를 영구 보존하려면 검토 후 버전 관리 스냅샷에 반영해야 한다. OTT의 공식 수집 일부가 실패하거나 미확정이면 파이프라인은 `published_with_discovery_gaps` (exit 2)를 반환하며 경고와 보고서로 남긴다. 이는 검토된 일정 게시 성공 가능성과 **전체 원천 100% 검증**을 구분하기 위한 결과다. 실제 Supabase 행 수와 Render `/v1/health`의 dataMode는 실행 후 확인해야 한다. GitHub runner에서 실제 클라우드 적재 성공은 아직 검증되지 않았다.
+**제한:** Actions의 로컬 파일 변경은 다음 실행에 자동 보존되지 않는다. 새 검토/신규 후보를 영구 보존하려면 검토 후 버전 관리 스냅샷에 반영해야 한다. OTT의 공식 수집 일부가 실패하거나 미확정이면 파이프라인은 `published_with_discovery_gaps` (exit 2)를 반환하며 경고와 보고서로 남긴다. 이는 검토된 일정 게시 성공 가능성과 **전체 원천 100% 검증**을 구분하기 위한 결과다. 실제 Supabase 행 수와 Render `/v1/health`의 dataMode는 실행 후 확인해야 한다. 운영 실행 45333833074에서 검토 OTT 92건 게시 처리와 운영 API freshness 갱신이 확인됐다.
+
+쿠팡 공식 뉴스룸 목록이 직접 HTTP 403을 반환하면 동일 주소에서 시작하는 공개일 확인 단계를 생략한다. 개별 기사의 403, 목록의 429, 리다이렉트는 별도로 기록한다. GitHub와 Mac의 공개 URL 응답 차이 및 TVING 공식 예정작 운영 대조는 [DATA-96](tasks/DATA-96-ott-source-access.md)을 참조한다.
 
 실제 로컬 등록: 2026-11-17, LaunchAgent `dev.godieor.provider-daily`, 매일 **08:30 KST**. 기존 OTT09시 job은 별도로 유지한다. 로그인된 Mac과 접근 가능한 DB가 필요하며 클라우드 상시 운영은 아니다. 등록과 `launchctl kickstart` 실제 기동은 확인했지만 다음08:30 자연 calendar 기동은 아직 관측하지 않았다.
 

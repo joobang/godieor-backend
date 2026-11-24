@@ -8,6 +8,7 @@ import { resolve } from 'node:path';
 import { prepareLineup } from './prepare-ott-lineup.mjs';
 
 export const SOURCE = 'https://news.coupang.com/archives/category/coupangplay/';
+const sourceOrigin = new URL(SOURCE).origin;
 const entities = (value) => value.replace(/&#(x[\da-f]+|\d+);/gi, (_, n) => String.fromCodePoint(n[0].toLowerCase() === 'x' ? parseInt(n.slice(1), 16) : Number(n)))
   .replace(/&(?:nbsp|amp|lt|gt|quot|#39|lsquo|rsquo|ldquo|rdquo);/g, (v) => ({ '&nbsp;': ' ', '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#39;': "'", '&lsquo;': '‘', '&rsquo;': '’', '&ldquo;': '“', '&rdquo;': '”' })[v]);
 const plain = (value) => entities(value.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
@@ -52,15 +53,18 @@ export function makeCoupangLineup(items, observedAt = new Date().toISOString()) 
 
 export async function collectCoupangNews(fetchImpl = fetch) {
   const response = await fetchImpl(SOURCE, { signal: AbortSignal.timeout(15000) });
-  if (!response.ok) throw new Error(`COUPANG_HTTP_${response.status}`);
-  if (response.url && new URL(response.url).hostname !== 'news.coupang.com') throw new Error('COUPANG_REDIRECT_HOST_CHANGED');
+  if (response.url && new URL(response.url).origin !== sourceOrigin) throw new Error('COUPANG_REDIRECT_HOST_CHANGED');
+  if (!response.ok) {
+    if (response.url && response.url !== SOURCE) throw new Error('COUPANG_INDEX_REDIRECT_CHANGED');
+    throw new Error(`COUPANG_INDEX_HTTP_${response.status}`);
+  }
   const urls = parseCoupangNewsIndex(await response.text());
   const items = new Map();
   let fetched = 0;
   for (const url of urls) {
     const detail = await fetchImpl(url, { signal: AbortSignal.timeout(15000) });
-    if (!detail.ok) throw new Error(`COUPANG_HTTP_${detail.status}`);
-    if (detail.url && new URL(detail.url).hostname !== 'news.coupang.com') throw new Error('COUPANG_REDIRECT_HOST_CHANGED');
+    if (detail.url && new URL(detail.url).origin !== sourceOrigin) throw new Error('COUPANG_REDIRECT_HOST_CHANGED');
+    if (!detail.ok) throw new Error(`COUPANG_ARTICLE_HTTP_${detail.status}`);
     fetched++;
     for (const item of parseCoupangArticle(await detail.text(), url)) {
       const key = item.title.normalize('NFC').toLocaleLowerCase('ko');
