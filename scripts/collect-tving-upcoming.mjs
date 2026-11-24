@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // Independent first-party discovery: public TVING upcoming band -> explicit release claims -> TMDB identity evidence.
+import { ottSourceFailure } from './ott-source-diagnostics.mjs';
 import { readFile,writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -67,7 +68,7 @@ export async function collectUpcoming(request,fetchImpl,{knownBindings=[],monthl
             row.supplementalIdentity=parseTvnCast(await primary(urls[0]),urls[0],program.title);
             sourceActors=[...new Set([...sourceActors,...row.supplementalIdentity.actors])];
           }else row.supplementalIdentityStatus=urls.length?'ambiguous_program_links':'program_link_not_found';
-        }catch(e){row.supplementalIdentityStatus='lookup_failed';row.supplementalIdentityError=e.message;}
+        }catch(e){row.supplementalIdentityStatus='lookup_failed';row.supplementalIdentityError=ottSourceFailure(e).errorCode;}
       }
       const known=knownBindings.filter(b=>b.sourceUrl===sourceUrl&&b.platform==='tving'&&b.identityVerified&&b.date===claim.date&&(claim.seasonNumber==null||b.seasonNumber===claim.seasonNumber));
       if(known.length>1){row.status='ambiguous_review_identity';rows.push(row);continue;}
@@ -110,7 +111,7 @@ export async function collectUpcoming(request,fetchImpl,{knownBindings=[],monthl
         else if(prior.length>1)row.status='ambiguous_review_identity';
       }
       rows.push(row);
-    }catch(e){errors.push({code:program.code,sourceUrl,error:e.message});}
+    }catch(e){errors.push({code:program.code,sourceUrl,error:ottSourceFailure(e).errorCode});}
   }
   return{kind:'tving-official-upcoming-review',referenceInputUsed:false,source:'https://www.tving.com/',rows,errors,totalPrograms:programs.length,
     newReviewProposals:rows.filter(r=>r.status==='new_identity_review_proposal').length,publishingAllowed:false};
@@ -131,7 +132,13 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
   const known=JSON.parse(await readFile('data/curated/ott-official-tmdb-bindings-2026-11-13.json','utf8')).items;
   const candidates=JSON.parse(await readFile('work/tmdb-release-candidates/latest.json','utf8')).rows;
   const report=await collectUpcoming(createTmdbClient(fetch,process.env.TMDB_API_READ_ACCESS_TOKEN),fetch,{knownBindings:known,monthlyCandidates:candidates});
-  await writeFile(output,JSON.stringify(report,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({output,total:report.totalPrograms,newReviewProposals:report.newReviewProposals,errors:report.errors.length}));
+  await writeFile(output,JSON.stringify(report,null,2)+'\n',{flag:'wx'});
+  const errorCodes = [...new Set([
+    ...report.errors.map(item => item.error),
+    ...report.rows.map(item => item.supplementalIdentityError).filter(Boolean),
+  ])];
+  console.log(JSON.stringify({output,total:report.totalPrograms,newReviewProposals:report.newReviewProposals,
+    errors:report.errors.length,errorCodes}));
   if(report.errors.length)process.exitCode=2;
- }catch(e){console.error('TVING_UPCOMING_FAILED:',e.message);process.exitCode=1;}
+ }catch(e){console.error(JSON.stringify(ottSourceFailure(e)));process.exitCode=1;}
 }

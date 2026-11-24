@@ -8,6 +8,7 @@ import { join } from 'node:path';
 import { prepareReviewed } from '../dist/src/reviewed-ott/domain/reviewed-mapping.js';
 import { collectionDiagnostic, COLLECTION_PHASES } from '../dist/src/common/collection-diagnostic.js';
 import { configuredMonths } from './ott-schedule-window.mjs';
+import { safeOttSourceCode } from './ott-source-diagnostics.mjs';
 
 const node = process.execPath;
 const bindings = 'data/curated/ott-official-tmdb-bindings-2026-11-13.json';
@@ -17,12 +18,14 @@ const mappings = 'data/curated/ott-reviewed-mappings.json';
 export function childFailure(args, code, stdout, stderr) {
   const command = args.find(arg => /^(scripts|dist)\/[a-zA-Z0-9_./-]+\.(mjs|js)$/.test(arg)) ?? 'child';
   const diagnostics = [];
-  for (const line of [stdout, stderr, ...`${stdout}\n${stderr}`.split('\n')]) {
+  for (const line of new Set([stdout.trim(), stderr.trim(), ...`${stdout}\n${stderr}`.split('\n')])) {
     try {
       const value = JSON.parse(line);
       for (const result of Array.isArray(value.results) ? value.results : [value]) {
-        const diagnostic = collectionDiagnostic({ message: result.errorCode ?? result.code,
-          code: result.causeCode });
+        const message = result.errorCode ?? result.code;
+        const sourceCode = safeOttSourceCode(message);
+        const diagnostic = sourceCode ? { code: sourceCode } :
+          collectionDiagnostic({ message, code: result.causeCode });
         if (result.status === 'failed' || result.code) {
           const scope = {};
           if (['KR','WORLD','JP','AU','NZ','CN','BR'].includes(result.market)) scope.market = result.market;
@@ -145,7 +148,7 @@ export async function runPipeline({ publish = true, reuseRecentTmdb = false, com
     if (adsExit === 0) await optionalStep('tving_ads_staging', ['scripts/stage-ott-lineup.mjs', tvingAds, 'work/ott-lineups']);
     const disneyExit = await optionalStep('disney_upcoming_official', ['scripts/collect-disneyplus-kr-lineup.mjs', disney], [0, 1]);
     if (disneyExit === 0) await optionalStep('disney_upcoming_staging', ['scripts/stage-ott-lineup.mjs', disney, 'work/ott-lineups']);
-    const coupangExit = await optionalStep('coupang_news_official', ['scripts/collect-coupangplay-kr-lineup.mjs', coupang], [0, 1]);
+    const coupangExit = await optionalStep('coupang_news_official', ['scripts/collect-coupangplay-kr-lineup.mjs', coupang]);
     if (coupangExit === 0) await optionalStep('coupang_news_staging', ['scripts/stage-ott-lineup.mjs', coupang, 'work/ott-lineups']);
     const coupangPremiereExit = await optionalStep('coupang_explicit_premiere_review', ['--env-file-if-exists=.env', 'scripts/collect-coupang-premieres.mjs'], [0, 2]);
     // Persist identity leads for title-only official listings. No release dates are invented.

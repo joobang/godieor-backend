@@ -1,3 +1,22 @@
+## DATA-94 · OTT 수집 진단과 iPhone 계정 복원 (2026-11-24)
+
+- backend `11c0ca7`에서 TMDB 0페이지·0건 정상 응답을 처리하고, OTT 제공처 실패를 예외 원문 없이 코드로 보고한다. 실제 TMDB 재실행 exit 0, 백엔드 383/383. 운영 반영 및 수정 버전의 GitHub 실행은 대기.
+- iPhone 15 Pro 빌드 9에서 Google 세션과 저장한 필터 복원을 확인하고 테스트 전 EPL 값을 복구했다. 찜 복원은 합성 계정 검사 16/16에 포함됐다. 실기기 찜 검증은 대기.
+- 원본 backend `docs/tasks/DATA-94-ott-source-diagnostics.md`. 별도 컨텍스트 소스 리뷰 반영, 독립 통합 runner 미실행, 담당 해제. 공통 revision SYNC-2026-11-24-DATA-94.
+
+## OPS-02 · 운영 일일 수집 재활성화 (2026-11-24)
+
+- Render 운영 API와 PostgreSQL 연결을 확인했다. GitHub Actions 일일 수집 조건에 필요한 저장소 변수 `COLLECTION_SCHEDULE_ACTIVE=true`를 설정했다. 원본 backend `docs/tasks/OPS-02-daily-collection-recovery.md`. 공통 revision SYNC-2026-11-24-OPS-02.
+
+## UI-11 · 공개 피드의 어제·오늘·내일 범위 (2026-11-20)
+
+- 홈 피드 조회와 날짜별 달력 이동은 어제·오늘·내일을 사용한다. 오늘 포스터를 먼저, 내일과 어제를 뒤에 둔다. 원본 app `docs/ai/tasks/UI-11-feed-date-window.md`. revision SYNC-2026-11-20-UI-11.
+
+## UI-10 · 포스터 중심 홈과 달력·찜 탭 (2026-11-20)
+
+- 홈 첫 화면에 최근 3일의 큰 포스터 피드, 플랫폼·찜·공유 아이콘, 날짜별 이동을 배치했다. 월간 달력과 기존 계정의 찜은 독립 탭에서 연다.
+- 원본 app `docs/ai/tasks/UI-10-poster-feed.md`. 백엔드 API와 마이그레이션은 변경하지 않는다. 공통 revision SYNC-2026-11-20-UI-10.
+
 ## UI-09 / DATA-93 · 밝은 화면, 콘솔·모바일 게임 및 과거 일정 정리 (2026-11-20)
 
 - 앱 홈·달력·카드·상세는 밝은 중립색, 선명한 활자, 레드 포인트를 사용한다. 동일 작품의 동일 공개 슬롯을 카드 하나로 표시하고 기기 아이콘을 합친다. 원본 app `docs/ai/tasks/UI-09-console-editorial.md`.
