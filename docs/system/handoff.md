@@ -2,7 +2,8 @@
 
 - Mac 08:30 제공처·09:00 OTT 작업은 빌드 파일 누락으로 시작 실패했다. 실제 체크아웃을 빌드해 세 진입 모듈의 로드를 확인했다. 설치 도구에는 필수 빌드 검사 추가.
 - GitHub 08:30 KST 기본 예약에 12:17 KST 보조 예약을 추가했다. 서울 당일에 이미 성공한 예약이 있으면 보조/지연 예약이 수집하지 않는다. API 조회 실패 시 기록하고 수집을 시작하지 않는다.
-- backend 자체 검사 390/390, YAML·plist 검사 완료. 변경은 로컬 커밋, 운영 반영·자연 실행은 대기. 원본 `backend/docs/tasks/OPS-04-daily-collection-recovery.md`. 담당 해제. 공통 revision SYNC-2026-11-25-OPS-04.
+- dev #34 · main #35 머지, Render main `3f84982` Live와 DB 정상. 운영 수집 45554119516에서 네 분야가 오늘 갱신됐고 검토 OTT 92건 게시 처리. 극장 포스터 1건 조회 실패는 전용 재시도 45559021353 성공으로 복구했다. 쿠팡 403 및 TVING 신규 발견 공백 유지.
+- 백엔드 자체 390/390, dev/main PR의 일회용 DB·HTTP CI 성공. 자연 예약 45554439549에서 새 예약 검사 기동을 확인했다. 별도 예약의 OTT 단계는 관측 종료 시점 진행 중. 원본 `backend/docs/tasks/OPS-04-daily-collection-recovery.md`. 담당 해제. 공통 revision SYNC-2026-11-25-OPS-04-LIVE.
 
 ## OPS-03 · 예약 실행 및 운영 데이터 시각 점검 (2026-11-25)
 
