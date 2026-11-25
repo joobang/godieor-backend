@@ -33,6 +33,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
       if (Number(process.versions.node.split('.')[0]) !== 24) throw Error('NODE_24_REQUIRED');
       if (Intl.DateTimeFormat().resolvedOptions().timeZone !== 'Asia/Seoul') throw Error('KST_SYSTEM_TIMEZONE_REQUIRED');
       await access(process.execPath,constants.X_OK); await access(join(project,'dist/src/cli/collect-daily.js'));
+      await access(join(project,'dist/src/common/collection-diagnostic.js'));
       await access(join(project,'.env')); await mkdir(join(project,'work'),{recursive:true});
       const domain = `gui/${process.getuid()}`,target = `${domain}/${LABEL}`;
       const existing = spawnSync('launchctl',['print',target],{encoding:'utf8'});

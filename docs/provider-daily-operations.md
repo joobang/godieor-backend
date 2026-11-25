@@ -4,6 +4,8 @@
 
 `.github/workflows/daily-collection.yml`은 매일 **08:30 KST** (`23:30 UTC` 전날) KOBIS·EPL·IGDB와 검토된 OTT 공개 일정 게시 파이프라인을 실행한다. GitHub Actions 예약 실행은 지연될 수 있다. 저장소 Actions 변수 `COLLECTION_SCHEDULE_ACTIVE`가 정확히 `true`일 때만 예약 수집 잡을 실행한다. 값을 두지 않으면 예약 잡은 건너뛴다. 수동 실행에는 이 변수가 필요하지 않다. Render Free 서버가 잠들어 있어도 Actions runner에서 Supabase에 직접 연결한다. 각 제공처의 실패를 격리하고 마지막 단계에서 실패 여부를 요약한다. 전체 작업 제한은 110분이다.
 
+08:30 기본 예약 외에 12:17 KST 보조 예약이 있다. 두 예약 모두 같은 수집 동시성 그룹에서 순서대로 실행된다. 수집을 시작하기 전 GitHub API에서 서울 자정 이후 성공한 예약 실행이 있는지 확인한다. 성공한 예약이 있으면 수집을 건너뛰고, 실패·건너뜀만 있었으면 다음 예약에서 수집한다. 조회가 실패하면 워크플로가 실패하며 DB 수집 단계는 시작하지 않는다. 수동 실행은 이 검사와 독립적으로 동작한다. 두 예약 모두 GitHub 스케줄러를 사용하므로 둘 다 지연될 수 있다.
+
 GitHub 저장소 **Settings → Secrets and variables → Actions**에 `COLLECTION_DATABASE_URL`, `COLLECTION_CURSOR_SIGNING_KEY`, `KOBIS_API_KEY`, `FOOTBALL_DATA_API_KEY`, `IGDB_CLIENT_ID`, `IGDB_CLIENT_SECRET`, `TMDB_API_READ_ACCESS_TOKEN`을 등록한다. Render 환경 변수는 Actions로 자동 공유되지 않는다. TLS 인증서가 필요한 환경이면 PEM을 base64 인코딩해 `COLLECTION_SUPABASE_CA_PEM_BASE64`에 등록한다. 인증서 검증은 끄지 않는다.
 
 **Actions → Daily provider collection → Run workflow → Branch: main → mode: backfill → Run workflow** 를 실행하면 2026-10-01 컷오프부터 KOBIS·EPL·IGDB 백필 후 OTT 공식 수집 및 기존 검토 게시를 시도한다. `daily`는 당일 변경분을 수집하며, OTT 공식 후보 재확인/게시는 동일하게 수행한다. OTT는 Git 추적된 `data/curated/ott-reviewed-candidates-snapshot.json`에서 **리뷰 94건**의 ID/revision 결속을 복구한다. 리뷰하지 않은 106건은 이 스냅샷에 없으며 자동 승인하지 않는다. 신규로 발견된 미검토 후보는 자동 게시되지 않는다. Actions 실행 후 Artifact `ott-collection-report`에서 실행 산출물을 확인한다.
@@ -63,7 +65,7 @@ launchctl print gui/$(id -u)/dev.godieor.provider-daily
 launchctl kickstart gui/$(id -u)/dev.godieor.provider-daily
 ```
 
-설치 도구는 실행 중인 기존 job을 교체하지 않는다. RunAtLoad=false이며 kickstart는 명시 실행이다. package 명령은 collect:providers:daily / collect:providers:install-schedule이다. PATH의 node가24여야 한다.
+제공처 설치 도구는 실행 중인 기존 job을 교체하지 않는다. RunAtLoad=false이며 kickstart는 명시 실행이다. package 명령은 collect:providers:daily / collect:providers:install-schedule이다. PATH의 node가24여야 한다. Mac 예약이 `ERR_MODULE_NOT_FOUND`와 함께 `dist/src/...` 파일을 찾지 못하면 등록된 작업 디렉터리에서 `npm run build`로 산출물을 복구한다. 두 설치 도구는 등록 전에 각 작업의 필수 산출물이 있는지 검사한다.
 
 ## 결과와 재실행
 

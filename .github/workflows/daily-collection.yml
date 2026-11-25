@@ -3,6 +3,8 @@ on:
   schedule:
     # 08:30 Asia/Seoul (UTC+09:00); GitHub scheduled runs can be delayed.
     - cron: "30 23 * * *"
+    # 12:17 Asia/Seoul; recover when the primary run has not succeeded.
+    - cron: "17 3 * * *"
   workflow_dispatch:
     inputs:
       mode:
@@ -25,9 +27,28 @@ concurrency:
   group: ${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'backfill' && inputs.backfill_target == 'movie-posters' && 'godieor-theatrical-posters' || 'godieor-provider-collection' }}
   cancel-in-progress: false
 jobs:
+  schedule_guard:
+    if: github.event_name == 'schedule' && vars.COLLECTION_SCHEDULE_ACTIVE == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: read
+      contents: read
+    outputs:
+      collect: ${{ steps.plan.outputs.collect }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.22.3"
+      - id: plan
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/plan-scheduled-collection.mjs
   collect:
-    # Keep scheduled writes opt-in when this workflow reaches the default branch.
-    if: github.event_name != 'schedule' || vars.COLLECTION_SCHEDULE_ACTIVE == 'true'
+    needs: schedule_guard
+    # Manual runs intentionally bypass the schedule guard.
+    if: ${{ !cancelled() && (github.event_name == 'workflow_dispatch' || needs.schedule_guard.outputs.collect == 'true') }}
     runs-on: ubuntu-latest
     timeout-minutes: 110
     env:
