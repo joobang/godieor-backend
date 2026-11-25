@@ -4,7 +4,7 @@
 
 `.github/workflows/daily-collection.yml`은 매일 **08:30 KST** (`23:30 UTC` 전날) KOBIS·EPL·IGDB와 검토된 OTT 공개 일정 게시 파이프라인을 실행한다. GitHub Actions 예약 실행은 지연될 수 있다. 저장소 Actions 변수 `COLLECTION_SCHEDULE_ACTIVE`가 정확히 `true`일 때만 예약 수집 잡을 실행한다. 값을 두지 않으면 예약 잡은 건너뛴다. 수동 실행에는 이 변수가 필요하지 않다. Render Free 서버가 잠들어 있어도 Actions runner에서 Supabase에 직접 연결한다. 각 제공처의 실패를 격리하고 마지막 단계에서 실패 여부를 요약한다. 전체 작업 제한은 110분이다.
 
-08:30 기본 예약 외에 12:17 KST 보조 예약이 있다. 두 예약 모두 같은 수집 동시성 그룹에서 순서대로 실행된다. 수집을 시작하기 전 GitHub API에서 서울 자정 이후 성공한 예약 실행이 있는지 확인한다. 성공한 예약이 있으면 수집을 건너뛰고, 실패·건너뜀만 있었으면 다음 예약에서 수집한다. 조회가 실패하면 워크플로가 실패하며 DB 수집 단계는 시작하지 않는다. 수동 실행은 이 검사와 독립적으로 동작한다. 두 예약 모두 GitHub 스케줄러를 사용하므로 둘 다 지연될 수 있다.
+08:30 기본 예약 외에 12:17 KST 보조 예약이 있다. 두 예약은 같은 수집 동시성 그룹에서 순서대로 실행된다. 예약 수집을 시작하기 전 GitHub API에서 서울 자정 이후 성공한 기본 브랜치의 예약 실행과 `main`의 수동 실행을 확인한다. 해당 실행에서 일일 제공처 수집, 검토 OTT 게시, 최종 결과 단계가 모두 성공했으면 예약 수집을 건너뛴다. 포스터 전용, 일부 백필, 실패하거나 수집 단계가 생략된 기록은 전체 수집 성공으로 세지 않는다. 조회가 실패하면 워크플로가 실패하며 DB 수집 단계는 시작하지 않는다. 수동 실행은 검사와 독립적으로 동작한다. 두 예약은 같은 GitHub 스케줄러를 쓰므로 함께 지연될 수 있다.
 
 GitHub 저장소 **Settings → Secrets and variables → Actions**에 `COLLECTION_DATABASE_URL`, `COLLECTION_CURSOR_SIGNING_KEY`, `KOBIS_API_KEY`, `FOOTBALL_DATA_API_KEY`, `IGDB_CLIENT_ID`, `IGDB_CLIENT_SECRET`, `TMDB_API_READ_ACCESS_TOKEN`을 등록한다. Render 환경 변수는 Actions로 자동 공유되지 않는다. TLS 인증서가 필요한 환경이면 PEM을 base64 인코딩해 `COLLECTION_SUPABASE_CA_PEM_BASE64`에 등록한다. 인증서 검증은 끄지 않는다.
 
@@ -34,6 +34,8 @@ GitHub Actions 공개 실행 내역과 Render의 공개 health·KR 달력 API를
 - 08:30 KST가 지났고 `runsToday`에 `schedule`이 없으면 실행 기록이 아직 없는 상태다. 같은 날 수동 실행과 진행 중인 작업도 확인한 뒤 추가 실행 여부를 결정한다. GitHub 예약은 기본 브랜치(2026-11-25 기준 `dev`)에서 실행되므로 실제 SHA를 확인한다. [GitHub 예약 실행 문서](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)
 - `skipped`이면 먼저 작업 조건과 `COLLECTION_SCHEDULE_ACTIVE`를 확인한다. `failure`이면 실패 단계와 OTT 보고서를 확인한다. 오늘 운영 갱신이 필요하고 진행 중인 실행이 없다면 기존 수동 `main → daily → all` 절차로 복구한다.
 - 성공했더라도 `freshness`의 `lastSuccessfulAt`과 `lastAttemptStatus`를 제공처별로 확인한다. `ott_reviewed`의 성공 시각은 검토된 일정의 게시 기준이며, 신규 원천 수집의 완전성은 Actions의 `ott-collection-report`에서 따로 확인한다.
+
+극장 포스터 보강은 요청 시간 초과, 일부 네트워크 오류, HTTP 408·429·500·502·503·504를 요청당 최대 두 번 재시도한다. `Retry-After`가 30초를 넘으면 해당 조회를 실패로 기록하고 다음 후보를 처리한다. 최종 실패는 포스터 단계의 `lookupFailureCodes`에서 공급자와 HTTP 상태 또는 검증 오류별로 확인한다. 실패가 남으면 `main → backfill → movie-posters`로 포스터 단계만 재실행할 수 있다.
 
 ### 실행 전 검사와 실패 진단 (DATA-85)
 

@@ -20,3 +20,14 @@
 - 자체 `npm test` 390/390. 기본 샌드박스에서는 localhost listen EPERM이 발생해 localhost 허용 환경에서 재실행했다. 빌드에만 합성 DATABASE_URL을 사용했다.
 - 앱 운영 기준 `bad2576eaf2907018219cd4f01d64d1b2e3d63b6`. API 0.1.0-draft.5 manifest `04cfea7456d83ca141ba64c6d6568365b00cbdf2d5e95eacd8c4dad7249a0f2e`, migration manifest `feeb684462340075302b9a05ff3102740f6fe7d87c667ea8c455752c1433ba1b` 변경 없음. 독립 runner·verifier acceptance 변경 없음.
 - 새 LEARN-ID 해당 없음. 예약·도구 복구에 한정. 공통 revision SYNC-2026-11-25-OPS-04. 다음은 변경 배포 후 자연 예약 및 API freshness 확인. 이번 작업에서 푸시·병합·배포·운영 재수집 미실행.
+
+## 11/25 운영 반영
+
+- 변경을 `codex/daily-schedule-20261125`로 푸시. [dev PR #34](https://github.com/joobang/godieor-backend/pull/34) 자체 CI 45553641293 성공 후 dev `52e330262fae03d60eb3f25468736265ff2aaa41`로 머지. [main PR #35](https://github.com/joobang/godieor-backend/pull/35) 자체 CI 45553819609 성공 후 main `3f849820d2cf618078f9e66d0e51ab53c381fc22`로 머지. 두 브랜치 트리 동일 확인. 양쪽 CI에 빌드·테스트 및 일회용 PostgreSQL migration/쓰기/HTTP 검사가 포함됐다.
+- [Render 자동 배포](https://dashboard.render.com/web/srv-dbu0u7on74is73f3tpug/deploys/dep-dc37538473hc73fcef30)에서 main `3f84982` Live 확인. 운영 `/v1/health` HTTP 200, DB connected, dataMode provider.
+- [오늘치 운영 수집](https://github.com/joobang/godieor-backend/actions/runs/45554119516)을 main에서 `daily / all`로 수동 실행했다. 예약 전용 검사는 정상적으로 건너뛰었다.
+
+- 제공처 성공. KOBIS 신규 게시 행 0, EPL 게시 처리 330행, IGDB 7개 범위 성공. 검토 OTT 92건 게시 처리, Netflix 신규 검토 후보 14건. 쿠팡 목록 403과 TVING 목록 범위 변경 경고는 남았다.
+- 전체 run 45554119516은 극장 포스터 조회 1건 실패로 최종 failure. [극장 포스터 전용 재시도](https://github.com/joobang/godieor-backend/actions/runs/45559021353)는 success, 조회 실패 0건, 새 포스터 0건. 기존 포스터 85건.
+- 재시도 후 운영 달력의 마지막 성공은 모두 11/25 KST였다. 영화 14:31:51, EPL 14:42:32, 게임(KR) 14:44:09, 검토 OTT 15:11:59. 운영 health DB 정상.
+- [별도 자연 예약](https://github.com/joobang/godieor-backend/actions/runs/45554439549)은 dev `52e3302`에서 예약 검사를 실제 수행했다. 검사 결과 당일 성공한 별도 예약 없음으로 수집을 시작했고, 이 기록 시점에는 OTT 단계 진행 중이었다. 두 예약 중 어느 시간의 일회 실행인지는 추정하지 않았다.

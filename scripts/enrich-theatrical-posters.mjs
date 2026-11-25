@@ -1,10 +1,46 @@
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { setTimeout as sleep } from 'node:timers/promises';
 
 const normalize = (value) => typeof value === 'string'
   ? value.normalize('NFKC').toLowerCase().replace(/[\s\p{P}\p{S}]/gu, '') : '';
 const titles = (movie) => [movie.title, movie.original_title].map(normalize);
 const posterPath = /^\/[a-zA-Z0-9_-]+\.(?:jpe?g|png|webp)$/i;
+const transientHttp = new Set([408, 429, 500, 502, 503, 504]);
+const transientNetwork = new Set(['ECONNRESET', 'ECONNREFUSED', 'ETIMEDOUT', 'EAI_AGAIN', 'UND_ERR_CONNECT_TIMEOUT', 'UND_ERR_SOCKET']);
+const validationCodes = new Set(['INVALID_TMDB_SEARCH_RESPONSE', 'INVALID_TMDB_MOVIE_RESPONSE', 'KOBIS_MOVIE_ID_MISMATCH']);
+const maxRetryDelayMs = 30_000;
+
+class PosterLookupError extends Error {}
+
+function retryAfterMs(value, now) {
+  if (!value) return 0;
+  if (/^\d+$/.test(value)) return Number(value) * 1000;
+  const date = Date.parse(value);
+  return Number.isFinite(date) ? Math.max(0, date - now()) : 0;
+}
+
+export async function fetchPosterJson(provider, url, { headers, fetchImpl = fetch, delay = sleep, now = Date.now } = {}) {
+  for (let attempt = 1; ; attempt++) {
+    let code;
+    let retryable;
+    let waitMs = 500 * attempt;
+    try {
+      const response = await fetchImpl(url, { headers, signal: AbortSignal.timeout(12000) });
+      if (response.ok) return await response.json();
+      code = `${provider}_HTTP_${response.status}`;
+      retryable = transientHttp.has(response.status);
+      waitMs = Math.max(waitMs, retryAfterMs(response.headers.get('retry-after'), now));
+      await response.body?.cancel().catch(() => {});
+    } catch (error) {
+      const timedOut = error.name === 'TimeoutError';
+      retryable = timedOut || transientNetwork.has(error.cause?.code);
+      code = `${provider}_${timedOut ? 'TIMEOUT' : error instanceof SyntaxError ? 'INVALID_JSON' : 'NETWORK_ERROR'}`;
+    }
+    if (!retryable || attempt === 3 || waitMs > maxRetryDelayMs) throw new PosterLookupError(code);
+    await delay(waitMs);
+  }
+}
 
 export async function findTheatricalPoster(movie, lookup, lookupKobis) {
   const expected = normalize(movie.title);
@@ -69,6 +105,7 @@ export async function enrichTheatricalPosters({ pool, lookup, lookupKobis, apply
   // Multiple KOBIS identities/dates for a single content row need explicit review.
   const pending = [...groups.values()].filter((group) => group.length === 1).map(([movie]) => movie);
   const selected = [];
+  const lookupFailureCodes = {};
   let lookupFailures = 0;
   for (let start = 0; start < pending.length; start += 4) {
     const outcomes = await Promise.allSettled(pending.slice(start, start + 4).map(async (movie) => {
@@ -76,8 +113,13 @@ export async function enrichTheatricalPosters({ pool, lookup, lookupKobis, apply
       return poster ? { ...movie, ...poster } : null;
     }));
     for (const outcome of outcomes) {
-      if (outcome.status === 'rejected') lookupFailures++;
-      else if (outcome.value) selected.push(outcome.value);
+      if (outcome.status === 'rejected') {
+        lookupFailures++;
+        const error = outcome.reason;
+        const code = error instanceof PosterLookupError || validationCodes.has(error?.message)
+          ? error.message : 'POSTER_LOOKUP_FAILED';
+        lookupFailureCodes[code] = (lookupFailureCodes[code] ?? 0) + 1;
+      } else if (outcome.value) selected.push(outcome.value);
     }
   }
 
@@ -89,6 +131,7 @@ export async function enrichTheatricalPosters({ pool, lookup, lookupKobis, apply
     matched: selected.length,
     ambiguousKobis: groups.size - pending.length,
     lookupFailures,
+    lookupFailureCodes,
     unmatched: pending.length - selected.length - lookupFailures,
     updated,
   };
@@ -133,16 +176,12 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     const lookup = async (path, params) => {
       const url = new URL(`https://api.themoviedb.org/3${path}`);
       url.search = new URLSearchParams(params);
-      const response = await fetch(url, { headers: { Authorization: `Bearer ${token}` }, signal: AbortSignal.timeout(12000) });
-      if (!response.ok) throw Error('TMDB_POSTER_LOOKUP_FAILED');
-      return response.json();
+      return fetchPosterJson('TMDB', url, { headers: { Authorization: `Bearer ${token}` } });
     };
     const lookupKobis = async (code) => {
       const url = new URL('https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json');
       url.search = new URLSearchParams({ key: kobisKey, movieCd: code });
-      const response = await fetch(url, { signal: AbortSignal.timeout(12000) });
-      if (!response.ok) throw Error('KOBIS_POSTER_LOOKUP_FAILED');
-      return (await response.json()).movieInfoResult?.movieInfo;
+      return (await fetchPosterJson('KOBIS', url)).movieInfoResult?.movieInfo;
     };
     try {
       const report = await enrichTheatricalPosters({ pool, lookup, lookupKobis, apply: process.argv.includes('--apply') });
