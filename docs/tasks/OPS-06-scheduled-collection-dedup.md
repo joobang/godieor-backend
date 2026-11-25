@@ -11,3 +11,9 @@
 - 실제 공개 Actions REST 응답으로 45559021353의 포스터 전용 성공은 전체 성공에 해당하지 않으며 수집이 필요하다는 판별을 확인했다. 45554119516의 수동 전체 실패를 성공으로 간주하는 동작은 추가하지 않았다.
 - Node 24.22.3 `node --test tests/plan-scheduled-collection.test.mjs` 5/5, `npm test` 395/395, `git diff --check` 통과. 서울 월 경계, 일부 성공, 실패, 외부 브랜치, API 오류·불완전 응답을 검사했다.
 - 앱 코드·API·스키마·검증 기준 변경 없음. 새 LEARN-ID 해당 없음. GitHub 푸시·병합·운영 배포·수집 실행 미실행. 다음은 운영 반영 후 전체 수동 성공과 자연 예약 분기 확인. 공통 revision SYNC-2026-11-25-OPS-06.
+
+## 11/25 운영 배포
+
+- [dev #36](https://github.com/joobang/godieor-backend/pull/36) CI 45561671594 성공 후 `5602f051bc195ffc77a650918ab8f0e4e503e189` 머지.
+- 이전 스쿼시 이력의 충돌로 #37을 닫고, main 기준 릴리스 브랜치의 트리가 dev와 일치함을 확인했다. [main #38](https://github.com/joobang/godieor-backend/pull/38) CI 45562009406 성공 후 `97b1be6a3b9fff0dcddf4195603a4efad9afb891` 머지, main push CI 45562196835 성공.
+- [Render 운영 배포](https://dashboard.render.com/web/srv-dbu0u7on74is73f3tpug/deploys/dep-dc385kojo6nc73ed43t0)에서 `97b1be6` Live 확인. 공개 health 및 KR 달력 HTTP 200, DB connected, provider 모드. 배포 이후 신규 예약과 포스터 작업 실행 확인은 후속.

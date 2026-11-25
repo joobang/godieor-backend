@@ -12,3 +12,9 @@
 - Node 24.22.3 `node --test tests/theatrical-posters.test.mjs` 7/7, `npm test` 393/393, `git diff --check` 통과. 실제 운영 요청 없이 모의 503·429·504·401·403, 타임아웃, 잘못된 JSON, 긴 Retry-After 및 조회 오류 원문 비노출을 검사했다.
 - 앱 운영 코드·API 0.1.0-draft.5 계약·마이그레이션·verifier acceptance 변경 없음. 독립 통합 runner, 운영 수집, 푸시·병합·배포 미실행. 다음은 변경 반영 후 운영 포스터 작업 로그 확인.
 - 새 LEARN-ID 해당 없음. 제공처 오류 처리와 기존 수집 운영 문서 보완. 공통 revision SYNC-2026-11-25-OPS-05.
+
+## 11/25 운영 배포
+
+- [dev #36](https://github.com/joobang/godieor-backend/pull/36) CI 45561671594 성공 후 `5602f051bc195ffc77a650918ab8f0e4e503e189` 머지.
+- 이전 스쿼시 이력의 충돌로 #37을 닫고, main 기준 릴리스 브랜치의 트리가 dev와 일치함을 확인했다. [main #38](https://github.com/joobang/godieor-backend/pull/38) CI 45562009406 성공 후 `97b1be6a3b9fff0dcddf4195603a4efad9afb891` 머지, main push CI 45562196835 성공.
+- [Render 운영 배포](https://dashboard.render.com/web/srv-dbu0u7on74is73f3tpug/deploys/dep-dc385kojo6nc73ed43t0)에서 `97b1be6` Live 확인. 공개 health 및 KR 달력 HTTP 200, DB connected, provider 모드. 배포 이후 신규 예약과 포스터 작업 실행 확인은 후속.

@@ -1,12 +1,12 @@
 ## OPS-06 · 전체 수동 수집과 예약 중복 판별 (2026-11-25)
 
 - 서울 당일 `main` 수동 전체 실행과 기본 브랜치 예약의 실제 완료 단계를 확인한 뒤 중복 예약을 생략하도록 개선했다. 단독 포스터·일부 백필·전체 실패·검사만 실행된 기록은 생략 근거에서 제외했다.
-- 백엔드 395/395, 예약 판별 5/5. 운영의 실제 포스터 전용 성공 기록이 생략되지 않는 것을 공개 API에서 확인했다. 원본 backend `docs/tasks/OPS-06-scheduled-collection-dedup.md`. 로컬 구현 완료, 운영 반영 대기. 담당 해제. 공통 revision SYNC-2026-11-25-OPS-06.
+- 백엔드 395/395, 예약 판별 5/5. 운영의 실제 포스터 전용 성공 기록이 생략되지 않는 것을 공개 API에서 확인했다. 원본 backend `docs/tasks/OPS-06-scheduled-collection-dedup.md`. dev #36·main #38 머지, Render `97b1be6` Live 및 공개 API·DB 정상. 신규 운영 예약 확인은 후속. 담당 해제. 공통 revision SYNC-2026-11-25-OPS-06-LIVE.
 
 ## OPS-05 · 극장 포스터 조회 재시도와 오류 진단 (2026-11-25)
 
 - TMDB·KOBIS 포스터 조회의 일시 오류를 요청당 최대 두 번 재시도하고, 최종 실패는 원문 없이 공급자·오류 코드별로 집계한다. 기존 포스터 매칭 및 DB 갱신 정책 유지.
-- Node24 백엔드 393/393, 포스터 7/7. 구현 및 검사 로컬 완료, 운영 반영 대기. 원본 backend `docs/tasks/OPS-05-theatrical-poster-retry.md`. 담당 해제. 공통 revision SYNC-2026-11-25-OPS-05.
+- Node24 백엔드 393/393, 포스터 7/7. OPS-06과 함께 Render `97b1be6`에 배포. 원본 backend `docs/tasks/OPS-05-theatrical-poster-retry.md`. 담당 해제. 공통 revision SYNC-2026-11-25-OPS-06-LIVE.
 
 ## OPS-04 · 일일 수집 예약 보완과 Mac 빌드 복구 (2026-11-25)
 
