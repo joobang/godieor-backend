@@ -1,6 +1,50 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { enrichTheatricalPosters, findTheatricalPoster } from '../scripts/enrich-theatrical-posters.mjs';
+import { enrichTheatricalPosters, fetchPosterJson, findTheatricalPoster } from '../scripts/enrich-theatrical-posters.mjs';
+
+test('poster requests retry transient responses and respect Retry-After', async () => {
+  const now = Date.parse('2026-11-25T06:00:00Z');
+  const responses = [
+    new Response(null, { status: 503, headers: { 'Retry-After': new Date(now + 1000).toUTCString() } }),
+    new Response(null, { status: 429, headers: { 'Retry-After': '3' } }),
+    Response.json({ results: [] }),
+  ];
+  const waits = [];
+  const result = await fetchPosterJson('TMDB', 'https://example.test', {
+    fetchImpl: async () => responses.shift(),
+    delay: async (ms) => waits.push(ms),
+    now: () => now,
+  });
+  assert.deepEqual(result, { results: [] });
+  assert.deepEqual(waits, [1000, 3000]);
+});
+
+test('poster requests bound retries and fail without leaking a URL or response body', async () => {
+  const url = 'https://example.test?key=sensitive-test-value';
+  for (const [status, retryAfter, expectedCalls] of [[401, '0', 1], [403, '0', 1], [429, '31', 1], [504, '0', 3]]) {
+    let calls = 0;
+    await assert.rejects(() => fetchPosterJson('KOBIS', url, {
+      fetchImpl: async () => {
+        calls++;
+        return new Response('sensitive-test-body', { status, headers: { 'Retry-After': retryAfter } });
+      },
+      delay: async () => {},
+    }), { message: `KOBIS_HTTP_${status}` });
+    assert.equal(calls, expectedCalls);
+  }
+});
+
+test('poster requests recover from a timeout and reject malformed JSON without retry', async () => {
+  let calls = 0;
+  await assert.rejects(() => fetchPosterJson('TMDB', 'https://example.test', {
+    fetchImpl: async () => {
+      if (++calls === 1) throw new DOMException('raw timeout', 'TimeoutError');
+      return new Response('not JSON');
+    },
+    delay: async () => {},
+  }), { message: 'TMDB_INVALID_JSON' });
+  assert.equal(calls, 2);
+});
 
 const movie = { title: '같은 제목', date: '2026-11-18', movieCode: '01' };
 const kr = (type = 3, date = movie.date, country = 'KR') => ({
@@ -64,7 +108,7 @@ test('dry run and repeat preserve existing posters while treating failed lookups
   };
   const dry = await enrichTheatricalPosters({ pool, lookup, lookupKobis });
   assert.deepEqual(dry, { mode: 'dry_run', total: 4, beforeWithPoster: 1, matched: 1,
-    ambiguousKobis: 1, lookupFailures: 1, unmatched: 0, updated: 0 });
+    ambiguousKobis: 1, lookupFailures: 1, lookupFailureCodes: { POSTER_LOOKUP_FAILED: 1 }, unmatched: 0, updated: 0 });
   assert.equal(writes, 0);
   assert.equal((await enrichTheatricalPosters({ pool, lookup, lookupKobis, apply: true })).updated, 1);
   assert.equal((await enrichTheatricalPosters({ pool, lookup, lookupKobis, apply: true })).updated, 0);

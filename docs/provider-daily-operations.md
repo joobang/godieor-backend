@@ -35,6 +35,8 @@ GitHub Actions 공개 실행 내역과 Render의 공개 health·KR 달력 API를
 - `skipped`이면 먼저 작업 조건과 `COLLECTION_SCHEDULE_ACTIVE`를 확인한다. `failure`이면 실패 단계와 OTT 보고서를 확인한다. 오늘 운영 갱신이 필요하고 진행 중인 실행이 없다면 기존 수동 `main → daily → all` 절차로 복구한다.
 - 성공했더라도 `freshness`의 `lastSuccessfulAt`과 `lastAttemptStatus`를 제공처별로 확인한다. `ott_reviewed`의 성공 시각은 검토된 일정의 게시 기준이며, 신규 원천 수집의 완전성은 Actions의 `ott-collection-report`에서 따로 확인한다.
 
+극장 포스터 보강은 요청 시간 초과, 일부 네트워크 오류, HTTP 408·429·500·502·503·504를 요청당 최대 두 번 재시도한다. `Retry-After`가 30초를 넘으면 해당 조회를 실패로 기록하고 다음 후보를 처리한다. 최종 실패는 포스터 단계의 `lookupFailureCodes`에서 공급자와 HTTP 상태 또는 검증 오류별로 확인한다. 실패가 남으면 `main → backfill → movie-posters`로 포스터 단계만 재실행할 수 있다.
+
 ### 실행 전 검사와 실패 진단 (DATA-85)
 
 `Validate collection configuration`에서 공통 DB·서명 설정의 공백 여부를 먼저 검사한다. 제공처 키 누락은 경고하고 해당 제공처 실행에서만 처리하므로 TMDB 설정 누락이 영화·게임·EPL을 막지 않는다. TMDB 누락도 OTT 전체를 조기 종료하지 않고 기존 원천별 실패 격리를 통해 공식 수집·이미 검토된 매핑 게시를 계속한다. 누락 이름만 출력하며 값은 출력하지 않는다. 특히 `TMDB_API_READ_ACCESS_TOKEN`은 Render나 로컬 `.env`와 별개로 GitHub Actions Secret에 등록해야 한다. `.env not found. Continuing without it.` 자체는 오류가 아니다. CI는 환경 변수로 값을 전달한다.
