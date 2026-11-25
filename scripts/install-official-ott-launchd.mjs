@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Installs the local macOS daily pipeline job for the current user.
-import { mkdir, writeFile } from 'node:fs/promises';
+import { access, mkdir, writeFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import { homedir } from 'node:os';
 import { join, resolve } from 'node:path';
@@ -38,6 +38,11 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
       if (Number(process.versions.node.split('.')[0]) !== 24) throw Error('NODE_24_REQUIRED');
       if (Intl.DateTimeFormat().resolvedOptions().timeZone !== 'Asia/Seoul') throw Error('LAUNCHD_REQUIRES_KST_SYSTEM_TIMEZONE');
       if (process.platform !== 'darwin') throw Error('MACOS_REQUIRED');
+      await Promise.all([
+        'dist/src/common/collection-diagnostic.js',
+        'dist/src/reviewed-ott/domain/reviewed-mapping.js',
+        'dist/src/cli/publish-reviewed.js',
+      ].map(path => access(join(project, path))));
       await mkdir(join(homedir(), 'Library/LaunchAgents'), { recursive: true });
       await writeFile(location, plist, { mode: 0o600 });
       const domain = `gui/${process.getuid()}`;
