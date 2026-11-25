@@ -21,6 +21,18 @@ GitHub 저장소 **Settings → Secrets and variables → Actions**에 `COLLECTI
 
 예를 들어 실패한 WORLD만 재실행하려면 **main → backfill → igdb-world**로 새 실행을 시작한다. `daily`는 `all`로 실행하고 예약 실행은 기존 전체 일일 갱신을 사용한다. OTT 선택 시에만 검토 데이터 복원과 OTT 보고서 업로드를 수행한다. 시장별 실행도 IGDB 제공처 잠금을 사용하며 기존 게시 시간 제한을 적용한다.
 
+### 당일 예약 실행과 운영 데이터 확인 (OPS-03)
+
+```sh
+node scripts/check-daily-collection-status.mjs
+```
+
+GitHub Actions 공개 실행 내역과 Render의 공개 health·KR 달력 API를 함께 조회한다. 서울 자정부터 생성된 실행은 `runsToday`, 가장 최근 예약 실행은 `latestScheduled`에 표시한다. 시각은 UTC ISO 형식이다. GitHub나 운영 API 응답이 실패하면 명령은 종료 코드 1을 반환한다.
+
+- 08:30 KST가 지났고 `runsToday`에 `schedule`이 없으면 실행 기록이 아직 없는 상태다. 같은 날 수동 실행과 진행 중인 작업도 확인한 뒤 추가 실행 여부를 결정한다. GitHub 예약은 기본 브랜치(2026-11-25 기준 `dev`)에서 실행되므로 실제 SHA를 확인한다. [GitHub 예약 실행 문서](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)
+- `skipped`이면 먼저 작업 조건과 `COLLECTION_SCHEDULE_ACTIVE`를 확인한다. `failure`이면 실패 단계와 OTT 보고서를 확인한다. 오늘 운영 갱신이 필요하고 진행 중인 실행이 없다면 기존 수동 `main → daily → all` 절차로 복구한다.
+- 성공했더라도 `freshness`의 `lastSuccessfulAt`과 `lastAttemptStatus`를 제공처별로 확인한다. `ott_reviewed`의 성공 시각은 검토된 일정의 게시 기준이며, 신규 원천 수집의 완전성은 Actions의 `ott-collection-report`에서 따로 확인한다.
+
 ### 실행 전 검사와 실패 진단 (DATA-85)
 
 `Validate collection configuration`에서 공통 DB·서명 설정의 공백 여부를 먼저 검사한다. 제공처 키 누락은 경고하고 해당 제공처 실행에서만 처리하므로 TMDB 설정 누락이 영화·게임·EPL을 막지 않는다. TMDB 누락도 OTT 전체를 조기 종료하지 않고 기존 원천별 실패 격리를 통해 공식 수집·이미 검토된 매핑 게시를 계속한다. 누락 이름만 출력하며 값은 출력하지 않는다. 특히 `TMDB_API_READ_ACCESS_TOKEN`은 Render나 로컬 `.env`와 별개로 GitHub Actions Secret에 등록해야 한다. `.env not found. Continuing without it.` 자체는 오류가 아니다. CI는 환경 변수로 값을 전달한다.

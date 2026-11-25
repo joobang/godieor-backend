@@ -1,8 +1,14 @@
+## OPS-03 · 예약 실행 및 운영 데이터 시각 점검 (2026-11-25)
+
+- 11/24 16:00 KST에 dev `6fffa0d`로 예약 실행 45344612414 성공. 검토 OTT 92건 게시 처리. 쿠팡 403 후 중복 수집 생략 확인, TVING 신규 수집 공백 지속.
+- 11/25 13:59 KST 기준 당일 실행 기록 0건. 운영 API·DB 정상, KR 달력 네 분야의 마지막 성공은 11/24. 개별 예약 지연 원인은 미확정.
+- backend 공개 조회 도구 `node scripts/check-daily-collection-status.mjs`와 운영 문서를 추가했다. 실제 Node 24 실행, KST 월 경계, HTTP 오류 검증 완료. 원본 `backend/docs/tasks/OPS-03-daily-collection-observation.md`. 다음은 11/25 실행 기록과 freshness 재확인. 담당 해제. 공통 revision SYNC-2026-11-25-OPS-03.
+
 ## DATA-96 · 쿠팡뉴스룸 403 재현과 TVING 일정 확인 (2026-11-24)
 
 - 동일 Node24.22.3 요청을 확인했다. 쿠팡 카테고리·개별 기사·공식 RSS는 Mac 200, GitHub Akamai 403. GitHub 진단 45339797463·45340036752. 제공처의 내부 차단 규칙은 미확인.
 - 직접 목록 403이면 두 번째 쿠팡 목록 요청을 건너뛴다. 개별 기사 403·목록 429·리다이렉트를 구분하며 기존 검토 OTT 게시를 이어간다.
-- Mac TVING 6건 중 공식 날짜가 있는 4건은 운영 일정과 일치, 2건 날짜 보류. TVING 전용 페이지의 GitHub 500 확인. 쿠팡 Mac 공개일 후보 3건은 최초 공개 근거가 부족해 보류. 원본 backend `docs/tasks/DATA-96-ott-source-access.md`. 공통 revision SYNC-2026-11-24-DATA-96.
+- Mac TVING 6건 중 공식 날짜가 있는 4건은 운영 일정과 일치, 2건 날짜 보류. TVING 전용 페이지의 GitHub 500 확인. 쿠팡 Mac 공개일 후보 3건은 최초 공개 근거가 부족해 보류. 원본 backend `docs/tasks/DATA-96-ott-source-access.md`. dev #32·main #33 병합, `b667799` Render Live 및 운영 health HTTP 200·DB 정상. Node24 387/387. 담당 해제. 공통 revision SYNC-2026-11-24-DATA-96-LIVE.
 
 ## DATA-95 · Netflix 한국 목록과 OTT 운영 결과 (2026-11-24)
 
